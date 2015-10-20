@@ -77,13 +77,13 @@ new_preamble = [
 "\usepackage{fancyhdr}\n",
 "\pagestyle{fancy}\n",
 "\\fancyhf{}\n",
-"\\newcounter{partpage}[part]\n",
-"\\fancyfoot[LE,RO]{\\thepart-\\thepartpage}\n",
+#"\\newcounter{partpage}[part]\n",
+"\\fancyfoot[LE,RO]{\\thepart-\\thepage}\n",
 "\\renewcommand{\\headrulewidth}{0pt}\n",
 "\\def\\mycleardoublepage#1{%\n",
 #"\\clearpage\n",
 #"\\null\\vfill\\hfill\\null\n",
-"\\null\\vfill\\hfill\\includegraphics[scale=0.3]{#1}%\n",
+#"\\null\\vfill\\hfill\\includegraphics[scale=0.3]{#1}%\n",
 "\\cleardoublepage}\n",
 ]
 
