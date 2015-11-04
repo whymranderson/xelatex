@@ -1,0 +1,467 @@
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{LaTeXparent=0,0,rotationV14.tex}
+                      
+
+\part{\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{6cd5}\U{7684}\U{5be6}\U{969b}%
+\U{61c9}\U{7528}}
+
+\setcounter{page}{1}
+
+\begin{case}
+\U{9019}\U{662f}\U{6e2c}\U{8a66}\U{4e00}\U{500b}\U{6700}\U{7c21}\U{55ae}%
+\U{7684}\U{55ae}\U{8ef8}\U{89d2}\U{901f}\U{5ea6}\U{8a08}\U{6216}\U{55ae}%
+\U{8ef8}\U{9640}\U{87ba}\U{5100}\U{7684}\U{8a2d}\U{8a08}\U{ff0c}one-axis
+rate gyro\U{ff0c}one-axis angular rate sensor\U{ff0c}\U{5229}\U{7528}\U{8f49}%
+\U{52d5}\U{6642}\U{7522}\U{751f}\U{7684}\U{96e2}\U{5fc3}\U{529b}\U{4f86}%
+\U{53cd}\U{6c42}\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{3002} \U{6b64}\U{7cfb}%
+\U{7d71}\U{662f}\U{4e00}\U{500b}\U{8cea}\U{91cf}\U{63a5}\U{4e0a}\U{4e00}%
+\U{500b}\U{5f48}\U{7c27}\U{ff0c}\U{653e}\U{5728}\U{4e00}\U{500b}\U{8f49}%
+\U{52d5}\U{901f}\U{5ea6}\U{5f85}\U{6e2c}\U{7684}\U{7ba1}\U{5b50}\U{88e1}%
+\U{ff0c}\U{5982}\U{5716}\U{6240}\U{793a}\U{ff0c}\U{5f48}\U{7c27}\U{7684}%
+\U{4e00}\U{7aef}\U{7d81}\U{4e0a}\U{8cea}\U{91cf}\U{ff0c}\U{53e6}\U{4e00}%
+\U{7aef}\U{7d81}\U{5728}\U{65cb}\U{8f49}\U{4e2d}\U{5fc3}\U{3002} \U{56e0}%
+\U{70ba}\U{96e2}\U{5fc3}\U{529b}\U{7684}\U{95dc}\U{4fc2}\U{ff0c}\U{7ba1}%
+\U{5b50}\U{8f49}\U{52d5}\U{7684}\U{6642}\U{5019}\U{ff0c}\U{8cea}\U{91cf}%
+\U{9ede}\U{6703}\U{5f80}\U{5916}\U{79fb}\U{52d5}\U{ff0c}\U{5f48}\U{7c27}%
+\U{6703}\U{88ab}\U{62c9}\U{4f38}\U{3002}\U{53ea}\U{8981}\U{89e3}\U{51fa}%
+\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{8207}\U{62c9}\U{4f38}\U{8ddd}\U{96e2}%
+\U{7684}\U{95dc}\U{4fc2}\U{ff0c}\U{6211}\U{5011}\U{5c31}\U{53ef}\U{4ee5}%
+\U{5f9e}\U{62c9}\U{4f38}\U{8ddd}\U{96e2}\U{53cd}\U{6c42}\U{7576}\U{4e0b}%
+\U{7ba1}\U{5b50}\U{7684}\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{3002}\U{800c}%
+\U{7ba1}\U{5b50}\U{53ef}\U{4ee5}\U{662f}\U{4efb}\U{4f55}\U{7269}\U{9ad4}%
+\U{3002}\U{53ef}\U{4ee5}\U{53c3}\U{8003}\U{6211}\U{90e8}\U{843d}\U{683c}%
+\U{4e2d}\U{6211}\U{6240}\U{88fd}\U{4f5c}\U{7684}\U{52d5}\U{756b}%
+\begin{equation*}
+\text{\href{http://whymranderson.blogspot.tw/2015/10/a-simple-mechanical-angular-rate-sensor.html%
+}{\underline{\color{blue}%
+\smash{whymranderson.blogspot.tw/2015/10/a-simple-mechanical-angular-rate-sensor.html}%
+}}}
+\end{equation*}
+\end{case}
+
+\begin{center}
+%TCIMACRO{%
+%\TeXButton{simple_gyro_illustration}{\includegraphics[width=0.5\textwidth]{mech_gyro.png}}}%
+%BeginExpansion
+\includegraphics[width=0.5\textwidth]{mech_gyro.png}%
+%EndExpansion
+\end{center}
+
+\U{6b64}\U{8cea}\U{9ede}\U{7684}\U{904b}\U{52d5}\U{5fae}\U{5206}\U{65b9}%
+\U{7a0b}\U{70ba}%
+\begin{equation*}
+m\ddot{x}=m\omega ^{2}\dot{x}-k\left( x-x_{0}\right) -c\dot{x}
+\end{equation*}%
+\U{6574}\U{7406}\U{4e00}\U{4e0b}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{5f97}%
+\U{5230}$\omega (x)$\U{ff0c}\U{8cea}\U{9ede}\U{7684}\U{89d2}\U{901f}\U{5ea6}%
+\U{5c0d}\U{4f4d}\U{7f6e}(\U{5f48}\U{7c27}\U{7684}\U{4f4d}\U{79fb}\U{91cf})%
+\U{7684}\U{95dc}\U{4fc2}\U{5f0f}\U{ff0c}\U{56e0}\U{6b64}\U{6e2c}\U{5f97}$x$%
+\U{5c31}\U{53ef}\U{4ee5}\U{5f97}\U{5230}$\omega $\U{3002}$m$\U{70ba}\U{8cea}%
+\U{91cf}\U{ff0c}$k$\U{70ba}\U{5f48}\U{7c27}\U{ff0c}\U{5f48}\U{7c27}\U{5047}%
+\U{8a2d}\U{7121}\U{8cea}\U{91cf}\U{ff0c}$c$\U{70ba}damping\U{503c}(\U{53ef}%
+\U{4ee5}\U{662f}\U{7ba1}\U{5b50}\U{5167}\U{6709}\U{6c34}\U{4e4b}\U{985e})%
+\U{ff0c}\U{7ba1}\U{5b50}\U{7684}\U{8cea}\U{91cf}\U{5047}\U{8a2d}\U{9060}%
+\U{5927}\U{65bc}\U{8cea}\U{9ede}\U{8cea}\U{91cf}\U{3002}\U{4e26}\U{4e14}%
+\U{7ba1}\U{5b50}\U{7684}\U{904b}\U{52d5}\U{662f}\U{53d7}\U{5230}\U{6211}%
+\U{5011}\U{5916}\U{529b}\U{7684}\U{63a7}\U{5236}\U{3002}\U{7ba1}\U{5b50}%
+\U{8207}\U{8cea}\U{9ede}\U{7684}\U{4f5c}\U{7528}\U{5c31}\U{5728}\U{7ba1}%
+\U{58c1}\U{8207}\U{8cea}\U{9ede}\U{7684}\U{6b63}\U{5411}\U{63a5}\U{89f8}%
+\U{529b}\U{3002}
+
+\U{6211}\U{5011}\U{63a7}\U{5236}\U{7ba1}\U{5b50}\U{5f9e}\U{96f6}\U{958b}%
+\U{59cb}\U{52a0}\U{901f}\U{8f49}\U{52d5}\U{ff0c}\U{52a0}\U{901f}\U{8f49}%
+\U{52d5}\U{5230}\U{7d04}100\U{5ea6}\U{6642}\U{8b8a}\U{6210}\U{7b49}\U{901f}%
+\U{8f49}\U{52d5}\U{ff0c}\U{6700}\U{5f8c}\U{5230}\U{7d04}180\U{5ea6}\U{6642}%
+\U{505c}\U{6b62}\U{4e0d}\U{52d5}\U{3002}\U{4ee5}\U{4e0b}\U{662f}\U{6a21}%
+\U{64ec}\U{52a0}\U{4e0a}\U{6709}damping\U{7684}\U{60c5}\U{6cc1}\U{3002}%
+\U{5f9e}\U{5f48}\U{7c27}\U{7684}\U{4f4d}\U{79fb}\U{91cf}\U{7b97}\U{51fa}%
+\U{7ba1}\U{5b50}\U{7684}\U{8f49}\U{52d5}\U{89d2}\U{901f}\U{5ea6}\U{6211}%
+\U{5011}\U{5f97}\U{5230}\U{4e0b}\U{5716}\U{ff0c}\U{4e26}\U{4e14}\U{8207}%
+\U{7ba1}\U{5b50}\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{7684}\U{7406}\U{8ad6}%
+\U{503c}\U{6bd4}\U{8f03}
+
+\begin{center}
+%TCIMACRO{%
+%\TeXButton{angular_rate_measurement}{\includegraphics[width=0.5\textwidth]{mech_gyro_result.png}}}%
+%BeginExpansion
+\includegraphics[width=0.5\textwidth]{mech_gyro_result.png}%
+%EndExpansion
+\end{center}
+
+\U{4e0d}\U{904e}\U{6b64}\U{65b9}\U{6cd5}\U{505a}\U{51fa}\U{7684}\U{89d2}%
+\U{901f}\U{5ea6}\U{8a08}\U{7121}\U{6cd5}\U{552f}\U{4e00}\U{91cf}\U{6e2c}%
+\U{55ae}\U{4e00}\U{8ef8}\U{7684}\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{ff0c}%
+\U{4e0a}\U{9762}\U{7684}\U{7ba1}\U{5b50}\U{662f}\U{7e5e}\U{8457}\U{8207}%
+\U{7d19}\U{5f35}\U{5782}\U{76f4}\U{7684}\U{8ef8}\U{8f49}\U{624d}\U{6210}%
+\U{7acb}\U{ff0c}\U{82e5}\U{662f}\U{7ba1}\U{5b50}\U{7e5e}\U{8457}\U{8207}%
+\U{7d19}\U{5f35}\U{5e73}\U{884c}\U{7684}\U{8ef8}\U{8f49}\U{7684}\U{8a71}%
+\U{ff0c}\U{6bd4}\U{5982}\U{8aaa}\U{8207}\U{7d19}\U{5f35}\U{5e73}\U{884c}%
+\U{4e26}\U{4e14}\U{5411}\U{53f3}\U{7684}\U{8ef8}\U{ff0c}\U{9019}\U{6a23}%
+\U{7684}\U{8f49}\U{52d5}\U{9020}\U{6210}\U{7684}\U{96e2}\U{5fc3}\U{529b}%
+\U{4e5f}\U{6703}\U{8ca2}\U{737b}\U{7d66}\U{5f48}\U{7c27}\U{4f4d}\U{79fb}%
+\U{ff0c}\U{6240}\U{4ee5}\U{4f4d}\U{79fb}\U{5c31}\U{4e0d}\U{662f}\U{552f}%
+\U{4e00}\U{5c6c}\U{65bc}\U{6211}\U{5011}\U{5e0c}\U{671b}\U{7684}\U{8207}%
+\U{7d19}\U{5f35}\U{5782}\U{76f4}\U{7684}\U{8ef8}\U{3002}\U{4e26}\U{4e14}%
+\U{6b64}\U{65b9}\U{6cd5}\U{5728}\U{6709}\U{91cd}\U{529b}\U{7684}\U{60c5}%
+\U{6cc1}\U{4e0b}\U{4e5f}\U{9700}\U{8981}\U{518d}\U{52a0}\U{4e00}\U{9805}%
+\U{91cd}\U{529b}\U{9805}\U{3002}\U{56e0}\U{6b64}\U{4ee5}\U{4e0b}\U{6211}%
+\U{5011}\U{6703}\U{518d}\U{770b}\U{4e0b}\U{4e00}\U{500b}\U{8a2d}\U{8a08}%
+\U{ff0c}\U{8b93}\U{6e2c}\U{51fa}\U{7684}\U{5f48}\U{7c27}\U{4f4d}\U{79fb}%
+\U{552f}\U{4e00}\U{5c6c}\U{65bc}\U{7269}\U{9ad4}\U{7279}\U{5b9a}\U{7684}%
+\U{8ef8}\U{3002}\U{9019}\U{6a23}\U{7684}\U{76ee}\U{7684}\U{662f}\U{53ea}%
+\U{8981}\U{6211}\U{5011}\U{505a}\U{51fa}\U{4e09}\U{500b}\U{9019}\U{6a23}%
+\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{8a08}\U{4e4b}\U{5f8c}\U{ff0c}\U{5c07}%
+\U{4e09}\U{500b}\U{4e92}\U{76f8}\U{5782}\U{76f4}\U{7684}\U{64fa}\U{653e}%
+\U{ff0c}\U{6211}\U{5011}\U{5c31}\U{53ef}\U{4ee5}\U{91cf}\U{6e2c}\U{7269}%
+\U{9ad4}\U{5728}\U{7a7a}\U{9593}\U{4e2d}\U{4e09}\U{7dad}\U{7684}\U{8cbc}%
+\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{5411}\U{91cf}\U{ff0c}\U{56e0}\U{70ba}%
+\U{91cf}\U{5230}\U{7684}\U{4e09}\U{6578}\U{503c}\U{5373}\U{70ba}\U{8cbc}%
+\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{5728}\U{7269}\U{9ad4}\U{5ea7}\U{6a19}%
+\U{8ef8}\U{7684}\U{6295}\U{5f71}\U{91cf}\U{3002}\U{9019}\U{88e1}\U{4e5f}%
+\U{547c}\U{61c9}\U{4e4b}\U{524d}\U{7b2c}\U{4e8c}\U{90e8}\U{5206}\U{7684}%
+\U{8b49}\U{660e}\U{ff0c}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{5728}%
+\U{7269}\U{9ad4}\U{5750}\U{6a19}\U{8ef8}\U{7684}\U{6295}\U{5f71}\U{91cf}%
+\U{5373}\U{70ba}\U{8a72}\U{65b9}\U{5411}\U{7684}\U{77ac}\U{9593}\U{8f49}%
+\U{52d5}\U{6e2c}\U{91cf}\U{503c}\U{3002}
+
+\U{4e0a}\U{4f8b}\U{6211}\U{5011}\U{8a0e}\U{8ad6}\U{4e86}\U{55ae}\U{8ef8}%
+\U{9640}\U{87ba}\U{5100}\U{7684}\U{8a2d}\U{8a08}\U{ff0c}\U{4e09}\U{8ef8}%
+\U{9640}\U{87ba}\U{5100}\U{5c31}\U{662f}\U{5c07}\U{4e09}\U{500b}\U{55ae}%
+\U{8ef8}\U{9640}\U{87ba}\U{5100}\U{4e92}\U{76f8}\U{5782}\U{76f4}\U{5b89}%
+\U{88dd}\U{5f8c}\U{5373}\U{6210}\U{ff0c}\U{9019}\U{6a23}\U{6211}\U{5011}%
+\U{5c31}\U{53ef}\U{4ee5}\U{4f86}\U{6e2c}\U{91cf}\U{8cbc}\U{9ad4}\U{89d2}%
+\U{901f}\U{5ea6}\U{ff0c}\U{8a18}\U{5f97}\U{5728}\U{55ae}\U{8ef8}\U{9640}%
+\U{87ba}\U{5100}\U{7684}\U{4f8b}\U{5b50}\U{6211}\U{5011}\U{91cf}\U{5230}%
+\U{7684}\U{662f}\U{7269}\U{9ad4}\U{7e5e}\U{8457}\U{7576}\U{4e0b}\U{6642}%
+\U{9593}\U{7684}\U{8f49}\U{8ef8}\U{7684}\U{8f49}\U{52d5}\U{901f}\U{7387}%
+\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{76f8}\U{5c0d}\U{65bc}\U{7576}\U{4e0b}%
+\U{7269}\U{9ad4}\U{5ea7}\U{6a19}\U{7684}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}%
+\U{8cbc}\U{9ad4}\U{7684}\U{3002}
+
+\bigskip
+
+\U{6211}\U{5011}\U{77e5}\U{9053}\U{5728}\U{59ff}\U{614b}\U{611f}\U{6e2c}%
+\U{7684}\U{61c9}\U{7528}\U{4e0a}\U{ff0c}\U{82e5}\U{662f}\U{8f49}\U{52d5}%
+\U{8ef8}\U{4e0d}\U{96a8}\U{6642}\U{9593}\U{800c}\U{8b8a}\U{5316}\U{ff0c}%
+\U{5982}\U{4e0a}\U{4f8b}\U{ff0c}\U{5247}\U{59ff}\U{614b}\U{4f30}\U{6e2c}%
+\U{4e0a}\U{6703}\U{5bb9}\U{6613}\U{4e14}\U{975e}\U{5e38}\U{6e96}\U{78ba}%
+\U{3002}\U{5982}\U{6c7d}\U{8eca}\U{7684}\U{822a}\U{5411}\U{9640}\U{87ba}%
+\U{5100}\U{59ff}\U{614b}\U{611f}\U{6e2c}\U{5668}\U{ff0c}\U{7531}\U{65bc}%
+\U{5176}\U{5927}\U{90e8}\U{5206}\U{662f}\U{5728}\U{5e73}\U{9762}\U{4e0a}%
+\U{8f49}\U{5f4e}\U{904b}\U{52d5}\U{ff0c}\U{5176}\U{8f49}\U{52d5}\U{8ef8}%
+\U{591a}\U{5728}\U{5782}\U{76f4}\U{65b9}\U{5411}\U{ff0c}\U{56e0}\U{6b64}%
+\U{59ff}\U{614b}\U{7684}\U{4f30}\U{6e2c}\U{4e0a}\U{662f}\U{5bb9}\U{6613}%
+\U{4e14}\U{6e96}\U{78ba}\U{7684}\U{3002}\U{4f46}\U{82e5}\U{662f}\U{8f49}%
+\U{52d5}\U{8ef8}\U{6703}\U{96a8}\U{6642}\U{9593}\U{800c}\U{8b8a}\U{5316}%
+\U{ff0c}\U{5982}\U{540c}\U{4eba}\U{9ad4}\U{3001}\U{98db}\U{6a5f}\U{3001}%
+\U{6216}\U{9640}\U{87ba}\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{ff0c}%
+\U{5176}\U{59ff}\U{614b}\U{7684}\U{6e96}\U{78ba}\U{5ea6}\U{96a8}\U{6642}%
+\U{9593}\U{800c}\U{767c}\U{6563}\U{901f}\U{5ea6}\U{662f}\U{5f88}\U{5feb}%
+\U{7684}\U{3002}\U{539f}\U{56e0}\U{5c31}\U{5728}\U{6211}\U{5011}\U{4e4b}%
+\U{524d}\U{6240}\U{8aaa}\U{660e}\U{7684}\U{96e2}\U{6563}\U{5316}\U{7684}%
+\U{8f49}\U{52d5}\U{5411}\U{91cf}\U{8fd1}\U{4f3c}\U{4e0d}\U{5bb9}\U{6613}%
+\U{3002}\U{4e00}\U{822c}\U{5728}\U{4f5c}\U{8f49}\U{52d5}\U{8ef8}\U{8b8a}%
+\U{5316}\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{4e0a}\U{90fd}\U{6bd4}%
+\U{8f03}\U{56f0}\U{96e3}\U{ff0c}\U{4e00}\U{822c}\U{90fd}\U{6703}\U{878d}%
+\U{5408}\U{5176}\U{4ed6}\U{611f}\U{6e2c}\U{65b9}\U{6cd5}\U{ff0c}\U{5982}GPS%
+\U{3001}\U{5730}\U{78c1}\U{3001}\U{91cd}\U{529b}\U{4f86}\U{8f14}\U{52a9}%
+\U{59ff}\U{614b}\U{7684}\U{5224}\U{5b9a}\U{3002}\U{800c}\U{6b64}\U{7bc7}%
+\U{8a0e}\U{8ad6}\U{4e00}\U{500b}\U{91cd}\U{9ede}\U{5c31}\U{662f}\U{662f}%
+\U{5426}\U{80fd}\U{5920}\U{5728}\U{7121}\U{5176}\U{4ed6}\U{878d}\U{5408}%
+\U{611f}\U{6e2c}\U{65b9}\U{6cd5}\U{6642}\U{ff0c}\U{5c0d}\U{8f49}\U{52d5}%
+\U{8ef8}\U{8b8a}\U{5316}\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{7684}%
+\U{767c}\U{6563}\U{5ea6}\U{6709}\U{6240}\U{6b78}\U{7d0d}\U{ff0c}\U{6211}%
+\U{5011}\U{4ee5}\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{76f8}\U{7576}\U{5feb}%
+\U{fe5d}\U{8f49}\U{52d5}\U{8ef8}\U{8b8a}\U{5316}\U{4e5f}\U{5feb}\U{4e14}%
+\U{5927}\U{fe5e}\U{7684}\U{9640}\U{87ba}\U{70ba}\U{6e2c}\U{8a66}\U{5e73}%
+\U{53f0}\U{ff0c}\U{8207}\U{9640}\U{87ba}\U{7684}\U{5c24}\U{62c9}\U{89d2}%
+\U{5c24}\U{62c9}\U{65b9}\U{7a0b}\U{6578}\U{503c}\U{89e3}\U{4f5c}\U{7cfb}%
+\U{7d71}\U{6027}\U{6bd4}\U{8f03}\U{ff0c}\U{4f86}\U{770b}\U{770b}\U{59ff}%
+\U{614b}\U{4f30}\U{6e2c}\U{6f14}\U{7b97}\U{6cd5}\U{fe5d}C\U{65b9}\U{6cd5}%
+\U{fe5e}\U{5728}\U{6975}\U{7aef}\U{7684}\U{8f49}\U{52d5}\U{689d}\U{4ef6}%
+\U{4e0b}\U{ff0c}\U{6e96}\U{78ba}\U{7a0b}\U{5ea6}\U{5982}\U{4f55}\U{3002}%
+\U{4e26}\U{4e14}\U{8a0e}\U{8ad6}\U{70ba}\U{4f55}\U{56db}\U{7a2e}\U{7d93}%
+\U{5178}\U{7ae0}\U{52d5}\U{9032}\U{52d5}\U{6703}\U{6709}\U{4e0d}\U{540c}%
+\U{7684}\U{767c}\U{6563}\U{7a0b}\U{5ea6}\U{ff0c}\U{4ee5}\U{53ca}\U{662f}%
+\U{5426}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{5229}\U{7528}\U{767c}\U{6563}%
+\U{7a0b}\U{5ea6}\U{8f03}\U{5c0f}\U{7684}\U{60c5}\U{6cc1}\U{4e26}\U{4f5c}%
+\U{5be6}\U{969b}\U{7684}\U{61c9}\U{7528}\U{3002}\U{56e0}\U{6b64}\U{6b64}%
+\U{7269}\U{4ef6}\U{5c0e}\U{5411}\U{5316}\U{7684}\U{8edf}\U{9ad4}\U{5e73}%
+\U{53f0}\U{9069}\U{5408}\U{4f5c}\U{70ba}\U{9a57}\U{8b49}\U{ff0c}\U{6bd4}%
+\U{8f03}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{6f14}\U{7b97}\U{6cd5}\U{7684}%
+\U{5e73}\U{53f0}\U{3002}
+
+\bigskip
+
+\U{4e0a}\U{9762}\U{7684}DCM\U{7684}\U{7a0b}\U{5f0f}\U{53ef}\U{4ee5}\U{7368}%
+\U{7acb}\U{51fa}\U{4f86}\U{61c9}\U{7528}\U{5728}\U{611f}\U{6e2c}\U{5668}%
+\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{4e0a}\U{3002}\U{7531}\U{65bc}DCM%
+\U{662f}\U{8003}\U{616e}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}$\vec{\omega}
+$\U{ff0c}\U{56e0}\U{6b64}\U{4e3b}\U{8981}\U{61c9}\U{7528}\U{5728}\U{7d81}%
+\U{7f1a}\U{5f0f}\U{6163}\U{6027}\U{611f}\U{6e2c}\U{5143}\U{4ef6}\U{fe5d}%
+strap-down IMU\U{fe5e}\U{4e0a}\U{ff0c}\U{6b64}\U{985e}\U{5305}\U{542b}%
+\U{7bc4}\U{570d}\U{6db5}\U{84cb}\U{9640}\U{87ba}\U{5100}\U{89d2}\U{901f}%
+\U{5ea6}\U{611f}\U{6e2c}\U{5668}\U{ff0c}\U{5fae}\U{6a5f}\U{96fb}\U{89d2}%
+\U{901f}\U{5ea6}\U{611f}\U{6e2c}\U{5668}\U{ff0c}\U{7b49}\U{8af8}\U{5982}%
+\U{6b64}\U{985e}\U{7684}\U{5143}\U{4ef6}\U{3002}\U{53ea}\U{8981}\U{628a}%
+\U{5143}\U{4ef6}\U{8b80}\U{5230}\U{7684}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}%
+\U{5ea6}\U{8cc7}\U{6599}\U{8f38}\U{51fa}\U{ff0c}\U{7136}\U{5f8c}\U{6b63}%
+\U{78ba}\U{7684}\U{8f38}\U{5165}\U{5230}\U{6211}\U{5011}\U{9019}\U{908a}%
+\U{7684}DCM\U{905e}\U{63a8}\U{7a0b}\U{5f0f}\U{ff0c}\U{5c31}\U{53ef}\U{4ee5}%
+\U{5f97}\U{5230}\U{7269}\U{4ef6}\U{8f49}\U{52d5}\U{7684}\U{59ff}\U{614b}%
+\U{3002}\U{9019}\U{908a}\U{5927}\U{90e8}\U{5206}\U{7684}\U{66f8}\U{7c4d}%
+\U{90fd}\U{7121}\U{6cd5}\U{5f9e}\U{539f}\U{7406}\U{8aaa}\U{8d77}\U{ff0c}%
+\U{90fd}\U{53ea}\U{6709}\U{63d0}\U{4f9b}\U{516c}\U{5f0f}\U{ff0c}\U{800c}%
+\U{4e14}\U{4e5f}\U{5f88}\U{5c11}\U{8a73}\U{7d30}\U{7684}\U{8aaa}\U{660e}%
+\U{516c}\U{5f0f}\U{5982}\U{4f55}\U{4f7f}\U{7528}\U{3002}\U{4e0d}\U{904e}%
+\U{8981}\U{88dc}\U{5145}\U{7684}\U{662f}\U{ff0c}\U{6211}\U{9019}\U{908a}%
+\U{53ea}\U{6709}\U{8f49}\U{52d5}\U{90e8}\U{5206}\U{ff0c}\U{4e26}\U{6c92}%
+\U{6709}\U{5e73}\U{79fb}\U{90e8}\U{5206}\U{7684}\U{6f14}\U{7b97}\U{6cd5}%
+\U{ff0c}\U{4e0d}\U{904e}\U{8f49}\U{52d5}\U{59ff}\U{614b}\U{662f}\U{59ff}%
+\U{614b}\U{4f30}\U{6e2c}\U{7684}\U{57fa}\U{790e}\U{ff0c}\U{5e73}\U{79fb}%
+\U{7684}\U{6f14}\U{7b97}\U{662f}\U{76f8}\U{5c0d}\U{5bb9}\U{6613}\U{5f88}%
+\U{591a}\U{7684}\U{3002}\U{4e26}\U{4e14}\U{ff0c}\U{9019}\U{908a}\U{4e5f}%
+\U{6c92}\U{6709}\U{566a}\U{97f3}\U{904e}\U{6ffe}\U{7684}\U{529f}\U{80fd}%
+\U{ff0c}\U{56e0}\U{70ba}\U{4efb}\U{4f55}\U{7684}\U{91cf}\U{6e2c}\U{5100}%
+\U{5668}\U{90fd}\U{6703}\U{6709}\U{566a}\U{97f3}\U{ff0c}\U{56e0}\U{6b64}%
+\U{5728}\U{8f38}\U{5165}DCM\U{905e}\U{63a8}\U{524d}\U{ff0c}\U{5fc5}\U{9808}%
+\U{5148}\U{7d93}\U{904e}\U{904e}\U{6ffe}\U{3002}\U{4e00}\U{822c}\U{5e38}%
+\U{898b}\U{7684}\U{904e}\U{6ffe}\U{65b9}\U{6cd5}\U{662f}\U{5361}\U{723e}%
+\U{66fc}\U{6ffe}\U{6ce2}\U{ff0c}\U{566a}\U{97f3}\U{6ffe}\U{6ce2}\U{7684}%
+\U{8a0e}\U{8ad6}\U{662f}\U{6211}\U{4e0b}\U{4e00}\U{6b65}\U{7684}\U{76ee}%
+\U{6a19}\U{3002}
+
+%TCIMACRO{\TeXButton{clearpage}{\clearpage}}%
+%BeginExpansion
+\clearpage%
+%EndExpansion
+
+\begin{case}
+C\U{65b9}\U{6cd5}\U{52a0}\U{4e0a}\U{566a}\U{97f3}\U{5f8c}\U{7684}\U{975c}%
+\U{6b62}\U{6e2c}\U{8a66}\U{3002}
+\end{case}
+
+\U{6211}\U{5011}\U{4f7f}\U{7528}C\U{65b9}\U{6cd5}\U{4f86}\U{6e2c}\U{8a66}%
+\U{5728}\U{6b64}\U{72c0}\U{6cc1}\U{4e0b}C\U{65b9}\U{6cd5}\U{7d66}\U{51fa}%
+\U{7684}\U{59ff}\U{614b}\U{96a8}\U{6642}\U{9593}\U{7684}\U{904b}\U{52d5}%
+\U{662f}\U{5426}\U{4e5f}\U{662f}\U{975c}\U{6b62}\U{7684}\U{3002}\U{5047}%
+\U{8a2d}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{662f}\U{96f6}\U{52a0}%
+\U{4e0a}\U{4e00}\U{500b}\U{96a8}\U{6a5f}\U{7684}\U{566a}\U{97f3}$\vec{\omega}%
+(t)=0+Noise(t)$\U{ff0c}$Noise(t)$\U{70ba}\U{4e00}\U{56fa}\U{5b9a}Amplitude%
+\U{4e58}\U{4e0a}-1\U{5230}1\U{7684}\U{96a8}\U{6a5f}\U{6578}\U{ff0c}\U{56fa}%
+\U{5b9a}\U{7684}Amplitude\U{55ae}\U{4f4d}\U{70ba}radian per second\U{ff0c}%
+\U{91cf}\U{503c}\U{5927}\U{5c0f}\U{53ef}\U{5f9e}\texttt{%
+b.IncludeNoiseInOmega(5)}\U{4e2d}\U{7684}\U{6578}\U{5b57}5\U{66f4}\U{6539}%
+\U{3002}\U{6211}\U{5011}\U{6bd4}\U{8f03}\U{5169}\U{500b}Amplitude\U{ff0c}%
+\U{7522}\U{751f}\U{6b64}\U{52d5}\U{756b}\U{7684}\U{7a0b}\U{5f0f}\U{5982}%
+\U{4e0b}:
+
+\bigskip
+
+%TCIMACRO{%
+%\TeXButton{case noise code}{\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+%\inputminted[linenos,fontsize=\footnotesize]{python}{../../Scripts/cordtrans/Development_zone/sketch-NoiseIncludeInCMethod.py}
+%\end{mdframed}}}%
+%BeginExpansion
+\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+\inputminted[linenos,fontsize=\footnotesize]{python}{../../Scripts/cordtrans/Development_zone/sketch-NoiseIncludeInCMethod.py}
+\end{mdframed}%
+%EndExpansion
+
+\bigskip
+
+\U{6211}\U{5011}\U{756b}\U{51fa}z\U{8ef8}\U{8207}Z\U{8ef8}\U{96a8}\U{6642}%
+\U{9593}\U{7684}\U{8ecc}\U{8de1}\U{5716}\U{ff0c}\U{6211}\U{5011}\U{9019}%
+\U{908a}\U{5c07}\U{5169}\U{500b}Amplitude\U{7684}\U{7d50}\U{679c}\U{5283}%
+\U{51fa}\U{ff0c}\U{5de6}\U{908a}\U{662f}1 radian per sec\U{ff0c}\U{53f3}%
+\U{908a}\U{662f}5 radian per sec\U{3002}\U{9019}\U{6a23}\U{6211}\U{5011}%
+\U{5c31}\U{53ef}\U{4ee5}\U{8ddf}\U{5e02}\U{9762}\U{4e0a}\U{8ce3}\U{7684}%
+\U{9640}\U{87ba}\U{5100}\U{53ca}angular rate sensor\U{505a}\U{6bd4}\U{8f03}%
+\U{3002}57.32 degree = 1 radian\U{ff0c}\U{6240}\U{4ee5}\U{6211}\U{5011}%
+\U{9019}\U{908a}\U{662f}\U{8003}\U{616e}\U{566a}\U{97f3}\U{5f88}\U{5927}%
+\U{7684}\U{9640}\U{87ba}\U{5100}\U{ff0c}\U{6216}\U{662f}\U{9640}\U{87ba}%
+\U{5100}\U{5728}\U{74b0}\U{5883}\U{6eab}\U{5ea6}\U{8b8a}\U{5316}\U{6216}%
+\U{6a5f}\U{68b0}\U{9707}\U{52d5}\U{5f88}\U{5927}\U{7684}\U{6975}\U{7aef}%
+\U{7684}\U{4f8b}\U{5b50}\U{3002}
+
+%TCIMACRO{%
+%\TeXButton{case still noise}{\begin{center}
+%\input{./otherstuff/Case_C_stillnoise_fig.tex}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\input{./otherstuff/Case_C_stillnoise_fig.tex}
+\end{center}%
+%EndExpansion
+
+\bigskip
+
+\begin{case}
+\U{540c}\U{4e0a}\U{6cd5}\U{ff0c}C\U{65b9}\U{6cd5}\U{52a0}\U{4e0a}\U{566a}%
+\U{97f3}\U{5f8c}\U{ff0c}\U{4f86}\U{6e2c}\U{8a66}\U{5c16}\U{9ede}\U{904b}%
+\U{52d5}\U{60c5}\U{6cc1}\U{4e0b}\U{7684}\U{4f30}\U{6e2c}\U{80fd}\U{529b}%
+\U{3002}$\vec{\omega}(t)=\vec{\omega}(t)+Noise(t)$\U{3002}\U{4e00}\U{6a23}%
+\U{6211}\U{5011}\U{6bd4}\U{8f03}\U{5169}\U{500b}Amplitude\U{ff0c}1 rad/sec%
+\U{8ddf}5 rad/sec\U{3002}
+\end{case}
+
+%TCIMACRO{%
+%\TeXButton{case moving noise}{\begin{center}
+%\input{./otherstuff/Case_C_omega_noise_fig.tex}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\input{./otherstuff/Case_C_omega_noise_fig.tex}
+\end{center}%
+%EndExpansion
+
+\begin{case}
+C\U{65b9}\U{6cd5}\U{52a0}\U{4e0a}\U{566a}\U{97f3}\U{5f8c}\U{ff0c}\U{7d93}%
+\U{904e}running average\U{7684}\U{6ffe}\U{6ce2}\U{65b9}\U{5f0f}\U{ff0c}%
+\U{4f86}\U{6e2c}\U{8a66}\U{5c16}\U{9ede}\U{904b}\U{52d5}\U{60c5}\U{6cc1}%
+\U{4e0b}\U{7684}\U{4f30}\U{6e2c}\U{80fd}\U{529b}\U{3002}
+\end{case}
+
+\bigskip 
+
+**need thinking\U{5373}\U{6642}\U{89e3}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}%
+\U{7136}\U{5f8c}\U{4f5c}DCM\U{59ff}\U{614b}\U{905e}\U{63a8}\U{7684}\U{597d}%
+\U{8655}\U{662f}\U{ff0c}\U{4e0d}\U{7528}\U{4e8b}\U{5148}\U{77e5}\U{9053}%
+\U{529b}\U{77e9}\U{9805}\U{ff0c}\U{56e0}\U{6b64}\U{6703}\U{6bd4}\U{5c24}%
+\U{62c9}\U{89d2}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}\U{65b9}\U{6cd5}\U{66f4}%
+\U{9069}\U{7528}\U{65bc}\U{529b}\U{77e9}\U{6703}\U{96a8}\U{6642}\U{9593}%
+\U{8b8a}\U{52d5}\U{6216}\U{529b}\U{77e9}\U{70ba}\U{672a}\U{77e5}\U{7684}%
+\U{60c5}\U{6cc1}\U{ff0c}\U{8209}\U{4f8b}\U{4f86}\U{8aaa}\U{ff0c}\U{6211}%
+\U{5011}\U{53ef}\U{4ee5}\U{7528}\U{5728}\U{6a5f}\U{5668}\U{4eba}\U{7684}%
+\U{6063}\U{614b}\U{63a7}\U{5236}\U{4e0a}\U{9762}\U{ff0c}\U{53c8}\U{6216}%
+\U{8005}\U{ff0c}\U{53ef}\U{4ee5}\U{7528}\U{5728}\U{6709}\U{7528}\U{5230}%
+\U{525b}\U{9ad4}\U{8f49}\U{52d5}\U{7684}\U{904a}\U{6232}\U{7269}\U{7406}%
+\U{5f15}\U{64ce}\U{4e0a}\U{9762}\U{3002}\U{9019}\U{4e9b}\U{72c0}\U{6cc1}%
+\U{90fd}\U{662f}\U{5c24}\U{62c9}\U{89d2}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}%
+\U{4e2d}\U{7684}\U{529b}\U{77e9}\U{9805}\U{7121}\U{6cd5}\U{4e8b}\U{5148}%
+\U{9810}\U{77e5}\U{ff0c}\U{56e0}\U{6b64}\U{7121}\U{6cd5}\U{4e8b}\U{5148}%
+\U{89e3}\U{5176}\U{5c24}\U{62c9}\U{89d2}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}%
+\U{3002}\U{53c8}\U{6216}\U{8005}\U{ff0c}\U{82e5}\U{662f}\U{529b}\U{77e9}%
+\U{9805}\U{592a}\U{904e}\U{8907}\U{96dc}\U{ff0c}\U{5982}\U{7121}\U{4eba}%
+\U{6a5f}\U{7684}\U{7a7a}\U{6c23}\U{52d5}\U{529b}\U{ff0c}\U{4e5f}\U{9069}%
+\U{5408}\U{4f7f}\U{7528}\U{6211}\U{5011}\U{9019}\U{908a}\U{6240}\U{4ecb}%
+\U{7d39}\U{7684}\U{5373}\U{6642}\U{89e3}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}%
+\U{4e26}\U{4f5c}\U{59ff}\U{614b}\U{905e}\U{63a8}\U{ff0c}\U{53ea}\U{8981}%
+\U{6709}\U{89d2}\U{52a0}\U{901f}\U{5ea6}\U{8a08}\U{53ef}\U{4ee5}\U{6e2c}%
+\U{91cf}\U{89d2}\U{52a0}\U{901f}\U{5ea6}\U{5c31}\U{53ef}\U{4ee5}\U{3002}%
+\U{6211}\U{5011}\U{9019}\U{908a}\U{6240}\U{4ecb}\U{7d39}\U{7684}\U{9640}%
+\U{87ba}\U{ff0c}\U{662f}\U{4e00}\U{500b}\U{61c9}\U{7528}\U{7684}\U{4f8b}%
+\U{5b50}\U{ff0c}\U{7531}\U{65bc}\U{9640}\U{87ba}\U{7684}\U{8f49}\U{52d5}%
+\U{901f}\U{5ea6}\U{662f}\U{6bcf}\U{79d2}20\U{8f49}\U{ff0c}\U{56e0}\U{6b64}%
+\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{5f88}\U{9ad8}\U{ff0c}\U{5c0d}\U{65bc}%
+\U{59ff}\U{614b}\U{905e}\U{63a8}\U{7684}\U{7cbe}\U{5ea6}\U{8981}\U{6c42}%
+\U{7b97}\U{5f88}\U{9ad8}\U{ff0c}\U{56e0}\U{6b64}\U{9640}\U{87ba}\U{9069}%
+\U{5408}\U{7576}\U{4f5c}\U{9a57}\U{8b49}\U{59ff}\U{614b}\U{905e}\U{63a8}%
+\U{6f14}\U{7b97}\U{7684}\U{975e}\U{5e38}\U{597d}\U{7684}\U{4f8b}\U{5b50}%
+\U{ff0c}\U{82e5}\U{9640}\U{87ba}\U{80fd}\U{7b97}\U{7684}\U{6e96}\U{ff0c}%
+\U{5176}\U{4ed6}\U{8f49}\U{52d5}\U{901f}\U{5ea6}\U{4e0d}\U{9ad8}\U{7684}%
+\U{60c5}\U{6cc1}\U{5c07}\U{6703}\U{975e}\U{5e38}\U{6e96}\U{3002}\U{9640}%
+\U{87ba}\U{7684}\U{60c5}\U{6cc1}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{6bd4}%
+\U{55bb}\U{70ba}\U{ff0c}\U{628a}\U{6a5f}\U{5668}\U{4eba}\U{6216}\U{7121}%
+\U{4eba}\U{6a5f}\U{4e1f}\U{5165}\U{9f8d}\U{6372}\U{98a8}\U{88e1}\U{9762}%
+\U{ff0c}\U{4e26}\U{4e14}\U{8981}\U{4f5c}\U{59ff}\U{614b}\U{63a7}\U{5236}%
+\U{3002}
+
+%TCIMACRO{%
+%\TeXButton{clearpage}{\mycleardoublepage{./otherstuff/logo_Aug29_test.PNG}}}%
+%BeginExpansion
+\mycleardoublepage{./otherstuff/logo_Aug29_test.PNG}%
+%EndExpansion
+
+\part{\U{88dc}\U{5145}}
+
+\U{9640}\U{87ba}\U{7b49}\U{5468}\U{901f}\U{904b}\U{52d5}Figure \ref%
+{FourClassics}(d)\U{7684}\U{521d}\U{59cb}\U{503c}\U{689d}\U{4ef6}\U{5982}%
+\U{4f55}\U{8a08}\U{7b97}\U{5462}?\U{7b49}\U{5468}\U{901f}\U{7684}\U{689d}%
+\U{4ef6}\U{5728}Goldstein\U{7b2c}\U{4e8c}\U{7248}5-77\U{5f0f}\U{7d66}\U{51fa}%
+\begin{equation}
+Mgl=\dot{\phi}\left( I_{3}\omega _{3}-I_{1}\dot{\phi}\cos \theta _{0}\right)
+\end{equation}%
+\U{ff0c}\U{4e0d}\U{904e}\U{6b64}\U{5f0f}\U{662f}\U{7531}\U{5c24}\U{62c9}%
+\U{89d2}(euler angles)\U{7d66}\U{51fa}\U{ff0c}\U{4f46}\U{6211}\U{5011}%
+\U{9700}\U{8981}\U{7684}\U{662f}anguler velocity along body\U{7684}\U{521d}%
+\U{59cb}\U{503c}\U{ff0c}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{5fc5}\U{9808}%
+\U{8f49}\U{63db}\U{5c24}\U{62c9}\U{89d2}\U{5230}anguler velocity along body%
+\U{ff0c}\U{65b9}\U{6cd5}\U{5982}\U{4e0b}\U{3002}\U{4e0a}\U{5f0f}\U{4e2d}$%
+\omega _{3}$\U{5373}\U{70ba}\U{6211}\U{5011}\U{7684}$\left( \omega
+_{z}\right) _{b}$\U{ff0c}\U{6bd4}\U{5982}\U{8aaa}\U{662f}20 Hz\U{ff0c}$%
+\theta _{0}$\U{5373}\U{70ba}\U{6211}\U{5011}\U{4e4b}\U{524d}\U{7684}orien%
+\U{5411}\U{91cf}\U{6240}\U{5b9a}\U{ff0c}\U{7531}\U{4e0a}\U{5f0f}\U{53ef}%
+\U{6c42}\U{51fa}\U{5169}\U{7d44}$\dot{\phi}(t_{0})$\U{3002}\U{53e6}\U{5916}%
+\U{5c24}\U{62c9}\U{89d2}\U{8ddf}anugler velocity along body\U{7684}\U{95dc}%
+\U{4fc2}\U{5f0f}\U{5728}\U{66f8}\cite[Chapter 4, Equation 125]{goldstein} 
+\U{7d66}\U{51fa}%
+\begin{eqnarray}
+(\omega _{x})_{b} &=&\dot{\phi}\sin \theta \sin \psi +\dot{\theta}\cos \psi
+\\
+(\omega _{y})_{b} &=&\dot{\phi}\sin \theta \cos \psi -\dot{\theta}\sin \psi
+\\
+(\omega _{z})_{b} &=&\dot{\phi}\cos \theta +\dot{\psi}
+\end{eqnarray}%
+\U{77e5}\U{9053}$\dot{\phi}(t_{0})$\U{3001}$\theta _{0}$\U{3001}$\dot{\theta}%
+_{0}=0$\U{53ca}$\psi _{0}$\U{ff0c}\U{7528}\U{4e00}\U{4e8c}\U{689d}\U{5f8c}%
+\U{5c31}\U{53ef}\U{5f97}\U{5230}$\omega _{xb}(t_{0})$\U{8207}$\omega
+_{yb}(t_{0})$\U{ff0c}\U{9019}\U{6a23}\U{6211}\U{5011}\U{5c31}\U{5f97}\U{5230}%
+anguler velocity along body\U{7684}\U{521d}\U{59cb}\U{503c}\U{3002}\U{56e0}%
+\U{70ba}$\dot{\phi}(t_{0})$\U{6709}\U{5169}\U{7d44}\U{ff0c}\U{56e0}\U{6b64}%
+\U{89e3}\U{51fa}\U{7684}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{4e5f}%
+\U{6703}\U{6709}\U{5169}\U{7d44}\U{ff0c}\U{5169}\U{7d44}\U{7684}\U{7269}%
+\U{7406}\U{610f}\U{7fa9}\U{5206}\U{5225}\U{5982}\U{4e0b}\U{ff0c}\U{4e00}%
+\U{7a2e}\U{60c5}\U{6cc1}\U{662f}fast top\U{ff0c}\U{9019}\U{500b}\U{72c0}%
+\U{6cc1}\U{76f8}\U{7576}\U{65bc}\U{91cd}\U{529b}\U{7684}\U{5f71}\U{97ff}%
+\U{9060}\U{5c0f}\U{65bc}\U{7e3d}\U{89d2}\U{52d5}\U{91cf}$L$\U{ff0c}\U{56e0}%
+\U{6b64}\U{9019}\U{500b}\U{7279}\U{5225}\U{7684}\U{4f8b}\U{5b50}\U{57fa}%
+\U{672c}\U{4e0a}\U{76f8}\U{7576}\U{65bc}\U{5ffd}\U{7565}\U{91cd}\U{529b}%
+\U{ff0c}\U{800c}\U{9640}\U{87ba}\U{57fa}\U{672c}\U{4e0a}\U{6703}\U{50cf}%
+\U{4e00}\U{500b}free top\U{4e00}\U{6a23}\U{9032}\U{884c}precession\U{3002}%
+\U{53e6}\U{4e00}\U{7a2e}\U{72c0}\U{6cc1}\U{662f}slow top\U{ff0c}\U{4e5f}%
+\U{5c31}\U{662f}\U{4e0a}\U{9762}\U{6a21}\U{64ec}\U{7d50}\U{679c}\U{4e2d}%
+\U{7b2c}\U{56db}\U{7a2e}\U{7684}\U{72c0}\U{6cc1}\U{ff0c}\U{9019}\U{88e1}%
+\U{63d0}\U{4f9b}\U{7684}python\U{7a0b}\U{5f0f}\U{6240}\U{6709}\U{60c5}%
+\U{6cc1}\U{90fd}\U{53ef}\U{4ee5}\U{6a21}\U{64ec}\U{3002}\U{53e6}\U{5916}%
+\U{4e00}\U{500b}\U{7279}\U{6b8a}\U{7684}\U{60c5}\U{6cc1}\U{662f}\U{5728}fast
+top\U{7684}\U{60c5}\U{5f62}\U{4e0b}\U{ff0c}\U{5982}\U{679c}\U{521d}\U{59cb}%
+\U{503c}$\theta _{0}=0$\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{9640}\U{87ba}z%
+\U{8ef8}\U{7684}\U{8d77}\U{59cb}\U{72c0}\U{614b}\U{662f}\U{5782}\U{76f4}%
+\U{65bc}\U{6c34}\U{5e73}\U{9762}\U{7684}\U{ff0c}\U{9019}\U{6a23}\U{7684}%
+\U{8a71}\U{9640}\U{87ba}\U{5e7e}\U{4e4e}\U{6703}\U{50cf}\U{975c}\U{6b62}%
+\U{4e0d}\U{52d5}\U{4e00}\U{6a23}\U{ff0c}\U{6211}\U{5011}\U{4e5f}\U{53eb}%
+\U{9019}\U{60c5}\U{6cc1}\U{505a}sleeping top\U{3002}\U{9019}\U{4e9b}\U{8a08}%
+\U{7b97}\U{7d93}\U{5178}\U{72c0}\U{6cc1}\U{7684}\U{7a0b}\U{5f0f}\U{65b9}%
+\U{7a0b}\U{88ab}\U{5305}\U{542b}\U{5728}setcase()\U{65b9}\U{7a0b}\U{88e1}%
+\U{3002}
+
+\setcounter{page}{1}
+
+\begin{remark}
+\U{8981}\U{9640}\U{87ba}\U{5177}\U{6709}Precession and Nutation\U{7684}%
+\U{52d5}\U{4f5c}\U{ff0c}L/$\Delta L$\U{5fc5}\U{9808}\U{8981}\U{5927}\U{ff0c}%
+\U{5982}\U{679c}L\U{5c0f}\U{65bc}$\Delta L$\U{ff0c}\U{5247}\U{53ea}\U{6703}%
+\U{6709}\U{9640}\U{87ba}\U{8cea}\U{91cf}\U{53d7}\U{91cd}\U{529b}\U{5f71}%
+\U{97ff}\U{5f80}\U{4e0b}\U{5012}\U{4e0b}\U{7684}\U{904b}\U{52d5}(\U{4e0d}%
+\U{904e}\U{9019}\U{5c0d}\U{6aa2}\U{67e5}\U{7a0b}\U{5f0f}\U{6709}\U{6c92}%
+\U{6709}\U{932f}\U{8aa4}\U{5f88}\U{6709}\U{5e6b}\U{52a9}!)\U{ff0c}\U{7406}%
+\U{60f3}\U{4e0a}L\U{81f3}\U{5c11}\U{8981}\U{5927}\U{65bc}$\Delta L$\U{ff0c}%
+\U{6700}\U{597d}L\U{5927}\U{5927}\U{65bc}$\Delta L$\U{3002}\U{5316}\U{6210}%
+\U{6578}\U{503c}\U{4e0a}\U{7684}\U{6bd4}\U{8f03}\U{ff1a}\U{9019}\U{4ee3}%
+\U{8868}%
+\begin{equation}
+L\gg \Delta L\Rightarrow I\cdot 2\pi f\gg \vec{\Gamma}\Delta t\Rightarrow
+I\cdot 2\pi f\gg \vec{r}\times \vec{F}\cdot 1/f\Rightarrow f\gg \sqrt{\frac{%
+arm\cdot Mg\cdot \sin (\theta )}{2\pi I\cdot G}}
+\end{equation}%
+where $\theta $ is gyro's tilt angle and G is moment of inertial geometry
+factor. \U{8003}\U{616e}$\Delta t$\U{7684}\U{91cf}\U{7d1a}\U{5927}\U{7d04}%
+\U{662f}\U{9640}\U{87ba}\U{8f49}\U{5e7e}\U{5708}\U{7684}\U{6642}\U{9593}%
+(characteristic time)\U{ff0c}\U{91cf}\U{7d1a}\U{4e0a}\U{7d04}\U{662f}$\sim
+1/f$\U{ff0c}\U{82e5}\U{5047}\U{8a2d}arm\U{662f}10 cm, M = 1kg, g=10 m/s$^{2}$%
+, I = 0.5M(0.05)$^{2}$,\U{5247}f\U{6700}\U{5c11}\U{8981}10 Hertz\U{4ee5}%
+\U{4e0a}\U{3002}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{5c07}\U{4ee5}\U{9019}%
+\U{4e9b}\U{53c3}\U{6578}\U{6bd4}\U{8f03}f = 1, 10, 50 Hertz\U{6240}\U{7d66}%
+\U{51fa}\U{7684}\U{9640}\U{87ba}\U{904b}\U{52d5}\U{3002}
+\end{remark}

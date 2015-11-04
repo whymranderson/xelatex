@@ -7,9 +7,10 @@ def dashrepl(matchobj):
     return unichr(int(matchobj.group(1),16)) # python 2.7 use unichr, 
     # for python 3.3 use chr()
 
-#f1 = open('rotationV13.tex', 'r')
-f1 = codecs.open('rotationV14.tex', "r", "utf-8")
-f2 = codecs.open('rotationV14uni.tex', "w", "utf-8")
+filename = 'Chapter_Orientation_Estimation'
+
+f1 = codecs.open( filename + ".tex", "r", "utf-8")
+f2 = codecs.open(filename +"_uni" + ".tex", "w", "utf-8")
 
 #f1 = open('coinrotationV1.tex', 'r')
 #f2 = codecs.open('coinrotationV1uni.tex', "w", "utf-8")
@@ -37,20 +38,23 @@ f2.close()
 ##m = re.sub(p,dashrepl,teststring)
 ##print(m)
 
-f3 = open('rotationV14uni.tex', 'r')
+f3 = open(filename +"_uni" + ".tex", 'r')
 f4 = open('preamble_remove.tex', "w")
 
 for ind,line in enumerate(f3):
-    if ind < 12:
+    if ind < 2:
 #        print(line)
         pass
     else:
         f4.write(line)
+
+f4.write("\\end{document}")#for last line
+
 f3.close()
 f4.close()
 
 f5 = open('preamble_remove.tex', "r")
-f6 = open('rotationV14upa.tex', 'w')
+f6 = open(filename +"_upa" + ".tex", 'w')
 
 new_preamble = [
 "\documentclass[12pt,twoside]{article}\n",
@@ -103,6 +107,11 @@ new_preamble = [
 "        \\fi%\n",
 "    }%\n",
 "\\makeatother\n",
+"\\newtheorem{theorem}{Theorem}\n",
+"\\newtheorem{case}[theorem]{Case}\n",
+"\\newtheorem{remark}[theorem]{Remark}\n",
+"\\definecolor{bg}{rgb}{0.95,0.95,0.95}\n",
+"\\begin{document}\n",
 ]
 
 for i in range(len(new_preamble)):
@@ -115,5 +124,5 @@ f5.close()
 f6.close()
 
 os.remove('preamble_remove.tex')
-os.remove('rotationV14uni.tex')
+os.remove(filename +"_uni" + ".tex")
 
