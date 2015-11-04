@@ -40,11 +40,13 @@ rate gyro\U{ff0c}one-axis angular rate sensor\U{ff0c}\U{5229}\U{7528}\U{8f49}%
 \end{case}
 
 \begin{center}
-%TCIMACRO{%
-%\TeXButton{simple_gyro_illustration}{\includegraphics[width=0.5\textwidth]{mech_gyro.png}}}%
-%BeginExpansion
-\includegraphics[width=0.5\textwidth]{mech_gyro.png}%
-%EndExpansion
+\begin{figure}[th]
+\caption{\U{6e2c}\U{8a66}\U{6700}\U{57fa}\U{672c}\U{7684}\U{96e2}\U{5fc3}%
+\U{529b}\U{5f0f}\U{89d2}\U{901f}\U{5ea6}\U{8a08}\U{3002}}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{mech_gyro.png}
+\end{center}
+\end{figure}
 \end{center}
 
 \U{6b64}\U{8cea}\U{9ede}\U{7684}\U{904b}\U{52d5}\U{5fae}\U{5206}\U{65b9}%
@@ -66,7 +68,10 @@ m\ddot{x}=m\omega ^{2}\dot{x}-k\left( x-x_{0}\right) -c\dot{x}
 \U{5011}\U{5916}\U{529b}\U{7684}\U{63a7}\U{5236}\U{3002}\U{7ba1}\U{5b50}%
 \U{8207}\U{8cea}\U{9ede}\U{7684}\U{4f5c}\U{7528}\U{5c31}\U{5728}\U{7ba1}%
 \U{58c1}\U{8207}\U{8cea}\U{9ede}\U{7684}\U{6b63}\U{5411}\U{63a5}\U{89f8}%
-\U{529b}\U{3002}
+\U{529b}\U{3002}$x$\U{7684}\U{6b63}\U{65b9}\U{5411}\U{70ba}\U{5411}\U{9060}%
+\U{96e2}\U{5713}\U{5fc3}\U{7684}\U{65b9}\U{5411}\U{ff0c}$\omega $\U{7684}%
+\U{6b63}\U{65b9}\U{5411}\U{70ba}\U{9006}\U{6642}\U{91dd}\U{65b9}\U{5411}%
+\U{3002}$x_{0}$\U{70ba}\U{5f48}\U{7c27}\U{539f}\U{9577}\U{3002}
 
 \U{6211}\U{5011}\U{63a7}\U{5236}\U{7ba1}\U{5b50}\U{5f9e}\U{96f6}\U{958b}%
 \U{59cb}\U{52a0}\U{901f}\U{8f49}\U{52d5}\U{ff0c}\U{52a0}\U{901f}\U{8f49}%
@@ -81,12 +86,23 @@ m\ddot{x}=m\omega ^{2}\dot{x}-k\left( x-x_{0}\right) -c\dot{x}
 \U{503c}\U{6bd4}\U{8f03}
 
 \begin{center}
-%TCIMACRO{%
-%\TeXButton{angular_rate_measurement}{\includegraphics[width=0.5\textwidth]{mech_gyro_result.png}}}%
-%BeginExpansion
-\includegraphics[width=0.5\textwidth]{mech_gyro_result.png}%
-%EndExpansion
+\begin{figure}[th]
+\caption{}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{mech_gyro_result.png}
 \end{center}
+\end{figure}
+\end{center}
+
+\U{82e5}\U{8003}\U{616e}\U{7ba1}\U{5b50}\U{7684}\U{8cea}\U{91cf}\U{ff0c}%
+\U{7ba1}\U{5b50}\U{8207}\U{8cea}\U{9ede}\U{7684}\U{6574}\U{500b}\U{7cfb}%
+\U{7d71}\U{7684}Lagrange\U{65b9}\U{7a0b}\U{70ba}\U{4e0b}%
+\begin{eqnarray*}
+\frac{d}{dt}\left( \frac{1}{12}M_{bar}L^{2}\dot{\theta}+M_{ball}\dot{\theta}%
+x^{2}\right) &=&0 \\
+M_{ball}\ddot{x} &=&M_{ball}x\dot{\theta}^{2}-k\left\vert x-x_{0}\right\vert
+\end{eqnarray*}%
+\U{5176}\U{4e2d}$\omega =\dot{\theta}$\U{3002}
 
 \U{4e0d}\U{904e}\U{6b64}\U{65b9}\U{6cd5}\U{505a}\U{51fa}\U{7684}\U{89d2}%
 \U{901f}\U{5ea6}\U{8a08}\U{7121}\U{6cd5}\U{552f}\U{4e00}\U{91cf}\U{6e2c}%
@@ -322,7 +338,7 @@ C\U{65b9}\U{6cd5}\U{52a0}\U{4e0a}\U{566a}\U{97f3}\U{5f8c}\U{ff0c}\U{7d93}%
 \U{4e0b}\U{7684}\U{4f30}\U{6e2c}\U{80fd}\U{529b}\U{3002}
 \end{case}
 
-\bigskip 
+\bigskip
 
 **need thinking\U{5373}\U{6642}\U{89e3}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}%
 \U{7136}\U{5f8c}\U{4f5c}DCM\U{59ff}\U{614b}\U{905e}\U{63a8}\U{7684}\U{597d}%
