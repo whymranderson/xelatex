@@ -1,45 +1,50 @@
-\documentclass[12pt,twoside]{article}
-\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
-\usepackage{fontspec}
-\usepackage{xeCJK}
-\setmainfont{Times New Roman}
-\setsansfont{Verdana}
-\setmonofont{Courier New}                    % tt
-\setCJKmainfont{微軟正黑體}
-\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
-\usepackage{pgf}
-\usepackage{pstricks,pst-node}
-\input{../tcilatex}
-\begin{document}
+%\documentclass[12pt,twoside]{article}
+%\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+%\usepackage{fontspec}
+%\usepackage{xeCJK}
+%\setmainfont{Times New Roman}
+%\setsansfont{Verdana}
+%\setmonofont{Courier New}                    % tt
+%\setCJKmainfont{微軟正黑體}
+%\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
+%\usepackage{pgf}
+%\usepackage{pstricks,pst-node}
+%\input{../tcilatex}
+%\begin{document}
 
 \begin{pspicture}(0,0)(12cm,7cm)
 %\psgrid
 %\footnotesize
 
-\rput(7.5cm,3cm){
+\rput(7.5cm,3.2cm){
 \rnode{A}{
 \psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\Large
 貼體角速度$\omega$
+\normalsize
 }}}
 
 \rput(4cm,6cm){
 \rnode{B}{
 \psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
-\parbox{7.5cm}{\centering 牛頓尤拉方程 Newton-Euler Equation
+\parbox{7.2cm}{\centering 
+牛頓尤拉方程 Newton-Euler Equation
+\footnotesize
 \begin{eqnarray}
 \Gamma _{x}(t) &=&I_{x}\dot{\omega}_{x}+(I_{z}-I_{y})\omega _{y}\left(
 t\right) \omega _{z}\left( t\right) \notag \\
 \Gamma _{y}(t) &=&I_{y}\dot{\omega}_{y}+(I_{x}-I_{z})\omega _{x}\omega _{z} \notag \\
 \Gamma _{z}(t) &=&I_{z}\dot{\omega}_{z}+(I_{x}-I_{y})\omega _{x}\omega _{y} 
 \notag
-\end{eqnarray}}
-}}}
+\end{eqnarray}
+\normalsize}}}}
 
 \rput(10.5cm,6cm){
 \rnode{C}{
 \psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
 剛體轉動積分器
 }}}
+\rput[Bl](11cm,6.4cm){\psscalebox{2}{A法}}
 
 \ncline{-}{A}{B} 
 \ncline{-}{A}{C} 
@@ -51,7 +56,8 @@ t\right) \omega _{z}\left( t\right) \notag \\
 姿態估測演算法
 }}}
 \ncline{-}{A}{D}
-\ncline{-}{C}{D}
+\nccurve[angleA=270,angleB=0]{-}{C}{D} 
+\rput[Bl](10cm,0.4cm){\psscalebox{2}{C法}}
 
 \rput(3cm,3cm){
 \rnode{E}{
@@ -70,4 +76,4 @@ MEMS微機電陀螺儀
 \end{pspicture}
 
 
-\end{document}
+%\end{document}
