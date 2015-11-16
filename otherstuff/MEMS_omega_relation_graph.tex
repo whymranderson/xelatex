@@ -1,0 +1,34 @@
+\documentclass[12pt,twoside]{article}
+\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}                    % tt
+\setCJKmainfont{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
+\usepackage{pgf}
+\usepackage{pstricks,pst-node}
+\begin{document}
+
+\begin{pspicture}(0,0)(12cm,7cm)
+\psgrid
+%\footnotesize
+
+\rput(8cm,3.5cm){
+\rnode{A}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+貼體角速度$\omega$
+}}}
+
+\rput(4cm,6cm){
+\rnode{B}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{5cm}{\centering 牛頓尤拉方程 Newton-Euler Equation}
+}}}
+
+
+\end{pspicture}
+
+
+\end{document}

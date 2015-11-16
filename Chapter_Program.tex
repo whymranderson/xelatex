@@ -68,13 +68,17 @@ Example\U{8cc7}\U{6599}\U{593e}\U{5167}\U{7684}.py\U{6a94}\U{4e5f}\U{53ef}%
 \end{center}
 \end{figure}
 
-\definecolor{bg}{rgb}{0.95,0.95,0.95}\bigskip 
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
 
-\U{7c21}\U{55ae}\U{4ecb}\U{7d39}\U{7a0b}\U{5f0f}\U{904b}\U{4f5c}\U{64cd}%
-\U{4f5c}\U{6d41}\U{7a0b}\U{ff0c}\U{9996}\U{5148}\U{7a0b}\U{5f0f}\U{9808}%
-\U{5148}\U{5efa}\U{7acb}\U{4e00}\U{500b}RigidBodyObject\U{7269}\U{4ef6}%
-\U{ff0c}\U{4ee5}\U{4e0b}\U{5169}\U{500b}\U{65b9}\U{6cd5}\U{51fa}\U{73fe}%
-\U{7684}\U{4f4d}\U{7f6e}\U{9700}\U{8981}\U{7279}\U{5225}\U{7559}\U{610f}
+\bigskip
+
+\U{3010}\U{7b2c}\U{4e8c}\U{7248}\U{7a0b}\U{5f0f}\U{8aaa}\U{660e}GyroSoft
+Simulation V-2\U{3011}\U{7c21}\U{55ae}\U{4ecb}\U{7d39}\U{7a0b}\U{5f0f}%
+\U{904b}\U{4f5c}\U{64cd}\U{4f5c}\U{6d41}\U{7a0b}\U{ff0c}\U{9996}\U{5148}%
+\U{7a0b}\U{5f0f}\U{9808}\U{5148}\U{5efa}\U{7acb}\U{4e00}\U{500b}%
+RigidBodyObject\U{7269}\U{4ef6}\U{ff0c}\U{4ee5}\U{4e0b}\U{5169}\U{500b}%
+\U{65b9}\U{6cd5}\U{51fa}\U{73fe}\U{7684}\U{4f4d}\U{7f6e}\U{9700}\U{8981}%
+\U{7279}\U{5225}\U{7559}\U{610f}
 
 \begin{description}
 \item[GenerateDependentVariables()] \U{4ee5}\U{7d66}\U{5b9a}\U{7684}\U{53c3}%
@@ -108,16 +112,27 @@ g=9.8$\U{82e5}\U{6539}\U{8b8a}\U{ff0c}\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}%
 \U{5217}\U{56e0}\U{6b64}\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}\U{9808}\U{5728}%
 \U{53c3}\U{6578}\U{8a2d}\U{5b9a}\U{5b8c}\U{53ca}GenerateDependentVariables()%
 \U{5f8c}\U{505a}\U{3002}
+
+\item[line\_ani = animation.FuncAnimation(...)] \U{547c}\U{53eb}\U{8b93}%
+\U{52d5}\U{756b}\U{52d5}\U{8d77}\U{4f86}\U{7684}\U{7a0b}\U{5e8f}\U{3002}%
+\U{9019}\U{4e00}\U{500b}\U{7a0b}\U{5e8f}\U{5fc5}\U{9808}\U{8ddf}fig or
+handle of fig\U{5728}\U{540c}\U{4e00}\U{500b}runtime\U{ff0c}\U{624d}\U{80fd}%
+\U{5920}\U{6b63}\U{78ba}\U{7684}\U{6e05}\U{6389}\U{4e0a}\U{4e00}\U{500b}%
+\U{756b}\U{9762}\U{4f86}\U{5283}\U{51fa}\U{4e0b}\U{4e00}\U{500b}\U{756b}%
+\U{9762}\U{3002}\U{56e0}\U{6b64}\U{6b64}\U{547c}\U{53eb}\U{4e0d}\U{80fd}%
+\U{653e}\U{5728}\U{5176}\U{4ed6}\U{7684}function\U{4e2d}\U{3002}\U{9019}%
+\U{4e5f}\U{7b97}\U{662f}matplotlib\U{7684}\U{4e00}\U{500b}\U{9650}\U{5236}%
+\U{4e4b}\U{4e00}\U{3002}
 \end{description}
 
-\bigskip 
+\bigskip
 
 \U{5716}xx\U{4f7f}\U{7528}\U{7684}\U{7a0b}\U{5f0f}\U{4f7f}\U{7528}\U{7bc4}%
 \U{4f8b}
 
 \U{52a0}code
 
-\bigskip 
+\bigskip
 
 \U{6a21}\U{64ec}\U{7a0b}\U{5f0f}\U{756b}\U{51fa}\U{525b}\U{9ad4}\U{7279}%
 \U{5fb5}\U{8ef8}\U{7684}x, y, z\U{8ef8}\U{55ae}\U{4f4d}\U{5411}\U{91cf}%
@@ -228,31 +243,49 @@ g=9.8$\U{82e5}\U{6539}\U{8b8a}\U{ff0c}\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}%
 \U{5f88}\U{65b9}\U{4fbf}\U{7684}\U{64f4}\U{5145}\U{81f3}\U{4efb}\U{610f}%
 \U{6216}\U{975e}\U{5e38}\U{8907}\U{96dc}\U{7684}\U{5716}\U{5f62}\U{3002}
 
+\begin{figure}[th]
+\caption{\U{7e6a}\U{88fd}\U{7acb}\U{65b9}\U{9ad4}\U{7684}\U{5169}\U{7a2e}%
+\U{65b9}\U{6cd5}\U{3002}\U{5de6}\U{5716}\U{70ba}Python\U{4e2d}\U{7e6a}%
+\U{88fd}\U{7acb}\U{65b9}\U{9ad4}\U{6846}\U{7684}\U{56db}\U{689d}\U{5c0d}%
+\U{7a31}\U{7dda}\U{6cd5}\U{ff0c}\U{5305}\U{542b}\U{756b}\U{7dda}\U{7684}%
+\U{9802}\U{9ede}\U{9806}\U{5e8f}\U{3002}\U{53f3}\U{5716}\U{70ba}OpenGL%
+\U{4e2d}\U{7e6a}\U{88fd}\U{7acb}\U{65b9}\U{9ad4}\U{516d}\U{500b}\U{9762}%
+\U{7684}\U{9802}\U{9ede}\U{9806}\U{5e8f}\U{3002}\U{5169}\U{5716}\U{7686}%
+\U{986f}\U{793a}\U{51fa}world xyz\U{8ef8}\U{4ee5}\U{65b9}\U{4fbf}\U{7406}%
+\U{89e3}\U{7acb}\U{65b9}\U{9ad4}\U{9802}\U{9ede}\U{9806}\U{5e8f}\U{5982}%
+\U{4f55}\U{64fa}\U{653e}\U{3002}}
+\begin{center}
+\resizebox{\textwidth}{!}{\includegraphics{./figs/4wires_cube_construction_figure.png}
+\includegraphics{./figs/construct_cube_8vertices_opengl.png}}
+\end{center}
+\end{figure}
+
 \bigskip
 
-\U{5728}opengl\U{4e2d}\U{7e6a}\U{88fd}\U{7acb}\U{65b9}\U{9ad4}\U{7684}%
-\U{904b}\U{52d5}\U{4e5f}\U{662f}\U{985e}\U{4f3c}\U{ff0c}\U{6703}\U{4f7f}%
-\U{7528}python\U{89e3}\U{51fa}\U{7684}xyz\U{8ef8}\U{8cc7}\U{8a0a}\U{50b3}%
-\U{5165}opengl\U{4f86}\U{5efa}\U{7acb}\U{7acb}\U{65b9}\U{9ad4}\U{ff0c}%
-\U{8207}python\U{6a21}\U{64ec}\U{4e0d}\U{540c}\U{7684}\U{662f}\U{ff0c}opengl%
-\U{6a21}\U{64ec}\U{4e2d}\U{6211}\U{5011}\U{662f}\U{7e6a}\U{756b}\U{51fa}%
-\U{7acb}\U{65b9}\U{9ad4}\U{7684}\U{516d}\U{500b}\U{9762}\U{3002}\U{5728}%
-python\U{6a21}\U{64ec}\U{4e2d}\U{ff0c}\U{6211}\U{5011}\U{53ea}\U{756b}%
-\U{51fa}\U{4e86}\U{7acb}\U{65b9}\U{9ad4}\U{7684}\U{5341}\U{4e8c}\U{500b}%
-\U{908a}\U{ff0c}\U{56e0}\U{6b64}\U{4e5f}\U{53ef}\U{4ee5}\U{8aaa}\U{662f}%
-\U{500b}\U{4e2d}\U{7a7a}\U{7684}\U{7acb}\U{65b9}\U{9ad4}\U{6846}\U{67b6}%
-\U{ff0c}\U{9019}\U{662f}\U{56e0}\U{70ba}python\U{7684}3d\U{52d5}\U{756b}%
-\U{7e6a}\U{88fd}\U{5eab}\U{76ee}\U{524d}\U{53ea}\U{5c0d}\U{7dda}\U{6bb5}%
-\U{7684}3d\U{52d5}\U{756b}\U{6709}\U{652f}\U{63f4}\U{ff0c}\U{4ed6}\U{5c0d}%
-\U{9762}\U{6216}\U{66f2}\U{9762}\U{7684}3d\U{52d5}\U{756b}\U{9084}\U{6c92}%
-\U{6709}\U{5b8c}\U{6574}\U{7684}\U{652f}\U{63f4}\U{ff0c}\U{6240}\U{4ee5}%
-\U{5728}python\U{4e2d}\U{7121}\U{6cd5}\U{88fd}\U{4f5c}3d\U{5177}\U{6709}%
-\U{8868}\U{9762}\U{7684}\U{7269}\U{9ad4}\U{7684}\U{52d5}\U{756b}\U{ff0c}%
-\U{81f3}\U{5c11}\U{6211}\U{4e0d}\U{66c9}\U{5f97}\U{600e}\U{9ebc}\U{505a}%
-\U{3002}\U{9019}\U{88e1}\U{8981}\U{5f37}\U{8abf}\U{662f}3d\U{52d5}\U{756b}%
-\U{624d}\U{7121}\U{6cd5}\U{88fd}\U{4f5c}\U{ff0c}\U{82e5}\U{662f}\U{975c}%
-\U{6b62}\U{7684}3d\U{5716}\U{5f62}\U{7576}\U{7136}\U{6c92}\U{554f}\U{984c}%
-\U{3002}
+\U{3010}\U{7b2c}\U{4e09}\U{7248}\U{7a0b}\U{5f0f}\U{8aaa}\U{660e}GyroSoft
+Simulation V-3\U{3011}\U{5728}OpenGL\U{4e2d}\U{7e6a}\U{88fd}\U{7acb}\U{65b9}%
+\U{9ad4}\U{7684}\U{904b}\U{52d5}\U{4e5f}\U{8ddf}\U{524d}\U{9762}\U{65b9}%
+\U{6cd5}\U{985e}\U{4f3c}\U{ff0c}\U{6703}\U{4f7f}\U{7528}python\U{89e3}%
+\U{51fa}\U{7684}xyz\U{8ef8}\U{8cc7}\U{8a0a}\U{50b3}\U{5165}opengl\U{4f86}%
+\U{5efa}\U{7acb}\U{7acb}\U{65b9}\U{9ad4}\U{ff0c}\U{8207}python\U{6a21}%
+\U{64ec}\U{4e0d}\U{540c}\U{7684}\U{662f}\U{ff0c}opengl\U{6a21}\U{64ec}%
+\U{4e2d}\U{6211}\U{5011}\U{662f}\U{7e6a}\U{756b}\U{51fa}\U{7acb}\U{65b9}%
+\U{9ad4}\U{7684}\U{516d}\U{500b}\U{9762}\U{3002}\U{5728}python\U{6a21}%
+\U{64ec}\U{4e2d}\U{ff0c}\U{6211}\U{5011}\U{53ea}\U{756b}\U{51fa}\U{4e86}%
+\U{7acb}\U{65b9}\U{9ad4}\U{7684}\U{5341}\U{4e8c}\U{500b}\U{908a}\U{ff0c}%
+\U{56e0}\U{6b64}\U{4e5f}\U{53ef}\U{4ee5}\U{8aaa}\U{662f}\U{500b}\U{4e2d}%
+\U{7a7a}\U{7684}\U{7acb}\U{65b9}\U{9ad4}\U{6846}\U{67b6}\U{ff0c}\U{9019}%
+\U{662f}\U{56e0}\U{70ba}python\U{7684}3d\U{52d5}\U{756b}\U{7e6a}\U{88fd}%
+\U{5eab}\U{76ee}\U{524d}\U{53ea}\U{5c0d}\U{7dda}\U{6bb5}\U{7684}3d\U{52d5}%
+\U{756b}\U{6709}\U{652f}\U{63f4}\U{ff0c}\U{4ed6}\U{5c0d}\U{9762}\U{6216}%
+\U{66f2}\U{9762}\U{7684}3d\U{52d5}\U{756b}\U{9084}\U{6c92}\U{6709}\U{5b8c}%
+\U{6574}\U{7684}\U{652f}\U{63f4}\U{ff0c}\U{6240}\U{4ee5}\U{5728}python%
+\U{4e2d}\U{7121}\U{6cd5}\U{88fd}\U{4f5c}3d\U{5177}\U{6709}\U{8868}\U{9762}%
+\U{7684}\U{7269}\U{9ad4}\U{7684}\U{52d5}\U{756b}\U{ff0c}\U{81f3}\U{5c11}%
+\U{6211}\U{4e0d}\U{66c9}\U{5f97}\U{600e}\U{9ebc}\U{505a}\U{3002}\U{9019}%
+\U{88e1}\U{8981}\U{5f37}\U{8abf}\U{662f}3d\U{52d5}\U{756b}\U{624d}\U{7121}%
+\U{6cd5}\U{88fd}\U{4f5c}\U{ff0c}\U{82e5}\U{662f}\U{975c}\U{6b62}\U{7684}3d%
+\U{5716}\U{5f62}\U{7576}\U{7136}\U{6c92}\U{554f}\U{984c}\U{3002}
 
 \bigskip
 
@@ -564,6 +597,33 @@ A\U{65b9}\U{6cd5}\U{53ef}\U{4ee5}\U{9069}\U{7528}\U{65bc}\U{4efb}\U{610f}%
 \U{89e3}\U{6c7a}\U{ff1a}\U{9084}\U{4e0d}\U{77e5}\U{9053}\U{5982}\U{4f55}%
 \U{5c07}Christian\U{6559}\U{6388}\U{7684}Javascript\U{904b}\U{52d5}\U{7d50}%
 \U{679c}\U{4f5c}\U{8f38}\U{51fa}\U{3002})
+
+\bigskip
+
+\U{3010}\U{7b2c}\U{4e09}\U{7248}\U{7a0b}\U{5f0f}\U{8aaa}\U{660e}GyroSoft
+Simulation V-3\U{3011}\U{7b2c}\U{4e09}\U{7248}\U{7684}\U{52d5}\U{756b}%
+\U{7bc4}\U{4f8b}\U{7a0b}\U{5f0f}
+
+%TCIMACRO{%
+%\TeXButton{OpenGL_animation_code}{\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+%\inputminted[linenos,fontsize=\footnotesize]{python}{../../Scripts/cordtrans/opengltest/cubegyro_opengl_animation_1.py}
+%\end{mdframed}}}%
+%BeginExpansion
+\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+\inputminted[linenos,fontsize=\footnotesize]{python}{../../Scripts/cordtrans/opengltest/cubegyro_opengl_animation_1.py}
+\end{mdframed}%
+%EndExpansion
+
+\begin{figure}[th]
+\caption{\U{7b2c}\U{4e09}\U{7248}\U{7684}\U{52d5}\U{756b}\U{3002}\U{4ee5}%
+OpenGL 3D\U{7e6a}\U{88fd}\U{5eab}\U{88fd}\U{4f5c}\U{5be6}\U{9ad4}\U{7acb}%
+\U{65b9}\U{9ad4}\U{3002}\U{7bad}\U{982d}\U{70ba}Body\U{7684}xyz\U{8ef8}%
+\U{3002}\U{8acb}\U{53c3}\U{8003}\U{90e8}\U{843d}\U{683c}%
+whymranderson.blogspot.tw\U{4e2d}\U{7684}\U{52d5}\U{756b}\U{3002}}
+\begin{center}
+\resizebox{0.5\textwidth}{!}{\includegraphics{./figs/jpap176.png}}
+\end{center}
+\end{figure}
 
 %TCIMACRO{%
 %\TeXButton{clearpage}{\mycleardoublepage{./otherstuff/logo_Aug29_test.PNG}}}%

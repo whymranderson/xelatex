@@ -17,7 +17,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Monday, January 13, 2014 11:43:31}
-%TCIDATA{LastRevised=Tuesday, November 10, 2015 11:59:26}
+%TCIDATA{LastRevised=Wednesday, November 11, 2015 11:03:27}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="International\Traditional Chinese Article">}
 %TCIDATA{CSTFile=Traditional Chinese.cst}
@@ -52,9 +52,11 @@
 
 
 %TCIMACRO{%
-%\TeXButton{logo and title}{\includegraphics[width=\textwidth]{./otherstuff/logodesign2.png}}}%
+%\TeXButton{logo and title}{%\includegraphics[width=\textwidth]{./otherstuff/logodesign2.png}
+%\input{./otherstuff/title_line4.tex}}}%
 %BeginExpansion
-\includegraphics[width=\textwidth]{./otherstuff/logodesign2.png}%
+%\includegraphics[width=\textwidth]{./otherstuff/logodesign2.png}
+\input{./otherstuff/title_line4.tex}%
 %EndExpansion
 
 \part{\U{5c0e}\U{8a00}}
@@ -1666,6 +1668,18 @@ animation: http://tinypic.com/r/wk20ch/8}}}
 %TCIMACRO{\TeXButton{Chapter_Program_uni}{\input{Chapter_Program_uni.tex}}}%
 %BeginExpansion
 \input{Chapter_Program_uni.tex}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Chapter_Case_Study_uni}{\input{Chapter_Case_Study_uni.tex}}}%
+%BeginExpansion
+\input{Chapter_Case_Study_uni.tex}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Chapter_Orientation_Estimation_uni}{\input{Chapter_Orientation_Estimation_uni.tex}}}%
+%BeginExpansion
+\input{Chapter_Orientation_Estimation_uni.tex}%
 %EndExpansion
 
 \bigskip 
