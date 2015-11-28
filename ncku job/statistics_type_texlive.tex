@@ -13,7 +13,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, November 27, 2015 17:00:13}
+%TCIDATA{LastRevised=Saturday, November 28, 2015 11:01:14}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -44,7 +44,8 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-\input{tcilatex}
+
+%\input{tcilatex}
 
 \begin{document}
 
@@ -139,7 +140,7 @@ a_{j}-b_{j}}\right) ^{2} \\
 =-t_{j}^{-1}\dprod\limits_{i=1}^{k}t_{i}^{-1}\left( \frac{2}{a_{j}-b_{j}}%
 \right) ^{2}%
 \end{array}%
-\right. 
+\right.
 \end{equation}
 
 \begin{eqnarray}
@@ -158,17 +159,16 @@ a_{j}-b_{j}}\right) ^{2} \\
 j=1,2,3,\cdots ,k
 \end{eqnarray}
 
-\bigskip 
+\bigskip
 
 $\left( \underaccent{\wtilde}{\beta}-\underaccent{\wtilde}{\beta}_{0}\right)
 ^{T^{\prime }}T\left( \underaccent{\wtilde}{\beta}-\underaccent{\wtilde}{%
 \beta}_{0}\right) =1$ the optimal which contain the cuboid, has the center
 point vetor%
 \begin{eqnarray}
-\beta _{0}^{T} &=&\frac{1}{2}\left( a_{1}+b_{1},\cdots ,a_{k}+b_{k}\right) 
-\\
+\beta _{0}^{T} &=&\frac{1}{2}\left( a_{1}+b_{1},\cdots ,a_{k}+b_{k}\right) \\
 T &=&diag\frac{4}{K}\left( \left( b_{1}-a_{1}\right) ^{-2},\cdots ,\left(
-b_{k}-a_{k}\right) ^{-2}\right) 
+b_{k}-a_{k}\right) ^{-2}\right)
 \end{eqnarray}
 
 Note:
@@ -183,21 +183,201 @@ weakening, but comes with an earlier mathematical handling.
 \section{The Minimax Principle}
 
 Consider the \emph{quodratic} risk $R_{1}\left( \underaccent{\wtilde}{\hat{%
-\beta}},\underaccent{\wtilde}{\beta},A\right) =E\left[ \left( %
-\underaccent{\wtilde}{\hat{\beta}}-\underaccent{\wtilde}{\beta}\right)
-^{T}A\left( \hat{\beta}-\beta \right) \right] =tr\left[ AM\left( %
+\beta}},\underaccent{\wtilde}{\beta},A\right) =E\left[ \left( 
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) ^{T}A\left( \hat{\beta}-\beta \right) \right] =tr\left[ AM\left( %
 \underaccent{\wtilde}{\hat{\beta}},\underaccent{\wtilde}{\beta}\right) %
 \right] $
 
-\bigskip 
+Let B$\left( \beta \right) \subset \mathbb{R}^{k}$ be a convex region of a
+priori restriction for $\underaccent{\wtilde}{\beta}$\bigskip
 
 \begin{definition}
-Anestimator is called a \textsf{minimax estimator}
+An estimator $b^{\ast }\in \left\{ \hat{\beta}\right\} $ is called a \textsf{%
+minimax estimator} of $%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+$ if%
+\begin{equation}
+\underset{\left\{ 
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+\right\} }{\min }\,\underset{\beta \in \mathbb{B}}{\sup }\quad R_{1}\left( %
+\underaccent{\wtilde}{\hat{\beta}},\underaccent{\wtilde}{\beta},A\right) =%
+\underset{\beta \in \mathbb{B}}{\sup }R_{1}\left( b^{\ast },%
+\underaccent{\wtilde}{\beta},A\right)
+\end{equation}
 \end{definition}
 
 \bigskip
 
-\bigskip
+\subsubsection{Linear Minimax Estimator}
+
+Consider $\hat{\beta}=C%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+$
+
+\begin{eqnarray}
+R_{1}\left( CY,\beta ,A\right)  &=&E\left\{ \left( CY-B\right) ^{T}A\left(
+CY-B\right) \right\}   \notag \\
+&=&E\left\{ \left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi \beta -B}%
+\right) ^{T}A\left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi \beta -B}%
+\right) \right\}   \notag \\
+&=&\left( C\chi 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) ^{T}A\left( C\chi 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right)   \notag \\
+&&+E\left\{ \left( CY-C\chi \beta \right) ^{T}A\left( CY-C\chi \beta \right)
+\right\}   \notag \\
+&=&\beta ^{T}\left( C\chi -I\right) A\left( C\chi -I\right) \beta +E\left\{
+C^{T}\underbrace{\left( Y-\chi \beta \right) ^{T}A\left( Y-\chi \beta
+\right) }C\right\}   \notag \\
+&=&\beta ^{T}\left( Cx-I\right) ^{T}A\left( Cx-I\right) \beta +tr\left\{
+ACC^{T}\underbrace{E\left( \hat{\beta}-\beta \right) \left( \hat{\beta}%
+-\beta \right) ^{T}}\right\}   \notag \\
+&=&\underset{1}{\underbrace{\beta ^{T}\left( Cx-I\right) ^{T}A\left(
+Cx-I\right) \beta }}+tr\left\{ ACC^{T}\sigma ^{2}I\right\} 
+\end{eqnarray}
+
+\begin{eqnarray*}
+1 &=&\beta ^{T}T^{\frac{1}{2}}\underset{\tilde{A}}{\underbrace{\left[ T^{-%
+\frac{1}{2}}\left( Cx-I\right) ^{T}A\left( Cx-I\right) T^{-\frac{1}{2}}%
+\right] }}T^{\frac{1}{2}}\beta  \\
+&=&%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{T}T^{\frac{1}{2}}\tilde{A}T^{\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\end{eqnarray*}%
+hence $R_{1}\left( CY,\beta ,A\right) =%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{T}T^{\frac{1}{2}}\tilde{A}T^{\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
++tr\left\{ ACC^{T}\sigma ^{2}I\right\} $
+
+\begin{equation}
+\underset{\beta ^{T}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq k}{\sup }\qquad R_{1}\left( CI,\beta ,A\right) =tr\left\{ ACC^{T}\sigma
+^{2}I\right\} +k\lambda _{\max }\left( \tilde{A}\right) 
+\end{equation}%
+want to a closed from for C
+
+\bigskip 
+
+Consider $A=aa^{T}$, then $\left( \hat{\beta}-\beta \right) ^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}\left( \hat{\beta}-\beta \right) =\left( a^{T}\hat{\beta}-a^{T}\beta
+\right) ^{T}\left( a^{T}\hat{\beta}-a^{T}\beta \right) $
+
+for this $A=aa^{T}$, 
+\begin{equation}
+\tilde{A}=\left[ T^{-\frac{1}{2}}\left( Cx-I\right) ^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right] \left[ 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}\left( Cx-I\right) T^{-\frac{1}{2}}\right] =\tilde{a}\tilde{a}^{T}
+\end{equation}
+
+Note:{}
+
+\begin{enumerate}
+\item aa$^{T}$ is monnegative $\tilde{a}\tilde{a}^{T}x=\lambda x$, take $x=%
+\tilde{a}$, $\lambda =\tilde{a}^{T}\tilde{a}$
+
+\item $rank\left( aa^{T}\right) =1$, meaning eigenvalue = 1 is the only one,
+the rest are zeros
+\end{enumerate}
+
+\bigskip 
+
+\paragraph{November 24}
+
+\begin{equation*}
+R_{1}=E\left( CC%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) ^{T}A\left( CC%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) \qquad \beta ^{T}T\beta \leq k\qquad \text{no closed form}
+\end{equation*}%
+\bigskip 
 
 \part{The Generalized Linear Regression Model}
 
