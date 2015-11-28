@@ -1,6 +1,10 @@
+%\input{tcilatex}
+
 
 \documentclass{article}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{accents}
@@ -13,7 +17,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Saturday, November 28, 2015 11:01:14}
+%TCIDATA{LastRevised=Saturday, November 28, 2015 15:24:40}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -44,8 +48,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
-%\input{tcilatex}
 
 \begin{document}
 
@@ -235,11 +237,11 @@ Consider $\hat{\beta}=C%
 $
 
 \begin{eqnarray}
-R_{1}\left( CY,\beta ,A\right)  &=&E\left\{ \left( CY-B\right) ^{T}A\left(
-CY-B\right) \right\}   \notag \\
+R_{1}\left( CY,\beta ,A\right) &=&E\left\{ \left( CY-B\right) ^{T}A\left(
+CY-B\right) \right\}  \notag \\
 &=&E\left\{ \left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi \beta -B}%
 \right) ^{T}A\left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi \beta -B}%
-\right) \right\}   \notag \\
+\right) \right\}  \notag \\
 &=&\left( C\chi 
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
@@ -260,23 +262,23 @@ CY-B\right) \right\}   \notag \\
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-\right)   \notag \\
+\right)  \notag \\
 &&+E\left\{ \left( CY-C\chi \beta \right) ^{T}A\left( CY-C\chi \beta \right)
-\right\}   \notag \\
+\right\}  \notag \\
 &=&\beta ^{T}\left( C\chi -I\right) A\left( C\chi -I\right) \beta +E\left\{
 C^{T}\underbrace{\left( Y-\chi \beta \right) ^{T}A\left( Y-\chi \beta
-\right) }C\right\}   \notag \\
+\right) }C\right\}  \notag \\
 &=&\beta ^{T}\left( Cx-I\right) ^{T}A\left( Cx-I\right) \beta +tr\left\{
 ACC^{T}\underbrace{E\left( \hat{\beta}-\beta \right) \left( \hat{\beta}%
--\beta \right) ^{T}}\right\}   \notag \\
+-\beta \right) ^{T}}\right\}  \notag \\
 &=&\underset{1}{\underbrace{\beta ^{T}\left( Cx-I\right) ^{T}A\left(
-Cx-I\right) \beta }}+tr\left\{ ACC^{T}\sigma ^{2}I\right\} 
+Cx-I\right) \beta }}+tr\left\{ ACC^{T}\sigma ^{2}I\right\}
 \end{eqnarray}
 
 \begin{eqnarray*}
 1 &=&\beta ^{T}T^{\frac{1}{2}}\underset{\tilde{A}}{\underbrace{\left[ T^{-%
 \frac{1}{2}}\left( Cx-I\right) ^{T}A\left( Cx-I\right) T^{-\frac{1}{2}}%
-\right] }}T^{\frac{1}{2}}\beta  \\
+\right] }}T^{\frac{1}{2}}\beta \\
 &=&%
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
@@ -307,13 +309,22 @@ hence $R_{1}\left( CY,\beta ,A\right) =%
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
 \leq k}{\sup }\qquad R_{1}\left( CI,\beta ,A\right) =tr\left\{ ACC^{T}\sigma
-^{2}I\right\} +k\lambda _{\max }\left( \tilde{A}\right) 
+^{2}I\right\} +k\lambda _{\max }\left( \tilde{A}\right)
 \end{equation}%
 want to a closed from for C
 
-\bigskip 
+\bigskip
 
-Consider $A=aa^{T}$, then $\left( \hat{\beta}-\beta \right) ^{T}%
+Consider $A=%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}$, then $\left( \hat{\beta}-\beta \right) ^{T}%
 %TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
 %BeginExpansion
 \underaccent{\wtilde}{a}%
@@ -325,7 +336,16 @@ Consider $A=aa^{T}$, then $\left( \hat{\beta}-\beta \right) ^{T}%
 ^{T}\left( \hat{\beta}-\beta \right) =\left( a^{T}\hat{\beta}-a^{T}\beta
 \right) ^{T}\left( a^{T}\hat{\beta}-a^{T}\beta \right) $
 
-for this $A=aa^{T}$, 
+for this $A=%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}$, 
 \begin{equation}
 \tilde{A}=\left[ T^{-\frac{1}{2}}\left( Cx-I\right) ^{T}%
 %TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
@@ -350,12 +370,12 @@ Note:{}
 the rest are zeros
 \end{enumerate}
 
-\bigskip 
+\bigskip
 
 \paragraph{November 24}
 
-\begin{equation*}
-R_{1}=E\left( CC%
+\begin{eqnarray*}
+R_{1} &=&E\left( CC%
 %TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
@@ -375,8 +395,172 @@ R_{1}=E\left( CC%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-\right) \qquad \beta ^{T}T\beta \leq k\qquad \text{no closed form}
+\right) \qquad \beta ^{T}T\beta \leq k\qquad \text{no closed form} \\
+R_{2} &=&E\left( CC%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) ^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}\left( CC%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) 
+\end{eqnarray*}
+
+\begin{eqnarray}
+&&\underset{\beta ^{T}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq k}{\sup }\qquad E\left( CC%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) ^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}\left( CC%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right)   \notag \\
+&=&\sigma ^{2}tr\left( 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}CC^{T}\right) +k\underset{\lambda =%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+}{\underbrace{%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}\left( Cx-I\right) T^{-1}\left( Cx-I\right) ^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+}}
+\end{eqnarray}
+
+\begin{equation*}
+\frac{\partial }{\partial C}\left\{ \underset{\beta ^{T}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq k}{\sup }\qquad R_{2}\right\} =\sigma ^{2}2C^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
++2kxT^{-1}\left( Cx-I\right) ^{T}aa^{T}=0
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left[ \left( \sigma ^{2}I+kxT^{-1}x^{T}\right) C^{T}-kxT^{-1}%
+\right] 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{T}=0\qquad \forall \quad 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left[ \left( \sigma ^{2}I+kxT^{-1}x^{T}\right) C^{T}-kxT^{-1}%
+\right] =0
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left( \sigma ^{2}I+kxT^{-1}x^{T}\right) C^{T}=kxT^{-1}
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow C_{\ast }^{T}=k\left( \sigma ^{2}I+kxT^{-1}x^{T}\right)
+^{-1}xT^{-1}
 \end{equation*}%
+so%
+\begin{eqnarray*}
+\left( \sigma ^{2}T+kx^{T}x\right) C_{\ast } &=&k\left( \sigma
+^{2}T+kx^{T}x\right) T^{-1}x^{T}\left( \sigma ^{2}I+kxT^{-1}x^{T}\right)
+^{-1} \\
+&=&kx^{T}\left( \sigma ^{2}I+kxT^{-1}x^{T}\right) \left( \sigma
+^{2}I+kxT^{-1}x^{T}\right) ^{-1} \\
+&=&kx^{T}
+\end{eqnarray*}
+
+\begin{equation*}
+\therefore \qquad C_{\ast }=\left( \sigma ^{2}T+kx^{T}x^{-1}\right)
+kx^{T}=\left( x^{T}x+\frac{\sigma ^{2}}{k}T\right) ^{-1}x^{T}
+\end{equation*}
+
 \bigskip 
 
 \part{The Generalized Linear Regression Model}
