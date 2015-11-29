@@ -1,10 +1,7 @@
-%\input{tcilatex}
-
 
 \documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amssymb}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{accents}
@@ -17,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Saturday, November 28, 2015 15:24:40}
+%TCIDATA{LastRevised=Sunday, November 29, 2015 15:17:45}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -48,6 +45,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
+
 
 \begin{document}
 
@@ -227,7 +225,7 @@ $ if%
 
 \bigskip
 
-\subsubsection{Linear Minimax Estimator}
+\paragraph{Linear Minimax Estimator}
 
 Consider $\hat{\beta}=C%
 %TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
@@ -237,11 +235,11 @@ Consider $\hat{\beta}=C%
 $
 
 \begin{eqnarray}
-R_{1}\left( CY,\beta ,A\right) &=&E\left\{ \left( CY-B\right) ^{T}A\left(
-CY-B\right) \right\}  \notag \\
+R_{1}\left( CY,\beta ,A\right) &=&E\left\{ \left( CY-B\right) ^{\dagger
+}A\left( CY-B\right) \right\}  \notag \\
 &=&E\left\{ \left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi \beta -B}%
-\right) ^{T}A\left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi \beta -B}%
-\right) \right\}  \notag \\
+\right) ^{\dagger }A\left( \underbrace{CY-C\chi \beta }+\underbrace{C\chi
+\beta -B}\right) \right\}  \notag \\
 &=&\left( C\chi 
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
@@ -252,7 +250,7 @@ CY-B\right) \right\}  \notag \\
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-\right) ^{T}A\left( C\chi 
+\right) ^{\dagger }A\left( C\chi 
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
@@ -263,16 +261,16 @@ CY-B\right) \right\}  \notag \\
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
 \right)  \notag \\
-&&+E\left\{ \left( CY-C\chi \beta \right) ^{T}A\left( CY-C\chi \beta \right)
-\right\}  \notag \\
+&&+E\left\{ \left( CY-C\chi \beta \right) ^{\dagger }A\left( CY-C\chi \beta
+\right) \right\}  \notag \\
 &=&\beta ^{T}\left( C\chi -I\right) A\left( C\chi -I\right) \beta +E\left\{
-C^{T}\underbrace{\left( Y-\chi \beta \right) ^{T}A\left( Y-\chi \beta
-\right) }C\right\}  \notag \\
-&=&\beta ^{T}\left( Cx-I\right) ^{T}A\left( Cx-I\right) \beta +tr\left\{
-ACC^{T}\underbrace{E\left( \hat{\beta}-\beta \right) \left( \hat{\beta}%
--\beta \right) ^{T}}\right\}  \notag \\
-&=&\underset{1}{\underbrace{\beta ^{T}\left( Cx-I\right) ^{T}A\left(
-Cx-I\right) \beta }}+tr\left\{ ACC^{T}\sigma ^{2}I\right\}
+C^{\dagger }\underbrace{\left( Y-\chi \beta \right) ^{\dagger }A\left(
+Y-\chi \beta \right) }C\right\}  \notag \\
+&=&\beta ^{T}\left( Cx-I\right) ^{\dagger }A\left( Cx-I\right) \beta
++tr\left\{ ACC^{\dagger }\underbrace{E\left( \hat{\beta}-\beta \right)
+\left( \hat{\beta}-\beta \right) ^{\dagger }}\right\}  \notag \\
+&=&\underset{1}{\underbrace{\beta ^{T}\left( Cx-I\right) ^{\dagger }A\left(
+Cx-I\right) \beta }}+tr\left\{ ACC^{\dagger }\sigma ^{2}I\right\}
 \end{eqnarray}
 
 \begin{eqnarray*}
@@ -284,7 +282,7 @@ Cx-I\right) \beta }}+tr\left\{ ACC^{T}\sigma ^{2}I\right\}
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-^{T}T^{\frac{1}{2}}\tilde{A}T^{\frac{1}{2}}%
+^{\dagger }T^{\frac{1}{2}}\tilde{A}T^{\frac{1}{2}}%
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
@@ -295,21 +293,21 @@ hence $R_{1}\left( CY,\beta ,A\right) =%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-^{T}T^{\frac{1}{2}}\tilde{A}T^{\frac{1}{2}}%
+^{\dagger }T^{\frac{1}{2}}\tilde{A}T^{\frac{1}{2}}%
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-+tr\left\{ ACC^{T}\sigma ^{2}I\right\} $
++tr\left\{ ACC^{\dagger }\sigma ^{2}I\right\} $
 
 \begin{equation}
-\underset{\beta ^{T}T%
+\underset{\beta ^{\dagger }T%
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-\leq k}{\sup }\qquad R_{1}\left( CI,\beta ,A\right) =tr\left\{ ACC^{T}\sigma
-^{2}I\right\} +k\lambda _{\max }\left( \tilde{A}\right)
+\leq k}{\sup }\qquad R_{1}\left( CI,\beta ,A\right) =tr\left\{ ACC^{\dagger
+}\sigma ^{2}I\right\} +k\lambda _{\max }\left( \tilde{A}\right)
 \end{equation}%
 want to a closed from for C
 
@@ -324,7 +322,7 @@ Consider $A=%
 %BeginExpansion
 \underaccent{\wtilde}{a}%
 %EndExpansion
-^{T}$, then $\left( \hat{\beta}-\beta \right) ^{T}%
+^{\dagger }$, then $\left( \hat{\beta}-\beta \right) ^{T}%
 %TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
 %BeginExpansion
 \underaccent{\wtilde}{a}%
@@ -333,8 +331,9 @@ Consider $A=%
 %BeginExpansion
 \underaccent{\wtilde}{a}%
 %EndExpansion
-^{T}\left( \hat{\beta}-\beta \right) =\left( a^{T}\hat{\beta}-a^{T}\beta
-\right) ^{T}\left( a^{T}\hat{\beta}-a^{T}\beta \right) $
+^{\dagger }\left( \hat{\beta}-\beta \right) =\left( a^{\dagger }\hat{\beta}%
+-a^{\dagger }\beta \right) ^{\dagger }\left( a^{\dagger }\hat{\beta}%
+-a^{\dagger }\beta \right) $
 
 for this $A=%
 %TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
@@ -347,7 +346,7 @@ for this $A=%
 %EndExpansion
 ^{T}$, 
 \begin{equation}
-\tilde{A}=\left[ T^{-\frac{1}{2}}\left( Cx-I\right) ^{T}%
+\tilde{A}=\left[ T^{-\frac{1}{2}}\left( Cx-I\right) ^{\dagger }%
 %TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
 %BeginExpansion
 \underaccent{\wtilde}{a}%
@@ -357,14 +356,15 @@ for this $A=%
 %BeginExpansion
 \underaccent{\wtilde}{a}%
 %EndExpansion
-^{T}\left( Cx-I\right) T^{-\frac{1}{2}}\right] =\tilde{a}\tilde{a}^{T}
+^{\dagger }\left( Cx-I\right) T^{-\frac{1}{2}}\right] =\tilde{a}\tilde{a}%
+^{\dagger }
 \end{equation}
 
 Note:{}
 
 \begin{enumerate}
-\item aa$^{T}$ is monnegative $\tilde{a}\tilde{a}^{T}x=\lambda x$, take $x=%
-\tilde{a}$, $\lambda =\tilde{a}^{T}\tilde{a}$
+\item aa$^{\dagger }$ is monnegative $\tilde{a}\tilde{a}^{\dagger }x=\lambda
+x$, take $x=\tilde{a}$, $\lambda =\tilde{a}^{\dagger }\tilde{a}$
 
 \item $rank\left( aa^{T}\right) =1$, meaning eigenvalue = 1 is the only one,
 the rest are zeros
@@ -425,11 +425,11 @@ R_{2} &=&E\left( CC%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-\right) 
+\right)
 \end{eqnarray*}
 
 \begin{eqnarray}
-&&\underset{\beta ^{T}T%
+&&\underset{\beta ^{\dagger }T%
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
@@ -560,6 +560,166 @@ so%
 \therefore \qquad C_{\ast }=\left( \sigma ^{2}T+kx^{T}x^{-1}\right)
 kx^{T}=\left( x^{T}x+\frac{\sigma ^{2}}{k}T\right) ^{-1}x^{T}
 \end{equation*}
+
+\begin{equation*}
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+=CT\qquad \Rightarrow \hat{\beta}_{\ast }=C_{\ast }T=\left( x^{\dagger }x+%
+\frac{\sigma ^{2}}{k}T\right) ^{-1}x^{\dagger }Y\qquad \beta ^{\dagger
+}T\beta \leq k
+\end{equation*}
+
+\begin{enumerate}
+\item LSE: $%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+_{LSE}=\left( x^{\dagger }x\right) ^{-1}x^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_T}{\underaccent{\wtilde}{T}}}%
+%BeginExpansion
+\underaccent{\wtilde}{T}%
+%EndExpansion
+$
+
+\item Ridge: $%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+_{R}=\left( x^{\dagger }x+kI\right) ^{-1}x^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+$
+
+\item MinMax: $%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+_{\ast }=\left( x^{\dagger }x+\frac{\sigma ^{2}}{k}T\right) ^{-1}x^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+$
+\end{enumerate}
+
+\begin{theorem}
+In the model $Y=x\beta +\epsilon \qquad 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\sim N\left( o,\sigma ^{2}I\right) $ with the restriction $\beta ^{\dagger
+}T\beta \leq k$ , $T>0$ and the risk function $R_{2}\left( \hat{\beta},\beta
+,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\right) $ the linear minimax estimator of the following form%
+\begin{equation*}
+\underline{\hat{\beta}_{\ast }=\left( x^{\dagger }x+\frac{\sigma ^{2}}{k}%
+T\right) ^{-1}x^{\dagger }Y}=D_{t}^{-1}x^{\dagger }T
+\end{equation*}%
+\begin{eqnarray*}
+bias\left( \hat{\beta}_{\ast },\beta \right)  &=&E\left( \hat{\beta}_{\ast
+}\right) -\beta =D_{t}^{-1}x^{\dagger }x\beta -\beta =\left(
+D_{t}^{-1}x^{\dagger }x-I\right) 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}} }%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}
+%EndExpansion
+\\
+&=&\left( D_{t}^{-1}x^{\dagger }x-D_{t}\right) 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+=-\frac{\sigma ^{2}}{k}D_{t}^{-1}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+<0
+\end{eqnarray*}%
+\begin{equation*}
+Var\left( \hat{\beta}_{\ast }\right) =Var\left( D_{t}^{-1}x^{\dagger
+}Y\right) =D_{t}^{-1}x^{\dagger }xD_{t}^{-1}\sigma ^{2}
+\end{equation*}%
+And the minimax risk%
+\begin{equation*}
+\underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad R_{2}\left( \hat{\beta%
+}_{\ast },\beta ,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }D_{t}^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+Given the assumptions of the above theorem and the restriction $\left( \beta
+-\beta _{0}\right) ^{\dagger }T\left( \beta -\beta _{0}\right) \leq k$ with
+central point $\beta _{0}\neq 0$ then the linear minimax estimator is of the
+following form%
+\begin{equation*}
+\hat{\beta}_{\ast }\left( \beta _{0}\right) =\beta _{0}+D^{-1}x^{\dagger
+}\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\beta _{0}\right) 
+\end{equation*}%
+with bias,%
+\begin{equation*}
+bias\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,\beta \right) =\frac{%
+\sigma ^{2}}{k}D_{t}^{-1}T\left( \beta -\beta _{0}\right) 
+\end{equation*}%
+\begin{equation*}
+\sup \qquad R_{2}\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =\sigma ^{2}a^{\dagger }D_{t}^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation*}
+\end{theorem}
+
+\bigskip 
 
 \bigskip 
 
