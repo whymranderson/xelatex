@@ -5,7 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{accents}
-\usepackage[ignoreall]{geometry}
+\usepackage[ignoreall,a4paper]{geometry}
 \usepackage{fancyhdr}
 
 \setcounter{MaxMatrixCols}{10}
@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Sunday, November 29, 2015 15:17:45}
+%TCIDATA{LastRevised=Monday, November 30, 2015 16:03:50}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -463,7 +463,7 @@ R_{2} &=&E\left( CC%
 %BeginExpansion
 \underaccent{\wtilde}{\beta}%
 %EndExpansion
-\right)   \notag \\
+\right)  \notag \\
 &=&\sigma ^{2}tr\left( 
 %TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
 %BeginExpansion
@@ -636,7 +636,7 @@ In the model $Y=x\beta +\epsilon \qquad
 T\right) ^{-1}x^{\dagger }Y}=D_{t}^{-1}x^{\dagger }T
 \end{equation*}%
 \begin{eqnarray*}
-bias\left( \hat{\beta}_{\ast },\beta \right)  &=&E\left( \hat{\beta}_{\ast
+bias\left( \hat{\beta}_{\ast },\beta \right) &=&E\left( \hat{\beta}_{\ast
 }\right) -\beta =D_{t}^{-1}x^{\dagger }x\beta -\beta =\left(
 D_{t}^{-1}x^{\dagger }x-I\right) 
 %TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}} }%
@@ -693,12 +693,12 @@ following form%
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
 %EndExpansion
--x\beta _{0}\right) 
+-x\beta _{0}\right)
 \end{equation*}%
 with bias,%
 \begin{equation*}
 bias\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,\beta \right) =\frac{%
-\sigma ^{2}}{k}D_{t}^{-1}T\left( \beta -\beta _{0}\right) 
+\sigma ^{2}}{k}D_{t}^{-1}T\left( \beta -\beta _{0}\right)
 \end{equation*}%
 \begin{equation*}
 \sup \qquad R_{2}\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,%
@@ -719,9 +719,460 @@ bias\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,\beta \right) =\frac{%
 \end{equation*}
 \end{theorem}
 
-\bigskip 
+\bigskip
 
-\bigskip 
+\begin{theorem}
+In the model $Y=x\beta +\epsilon \qquad 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\sim N\left( o,\sigma ^{2}I\right) $ with the restriction $\beta ^{\dagger
+}T\beta \leq k$ , $T>0$ and the risk function $R_{2}\left( \hat{\beta},\beta
+,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\right) $ the linear minimax estimator of the following form%
+\begin{equation*}
+\underline{\hat{\beta}_{\ast }=\left( x^{\dagger }x+\frac{\sigma ^{2}}{k}%
+T\right) ^{-1}x^{\dagger }Y}=D_{t}^{-1}x^{\dagger }T
+\end{equation*}%
+\begin{eqnarray*}
+bias\left( \hat{\beta}_{\ast },\beta \right) &=&E\left( \hat{\beta}_{\ast
+}\right) -\beta =D_{t}^{-1}x^{\dagger }x\beta -\beta =\left(
+D_{t}^{-1}x^{\dagger }x-I\right) 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}} }%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}
+%EndExpansion
+\\
+&=&\left( D_{t}^{-1}x^{\dagger }x-D_{t}\right) 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+=-\frac{\sigma ^{2}}{k}D_{t}^{-1}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+<0
+\end{eqnarray*}%
+\begin{equation*}
+Var\left( \hat{\beta}_{\ast }\right) =Var\left( D_{t}^{-1}x^{\dagger
+}Y\right) =D_{t}^{-1}x^{\dagger }xD_{t}^{-1}\sigma ^{2}
+\end{equation*}%
+And the minimax risk%
+\begin{equation*}
+\underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad R_{2}\left( \hat{\beta%
+}_{\ast },\beta ,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }D_{t}^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+Given the assumptions of the above theorem and the restriction $\left( \beta
+-\beta _{0}\right) ^{\dagger }T\left( \beta -\beta _{0}\right) \leq k$ with
+central point $\beta _{0}\neq 0$ then the linear minimax estimator is of the
+following form%
+\begin{equation*}
+\hat{\beta}_{\ast }\left( \beta _{0}\right) =\beta _{0}+D^{-1}x^{\dagger
+}\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\beta _{0}\right)
+\end{equation*}%
+with bias,%
+\begin{equation*}
+bias\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,\beta \right) =\frac{%
+\sigma ^{2}}{k}D_{t}^{-1}T\left( \beta -\beta _{0}\right)
+\end{equation*}%
+\begin{equation*}
+\sup \qquad R_{2}\left( \hat{\beta}_{\ast }\left( \beta _{0}\right) ,%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =\sigma ^{2}a^{\dagger }D_{t}^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation*}
+\end{theorem}
+
+\bigskip
+
+\begin{equation*}
+Y=x\beta +\epsilon \qquad \beta ^{\dagger }T\beta \leq k\qquad \leq \left(
+\beta -\beta _{0}\right) ^{\dagger }T\left( \beta -\beta _{0}\right) \leq k
+\end{equation*}%
+\begin{equation*}
+\Rightarrow Y=x\left( \beta -\beta _{0}\right) +x\beta _{0}+\varepsilon
+\Rightarrow Y-x\beta _{0}=x\left( \beta -\beta _{0}\right) +\varepsilon
+\end{equation*}%
+\begin{equation*}
+\Rightarrow Y^{^{\prime }}=x\beta ^{^{\prime }}+\varepsilon
+\end{equation*}
+
+\bigskip
+
+\begin{eqnarray*}
+bias &=&\beta _{0}+D_{t}^{-1}x^{\dagger }x\beta -x\beta _{0}-\beta \\
+&=&\left( I-x\right) \beta _{0}+\left( D_{t}^{-1}x^{\dagger }x-I\right) \beta
+\\
+&=&\left( I-x\right) \beta _{0}-\frac{\sigma ^{2}}{k}D_{t}^{-1}T\beta
+\end{eqnarray*}
+
+\bigskip
+
+\begin{equation*}
+\widehat{\left( \beta -\beta _{0}\right) }_{\ast }=D_{\ast }^{-1}x^{\dagger
+}Y^{^{\prime }}\Rightarrow \hat{\beta}_{\ast }=\beta _{0}+D_{\ast
+}^{-1}x^{\dagger }\left( \tilde{Y}-x\beta \right) \quad _{\#}
+\end{equation*}%
+\qquad \qquad
+
+\bigskip
+
+\paragraph{Comparisions of $\hat{\protect\beta}_{\ast }$ and $\hat{\protect%
+\beta}_{OLE}$}
+
+November 26
+
+Minimax risk for $\hat{\beta}_{OLE}$
+
+\begin{equation}
+\blacktriangle \qquad \underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad
+R_{2}\left( \hat{\beta}_{OLE};%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\text{\c{S}}^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation}%
+where \c{S}$=x^{\dagger }x$
+
+since $\underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad R_{2}\left( CY;%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =ka^{\dagger }\left[ \left( Cx-I\right) T^{-1}\left( Cx-I\right)
+^{\dagger }\right] 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
++tr\left( 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }CC^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) \sigma ^{2}$
+
+for OL\c{S}E $\hat{\beta}=\left( x^{\dagger }x\right) ^{-1}x^{\dagger
+}Y\Rightarrow C=\left( x^{\dagger }x\right) ^{-1}x^{\dagger }\Rightarrow
+Cx-I=\left( x^{\dagger }x\right) ^{-1}x^{\dagger }x-I=0$
+
+\begin{equation}
+\blacktriangle \qquad \underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad
+R_{2}\left( \hat{\beta}_{\ast };%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =\sigma ^{2}a^{\dagger }D_{\ast }^{-1}a=\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\left( x^{\dagger }x+\frac{\sigma ^{2}}{k}\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\end{equation}
+
+\bigskip
+
+\begin{enumerate}
+\item $\underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad R_{2}\left( 
+\hat{\beta}_{OLE};%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) -\underset{\beta ^{\dagger }T\beta \leq k}{\sup }\qquad R_{2}\left( 
+\hat{\beta}_{\ast };%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =$%
+\begin{eqnarray*}
+&&\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\text{\c{S}}^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+-\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\left( x^{\dagger }x+\frac{\sigma ^{2}}{k}T\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}} }%
+%BeginExpansion
+\underaccent{\wtilde}{a}
+%EndExpansion
+\\
+&=&\sigma ^{2}%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\left[ \text{\c{S}}-\left( x^{\dagger }x+\frac{\sigma ^{2}}{k}%
+T\right) ^{-1}\right] 
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\geq 0
+\end{eqnarray*}%
+Since \c{S}$-\left( \frac{\sigma ^{2}}{k}T+\text{\c{S}}\right) ^{-1}\leq
+0\quad \Rightarrow $\c{S}$^{-1}-\left( \frac{\sigma ^{2}}{k}T+\text{\c{S}}%
+\right) ^{-1}\geq 0$. (i.e. Minimax risk is smaller)
+
+\item MDE-I superiority:%
+\begin{eqnarray*}
+M\left( \hat{\beta}_{\ast };\beta \right) &=&E\left[ \left( \hat{\beta}%
+_{\ast }-\beta \right) \left( \hat{\beta}_{\ast }-\beta \right) ^{\dagger }%
+\right] \\
+&=&Var\left( \hat{\beta}_{\ast }\right) +bias\cdot bias \\
+&=&\sigma ^{2}D_{\ast }^{-1}\text{\c{S}}D_{\ast }^{-1}+\left( \frac{\sigma
+^{2}}{k}D_{\ast }^{-1}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) \left( \frac{\sigma ^{2}}{k}D_{\ast }^{-1}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) ^{\dagger } \\
+&=&\sigma ^{2}D_{\ast }^{-1}\left( \text{\c{S}}+\frac{\sigma ^{2}}{k}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T^{\dagger }\right) D_{\ast }^{-1}
+\end{eqnarray*}%
+\begin{equation*}
+\bigtriangleup \left( \hat{\beta}_{OLE}-\hat{\beta}_{\ast }\right) =\sigma
+^{2}\text{\c{S}}^{-1}-\sigma ^{2}D_{\ast }^{-1}\left( \text{\c{S}}+\frac{%
+\sigma ^{2}}{k}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T^{\dagger }\right) D_{\ast }^{-1}\geq 0
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow \sigma ^{2}D_{\ast }^{-1}\underset{B}{\underline{\left(
+D_{\ast }^{{}}\text{\c{S}}D_{\ast }^{-1}-\text{\c{S}}-\frac{\sigma ^{2}}{k}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T^{\dagger }\right) }}D_{\ast }^{-1}\geq 0
+\end{equation*}%
+\begin{equation*}
+D=x^{\dagger }x+\frac{\sigma ^{2}}{k}T
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow B\geq 0
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow B=\frac{\sigma ^{4}}{k^{2}}T\left[ \text{\c{S}}^{-1}+2\frac{k%
+}{\sigma ^{2}}T^{-1}-\frac{1}{\sigma ^{2}}\beta \beta ^{\dagger }\right] T%
+\text{ \ \ \ substitute D}
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow \left[ \underset{\tilde{C}}{\underline{S^{-1}+2\frac{k}{%
+\sigma ^{2}}T^{-1}}}-\frac{1}{\sigma ^{2}}\beta \beta ^{\dagger }\right]
+\geq 0
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow \tilde{C}=S^{-1}+2\frac{k}{\sigma ^{2}}T^{-1}
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow \frac{\sigma ^{4}}{k^{2}}T\tilde{C}^{\frac{1}{2}}\left[ I-%
+\frac{1}{\sigma ^{2}}\tilde{C}^{-\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }\tilde{C}^{-\frac{1}{2}}\right] \tilde{C}^{-\frac{1}{2}}T\geq 0
+\end{equation*}
+\end{enumerate}
+
+by Thm A.46 $\Leftrightarrow I-\frac{1}{\sigma ^{2}}\tilde{C}^{-\frac{1}{2}%
+}\beta \beta ^{\dagger }\tilde{C}^{-\frac{1}{2}}\geq 0$
+
+by Thm A.57 $\Leftrightarrow \frac{1}{\sigma ^{2}}\beta ^{\dagger }\tilde{C}%
+^{-\frac{1}{2}}\tilde{C}^{-\frac{1}{2}}\beta \leq 1$
+
+$\Leftrightarrow \frac{1}{\sigma ^{2}}%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }\left( S^{-1}+2\frac{k}{\sigma ^{2}}T^{-1}\right) ^{-1}\beta \leq
+1$
+
+by Thm A.40 $\left( 2\frac{k}{\sigma ^{2}}T^{-1}\right) ^{-1}-\left( S^{-1}+2%
+\frac{k}{\sigma ^{2}}T^{-1}\right) ^{-1}\geq 0$
+
+so $\frac{1}{\sigma ^{2}}%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }\frac{\sigma ^{2}}{2k}-%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+=\frac{1}{2k}%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq 1$ $\Rightarrow $\underline{$%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq 2k$}
+
+$\Rightarrow \hat{\beta}_{\ast }$ is best when $%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq k$
+
+by MDE $%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\leq 2k$ is the best compared to OLE. (initially set to $\leq k$, but can
+relax to 2k)
+
+\bigskip
+
+\begin{equation*}
+\hat{\beta}_{\ast }:bias=-\frac{\sigma ^{2}}{k}D_{t}^{-1}T%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,\qquad Var\left( \hat{\beta}_{\ast }\right) =\sigma
+^{2}D_{t}^{-1}x^{\dagger }xD_{t}^{-1}=\sigma ^{2}D_{t}^{-1}\text{\c{S}}%
+D_{t}^{-1}
+\end{equation*}%
+\begin{equation*}
+\hat{\beta}_{OLE}:bias=0,\qquad Var\left( \hat{\beta}_{OLE}\right) =\sigma
+^{2}\text{\c{S}}^{-1}
+\end{equation*}
+
+\pagebreak
+
+\bigskip
 
 \part{The Generalized Linear Regression Model}
 
