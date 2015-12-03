@@ -1,0 +1,241 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Thursday, December 03, 2015 16:58:56}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+
+\part{The Generalized Linear Regression Model}
+
+\begin{equation*}
+Y=x\beta +%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\quad E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =0\quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =\sigma ^{2}W,\quad W=p\cdot d\cdot m
+\end{equation*}%
+rank(x)=k, we want to estimate $%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+$
+
+W know
+
+Consider linear in the response vector $%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+,$ $\hat{\beta}=CY+%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+$%
+\begin{equation*}
+R_{1}\left( \tilde{\beta},\beta ,A\right) =E\left( \left( \tilde{\beta}%
+-\beta \right) ^{\dagger }A\left( \tilde{\beta}-\beta \right) \right) \qquad
+A=pdm
+\end{equation*}%
+\begin{equation*}
+R_{2}\left( \tilde{\beta},\beta ,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\right) =E\left( \left( \tilde{\beta}-\beta \right) ^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\left( \tilde{\beta}-\beta \right) \right) 
+\end{equation*}%
+\begin{equation*}
+R_{3}\left( \tilde{\beta},\beta \right) =E\left( \left( Y-x\tilde{\beta}%
+\right) ^{\dagger }W^{-1}\left( Y-x\tilde{\beta}\right) \right) 
+\end{equation*}
+
+\paragraph{R$_{1}$-optional estimators}
+
+\begin{enumerate}
+\item heterogeneious case $\tilde{\beta}=CY+d$%
+\begin{equation*}
+\tilde{\beta}-\beta =CY+d-\beta =C\left( x\beta +\varepsilon \right)
++d-\beta =\left( Cx-I\right) \beta +d+C\varepsilon 
+\end{equation*}%
+\begin{equation*}
+R_{1}\left( 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,\beta ,A\right) =E\left[ \left( Cx-I\right) \beta +d+C\varepsilon \right]
+^{\dagger }A\left[ \left( Cx-I\right) \beta +d+C\varepsilon \right] 
+\end{equation*}%
+\begin{equation*}
+=\left[ \left( Cx-I\right) \beta +d\right] ^{\dagger }A\left[ \left(
+Cx-I\right) \beta +d\right] +E\left[ \left( C\varepsilon \right) ^{\dagger
+}A\left( C\varepsilon \right) \right] 
+\end{equation*}%
+Consider $%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+=-\left( Cx-I\right) \beta $%
+\begin{eqnarray}
+\min \quad R_{1}\left( 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,\beta ,A\right)  &=&\underset{C}{\min }\quad E\left[ \left( C\varepsilon
+\right) ^{\dagger }A\left( C\varepsilon \right) \right]   \notag \\
+&=&\underset{C}{\min }\quad E\left[ \varepsilon ^{\dagger }C^{\dagger
+}AC\varepsilon \right]   \notag \\
+&&\underset{C}{=\min }\quad tr\left( ACE\left( \varepsilon ^{\dagger
+}\varepsilon \right) C^{\dagger }\right)   \notag \\
+&&\underset{C}{=\min }\quad tr\left\{ \sigma ^{2}ACWC^{\dagger }\right\} 
+\underline{\qquad }\left( \ast \right) 
+\end{eqnarray}%
+$\frac{\partial \left( \ast \right) }{\partial C}=0$ by Thm A.93\symbol{126}%
+A.95, $\Rightarrow 2\sigma ^{2}ACW=0\quad \Rightarrow C=0,$ $\because \tilde{%
+\beta}=CY+%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+,$ $C=0,$ $\tilde{\beta}=%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\quad $usefullness$_{\#}$
+
+\item homo case $\tilde{\beta}=CY$%
+\begin{equation*}
+R_{1}\left( \tilde{\beta},\beta ,A\right) =E\left[ \left( Cx-I\right) \beta %
+\right] ^{\dagger }A\left[ \left( Cx-I\right) \beta \right] +tr\left\{
+\sigma ^{2}ACWC^{\dagger }\right\} 
+\end{equation*}%
+\begin{equation*}
+\frac{\partial R_{1}}{\partial C}=2A\left[ C\left( x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }x^{\dagger }\right) -\beta \beta ^{\dagger }x^{\dagger }\right] =0
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \tilde{C}_{2}=\beta \beta ^{\dagger }x^{\dagger }\left( x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }x^{\dagger }+\sigma ^{2}W\right) ^{-1}
+\end{equation*}
+\end{enumerate}
+
+\bigskip 
+
+December 1
+
+\begin{equation*}
+Y=x\beta +\varepsilon \quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =W
+\end{equation*}%
+where W is p.d.m.%
+\begin{equation*}
+R_{1}\left( \tilde{\beta},\beta ,A\right) =E\left\{ \left( \tilde{\beta}%
+-\beta \right) ^{\dagger }A\left( \tilde{\beta}-\beta \right) \right\} 
+\end{equation*}%
+\begin{eqnarray*}
+\text{heterogeneous} &\text{: usefullness}& \\
+\text{homogeneous} &\text{:}&\tilde{\beta}=%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\frac{\beta ^{\dagger }xW^{-1}Y}{\sigma ^{2}+\beta ^{\dagger }\text{\c{S}}%
+\beta },\text{\quad \c{S}}=x^{\dagger }W^{-1}x \\
+\text{homogeneous} &\text{: unbiased}&\underline{\qquad }\left( \ast \right) 
+\end{eqnarray*}
+
+\end{document}
