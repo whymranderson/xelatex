@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, December 02, 2015 16:10:51}
+%TCIDATA{LastRevised=Friday, December 04, 2015 11:59:46}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -1171,7 +1171,7 @@ D_{t}^{-1}
 ^{2}\text{\c{S}}^{-1}
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 \begin{equation*}
 \tilde{\beta}=\beta \beta ^{\dagger }x^{\dagger }\left( x\beta \beta
@@ -1232,7 +1232,7 @@ E\left( \tilde{\beta}_{2}\right) =\beta \frac{\beta ^{\dagger }x^{\dagger
 bias\left( \tilde{\beta}_{2},\beta \right) =E\left( \tilde{\beta}_{2}\right)
 -\beta =\beta \frac{\beta ^{\dagger }\text{\c{S}}\beta }{\sigma ^{2}+\beta
 ^{\dagger }\text{\c{S}}\beta }-\beta =\beta \left( 1-\frac{\beta ^{\dagger }%
-\text{\c{S}}\beta }{\sigma ^{2}+\beta ^{\dagger }\text{\c{S}}\beta }\right) 
+\text{\c{S}}\beta }{\sigma ^{2}+\beta ^{\dagger }\text{\c{S}}\beta }\right)
 \end{equation*}%
 \begin{equation*}
 =\beta \underset{\leq 0}{\underbrace{\left( -\frac{\sigma ^{2}}{\sigma
@@ -1334,22 +1334,366 @@ Consider $k=1$, $W=I\sigma ^{2},$ then%
 \right) ^{-1}\right) ^{-1}
 \end{equation*}
 
-\bigskip 
-
 \bigskip
+
+\newpage 
 
 \part{The Generalized Linear Regression Model}
 
+\begin{equation*}
+Y=x\beta +%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\quad E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =0\quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =\sigma ^{2}W,\quad W=p\cdot d\cdot m
+\end{equation*}%
+rank(x)=k, we want to estimate $%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+$
+
+W know
+
+Consider linear in the response vector $%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+,$ $\hat{\beta}=CY+%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+$%
+\begin{equation*}
+R_{1}\left( \tilde{\beta},\beta ,A\right) =E\left( \left( \tilde{\beta}%
+-\beta \right) ^{\dagger }A\left( \tilde{\beta}-\beta \right) \right) \qquad
+A=pdm
+\end{equation*}%
+\begin{equation*}
+R_{2}\left( \tilde{\beta},\beta ,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\right) =E\left( \left( \tilde{\beta}-\beta \right) ^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+^{\dagger }\left( \tilde{\beta}-\beta \right) \right)
+\end{equation*}%
+\begin{equation*}
+R_{3}\left( \tilde{\beta},\beta \right) =E\left( \left( Y-x\tilde{\beta}%
+\right) ^{\dagger }W^{-1}\left( Y-x\tilde{\beta}\right) \right)
+\end{equation*}
+
+\paragraph{R$_{1}$-optional estimators}
+
+\begin{enumerate}
+\item heterogeneious case $\tilde{\beta}=CY+d$%
+\begin{equation*}
+\tilde{\beta}-\beta =CY+d-\beta =C\left( x\beta +\varepsilon \right)
++d-\beta =\left( Cx-I\right) \beta +d+C\varepsilon
+\end{equation*}%
+\begin{equation*}
+R_{1}\left( 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,\beta ,A\right) =E\left[ \left( Cx-I\right) \beta +d+C\varepsilon \right]
+^{\dagger }A\left[ \left( Cx-I\right) \beta +d+C\varepsilon \right]
+\end{equation*}%
+\begin{equation*}
+=\left[ \left( Cx-I\right) \beta +d\right] ^{\dagger }A\left[ \left(
+Cx-I\right) \beta +d\right] +E\left[ \left( C\varepsilon \right) ^{\dagger
+}A\left( C\varepsilon \right) \right]
+\end{equation*}%
+Consider $%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+=-\left( Cx-I\right) \beta $%
+\begin{eqnarray}
+\min \quad R_{1}\left( 
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+,\beta ,A\right) &=&\underset{C}{\min }\quad E\left[ \left( C\varepsilon
+\right) ^{\dagger }A\left( C\varepsilon \right) \right]  \notag \\
+&=&\underset{C}{\min }\quad E\left[ \varepsilon ^{\dagger }C^{\dagger
+}AC\varepsilon \right]  \notag \\
+&&\underset{C}{=\min }\quad tr\left( ACE\left( \varepsilon ^{\dagger
+}\varepsilon \right) C^{\dagger }\right)  \notag \\
+&&\underset{C}{=\min }\quad tr\left\{ \sigma ^{2}ACWC^{\dagger }\right\} 
+\underline{\qquad }\left( \ast \right)
+\end{eqnarray}%
+$\frac{\partial \left( \ast \right) }{\partial C}=0$ by Thm A.93\symbol{126}%
+A.95, $\Rightarrow 2\sigma ^{2}ACW=0\quad \Rightarrow C=0,$ $\because \tilde{%
+\beta}=CY+%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+,$ $C=0,$ $\tilde{\beta}=%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\quad $usefullness$_{\#}$
+
+\item homo case $\tilde{\beta}=CY$%
+\begin{equation*}
+R_{1}\left( \tilde{\beta},\beta ,A\right) =E\left[ \left( Cx-I\right) \beta %
+\right] ^{\dagger }A\left[ \left( Cx-I\right) \beta \right] +tr\left\{
+\sigma ^{2}ACWC^{\dagger }\right\}
+\end{equation*}%
+\begin{equation*}
+\frac{\partial R_{1}}{\partial C}=2A\left[ C\left( x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }x^{\dagger }\right) -\beta \beta ^{\dagger }x^{\dagger }\right] =0
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \tilde{C}_{2}=\beta \beta ^{\dagger }x^{\dagger }\left( x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+^{\dagger }x^{\dagger }+\sigma ^{2}W\right) ^{-1}
+\end{equation*}
+\end{enumerate}
+
 \bigskip
 
-\begin{itemize}
-\item R$_{1}$-optional estimators
+December 1
 
-\item R$_{2}$-optional estimators
+\begin{equation*}
+Y=x\beta +\varepsilon \quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =W
+\end{equation*}%
+where W is p.d.m.%
+\begin{equation*}
+R_{1}\left( \tilde{\beta},\beta ,A\right) =E\left\{ \left( \tilde{\beta}%
+-\beta \right) ^{\dagger }A\left( \tilde{\beta}-\beta \right) \right\}
+\end{equation*}%
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+\text{heterogeneous}\text{: usefullness} \\ 
+\text{homogeneous}\text{:}\tilde{\beta}=%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\frac{\beta ^{\dagger }xW^{-1}Y}{\sigma ^{2}+\beta ^{\dagger }\text{\c{S}}%
+\beta },\text{\quad \c{S}}=x^{\dagger }W^{-1}x \\ 
+\text{homogeneous}\text{: unbiased}\underline{\qquad }\left( \ast \right)%
+\end{array}%
+\right.
+\end{equation*}%
+\begin{equation*}
+R_{2}\left( \tilde{\beta},\beta ,a\right) =E\left\{ a^{\dagger }\left( 
+\tilde{\beta}-\beta \right) \right\} ^{2}
+\end{equation*}%
+\begin{equation*}
+R_{3}=\left( \tilde{\beta},\beta \right) =E\left\{ \left( Y-x%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+\right) ^{\dagger }W^{-1}\left( Y-x%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+\right) \right\}
+\end{equation*}%
+$\left( \ast \right) $ let CY is a homogeneous estimator of $%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+$ if c$%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+$ is unbiased%
+\begin{equation*}
+E\left( CY\right) =cx\beta =\beta \quad \forall \beta \Rightarrow
+Cx=I\Rightarrow C_{i}^{\dagger }x-e_{i}^{\dagger }=%
+%TCIMACRO{\TeXButton{underaccent_o}{\underaccent{\wtilde}{o}}}%
+%BeginExpansion
+\underaccent{\wtilde}{o}%
+%EndExpansion
+_{i}^{\dagger }\quad i=1,\cdots ,t
+\end{equation*}%
+$C_{i}^{\dagger }$ and $e_{i}^{\dagger }$ are the ith rwo vector of $%
+%TCIMACRO{\TeXButton{underaccent_C}{\underaccent{\wtilde}{C}}}%
+%BeginExpansion
+\underaccent{\wtilde}{C}%
+%EndExpansion
+$ and $I$.
 
-\item R$_{3}$-optional estimators
-\end{itemize}
+\begin{equation*}
+\tilde{R}_{1}\left( \tilde{\beta},\beta ,A\right) =\sigma ^{2}tr\left\{
+ACWC^{\dagger }\right\}
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \underset{C}{\min }\quad \tilde{R}_{1}=\underset{C}{\min }\quad
+\left\{ \sigma ^{2}tr\left\{ ACWC^{\dagger }\right\} \right\}
+\end{equation*}%
+\begin{equation*}
+%TCIMACRO{\U{211a} }%
+%BeginExpansion
+\mathbb{Q}
+%EndExpansion
+=\sigma ^{2}tr\left\{ ACWC^{\dagger }\right\} -2\frac{\dsum \lambda
+_{i}^{\dagger }\left( C_{i}^{\dagger }x-e_{i}^{\dagger }\right) }{\lambda
+\left( Cx-I\right) }
+\end{equation*}%
+$\lambda _{i}$ are k-vector of Lagrogion multipliers $i=1,\cdots ,k$
 
-\section{Aitken estimator (in fact is the weight LSE)}
+Let $\Lambda ^{\dagger }=\left( \lambda _{1},\cdots ,\lambda _{k}\right) $%
+\begin{equation*}
+\frac{\partial 
+%TCIMACRO{\U{211a} }%
+%BeginExpansion
+\mathbb{Q}
+%EndExpansion
+}{\partial C}=2\sigma ^{2}ACW-2\Lambda x^{\dagger }\Rightarrow \sigma
+^{2}ACW=\Lambda x^{\dagger }
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \sigma ^{2}ACx=\Lambda x^{\dagger }W^{-1}x\Rightarrow \Lambda
+=\sigma ^{2}ACx\left( x^{\dagger }W^{-1}x\right) ^{-1}
+\end{equation*}
+
+Since Cx=I $\Rightarrow \Lambda =\sigma ^{2}A\left( x^{\dagger
+}W^{-1}x\right) ^{-1}$%
+\begin{equation*}
+\Rightarrow \sigma ^{2}AC=\underset{\Lambda }{\underbrace{\sigma ^{2}A\left(
+x^{\dagger }W^{-1}x\right) ^{-1}}}x^{\dagger }W^{-1}
+\end{equation*}%
+\begin{equation*}
+\therefore \tilde{C}_{3}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}
+\end{equation*}%
+\begin{equation*}
+\therefore \tilde{\beta}_{3}=\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\quad \blacktriangle
+\end{equation*}%
+\begin{eqnarray*}
+\tilde{R}_{1}\left( \tilde{\beta}_{3},\beta ,A\right) &=&\sigma
+^{2}tr\left\{ A\tilde{C}_{3}W\tilde{C}_{3}^{\dagger }\right\} \\
+&=&\sigma ^{2}tr\left\{ A\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1}\right\} \\
+&=&\sigma ^{2}tr\left\{ A\left( x^{\dagger }W^{-1}x\right) ^{-1}\right\}
+\end{eqnarray*}%
+\begin{eqnarray*}
+Cov\left( \tilde{\beta}_{3}\right) &=&\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}WW^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1} \\
+&=&\sigma ^{2}\left( x^{\dagger }W^{-1}x\right) ^{-1}
+\end{eqnarray*}
+
+\paragraph{R$_{2}$-optional estimator}
+
+\begin{equation*}
+R_{2}\left( \tilde{\beta},\beta ,%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+\right) =E\left[ a^{\dagger }\left( \tilde{\beta}-\beta \right) \right]
+^{2}=E\left[ \left( \tilde{\beta}-\beta \right) ^{\dagger }aa^{\dagger
+}\left( \tilde{\beta}-\beta \right) \right]
+\end{equation*}
+
+\begin{theorem}
+The criteria R$_{1}$ and R$_{2}$ are equivalent.
+\end{theorem}
+
+\begin{proof}
+$A=\tsum \lambda _{i}P_{i}P_{i}^{\dagger }$, $\left( \lambda
+_{i},P_{i}\right) $ are eig-value and eig-vector paires of A
+\end{proof}
+
+First we want to show R$_{2}$-optional estimator $\hat{\beta}$ is R$_{1}$%
+-optional. If $\hat{\beta}$ is R$_{2}$-optional then for any estimator $\hat{%
+\beta}$ and for the choice of $%
+%TCIMACRO{\TeXButton{underaccent_a}{\underaccent{\wtilde}{a}}}%
+%BeginExpansion
+\underaccent{\wtilde}{a}%
+%EndExpansion
+=\sqrt{\lambda _{i}}P_{i}\quad i=1,\cdots ,k$%
+\begin{equation*}
+\lambda _{i}E\left\{ \left( \hat{\beta}-\beta \right) ^{\dagger
+}P_{i}P_{i}^{\dagger }\left( \hat{\beta}-\beta \right) \right\} \leq \lambda
+_{i}E\left\{ \left( \tilde{\beta}-\beta \right) ^{\dagger
+}P_{i}P_{i}^{\dagger }\left( \tilde{\beta}-\beta \right) \right\}
+\end{equation*}%
+$\hat{\beta}$ is R$_{2}$-optional%
+\begin{equation*}
+\Rightarrow E\left\{ \left( \hat{\beta}-\beta \right) ^{\dagger }\dsum
+\lambda _{i}P_{i}P_{i}^{\dagger }\left( \hat{\beta}-\beta \right) \right\}
+\leq E\left\{ \left( \tilde{\beta}-\beta \right) ^{\dagger }\dsum \lambda
+_{i}P_{i}P_{i}^{\dagger }\left( \tilde{\beta}-\beta \right) \right\}
+\end{equation*}%
+\begin{equation*}
+\Rightarrow E\left\{ \left( \hat{\beta}-\beta \right) ^{\dagger }A\left( 
+\hat{\beta}-\beta \right) \right\} \leq E\left\{ \left( \tilde{\beta}-\beta
+\right) ^{\dagger }A\left( \tilde{\beta}-\beta \right) \right\}
+\end{equation*}
+
+---R3 optional\bigskip 
+
+\bigskip 
 
 \end{document}
