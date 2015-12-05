@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, December 04, 2015 11:55:02}
+%TCIDATA{LastRevised=Saturday, December 05, 2015 15:26:20}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -45,7 +45,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 \input{tcilatex}
 
 \begin{document}
@@ -341,17 +340,17 @@ x^{\dagger }W^{-1}x\right) ^{-1}}}x^{\dagger }W^{-1}
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
 %EndExpansion
-\quad \blacktriangle 
+\quad \blacktriangle
 \end{equation*}%
 \begin{eqnarray*}
-\tilde{R}_{1}\left( \tilde{\beta}_{3},\beta ,A\right)  &=&\sigma
-^{2}tr\left\{ A\tilde{C}_{3}W\tilde{C}_{3}^{\dagger }\right\}  \\
+\tilde{R}_{1}\left( \tilde{\beta}_{3},\beta ,A\right) &=&\sigma
+^{2}tr\left\{ A\tilde{C}_{3}W\tilde{C}_{3}^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ A\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
-}W^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1}\right\}  \\
-&=&\sigma ^{2}tr\left\{ A\left( x^{\dagger }W^{-1}x\right) ^{-1}\right\} 
+}W^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1}\right\} \\
+&=&\sigma ^{2}tr\left\{ A\left( x^{\dagger }W^{-1}x\right) ^{-1}\right\}
 \end{eqnarray*}%
 \begin{eqnarray*}
-Cov\left( \tilde{\beta}_{3}\right)  &=&\left( x^{\dagger }W^{-1}x\right)
+Cov\left( \tilde{\beta}_{3}\right) &=&\left( x^{\dagger }W^{-1}x\right)
 ^{-1}x^{\dagger }W^{-1}WW^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1} \\
 &=&\sigma ^{2}\left( x^{\dagger }W^{-1}x\right) ^{-1}
 \end{eqnarray*}
@@ -403,6 +402,121 @@ _{i}P_{i}P_{i}^{\dagger }\left( \tilde{\beta}-\beta \right) \right\}
 \Rightarrow E\left\{ \left( \hat{\beta}-\beta \right) ^{\dagger }A\left( 
 \hat{\beta}-\beta \right) \right\} \leq E\left\{ \left( \tilde{\beta}-\beta
 \right) ^{\dagger }A\left( \tilde{\beta}-\beta \right) \right\}
+\end{equation*}
+
+\bigskip
+
+\paragraph{R$_{3}$-optional estimator}
+
+\begin{equation*}
+R_{3}\left( \tilde{\beta},\beta \right) =E\left[ \left( Y-x\tilde{\beta}%
+\right) ^{\dagger }W^{-1}\left( Y-x\tilde{\beta}\right) \right]
+\end{equation*}
+
+Since $\tilde{\beta}=CY+d$%
+\begin{equation*}
+\Rightarrow R_{3}\left( \tilde{\beta},\beta \right) =E\left[ \left( Y-x%
+\tilde{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\tilde{\beta}\right) \right] 
+\end{equation*}%
+\begin{equation*}
+=E\left[ \left( Y-xCY-xd\right) ^{\dagger }W^{-1}\left( Y-xCY-xd\right) %
+\right] 
+\end{equation*}%
+\begin{equation*}
+=E\left[ \left( \left( I-xC\right) Y-xd\right) ^{\dagger }W^{-1}\left(
+\left( I-xC\right) Y-xd\right) \right] 
+\end{equation*}%
+\begin{equation*}
+=\left( \left( I-xC\right) x\beta -xd\right) ^{\dagger }W^{-1}\left( \left(
+I-xC\right) x\beta -xd\right) +\sigma ^{2}tr\left\{ W^{-1}\left( I-xC\right)
+W\left( I-xC\right) ^{\dagger }\right\} 
+\end{equation*}%
+\begin{equation*}
+=\left( \left( I-xC\right) \beta -d\right) ^{\dagger }x^{\dagger
+}W^{-1}x\left( \left( I-xC\right) \beta -d\right) +\sigma ^{2}tr\left\{
+W^{-1}\left( I-xC\right) W\left( I-xC\right) ^{\dagger }\right\} 
+\end{equation*}
+
+Consider $\hat{d}=\left( I-Cx\right) \beta $
+
+Now V$^{2}=tr\left\{ W^{-1}\left( I-xC\right) W\left( I-xC\right) ^{\dagger
+}\right\} =tr\left\{ I+C^{\dagger }x^{\dagger }W^{-1}xCW-2C^{\dagger
+}x^{\dagger }\right\} $
+
+$\left[ \frac{\partial }{\partial x}tr\left\{ x^{\prime }AxB\right\}
+=AxB+A^{\prime }xB^{\prime }\right] $
+
+\begin{equation*}
+\frac{\partial V^{2}}{\partial C}=0\Rightarrow 2x^{\dagger
+}W^{-1}xCW-2x^{\dagger }=0\Rightarrow \hat{C}=\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \hat{\beta}=\hat{C}x+\hat{d}
+\end{equation*}%
+where $\hat{d}=\left( I-Cx\right) \beta =\left( I-\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}x\right) \beta =0$
+
+\begin{equation*}
+\therefore \hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\quad \#
+\end{equation*}%
+\begin{equation*}
+Cov\left( \hat{\beta}\right) =\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}\sigma ^{2}WW^{-1}x\left( x^{\dagger }W^{-1}x\right)
+^{-1}=\left( x^{\dagger }W^{-1}x\right) ^{-1}\sigma ^{2}
+\end{equation*}%
+\begin{eqnarray*}
+R_{3}\left( \hat{\beta},\beta \right)  &=&E\left[ \left( Y-x\hat{\beta}%
+\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) \right]  \\
+&=&\sigma ^{2}tr\left\{ W^{-1}\left( I-x\hat{C}\right) W\left( I-x\hat{C}%
+\right) ^{\dagger }\right\}  \\
+&=&\sigma ^{2}tr\left\{ W^{-1}\left( I-x\text{\c{S}}^{-1}x^{\dagger
+}W^{-1}\right) W\left( I-x\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right)
+^{\dagger }\right\}  \\
+&=&\sigma ^{2}tr\left\{ I-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }W^{-1}W+W^{-1}x%
+\text{\c{S}}^{-1}x^{\dagger }W^{-1}W\left( x\text{\c{S}}^{-1}x^{\dagger
+}W^{-1}\right) ^{\dagger }-W^{-1}W\left( x\text{\c{S}}^{-1}x^{\dagger
+}W^{-1}\right) ^{\dagger }\right\}  \\
+&=&\sigma ^{2}tr\left\{ I-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }+W^{-1}x\text{%
+\c{S}}^{-1}\underset{\text{\c{S}}}{\underbrace{x^{\dagger }W^{-1}x}}\text{\c{%
+S}}^{-1}x^{\dagger }-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\}  \\
+&=&\sigma ^{2}tr\left\{ I+W^{-1}x\text{\c{S}}^{-1}x^{\dagger }-2W^{-1}x\text{%
+\c{S}}^{-1}x^{\dagger }\right\}  \\
+&=&\sigma ^{2}tr\left\{ I_{n}-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} 
+\\
+&=&\sigma ^{2}\left( n-k\right) 
+\end{eqnarray*}%
+\begin{equation*}
+\left[ tr\left\{ W^{-1}x\left( x^{\dagger }W^{-1}x\right) x^{\dagger
+}\right\} =tr\left\{ x^{\dagger }W^{-1}x\left( x^{\dagger }W^{-1}x\right)
+\right\} =tr\left\{ I_{k}\right\} =k\right] 
+\end{equation*}
+
+\bigskip 
+
+\bigskip 
+
+\paragraph{Aitken Estimator (in fact is the weight LSE)}
+
+\bigskip 
+
+W=W$^{\frac{1}{2}}$W$^{\frac{1}{2}}$, W$^{-1}=$W$^{-\frac{1}{2}}$W$^{-\frac{1%
+}{2}}$
+
+$Y=x\beta +\varepsilon \quad E\left( \varepsilon \right) =0\quad Var\left(
+\varepsilon \right) =\sigma ^{2}W$
+
+\begin{equation*}
+W^{-\frac{1}{2}}Y=W^{-\frac{1}{2}}x\beta +W^{-\frac{1}{2}}\varepsilon
+\Rightarrow \tilde{Y}=\tilde{x}\beta +\tilde{\varepsilon}\quad E\left( 
+\tilde{\varepsilon}\right) =0\quad Cov\left( \tilde{\varepsilon}\right)
+=\sigma ^{2}I
 \end{equation*}
 
 \end{document}
