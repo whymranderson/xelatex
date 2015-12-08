@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Saturday, December 05, 2015 15:26:20}
+%TCIDATA{LastRevised=Sunday, December 06, 2015 11:23:28}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -416,25 +416,25 @@ R_{3}\left( \tilde{\beta},\beta \right) =E\left[ \left( Y-x\tilde{\beta}%
 Since $\tilde{\beta}=CY+d$%
 \begin{equation*}
 \Rightarrow R_{3}\left( \tilde{\beta},\beta \right) =E\left[ \left( Y-x%
-\tilde{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\tilde{\beta}\right) \right] 
+\tilde{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\tilde{\beta}\right) \right]
 \end{equation*}%
 \begin{equation*}
 =E\left[ \left( Y-xCY-xd\right) ^{\dagger }W^{-1}\left( Y-xCY-xd\right) %
-\right] 
+\right]
 \end{equation*}%
 \begin{equation*}
 =E\left[ \left( \left( I-xC\right) Y-xd\right) ^{\dagger }W^{-1}\left(
-\left( I-xC\right) Y-xd\right) \right] 
+\left( I-xC\right) Y-xd\right) \right]
 \end{equation*}%
 \begin{equation*}
 =\left( \left( I-xC\right) x\beta -xd\right) ^{\dagger }W^{-1}\left( \left(
 I-xC\right) x\beta -xd\right) +\sigma ^{2}tr\left\{ W^{-1}\left( I-xC\right)
-W\left( I-xC\right) ^{\dagger }\right\} 
+W\left( I-xC\right) ^{\dagger }\right\}
 \end{equation*}%
 \begin{equation*}
 =\left( \left( I-xC\right) \beta -d\right) ^{\dagger }x^{\dagger
 }W^{-1}x\left( \left( I-xC\right) \beta -d\right) +\sigma ^{2}tr\left\{
-W^{-1}\left( I-xC\right) W\left( I-xC\right) ^{\dagger }\right\} 
+W^{-1}\left( I-xC\right) W\left( I-xC\right) ^{\dagger }\right\}
 \end{equation*}
 
 Consider $\hat{d}=\left( I-Cx\right) \beta $
@@ -472,39 +472,38 @@ Cov\left( \hat{\beta}\right) =\left( x^{\dagger }W^{-1}x\right)
 ^{-1}=\left( x^{\dagger }W^{-1}x\right) ^{-1}\sigma ^{2}
 \end{equation*}%
 \begin{eqnarray*}
-R_{3}\left( \hat{\beta},\beta \right)  &=&E\left[ \left( Y-x\hat{\beta}%
-\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) \right]  \\
+R_{3}\left( \hat{\beta},\beta \right) &=&E\left[ \left( Y-x\hat{\beta}%
+\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) \right] \\
 &=&\sigma ^{2}tr\left\{ W^{-1}\left( I-x\hat{C}\right) W\left( I-x\hat{C}%
-\right) ^{\dagger }\right\}  \\
+\right) ^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ W^{-1}\left( I-x\text{\c{S}}^{-1}x^{\dagger
 }W^{-1}\right) W\left( I-x\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right)
-^{\dagger }\right\}  \\
+^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ I-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }W^{-1}W+W^{-1}x%
 \text{\c{S}}^{-1}x^{\dagger }W^{-1}W\left( x\text{\c{S}}^{-1}x^{\dagger
 }W^{-1}\right) ^{\dagger }-W^{-1}W\left( x\text{\c{S}}^{-1}x^{\dagger
-}W^{-1}\right) ^{\dagger }\right\}  \\
+}W^{-1}\right) ^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ I-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }+W^{-1}x\text{%
-\c{S}}^{-1}\underset{\text{\c{S}}}{\underbrace{x^{\dagger }W^{-1}x}}\text{\c{%
-S}}^{-1}x^{\dagger }-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\}  \\
+\c{S}}^{-1}\underset{\text{\c{S}}}{\underbrace{x^{\dagger }W^{-1}x}}\text{%
+\c{S}}^{-1}x^{\dagger }-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ I+W^{-1}x\text{\c{S}}^{-1}x^{\dagger }-2W^{-1}x\text{%
-\c{S}}^{-1}x^{\dagger }\right\}  \\
-&=&\sigma ^{2}tr\left\{ I_{n}-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} 
-\\
-&=&\sigma ^{2}\left( n-k\right) 
+\c{S}}^{-1}x^{\dagger }\right\} \\
+&=&\sigma ^{2}tr\left\{ I_{n}-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} \\
+&=&\sigma ^{2}\left( n-k\right)
 \end{eqnarray*}%
 \begin{equation*}
 \left[ tr\left\{ W^{-1}x\left( x^{\dagger }W^{-1}x\right) x^{\dagger
 }\right\} =tr\left\{ x^{\dagger }W^{-1}x\left( x^{\dagger }W^{-1}x\right)
-\right\} =tr\left\{ I_{k}\right\} =k\right] 
+\right\} =tr\left\{ I_{k}\right\} =k\right]
 \end{equation*}
 
-\bigskip 
+\bigskip
 
-\bigskip 
+\bigskip
 
 \paragraph{Aitken Estimator (in fact is the weight LSE)}
 
-\bigskip 
+\bigskip
 
 W=W$^{\frac{1}{2}}$W$^{\frac{1}{2}}$, W$^{-1}=$W$^{-\frac{1}{2}}$W$^{-\frac{1%
 }{2}}$
@@ -517,6 +516,45 @@ W^{-\frac{1}{2}}Y=W^{-\frac{1}{2}}x\beta +W^{-\frac{1}{2}}\varepsilon
 \Rightarrow \tilde{Y}=\tilde{x}\beta +\tilde{\varepsilon}\quad E\left( 
 \tilde{\varepsilon}\right) =0\quad Cov\left( \tilde{\varepsilon}\right)
 =\sigma ^{2}I
+\end{equation*}%
+\begin{equation*}
+\hat{\beta}=\left( \tilde{x}^{\dagger }\tilde{x}\right) ^{-1}\tilde{x}%
+^{\dagger }\tilde{Y}=\left( \tilde{x}^{\dagger }W^{-\frac{1}{2}}W^{-\frac{1}{%
+2}}\tilde{x}\right) ^{-1}\tilde{x}^{\dagger }W^{-\frac{1}{2}}W^{-\frac{1}{2}}%
+\tilde{Y}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}Y
+\end{equation*}%
+\begin{equation*}
+E\left( \hat{\beta}\right) =\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}E\left( Y\right) =\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}x\beta =\beta 
+\end{equation*}
+
+Consider $\hat{\beta}$ is linear unbiased of $\beta $ (i.e. $\left(
+x^{\dagger }\beta ^{-1}x\right) ^{-1}x^{\dagger }\beta ^{-1}Y$)
+
+want to Cov$\left( \tilde{\beta}\right) \geq Cov\left( \hat{\beta}\right) $,
+where $\tilde{\beta}=\tilde{C}Y$%
+\begin{equation*}
+E\left( \tilde{\beta}\right) =E\left( \tilde{C}Y\right) =E\left( \left( \hat{%
+C}+D\right) Y\right) =E\left( \hat{C}Y\right) +E\left( DY\right) =\beta
+\quad \forall \beta 
+\end{equation*}%
+\begin{equation*}
+\left[ \hat{C}=\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right] 
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \beta +DE\left( Y\right) =\beta +Dx\beta =\beta \quad
+\Rightarrow Dx=0\quad \left( D\perp x\right) 
+\end{equation*}%
+\begin{equation*}
+Cov\left( \tilde{\beta}\right) =Cov\left( \left( \hat{C}+D\right) Y\right)
+=\left( \hat{C}+D\right) \sigma ^{2}W\left( \hat{C}+D\right) ^{\dagger
+}=\sigma ^{2}\left( \hat{C}W\hat{C}^{\dagger }+DWD^{\dagger }+\hat{C}%
+WD^{\dagger }+DW\hat{C}^{\dagger }\right) 
+\end{equation*}%
+\begin{equation*}
+=\sigma ^{2}\left( \hat{C}W\hat{C}^{\dagger }+DWD^{\dagger }\right) \geq
+Cov\left( \hat{\beta}\right) =\sigma ^{2}\text{\c{S}}^{-1}
 \end{equation*}
 
 \end{document}

@@ -1,0 +1,235 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Tuesday, December 08, 2015 12:23:19}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$W=\left( 1-\sigma \right) I$
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+\input{tcilatex}
+
+\begin{document}
+
+
+\begin{theorem}[Gauss-Markov-Aitken]
+If $Y=x\beta +\varepsilon \quad 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\symbol{126}N\left( 0,\sigma ^{2}W\right) $, the Generalized least-square
+estimator(GLSE) $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}Y$ is BLUE for $\beta ,$ $Var\left( \hat{\beta}%
+\right) =\left( x^{\dagger }W^{-1}x\right) ^{-1}\sigma ^{2}$
+\end{theorem}
+
+\bigskip
+
+\paragraph{Misspecification of the Dispersion matrix}
+
+If W is matrix as A, the we have%
+\begin{equation*}
+\hat{\beta}^{\ast }=\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
+}A^{-1}Y
+\end{equation*}%
+(missread W as A).
+
+\bigskip 
+
+Note: $\hat{\beta}^{\ast }$ is unbiased, since $E\left( \hat{\beta}^{\ast
+}\right) =\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}x\beta
+=\beta $. Meaning missreading W does not affect bias.
+
+$Cov\left( \hat{\beta}^{\ast }\right) =\left( x^{\dagger }A^{-1}x\right)
+^{-1}x^{\dagger }A^{-1}Cov\left( Y\right) A^{-1}x\left( x^{\dagger
+}A^{-1}x\right) ^{-1}$
+
+\bigskip 
+
+Since $Cov\left( \hat{\beta}^{\ast }\right) -Cov\left( \hat{\beta}\right)
+=\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}Cov\left( Y\right)
+A^{-1}x\left( x^{\dagger }A^{-1}x\right) ^{-1}-\left( x^{\dagger
+}A^{-1}x\right) ^{-1}\sigma ^{2}$%
+\begin{equation*}
+\underset{\text{by A.41(ri)}}{=}\left\{ \sigma ^{2}\left( x^{\dagger
+}A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}-\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}\right\} \times 
+\end{equation*}%
+\begin{equation*}
+W\left\{ \left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}-\left(
+x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right\} ^{\dagger }\geq 0
+\end{equation*}
+
+\bigskip 
+
+If the OLS(i.e. $\hat{\beta}_{0}=\left( x^{\dagger }x^{-1}\right) x^{\dagger
+}Y$) is mistakenly instead of the true GLSE $\hat{\beta}_{1}$
+
+\begin{itemize}
+\item If take A=I $\hat{\beta}^{\ast }=\hat{\beta}_{OLS}$%
+\begin{equation*}
+\Rightarrow Cov\left( \hat{\beta}_{OLS}\right) -Cov\left( \hat{\beta}\right)
+=\sigma ^{2}\left\{ \left( x^{\dagger }x\right) ^{-1}x^{\dagger }-\left(
+x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right\} 
+\end{equation*}%
+\begin{equation*}
+W\left\{ \left( x^{\dagger }x\right) ^{-1}x^{\dagger }-\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right\} ^{\dagger }
+\end{equation*}%
+Let $\left( x^{\dagger }x\right) ^{-1}=U$%
+\begin{equation*}
+\Rightarrow Cov\left( \hat{\beta}_{OLS}\right) -Cov\left( \hat{\beta}\right)
+=\sigma ^{2}\left\{ Ux^{\dagger }-\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}\right\} W\left\{ xU-W^{-1}x\left( x^{\dagger
+}W^{-1}x\right) ^{-1}\right\} 
+\end{equation*}%
+\begin{equation*}
+\Rightarrow Cov\left( \hat{\beta}_{OLS}\right) -Cov\left( \hat{\beta}\right)
+=0
+\end{equation*}%
+wrongly estimated but accuracy the same%
+\begin{equation*}
+\Leftrightarrow Ux^{\dagger }=\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}\ldots \left( \ast \right) 
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow Ux^{\dagger }W=\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }\ldots \left( \ast \ast \right) 
+\end{equation*}%
+Let Z be a matrix of maximum rank s.t. $Z^{\dagger }x=0$
+\end{itemize}
+
+from (*) $\ Ux^{\dagger }WZ=\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }Z=0\Leftrightarrow \left( x^{\dagger }WZ\right) =0$
+
+from (*) $\ Ux^{\dagger }Z=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}Z=0\Leftrightarrow \left( x^{\dagger }W^{-1}Z\right) =0$
+
+\begin{itemize}
+\item 
+\begin{enumerate}
+\item Note that Z$^{\dagger }x=0\Rightarrow $ x and Z span the whole n-space%
+\begin{equation*}
+\Rightarrow W_{nxn}^{\frac{1}{2}}=xA_{1}+ZB_{1}
+\end{equation*}%
+\begin{eqnarray*}
+W &=&W^{\frac{1}{2}}W^{\frac{1}{2}}=\left( xA_{1}+ZB_{1}\right) \left(
+xA_{1}+ZB_{1}\right) ^{\dagger } \\
+&=&xA_{1}A_{1}^{\dagger }x^{\dagger }+xA_{1}B_{1}^{\dagger }Z^{\dagger
+}+ZB_{1}A_{1}^{\dagger }x^{\dagger }+ZB_{1}B_{1}^{\dagger }Z^{\dagger
+}\qquad \left( \triangle \right) 
+\end{eqnarray*}%
+now $x^{\dagger }WZ=0\Rightarrow x^{\dagger }\left[ xA_{1}A_{1}^{\dagger
+}x^{\dagger }+xA_{1}B_{1}^{\dagger }Z^{\dagger }+ZB_{1}A_{1}^{\dagger
+}x^{\dagger }+ZB_{1}B_{1}^{\dagger }Z^{\dagger }\right] Z=0$%
+\begin{equation*}
+\because x^{\dagger }Z=0\Rightarrow \underset{\text{non-singular}}{%
+\underbrace{x^{\dagger }x}}A_{1}B_{1}^{\dagger }\underset{\text{non-singular}%
+}{\underbrace{Z^{\dagger }Z}}=0\Rightarrow A_{1}B_{1}^{\dagger }=0
+\end{equation*}%
+from ($\triangle $) and $A_{1}B_{1}^{\dagger }\Rightarrow
+W=xA_{1}A_{1}^{\dagger }x^{\dagger }+ZB_{1}B_{1}^{\dagger }Z^{\dagger
+}=xA_{1}x^{\dagger }+ZB_{1}Z^{\dagger }$, (A,B are nonsingular)
+\end{enumerate}
+\end{itemize}
+
+\bigskip
+
+\begin{example}
+$x=\left[ \boldsymbol{1},x_{1}\right] $ the the choice $W=\left( 1-\sigma
+\right) I+\sigma \boldsymbol{11}^{\dagger }\quad \left( 0<\sigma <1\right) $%
+\begin{equation*}
+x^{\dagger }WZ=x^{\dagger }\left[ \left( 1-\sigma \right) I+\sigma 
+\boldsymbol{11}^{\dagger }\right] Z=\left( 1-\sigma \right) \underset{=0}{%
+\underbrace{x^{\dagger }Z}}+\sigma \underset{=0}{\underbrace{x^{\dagger }%
+\boldsymbol{11}^{\dagger }Z}}=0
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \text{GLSE }\left( W=\left( 1-\sigma \right) I+\sigma 
+\boldsymbol{11}^{\dagger }\right) \text{ and OLSE }(W=A=I)\text{ are equal}
+\end{equation*}
+\end{example}
+
+\bigskip
+
+$Y=x\beta +%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =\sigma ^{2}W\quad \frac{\left( Y-x\hat{\beta}\right) ^{\dagger
+}W^{-1}\left( Y-x\hat{\beta}\right) }{n-k}\leadsto \sigma ^{2}$
+
+Note: missread W makes $Var\left( \hat{\beta}_{i}\right) $ larger, then $%
+\frac{\tilde{\beta}}{\sqrt{Var\left( \tilde{\beta}\right) }}$ becomes
+smaller, ......??
+
+Note:%
+\begin{equation*}
+\left( 
+\begin{array}{ccc}
+1 &  & \sigma \\ 
+& \ddots &  \\ 
+\sigma &  & 1%
+\end{array}%
+\right) x=\lambda x\quad x=\left[ 
+\begin{array}{c}
+1 \\ 
+\vdots \\ 
+1%
+\end{array}%
+\right]
+\end{equation*}%
+eigenvalue and =n$\Rightarrow \tsum \lambda _{i}=n$. $1+\left( n+1\right)
+\sigma >0\Rightarrow \sigma >-\frac{1}{n-1}$ (n-1 multiple roots)
+
+\end{document}
