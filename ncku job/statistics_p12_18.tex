@@ -5,7 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{accents}
-\usepackage[ignoreall]{geometry}
+\usepackage[ignoreall,a4paper]{geometry}
 \usepackage{fancyhdr}
 
 \setcounter{MaxMatrixCols}{10}
@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, December 08, 2015 12:23:19}
+%TCIDATA{LastRevised=Wednesday, December 09, 2015 12:01:30}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -67,28 +67,31 @@ estimator(GLSE) $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right)
 \right) =\left( x^{\dagger }W^{-1}x\right) ^{-1}\sigma ^{2}$
 \end{theorem}
 
-\bigskip
-
 \paragraph{Misspecification of the Dispersion matrix}
 
-If W is matrix as A, the we have%
+\bigskip 
+
+If W is matrix as A, then we have%
 \begin{equation*}
 \hat{\beta}^{\ast }=\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
 }A^{-1}Y
 \end{equation*}%
 (missread W as A).
 
-\bigskip 
+\bigskip
 
 Note: $\hat{\beta}^{\ast }$ is unbiased, since $E\left( \hat{\beta}^{\ast
 }\right) =\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}x\beta
 =\beta $. Meaning missreading W does not affect bias.
 
-$Cov\left( \hat{\beta}^{\ast }\right) =\left( x^{\dagger }A^{-1}x\right)
+\begin{equation*}
+Cov\left( \hat{\beta}^{\ast }\right) =\left( x^{\dagger }A^{-1}x\right)
 ^{-1}x^{\dagger }A^{-1}Cov\left( Y\right) A^{-1}x\left( x^{\dagger
-}A^{-1}x\right) ^{-1}$
+}A^{-1}x\right) ^{-1}
+\end{equation*}%
+\qquad 
 
-\bigskip 
+\bigskip
 
 Since $Cov\left( \hat{\beta}^{\ast }\right) -Cov\left( \hat{\beta}\right)
 =\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}Cov\left( Y\right)
@@ -97,14 +100,14 @@ A^{-1}x\left( x^{\dagger }A^{-1}x\right) ^{-1}-\left( x^{\dagger
 \begin{equation*}
 \underset{\text{by A.41(ri)}}{=}\left\{ \sigma ^{2}\left( x^{\dagger
 }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}-\left( x^{\dagger }W^{-1}x\right)
-^{-1}x^{\dagger }W^{-1}\right\} \times 
+^{-1}x^{\dagger }W^{-1}\right\} \times
 \end{equation*}%
 \begin{equation*}
 W\left\{ \left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}-\left(
 x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right\} ^{\dagger }\geq 0
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 If the OLS(i.e. $\hat{\beta}_{0}=\left( x^{\dagger }x^{-1}\right) x^{\dagger
 }Y$) is mistakenly instead of the true GLSE $\hat{\beta}_{1}$
@@ -114,7 +117,7 @@ If the OLS(i.e. $\hat{\beta}_{0}=\left( x^{\dagger }x^{-1}\right) x^{\dagger
 \begin{equation*}
 \Rightarrow Cov\left( \hat{\beta}_{OLS}\right) -Cov\left( \hat{\beta}\right)
 =\sigma ^{2}\left\{ \left( x^{\dagger }x\right) ^{-1}x^{\dagger }-\left(
-x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right\} 
+x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right\}
 \end{equation*}%
 \begin{equation*}
 W\left\{ \left( x^{\dagger }x\right) ^{-1}x^{\dagger }-\left( x^{\dagger
@@ -125,7 +128,7 @@ Let $\left( x^{\dagger }x\right) ^{-1}=U$%
 \Rightarrow Cov\left( \hat{\beta}_{OLS}\right) -Cov\left( \hat{\beta}\right)
 =\sigma ^{2}\left\{ Ux^{\dagger }-\left( x^{\dagger }W^{-1}x\right)
 ^{-1}x^{\dagger }W^{-1}\right\} W\left\{ xU-W^{-1}x\left( x^{\dagger
-}W^{-1}x\right) ^{-1}\right\} 
+}W^{-1}x\right) ^{-1}\right\}
 \end{equation*}%
 \begin{equation*}
 \Rightarrow Cov\left( \hat{\beta}_{OLS}\right) -Cov\left( \hat{\beta}\right)
@@ -134,11 +137,11 @@ Let $\left( x^{\dagger }x\right) ^{-1}=U$%
 wrongly estimated but accuracy the same%
 \begin{equation*}
 \Leftrightarrow Ux^{\dagger }=\left( x^{\dagger }W^{-1}x\right)
-^{-1}x^{\dagger }W^{-1}\ldots \left( \ast \right) 
+^{-1}x^{\dagger }W^{-1}\ldots \left( \ast \right)
 \end{equation*}%
 \begin{equation*}
 \Leftrightarrow Ux^{\dagger }W=\left( x^{\dagger }W^{-1}x\right)
-^{-1}x^{\dagger }\ldots \left( \ast \ast \right) 
+^{-1}x^{\dagger }\ldots \left( \ast \ast \right)
 \end{equation*}%
 Let Z be a matrix of maximum rank s.t. $Z^{\dagger }x=0$
 \end{itemize}
@@ -150,8 +153,6 @@ from (*) $\ Ux^{\dagger }Z=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
 }W^{-1}Z=0\Leftrightarrow \left( x^{\dagger }W^{-1}Z\right) =0$
 
 \begin{itemize}
-\item 
-\begin{enumerate}
 \item Note that Z$^{\dagger }x=0\Rightarrow $ x and Z span the whole n-space%
 \begin{equation*}
 \Rightarrow W_{nxn}^{\frac{1}{2}}=xA_{1}+ZB_{1}
@@ -174,7 +175,6 @@ now $x^{\dagger }WZ=0\Rightarrow x^{\dagger }\left[ xA_{1}A_{1}^{\dagger
 from ($\triangle $) and $A_{1}B_{1}^{\dagger }\Rightarrow
 W=xA_{1}A_{1}^{\dagger }x^{\dagger }+ZB_{1}B_{1}^{\dagger }Z^{\dagger
 }=xA_{1}x^{\dagger }+ZB_{1}Z^{\dagger }$, (A,B are nonsingular)
-\end{enumerate}
 \end{itemize}
 
 \bigskip
@@ -231,5 +231,317 @@ Note:%
 \end{equation*}%
 eigenvalue and =n$\Rightarrow \tsum \lambda _{i}=n$. $1+\left( n+1\right)
 \sigma >0\Rightarrow \sigma >-\frac{1}{n-1}$ (n-1 multiple roots)
+
+\bigskip
+
+\paragraph{Estimating $\protect\sigma ^{2}$ if misspecifity W}
+
+\bigskip 
+
+Assume that A is choosen instead of W%
+\begin{equation*}
+%TCIMACRO{%
+%\TeXButton{underaccent_epsilon_hat}{\underaccent{\wtilde}{\hat{\epsilon}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\epsilon}}%
+%EndExpansion
+=%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+=Y-x\tilde{\beta}=\left[ I-x\left( x^{\dagger }A^{-1}x\right)
+^{-1}x^{\dagger }A^{-1}\right] Y
+\end{equation*}%
+\begin{eqnarray*}
+&=&\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right]
+\left( x\beta +\varepsilon \right)  \\
+&=&x\beta -x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}x\beta
++\varepsilon -x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
+}A^{-1}\varepsilon  \\
+&=&\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right]
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\end{eqnarray*}%
+\begin{equation*}
+\because E\left[ \left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x%
+\hat{\beta}\right) \right] =\left( n-k\right) \sigma ^{2}\Rightarrow \frac{%
+\left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) }{%
+n-k}\leadsto \sigma ^{2}
+\end{equation*}%
+\begin{equation*}
+\frac{e^{\dagger }A^{-1}e}{n-k}=\tilde{\sigma}^{2}
+\end{equation*}%
+\begin{equation*}
+E\left( \tilde{\sigma}^{2}\right) =\sigma ^{2}+\frac{1}{n-k}\left\{
+tr\left\{ \sigma ^{2}x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
+}A^{-1}\left( I-2W\right) \right\} +tr\left\{ xCov\left( \tilde{\beta}%
+\right) x^{\dagger }\right\} \right\} 
+\end{equation*}
+
+If A=I%
+\begin{equation*}
+E\left( \tilde{\sigma}^{2}\right) =\sigma ^{2}+\frac{\sigma ^{2}}{n-k}%
+\left\{ k-tr\left\{ \left( x^{\dagger }x\right) ^{-1}x^{\dagger }Wx\right\}
+\right\} <0\quad \text{meaning parameter underestimate}
+\end{equation*}%
+Even if paramater are obvious, the result is not obvious
+
+\begin{equation*}
+E\left( \tilde{\sigma}^{2}\right) =E\left( \frac{e^{\dagger }A^{-1}e}{n-k}%
+\right) =\frac{1}{n-k}E\left( 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }A^{-1}%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+\right)
+\end{equation*}%
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+=\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right] 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\end{equation*}
+
+\bigskip
+
+\newpage
+
+\paragraph{Heteroccdasticity and Autoregression}
+
+\bigskip 
+
+December 8 (monday)
+
+\bigskip
+
+\begin{itemize}
+\item $E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =%
+%TCIMACRO{\TeXButton{underaccent_o}{\underaccent{\wtilde}{o}}}%
+%BeginExpansion
+\underaccent{\wtilde}{o}%
+%EndExpansion
+\quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+^{\dagger }\right) =\sigma ^{2}W=\sigma ^{2}\left[ 
+\begin{array}{ccc}
+k_{1} &  & 0 \\ 
+& \ddots &  \\ 
+0 &  & k_{n}%
+\end{array}%
+\right] $%
+\begin{equation*}
+GLSE\quad \hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}Y=\left( \tsum 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\right) ^{-1}\left( \tsum 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\right)
+\end{equation*}%
+x$^{\dagger }=\left( 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{1},\cdots ,%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{n}\right) $
+\end{itemize}
+
+\bigskip
+
+example: $y_{i}=\alpha +\beta x_{i}+\varepsilon _{i}\quad Var\left(
+\varepsilon _{i}\right) =\sigma ^{2}x_{i}^{2}\quad W=diag\left\{
+x_{1}^{2},\cdots ,x_{n}^{2}\right\} $
+
+\begin{itemize}
+\item We don't have the original sample $%
+%TCIMACRO{\TeXButton{underaccent_y}{\underaccent{\wtilde}{y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{y}%
+%EndExpansion
+$ and x, but we have the sample mean $\bar{Y}_{i}=\frac{1}{n_{i}}%
+\tsum\limits_{j=1}^{n}y_{j}\quad \bar{x}_{ik}=\frac{1}{n_{i}}%
+\tsum\limits_{j=1}^{n_{i}}x_{jk}$%
+\begin{equation*}
+\bar{Y}_{i}=\beta _{0}+\beta _{1}\bar{x}+\varepsilon _{i}\quad Var\left( 
+\bar{Y}_{i}\right) =\frac{\sigma ^{2}}{n_{i}}
+\end{equation*}
+\end{itemize}
+
+\bigskip
+
+More general situation%
+\begin{equation*}
+\begin{array}{ccc}
+\text{Y}_{i}\text{ continuous:} & \text{normal regression} &  \\ 
+Y_{i}\text{ discrete:} & \text{poission regression} & \ast \\ 
+& \text{logistic regression} & \ast%
+\end{array}%
+\end{equation*}%
+* $link\left( 
+%TCIMACRO{\TeXButton{underaccent_mu}{\underaccent{\wtilde}{\mu}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\mu}%
+%EndExpansion
+\right) =x\beta $ is a ?? function
+
+\bigskip
+
+\begin{itemize}
+\item The disturbance of followers the so-called process of intral class
+correllation $\varepsilon _{j}=V_{j}+u_{tj}$, t=1\symbol{126}m, j=1\symbol{%
+126}n
+\end{itemize}
+
+\bigskip
+
+Note: The disturbance V$_{j}$ are identical for the m realization modeling $%
+\varepsilon _{i}\quad E\left( V_{j}\right) =\sigma _{v}^{2}$, j=1\symbol{126}%
+n, $Cov\left( V_{j},V_{j^{\prime }}\right) =0$, $j\neq j^{\prime }$ of each
+of the n individ%
+\begin{equation*}
+E\left( u_{tj}\right) =0\quad Var\left( u_{tj}\right) =\sigma _{u}^{2}\quad
+Cov\left( u_{tj},u_{tj^{\prime }}\right) =0\quad \left( t,j\right) \neq
+\left( t,j^{\prime }\right)
+\end{equation*}%
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{mn\times 1}=\left[ 
+\begin{array}{c}
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{1} \\ 
+\vdots \\ 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{n}%
+\end{array}%
+\right]
+\end{equation*}%
+\begin{equation*}
+E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+^{\dagger }\right) =diag\left( \Phi ,\cdots ,\Phi \right) =\left[ 
+\begin{array}{ccc}
+\Phi &  &  \\ 
+& \ddots &  \\ 
+&  & \Phi%
+\end{array}%
+\right]
+\end{equation*}%
+\begin{equation*}
+\Phi _{mxm}=E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{j}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{j}^{\dagger }\right) =\left\{ E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{tj}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{t^{\prime }j}^{\dagger }\right) \right\}
+\end{equation*}%
+\begin{equation*}
+=\left\{ E\left( V_{j}+u_{tj}\right) \left( V_{j}+u_{t^{\prime }j}\right)
+^{\dagger }\right\} =\left\{ E\left( V_{j}^{2}\right) \right\}
+\end{equation*}%
+\begin{equation*}
+=\left\{ 
+\begin{array}{c}
+\sigma _{v}^{2},\quad t\neq t^{\prime } \\ 
+E\left( V_{j}^{2}\right) +E\left( u_{tj}^{2}\right) =\sigma _{v}^{2}+\sigma
+_{u}^{2},\quad t\neq t^{\prime }%
+\end{array}%
+\right.
+\end{equation*}%
+\begin{equation*}
+=\left[ 
+\begin{array}{ccc}
+\sigma _{v}^{2}+\sigma _{u}^{2} &  & \sigma _{v}^{2} \\ 
+& \ddots &  \\ 
+\sigma _{v}^{2} &  & \sigma _{v}^{2}+\sigma _{u}^{2}%
+\end{array}%
+\right] =\sigma ^{2}\left[ 
+\begin{array}{ccc}
+1 &  & \rho \\ 
+& \ddots &  \\ 
+\rho &  & 1%
+\end{array}%
+\right]
+\end{equation*}%
+(equal correlation)%
+\begin{equation*}
+\sigma ^{2}=\sigma _{v}^{2}+\sigma _{u}^{2}\quad \rho =\frac{\sigma _{v}^{2}%
+}{\sigma _{v}^{2}+\sigma _{u}^{2}}
+\end{equation*}
 
 \end{document}
