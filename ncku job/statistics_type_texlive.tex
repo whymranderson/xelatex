@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, December 09, 2015 12:17:40}
+%TCIDATA{LastRevised=Wednesday, December 09, 2015 16:39:19}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -46,7 +46,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-
+\input{tcilatex}
 
 \begin{document}
 
@@ -1762,31 +1762,30 @@ Cov\left( \hat{\beta}\right) =\left( x^{\dagger }W^{-1}x\right)
 ^{-1}=\left( x^{\dagger }W^{-1}x\right) ^{-1}\sigma ^{2}
 \end{equation*}%
 \begin{eqnarray*}
-R_{3}\left( \hat{\beta},\beta \right)  &=&E\left[ \left( Y-x\hat{\beta}%
-\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) \right]  \\
+R_{3}\left( \hat{\beta},\beta \right) &=&E\left[ \left( Y-x\hat{\beta}%
+\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) \right] \\
 &=&\sigma ^{2}tr\left\{ W^{-1}\left( I-x\hat{C}\right) W\left( I-x\hat{C}%
-\right) ^{\dagger }\right\}  \\
+\right) ^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ W^{-1}\left( I-x\text{\c{S}}^{-1}x^{\dagger
 }W^{-1}\right) W\left( I-x\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right)
-^{\dagger }\right\}  \\
+^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ I-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }W^{-1}W+W^{-1}x%
 \text{\c{S}}^{-1}x^{\dagger }W^{-1}W\left( x\text{\c{S}}^{-1}x^{\dagger
-}W^{-1}\right) ^{\dagger }-\right.  \\
+}W^{-1}\right) ^{\dagger }-\right. \\
 &&\left. W^{-1}W\left( x\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right) ^{\dagger
-}\right\}  \\
+}\right\} \\
 &=&\sigma ^{2}tr\left\{ I-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }+W^{-1}x\text{%
-\c{S}}^{-1}\underset{\text{\c{S}}}{\underbrace{x^{\dagger }W^{-1}x}}\text{\c{%
-S}}^{-1}x^{\dagger }-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\}  \\
+\c{S}}^{-1}\underset{\text{\c{S}}}{\underbrace{x^{\dagger }W^{-1}x}}\text{%
+\c{S}}^{-1}x^{\dagger }-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} \\
 &=&\sigma ^{2}tr\left\{ I+W^{-1}x\text{\c{S}}^{-1}x^{\dagger }-2W^{-1}x\text{%
-\c{S}}^{-1}x^{\dagger }\right\}  \\
-&=&\sigma ^{2}tr\left\{ I_{n}-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} 
-\\
-&=&\sigma ^{2}\left( n-k\right) 
+\c{S}}^{-1}x^{\dagger }\right\} \\
+&=&\sigma ^{2}tr\left\{ I_{n}-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\} \\
+&=&\sigma ^{2}\left( n-k\right)
 \end{eqnarray*}%
 \begin{equation*}
 \left[ tr\left\{ W^{-1}x\left( x^{\dagger }W^{-1}x\right) x^{\dagger
 }\right\} =tr\left\{ x^{\dagger }W^{-1}x\left( x^{\dagger }W^{-1}x\right)
-\right\} =tr\left\{ I_{k}\right\} =k\right] 
+\right\} =tr\left\{ I_{k}\right\} =k\right]
 \end{equation*}
 
 \bigskip
@@ -1797,7 +1796,7 @@ S}}^{-1}x^{\dagger }-W^{-1}x\text{\c{S}}^{-1}x^{\dagger }\right\}  \\
 
 \quad
 
-\bigskip 
+\bigskip
 
 W=W$^{\frac{1}{2}}$W$^{\frac{1}{2}}$, W$^{-1}=$W$^{-\frac{1}{2}}$W$^{-\frac{1%
 }{2}}$
@@ -1831,14 +1830,14 @@ where $\tilde{\beta}=\tilde{C}Y$%
 \begin{equation*}
 E\left( \tilde{\beta}\right) =E\left( \tilde{C}Y\right) =E\left( \left( \hat{%
 C}+D\right) Y\right) =E\left( \hat{C}Y\right) +E\left( DY\right) =\beta
-\quad \forall \beta 
+\quad \forall \beta
 \end{equation*}%
 \begin{equation*}
-\left[ \hat{C}=\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right] 
+\left[ \hat{C}=\text{\c{S}}^{-1}x^{\dagger }W^{-1}\right]
 \end{equation*}%
 \begin{equation*}
 \Rightarrow \beta +DE\left( Y\right) =\beta +Dx\beta =\beta \quad
-\Rightarrow Dx=0\quad \left( D\perp x\right) 
+\Rightarrow Dx=0\quad \left( D\perp x\right)
 \end{equation*}%
 \begin{equation*}
 Cov\left( \tilde{\beta}\right) =Cov\left( \left( \hat{C}+D\right) Y\right)
@@ -1846,7 +1845,7 @@ Cov\left( \tilde{\beta}\right) =Cov\left( \left( \hat{C}+D\right) Y\right)
 \end{equation*}%
 \begin{equation*}
 =\sigma ^{2}\left( \hat{C}W\hat{C}^{\dagger }+DWD^{\dagger }+\hat{C}%
-WD^{\dagger }+DW\hat{C}^{\dagger }\right) 
+WD^{\dagger }+DW\hat{C}^{\dagger }\right)
 \end{equation*}%
 \begin{equation*}
 =\sigma ^{2}\left( \hat{C}W\hat{C}^{\dagger }+DWD^{\dagger }\right) \geq
@@ -1873,7 +1872,7 @@ estimator(GLSE) $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right)
 
 \quad
 
-\bigskip 
+\bigskip
 
 If W is matrix as A, the we have%
 \begin{equation*}
@@ -2045,7 +2044,7 @@ eigenvalue and =n$\Rightarrow \tsum \lambda _{i}=n$. $1+\left( n+1\right)
 
 \quad
 
-\bigskip 
+\bigskip
 
 Assume that A is choosen instead of W%
 \begin{equation*}
@@ -2064,10 +2063,10 @@ Assume that A is choosen instead of W%
 \end{equation*}%
 \begin{eqnarray*}
 &=&\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right]
-\left( x\beta +\varepsilon \right)  \\
+\left( x\beta +\varepsilon \right) \\
 &=&x\beta -x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}x\beta
 +\varepsilon -x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
-}A^{-1}\varepsilon  \\
+}A^{-1}\varepsilon \\
 &=&\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right]
 %TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
 %BeginExpansion
@@ -2087,7 +2086,7 @@ n-k}\leadsto \sigma ^{2}
 E\left( \tilde{\sigma}^{2}\right) =\sigma ^{2}+\frac{1}{n-k}\left\{
 tr\left\{ \sigma ^{2}x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
 }A^{-1}\left( I-2W\right) \right\} +tr\left\{ xCov\left( \tilde{\beta}%
-\right) x^{\dagger }\right\} \right\} 
+\right) x^{\dagger }\right\} \right\}
 \end{equation*}
 
 If A=I%
@@ -2126,13 +2125,11 @@ E\left( \tilde{\sigma}^{2}\right) =E\left( \frac{e^{\dagger }A^{-1}e}{n-k}%
 
 \bigskip
 
-\newpage
-
 \paragraph{Heteroccdasticity and Autoregression}
 
 \quad
 
-\bigskip 
+\bigskip
 
 December 8 (monday)
 
@@ -2351,6 +2348,106 @@ _{u}^{2},\quad t\neq t^{\prime }%
 \begin{equation*}
 \sigma ^{2}=\sigma _{v}^{2}+\sigma _{u}^{2}\quad \rho =\frac{\sigma _{v}^{2}%
 }{\sigma _{v}^{2}+\sigma _{u}^{2}}
+\end{equation*}
+
+\bigskip
+
+\paragraph{Autoregressive Disturbance}
+
+\quad
+
+\bigskip
+
+Assume $\left\{ u_{t}\right\} \left( t=\cdots ,-2,-1,0,1,2,\cdots \right) $
+be an random process $E\left( u_{t}\right) =0\quad E\left( u_{t}^{2}\right)
+=\sigma _{u}^{2}\quad Cov\left( u_{t},u_{t^{\prime }}\right) =0\quad \forall
+t\neq t^{\prime }$%
+\begin{equation*}
+V_{t}-\mu =\rho \left( V_{t-1}-\mu \right) \quad \left\vert \rho \right\vert
+<1\quad \left( \mu =0,\quad V_{t}=V_{t-1}+u_{t}\right)
+\end{equation*}%
+repeated subsitute%
+\begin{eqnarray*}
+V_{t}-\mu &=&\rho \left( V_{t-1}-\mu \right) +u_{t} \\
+&=&\rho \left( \rho \left( V_{t-2}-\mu \right) +u_{t-1}\right) +u_{t} \\
+&=&\cdots =\tsum\limits_{s=0}^{\infty }\rho ^{s}u_{t-s}
+\end{eqnarray*}%
+\begin{equation*}
+E\left( V_{t}\right) =\mu +E\left( \tsum\limits_{s=0}^{\infty }\rho
+^{s}u_{t-s}\right) =\mu +\tsum\limits_{s=0}^{\infty }\rho ^{s}E\left(
+u_{t-s}\right) =\mu
+\end{equation*}%
+\begin{equation*}
+E\left( V_{t}-\mu \right) ^{2}=E\left( \tsum\limits_{s=0}^{\infty }\rho
+^{s}u_{t-s}\right) ^{2}=\tsum\limits_{s=0}^{\infty
+}\tsum\limits_{r=0}^{\infty }\rho ^{s+r}E\left( u_{t-s}u_{t-r}\right)
+\end{equation*}%
+\begin{eqnarray*}
+&=&\tsum\limits_{s=0}^{\infty }\rho ^{2s}E\left( u_{t-s}^{2}\right) \\
+&=&\sigma _{u}^{2}\tsum\limits_{s=0}^{\infty }\rho ^{2s} \\
+&=&\sigma _{u}^{2}\frac{1}{1-\rho ^{2}}=\sigma ^{2}
+\end{eqnarray*}%
+\begin{equation*}
+E\left[ \left( V_{t}-\mu \right) \left( V_{t-k}-\mu \right) \right] =E\left[
+\left( \tsum\limits_{s=0}^{\infty }\rho ^{s}E\left( u_{t-s}\right) \right)
+\left( \tsum\limits_{r=0}^{\infty }\rho ^{r}E\left( u_{t-k-r}\right) \right) %
+\right]
+\end{equation*}%
+\begin{equation*}
+\begin{array}{c}
+\text{if }k+r=S\text{ then }E\left[ u_{t-s}u_{t-k-r}\right] =E\left(
+u_{t-s}^{2}\right) \\ 
+\text{if }k+r\neq S\text{ then }E\left[ u_{t-s}u_{t-k-r}\right] =0%
+\end{array}%
+\end{equation*}%
+\begin{eqnarray*}
+&\therefore &E\left[ \left( V_{t}-\mu \right) \left( V_{t-k}-\mu \right) %
+\right] =\left( \tsum\limits_{r=0}^{\infty }\rho ^{2r+k}E\left(
+u_{t-k-r}^{2}\right) \right) \\
+&=&\sigma _{u}^{2}\tsum\limits_{r=0}^{\infty }\rho ^{2r+k} \\
+&=&\sigma _{u}^{2}\frac{\rho ^{k}}{1-\rho ^{2}}=\sigma ^{2}\rho ^{k}
+\end{eqnarray*}%
+\begin{equation*}
+E\left[ \left( V_{t}-\mu \right) ^{2}\right] =\sigma ^{2}=Var\left(
+V_{t-k}\right)
+\end{equation*}%
+\begin{equation*}
+Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_V}{\underaccent{\wtilde}{V}}}%
+%BeginExpansion
+\underaccent{\wtilde}{V}%
+%EndExpansion
+\right) =\sigma ^{2}\left[ 
+\begin{array}{ccccc}
+1 & \sigma & \sigma ^{2} & \cdots & \sigma ^{n-1} \\ 
+& 1 & \sigma &  &  \\ 
+&  & \ddots & \sigma & \vdots \\ 
+&  &  & 1 & \sigma \\ 
+&  &  &  & 1%
+\end{array}%
+\right] =\sigma ^{2}W
+\end{equation*}%
+\begin{equation*}
+W^{-1}=\frac{1}{1-\rho ^{2}}\left[ 
+\begin{array}{ccccc}
+1 & -\rho &  &  &  \\ 
+& 1+\rho ^{2} & -\rho &  &  \\ 
+&  & \ddots & -\rho &  \\ 
+&  &  & 1+\rho ^{2} & -\rho \\ 
+&  &  &  & 1%
+\end{array}%
+\right]
+\end{equation*}
+
+If $V_{t}-\mu =\rho \left( V_{t-1}-\mu \right) +\mu _{t}$ how to examine the
+existence of $\rho $, how to estimate?
+
+\bigskip
+
+\paragraph{Testing Autoregression}
+
+\begin{equation*}
+H_{0}=\rho =0
 \end{equation*}
 
 \end{document}

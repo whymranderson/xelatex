@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, December 09, 2015 12:01:30}
+%TCIDATA{LastRevised=Wednesday, December 09, 2015 16:32:51}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 \input{tcilatex}
 
 \begin{document}
@@ -69,7 +68,7 @@ estimator(GLSE) $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right)
 
 \paragraph{Misspecification of the Dispersion matrix}
 
-\bigskip 
+\bigskip
 
 If W is matrix as A, then we have%
 \begin{equation*}
@@ -89,7 +88,7 @@ Cov\left( \hat{\beta}^{\ast }\right) =\left( x^{\dagger }A^{-1}x\right)
 ^{-1}x^{\dagger }A^{-1}Cov\left( Y\right) A^{-1}x\left( x^{\dagger
 }A^{-1}x\right) ^{-1}
 \end{equation*}%
-\qquad 
+\qquad
 
 \bigskip
 
@@ -162,7 +161,7 @@ W &=&W^{\frac{1}{2}}W^{\frac{1}{2}}=\left( xA_{1}+ZB_{1}\right) \left(
 xA_{1}+ZB_{1}\right) ^{\dagger } \\
 &=&xA_{1}A_{1}^{\dagger }x^{\dagger }+xA_{1}B_{1}^{\dagger }Z^{\dagger
 }+ZB_{1}A_{1}^{\dagger }x^{\dagger }+ZB_{1}B_{1}^{\dagger }Z^{\dagger
-}\qquad \left( \triangle \right) 
+}\qquad \left( \triangle \right)
 \end{eqnarray*}%
 now $x^{\dagger }WZ=0\Rightarrow x^{\dagger }\left[ xA_{1}A_{1}^{\dagger
 }x^{\dagger }+xA_{1}B_{1}^{\dagger }Z^{\dagger }+ZB_{1}A_{1}^{\dagger
@@ -236,7 +235,7 @@ eigenvalue and =n$\Rightarrow \tsum \lambda _{i}=n$. $1+\left( n+1\right)
 
 \paragraph{Estimating $\protect\sigma ^{2}$ if misspecifity W}
 
-\bigskip 
+\bigskip
 
 Assume that A is choosen instead of W%
 \begin{equation*}
@@ -255,10 +254,10 @@ Assume that A is choosen instead of W%
 \end{equation*}%
 \begin{eqnarray*}
 &=&\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right]
-\left( x\beta +\varepsilon \right)  \\
+\left( x\beta +\varepsilon \right) \\
 &=&x\beta -x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}x\beta
 +\varepsilon -x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
-}A^{-1}\varepsilon  \\
+}A^{-1}\varepsilon \\
 &=&\left[ I-x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger }A^{-1}\right]
 %TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
 %BeginExpansion
@@ -278,7 +277,7 @@ n-k}\leadsto \sigma ^{2}
 E\left( \tilde{\sigma}^{2}\right) =\sigma ^{2}+\frac{1}{n-k}\left\{
 tr\left\{ \sigma ^{2}x\left( x^{\dagger }A^{-1}x\right) ^{-1}x^{\dagger
 }A^{-1}\left( I-2W\right) \right\} +tr\left\{ xCov\left( \tilde{\beta}%
-\right) x^{\dagger }\right\} \right\} 
+\right) x^{\dagger }\right\} \right\}
 \end{equation*}
 
 If A=I%
@@ -321,7 +320,7 @@ E\left( \tilde{\sigma}^{2}\right) =E\left( \frac{e^{\dagger }A^{-1}e}{n-k}%
 
 \paragraph{Heteroccdasticity and Autoregression}
 
-\bigskip 
+\bigskip
 
 December 8 (monday)
 
@@ -446,7 +445,7 @@ of the n individ%
 \begin{equation*}
 E\left( u_{tj}\right) =0\quad Var\left( u_{tj}\right) =\sigma _{u}^{2}\quad
 Cov\left( u_{tj},u_{tj^{\prime }}\right) =0\quad \left( t,j\right) \neq
-\left( t,j^{\prime }\right)
+\left( t,j^{\prime }\right) 
 \end{equation*}%
 \begin{equation*}
 %TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
@@ -460,14 +459,14 @@ _{mn\times 1}=\left[
 \underaccent{\wtilde}{\epsilon}%
 %EndExpansion
 _{1} \\ 
-\vdots \\ 
+\vdots  \\ 
 %TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\epsilon}%
 %EndExpansion
 _{n}%
 \end{array}%
-\right]
+\right] 
 \end{equation*}%
 \begin{equation*}
 E\left( 
@@ -481,11 +480,11 @@ E\left(
 %EndExpansion
 ^{\dagger }\right) =diag\left( \Phi ,\cdots ,\Phi \right) =\left[ 
 \begin{array}{ccc}
-\Phi &  &  \\ 
-& \ddots &  \\ 
-&  & \Phi%
+\Phi  &  &  \\ 
+& \ddots  &  \\ 
+&  & \Phi 
 \end{array}%
-\right]
+\right] 
 \end{equation*}%
 \begin{equation*}
 \Phi _{mxm}=E\left( 
@@ -508,11 +507,11 @@ _{tj}%
 %BeginExpansion
 \underaccent{\wtilde}{\epsilon}%
 %EndExpansion
-_{t^{\prime }j}^{\dagger }\right) \right\}
+_{t^{\prime }j}^{\dagger }\right) \right\} 
 \end{equation*}%
 \begin{equation*}
 =\left\{ E\left( V_{j}+u_{tj}\right) \left( V_{j}+u_{t^{\prime }j}\right)
-^{\dagger }\right\} =\left\{ E\left( V_{j}^{2}\right) \right\}
+^{\dagger }\right\} =\left\{ E\left( V_{j}^{2}\right) \right\} 
 \end{equation*}%
 \begin{equation*}
 =\left\{ 
@@ -521,27 +520,127 @@ _{t^{\prime }j}^{\dagger }\right) \right\}
 E\left( V_{j}^{2}\right) +E\left( u_{tj}^{2}\right) =\sigma _{v}^{2}+\sigma
 _{u}^{2},\quad t\neq t^{\prime }%
 \end{array}%
-\right.
+\right. 
 \end{equation*}%
 \begin{equation*}
 =\left[ 
 \begin{array}{ccc}
 \sigma _{v}^{2}+\sigma _{u}^{2} &  & \sigma _{v}^{2} \\ 
-& \ddots &  \\ 
+& \ddots  &  \\ 
 \sigma _{v}^{2} &  & \sigma _{v}^{2}+\sigma _{u}^{2}%
 \end{array}%
 \right] =\sigma ^{2}\left[ 
 \begin{array}{ccc}
-1 &  & \rho \\ 
-& \ddots &  \\ 
-\rho &  & 1%
+1 &  & \rho  \\ 
+& \ddots  &  \\ 
+\rho  &  & 1%
 \end{array}%
-\right]
+\right] 
 \end{equation*}%
 (equal correlation)%
 \begin{equation*}
 \sigma ^{2}=\sigma _{v}^{2}+\sigma _{u}^{2}\quad \rho =\frac{\sigma _{v}^{2}%
 }{\sigma _{v}^{2}+\sigma _{u}^{2}}
+\end{equation*}
+
+\bigskip 
+
+\paragraph{Autoregressive Disturbance}
+
+\quad 
+
+\bigskip 
+
+Assume $\left\{ u_{t}\right\} \left( t=\cdots ,-2,-1,0,1,2,\cdots \right) $
+be an random process $E\left( u_{t}\right) =0\quad E\left( u_{t}^{2}\right)
+=\sigma _{u}^{2}\quad Cov\left( u_{t},u_{t^{\prime }}\right) =0\quad \forall
+t\neq t^{\prime }$%
+\begin{equation*}
+V_{t}-\mu =\rho \left( V_{t-1}-\mu \right) \quad \left\vert \rho \right\vert
+<1\quad \left( \mu =0,\quad V_{t}=V_{t-1}+u_{t}\right) 
+\end{equation*}%
+repeated subsitute%
+\begin{eqnarray*}
+V_{t}-\mu  &=&\rho \left( V_{t-1}-\mu \right) +u_{t} \\
+&=&\rho \left( \rho \left( V_{t-2}-\mu \right) +u_{t-1}\right) +u_{t} \\
+&=&\cdots =\tsum\limits_{s=0}^{\infty }\rho ^{s}u_{t-s}
+\end{eqnarray*}%
+\begin{equation*}
+E\left( V_{t}\right) =\mu +E\left( \tsum\limits_{s=0}^{\infty }\rho
+^{s}u_{t-s}\right) =\mu +\tsum\limits_{s=0}^{\infty }\rho ^{s}E\left(
+u_{t-s}\right) =\mu 
+\end{equation*}%
+\begin{equation*}
+E\left( V_{t}-\mu \right) ^{2}=E\left( \tsum\limits_{s=0}^{\infty }\rho
+^{s}u_{t-s}\right) ^{2}=\tsum\limits_{s=0}^{\infty
+}\tsum\limits_{r=0}^{\infty }\rho ^{s+r}E\left( u_{t-s}u_{t-r}\right) 
+\end{equation*}%
+\begin{eqnarray*}
+&=&\tsum\limits_{s=0}^{\infty }\rho ^{2s}E\left( u_{t-s}^{2}\right)  \\
+&=&\sigma _{u}^{2}\tsum\limits_{s=0}^{\infty }\rho ^{2s} \\
+&=&\sigma _{u}^{2}\frac{1}{1-\rho ^{2}}=\sigma ^{2}
+\end{eqnarray*}%
+\begin{equation*}
+E\left[ \left( V_{t}-\mu \right) \left( V_{t-k}-\mu \right) \right] =E\left[
+\left( \tsum\limits_{s=0}^{\infty }\rho ^{s}E\left( u_{t-s}\right) \right)
+\left( \tsum\limits_{r=0}^{\infty }\rho ^{r}E\left( u_{t-k-r}\right) \right) %
+\right] 
+\end{equation*}%
+\begin{equation*}
+\begin{array}{c}
+\text{if }k+r=S\text{ then }E\left[ u_{t-s}u_{t-k-r}\right] =E\left(
+u_{t-s}^{2}\right)  \\ 
+\text{if }k+r\neq S\text{ then }E\left[ u_{t-s}u_{t-k-r}\right] =0%
+\end{array}%
+\end{equation*}%
+\begin{eqnarray*}
+&\therefore &E\left[ \left( V_{t}-\mu \right) \left( V_{t-k}-\mu \right) %
+\right] =\left( \tsum\limits_{r=0}^{\infty }\rho ^{2r+k}E\left(
+u_{t-k-r}^{2}\right) \right)  \\
+&=&\sigma _{u}^{2}\tsum\limits_{r=0}^{\infty }\rho ^{2r+k} \\
+&=&\sigma _{u}^{2}\frac{\rho ^{k}}{1-\rho ^{2}}=\sigma ^{2}\rho ^{k}
+\end{eqnarray*}%
+\begin{equation*}
+E\left[ \left( V_{t}-\mu \right) ^{2}\right] =\sigma ^{2}=Var\left(
+V_{t-k}\right) 
+\end{equation*}%
+\begin{equation*}
+Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_V}{\underaccent{\wtilde}{V}}}%
+%BeginExpansion
+\underaccent{\wtilde}{V}%
+%EndExpansion
+\right) =\sigma ^{2}\left[ 
+\begin{array}{ccccc}
+1 & \sigma  & \sigma ^{2} & \cdots  & \sigma ^{n-1} \\ 
+& 1 & \sigma  &  &  \\ 
+&  & \ddots  & \sigma  & \vdots  \\ 
+&  &  & 1 & \sigma  \\ 
+&  &  &  & 1%
+\end{array}%
+\right] =\sigma ^{2}W
+\end{equation*}%
+\begin{equation*}
+W^{-1}=\frac{1}{1-\rho ^{2}}\left[ 
+\begin{array}{ccccc}
+1 & -\rho  &  &  &  \\ 
+& 1+\rho ^{2} & -\rho  &  &  \\ 
+&  & \ddots  & -\rho  &  \\ 
+&  &  & 1+\rho ^{2} & -\rho  \\ 
+&  &  &  & 1%
+\end{array}%
+\right] 
+\end{equation*}
+
+If $V_{t}-\mu =\rho \left( V_{t-1}-\mu \right) +\mu _{t}$ how to examine the
+existence of $\rho $, how to estimate?
+
+\bigskip 
+
+\paragraph{Testing Autoregression}
+
+\begin{equation*}
+H_{0}=\rho =0
 \end{equation*}
 
 \end{document}
