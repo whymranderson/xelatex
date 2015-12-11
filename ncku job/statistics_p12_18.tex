@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, December 09, 2015 16:32:51}
+%TCIDATA{LastRevised=Friday, December 11, 2015 10:44:11}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -445,7 +445,7 @@ of the n individ%
 \begin{equation*}
 E\left( u_{tj}\right) =0\quad Var\left( u_{tj}\right) =\sigma _{u}^{2}\quad
 Cov\left( u_{tj},u_{tj^{\prime }}\right) =0\quad \left( t,j\right) \neq
-\left( t,j^{\prime }\right) 
+\left( t,j^{\prime }\right)
 \end{equation*}%
 \begin{equation*}
 %TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
@@ -459,14 +459,14 @@ _{mn\times 1}=\left[
 \underaccent{\wtilde}{\epsilon}%
 %EndExpansion
 _{1} \\ 
-\vdots  \\ 
+\vdots \\ 
 %TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
 %BeginExpansion
 \underaccent{\wtilde}{\epsilon}%
 %EndExpansion
 _{n}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 \begin{equation*}
 E\left( 
@@ -480,11 +480,11 @@ E\left(
 %EndExpansion
 ^{\dagger }\right) =diag\left( \Phi ,\cdots ,\Phi \right) =\left[ 
 \begin{array}{ccc}
-\Phi  &  &  \\ 
-& \ddots  &  \\ 
-&  & \Phi 
+\Phi &  &  \\ 
+& \ddots &  \\ 
+&  & \Phi%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 \begin{equation*}
 \Phi _{mxm}=E\left( 
@@ -507,11 +507,11 @@ _{tj}%
 %BeginExpansion
 \underaccent{\wtilde}{\epsilon}%
 %EndExpansion
-_{t^{\prime }j}^{\dagger }\right) \right\} 
+_{t^{\prime }j}^{\dagger }\right) \right\}
 \end{equation*}%
 \begin{equation*}
 =\left\{ E\left( V_{j}+u_{tj}\right) \left( V_{j}+u_{t^{\prime }j}\right)
-^{\dagger }\right\} =\left\{ E\left( V_{j}^{2}\right) \right\} 
+^{\dagger }\right\} =\left\{ E\left( V_{j}^{2}\right) \right\}
 \end{equation*}%
 \begin{equation*}
 =\left\{ 
@@ -520,22 +520,22 @@ _{t^{\prime }j}^{\dagger }\right) \right\}
 E\left( V_{j}^{2}\right) +E\left( u_{tj}^{2}\right) =\sigma _{v}^{2}+\sigma
 _{u}^{2},\quad t\neq t^{\prime }%
 \end{array}%
-\right. 
+\right.
 \end{equation*}%
 \begin{equation*}
 =\left[ 
 \begin{array}{ccc}
 \sigma _{v}^{2}+\sigma _{u}^{2} &  & \sigma _{v}^{2} \\ 
-& \ddots  &  \\ 
+& \ddots &  \\ 
 \sigma _{v}^{2} &  & \sigma _{v}^{2}+\sigma _{u}^{2}%
 \end{array}%
 \right] =\sigma ^{2}\left[ 
 \begin{array}{ccc}
-1 &  & \rho  \\ 
-& \ddots  &  \\ 
-\rho  &  & 1%
+1 &  & \rho \\ 
+& \ddots &  \\ 
+\rho &  & 1%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 (equal correlation)%
 \begin{equation*}
@@ -543,13 +543,13 @@ _{u}^{2},\quad t\neq t^{\prime }%
 }{\sigma _{v}^{2}+\sigma _{u}^{2}}
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 \paragraph{Autoregressive Disturbance}
 
-\quad 
+\quad
 
-\bigskip 
+\bigskip
 
 Assume $\left\{ u_{t}\right\} \left( t=\cdots ,-2,-1,0,1,2,\cdots \right) $
 be an random process $E\left( u_{t}\right) =0\quad E\left( u_{t}^{2}\right)
@@ -557,26 +557,26 @@ be an random process $E\left( u_{t}\right) =0\quad E\left( u_{t}^{2}\right)
 t\neq t^{\prime }$%
 \begin{equation*}
 V_{t}-\mu =\rho \left( V_{t-1}-\mu \right) \quad \left\vert \rho \right\vert
-<1\quad \left( \mu =0,\quad V_{t}=V_{t-1}+u_{t}\right) 
+<1\quad \left( \mu =0,\quad V_{t}=V_{t-1}+u_{t}\right)
 \end{equation*}%
 repeated subsitute%
 \begin{eqnarray*}
-V_{t}-\mu  &=&\rho \left( V_{t-1}-\mu \right) +u_{t} \\
+V_{t}-\mu &=&\rho \left( V_{t-1}-\mu \right) +u_{t} \\
 &=&\rho \left( \rho \left( V_{t-2}-\mu \right) +u_{t-1}\right) +u_{t} \\
 &=&\cdots =\tsum\limits_{s=0}^{\infty }\rho ^{s}u_{t-s}
 \end{eqnarray*}%
 \begin{equation*}
 E\left( V_{t}\right) =\mu +E\left( \tsum\limits_{s=0}^{\infty }\rho
 ^{s}u_{t-s}\right) =\mu +\tsum\limits_{s=0}^{\infty }\rho ^{s}E\left(
-u_{t-s}\right) =\mu 
+u_{t-s}\right) =\mu
 \end{equation*}%
 \begin{equation*}
 E\left( V_{t}-\mu \right) ^{2}=E\left( \tsum\limits_{s=0}^{\infty }\rho
 ^{s}u_{t-s}\right) ^{2}=\tsum\limits_{s=0}^{\infty
-}\tsum\limits_{r=0}^{\infty }\rho ^{s+r}E\left( u_{t-s}u_{t-r}\right) 
+}\tsum\limits_{r=0}^{\infty }\rho ^{s+r}E\left( u_{t-s}u_{t-r}\right)
 \end{equation*}%
 \begin{eqnarray*}
-&=&\tsum\limits_{s=0}^{\infty }\rho ^{2s}E\left( u_{t-s}^{2}\right)  \\
+&=&\tsum\limits_{s=0}^{\infty }\rho ^{2s}E\left( u_{t-s}^{2}\right) \\
 &=&\sigma _{u}^{2}\tsum\limits_{s=0}^{\infty }\rho ^{2s} \\
 &=&\sigma _{u}^{2}\frac{1}{1-\rho ^{2}}=\sigma ^{2}
 \end{eqnarray*}%
@@ -584,25 +584,25 @@ E\left( V_{t}-\mu \right) ^{2}=E\left( \tsum\limits_{s=0}^{\infty }\rho
 E\left[ \left( V_{t}-\mu \right) \left( V_{t-k}-\mu \right) \right] =E\left[
 \left( \tsum\limits_{s=0}^{\infty }\rho ^{s}E\left( u_{t-s}\right) \right)
 \left( \tsum\limits_{r=0}^{\infty }\rho ^{r}E\left( u_{t-k-r}\right) \right) %
-\right] 
+\right]
 \end{equation*}%
 \begin{equation*}
 \begin{array}{c}
 \text{if }k+r=S\text{ then }E\left[ u_{t-s}u_{t-k-r}\right] =E\left(
-u_{t-s}^{2}\right)  \\ 
+u_{t-s}^{2}\right) \\ 
 \text{if }k+r\neq S\text{ then }E\left[ u_{t-s}u_{t-k-r}\right] =0%
 \end{array}%
 \end{equation*}%
 \begin{eqnarray*}
 &\therefore &E\left[ \left( V_{t}-\mu \right) \left( V_{t-k}-\mu \right) %
 \right] =\left( \tsum\limits_{r=0}^{\infty }\rho ^{2r+k}E\left(
-u_{t-k-r}^{2}\right) \right)  \\
+u_{t-k-r}^{2}\right) \right) \\
 &=&\sigma _{u}^{2}\tsum\limits_{r=0}^{\infty }\rho ^{2r+k} \\
 &=&\sigma _{u}^{2}\frac{\rho ^{k}}{1-\rho ^{2}}=\sigma ^{2}\rho ^{k}
 \end{eqnarray*}%
 \begin{equation*}
 E\left[ \left( V_{t}-\mu \right) ^{2}\right] =\sigma ^{2}=Var\left(
-V_{t-k}\right) 
+V_{t-k}\right)
 \end{equation*}%
 \begin{equation*}
 Cov\left( 
@@ -612,10 +612,10 @@ Cov\left(
 %EndExpansion
 \right) =\sigma ^{2}\left[ 
 \begin{array}{ccccc}
-1 & \sigma  & \sigma ^{2} & \cdots  & \sigma ^{n-1} \\ 
-& 1 & \sigma  &  &  \\ 
-&  & \ddots  & \sigma  & \vdots  \\ 
-&  &  & 1 & \sigma  \\ 
+1 & \sigma & \sigma ^{2} & \cdots & \sigma ^{n-1} \\ 
+& 1 & \sigma &  &  \\ 
+&  & \ddots & \sigma & \vdots \\ 
+&  &  & 1 & \sigma \\ 
 &  &  &  & 1%
 \end{array}%
 \right] =\sigma ^{2}W
@@ -623,24 +623,156 @@ Cov\left(
 \begin{equation*}
 W^{-1}=\frac{1}{1-\rho ^{2}}\left[ 
 \begin{array}{ccccc}
-1 & -\rho  &  &  &  \\ 
-& 1+\rho ^{2} & -\rho  &  &  \\ 
-&  & \ddots  & -\rho  &  \\ 
-&  &  & 1+\rho ^{2} & -\rho  \\ 
+1 & -\rho &  &  &  \\ 
+& 1+\rho ^{2} & -\rho &  &  \\ 
+&  & \ddots & -\rho &  \\ 
+&  &  & 1+\rho ^{2} & -\rho \\ 
 &  &  &  & 1%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 
 If $V_{t}-\mu =\rho \left( V_{t-1}-\mu \right) +\mu _{t}$ how to examine the
 existence of $\rho $, how to estimate?
 
-\bigskip 
+\bigskip
 
 \paragraph{Testing Autoregression}
 
 \begin{equation*}
-H_{0}=\rho =0
+H_{0}=\rho =0\quad H_{1}=\rho >0\quad \left( \neq 0\right) 
+\end{equation*}%
+\begin{equation*}
+\text{examining statistical value }d=\frac{\tsum\limits_{t=2}^{n}\left(
+e_{t}-e_{t-1}\right) ^{2}}{\tsum\limits_{t=1}^{n}e_{t}^{2}}
+\end{equation*}%
+where $e_{t}$ is the estimated residual from the classical regression model $%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+=%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\left( x^{\dagger }x\right) ^{-1}x^{\dagger }Y$
+
+\begin{equation*}
+y=x\beta +\varepsilon \quad Cov\left( \varepsilon \right) =\sigma
+^{2}W=\sigma ^{2}\left[ 
+\begin{array}{ccccc}
+1 & \sigma  & \sigma ^{2} & \cdots  & \sigma ^{n-1} \\ 
+& 1 & \sigma  &  &  \\ 
+&  & \ddots  & \sigma  & \vdots  \\ 
+&  &  & 1 & \sigma  \\ 
+&  &  &  & 1%
+\end{array}%
+\right] 
+\end{equation*}%
+\begin{equation*}
+\varepsilon _{t}=\rho \varepsilon _{t-1}+u_{t}
+\end{equation*}%
+\begin{eqnarray*}
+d &=&\frac{\tsum\limits_{t=2}^{n}\left(
+e_{t}^{2}-2e_{t}e_{t-1}+e_{t-1}^{2}\right) }{\tsum\limits_{t=1}^{n}e_{t}^{2}}
+\\
+&=&\frac{\tsum\limits_{t=2}^{n}e_{t}^{2}-\tsum\limits_{t=2}^{n}e_{t}e_{t-1}}{%
+\tsum\limits_{t=1}^{n}e_{t}^{2}}\quad \left( n\rightarrow \infty \right)  \\
+&=&2\left( 1+\hat{\rho}\right)  \\
+\hat{\rho} &=&\frac{\tsum e_{t}e_{t-1}}{\sqrt{\sum e_{t}^{2}\sum e_{t-1}^{2}}%
+}
+\end{eqnarray*}%
+\begin{equation*}
+-1\leq \hat{\rho}\leq 1\Leftrightarrow 0<d<4
+\end{equation*}
+
+\bigskip 
+
+Durbin-Watson test for $H_{0}=\rho =0\quad H_{1}=\rho >0$
+
+\begin{flushright}
+\begin{equation*}
+\begin{array}{c}
+\text{don't reject }H_{0}\text{ if }d>d_{U}^{\ast } \\ 
+\text{reject }H_{0}\text{ if }d\leq d_{L}^{\ast }%
+\end{array}%
+\end{equation*}
+\end{flushright}
+
+\begin{equation*}
+y=x\beta +\varepsilon \quad Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =\sigma ^{2}W=\sigma ^{2}\left[ 
+\begin{array}{ccccc}
+1 & \sigma  & \sigma ^{2} & \cdots  & \sigma ^{n-1} \\ 
+& 1 & \sigma  &  &  \\ 
+&  & \ddots  & \sigma  & \vdots  \\ 
+&  &  & 1 & \sigma  \\ 
+&  &  &  & 1%
+\end{array}%
+\right] 
+\end{equation*}
+
+\begin{equation*}
+\hat{\beta}=\left( x^{\dagger }Wx\right) ^{-1}x^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\end{equation*}
+
+\begin{enumerate}
+\item two-stage estimation%
+\begin{equation*}
+\hat{\beta}_{0}=\left( x^{\dagger }x\right) ^{-1}x^{\dagger }Y\Rightarrow Y-x%
+\hat{\beta}_{0}=e_{0}\Rightarrow \hat{\rho}_{0}\rightarrow \hat{\beta}%
+_{1}\rightarrow \hat{\rho}_{1}\rightarrow \hat{\beta}_{2}\cdots 
+\end{equation*}
+
+\item transformation of variables (has a sense of differentiation)%
+\begin{equation*}
+Y_{t}=x_{t}\beta +\varepsilon _{t}\quad \varepsilon _{t}=\rho \varepsilon
+_{t-1}+u_{t}
+\end{equation*}%
+\begin{equation*}
+y_{t}-\rho y_{t-1}=\triangle _{\rho }y_{t}\quad x_{t}-\rho x_{t-1}=\triangle
+_{\rho }x_{t}\quad \varepsilon _{t}-\rho \varepsilon _{t-1}=u_{t}
+\end{equation*}
+\end{enumerate}
+
+\bigskip 
+
+Then the model%
+\begin{equation*}
+y=x\beta +\varepsilon \quad \varepsilon \sim \left( 0,\sigma ^{2}W\right)
+\quad W=\left[ 
+\begin{array}{ccccc}
+1 & \sigma  & \sigma ^{2} & \cdots  & \sigma ^{n-1} \\ 
+& 1 & \sigma  &  &  \\ 
+&  & \ddots  & \sigma  & \vdots  \\ 
+&  &  & 1 & \sigma  \\ 
+&  &  &  & 1%
+\end{array}%
+\right] 
+\end{equation*}%
+\begin{equation*}
+\triangle _{\rho }y_{t}=x_{t}\beta +\varepsilon _{t}-\rho x_{t-1}\beta -\rho
+\varepsilon _{t-1}
+\end{equation*}%
+\begin{equation*}
+=\left( x_{t}-\rho x_{t-1}\right) \beta +\left( \varepsilon _{t}-\rho
+\varepsilon _{t-1}\right) =\triangle _{\rho }x_{t}\beta +u_{t}
+\end{equation*}%
+\begin{equation*}
+E\left( u_{t}\right) =0\quad E\left( u_{t}^{2}\right) =\sigma _{u}^{2}
+\end{equation*}%
+\begin{equation*}
+\therefore \hat{\beta}\text{ using the OLS (first estimate }\rho \text{, use
+2-stage method)}
 \end{equation*}
 
 \end{document}
