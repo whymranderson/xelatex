@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, December 11, 2015 11:55:48}
+%TCIDATA{LastRevised=Sunday, December 13, 2015 15:40:30}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 \input{tcilatex}
 
 \begin{document}
@@ -307,5 +306,397 @@ _{0}\right) =x_{\ast }Cov\left( \hat{\beta}\right) x_{\ast }^{\dagger }\quad
 Cov\left( \hat{\beta}\right) =\sigma ^{2}\left( x^{\dagger }W^{-1}x\right)
 ^{-1}
 \end{equation*}
+
+\bigskip 
+
+\paragraph{Heteogeneous Prediction}
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_y}{\underaccent{\wtilde}{y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{y}%
+%EndExpansion
+_{\ast }=x_{\ast }%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }\quad \text{*: future value}
+\end{equation*}%
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+=C%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\end{equation*}%
+\begin{equation*}
+R_{A}\left( 
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+,%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+_{\ast }\right) =E\left[ \left( 
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+_{\ast }\right) ^{\dagger }A\left( 
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+_{\ast }\right) \right] 
+\end{equation*}
+
+\begin{equation*}
+\hat{C}_{1}=W_{0}^{\dagger }W^{-1}\quad 
+%TCIMACRO{\TeXButton{underaccent_d_hat}{\underaccent{\wtilde}{\hat{d}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{d}}%
+%EndExpansion
+=x_{\ast }%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+-W_{0}^{\dagger }W^{-1}x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\end{equation*}
+
+\begin{eqnarray*}
+%TCIMACRO{\TeXButton{underaccent_P_hat}{\underaccent{\wtilde}{\hat{P}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{P}}%
+%EndExpansion
+_{1} &=&W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
++x_{\ast }\beta -W_{0}^{\dagger }W^{-1}x\beta  \\
+&=&W_{0}^{\dagger }W^{-1}\left( Y-x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) +x_{\ast }\beta \quad \_\_\_\_\left( \ast \right) 
+\end{eqnarray*}
+
+\begin{equation*}
+E\left( 
+%TCIMACRO{\TeXButton{underaccent_P_hat}{\underaccent{\wtilde}{\hat{P}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{P}}%
+%EndExpansion
+_{1}\right) =x_{\ast }\beta +W_{0}^{\dagger }W^{-1}E\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\right) =x_{\ast }\beta 
+\end{equation*}
+
+\begin{eqnarray*}
+R_{A}\left( 
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+,%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+_{\ast }\right)  &=&\sigma ^{2}tr\left\{ A\left( \hat{C}_{1}W\hat{C}%
+_{1}^{\dagger }+W_{\ast }-2\hat{C}_{1}W_{0}\right) \right\}  \\
+&=&\sigma ^{2}tr\left\{ A\left( W_{0}^{\dagger }W^{-1}WW^{-1}W_{0}^{\dagger
+}-2W_{0}^{\dagger }W^{-1}W_{0}^{-1}\right) \right\}  \\
+&=&\sigma ^{2}tr\left\{ A\left( W_{\ast }-W_{0}^{\dagger
+}W^{-1}W_{0}^{\dagger }\right) \right\} 
+\end{eqnarray*}
+
+\begin{equation*}
+Cov\left( Y_{\ast }-x_{\ast }\beta \right) =\sigma ^{2}W_{\ast }
+\end{equation*}%
+take the heteogeneous condition away to fix the unkown part in $\beta $ in $%
+\left( \ast \right) $
+
+\bigskip 
+
+\paragraph{Optimal Hemogeneous Prediction}
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+=C%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\end{equation*}%
+\begin{equation*}
+R_{A}\left( 
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+,Y_{\ast }\right) =tr\left\{ A\left[ \left( Cx-x_{\ast }\right) \beta \right]
+^{\dagger }\left[ \left( Cx-x_{\ast }\right) \beta \right] \right\} +\sigma
+^{2}tr\left\{ A\left( CWC^{\dagger }+W^{\ast }-2CW_{0}\right) \right\} 
+\end{equation*}
+
+\begin{equation*}
+\frac{1}{2}\frac{\partial R_{A}\left( 
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+,Y_{\ast }\right) }{\partial C}=0
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow ACx\beta \beta ^{\dagger }x^{\dagger }+ACW\sigma
+^{2}-AW_{0}^{\dagger }\sigma ^{2}-Ax_{\ast }\beta \beta ^{\dagger
+}x^{\dagger }=0
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow AC\left( x\beta \beta ^{\dagger }x^{\dagger }+W\sigma
+^{2}\right) -A\left( W_{0}^{\dagger }\sigma ^{2}-x_{\ast }\beta \beta
+^{\dagger }x^{\dagger }\right) =0
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \hat{C}_{2}=\left( W_{0}^{\dagger }\sigma ^{2}-x_{\ast }\beta
+\beta ^{\dagger }x^{\dagger }\right) \left( x\beta \beta ^{\dagger
+}x^{\dagger }+W\sigma ^{2}\right) ^{-1}
+\end{equation*}
+
+\begin{equation*}
+\therefore 
+%TCIMACRO{\TeXButton{underaccent_P_hat}{\underaccent{\wtilde}{\hat{P}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{P}}%
+%EndExpansion
+_{2}=\hat{C}_{2}Y=\left( W_{0}^{\dagger }\sigma ^{2}-x_{\ast }\beta \beta
+^{\dagger }x^{\dagger }\right) \left( x\beta \beta ^{\dagger }x^{\dagger
+}+W\sigma ^{2}\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\end{equation*}%
+\begin{equation*}
+=\left( W_{0}^{\dagger }W^{-1}+\frac{1}{\sigma ^{2}}x_{\ast }\beta \beta
+^{\dagger }x^{\dagger }W^{-1}\right) \left( Y-x\hat{\beta}_{2}\right) 
+\end{equation*}%
+where $\hat{\beta}_{2}=\beta \frac{\beta ^{\dagger }x^{\dagger }W^{-1}Y}{%
+\sigma ^{2}+\beta ^{\dagger }x^{\dagger }W^{-1}x\beta }$
+
+\begin{equation*}
+=W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}_{2}\right) +x_{\ast }\frac{%
+\beta \beta ^{\dagger }x^{\dagger }W^{-1}}{\sigma ^{2}}\left( Y-x\hat{\beta}%
+_{2}\right) 
+\end{equation*}%
+\begin{equation*}
+=W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}_{2}\right) +x_{\ast }\hat{\beta}%
+_{2}
+\end{equation*}
+
+\bigskip 
+
+Comparison of $R_{A}\left( \hat{P}_{1},Y_{\ast }\right) $ and $R_{A}\left( 
+\hat{P}_{2},Y_{\ast }\right) $
+
+\begin{equation*}
+R_{A}\left( \hat{P}_{2},Y_{\ast }\right) =R_{A}\left( \hat{P}_{1},Y_{\ast
+}\right) +tr\left\{ AZM\left( \hat{\beta}_{\ast },\beta \right) Z^{\dagger
+}\right\} \quad Z=x_{\ast }-W_{0}^{\dagger }W^{-1}x
+\end{equation*}%
+add a few conditions to improve the condition of unknown $\beta $ in $\hat{P}%
+_{2}$
+
+\bigskip 
+
+Conditional of unbiasedness
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+=0,\quad \hat{P}=CY,\quad E\left( \hat{P}\right) =x_{\ast }\beta 
+\end{equation*}
+
+\begin{equation*}
+E\left( \hat{P}\right) =E\left( CY\right) =cx%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+=x_{\ast }\beta \Rightarrow Cx=x_{\ast }
+\end{equation*}
+
+want to%
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+\min \quad \sigma ^{2}tr\left\{ A\left( CWC^{\dagger }+W_{\ast
+}-2CW_{0}\right) \right\}  \\ 
+\text{s.t.}\quad Cx=x_{\ast }%
+\end{array}%
+\right. 
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \underset{\text{C,n}}{\min \quad }R_{A}\left( \hat{P}%
+_{1},Y_{\ast }\right) -tr\left( \Lambda \left( Cx-x_{\ast }\right) ^{\dagger
+}\right) 
+\end{equation*}
+
+\begin{equation*}
+\Lambda =\left( \Lambda _{1,k\times 1},\cdots ,\Lambda _{n^{\ast }}\right) 
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left\{ 
+\begin{array}{c}
+\frac{1}{2}\frac{\partial \tilde{R}_{A}}{\partial C}=0 \\ 
+\frac{\partial \tilde{R}_{A}}{\partial \Lambda }=0%
+\end{array}%
+\right. 
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left\{ 
+\begin{array}{c}
+ACW-AW_{0}^{\dagger }-\Lambda x^{\dagger }=0\_\_\_\_\left( 1\right)  \\ 
+Cx-x_{\ast }=0\_\_\_\_\left( 2\right) 
+\end{array}%
+\right. 
+\end{equation*}
+
+\begin{equation*}
+\text{from (1)}\Rightarrow C=W_{0}^{\dagger }W^{-1}+A^{-1}\Lambda x^{\dagger
+}W^{-1}\quad \text{put in (2)}
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \left( W_{0}^{\dagger }W^{-1}+A^{-1}\Lambda x^{\dagger
+}W^{-1}\right) x=x_{\ast }
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \Lambda =A\left( x_{\ast }-W_{0}^{\dagger }W^{-1}x\right) \left(
+x^{\dagger }W^{-1}x\right) ^{-1}
+\end{equation*}
+
+\begin{eqnarray*}
+&\therefore &\hat{C}_{3}=W_{0}^{\dagger }W^{-1}+A^{-1}\left( A\left( x_{\ast
+}-W_{0}^{\dagger }W^{-1}x\right) \left( x^{\dagger }W^{-1}x\right)
+^{-1}\right) x^{\dagger }W^{-1} \\
+&=&W_{0}^{\dagger }W^{-1}+x_{\ast }\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}-W_{0}^{\dagger }W^{-1}x\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\hat{C}_{3}Y &=&W_{0}^{\dagger }W^{-1}Y+x_{\ast }\underset{\hat{\beta}_{OLE}}%
+{\underbrace{\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}Y}}%
+-W_{0}^{\dagger }W^{-1}x\underset{\hat{\beta}_{OLE}}{\underbrace{\left(
+x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}Y}} \\
+&=&W_{0}^{\dagger }W^{-1}Y+x_{\ast }\hat{\beta}_{OLE}-W_{0}^{\dagger }W^{-1}x%
+\hat{\beta}_{OLE} \\
+&=&x_{\ast }\hat{\beta}_{OLE}-W_{0}^{\dagger }W^{-1}\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\hat{\beta}_{OLE}\right) 
+\end{eqnarray*}
+
+\begin{equation*}
+\therefore \hat{P}_{3}=x_{\ast }\hat{\beta}_{OLE}+W_{0}^{\dagger
+}W^{-1}\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\hat{\beta}_{OLE}\right) 
+\end{equation*}
+
+\bigskip 
+
+\begin{enumerate}
+\item Classical predictor $\hat{P}_{0}=x_{\ast }\hat{\beta},$ $\hat{\beta}%
+=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}Y$
+
+\item Optimal predictor
+
+\begin{enumerate}
+\item $\hat{P}_{1}=x_{\ast }\beta +W_{0}^{\dagger }W^{-1}\left( Y-x\beta
+\right) $
+
+\item $\hat{P}_{2}=x_{\ast }\hat{\beta}_{2}+W_{0}^{\dagger }W^{-1}\left( Y-x%
+\hat{\beta}_{2}\right) \quad \hat{\beta}_{2}=\beta \frac{\beta ^{\dagger
+}x^{\dagger }W^{-1}Y}{\sigma ^{2}+\beta ^{\dagger }\text{\c{S}}\beta }$
+
+\item $\hat{P}_{3}=x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{%
+\beta}\right) $
+\end{enumerate}
+\end{enumerate}
+
+\bigskip 
+
+\begin{theorem}
+The $R_{A}\left( P,Y_{\ast }\right) $ Optimal hom unbiased predictor of $%
+Y_{\ast }$ is the form $\hat{P}_{3}$ which $\hat{\beta}=\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}Y$ the GLSE, and the risk $%
+R_{A}\left( \hat{\beta},Y_{\ast }\right) =tr\left\{ AZVar\left( \hat{\beta}%
+\right) Z^{\dagger }\right\} +R_{A}\left( \hat{P}_{1},Y_{\ast }\right) $
+\end{theorem}
+
+Note: $R_{A}\left( \tilde{P}_{2},Y_{\ast }\right) =tr\left\{ A^{\frac{1}{2}%
+}ZM\left( \hat{\beta}_{2},\beta \right) Z^{\dagger }A^{\frac{1}{2}}\right\}
++R_{A}\left( \hat{P}_{1},Y_{\ast }\right) $
 
 \end{document}
