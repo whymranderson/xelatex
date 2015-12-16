@@ -1,0 +1,305 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall,a4paper]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Wednesday, December 16, 2015 16:57:50}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$W=\left( 1-\sigma \right) I$
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+
+\setcounter{part}{5} \setcounter{page}{27}
+
+\begin{problem}
+When $x_{\ast }\beta $-superiority implies $Y_{\ast }$-superiority vise versa
+\end{problem}
+
+This is, when%
+\begin{equation*}
+M\left( P_{1},Y_{\ast }\right) -M\left( P_{2},Y_{\ast }\right) =M\left(
+P_{1},x_{\ast }\beta \right) -M\left( P_{2},x_{\ast }\beta \right)
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow Var\left( P_{1}\right) -Var\left( P_{2}\right) -\left[ Cov\left(
+P_{1},Y_{\ast }\right) +Cov\left( Y_{\ast },P_{1}\right) -Cov\left(
+P_{2},Y_{\ast }\right) -Cov\left( Y_{\ast },P_{2}\right) \right]
+\end{equation*}%
+\begin{equation*}
++d_{1\ast }d_{2\ast }^{\dagger }-d_{1\ast }d_{2\ast }^{\dagger }=Var\left(
+P_{1}\right) -Var\left( P_{2}\right) +\left[ d_{1\ast }d_{1\ast }^{\dagger
+}-d_{2\ast }d_{2\ast }^{\dagger }\right]
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow Cov\left( P_{1},Y_{\ast }\right) +Cov\left( Y_{\ast
+},P_{1}\right) =Cov\left( P_{2},Y_{\ast }\right) +Cov\left( Y_{\ast
+},P_{2}\right)
+\end{equation*}
+
+\begin{equation*}
+\left[ P_{1}=C_{1}x+d_{1}\quad P_{2}=C_{2}x+d_{2}\right]
+\end{equation*}%
+\begin{equation*}
+\Rightarrow C_{1}W_{0}+W_{0}^{\dagger }C_{1}^{\dagger
+}=C_{2}W_{0}+W_{0}^{\dagger }C_{2}^{\dagger }
+\end{equation*}%
+\begin{equation*}
+\Rightarrow W_{0}=0\text{, condition holds, even when now and futre are not
+related.}
+\end{equation*}
+
+\bigskip
+
+\begin{theorem}
+Suppose $E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }^{\dagger }\right) =W_{0}=0$ and let $%
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+_{1}$ and $%
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+_{2}$ be two predictors. Then the following conditions are equivalent for
+competing predctions:
+
+\begin{enumerate}
+\item $M\left( P_{1},Y_{\ast }\right) -M\left( P_{2},Y_{\ast }\right) \geq 0$
+
+\item $M\left( P_{1},x_{\ast }\beta \right) -M\left( P_{2},x_{\ast }\beta
+\right) \geq 0$
+
+\item $R_{A}\left( P_{1},Y_{\ast }\right) -R_{A}\left( P_{2},Y_{\ast
+}\right) \geq 0\quad ,\quad \forall A\geq 0$
+
+\item $R_{A}\left( P_{1},x_{\ast }\beta \right) -R_{A}\left( P_{2},x_{\ast
+}\beta \right) \geq 0\quad ,\quad \forall A\geq 0$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+($P_{1}=C_{1}x+d_{1}\quad P_{2}=C_{2}x+d_{2}$)%
+\begin{equation*}
+R_{A}\left( P_{1},x_{\ast }\beta \right) =tr\left\{ A\left[ \left(
+C_{1}x-x_{\ast }\right) \beta +d_{1}\right] \left[ \left( C_{1}x-x_{\ast
+}\right) \beta +d_{1}\right] ^{\dagger }\right\} +
+\end{equation*}%
+\begin{equation*}
+\sigma ^{2}tr\left\{ A\left( C_{1}WC_{1}^{\dagger }+W_{\ast
+}-C_{1}W_{0}-W_{0}^{\dagger }C_{1}^{\dagger }\right) \right\}
+\end{equation*}%
+\begin{equation*}
+\left[ R_{A}\left( P_{1},x_{\ast }\beta \right) =E\left[ \left(
+P_{1}-Y_{\ast }\right) ^{\dagger }A\left( P_{1}-Y_{\ast }\right) \right] %
+\right]
+\end{equation*}%
+\begin{equation*}
+=tr\left\{ A\left[ Var\left( P_{1}-Y_{\ast }\right) +d_{1\ast }d_{1\ast
+}^{\dagger }\right] \right\}
+\end{equation*}%
+\begin{equation*}
+=tr\left\{ AM\left( P_{1}-Y_{\ast }\right) \right\} \quad \left( R_{A}\left(
+P_{1},Y_{\ast }\right) \text{ is }M\left( P_{1},Y_{\ast }\right) \text{
+function}\right)
+\end{equation*}%
+\begin{equation*}
+\left[ W_{0}=0\quad d_{\ast }=E\left( P_{1}\right) -x_{\ast }\beta =\left(
+C_{1}x-x_{\ast }\right) \beta +d_{1}\right]
+\end{equation*}%
+\begin{equation*}
+R_{A}\left( P_{1},Y_{\ast }\right) -R_{A}\left( P_{2},Y_{\ast }\right)
+=tr\left\{ A\left[ M\left( P_{1},Y_{\ast }\right) -M\left( P_{2},Y_{\ast
+}\right) \right] \right\} \geq 0
+\end{equation*}%
+\begin{equation*}
+\text{iff }M\left( P_{1},Y_{\ast }\right) \geq M\left( P_{2},Y_{\ast
+}\right) \quad \forall A\geq 0
+\end{equation*}
+\end{proof}
+
+\bigskip
+
+\begin{eqnarray*}
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+_{0} &=&x_{\ast }\hat{\beta}\quad \text{classical} \\
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+_{3} &=&x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) \quad \text{optimal}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+%TCIMACRO{\TeXButton{underaccent_P}{\underaccent{\wtilde}{P}}}%
+%BeginExpansion
+\underaccent{\wtilde}{P}%
+%EndExpansion
+_{3} &=&x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) -x_{\ast }\beta -\varepsilon _{\ast } \\
+&=&\left( x_{\ast }+W_{0}^{\dagger }W^{-1}x\right) \hat{\beta}%
++W_{0}^{\dagger }W^{-1}Y-x_{\ast }\beta -\varepsilon _{\ast } \\
+&=&\left( x_{\ast }+W_{0}^{\dagger }W^{-1}x\right) \hat{\beta}%
++W_{0}^{\dagger }W^{-1}\left( x\beta +\varepsilon \right) -x_{\ast }\beta
+-\varepsilon _{\ast }
+\end{eqnarray*}%
+\begin{eqnarray*}
+&=&\left( x_{\ast }+W_{0}^{\dagger }W^{-1}x\right) \hat{\beta}%
++W_{0}^{\dagger }W^{-1}x\beta +W_{0}^{\dagger }W^{-1}\varepsilon -x_{\ast
+}\beta -\varepsilon _{\ast } \\
+&=&\left( x_{\ast }+W_{0}^{\dagger }W^{-1}x\right) \hat{\beta}+\left(
+W_{0}^{\dagger }W^{-1}x-x_{\ast }\right) \beta +W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast } \\
+&=&\left( x_{\ast }+W_{0}^{\dagger }W^{-1}x\right) \left( \hat{\beta}-\beta
+\right) +\left( W_{0}^{\dagger }W^{-1}\varepsilon -\varepsilon _{\ast
+}\right) \\
+&=&Z\left( \hat{\beta}-\beta \right) +\left( W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast }\right)
+\end{eqnarray*}
+
+\bigskip
+
+\begin{equation*}
+E\left[ \left( \hat{\beta}-\beta \right) \left( W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast }\right) ^{\dagger }\right] =E\left[ 
+\hat{\beta}\left( W_{0}^{\dagger }W^{-1}\varepsilon -\varepsilon _{\ast
+}\right) ^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+\left[ \hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}Y=DY\right]
+\end{equation*}%
+\begin{equation*}
+=E\left[ DY\left( W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+-\varepsilon _{\ast }\right) ^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+=E\left[ D\left( x\beta +\varepsilon \right) \left( W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }\right) ^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+=E\left[ D\varepsilon \left( \varepsilon ^{\dagger }W^{-1}W_{0}^{\dagger
+}-\varepsilon _{\ast }^{\dagger }\right) \right]
+\end{equation*}%
+\begin{equation*}
+=E\left[ D\varepsilon \varepsilon ^{\dagger }W^{-1}W_{0}^{\dagger
+}-D\varepsilon \varepsilon _{\ast }^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+=DE\left( \varepsilon \varepsilon ^{\dagger }\right) W^{-1}W_{0}^{\dagger
+}-DE\left( \varepsilon \varepsilon _{\ast }^{\dagger }\right)
+\end{equation*}%
+\begin{equation*}
+=DWW^{-1}W_{0}^{\dagger }-DW_{0}
+\end{equation*}%
+\begin{equation*}
+=0\quad \text{meaning }\left( \hat{\beta}-\beta \right) \text{ and }\left(
+W_{0}^{\dagger }W^{-1}\varepsilon -\varepsilon _{\ast }\right) \text{ not
+related}
+\end{equation*}
+
+So that MDE of $P\left( \hat{\beta}\right) $ is $M\left( P\left( \hat{\beta}%
+\right) ,Y_{\ast }\right) $
+
+\begin{equation*}
+M\left( P\left( \hat{\beta}\right) ,Y_{\ast }\right) =E\left[ \left( P\left( 
+\hat{\beta}\right) -Y_{\ast }\right) \left( P\left( \hat{\beta}\right)
+-Y_{\ast }\right) ^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+=E\left[ \left( Z\left( \hat{\beta}-\beta \right) +\left( W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast }\right) \right) \left( Z\left( \hat{%
+\beta}-\beta \right) +\left( W_{0}^{\dagger }W^{-1}\varepsilon -\varepsilon
+_{\ast }\right) \right) ^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+=ZE\left[ \left( \hat{\beta}-\beta \right) \left( \hat{\beta}-\beta \right)
+^{\dagger }\right] Z^{\dagger }+E\left[ \left( W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast }\right) \left( W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast }\right) ^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
+=ZM\left( \hat{\beta},\beta \right) Z^{\dagger }+\left( W_{0}^{\dagger
+}W^{-1}WW^{-1}W_{0}-W_{0}^{\dagger }W^{-1}W_{0}-W_{0}W^{-1}W_{0}+W_{\ast
+}\right) \sigma ^{2}
+\end{equation*}%
+\begin{equation*}
+=ZM\left( \hat{\beta},\beta \right) Z^{\dagger }+\left( W_{\ast
+}-W_{0}W^{-1}W_{0}\right) \sigma ^{2}
+\end{equation*}
+
+\end{document}
