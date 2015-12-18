@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, December 16, 2015 16:57:50}
+%TCIDATA{LastRevised=Friday, December 18, 2015 12:25:00}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,6 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
+
 
 
 \begin{document}
@@ -301,5 +302,382 @@ _{\ast }\right) \right) ^{\dagger }\right]
 =ZM\left( \hat{\beta},\beta \right) Z^{\dagger }+\left( W_{\ast
 }-W_{0}W^{-1}W_{0}\right) \sigma ^{2}
 \end{equation*}
+
+\bigskip
+
+Classical Predictor
+
+\begin{equation*}
+\hat{P}_{0}=x_{\ast }\hat{\beta}\quad \hat{\beta}=D%
+%TCIMACRO{\TeXButton{underaccent_y}{\underaccent{\wtilde}{y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{y}%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\end{equation*}%
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast }=E\left( \hat{P}_{0}\right) -x_{\ast }\beta =x_{\ast }\left( Dx\beta
++d\right) -x_{\ast }\beta 
+\end{equation*}%
+\begin{equation*}
+=x_{\ast }\left[ \left( Dx-I\right) \beta +%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\right] 
+\end{equation*}%
+then
+
+\begin{equation*}
+M\left( \hat{P}_{0},Y_{\ast }\right) =Var\left( \hat{P}_{0}-Y_{\ast }\right)
++%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}^{\dagger }
+\end{equation*}%
+\begin{equation*}
+=\sigma ^{2}x_{\ast }DWD^{\dagger }x_{\ast }^{\dagger }+\sigma ^{2}W_{\ast
+}-\sigma ^{2}W_{\ast }DW_{0}-\sigma ^{2}W_{0}D^{\dagger }W_{\ast }+%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}^{\dagger }
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 1}=E\left( \hat{P}_{1}\right) -x_{\ast }\beta =ZE\left[ \left( \hat{%
+\beta}-\beta \right) \right]
+\end{equation*}%
+where $\hat{P}_{1}=x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{%
+\beta}\right) =Z\left( \hat{\beta}-\beta \right) +\left( W_{0}^{\dagger
+}W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }\right) $, $z=\left( x_{\ast }-W_{0}^{\dagger }W^{-1}x\right) $%
+\begin{equation*}
+=Z\left( Dx-I\right) \beta +d
+\end{equation*}%
+\begin{equation*}
+=\left( x_{\ast }-W_{0}^{\dagger }W^{-1}x\right) \left[ \left( Dx-I\right)
+\beta +d\right]
+\end{equation*}
+
+\begin{equation*}
+=x_{\ast }\left[ \left( Dx-I\right) \beta +d\right] -W_{0}^{\dagger }W^{-1}x%
+\left[ \left( Dx-I\right) \beta +d\right]
+\end{equation*}%
+\begin{equation*}
+=%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}-W_{0}^{\dagger }W^{-1}x\left[ \left( Dx-I\right) \beta +d\right]
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+M\left( \hat{P}_{0},Y_{\ast }\right) -M\left( \hat{P}\left( \hat{\beta}%
+\right) ,Y_{\ast }\right) =\cdots
+\end{equation*}
+
+\begin{equation*}
+\vdots
+\end{equation*}
+
+\begin{equation*}
+=\sigma ^{2}G+\sigma ^{2}x_{\ast }EW^{-\frac{1}{2}}W_{0}+\sigma
+^{2}W_{0}^{\dagger }W^{-\frac{1}{2}}Ex_{\ast }^{\dagger }+%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}^{\dagger }-%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 1}%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 1}^{\dagger }
+\end{equation*}%
+where
+
+\begin{equation*}
+E=DWD^{\dagger }x^{\dagger }W^{-\frac{1}{2}}-DW^{-\frac{1}{2}}
+\end{equation*}
+
+\begin{equation*}
+G=W_{0}^{\dagger }W^{-\frac{1}{2}}\left( I-D\right) W^{-\frac{1}{2}}W_{0}
+\end{equation*}
+
+\begin{equation*}
+p=W^{-\frac{1}{2}}xDWD^{\dagger }x^{\dagger }W^{-\frac{1}{2}}
+\end{equation*}
+
+\bigskip
+
+If E=0, then%
+\begin{eqnarray*}
+&&M\left( 
+%TCIMACRO{\TeXButton{underaccent_P_hat}{\underaccent{\wtilde}{\hat{P}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{P}}%
+%EndExpansion
+_{0},Y_{\ast }\right) -M\left( \hat{P}\left( \hat{\beta}\right) ,Y_{\ast
+}\right) \\
+&=&\sigma ^{2}G+%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 0}^{\dagger }-%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 1}%
+%TCIMACRO{\TeXButton{underaccent_b}{\underaccent{\wtilde}{b}}}%
+%BeginExpansion
+\underaccent{\wtilde}{b}%
+%EndExpansion
+_{\ast 1}^{\dagger }\geq 0
+\end{eqnarray*}%
+then $P\left( \hat{\beta}\right) $ better than $%
+%TCIMACRO{\TeXButton{underaccent_P_hat}{\underaccent{\wtilde}{\hat{P}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{P}}%
+%EndExpansion
+_{0}$.
+
+\bigskip
+
+Consider $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}Y=DY+%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\quad (d=0)$%
+\begin{equation*}
+\therefore E=DWD^{\dagger }x^{\dagger }W^{-\frac{1}{2}}-DW^{-\frac{1}{2}}
+\end{equation*}%
+\begin{equation*}
+=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}W\left( \left(
+x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right) ^{\dagger
+}x^{\dagger }W^{-\frac{1}{2}}-\left( \left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}\right) W^{-\frac{1}{2}}
+\end{equation*}%
+\begin{equation*}
+=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}x\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-\frac{1}{2}}-\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}W^{-\frac{1}{2}}
+\end{equation*}%
+\begin{equation*}
+=0
+\end{equation*}%
+\begin{equation*}
+\left. 
+\begin{array}{c}
+\hat{p}_{0} \\ 
+\hat{p}_{1} \\ 
+\hat{p}_{2} \\ 
+\hat{p}_{3}%
+\end{array}%
+\right\} x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) =Z\left( \hat{\beta}-\beta \right) +W_{0}^{\dagger }W^{-1}
+\end{equation*}
+
+\bigskip
+
+\paragraph{Comparison of Classical and Optimal predictial with $x_{\ast }%
+\protect\beta $-superiority}
+
+\begin{equation*}
+\hat{p}_{0}=x_{\ast }\hat{\beta}\quad \hat{p}_{3}=P\left( \hat{\beta}\right)
+=x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right)
+\quad \hat{\beta}=D%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+\end{equation*}
+
+\bigskip
+
+Note: Different from $Y_{\ast }$-superiority of $P\left( \hat{\beta}\right) $%
+. It might be expected that $\hat{P}_{0}$ is a more efficient predictor
+according to the $x_{\ast }\beta $-criterion when compared with $P\left( 
+\hat{\beta}\right) $.
+
+$\hat{\beta}_{3}$ is better than $\hat{p}_{0}$ in $Y_{\ast }$-superiority if 
+$E=0\quad \hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+$
+
+\bigskip
+
+\paragraph{$x_{\ast }\protect\beta $-superiority}
+
+\begin{equation*}
+M\left( \hat{P}_{0},x_{\ast }\hat{\beta}\right) =Var\left( \hat{P}%
+_{0}\right) +b_{\ast 0}b_{\ast 0}^{\dagger }=x_{\ast }DWDx_{\ast }^{\dagger
+}\sigma ^{2}+b_{\ast 0}b_{\ast 0}^{\dagger }
+\end{equation*}%
+\begin{equation*}
+M\left( \hat{P}\left( \hat{\beta}\right) ,x_{\ast }\hat{\beta}\right)
+=Var\left( \hat{P}_{3}\right) +b_{\ast 1}b_{\ast 1}^{\dagger }
+\end{equation*}%
+\begin{equation*}
+Var\left( \hat{P}_{3}\right) =Var\left( x_{\ast }\hat{\beta}\right)
++W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) 
+\end{equation*}%
+\begin{equation*}
+=Var\left( x_{\ast }\hat{\beta}\right) +W_{0}^{\dagger }W^{-1}Var\left(
+Y\right) W^{-1}W_{0}+W_{0}^{\dagger }W^{-1}Var\left( x_{\ast }\hat{\beta}%
+\right) W^{-1}W_{0}^{\dagger }
+\end{equation*}%
+\begin{equation*}
++Cov\left( x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}Y\right) +Cov\left(
+x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right) -Cov\left(
+x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right) 
+\end{equation*}%
+\begin{equation*}
+-Cov\left( W_{0}^{\dagger }W^{-1}x\hat{\beta},W_{0}^{\dagger }W^{-1}x_{\ast }%
+\hat{\beta}\right) -Cov\left( W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+,W_{0}^{\dagger }W^{-1}x\hat{\beta}\right) 
+\end{equation*}%
+\begin{equation*}
+-Cov\left( W_{0}^{\dagger }W^{-1}x\hat{\beta},W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\right) 
+\end{equation*}
+
+\bigskip
+
+\bigskip
+
+\begin{equation*}
+M\left( \hat{P}_{3},x_{\ast }\hat{\beta}\right) -M\left( \hat{P}_{0},x_{\ast
+}\hat{\beta}\right) =-\sigma ^{2}G-b_{\ast 0}b_{\ast 0}^{\dagger }+b_{\ast
+1}b_{\ast 1}^{\dagger }-\sigma ^{2}x_{\ast }EW^{-\frac{1}{2}}W_{0}
+\end{equation*}%
+\begin{equation*}
+-\sigma ^{2}W_{0}^{\dagger }W^{-\frac{1}{2}}E^{\dagger }x_{\ast }^{\dagger
+}+\sigma ^{2}W_{0}^{\dagger }W^{-1}\left[ I-xD\right] W_{0}+\sigma ^{2}W_{0}%
+\left[ I-D^{\dagger }x^{\dagger }\right] W^{-1}W_{0}
+\end{equation*}%
+\begin{equation*}
+\text{If }E=0\Rightarrow M\left( \hat{P}_{3},x_{\ast }\hat{\beta}\right)
+-M\left( \hat{P}_{0},x_{\ast }\hat{\beta}\right) =\sigma ^{2}G+b_{\ast
+1}b_{\ast 1}^{\dagger }-b_{\ast 0}b_{\ast 0}^{\dagger }
+\end{equation*}
+
+\bigskip
+
+\begin{theorem}
+Let $\hat{\beta}=DY+%
+%TCIMACRO{\TeXButton{underaccent_d}{\underaccent{\wtilde}{d}}}%
+%BeginExpansion
+\underaccent{\wtilde}{d}%
+%EndExpansion
+$ be a linear estimator s.t. the matrix D satisfies the condition E=0. Then
+the classical predictor $\hat{P}_{0}=x_{\ast }\hat{\beta}$ is $x_{\ast }\hat{%
+\beta}$-superiority to the predictor $\hat{P}\left( \hat{\beta}\right)
+=x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) $
+iff
+
+\begin{enumerate}
+\item b$_{\ast 0}\in R\left( \sigma ^{2}G+b_{\ast 1}b_{\ast 1}^{\dagger
+}\right) $
+
+\item b$_{\ast 0}^{\dagger }\left( \sigma ^{2}G+b_{\ast 1}b_{\ast
+1}^{\dagger }\right) -b_{\ast 0}\leq 1$
+\end{enumerate}
+\end{theorem}
+
+\bigskip
+
+\begin{example}
+Let $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}Y$%
+\begin{equation*}
+M\left( x_{\ast }\hat{\beta},x_{\ast }\beta \right) =Var\left( x_{\ast }\hat{%
+\beta}\right) =\sigma ^{2}x_{\ast }\left( x^{\dagger }W^{-1}x\right)
+^{-1}x_{\ast }^{\dagger }
+\end{equation*}%
+\begin{equation*}
+\hat{\beta}_{3}=x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x_{\ast }\hat{\beta}\right) =
+\end{equation*}
+\end{example}
 
 \end{document}
