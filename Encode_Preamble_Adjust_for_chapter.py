@@ -2,14 +2,20 @@
 import re
 import codecs
 import os
+import sys
+
 
 def dashrepl(matchobj): 
     return unichr(int(matchobj.group(1),16)) # python 2.7 use unichr, 
     # for python 3.3 use chr()
 
+filename = "Chapter_" + sys.argv[1]
+
+print filename
+
 #filename = 'Chapter_Program'
 #filename = 'Chapter_Case_Study'
-filename = 'Chapter_Orientation_Estimation'
+#filename = 'Chapter_Orientation_Estimation'
 
 f1 = codecs.open( filename + ".tex", "r", "utf-8")
 f2 = codecs.open(filename +"_uni" + ".tex", "w", "utf-8")

@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, December 18, 2015 12:25:00}
+%TCIDATA{LastRevised=Sunday, December 20, 2015 12:19:00}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 
 
 \begin{document}
@@ -325,7 +324,7 @@ Classical Predictor
 \underaccent{\wtilde}{b}%
 %EndExpansion
 _{\ast }=E\left( \hat{P}_{0}\right) -x_{\ast }\beta =x_{\ast }\left( Dx\beta
-+d\right) -x_{\ast }\beta 
++d\right) -x_{\ast }\beta
 \end{equation*}%
 \begin{equation*}
 =x_{\ast }\left[ \left( Dx-I\right) \beta +%
@@ -333,7 +332,7 @@ _{\ast }=E\left( \hat{P}_{0}\right) -x_{\ast }\beta =x_{\ast }\left( Dx\beta
 %BeginExpansion
 \underaccent{\wtilde}{d}%
 %EndExpansion
-\right] 
+\right]
 \end{equation*}%
 then
 
@@ -588,7 +587,7 @@ M\left( \hat{P}\left( \hat{\beta}\right) ,x_{\ast }\hat{\beta}\right)
 \end{equation*}%
 \begin{equation*}
 Var\left( \hat{P}_{3}\right) =Var\left( x_{\ast }\hat{\beta}\right)
-+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right) 
++W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}\right)
 \end{equation*}%
 \begin{equation*}
 =Var\left( x_{\ast }\hat{\beta}\right) +W_{0}^{\dagger }W^{-1}Var\left(
@@ -598,7 +597,7 @@ Y\right) W^{-1}W_{0}+W_{0}^{\dagger }W^{-1}Var\left( x_{\ast }\hat{\beta}%
 \begin{equation*}
 +Cov\left( x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}Y\right) +Cov\left(
 x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right) -Cov\left(
-x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right) 
+x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right)
 \end{equation*}%
 \begin{equation*}
 -Cov\left( W_{0}^{\dagger }W^{-1}x\hat{\beta},W_{0}^{\dagger }W^{-1}x_{\ast }%
@@ -607,7 +606,7 @@ x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right)
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
 %EndExpansion
-,W_{0}^{\dagger }W^{-1}x\hat{\beta}\right) 
+,W_{0}^{\dagger }W^{-1}x\hat{\beta}\right)
 \end{equation*}%
 \begin{equation*}
 -Cov\left( W_{0}^{\dagger }W^{-1}x\hat{\beta},W_{0}^{\dagger }W^{-1}%
@@ -615,7 +614,7 @@ x_{\ast }\hat{\beta},W_{0}^{\dagger }W^{-1}x\hat{\beta}\right)
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
 %EndExpansion
-\right) 
+\right)
 \end{equation*}
 
 \bigskip
@@ -676,8 +675,177 @@ M\left( x_{\ast }\hat{\beta},x_{\ast }\beta \right) =Var\left( x_{\ast }\hat{%
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
 %EndExpansion
--x_{\ast }\hat{\beta}\right) =
-\end{equation*}
+-x_{\ast }\hat{\beta}\right) =Z\left( \hat{\beta}-\beta \right)
++W_{0}^{\dagger }W^{-1}x_{\ast }^{\dagger }
+\end{equation*}%
+\begin{equation*}
+M\left( \hat{\beta}_{3},x_{\ast }\beta \right) =E\left( Z\left( \hat{\beta}%
+-\beta \right) \left( \hat{\beta}-\beta \right) ^{\dagger }Z^{\dagger
+}\right) +E\left[ W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+^{\dagger }W^{-1}W_{0}^{\dagger }\right]
+\end{equation*}%
+\begin{equation*}
++E\left( Z\left( \hat{\beta}-\beta \right) \left( W_{0}W^{-1}\varepsilon
+\right) ^{\dagger }\right) +E\left( \left( W_{0}W^{-1}\varepsilon \right)
+\left( Z\left( \hat{\beta}-\beta \right) \right) ^{\dagger }\right)
+\end{equation*}%
+\begin{equation*}
+=\sigma ^{2}Z\left( x^{\dagger }W^{-1}x\right) ^{-1}Z^{\dagger }+\sigma
+^{2}W_{0}^{\dagger }W^{-1}W_{0}^{\dagger }+\sigma ^{2}Z\left( x^{\dagger
+}W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}W_{0}
+\end{equation*}%
+\begin{equation*}
++\sigma ^{2}W_{0}^{\dagger }W^{-1}x\left( x^{\dagger }W^{-1}x\right)
+^{-1}Z^{\dagger }
+\end{equation*}%
+\begin{equation*}
+=\underset{M\left( x_{\ast }\hat{\beta},x_{\ast }\beta \right) }{\underbrace{%
+\sigma ^{2}x_{\ast }\left( x^{\dagger }W^{-1}x\right) ^{-1}x_{\ast
+}^{\dagger }}}+\sigma ^{2}W_{0}^{\dagger }W^{-1}W^{-1}W_{0}^{\dagger
+}-\sigma ^{2}W_{0}^{\dagger }W^{-1}x\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}W_{0}
+\end{equation*}%
+\begin{equation*}
+=\sigma ^{2}x_{\ast }\left( x^{\dagger }W^{-1}x\right) ^{-1}x_{\ast
+}^{\dagger }+\sigma ^{2}W_{0}^{\dagger }\left( W^{-\frac{1}{2}%
+}-W^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\right)
+\cdot
+\end{equation*}%
+\begin{equation*}
+\left( W^{-\frac{1}{2}}-W^{-1}x\left( x^{\dagger }W^{-1}x\right) ^{-1}W^{-%
+\frac{1}{2}}\right) ^{\dagger }W_{0}
+\end{equation*}%
+$\therefore $ when $\hat{\beta}=\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}Y$, $M\left( P\left( \hat{\beta}\right) ,x_{\ast
+}\beta \right) $ is better than $M\left( x_{\ast }\hat{\beta},x_{\ast }\beta
+\right) $. It is different than the result of superiority-Y$_{\ast }$.
 \end{example}
+
+\bigskip
+
+\bigskip
+
+\begin{equation*}
+x_{\ast }\hat{\beta}\quad \quad x_{\ast }\hat{\beta}+W_{0}^{\dagger
+}W^{-1}\left( Y-x\hat{\beta}\right) \quad 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\sim \mathcal{N}\left( x\beta ,\sigma ^{2}W\right) 
+\end{equation*}%
+\begin{equation*}
+\frac{\left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) }{n-k}=S^{2}
+\end{equation*}
+
+\begin{equation*}
+\hat{P}_{3}\sim \mathcal{N}\left( x_{\ast }\beta ,\tsum\nolimits_{\ast
+}\sigma ^{2}\right) \quad \hat{P}_{3}-Y_{\ast }\sim \mathcal{N}\left( 
+%TCIMACRO{\TeXButton{underaccent_O}{\underaccent{\wtilde}{O}}}%
+%BeginExpansion
+\underaccent{\wtilde}{O}%
+%EndExpansion
+,\tsum\nolimits_{0}\sigma ^{2}\right) 
+\end{equation*}
+
+\begin{equation*}
+\frac{\left( \hat{P}_{3}-Y_{\ast }\right) ^{\dagger }\left( \sigma
+^{2}\tsum\nolimits_{0}\right) ^{-1}\left( \hat{P}_{3}-Y_{\ast }\right) }{%
+n_{\ast }\frac{S^{2}}{\sigma ^{2}}}\sim ?F_{n_{\ast },n-k}
+\end{equation*}%
+want to know
+
+\begin{enumerate}
+\item nominator is ???
+
+\item denominator is ???\qquad \qquad \qquad \qquad \qquad $\Longrightarrow $%
+construct liability eliptic
+
+\item nominator and denominator independent?
+\end{enumerate}
+
+\bigskip
+
+\paragraph{Prediction regression for the random vector}
+
+\begin{equation*}
+\text{Assume }\left( 
+\begin{array}{c}
+\varepsilon _{\ast } \\ 
+\varepsilon 
+\end{array}%
+\right) \sim \mathcal{N}\left( \left( 
+\begin{array}{c}
+0 \\ 
+0%
+\end{array}%
+\right) \left( 
+\begin{array}{cc}
+W_{\ast } & W_{0} \\ 
+W_{0}^{\dagger } & W%
+\end{array}%
+\right) \right) 
+\end{equation*}%
+\begin{equation*}
+W_{\ast }-W_{0}^{\dagger }W^{-1}W_{0}>0
+\end{equation*}%
+choose the R$_{A}$-Optimal homo. unbiased predictor%
+\begin{equation*}
+\hat{P}_{3}=x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) \quad \hat{\beta}=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}Y
+\end{equation*}%
+\begin{equation*}
+\hat{P}_{3}-Y_{\ast }\sim \mathcal{N}_{\mathcal{N}_{\ast }}\left( 
+%TCIMACRO{\TeXButton{underaccent_O}{\underaccent{\wtilde}{O}}}%
+%BeginExpansion
+\underaccent{\wtilde}{O}%
+%EndExpansion
+,\tsum\nolimits_{0}\sigma ^{2}\right) 
+\end{equation*}%
+where%
+\begin{equation*}
+\tsum\nolimits_{0}=\underset{Z}{\underbrace{\left( x_{\ast }-W_{0}^{\dagger
+}W^{-1}x\right) }}\left( x^{\dagger }W^{-1}x\right) ^{-1}\underset{Z}{%
+\underbrace{\left( x_{\ast }-W_{0}^{\dagger }W^{-1}x\right) ^{\dagger }}}%
++W_{0}-W_{0}^{\dagger }W^{-1}W_{0}
+\end{equation*}%
+\begin{equation*}
+\frac{\left( \hat{P}_{3}-Y_{\ast }\right) ^{\dagger
+}\tsum\nolimits_{0}^{-1}\left( \hat{P}_{3}-Y_{\ast }\right) }{\sigma ^{2}}%
+\sim \mathcal{X}_{n_{\ast }}^{2}
+\end{equation*}%
+\begin{equation*}
+\left[ x\sim \mathcal{N}\left( \mu ,\tsum \right) \quad \left( x-\mu \right)
+^{\dagger }\tsum\nolimits^{-1}\left( x-\mu \right) \sim \mathcal{X}_{p}^{2}%
+\right] 
+\end{equation*}
+
+\bigskip
+
+\begin{theorem}
+let 
+\begin{equation*}
+\frac{\left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) }{n-k}=S^{2}
+\end{equation*}%
+be the estimator of $\sigma ^{2}$. Then 
+\begin{equation*}
+\frac{\left( \hat{P}_{3}-Y_{\ast }\right) ^{\dagger
+}\tsum\nolimits_{0}^{-1}\left( \hat{P}_{3}-Y_{\ast }\right) /\sigma ^{2}}{%
+n_{\ast }\frac{S^{2}}{\sigma ^{2}}}\sim F_{n_{\ast },n-k}
+\end{equation*}
+\end{theorem}
+
+\bigskip
 
 \end{document}
