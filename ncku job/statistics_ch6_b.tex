@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Sunday, December 20, 2015 12:19:00}
+%TCIDATA{LastRevised=Monday, December 21, 2015 11:12:19}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,6 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
+\input{tcilatex}
 
 \begin{document}
 
@@ -740,7 +741,7 @@ x_{\ast }\hat{\beta}\quad \quad x_{\ast }\hat{\beta}+W_{0}^{\dagger
 %BeginExpansion
 \underaccent{\wtilde}{Y}%
 %EndExpansion
-\sim \mathcal{N}\left( x\beta ,\sigma ^{2}W\right) 
+\sim \mathcal{N}\left( x\beta ,\sigma ^{2}W\right)
 \end{equation*}%
 \begin{equation*}
 \frac{\left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
@@ -754,7 +755,7 @@ x_{\ast }\hat{\beta}\quad \quad x_{\ast }\hat{\beta}+W_{0}^{\dagger
 %BeginExpansion
 \underaccent{\wtilde}{O}%
 %EndExpansion
-,\tsum\nolimits_{0}\sigma ^{2}\right) 
+,\tsum\nolimits_{0}\sigma ^{2}\right)
 \end{equation*}
 
 \begin{equation*}
@@ -781,7 +782,7 @@ construct liability eliptic
 \text{Assume }\left( 
 \begin{array}{c}
 \varepsilon _{\ast } \\ 
-\varepsilon 
+\varepsilon%
 \end{array}%
 \right) \sim \mathcal{N}\left( \left( 
 \begin{array}{c}
@@ -793,7 +794,7 @@ construct liability eliptic
 W_{\ast } & W_{0} \\ 
 W_{0}^{\dagger } & W%
 \end{array}%
-\right) \right) 
+\right) \right)
 \end{equation*}%
 \begin{equation*}
 W_{\ast }-W_{0}^{\dagger }W^{-1}W_{0}>0
@@ -810,7 +811,7 @@ choose the R$_{A}$-Optimal homo. unbiased predictor%
 %BeginExpansion
 \underaccent{\wtilde}{O}%
 %EndExpansion
-,\tsum\nolimits_{0}\sigma ^{2}\right) 
+,\tsum\nolimits_{0}\sigma ^{2}\right)
 \end{equation*}%
 where%
 \begin{equation*}
@@ -827,7 +828,7 @@ where%
 \begin{equation*}
 \left[ x\sim \mathcal{N}\left( \mu ,\tsum \right) \quad \left( x-\mu \right)
 ^{\dagger }\tsum\nolimits^{-1}\left( x-\mu \right) \sim \mathcal{X}_{p}^{2}%
-\right] 
+\right]
 \end{equation*}
 
 \bigskip
@@ -846,6 +847,179 @@ n_{\ast }\frac{S^{2}}{\sigma ^{2}}}\sim F_{n_{\ast },n-k}
 \end{equation*}
 \end{theorem}
 
-\bigskip
+\begin{proof}
+(consider the standardized vector of errors)%
+\begin{equation*}
+\Phi =\left( 
+\begin{array}{c}
+W^{-\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}} }%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}
+%EndExpansion
+\\ 
+W_{\ast }^{-\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }%
+\end{array}%
+\right) \sim \mathcal{N}_{n+n_{\ast }}\left( 0,\sigma ^{2}V\right) 
+\end{equation*}%
+\begin{equation*}
+\mathcal{V=}\left( 
+\begin{array}{cc}
+I_{n} & W^{-\frac{1}{2}}W_{0}W_{\ast }^{-\frac{1}{2}} \\ 
+W^{-\frac{1}{2}}W_{0}W_{\ast }^{-\frac{1}{2}} & I_{n_{\ast }}%
+\end{array}%
+\right) 
+\end{equation*}%
+\begin{equation*}
+\hat{P}_{3}-Y_{\ast }=Z\left( \hat{\beta}-\beta \right) +W_{0}^{\dagger
+}W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+-x_{\ast }\beta -\varepsilon _{\ast }
+\end{equation*}%
+\begin{equation*}
+=Z\left( \hat{\beta}-\beta \right) -x_{\ast }\beta +W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+-\varepsilon _{\ast }
+\end{equation*}%
+\begin{equation*}
+=Z\left( \left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\left(
+x\beta +\varepsilon \right) -\beta \right) +W_{0}^{\dagger
+}W^{-1}\varepsilon -\varepsilon _{\ast }
+\end{equation*}%
+\begin{equation*}
+=\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-1}\varepsilon
++W_{0}^{\dagger }W^{-1}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+-\varepsilon _{\ast }
+\end{equation*}%
+\begin{equation*}
+=\left[ Z\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger }W^{-\frac{1}{2}%
+}+W_{0}^{\dagger }W^{-\frac{1}{2}},\ -W_{\ast }^{\frac{1}{2}}\right] \left[ 
+\begin{array}{c}
+W^{-\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}} }%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}
+%EndExpansion
+\\ 
+W_{\ast }^{-\frac{1}{2}}%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+_{\ast }%
+\end{array}%
+\right] 
+\end{equation*}%
+\begin{equation*}
+=\left[ 
+\begin{array}{cc}
+A_{r} & A_{2}%
+\end{array}%
+\right] \Phi 
+\end{equation*}%
+\begin{equation*}
+\hat{P}_{3}-Y_{\ast }\sim \mathcal{N}\left( 0,\sigma
+^{2}\tsum\nolimits_{0}\right) 
+\end{equation*}%
+\begin{equation*}
+\tsum\nolimits_{0}=\left( A_{1},A_{2}\right) V\left[ 
+\begin{array}{c}
+A_{1}^{\dagger } \\ 
+A_{2}^{\dagger }%
+\end{array}%
+\right] \ \text{and}\ V^{-\frac{1}{2}}\Phi \sim \mathcal{N}\left( 0,I\sigma
+^{2}\right) 
+\end{equation*}%
+\begin{equation*}
+\left( \hat{P}_{3}-Y_{\ast }\right) ^{\dagger }\tsum\nolimits_{0}^{-1}\left( 
+\hat{P}_{3}-Y_{\ast }\right) =\left[ \left[ 
+\begin{array}{cc}
+A_{1} & A_{2}%
+\end{array}%
+\right] \Phi \right] ^{\dagger }\tsum\nolimits_{0}^{-1}\left[ \left[ 
+\begin{array}{cc}
+A_{1} & A_{2}%
+\end{array}%
+\right] \Phi \right] 
+\end{equation*}%
+\begin{equation*}
+=\left( V^{-\frac{1}{2}}\Phi \right) ^{\dagger }V^{\frac{1}{2}}\left[ 
+\begin{array}{c}
+A_{1}^{\dagger } \\ 
+A_{2}^{\dagger }%
+\end{array}%
+\right] \tsum\nolimits_{0}^{-1}\left[ 
+\begin{array}{cc}
+A_{1} & A_{2}%
+\end{array}%
+\right] V^{\frac{1}{2}}V^{-\frac{1}{2}}\Phi 
+\end{equation*}%
+Note:%
+\begin{equation*}
+\left( V^{\frac{1}{2}}\left[ 
+\begin{array}{c}
+A_{1}^{\dagger } \\ 
+A_{2}^{\dagger }%
+\end{array}%
+\right] \tsum\nolimits_{0}^{-1}\left[ 
+\begin{array}{cc}
+A_{1} & A_{2}%
+\end{array}%
+\right] V^{\frac{1}{2}}\right) \cdot \left( V^{\frac{1}{2}}\left[ 
+\begin{array}{c}
+A_{1}^{\dagger } \\ 
+A_{2}^{\dagger }%
+\end{array}%
+\right] \tsum\nolimits_{0}^{-1}\left[ 
+\begin{array}{cc}
+A_{1} & A_{2}%
+\end{array}%
+\right] V^{\frac{1}{2}}\right) 
+\end{equation*}%
+\begin{equation*}
+=V^{\frac{1}{2}}\left[ 
+\begin{array}{c}
+A_{1}^{\dagger } \\ 
+A_{2}^{\dagger }%
+\end{array}%
+\right] \tsum\nolimits_{0}^{-1}\left[ 
+\begin{array}{cc}
+A_{1} & A_{2}%
+\end{array}%
+\right] 
+\end{equation*}%
+is an iemptent matrix.\newline
+\begin{equation*}
+\therefore \left( \hat{P}_{3}-Y_{\ast }\right) ^{\dagger
+}\tsum\nolimits_{0}^{-1}\left( \hat{P}_{3}-Y_{\ast }\right) \sim \sigma
+^{2}\chi _{n_{\ast }}^{2}
+\end{equation*}%
+also%
+\begin{eqnarray*}
+W^{-\frac{1}{2}}\left( Y-x\hat{\beta}\right)  &=&W^{-\frac{1}{2}}\left(
+x\beta +\varepsilon -x\left( x^{\dagger }W^{-1}x\right) ^{-1}x^{\dagger
+}W^{-1}\left( x\beta +\varepsilon \right) \right)  \\
+&=&W^{-\frac{1}{2}}\left( \varepsilon -x\left( x^{\dagger }W^{-1}x\right)
+^{-1}x^{\dagger }W^{-1}\varepsilon \right)  \\
+&=&\left( I-W^{-\frac{1}{2}}x\left( x^{\dagger }W^{-1}x\right) ^{-1}W^{-%
+\frac{1}{2}}\right) W^{-\frac{1}{2}}\varepsilon  \\
+&=&\left( I-M\right) W^{-\frac{1}{2}}\varepsilon 
+\end{eqnarray*}
+\end{proof}
 
 \end{document}
