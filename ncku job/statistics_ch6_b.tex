@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, December 22, 2015 11:26:21}
+%TCIDATA{LastRevised=Friday, December 25, 2015 11:11:28}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -1139,6 +1139,151 @@ A_{2}^{\dagger }%
 \longrightarrow F_{n_{\ast },n-k} \\
 S^{2} &=&\frac{\left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\hat{%
 \beta}\right) }{n-k}
+\end{eqnarray*}
+\end{proof}
+
+\bigskip 
+
+\bigskip 
+
+December 29 (Monday)
+
+\bigskip
+
+\begin{equation*}
+\frac{\left( \hat{P}_{3}-Y_{\ast }\right) ^{\dagger
+}\tsum\nolimits_{0}^{-1}\left( \hat{P}_{3}-Y_{\ast }\right) }{n_{\ast }S^{2}}%
+\longrightarrow F_{n_{\ast },n-k}
+\end{equation*}
+
+\begin{eqnarray*}
+S^{2} &=&\left( Y-x\hat{\beta}\right) ^{\dagger }W^{-1}\left( Y-x\hat{\beta}%
+\right) /\left( n-k\right) \\
+\tsum\nolimits_{0} &=&Z\left( x^{\dagger }W^{-1}x\right) ^{-1}Z^{\dagger
+}-W_{0}^{\dagger }W^{-1}W_{0} \\
+Z &=&x_{\ast }-W_{0}^{\dagger }W^{-1}x \\
+\hat{P}_{3} &=&x_{\ast }\hat{\beta}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{%
+\beta}\right)
+\end{eqnarray*}
+
+\bigskip
+
+\paragraph{Prediction regions of Y$_{\ast }$}
+
+\begin{definition}
+A compact set $B\left( P\left( \hat{\beta}\right) \right) $ is called a
+region with expection coverage q (0$\leq $q$\leq $1) for the unknow random
+vector Y$_{\ast }$ centraed around $P\left( \hat{\beta}\right) $ if%
+\begin{equation*}
+E_{Y_{\ast }}\left[ P\left\{ Y_{\ast }\in B\left( P\left( \hat{\beta}\right)
+\right) \right\} \right] =q
+\end{equation*}%
+(meaning averaged covering volume)
+\end{definition}
+
+\begin{theorem}
+The ellipsoid 
+\begin{equation*}
+B\left( \hat{P}_{3}\right) =\left\{ Y_{\ast }:n_{\ast }^{-1}S^{-2}\left(
+Y_{\ast }-\hat{P}_{\ast }\right) ^{\dagger }\tsum\nolimits_{0}^{-1}\left(
+Y_{\ast }-\hat{P}_{\ast }\right) \leq F_{n_{\ast },n-k,1-\alpha }\right\}
+\end{equation*}%
+is a region with expected coverage $\left( 1-\alpha \right) $ for the vector
+Y$_{\ast }$.
+\end{theorem}
+
+\bigskip
+
+Comparing the efficience of prediction ellipsoid, let $V_{n}$ denote the
+volume of the n-dimentional unit sphere. Let $a^{\dagger }Aa\leq 1$, $A$:
+positive define matrix, and $V_{A}=V_{n}\left\vert A\right\vert ^{-\frac{1}{2%
+}}$ be the volume of $a^{\dagger }Aa\leq 1$, $V_{A}^{2}=V_{n}^{2}\left\vert
+A\right\vert ^{-1}$.
+
+\bigskip
+
+Note: If $n=2\quad A=\left[ 
+\begin{array}{cc}
+1 & 0 \\ 
+0 & 1%
+\end{array}%
+\right] \quad x^{\dagger }Ax=x_{1}^{2}+x_{2}^{2}\leq 1\quad V_{2}=\pi $
+
+Now want to the volume of $B\left( \hat{P}_{3}\right) $%
+\begin{equation*}
+\left( Y_{\ast }-\hat{P}_{3}\right) ^{\dagger }\left( n_{\ast
+}S^{2}F\tsum\nolimits_{0}^{-1}\right) ^{-1}\left( Y_{\ast }-\hat{P}%
+_{3}\right) \leq 1
+\end{equation*}%
+(the form for making $a^{\dagger }Aa\leq 1$)%
+\begin{equation*}
+\therefore n_{\ast }S^{2}F\tsum\nolimits_{0}=A^{-1}
+\end{equation*}%
+\begin{equation*}
+\left\vert A^{-1}\right\vert =\left\vert n_{\ast
+}S^{2}F\tsum\nolimits_{0}\right\vert =\left( n_{\ast }S^{2}F\right)
+^{n_{\ast }}\left\vert \tsum\nolimits_{0}\right\vert
+\end{equation*}%
+the volume of $B\left( \hat{P}_{3}\right) $: $Vol\left( B\left( \hat{P}%
+_{3}\right) \right) =V_{n_{\ast }}^{2}\left( n_{\ast }S^{2}F\right)
+^{n_{\ast }}\left\vert \tsum\nolimits_{0}\right\vert $
+
+So%
+\begin{equation*}
+E\left[ V_{0}|\left( B\left( \hat{P}_{3}^{\ast }\right) \right) ^{2}\right]
+=V_{n_{\ast }}^{2}\left( n_{\ast }F\right) ^{n_{\ast }}\left\vert
+\tsum\nolimits_{0}^{\ast }\right\vert E\left( S^{2n_{\ast }}\right)
+\end{equation*}%
+(expected volume integration is related to $\tsum\nolimits_{0}$)
+
+\bigskip
+
+\begin{theorem}
+Suppose that there are exist unbiased estimator $\hat{\beta}_{1}$, $\hat{%
+\beta}_{2}$ for $\beta $, having dispersion matrix $V\left( \hat{\beta}%
+_{1}\right) $ and $V\left( \hat{\beta}_{2}\right) $, resp., and the
+corresponding predictions $P\left( \hat{\beta}_{i}\right) =x_{\ast }\hat{%
+\beta}_{i}+W_{0}^{\dagger }W^{-1}\left( Y-x\hat{\beta}_{i}\right) \quad
+i=1,2,\cdots $.\newline
+Assume that $P\left( \hat{\beta}_{1}\right) $ and $P\left( \hat{\beta}%
+_{2}\right) $ satisfy the necessary conditions for F distribution, i.e. 
+\begin{equation*}
+n_{\ast }^{-1}S^{-2}\left( \hat{P}_{3}\left( \hat{\beta}_{i}\right) -Y_{\ast
+}\right) ^{\dagger }\tsum\nolimits_{0i}^{-1}\left( \hat{P}_{3}\left( \hat{%
+\beta}_{i}\right) -Y_{\ast }\right) \sim F_{n_{\ast },n-k}
+\end{equation*}%
+Then%
+\begin{equation*}
+V\left( \hat{\beta}_{1}\right) -V\left( \hat{\beta}_{2}\right) \geq 0
+\end{equation*}%
+\begin{equation*}
+\Rightarrow E\left[ V_{0}|\left( \hat{P}_{3}\left( \hat{\beta}_{1}\right)
+\right) ^{2}\right] -E\left[ V_{0}|\left( \hat{P}_{3}\left( \hat{\beta}%
+_{2}\right) \right) ^{2}\right] \geq 0
+\end{equation*}
+\end{theorem}
+
+\bigskip
+
+\begin{proof}
+Let $V_{n_{\ast }}^{2}E\left( S\right) ^{2n_{\ast }}\left( n_{\ast
+}F_{n_{\ast },n-k}\right) ^{n_{\ast }}=C_{n_{\ast }}$\newline
+Then%
+\begin{equation*}
+E\left[ V_{0}|B\left( \hat{P}\left( \hat{\beta}_{i}\right) \right) ^{2}%
+\right] =C_{n_{\ast }}\left\vert ZV\left( \hat{\beta}_{i}\right) Z^{\dagger
+}+W_{\ast }-W_{0}^{\dagger }W^{-1}W_{0}\right\vert 
+\end{equation*}%
+since $\tsum\nolimits_{0}=ZV\left( \hat{\beta}_{i}\right) Z^{\dagger
+}+W_{\ast }-W_{0}^{\dagger }W^{-1}W_{0}$\newline
+Assume $V\left( \hat{\beta}_{1}\right) -V\left( \hat{\beta}_{2}\right) \geq 0
+$\newline
+then 
+\begin{eqnarray*}
+\tsum\nolimits_{1} &=&ZVar\left( \hat{\beta}_{1}\right) Z^{\dagger }+W_{\ast
+}-W_{0}^{\dagger }W^{-1}W_{0}\geq  \\
+\tsum\nolimits_{2} &=&ZVar\left( \hat{\beta}_{2}\right) Z^{\dagger }+W_{\ast
+}-W_{0}^{\dagger }W^{-1}W_{0}
 \end{eqnarray*}
 \end{proof}
 

@@ -1,0 +1,500 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall,a4paper]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Friday, December 25, 2015 12:50:01}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$W=\left( 1-\sigma \right) I$
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+
+\setcounter{part}{6} \setcounter{page}{38}
+
+\bigskip
+
+\part{Sensitivity Analysis}
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+=x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\quad E\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right)
+\end{equation*}%
+\begin{equation*}
+Cov\left( 
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\right) =\sigma ^{2}I\quad \hat{\beta}=\left( x^{\dagger }x^{-1}\right)
+x^{\dagger }Y
+\end{equation*}
+
+$x\hat{\beta}\longrightarrow x\beta $, $%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+=\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\hat{\beta}\right) \longrightarrow $,$%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+$ use $%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+$ behaviour to understand the model's propernous.
+
+\begin{eqnarray*}
+\hat{Y} &=&x\hat{\beta} \\
+&=&x\left( x^{\dagger }x^{-1}\right) x^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\quad \text{rank(x)=k} \\
+&=&PY \\
+&=&\left[ P_{ij}\right] 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}} }%
+%BeginExpansion
+\underaccent{\wtilde}{Y}
+%EndExpansion
+\\
+&=&P_{i}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}} }%
+%BeginExpansion
+\underaccent{\wtilde}{Y}
+%EndExpansion
+\\
+&=&P_{i}\left[ 
+\begin{array}{ccc}
+Y_{1} & \cdots  & Y_{n}%
+\end{array}%
+\right] ^{\dagger }
+\end{eqnarray*}%
+P: prediction matrix (i.e. $\hat{Y}=PY$), I-P: residual matrix (i.e. $%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+=\left( I-P\right) Y$)
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+=%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_Y_hat}{\underaccent{\wtilde}{\hat{Y}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{Y}}%
+%EndExpansion
+=%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-x\hat{\beta}
+\end{equation*}%
+\begin{equation*}
+=\left[ I-x\left( x^{\dagger }x^{-1}\right) x^{\dagger }\right] 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+=\left( I-P\right) 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+=\underset{%
+\begin{array}{c}
+\text{indempotent} \\ 
+\text{matrix}%
+\end{array}%
+}{M}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\end{equation*}
+
+\bigskip
+
+\begin{itemize}
+\item What are the similarities and disimilarities of $%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+$ and $%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+$%
+\begin{equation*}
+\chi =\left[ x_{ij}\right] \quad \text{i=1}\cdots \text{n, j=1}\cdots \text{K%
+}\qquad P_{ij}=%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x^{-1}\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j}
+\end{equation*}%
+\begin{equation*}
+\hat{Y}_{1}=P_{1}%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+=\tsum\limits_{j=1}^{n}P_{ij}Y_{j}=P_{11}Y_{1}+\tsum\limits_{j\neq
+1}^{n}P_{ij}Y_{j}
+\end{equation*}%
+$P_{ij}$: leverage $\frac{\partial \hat{Y}_{i}}{\partial Y_{i}}=P_{ii}$%
+\begin{eqnarray*}
+Cov\left( \hat{Y}\right) &=&Cov\left( x\hat{\beta}\right) =xCov\left( \hat{%
+\beta}\right) x^{\dagger }=x\left( x^{\dagger }x^{-1}\right) ^{-1}\sigma
+^{2}x^{\dagger } \\
+&=&\sigma ^{2}x\left( x^{\dagger }x^{-1}\right) ^{-1}x^{\dagger }=P\sigma
+^{2} \\
+&=&\left[ 
+\begin{array}{cccc}
+P_{11} &  &  &  \\ 
+& P_{22} & P_{ij} &  \\ 
+&  & \ddots &  \\ 
+&  &  & P_{44}%
+\end{array}%
+\right] \sigma ^{2}
+\end{eqnarray*}%
+$\left( \text{i.e. the bigger P}_{ii}\text{, the bigger }\hat{Y}_{i}\right) $%
+\begin{eqnarray*}
+Var\left( 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+\right) &=&\left( I-P\right) Var\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\right) \left( I-P\right) =\sigma ^{2}\left( I-P\right) \\
+&=&\sigma ^{2}\left[ 
+\begin{array}{cccc}
+1-P_{11} &  &  &  \\ 
+& 1-P_{22} & -P_{ij} &  \\ 
+&  & \ddots &  \\ 
+&  &  & 1-P_{44}%
+\end{array}%
+\right]
+\end{eqnarray*}%
+\begin{eqnarray*}
+Var\left( \hat{Y}_{i}\right) &=&P_{ii}\sigma ^{2} \\
+Var\left( \hat{\varepsilon}_{i}\right) &=&\left( 1-P_{ii}\right) \sigma ^{2}
+\\
+Cov\left( \hat{\varepsilon}_{i},\hat{\varepsilon}_{j}\right) &=&\sigma
+^{2}\left( -P_{ij}\right)
+\end{eqnarray*}%
+Note: the bigger P$_{ii}$, the bigger $\hat{Y}_{i}$, but the smaller $%
+Var\left( \hat{\varepsilon}_{i}\right) $, theoretically not suppose to
+happen.
+\end{itemize}
+
+\bigskip
+
+\begin{equation*}
+Y_{i}=\beta _{0}+\beta _{1}x_{i}+\varepsilon _{i}=\beta _{0}^{\ast }+\beta
+_{1}\left( x_{i}-\bar{x}\right) +\varepsilon _{i}
+\end{equation*}%
+\begin{eqnarray*}
+P &=&x\left( x^{\dagger }x^{-1}\right) ^{-1}x^{\dagger } \\
+&=&\left[ 
+\begin{array}{cc}
+1 & x_{1}-\bar{x} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}-\bar{x}%
+\end{array}%
+\right] \left[ \left[ 
+\begin{array}{cc}
+1 & x_{1}-\bar{x} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}-\bar{x}%
+\end{array}%
+\right] ^{\dagger }\left[ 
+\begin{array}{cc}
+1 & x_{1}-\bar{x} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}-\bar{x}%
+\end{array}%
+\right] \right] \left[ 
+\begin{array}{cc}
+1 & x_{1}-\bar{x} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}-\bar{x}%
+\end{array}%
+\right] ^{\dagger } \\
+&=&\left[ 
+\begin{array}{cc}
+1 & x_{1}-\bar{x} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}-\bar{x}%
+\end{array}%
+\right] \left[ 
+\begin{array}{cc}
+n & 0 \\ 
+0 & \tsum \left( x_{i}-\bar{x}\right) ^{2}%
+\end{array}%
+\right] ^{-1}\left[ 
+\begin{array}{cc}
+1 & x_{1}-\bar{x} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}-\bar{x}%
+\end{array}%
+\right] ^{\dagger } \\
+&=&\left[ 
+\begin{array}{ccc}
+\frac{1}{n}+\frac{\left( x_{1}-\bar{x}\right) ^{2}}{\tsum \left( x_{i}-\bar{x%
+}\right) ^{2}} &  &  \\ 
+& \ddots  &  \\ 
+&  & \frac{1}{n}+\frac{\left( x_{n}-\bar{x}\right) ^{2}}{\tsum \left( x_{i}-%
+\bar{x}\right) ^{2}}%
+\end{array}%
+\right] 
+\end{eqnarray*}
+
+\bigskip
+
+\begin{equation*}
+\because \hat{Y}_{1}=P_{11}Y_{1}+\tsum\limits_{j=2}^{n}P_{ij}Y_{j}
+\end{equation*}%
+if $P_{11}$ is bigger than contribution is bigger, meaning if $P_{11}$ is
+bigger than regression will approach $Y_{1}$. This means the variance of $%
+Y_{1}$ is bigger.
+
+If one point is different than the others, than the point will affect \
+regression result more, dangerous!%
+\begin{equation*}
+P=x\left( x^{\dagger }x^{-1}\right) ^{-1}x^{\dagger }=x_{1}\left( x^{\dagger
+}x^{-1}\right) ^{-1}x_{1}^{\dagger }+\left( I-P_{1}\right) \left(
+x_{2}^{\dagger }\left( I-P_{1}\right) x_{2}\right) ^{-1}x_{2}^{\dagger
+}\left( I-P_{1}\right)
+\end{equation*}%
+$P_{1}=x_{1}\left( x_{1}^{\dagger }x_{1}^{-1}\right) ^{-1}x_{1}^{\dagger }$
+
+\bigskip
+
+$x=\left[ 
+\begin{array}{cc}
+x_{1} & x_{2}%
+\end{array}%
+\right] $
+
+If%
+\begin{equation*}
+x_{1}=\left[ 
+\begin{array}{c}
+1 \\ 
+\vdots \\ 
+1%
+\end{array}%
+\right] \quad x_{2}=\left[ 
+\begin{array}{c}
+x_{1} \\ 
+\vdots \\ 
+x_{2}%
+\end{array}%
+\right]
+\end{equation*}
+
+\begin{equation*}
+P=\left[ 
+\begin{array}{ccc}
+\frac{1}{n} &  & \frac{1}{n} \\ 
+& \ddots &  \\ 
+\frac{1}{n} &  & \frac{1}{n}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{c}
+x_{1}-\bar{x} \\ 
+\vdots \\ 
+x_{n}-\bar{x}%
+\end{array}%
+\right] \frac{1}{\tsum \left( x_{i}-\bar{x}\right) ^{2}}\left[ 
+\begin{array}{ccc}
+x_{1}-\bar{x} & \cdots & x_{n}-\bar{x}%
+\end{array}%
+\right]
+\end{equation*}
+
+P is leverage, P$_{ij}$ will reflect on estimation. P$_{ij}$ bigger than
+effect is bigger, ....
+
+\bigskip
+
+P=PP (idempotency)%
+\begin{equation*}
+P_{ii}=\tsum\limits_{j=1}^{n}P_{ij}^{2}=P_{ii}^{2}+\tsum%
+\limits_{j=2}^{n}P_{ij}^{2}\Longrightarrow 0\leq P_{ii}\leq 1
+\end{equation*}%
+\begin{equation*}
+\left( 
+\begin{array}{c}
+P_{ii}\rightarrow 1\text{, meaning outlier possible} \\ 
+P_{ii}\rightarrow 0\text{, meaning closer to mean}%
+\end{array}%
+\right)
+\end{equation*}
+
+\bigskip
+
+Also $P_{ii}=P_{ii}^{2}+P_{ij}^{2}+\tsum\limits_{k=i,j}P_{ik}^{2}$ (j fixed)%
+\begin{eqnarray*}
+&\Rightarrow &P_{ij}^{2}\leq P_{ii}^{2}\left( 1-P_{ii}^{2}\right) \leq \frac{%
+1}{4} \\
+&\Rightarrow &-\frac{1}{2}\leq P_{ij}\leq \frac{1}{2}
+\end{eqnarray*}
+
+\begin{itemize}
+\item Results
+
+\begin{enumerate}
+\item If $P_{ii}=1$, or $0\Rightarrow P_{ij}=0$%
+\begin{equation*}
+\hat{Y}_{1}=P_{11}Y_{1}+\tsum\limits_{j=2}^{n}P_{ij}Y_{j}=Y_{1}\quad e_{1}=0
+\end{equation*}
+
+\item $P_{ii}\times P_{jj}-P_{ij}^{2}\geq 0$%
+\begin{equation*}
+P=\left[ 
+\begin{array}{cc}
+P_{11} & P_{12} \\ 
+P_{21} & P_{22}%
+\end{array}%
+\right] \text{ nonegative}
+\end{equation*}
+
+\item $\left( 1-P_{ii}\right) \times \left( 1-P_{jj}\right) -P_{ij}^{2}\geq
+0 $, I-P: nonegative
+
+\item $P_{ii}+\frac{e_{i}^{2}}{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}\leq 1$
+
+\begin{itemize}
+\item use this to diagnose outlier
+
+\item diagnose reg- design
+
+\item cook distant emphasizes $P_{ii}$
+
+\item if $P_{ii}$ is big than $\frac{e_{i}^{2}}{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}$ is small.
+\end{itemize}
+
+\begin{proof}
+\begin{equation*}
+Z=\left( x,Y\right) \quad P_{x}=x\left( x^{\dagger }x^{-1}\right)
+^{-1}x^{\dagger }
+\end{equation*}
+\end{proof}
+\end{enumerate}
+\end{itemize}
+
+\end{document}
