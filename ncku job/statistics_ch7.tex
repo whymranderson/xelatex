@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, December 25, 2015 12:50:01}
+%TCIDATA{LastRevised=Monday, December 28, 2015 11:37:44}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -137,7 +137,7 @@ $ behaviour to understand the model's propernous.
 \\
 &=&P_{i}\left[ 
 \begin{array}{ccc}
-Y_{1} & \cdots  & Y_{n}%
+Y_{1} & \cdots & Y_{n}%
 \end{array}%
 \right] ^{\dagger }
 \end{eqnarray*}%
@@ -291,32 +291,32 @@ P &=&x\left( x^{\dagger }x^{-1}\right) ^{-1}x^{\dagger } \\
 &=&\left[ 
 \begin{array}{cc}
 1 & x_{1}-\bar{x} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}-\bar{x}%
 \end{array}%
 \right] \left[ \left[ 
 \begin{array}{cc}
 1 & x_{1}-\bar{x} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}-\bar{x}%
 \end{array}%
 \right] ^{\dagger }\left[ 
 \begin{array}{cc}
 1 & x_{1}-\bar{x} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}-\bar{x}%
 \end{array}%
 \right] \right] \left[ 
 \begin{array}{cc}
 1 & x_{1}-\bar{x} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}-\bar{x}%
 \end{array}%
 \right] ^{\dagger } \\
 &=&\left[ 
 \begin{array}{cc}
 1 & x_{1}-\bar{x} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}-\bar{x}%
 \end{array}%
 \right] \left[ 
@@ -327,7 +327,7 @@ n & 0 \\
 \right] ^{-1}\left[ 
 \begin{array}{cc}
 1 & x_{1}-\bar{x} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}-\bar{x}%
 \end{array}%
 \right] ^{\dagger } \\
@@ -335,11 +335,11 @@ n & 0 \\
 \begin{array}{ccc}
 \frac{1}{n}+\frac{\left( x_{1}-\bar{x}\right) ^{2}}{\tsum \left( x_{i}-\bar{x%
 }\right) ^{2}} &  &  \\ 
-& \ddots  &  \\ 
+& \ddots &  \\ 
 &  & \frac{1}{n}+\frac{\left( x_{n}-\bar{x}\right) ^{2}}{\tsum \left( x_{i}-%
 \bar{x}\right) ^{2}}%
 \end{array}%
-\right] 
+\right]
 \end{eqnarray*}
 
 \bigskip
@@ -374,16 +374,16 @@ If%
 x_{1}=\left[ 
 \begin{array}{c}
 1 \\ 
-\vdots \\ 
+\vdots  \\ 
 1%
 \end{array}%
 \right] \quad x_{2}=\left[ 
 \begin{array}{c}
 x_{1} \\ 
-\vdots \\ 
-x_{2}%
+\vdots  \\ 
+x_{n}%
 \end{array}%
-\right]
+\right] 
 \end{equation*}
 
 \begin{equation*}
@@ -492,9 +492,498 @@ P_{21} & P_{22}%
 \begin{equation*}
 Z=\left( x,Y\right) \quad P_{x}=x\left( x^{\dagger }x^{-1}\right)
 ^{-1}x^{\dagger }
-\end{equation*}
+\end{equation*}%
+\begin{eqnarray*}
+P_{z} &=&x\left( x^{\dagger }x^{-1}\right) ^{-1}x^{\dagger }+\left(
+I-P_{x}\right) Y\left( Y^{\dagger }\left( I-P_{x}\right) Y\right) ^{-1}\left[
+\left( I-P_{x}\right) Y\right] ^{\dagger } \\
+&=&P_{x}+\frac{e_{i}^{2}}{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}
+\end{eqnarray*}%
+\begin{equation*}
+P_{ii}+\frac{e_{i}^{2}}{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}=P_{ii}^{\left( 2\right) }\leq 1
+\end{equation*}%
+Assume two variables%
+\begin{equation*}
+\text{one-dim: }\frac{\left( x_{i}-\bar{x}\right) ^{2}}{\tsum \left( x_{i}-%
+\bar{x}\right) ^{2}}
+\end{equation*}%
+although distance the same, 1,2 have different meanings, may consider
+relavent variant.%
+\begin{equation*}
+\Pr \left( \left( 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+-\mu \right) ^{\dagger }\tsum\nolimits^{-1}\left( 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+-\mu \right) \leq \chi _{0}^{2}\right) =0.95
+\end{equation*}%
+a large eig. value means long axis, small eig. value means short axis. Along
+the short axis it is more likely to have large $P_{ii}$ value.
 \end{proof}
 \end{enumerate}
 \end{itemize}
+
+\bigskip
+
+\begin{itemize}
+\item Case of multiple regression%
+\begin{equation*}
+\left( \lambda _{i},e_{i}^{\ast }\right) :\text{eigenvalue-eigenvector pari
+of }x^{\dagger }x
+\end{equation*}%
+\begin{equation*}
+\theta _{ij}:\text{the angle between the colum vector }%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\text{ and }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\ast }
+\end{equation*}%
+\begin{eqnarray*}
+P_{ij} &=&%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x^{-1}\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j} \\
+&=&%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }P\Lambda ^{-1}P^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j} \\
+&=&\tsum\limits_{r=1}^{k}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\frac{1}{\lambda r}%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{r}^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{r}^{\ast \dagger }%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j} \\
+&=&\tsum\limits_{r=1}^{k}\frac{1}{\lambda r}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{r}^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{r}^{\ast \dagger }%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j} \\
+&=&\left\Vert 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j}\right\Vert \left\Vert 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j}\right\Vert \tsum\limits_{r=1}^{k}\frac{1}{\lambda r}\cos \theta
+_{ir}\cos \theta _{jr}
+\end{eqnarray*}%
+$\cos \theta _{ir}=\frac{x_{i}^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j}^{\ast }}{\left\Vert 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\right\Vert \left\Vert 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{j}^{\ast }\right\Vert }$
+
+\begin{enumerate}
+\item $P_{ii}$ large means $\left\Vert 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\right\Vert \cdot \left\Vert 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\right\Vert $ is relatively larger than other
+
+\item $x_{i}$ and the smallest eig-value of eig-vector are parralel $\left(
+\cos \theta =1\right) $
+\end{enumerate}
+\end{itemize}
+
+\bigskip
+
+Q: when k dim, how to declare this value to be the largest?%
+\begin{equation*}
+\text{If i=j }\Rightarrow P_{ii}=\left\Vert 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\right\Vert ^{2}\tsum\limits_{r=1}^{k}\frac{1}{\lambda r}\left( \cos
+\theta _{ir}\right) ^{2}
+\end{equation*}%
+$P=\left[ P_{ij}\right] $, some people take $\frac{2h\left( P\right) }{n}=%
+\frac{2k}{n}$ to compare. (i.e. if $P_{ij}>2\frac{k}{n}$, it means $P_{ij}$
+is large)
+
+\bigskip
+
+Check the good and bad of the model
+
+\begin{equation*}
+\begin{array}{c}
+\text{leverage: }P_{ii} \\ 
+\text{residual: }e_{i}=Y_{i}-\hat{Y}_{i}%
+\end{array}%
+\end{equation*}%
+measure of distance of $%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}$ away from $%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+$%
+\begin{equation*}
+\text{multiple rows\quad }\chi _{n\times k}=\left[ 
+\begin{array}{c}
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{1}^{\dagger } \\ 
+\vdots \\ 
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{n}^{\dagger }%
+\end{array}%
+\right]
+\end{equation*}
+
+Let $I=\left\{ j:%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}=%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{j}\right\} $ (size of I=a)
+
+then%
+\begin{equation*}
+P_{ii}=\tsum\limits_{j=1}^{n}P_{ij}^{2}=aP_{ii}^{2}+\tsum\limits_{j\neq
+I}P_{ij}^{2}\geq aP_{ii}^{2}\Rightarrow P_{ii}\leq \frac{1}{a}
+\end{equation*}%
+if data has duplicate measure
+
+\bigskip
+
+\begin{itemize}
+\item Let $\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+_{\left( i\right) },x_{\left( i\right) }\right) $ denote the vector $\left(
+Y_{i},%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\right) $ is omitted. Write $\left( \chi ^{\dagger }\right)
+_{k\times n}=\left( 
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{1},\cdots ,%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{n}\right) $, then%
+\begin{equation*}
+x^{\dagger }x=\tsum\limits_{i=1}^{n}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}^{\dagger }=x_{\left( i\right) }^{\dagger }x_{\left( i\right) }+%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}^{\dagger }
+\end{equation*}%
+\newline
+Assume rank($x_{\left( i\right) }$)=k\newline
+if $%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}^{\dagger }\left( x_{\left( i\right) }^{\dagger }x_{\left( i\right)
+}\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}\neq 1$, then by A.18(?)%
+\begin{equation*}
+\left( x_{\left( i\right) }^{\dagger }x_{\left( i\right) }\right)
+^{-1}=\left( x^{\dagger }x\right) ^{-1}+\frac{\left( x^{\dagger }x\right)
+^{-1}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}}{1-x_{\left( i\right)
+}^{\dagger }\left( x^{\dagger }x\right) ^{-1}x_{\left( i\right) }}
+\end{equation*}%
+\begin{equation*}
+\left[ 
+\begin{array}{c}
+\text{if }x_{\left( i\right) }^{\dagger }\left( x^{\dagger }x\right)
+^{-1}x_{\left( i\right) }\neq 1 \\ 
+x^{\dagger }x=x_{\left( i\right) }^{\dagger }x_{\left( i\right) }+%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}^{\dagger } \\ 
+\Rightarrow \text{above equation}%
+\end{array}%
+\right]
+\end{equation*}%
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{r}^{\dagger }\left( x_{\left( i\right) }^{\dagger }x_{\left( i\right)
+}\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{r}=%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{r}^{\dagger }\left[ \left( x^{\dagger }x\right) ^{-1}+\frac{\left(
+x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}}{1-P_{ii}}\right] 
+%TCIMACRO{\TeXButton{underaccent_chi}{\underaccent{\wtilde}{\chi}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\chi}%
+%EndExpansion
+_{r}
+\end{equation*}%
+\begin{equation*}
+P_{rr\left( i\right) }=P_{rr}+\frac{P_{ri}^{2}}{1-P_{ii}}
+\end{equation*}%
+take away ith the leverage of rr position (rr can be different)\newline
+$\Longrightarrow P_{rr\left( i\right) }$ may be large if either $P_{rr}$
+large or $P_{ii}$ large and/or $P_{ri}$ large\newline
+For example: $P_{22}=0.4$, $P_{22\left( 1\right) }=0.8$, $\Rightarrow $1 and
+2 can be in same class $\rightarrow $ masking effect
+\end{itemize}
+
+\bigskip
+
+\bigskip
+
+\paragraph{7.3 Measure based on residuals $e_{i}$ ($\frac{e_{r}}{\protect%
+\sigma _{i}}$) different kind of $e_{i}$}
+
+\begin{enumerate}
+\item normalized residuals: $\frac{e_{i}}{\sqrt{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}}=a_{i}$
+
+\item standardized residuals: $\frac{e_{i}}{\sqrt{\frac{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}{n-k}}}=b_{i}$ (MSE)\newline
+$b_{i}=\sqrt{n-k}a_{i}$, $r_{i}=\frac{b_{i}}{\sqrt{1-P_{ii}}}=\sqrt{\frac{n-k%
+}{1-P_{ii}}}a_{i}$%
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-\hat{Y}=%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+=\left( I-P\right) 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\end{equation*}%
+\begin{equation*}
+Var\left( 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+\right) =\left( I-P\right) \sigma ^{2}=\left[ 
+\begin{array}{ccc}
+1-P_{11} &  & -P_{ij} \\ 
+& \ddots &  \\ 
+&  & 1-P_{nn}%
+\end{array}%
+\right] \sigma ^{2}
+\end{equation*}%
+If $P_{ij}\approx 0$ and $P_{ii}\approx P_{jj}$, $i\neq j$, then reflects $%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\sim \left( o,\sigma ^{2}I\right) $ similar, but in general not this case
+
+\item internally studentized: $r_{i}=\frac{e_{i}}{\sqrt{\left(
+1-P_{ii}\right) \text{\c{S}}^{2}}}\quad $\c{S}$^{2}=\frac{%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+}{n-k}$
+
+\item externally studentized: $\frac{e_{i}}{\sqrt{\left( 1-P_{ii}\right) 
+\text{\c{S}}_{\left( i\right) }^{2}}}$
+\end{enumerate}
 
 \end{document}
