@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, December 29, 2015 12:32:53}
+%TCIDATA{LastRevised=Tuesday, December 29, 2015 16:30:19}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -1021,7 +1021,7 @@ _{\left( i\right) }-\hat{\beta}\right) ^{\dagger }x^{\dagger }x\left(
 %BeginExpansion
 \underaccent{\wtilde}{\hat{\beta}}%
 %EndExpansion
-_{\left( i\right) }-\hat{\beta}\right)  \\ 
+_{\left( i\right) }-\hat{\beta}\right) \\ 
 %TCIMACRO{%
 %\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
 %BeginExpansion
@@ -1041,7 +1041,7 @@ _{\left( i\right) }-x\hat{\beta}\right) ^{\dagger }\left( x%
 %BeginExpansion
 \underaccent{\wtilde}{\hat{\beta}}%
 %EndExpansion
-_{\left( i\right) }-x\hat{\beta}\right) 
+_{\left( i\right) }-x\hat{\beta}\right)%
 \end{array}%
 \end{equation*}%
 \begin{eqnarray*}
@@ -1230,5 +1230,194 @@ P_{ii}}{1-P_{ii}}\hat{y}_{i} \\
 &=&\frac{1}{1-P_{ii}}\left( y_{i}-\hat{y}_{i}\right) \\
 &=&\frac{e_{i}}{1-P_{ii}}
 \end{eqnarray*}
+
+\bigskip
+
+\bigskip
+
+\paragraph{7.5 Cook's Distance}
+
+\begin{equation*}
+C_{i}=\frac{\left( 
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+-%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+_{\left( i\right) }\right) ^{\dagger }x^{\dagger }x\left( 
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+-%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+_{\left( i\right) }\right) }{k\text{\c{S}}^{2}}
+\end{equation*}
+
+\bigskip
+
+Note: $\frac{\left( \hat{\beta}-\beta \right) ^{\dagger }\left( \left(
+x^{\dagger }x\right) ^{-1}\hat{\sigma}^{2}\right) ^{-1}\left( \hat{\beta}%
+-\beta \right) }{k}\sim F_{k,n-k}=\frac{\left( \hat{\beta}-\beta \right)
+^{\dagger }x^{\dagger }x\left( \hat{\beta}-\beta \right) }{k\text{\c{S}}^{2}}
+$
+
+\bigskip
+
+estimate whether some value have markable effect on estimation of regression
+coefficient, normally look for $F_{k,n-k}(0.2)$, $F_{k,n-k}\left( 0.5\right) 
+$
+
+\bigskip
+
+\begin{eqnarray*}
+\left( \hat{\beta}-\hat{\beta}_{\left( i\right) }\right) &=&\left(
+x^{\dagger }x\right) ^{-1}x^{\dagger }Y-\left( x_{\left( i\right) }^{\dagger
+}x_{\left( i\right) }\right) ^{-1}x_{\left( i\right) }Y_{\left( i\right) } \\
+&=&\left( x^{\dagger }x\right) ^{-1}x^{\dagger }Y-\left[ \left( x^{\dagger
+}x\right) ^{-1}+\frac{\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}}{1-P_{ii}}\right] \left(
+x^{\dagger }%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+-%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}y_{i}\right) \\
+&=&\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}y_{i}-\frac{\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}}{1-P_{ii}}\left( x^{\dagger
+}Y-%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}y_{i}\right) \\
+&=&\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\left[ y_{i}-\frac{%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}}{1-P_{ii}}\left( x^{\dagger
+}Y-%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}y_{i}\right) \right] \\
+&=&\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\left[ \frac{y_{i}-P_{ii}y_{i}-%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}x^{\dagger }Y+%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}y_{i}}{1-P_{ii}}\right] \\
+&=&\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\frac{y_{i}-%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }%
+%TCIMACRO{%
+%\TeXButton{underaccent_beta_hat}{\underaccent{\wtilde}{\hat{\beta}}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\hat{\beta}}%
+%EndExpansion
+}{1-P_{ii}} \\
+&=&\left( x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}\frac{e_{i}}{1-P_{ii}}
+\end{eqnarray*}
+
+\bigskip
+
+Rewrite%
+\begin{eqnarray*}
+C_{i} &=&\frac{e_{i}^{2}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}^{\dagger }\left( x^{\dagger }x\right) ^{-1}x^{\dagger }x\left(
+x^{\dagger }x\right) ^{-1}%
+%TCIMACRO{\TeXButton{underaccent_x}{\underaccent{\wtilde}{x}}}%
+%BeginExpansion
+\underaccent{\wtilde}{x}%
+%EndExpansion
+_{i}}{\left( 1-P_{ii}\right) ^{2}k\text{\c{S}}^{2}} \\
+&=&\frac{e_{i}^{2}}{\left( 1-P_{ii}\right) ^{2}}\times \frac{P_{ii}}{k\text{%
+\c{S}}^{2}} \\
+&=&\frac{P_{ii}}{\left( 1-P_{ii}\right) ^{2}}\times \frac{e_{i}^{2}}{k\text{%
+\c{S}}^{2}}
+\end{eqnarray*}
+
+\bigskip
+
+use $C_{i}$ to estimate outlier. $\frac{P_{ii}}{\left( 1-P_{ii}\right) ^{2}}$
+has larger control power among the terms.
 
 \end{document}
