@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, December 29, 2015 16:30:19}
+%TCIDATA{LastRevised=Thursday, December 31, 2015 11:58:46}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -1419,5 +1419,282 @@ _{i}}{\left( 1-P_{ii}\right) ^{2}k\text{\c{S}}^{2}} \\
 
 use $C_{i}$ to estimate outlier. $\frac{P_{ii}}{\left( 1-P_{ii}\right) ^{2}}$
 has larger control power among the terms.
+
+\bigskip
+
+\bigskip
+
+\paragraph{Mean Shift Model}
+
+\begin{equation*}
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+=x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
++\delta 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}+%
+%TCIMACRO{\TeXButton{underaccent_epsilon}{\underaccent{\wtilde}{\epsilon}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\epsilon}%
+%EndExpansion
+\end{equation*}%
+where $%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}=\left[ 0,\cdots ,1,\cdots ,0\right] ^{\dagger }$
+
+\begin{equation*}
+\begin{array}{c}
+H_{0}:\delta =0\text{, (i.e. }E\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\right) =x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
+\text{)} \\ 
+H_{1}:\delta \neq 0\text{, (i.e. }E\left( 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\right) =x%
+%TCIMACRO{\TeXButton{underaccent_beta}{\underaccent{\wtilde}{\beta}}}%
+%BeginExpansion
+\underaccent{\wtilde}{\beta}%
+%EndExpansion
++\delta 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}\text{)}%
+\end{array}%
+\end{equation*}
+
+\bigskip
+
+Use likelihood ratio test statistic $F=\frac{\text{\c{S}\c{S}}E\left(
+H_{0}\right) -\text{\c{S}\c{S}}E\left( H_{1}\right) }{\frac{\text{\c{S}\c{S}}%
+E\left( H_{1}\right) }{n-k-1}}$
+
+\begin{eqnarray*}
+\text{\c{S}\c{S}}E\left( H_{0}\right) &=&%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+^{\dagger }\left( I-P\right) 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+=\left( n-k\right) \text{\c{S}}^{2} \\
+\text{\c{S}\c{S}}E\left( H_{1}\right) &=&%
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+^{\dagger }\left( I-P-\frac{\left( I-P\right) 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}^{\dagger }\left( I-P\right) }{1-P_{ii}}\right) 
+%TCIMACRO{\TeXButton{underaccent_Y}{\underaccent{\wtilde}{Y}}}%
+%BeginExpansion
+\underaccent{\wtilde}{Y}%
+%EndExpansion
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\text{i.e. }P^{\prime } &=&\left[ x,%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}\right] \left[ \left( x,%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}\right) ^{\dagger }\left( x,%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}\right) \right] ^{-1}\left[ x,%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}\right] \\
+&=&x\left( x^{\dagger }x\right) ^{-1}x+\frac{\left( I-P\right) 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}^{\dagger }\left( I-P\right) }{e_{i}^{\dagger }\left( 1-P_{ii}\right) 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}}
+\end{eqnarray*}
+
+\begin{equation*}
+I-P^{\prime }=I-P-\frac{\left( I-P\right) 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}%
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}^{\dagger }\left( I-P\right) }{e_{i}^{\dagger }\left( 1-P_{ii}\right) 
+%TCIMACRO{\TeXButton{underaccent_e}{\underaccent{\wtilde}{e}}}%
+%BeginExpansion
+\underaccent{\wtilde}{e}%
+%EndExpansion
+_{i}}
+\end{equation*}
+
+\bigskip
+
+\begin{eqnarray*}
+F &=&\frac{\text{\c{S}\c{S}}E\left( H_{0}\right) -\text{\c{S}\c{S}}E\left(
+H_{1}\right) }{\frac{\text{\c{S}\c{S}}E\left( H_{1}\right) }{n-k-1}}=\frac{%
+\frac{e_{i}^{2}}{1-P_{ii}}}{\text{\c{S}}_{\left( i\right) }^{2}}=\frac{%
+e_{i}^{2}}{\left( 1-P_{ii}\right) \text{\c{S}}_{\left( i\right) }^{2}} \\
+&=&\left( \frac{e_{i}}{\sqrt{\left( 1-P_{ii}\right) \text{\c{S}}_{\left(
+i\right) }^{2}}}\right) ^{2}=\left( r_{i}^{\ast }\right) ^{2}\quad \text{%
+external student residual}
+\end{eqnarray*}
+
+\bigskip
+
+disadvantage:%
+\begin{eqnarray*}
+&&\left( r_{i}^{\ast }\right) ^{2}\overset{H_{0}}{\leadsto }F_{1,n-k-1} \\
+&\leadsto &F_{1,n-k-1}\left( \delta ^{2}\left( 1-P_{ii}\right) \sigma
+^{2}\right)
+\end{eqnarray*}
+
+\bigskip
+
+\begin{equation*}
+\frac{P_{ii}}{\left( 1-P_{ii}\right) ^{2}k\text{\c{S}}^{2}}\quad \text{(cook)%
+}
+\end{equation*}%
+one more 1-P$_{ii}$, if far enough, it can be enhanced, 1-P$_{ii}$ is very
+small.
+
+\bigskip
+
+Internal residual:%
+\begin{eqnarray*}
+r_{i} &=&\frac{e_{i}}{\text{\c{S}}_{\left( i\right) }\sqrt{\left(
+1-P_{ii}\right) }} \\
+r_{i}^{2} &=&\frac{1}{\left( 1-P_{ii}\right) }\times \left( \frac{e_{i}}{%
+\text{\c{S}}_{\left( i\right) }}\right) ^{2}=\frac{n-k}{1-P_{ii}}\times 
+\frac{e_{i}^{2}}{\tsum e_{i}^{2}}
+\end{eqnarray*}
+
+External residual:%
+\begin{eqnarray*}
+\left( r_{i}^{\ast }\right) ^{2} &=&\left( \frac{e_{i}}{\text{\c{S}}_{\left(
+i\right) }\sqrt{\left( 1-P_{ii}\right) }}\right) ^{2} \\
+&&\left( r_{i}^{\ast }\right) ^{2}\overset{H_{0}}{\leadsto }F_{1,n-k-1}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+r_{i}^{\ast } &=&r_{i}\sqrt{\frac{n-k-1}{n-k-r_{i}^{2}}}\text{, see range, }%
+0\leq \left( r_{i}^{\ast }\right) ^{2}<\infty  \\
+&=&\sqrt{\frac{r_{i}^{2}}{n-k-r_{i}^{2}}\left( n-k-1\right) }
+\end{eqnarray*}%
+\begin{equation*}
+\Rightarrow \left( r_{i}^{\ast }\right) ^{2}=\frac{r_{i}^{2}}{n-k-r_{i}^{2}}%
+\left( n-k-1\right) \overset{r_{i}^{2}\rightarrow n-k}{\longrightarrow }%
+\infty 
+\end{equation*}
+
+If hope can find obvious span, although $\alpha $ is 1-1, but $\because
+\left( r_{i}^{\ast }\right) ^{2}$ from $0\sim \infty $ has a obvious sense. $%
+r_{i}^{\ast }$ is ??, can use percentile as a reference.
+
+$0<\frac{r_{i}^{2}}{n-k}<1$ is $Beta\left( \frac{1}{2},\frac{n-k-1}{2}%
+\right) $, it is harder to find percentile for comparison.
+
+\begin{equation*}
+F=\frac{\left( n-k\right) \text{\c{S}}^{2}-\left( n-k-1\right) \text{\c{S}}%
+_{\left( i\right) }^{2}}{\text{\c{S}}_{\left( i\right) }^{2}}=\frac{e_{i}^{2}%
+}{\text{\c{S}}_{\left( i\right) }^{2}\left( 1-P_{ii}\right) }
+\end{equation*}%
+\begin{eqnarray*}
+&\Longrightarrow &\left( n-k\right) \frac{\text{\c{S}}^{2}}{\text{\c{S}}%
+_{\left( i\right) }^{2}}-\left( n-k-1\right) =\frac{e_{i}^{2}}{\text{\c{S}}%
+_{\left( i\right) }^{2}\left( 1-P_{ii}\right) } \\
+&\Longrightarrow &\left( n-k\right) \text{\c{S}}^{2}-\left( n-k-1\right) 
+\text{\c{S}}_{\left( i\right) }^{2}=\frac{e_{i}^{2}}{\left( 1-P_{ii}\right) }
+\\
+&\Longrightarrow &\text{\c{S}}_{\left( i\right) }^{2}=\frac{n-k}{n-k-1}\text{%
+\c{S}}^{2}-\frac{e_{i}^{2}}{\left( n-k-1\right) \left( 1-P_{ii}\right) } \\
+&=&\text{\c{S}}^{2}\left( \frac{n-k}{n-k-1}-\frac{r_{i}^{2}\left(
+1-P_{ii}\right) }{\left( n-k-1\right) \left( 1-P_{ii}\right) }\right) \\
+&=&\text{\c{S}}^{2}\left( \frac{n-k-r_{i}^{2}}{n-k-1}\right)
+\end{eqnarray*}
+
+\begin{equation*}
+r_{i}=\frac{e_{i}}{\text{\c{S}}\sqrt{1-P_{ii}}}\quad r_{i}^{\ast }=\frac{%
+e_{i}}{\text{\c{S}}_{\left( i\right) }\sqrt{\left( 1-P_{ii}\right) }}
+\end{equation*}
+
+\begin{equation*}
+r_{i}^{\ast }=\frac{e_{i}}{\text{\c{S}}\sqrt{\frac{n-k-r_{i}^{2}}{n-k-1}}%
+\sqrt{\left( 1-P_{ii}\right) }}=\frac{e_{i}}{\text{\c{S}}\sqrt{\left(
+1-P_{ii}\right) }}\times \sqrt{\frac{n-k-1}{n-k-r_{i}^{2}}}=r_{i}\sqrt{\frac{%
+n-k-1}{n-k-r_{i}^{2}}}
+\end{equation*}%
+\begin{equation*}
+\text{\c{S}}_{\left( i\right) }=\frac{SSE_{\left( i\right) }}{n-k-1}
+\end{equation*}
+
+Note:%
+\begin{equation*}
+F=r_{\ast }^{2}=\frac{e_{i}^{2}}{\text{\c{S}}_{\left( i\right) }^{2}\left(
+1-P_{ii}\right) }=\frac{\left( n-k\right) \text{\c{S}}^{2}-\left(
+n-k-1\right) \text{\c{S}}_{\left( i\right) }^{2}}{\text{\c{S}}_{\left(
+i\right) }^{2}}
+\end{equation*}%
+\begin{equation*}
+\therefore \text{\c{S}}_{\left( i\right) }^{2}=\frac{\left( n-k\right) \text{%
+\c{S}}^{2}-\frac{e_{i}^{2}}{\left( 1-P_{ii}\right) }}{n-k-1}
+\end{equation*}
 
 \end{document}
