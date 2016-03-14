@@ -1,0 +1,328 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall,a4paper]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Monday, March 14, 2016 17:00:26}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$W=\left( 1-\sigma \right) I$
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+\input{tcilatex}
+
+\begin{document}
+
+
+\setcounter{part}{1} \setcounter{page}{1}
+
+\begin{equation*}
+Y_{i}=\beta _{0}+\beta _{1}\chi _{11}+\beta _{2}\chi _{12}+\cdots +\beta
+_{k}\chi _{ik}+\varepsilon _{i}\qquad i=1,\cdots ,n
+\end{equation*}
+
+\begin{enumerate}
+\item $E\left( \varepsilon _{i}\right) =0,\quad \forall \quad i$
+
+\item $Var\left( \varepsilon _{i}\right) =\sigma ^{2},\quad \forall \quad i$
+
+\item $Cov\left( \varepsilon _{i},\varepsilon _{j}\right) =0,\quad \forall
+\quad i\neq j$
+\end{enumerate}
+
+\begin{equation*}
+\underset{n\times 1}{\mathbb{Y}}=\underset{n\times p}{\mathbb{X}}\underset{%
+p\times 1}{\mathbf{\beta }}+\underset{n\times 1}{\mathbf{\varepsilon }}
+\end{equation*}
+
+matrix form
+
+\begin{eqnarray*}
+\left[ 
+\begin{array}{c}
+Y_{1} \\ 
+\vdots \\ 
+Y_{n}%
+\end{array}%
+\right] _{n\times 1} &=&\left[ 
+\begin{array}{cccc}
+1 & x_{11} &  &  \\ 
+\vdots &  &  &  \\ 
+1 &  &  & x_{nk}%
+\end{array}%
+\right] _{n\times \left( k+1\right) =p}\left[ 
+\begin{array}{c}
+\beta _{0} \\ 
+\vdots \\ 
+\beta _{k}%
+\end{array}%
+\right] _{\left( k+1\right) \times 1=p\times 1} \\
+&&+\left[ 
+\begin{array}{c}
+\varepsilon _{1} \\ 
+\vdots \\ 
+\varepsilon _{n}%
+\end{array}%
+\right] _{n\times 1}
+\end{eqnarray*}
+
+The least Squares Estimation
+
+\begin{eqnarray*}
+Q\left( \mathbf{\beta }\right) &=&\mathbf{\varepsilon }^{\dagger }\mathbf{%
+\varepsilon } \\
+&=&\left( \mathbb{Y}\mathbf{-}\mathbb{X}\mathbf{\beta }\right) ^{\dagger
+}\left( \mathbb{Y}\mathbf{-}\mathbb{X}\mathbf{\beta }\right) \\
+&=&\left( \mathbb{Y}\mathbf{^{\dagger }-}\mathbb{X}\mathbf{^{\dagger }\beta }%
+^{\dagger }\right) \left( \mathbb{Y}\mathbf{-}\mathbb{X}\mathbf{\beta }%
+\right) \\
+&=&\mathbb{Y}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{-}\underset{1\times 1}{%
+\underbrace{\underset{1\times n}{\mathbb{Y}\mathbf{^{\dagger }}}\overset{%
+n\times p}{\mathbb{X}}\overset{p\times n}{\underset{n\times 1}{\mathbf{\beta 
+}}}}}-\underset{1\times 1}{\underbrace{\mathbf{\beta }^{\dagger }\mathbb{X}%
+\mathbf{^{\dagger }}}}\mathbb{Y}\mathbf{+\beta }^{\dagger }\mathbb{X}\mathbf{%
+^{\dagger }}\mathbb{X}\mathbf{\beta } \\
+&=&\mathbb{Y}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{-}2\mathbf{\beta }%
+^{\dagger }\mathbb{X}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{+\beta }^{\dagger
+}\mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\mathbf{\beta }
+\end{eqnarray*}
+
+\bigskip
+
+tool:
+
+\begin{enumerate}
+\item Let $u=a^{\dagger }\chi =\chi ^{\dagger }a$, where $a^{\dagger }=\left[
+a_{1},\cdots ,a_{p}\right] $ and $\chi ^{\dagger }=\left[ \chi _{1},\cdots
+,\chi _{p}\right] $ are vector. Then 
+\begin{equation*}
+\frac{\partial u}{\partial \chi }=\left[ 
+\begin{array}{c}
+\frac{\partial u}{\partial \chi _{1}} \\ 
+\vdots \\ 
+\frac{\partial u}{\partial \chi _{p}}%
+\end{array}%
+\right] =a
+\end{equation*}
+
+\item Let $u=\chi ^{\dagger }\mathbf{A\chi }$ where $\mathbf{A}$ is a
+symmetric matrix of constants. Then 
+\begin{equation*}
+\frac{\partial u}{\partial \mathbf{\chi }}=2\mathbf{A\chi }
+\end{equation*}%
+\newline
+$\frac{\partial }{\partial \chi }\left\{ a\chi ^{2}\right\} =2a\chi $%
+\begin{eqnarray}
+\frac{\partial Q\left( \beta \right) }{\partial \beta } &=&\frac{\partial }{%
+\partial \beta }\left\{ \mathbb{Y}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{-}2%
+\mathbf{\beta }^{\dagger }\mathbb{X}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{%
++\beta }^{\dagger }\mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\mathbf{\beta }%
+\right\}  \notag \\
+&=&\mathbf{-}2\mathbb{X}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{+}2\mathbb{X}%
+\mathbf{^{\dagger }}\mathbb{X}\mathbf{\beta }
+\end{eqnarray}%
+\newline
+let $\frac{\partial Q\left( \mathbf{\beta }\right) }{\partial \mathbf{\beta }%
+}=0$%
+\begin{equation*}
+\Rightarrow \mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\mathbf{\hat{\beta}=}%
+\mathbb{X}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{\quad }\text{normal equations%
+}
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \left\{ 
+\begin{array}{c}
+\hat{\beta}=\left( \mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\right) ^{-1}%
+\mathbb{X}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{,\quad }\mathbb{X}\mathbf{%
+^{\dagger }}\mathbb{X}\text{ is nonsingular} \\ 
+\hat{\beta}=\left( \mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\right) \underset{%
+\text{generalized inverse}}{\underbrace{^{-}}}\mathbb{X}\mathbf{^{\dagger }}%
+\mathbb{Y}\mathbf{+}\left( \mathbf{1-}\left( \mathbb{X}\mathbf{^{\dagger }}%
+\mathbb{X}\right) ^{-}\left( \mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\right)
+\right) W \\ 
+,\mathbb{X}\mathbf{^{\dagger }}\mathbb{X}\text{ is singular}%
+\end{array}%
+\right.
+\end{equation*}%
+\newline
+the vector of fitted values%
+\begin{equation*}
+\hat{Y}=\mathbb{X}\hat{\beta}=\mathbb{X}\left( \mathbb{X}\mathbf{^{\dagger }}%
+\mathbb{X}\right) ^{-1}\mathbb{X}\mathbf{^{\dagger }}\mathbb{Y}\mathbf{=}%
+\underset{\text{hat matrix}}{\mathbf{H}}\mathbb{Y}\mathbf{=}P_{\mathbb{X}}Y
+\end{equation*}%
+\newline
+$P_{\mathbb{X}}$ the perpendicular projection matrix onto $C\left( \mathbb{X}%
+\right) $
+\end{enumerate}
+
+\bigskip
+
+the residuals
+
+\begin{equation*}
+\hat{e}=\mathbb{Y}\mathbf{-}\mathbb{\hat{Y}}\mathbf{=}\mathbb{Y}\mathbf{-H}%
+\mathbb{Y}\mathbf{=}\mathbb{Y}\mathbf{-}P_{\mathbb{X}}\mathbb{Y}\mathbf{=}%
+\underset{\text{null space}}{\underbrace{\left( I-P_{\mathbb{X}}\right) 
+\mathbb{Y}}}\quad \in N\left( \mathbf{X}^{\dagger }\right) 
+\end{equation*}
+
+$P_{\mathbb{X}}:$
+
+\begin{enumerate}
+\item $P_{\mathbb{X}}$ is idempotent
+
+\item $P_{\mathbb{X}}$ is symmetric
+
+\item $P_{\mathbb{X}}$ is unique
+\end{enumerate}
+
+\bigskip
+
+the residual sum of squares is%
+\begin{eqnarray*}
+RSS &=&\mathbf{\hat{e}}^{\dagger }\mathbf{\hat{e}=}\left[ \left( I-P_{%
+\mathbb{X}}\right) \mathbb{Y}\right] ^{\dagger }\left[ \left( I-P_{\mathbb{X}%
+}\right) \mathbb{Y}\right] \\
+&=&\mathbb{Y}^{\dagger }\left( I-P_{\mathbb{X}}\right) \left( I-P_{\mathbb{X}%
+}\right) \mathbb{Y} \\
+&=&\mathbb{Y}^{\dagger }\underset{\text{n}\times \text{n}}{\left( I-P_{%
+\mathbb{X}}\right) }\mathbb{Y}
+\end{eqnarray*}
+
+\bigskip
+
+\begin{theorem}
+Suppose $\mathbf{X}$ is n$\times $p matrix with rank $k\leq p$ and let $P_{%
+\mathbb{X}}$ be the perpendicular projection matrix onto $C\left( \mathbf{X}%
+\right) $. Then $\gamma \left( P_{\mathbb{X}}\right) =\gamma \left( \mathbf{X%
+}\right) =\gamma $ and $\gamma \left( I-P_{\mathbb{X}}\right) =n-\gamma $.
+\end{theorem}
+
+\begin{itemize}
+\item the orthogonal decomposition of $\mathbb{Y}^{\dagger }\mathbb{Y}$%
+\begin{eqnarray*}
+\underset{\tsum y_{i}^{2}}{\underbrace{\mathbb{Y}^{\dagger }\mathbb{Y}}} &=&%
+\mathbb{Y}^{\dagger }I\mathbb{Y}\mathbf{=}\mathbb{Y}^{\dagger }\left( P_{%
+\mathbb{X}}+I-P_{\mathbb{X}}\right) \mathbb{Y} \\
+&=&\mathbb{Y}^{\dagger }P_{\mathbb{X}}\mathbb{Y}+\mathbb{Y}^{\dagger }\left(
+I-P_{\mathbb{X}}\right) \mathbb{Y} \\
+&=&\mathbb{Y}^{\dagger }P_{\mathbb{X}}P_{\mathbb{X}}\mathbb{Y}\mathbf{+}%
+\mathbb{Y}^{\dagger }\left( I-P_{\mathbb{X}}\right) \left( I-P_{\mathbb{X}%
+}\right) \mathbb{Y}
+\end{eqnarray*}
+\end{itemize}
+
+\begin{equation*}
+\begin{tabular}{lll}
+Source & df & \c{S}.\c{S}. \\ 
+Model & $\gamma \left( P_{x}\right) =\gamma $ & $\mathbb{YY}\mathbf{=}%
+\mathbb{Y}^{\dagger }P_{x}\mathbb{Y}$ \\ 
+Residual & $\gamma \left( I-P_{x}\right) =n-\gamma $ & $\mathbf{\hat{e}\hat{e%
+}=}\mathbb{Y}^{\dagger }\left( I-P_{x}\right) \mathbb{Y}$ \\ 
+Total & $\gamma \left( I\right) =h$ & $\mathbb{Y}^{\dagger }\mathbb{Y}%
+\mathbf{=}\mathbb{Y}^{\dagger }I\mathbb{Y}\mathbf{\curvearrowright }\tsum
+y_{i}^{2}$%
+\end{tabular}%
+\end{equation*}
+
+\bigskip
+
+the perpendicular projection matrix onto $C\left( \boldsymbol{1}\right) $ is
+given by%
+\begin{equation*}
+P_{\boldsymbol{1}}=1\left( 1^{\dagger }1\right) ^{-1}1^{\dagger }=\frac{1}{n}%
+J\quad \curvearrowright \text{is the }n\times n\text{ matrix of ones}
+\end{equation*}
+
+\begin{equation*}
+1=\left[ 
+\begin{array}{c}
+1 \\ 
+\vdots \\ 
+1%
+\end{array}%
+\right]
+\end{equation*}
+
+\bigskip
+
+\begin{enumerate}
+\item $P_{1}\mathbb{Y}=\frac{1}{n}J\mathbb{Y}=\bar{y}1$
+
+\item $\left( I-P_{1}\right) \mathbb{Y=Y-}P_{1}\mathbb{Y=Y}-\bar{y}1=\left[ 
+\begin{array}{c}
+y_{1}-\bar{y} \\ 
+\vdots \\ 
+y_{n}-\bar{y}%
+\end{array}%
+\right] $
+
+\item $\gamma \left( P_{1}\right) =1$ and $\gamma \left( I-P_{1}\right) =n-1$
+
+\item Consider the model $\mathbb{Y}=1u+\varepsilon $%
+\begin{equation*}
+\mathbb{Y}^{\dagger }P_{1}\mathbb{Y}=n\bar{y}\quad \text{:the model sum of
+squares}
+\end{equation*}
+
+\item 
+\begin{equation*}
+\mathbb{Y}^{\dagger }\mathbb{Y=Y}^{\mathbb{\dagger }}P_{\mathbb{X}}\mathbb{%
+Y+Y}^{\mathbb{\dagger }}\left( I-P_{\mathbb{X}}\right) \mathbb{Y}
+\end{equation*}%
+\begin{eqnarray*}
+&\Rightarrow &\mathbb{Y}^{\dagger }\mathbb{Y-\mathbb{Y}^{\mathbb{\dagger }}}%
+P_{1}\mathbb{\mathbb{Y}=Y}^{\mathbb{\dagger }}P_{\mathbb{X}}\mathbb{Y+Y}^{%
+\mathbb{\dagger }}\left( I-P_{\mathbb{X}}\right) \mathbb{Y-\mathbb{Y}^{%
+\mathbb{\dagger }}}P_{1}\mathbb{\mathbb{Y}} \\
+&\Rightarrow &\underset{\text{corrected SST}}{\mathbb{Y}^{\mathbb{\dagger }%
+}\left( I-P_{1}\right) \mathbb{Y}}\mathbb{=}\underset{\text{corrected model
+S.S}}{\mathbb{Y}^{\mathbb{\dagger }}\left( P_{\mathbb{X}}-P_{1}\right) 
+\mathbb{Y}}\mathbb{+Y}^{\mathbb{\dagger }}\left( I-P_{\mathbb{X}}\right) 
+\mathbb{Y}
+\end{eqnarray*}
+\end{enumerate}
+
+\end{document}
