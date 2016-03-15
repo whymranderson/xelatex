@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Monday, March 14, 2016 17:00:26}
+%TCIDATA{LastRevised=Tuesday, March 15, 2016 11:10:55}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -205,7 +205,7 @@ the residuals
 \hat{e}=\mathbb{Y}\mathbf{-}\mathbb{\hat{Y}}\mathbf{=}\mathbb{Y}\mathbf{-H}%
 \mathbb{Y}\mathbf{=}\mathbb{Y}\mathbf{-}P_{\mathbb{X}}\mathbb{Y}\mathbf{=}%
 \underset{\text{null space}}{\underbrace{\left( I-P_{\mathbb{X}}\right) 
-\mathbb{Y}}}\quad \in N\left( \mathbf{X}^{\dagger }\right) 
+\mathbb{Y}}}\quad \in N\left( \mathbf{X}^{\dagger }\right)
 \end{equation*}
 
 $P_{\mathbb{X}}:$
@@ -324,5 +324,93 @@ S.S}}{\mathbb{Y}^{\mathbb{\dagger }}\left( P_{\mathbb{X}}-P_{1}\right)
 \mathbb{Y}
 \end{eqnarray*}
 \end{enumerate}
+
+\bigskip
+
+$y_{1}=\mu +\varepsilon _{1}$, $y_{2}=\mu +\varepsilon _{2}$, $y_{n}=\mu
++\varepsilon _{n}$
+
+\begin{equation*}
+\begin{tabular}{lll}
+Source & df & S.S. \\ 
+Model(corrected) & $\gamma \left( P_{X}-1\right) =\gamma -1$ & $\mathbb{Y}%
+^{\dagger }\left( P_{X}-1\right) \mathbb{Y}$ \\ 
+Residual & $\gamma \left( I-P_{X}\right) =n-\gamma $ & $\mathbb{Y}^{\dagger
+}\left( I-P_{X}\right) \mathbb{Y}$ \\ 
+Total & $\gamma \left( I-P_{1}\right) =n-1$ & $\mathbb{Y}^{\dagger }\left(
+I-P_{1}\right) \mathbb{Y}$%
+\end{tabular}%
+\end{equation*}
+
+\begin{theorem}
+$Q\left( \mathbf{\beta }\right) $ attains the minimum for any solution of%
+\begin{equation*}
+\mathbf{X}^{\dagger }\mathbf{X\hat{\beta}}=\mathbf{X}^{\mathbb{\dagger }}%
+\mathbf{Y}
+\end{equation*}
+
+\begin{proof}
+$\forall \mathbf{\beta }$%
+\begin{eqnarray*}
+Q\left( \mathbf{\beta }\right)  &=&\left( \mathbf{Y-X\beta }\right)
+^{\dagger }\left( \mathbf{Y-X\beta }\right)  \\
+&=&\left( \mathbf{Y-X\hat{\beta}+X\hat{\beta}-X\beta }\right) ^{\dagger
+}\left( \mathbf{Y-X\hat{\beta}+X\hat{\beta}-X\beta }\right)  \\
+&=&\left( \mathbf{Y-X\hat{\beta}}\right) ^{\dagger }\left( \mathbf{Y-X\hat{%
+\beta}}\right) +\left( \mathbf{Y-X\hat{\beta}}\right) ^{\dagger }\left( 
+\mathbf{X\hat{\beta}-X\beta }\right)  \\
+&&+\left( \mathbf{X\hat{\beta}-X\beta }\right) ^{\dagger }\left( \mathbf{Y-X%
+\hat{\beta}}\right) +\left( \mathbf{X\hat{\beta}-X\beta }\right) ^{\dagger
+}\left( \mathbf{X\beta -X\beta }\right)  \\
+&&\vdots  \\
+&=&Q\left( \mathbf{\hat{\beta}}\right) +2\left( \hat{\beta}-\beta \right)
+^{\dagger }\underset{0}{\underbrace{\mathbf{X}\left( \mathbf{Y-X\hat{\beta}}%
+\right) }} \\
+&&+\left( \hat{\beta}-\beta \right) ^{\dagger }\mathbf{X}^{\dagger }\mathbf{X%
+}\left( \hat{\beta}-\beta \right)  \\
+&=&Q\left( \mathbf{\hat{\beta}}\right) +\left( \hat{\beta}-\beta \right)
+^{\dagger }\underset{\text{P.D.}}{\underbrace{\mathbf{X}^{\dagger }\mathbf{X}%
+}}\left( \hat{\beta}-\beta \right) 
+\end{eqnarray*}%
+$\therefore Q\left( \beta \right) \geq Q\left( \hat{\beta}\right) $
+\end{proof}
+\end{theorem}
+
+\begin{example}
+Consider simple linear regression%
+\begin{equation*}
+\mathbf{Y=}\left[ 
+\begin{array}{c}
+y_{1} \\ 
+\vdots  \\ 
+y_{n}%
+\end{array}%
+\right] \quad \mathbf{X=}\left[ 
+\begin{array}{cc}
+1 & x_{1} \\ 
+\vdots  & \vdots  \\ 
+1 & x_{n}%
+\end{array}%
+\right] \quad \mathbf{\beta =}\left[ 
+\begin{array}{c}
+\beta _{0} \\ 
+\beta _{1}%
+\end{array}%
+\right] 
+\end{equation*}%
+\begin{equation*}
+\mathbf{X}^{\dagger }\mathbf{X=}\left[ 
+\begin{array}{cc}
+n & \tsum x_{i} \\ 
+\tsum x_{i} & \tsum x_{i}^{2}%
+\end{array}%
+\right] \quad \mathbf{X}^{\dagger }\mathbf{Y=}\left[ 
+\begin{array}{c}
+\tsum y_{i} \\ 
+\tsum x_{i}y_{i}%
+\end{array}%
+\right] 
+\end{equation*}
+\end{example}
 
 \end{document}
