@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, March 25, 2016 12:25:45}
+%TCIDATA{LastRevised=Sunday, March 27, 2016 13:46:13}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,7 +50,6 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-\input{tcilatex}
 
 \begin{document}
 
@@ -100,13 +99,13 @@ h\left( \mu _{i}\right) =\beta _{1}x_{1}+\cdots +\beta _{p}x_{p}
 _{i},\quad i=1,\cdots ,n
 \end{equation*}
 
-\subsubsection{Multiple Linear Regression Model}
+\paragraph{Multiple Linear Regression Model}
 
 \begin{equation*}
 y_{i}=\beta _{0}+\beta _{1}x_{1i}+\cdots +\beta _{p}x_{pi}+\varepsilon _{i}
 \end{equation*}
 
-\subsubsection{Analysis of Variance Model (ANOVA)}
+\paragraph{Analysis of Variance Model (ANOVA)}
 
 \begin{enumerate}
 \item $y_{ij}=\mu _{i}+\varepsilon _{ij}=\mu +\alpha _{i}+\varepsilon _{ij}$%
@@ -140,12 +139,12 @@ p$ design matrix, $\mathbf{\beta }$ is the p-vector parameters and $\mathbf{%
 \varepsilon }$ is the n-vector of errors.
 \end{enumerate}
 
-\bigskip 
+\bigskip
 
-\paragraph{Simple Linear Regression Model%
+\subsubsection{Simple Linear Regression Model%
 \protect\begin{equation*}
-y_{1}=g\left( x_{1},\protect\beta _{1}\right) +\protect\varepsilon _{1}\quad
-,\quad i=1,2,\cdots ,n
+y_{i}=g\left( x_{i},\protect\beta _{1}\right) +\protect\varepsilon _{i}\quad
+,\quad i=1,2,\cdots ,n 
 \protect\end{equation*}%
 }
 
@@ -162,7 +161,7 @@ x_{i}\right) =\beta _{0}+\beta _{1}x_{i}^{\prime }$
 \begin{equation*}
 \begin{array}{c}
 y_{1}=\beta _{0}+\beta _{1}x_{1}+\varepsilon _{1} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{n}=\beta _{0}+\beta _{1}x_{n}+\varepsilon _{1}%
 \end{array}%
 \end{equation*}%
@@ -170,13 +169,13 @@ y_{n}=\beta _{0}+\beta _{1}x_{n}+\varepsilon _{1}%
 \Rightarrow \left[ 
 \begin{array}{c}
 y_{1} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{n}%
 \end{array}%
 \right] =\left[ 
 \begin{array}{cc}
 1 & x_{1} \\ 
-\vdots  & \vdots  \\ 
+\vdots & \vdots \\ 
 1 & x_{n}%
 \end{array}%
 \right] _{n\times 2}\left[ 
@@ -187,13 +186,164 @@ y_{n}%
 \right] _{2\times 1}+\left[ 
 \begin{array}{c}
 \varepsilon _{1} \\ 
-\vdots  \\ 
+\vdots \\ 
 \varepsilon _{n}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 \begin{equation*}
-\left[ \mathbf{Y=X\beta +\varepsilon }\right] 
+\left[ \mathbf{Y=X\beta +\varepsilon }\right]
+\end{equation*}%
+\begin{equation*}
+y_{i}=\beta _{0}+\beta _{1}x_{i}\quad \Rightarrow y_{i}-\left( \beta
+_{0}+\beta _{1}x_{i}\right) =0
+\end{equation*}
+
+\bigskip
+
+\paragraph{Least Squares Estimation}
+
+\begin{equation*}
+Q\left( \beta _{0},\beta _{1}\right) =\tsum\limits_{i=1}^{n}\left[
+y_{i}-\left( \beta _{0}+\beta _{1}x_{i}\right) \right] ^{2}
+\end{equation*}%
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+\frac{\partial Q}{\partial \beta _{0}}=0 \\ 
+\frac{\partial Q}{\partial \beta _{1}}=0%
+\end{array}%
+\right.
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \left\{ 
+\begin{array}{c}
+-2\tsum\limits_{i=1}^{n}\left[ y_{i}-\hat{\beta}_{0}-\hat{\beta}_{1}x_{i}%
+\right] =0 \\ 
+-2\tsum\limits_{i=1}^{n}\left[ y_{i}-\hat{\beta}_{0}-\hat{\beta}_{1}x_{i}%
+\right] x_{i}=0%
+\end{array}%
+\right. \text{normal equation}
+\end{equation*}
+
+\begin{eqnarray*}
+&\Rightarrow &\hat{\beta}_{1}=\frac{\tsum\limits_{i=1}^{n}\left( x_{i}-\bar{x%
+}\right) \left( y_{i}-\bar{y}\right) }{\tsum\limits_{i=1}^{n}\left( x_{i}-%
+\bar{x}\right) ^{2}} \\
+&=&\frac{\tsum\limits_{i=1}^{n}x_{i}^{\prime }y_{i}^{\prime }}{%
+\tsum\limits_{i=1}^{n}x_{i}^{\prime 2}}=\frac{S_{xy}}{S_{xx}}
+\end{eqnarray*}%
+and%
+\begin{equation*}
+\hat{\beta}_{0}=\bar{y}-\hat{\beta}_{1}\bar{x}
+\end{equation*}
+
+the fitted equation $Y=\beta _{0}+\beta _{1}x_{i}$%
+\begin{equation*}
+\hat{y}_{i}=\hat{\beta}_{0}+\hat{\beta}_{1}x_{i}=\left( \bar{y}-\hat{\beta}%
+\bar{x}\right) +\hat{\beta}_{1}\bar{x}=\bar{y}+\hat{\beta}_{1}\left( x_{i}-%
+\bar{x}\right)
+\end{equation*}
+
+the residual%
+\begin{eqnarray*}
+r_{i} &=&y_{i}-\hat{y}_{i}=y_{i}-\left( \bar{y}+\hat{\beta}_{1}\left( x_{i}-%
+\bar{x}\right) \right) \\
+&=&\left( y_{i}-\bar{y}\right) +\hat{\beta}_{1}\left( x_{i}-\bar{x}\right)
+\end{eqnarray*}
+
+\paragraph{$Y_{i}=\protect\beta _{0}+\protect\beta _{1}x_{i}+\protect%
+\varepsilon _{i}\quad ,\quad i=1,\cdots ,n$}
+
+make the following additional assumptions
+
+\begin{enumerate}
+\item $E\left( \varepsilon _{i}\right) =0\quad ,\quad \forall i\qquad $(i.e. 
+$E\left( Y_{i}\right) =\beta _{0}+\beta _{1}x_{i}$\quad $\mu _{y}=\beta
+_{0}+\beta _{1}x_{i}$)
+
+\item $Var\left( \varepsilon _{i}\right) =\sigma ^{2}\quad ,\quad \forall
+i\qquad $(i.e. $Var\left( Y_{i}\right) =\sigma ^{2}$)
+
+\item $Cov\left( \varepsilon _{i},\varepsilon _{j}\right) =0\quad ,\quad
+\forall i\neq j\qquad $(i.e. $Cov\left( Y_{i},Y_{j}\right) =0$)
+\end{enumerate}
+
+\bigskip 
+
+$k_{i}=\frac{\left( x_{i}-\bar{x}\right) }{\tsum \left( x_{i}-\bar{x}\right)
+^{2}}$
+
+\begin{eqnarray*}
+E\left( \hat{\beta}_{1}\right)  &=&E\left( \frac{\tsum \left( x_{i}-\bar{x}%
+\right) \left( y_{i}-\bar{y}\right) }{\tsum \left( x_{i}-\bar{x}\right) ^{2}}%
+\right) =E\left( \tsum\limits_{i=1}^{n}k_{i}Y_{i}\right)  \\
+&=&\tsum\limits_{i=1}^{n}k_{i}E\left( Y_{i}\right)
+=\tsum\limits_{i=1}^{n}k_{i}\left( \beta _{0}+\beta _{1}x_{i}\right)  \\
+&=&\beta _{0}\underset{0}{\underbrace{\tsum k_{i}}}+\beta _{1}\underset{1}{%
+\underbrace{\tsum k_{i}x_{i}}}=\beta _{1}
+\end{eqnarray*}
+
+\bigskip 
+
+\begin{eqnarray*}
+E\left( \hat{\beta}_{0}\right)  &=&E\left( \bar{Y}-\hat{\beta}_{1}\bar{X}%
+\right) =E\left( \bar{Y}\right) -\bar{X}E\left( \hat{\beta}_{1}\right)  \\
+&=&\left( \beta _{0}+\beta _{1}\bar{x}-\bar{x}\beta _{1}\right) =\beta _{0}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+Var\left( \hat{\beta}_{1}\right)  &=&Var\left(
+\tsum\limits_{i=1}^{n}k_{i}Y_{i}\right)
+=\tsum\limits_{i=1}^{n}k_{i}^{2}Var\left( Y_{i}\right)  \\
+&=&\sigma ^{2}\tsum\limits_{i=1}^{n}k_{i}^{2}=\frac{\sigma ^{2}}{\tsum
+\left( x_{i}-\bar{x}\right) ^{2}}
+\end{eqnarray*}
+
+\bigskip 
+
+\begin{eqnarray*}
+Var\left( \hat{\beta}_{0}\right)  &=&Var\left( \bar{Y}-\hat{\beta}_{1}\bar{X}%
+\right)  \\
+&=&Var\left( \bar{Y}\right) -\bar{X}^{2}Var\left( \hat{\beta}_{1}\right) -2%
+\bar{X}Cov\left( \bar{Y},\hat{\beta}_{1}\right)  \\
+&&\left[ Cov\left( \bar{Y},\hat{\beta}_{1}\right) =0\right]  \\
+&=&\sigma ^{2}\left[ \frac{1}{n}+\frac{\bar{x}^{2}}{\tsum \left( x_{i}-\bar{x%
+}\right) ^{2}}\right] 
+\end{eqnarray*}
+
+\bigskip 
+
+\paragraph{Let}
+
+\begin{equation*}
+\varepsilon _{i}\overset{\text{iid}}{\sim }N\left( o,\sigma ^{2}\right) 
+\end{equation*}
+
+\begin{eqnarray*}
+Y_{i} &=&\beta _{0}+\beta _{1}x_{i}+\varepsilon _{i} \\
+&\Rightarrow &Y_{i}\sim N\left( \beta _{0}+\beta _{1}x_{i},\sigma
+^{2}\right) 
+\end{eqnarray*}%
+\begin{equation*}
+\hat{\beta}_{1}=\tsum\limits_{i=1}^{n}k_{i}Y_{i}\sim N\left( \beta _{1},%
+\frac{\sigma ^{2}}{\tsum \left( x_{i}-\bar{x}\right) ^{2}}\right) 
+\end{equation*}%
+\begin{equation*}
+\hat{\beta}_{0}=\bar{Y}-\hat{\beta}_{1}\bar{X}\sim N\left( \beta _{0},\sigma
+^{2}\left( \frac{1}{n}+\frac{\bar{x}^{2}}{\tsum \left( x_{i}-\bar{x}\right)
+^{2}}\right) \right) 
+\end{equation*}
+
+\bigskip 
+
+the MLE
+
+the likelihood function%
+\begin{equation*}
+L\left( \beta _{0},\beta _{1},\sigma ^{2}\right)
+=\tprod\limits_{i=1}^{n}\left( \frac{1}{\sqrt{2\pi \sigma ^{2}}}e^{-\frac{%
+\left( Y_{i}-\beta _{0}-\beta _{1}x_{i}\right) ^{2}}{2\sigma ^{2}}}\right) 
 \end{equation*}
 
 \end{document}
