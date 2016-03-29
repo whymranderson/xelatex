@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Sunday, March 27, 2016 13:46:13}
+%TCIDATA{LastRevised=Tuesday, March 29, 2016 11:10:22}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,6 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
+\input{tcilatex}
 
 \begin{document}
 
@@ -269,73 +270,72 @@ i\qquad $(i.e. $Var\left( Y_{i}\right) =\sigma ^{2}$)
 \forall i\neq j\qquad $(i.e. $Cov\left( Y_{i},Y_{j}\right) =0$)
 \end{enumerate}
 
-\bigskip 
+\bigskip
 
 $k_{i}=\frac{\left( x_{i}-\bar{x}\right) }{\tsum \left( x_{i}-\bar{x}\right)
 ^{2}}$
 
 \begin{eqnarray*}
-E\left( \hat{\beta}_{1}\right)  &=&E\left( \frac{\tsum \left( x_{i}-\bar{x}%
+E\left( \hat{\beta}_{1}\right) &=&E\left( \frac{\tsum \left( x_{i}-\bar{x}%
 \right) \left( y_{i}-\bar{y}\right) }{\tsum \left( x_{i}-\bar{x}\right) ^{2}}%
-\right) =E\left( \tsum\limits_{i=1}^{n}k_{i}Y_{i}\right)  \\
+\right) =E\left( \tsum\limits_{i=1}^{n}k_{i}Y_{i}\right) \\
 &=&\tsum\limits_{i=1}^{n}k_{i}E\left( Y_{i}\right)
-=\tsum\limits_{i=1}^{n}k_{i}\left( \beta _{0}+\beta _{1}x_{i}\right)  \\
+=\tsum\limits_{i=1}^{n}k_{i}\left( \beta _{0}+\beta _{1}x_{i}\right) \\
 &=&\beta _{0}\underset{0}{\underbrace{\tsum k_{i}}}+\beta _{1}\underset{1}{%
 \underbrace{\tsum k_{i}x_{i}}}=\beta _{1}
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
 \begin{eqnarray*}
-E\left( \hat{\beta}_{0}\right)  &=&E\left( \bar{Y}-\hat{\beta}_{1}\bar{X}%
-\right) =E\left( \bar{Y}\right) -\bar{X}E\left( \hat{\beta}_{1}\right)  \\
+E\left( \hat{\beta}_{0}\right) &=&E\left( \bar{Y}-\hat{\beta}_{1}\bar{X}%
+\right) =E\left( \bar{Y}\right) -\bar{X}E\left( \hat{\beta}_{1}\right) \\
 &=&\left( \beta _{0}+\beta _{1}\bar{x}-\bar{x}\beta _{1}\right) =\beta _{0}
 \end{eqnarray*}
 
 \begin{eqnarray*}
-Var\left( \hat{\beta}_{1}\right)  &=&Var\left(
+Var\left( \hat{\beta}_{1}\right) &=&Var\left(
 \tsum\limits_{i=1}^{n}k_{i}Y_{i}\right)
-=\tsum\limits_{i=1}^{n}k_{i}^{2}Var\left( Y_{i}\right)  \\
+=\tsum\limits_{i=1}^{n}k_{i}^{2}Var\left( Y_{i}\right) \\
 &=&\sigma ^{2}\tsum\limits_{i=1}^{n}k_{i}^{2}=\frac{\sigma ^{2}}{\tsum
 \left( x_{i}-\bar{x}\right) ^{2}}
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
 \begin{eqnarray*}
-Var\left( \hat{\beta}_{0}\right)  &=&Var\left( \bar{Y}-\hat{\beta}_{1}\bar{X}%
-\right)  \\
+Var\left( \hat{\beta}_{0}\right) &=&Var\left( \bar{Y}-\hat{\beta}_{1}\bar{X}%
+\right) \\
 &=&Var\left( \bar{Y}\right) -\bar{X}^{2}Var\left( \hat{\beta}_{1}\right) -2%
-\bar{X}Cov\left( \bar{Y},\hat{\beta}_{1}\right)  \\
-&&\left[ Cov\left( \bar{Y},\hat{\beta}_{1}\right) =0\right]  \\
+\bar{X}Cov\left( \bar{Y},\hat{\beta}_{1}\right) \\
+&&\left[ Cov\left( \bar{Y},\hat{\beta}_{1}\right) =0\right] \\
 &=&\sigma ^{2}\left[ \frac{1}{n}+\frac{\bar{x}^{2}}{\tsum \left( x_{i}-\bar{x%
-}\right) ^{2}}\right] 
+}\right) ^{2}}\right]
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
 \paragraph{Let}
 
 \begin{equation*}
-\varepsilon _{i}\overset{\text{iid}}{\sim }N\left( o,\sigma ^{2}\right) 
+\varepsilon _{i}\overset{\text{iid}}{\sim }N\left( o,\sigma ^{2}\right)
 \end{equation*}
 
 \begin{eqnarray*}
 Y_{i} &=&\beta _{0}+\beta _{1}x_{i}+\varepsilon _{i} \\
-&\Rightarrow &Y_{i}\sim N\left( \beta _{0}+\beta _{1}x_{i},\sigma
-^{2}\right) 
+&\Rightarrow &Y_{i}\sim N\left( \beta _{0}+\beta _{1}x_{i},\sigma ^{2}\right)
 \end{eqnarray*}%
 \begin{equation*}
 \hat{\beta}_{1}=\tsum\limits_{i=1}^{n}k_{i}Y_{i}\sim N\left( \beta _{1},%
-\frac{\sigma ^{2}}{\tsum \left( x_{i}-\bar{x}\right) ^{2}}\right) 
+\frac{\sigma ^{2}}{\tsum \left( x_{i}-\bar{x}\right) ^{2}}\right)
 \end{equation*}%
 \begin{equation*}
 \hat{\beta}_{0}=\bar{Y}-\hat{\beta}_{1}\bar{X}\sim N\left( \beta _{0},\sigma
 ^{2}\left( \frac{1}{n}+\frac{\bar{x}^{2}}{\tsum \left( x_{i}-\bar{x}\right)
-^{2}}\right) \right) 
+^{2}}\right) \right)
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 the MLE
 
@@ -343,7 +343,84 @@ the likelihood function%
 \begin{equation*}
 L\left( \beta _{0},\beta _{1},\sigma ^{2}\right)
 =\tprod\limits_{i=1}^{n}\left( \frac{1}{\sqrt{2\pi \sigma ^{2}}}e^{-\frac{%
-\left( Y_{i}-\beta _{0}-\beta _{1}x_{i}\right) ^{2}}{2\sigma ^{2}}}\right) 
+\left( y_{i}-\beta _{0}-\beta _{1}x_{i}\right) ^{2}}{2\sigma ^{2}}}\right)
 \end{equation*}
+
+\bigskip
+
+the $\log $-likelihood function%
+\begin{eqnarray*}
+l\left( \beta _{0},\beta _{1},\sigma ^{2}\right) &=&-\frac{n}{2}\ln \left(
+2\pi \right) -\frac{n}{2}\ln \sigma ^{2} \\
+&&-\frac{1}{2\sigma ^{2}}\tsum \left( y_{i}-\beta _{0}-\beta
+_{1}x_{i}\right) ^{2}
+\end{eqnarray*}
+
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+\frac{\partial l}{\partial \beta _{0}}=0 \\ 
+\frac{\partial l}{\partial \beta _{1}}=0 \\ 
+\frac{\partial l}{\partial \sigma ^{2}}=0%
+\end{array}%
+\right.
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left\{ 
+\begin{array}{c}
+-2\tsum_{i=1}^{n}\left( y_{i}-\hat{\beta}_{0}-\hat{\beta}_{1}x_{i}\right) =0
+\\ 
+-2\tsum_{i=1}^{n}\left( y_{i}-\hat{\beta}_{0}-\hat{\beta}_{1}x_{i}\right)
+x_{i}=0 \\ 
+-\frac{n}{2\hat{\sigma}^{2}}+\frac{1}{2\left( \hat{\sigma}^{2}\right) ^{2}}%
+\tsum_{i=1}^{n}\left( y_{i}-\hat{\beta}_{0}-\hat{\beta}_{1}x_{i}\right)
+^{2}=0%
+\end{array}%
+\right. 
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow \left. 
+\begin{array}{c}
+\hat{\beta}_{0}=\bar{Y}-\hat{\beta}_{1}\bar{X} \\ 
+\hat{\beta}_{1}=\frac{S_{xy}}{S_{xx}} \\ 
+\hat{\sigma}^{2}=\frac{\tsum \left( y_{i}-\hat{\beta}_{0}-\hat{\beta}%
+_{1}x_{i}\right) ^{2}}{n} \\ 
+E\left( \hat{\sigma}^{2}\right) \neq \sigma ^{2}%
+\end{array}%
+\right.
+\end{equation*}
+
+\bigskip
+
+\paragraph{Inference}
+
+\begin{enumerate}
+\item $\beta _{1}$
+
+\begin{enumerate}
+\item $\hat{\beta}_{1}\sim N\left( \beta _{1},\frac{\sigma ^{2}}{\tsum
+\left( x_{i}-\bar{x}\right) ^{2}}\right) $
+
+\item $\frac{\left( n-2\right) S^{2}}{\sigma ^{2}}\sim x_{n-1}^{2}$, where $%
+S^{2}=\frac{\tsum \left( y_{i}-\hat{\beta}_{0}-\hat{\beta}_{1}x_{i}\right)
+^{2}}{n-2}$
+
+\item $\hat{\beta}_{1}$ and $S^{2}$ are indep
+
+\item $\frac{\hat{\beta}_{1}}{\sqrt{\frac{S^{2}}{\tsum \left( x_{i}-\bar{x}%
+\right) ^{2}}}}\sim t_{n-2}\qquad \left( \frac{\beta _{1}}{\sqrt{\frac{%
+\sigma ^{2}}{\tsum \left( x_{i}-\bar{x}\right) ^{2}}}}\right) $ ,
+noncentralizing parameter $\sqrt{\frac{\sigma ^{2}}{\tsum \left( x_{i}-\bar{x%
+}\right) ^{2}}}$
+
+\item $H_{0}:\beta _{1}=0$ v.s. $H_{1}:\beta _{1}\neq 0$\newline
+$t=\frac{\hat{\beta}_{1}}{S\left( \hat{\beta}_{1}\right) }$, reject $H_{0}$
+if $\left\vert t\right\vert >t_{\frac{\alpha }{2}}\left( n-2\right) $
+
+\item A
+\end{enumerate}
+\end{enumerate}
 
 \end{document}
