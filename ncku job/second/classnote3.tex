@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Sunday, April 17, 2016 11:14:07}
+%TCIDATA{LastRevised=Tuesday, April 19, 2016 10:19:49}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,7 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-\input{tcilatex}
+
 
 \begin{document}
 
@@ -344,7 +344,7 @@ $,
 %BeginExpansion
 \epsilon\mkern-10mu \epsilon%
 %EndExpansion
-\sim N_{n}\left( \boldsymbol{0,}\sigma ^{2}I\right) 
+\sim N_{n}\left( \boldsymbol{0,}\sigma ^{2}I\right)
 \end{equation*}%
 \begin{equation*}
 \mathbb{\hat{Y}\sim }N_{n}\left( \mathbb{X}%
@@ -352,7 +352,7 @@ $,
 %BeginExpansion
 \beta\mkern-9.6mu \beta%
 %EndExpansion
-,\sigma ^{2}I\right) 
+,\sigma ^{2}I\right)
 \end{equation*}%
 \begin{equation*}
 \left[ 
@@ -396,7 +396,7 @@ $ are indep%
 \hat{e\mkern-10.5mu e}%
 %EndExpansion
 \right) =Cov\left( P_{\mathbb{X}}\mathbb{Y},\left( I-P_{\mathbb{X}}\right) 
-\mathbb{Y}\right)  \\
+\mathbb{Y}\right) \\
 &=&P_{\mathbb{X}}\sigma ^{2}I\left( I-P_{\mathbb{X}}\right) =\boldsymbol{0}
 \end{eqnarray*}
 \end{example}
@@ -731,6 +731,208 @@ y\mkern-11mu y%
 %EndExpansion
 }
 \end{eqnarray*}
+\end{proof}
+\end{theorem}
+
+\bigskip
+
+\begin{theorem}
+Suppose that $\mathbb{Y}\sim N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},I_{p}\right) $ and define%
+\begin{equation*}
+\mathbb{Y}^{\mathbb{\dagger }}\mathbb{Y=Y}^{\dagger }I\mathbb{Y=}%
+\tsum\limits_{i=1}^{p}Y_{i}^{2}\sim \chi _{p}^{2}\left( \frac{\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}^{\dagger }\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}}{2}\right)
+\end{equation*}%
+Then%
+\begin{equation*}
+\mathbb{Y}^{\mathbb{\dagger }}\mathbb{AY\sim }\chi _{s}^{2}\left( \frac{%
+\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}^{\dagger }\mathbb{A%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}}{2}\right)
+\end{equation*}%
+where $\mathbb{A}$ is idempotent of $r\left( \mathbb{A}\right) =S$
+\end{theorem}
+
+\bigskip
+
+remark: The $p\times p$ symmetric matrix $\mathbb{A}$ is idempotent of rank $%
+S$ iff $\exists $ $p\times s$ matrix $\mathbb{P}$ $\lambda t$
+
+\begin{enumerate}
+\item $\underset{p\times p}{\mathbb{A}}\mathbb{=}\underset{p\times s}{%
+\mathbb{P}}\underset{\quad s\times p}{\mathbb{P}^{\dagger }}$
+
+\item $\underset{s\times p}{\mathbb{P}^{\dagger }}\underset{\quad p\times s}{%
+\mathbb{P}}\mathbb{=}I_{s}$
+\end{enumerate}
+
+\begin{proof}
+$\mathbb{Y}^{\mathbb{\dagger }}\mathbb{AY=Y}^{\mathbb{\dagger }}\mathbb{PP}%
+^{\dagger }\mathbb{Y=}\left( \underset{\mathbb{Y}^{\ast \dagger }}{%
+\underbrace{\mathbb{P}^{\dagger }\mathbb{Y}}}\right) ^{\dagger }\left( 
+\underset{\mathbb{Y}^{\ast }}{\underbrace{\mathbb{P}^{\dagger }\mathbb{Y}}}%
+\right) $\newline
+\newline
+$\because \mathbb{P}^{\dagger }\mathbb{Y}$ is a linear combination of $%
+\mathbb{Y}$ and $\mathbb{Y}\sim N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},I\right) $%
+\begin{equation*}
+\therefore \mathbb{P}^{\dagger }\mathbb{Y\sim }N_{s}\left( \mathbb{P}%
+^{\dagger }\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},\underset{\mathbb{P}^{\dagger }\mathbb{P}=I_{s}}{\underbrace{\mathbb{P}%
+^{\dagger }I\left( \mathbb{P}^{\dagger }\right) ^{\dagger }}}\right) 
+\end{equation*}%
+\begin{equation*}
+\therefore \left( \mathbb{P}^{\dagger }\mathbb{Y}\right) ^{\dagger }\left( 
+\mathbb{P}^{\dagger }\mathbb{Y}\right) \sim \chi _{s}^{2}\left( \underset{%
+\frac{\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}^{\dagger }\mathbb{A%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}}{2}}{\underbrace{\frac{\left( \mathbb{P}^{\dagger }\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}\right) ^{\dagger }\left( \mathbb{P}^{\dagger }\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}\right) }{2}}}\right) 
+\end{equation*}
+\end{proof}
+
+\bigskip 
+
+\begin{theorem}
+Suppose that $\mathbb{Y}\sim N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},\mathbb{%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}\right) $ where $\gamma \left( \mathbb{%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}\right) =p$. If $\mathbb{A%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}$ is idempotent of rank $S$, then 
+\begin{equation*}
+\mathbb{Y}^{\mathbb{\dagger }}\mathbb{AY\sim }\chi _{s}^{2}\left( \frac{%
+\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}^{\dagger }\mathbb{A%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}}{2}\right) 
+\end{equation*}
+
+\begin{proof}
+$\because \tsum\nolimits^{-\frac{1}{2}}\mathbb{Y}$ is a linear combination
+of $\mathbb{Y}$ and 
+\begin{equation*}
+\mathbb{Y}\sim N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},\mathbb{%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}\right) 
+\end{equation*}%
+\begin{eqnarray*}
+&\therefore &\tsum\nolimits^{-\frac{1}{2}}\mathbb{Y\sim }N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}^{-\frac{1}{2}}\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},\tsum\nolimits^{\frac{1}{2}}\tsum \tsum\nolimits^{-\frac{1}{2}}\right)  \\
+&=&N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}^{-\frac{1}{2}}\mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},I_{p}\right) 
+\end{eqnarray*}%
+\begin{eqnarray*}
+\mathbb{Y}^{\mathbb{\dagger }}\mathbb{AY} &\mathbb{=Y}&^{\mathbb{\dagger }%
+}\tsum\nolimits^{-\frac{1}{2}}\tsum\nolimits^{\frac{1}{2}}\mathbb{A}%
+\tsum\nolimits^{\frac{1}{2}}\tsum\nolimits^{-\frac{1}{2}}\mathbb{Y} \\
+&=&\left( \tsum\nolimits^{-\frac{1}{2}}\mathbb{Y}\right) ^{\dagger }\underset%
+{\mathbb{B}}{\underbrace{\tsum\nolimits^{\frac{1}{2}}\mathbb{A}%
+\tsum\nolimits^{\frac{1}{2}}}}\left( \tsum\nolimits^{-\frac{1}{2}}\mathbb{Y}%
+\right) 
+\end{eqnarray*}%
+\begin{equation*}
+\gamma \left( \mathbb{B}\right) =\gamma \left( \tsum\nolimits^{\frac{1}{2}}%
+\mathbb{A}\tsum\nolimits^{\frac{1}{2}}\right) =\gamma \left( \mathbb{A}\tsum
+\right) =S
+\end{equation*}%
+and $\mathbb{B}$ is idempotent (why)
 \end{proof}
 \end{theorem}
 
