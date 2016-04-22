@@ -1,0 +1,184 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall,a4paper]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Friday, April 22, 2016 17:28:48}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$W=\left( 1-\sigma \right) I$
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+
+\setcounter{part}{1} \setcounter{page}{1}
+
+\begin{example}
+Consider the model%
+\begin{equation*}
+\mathbb{Y=X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{epsilon_dstroke}{\epsilon\mkern-10mu \epsilon}}%
+%BeginExpansion
+\epsilon\mkern-10mu \epsilon%
+%EndExpansion
+\end{equation*}%
+where $\mathbb{X}$ is $n\times p$ matrix with $\gamma \left( \mathbb{X}%
+\right) =\gamma \leq p<n$ and $%
+%TCIMACRO{\TeXButton{epsilon_dstroke}{\epsilon\mkern-10mu \epsilon}}%
+%BeginExpansion
+\epsilon\mkern-10mu \epsilon%
+%EndExpansion
+\curvearrowright N_{n}\left( 0,\sigma ^{2}I_{n}\right) $. Let $P_{\mathbb{X}%
+}=\mathbb{X}\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}%
+^{\dagger }$ denote the p.p.m onto $c\left( \mathbb{X}\right) $. We know
+that $\mathbb{Y\sim }N_{n}\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+,\sigma ^{2}I_{n}\right) $. Consider the (uncorrected) partition%
+\begin{eqnarray*}
+\underset{\text{SST}}{\underbrace{\mathbb{Y}^{\dagger }\mathbb{Y}}} &\mathbb{%
+=}&\mathbb{Y}^{\dagger }I\mathbb{Y=Y}^{\dagger }\left( P_{\mathbb{X}}+I-P_{%
+\mathbb{X}}\right) \mathbb{Y} \\
+&=&\underset{\text{SSR}}{\underbrace{\mathbb{Y}^{\dagger }P_{\mathbb{X}}%
+\mathbb{Y}}}\mathbb{+}\underset{\text{SSE}}{\underbrace{\mathbb{Y}^{\dagger
+}\left( I-P_{\mathbb{X}}\right) \mathbb{Y}}}
+\end{eqnarray*}
+
+\begin{enumerate}
+\item 
+\begin{equation*}
+\frac{\text{SSE}}{\sigma ^{2}}=\frac{\mathbb{Y}^{\dagger }\left( I-P_{%
+\mathbb{X}}\right) \mathbb{Y}}{\sigma ^{2}}=\mathbb{Y}^{\dagger }\underset{%
+\mathbb{A}}{\underbrace{\sigma ^{-2}\left( I-P_{\mathbb{X}}\right) }}\mathbb{%
+Y=Y}^{\dagger }\mathbb{AY}
+\end{equation*}%
+$\because 
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+=\sigma ^{2}I$ and $\mathbb{A}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+=\sigma ^{-2}\left( I-P_{\mathbb{X}}\right) \sigma ^{2}I=I-P_{\mathbb{X}}$
+is idempotent and $\gamma \left( \mathbb{A}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\right) =\gamma \left( I-P_{\mathbb{X}}\right) =n-\gamma $%
+\begin{eqnarray*}
+&\therefore &\frac{\mathbb{Y}^{\dagger }\left( I-P_{\mathbb{X}}\right) 
+\mathbb{Y}}{\sigma ^{2}}\backsim \chi _{\underset{\gamma \left( \mathbb{A}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\right) }{\underbrace{n-\gamma }}}^{2}\left( \frac{\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) ^{\dagger }\mathbb{A}\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) }{2}\right)  \\
+&=&\chi _{n-\gamma }^{2}\left( 0\right) 
+\end{eqnarray*}
+
+\item 
+\begin{equation*}
+\frac{\text{SSR}}{\sigma ^{2}}=\frac{\mathbb{Y}^{\dagger }P_{\mathbb{X}}%
+\mathbb{Y}}{\sigma ^{2}}=\mathbb{Y}^{\dagger }\sigma ^{2}P_{\mathbb{X}}%
+\mathbb{Y=Y}^{\dagger }\mathbb{BY}
+\end{equation*}%
+$\because \mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+=\sigma ^{-2}P_{\mathbb{X}}\sigma ^{2}I=P_{\mathbb{X}}$ is idempotent and $%
+\gamma \left( \mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\right) =\gamma \left( P_{\mathbb{X}}\right) =\gamma =\gamma \left( \mathbb{X%
+}\right) $%
+\begin{equation*}
+\therefore \frac{\mathbb{Y}^{\dagger }P_{\mathbb{X}}\mathbb{Y}}{\sigma ^{2}}%
+\backsim \chi _{\gamma \Leftrightarrow \gamma \left( \mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\right) }^{2}\left( \frac{\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) ^{\dagger }\mathbb{A}\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) }{2}\right) _{\ast }
+\end{equation*}
+\end{enumerate}
+\end{example}
+
+\end{document}
