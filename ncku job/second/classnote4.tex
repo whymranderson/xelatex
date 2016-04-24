@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, April 22, 2016 17:28:48}
+%TCIDATA{LastRevised=Sunday, April 24, 2016 21:24:17}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,6 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
+
 
 
 \begin{document}
@@ -136,7 +137,7 @@ is idempotent and $\gamma \left( \mathbb{A}%
 %BeginExpansion
 \beta\mkern-9.6mu \beta%
 %EndExpansion
-\right) }{2}\right)  \\
+\right) }{2}\right) _{\_\_\frac{\mu ^{\dagger }A\mu }{2}} \\
 &=&\chi _{n-\gamma }^{2}\left( 0\right) 
 \end{eqnarray*}
 
@@ -166,7 +167,8 @@ $\because \mathbb{B}%
 %BeginExpansion
 \tsum\mkern-20mu\tsum%
 %EndExpansion
-\right) }^{2}\left( \frac{\left( \mathbb{X}%
+\right) }^{2}\left( \underset{\left( \ast \right) }{\underbrace{\frac{\left( 
+\mathbb{X}%
 %TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
 %BeginExpansion
 \beta\mkern-9.6mu \beta%
@@ -176,9 +178,126 @@ $\because \mathbb{B}%
 %BeginExpansion
 \beta\mkern-9.6mu \beta%
 %EndExpansion
-\right) }{2}\right) _{\ast }
+\right) }{2}}}\right) 
+\end{equation*}%
+\begin{eqnarray*}
+\left( \ast \right)  &\Rightarrow &\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) ^{\dagger }\underset{\mathbb{B}}{\underbrace{\sigma ^{-2}P_{\mathbb{X%
+}}}}\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right)  \\
+&=&\sigma ^{-2}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+^{\dagger }\mathbb{X}^{\dagger }P_{\mathbb{X}}\mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta} }%
+%BeginExpansion
+\beta\mkern-9.6mu \beta
+%EndExpansion
+\\
+&=&\sigma ^{-2}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+^{\dagger }\mathbb{X}^{\dagger }\mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\end{eqnarray*}%
+\begin{equation*}
+\therefore \frac{\mathbb{Y}^{\dagger }P_{\mathbb{X}}\mathbb{Y}}{\sigma ^{2}}%
+\backsim \chi _{\gamma }^{2}\left( \frac{%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+^{\dagger }\mathbb{X}^{\dagger }\mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+}{2\sigma ^{2}}\right) 
 \end{equation*}
 \end{enumerate}
 \end{example}
+
+\bigskip 
+
+note: $\mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+=\boldsymbol{0}\Longleftrightarrow \left( \text{i.e. }%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+=0\right) $
+
+\begin{enumerate}
+\item $\frac{%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+^{\dagger }\mathbb{X}^{\dagger }\mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+}{2\sigma ^{2}}=0$
+
+\item $\frac{\mathbb{Y}^{\dagger }\left( I-P_{\mathbb{X}}\right) \mathbb{Y}}{%
+\sigma ^{2}}$ and $\frac{\mathbb{Y}^{\dagger }P_{\mathbb{X}}\mathbb{Y}}{%
+\sigma ^{2}}$ have central $\chi ^{2}$ distribution
+\end{enumerate}
+
+\bigskip 
+
+\paragraph{Indepence of quadratic forms}
+
+\begin{theorem}
+Suppose that $\mathbb{Y}\sim N_{p}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},\mathbb{%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+}\right) $. If $\mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{A}=\boldsymbol{0}$, then $\mathbb{Y}^{\dagger }A\mathbb{Y}$ and $%
+\mathbb{BY}$ are independent.
+
+\begin{proof}
+
+\begin{case}
+We may assume taht $\mathbb{A}$ is symmetric%
+\begin{equation*}
+\Rightarrow \mathbb{A}=\mathbb{QAQ}^{\dagger }
+\end{equation*}%
+where $\mathbb{D}=diag\left( \lambda _{1},\cdots ,\lambda _{p}\right) $ and $%
+\mathbb{Q}$ is orthogonal.
+\end{case}
+\end{proof}
+\end{theorem}
 
 \end{document}
