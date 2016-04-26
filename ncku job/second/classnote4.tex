@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Monday, April 25, 2016 20:02:03}
+%TCIDATA{LastRevised=Tuesday, April 26, 2016 16:16:27}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,7 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-
+\input{tcilatex}
 
 \begin{document}
 
@@ -288,7 +288,6 @@ Suppose that $\mathbb{Y}\sim N_{p}\left( \mathbb{%
 \mathbb{BY}$ are independent.
 
 \begin{proof}
-
 \begin{itemize}
 \item[Case 1] We may assume taht $\mathbb{A}$ is symmetric%
 \begin{equation*}
@@ -324,7 +323,7 @@ where $\mathbb{D}_{1}=diag\left( \lambda _{1},\cdots ,\lambda _{\gamma
 \therefore \mathbb{Y^{\dagger }AY}=\mathbb{Y^{\dagger }QDQ^{\dagger }Y}=%
 \mathbb{Y^{\dagger }\mathbb{P}}_{1}D_{1}\mathbb{P^{\dagger }Y}=\left( 
 \mathbb{P}_{1}^{\dagger }\mathbb{Y}\right) ^{\dagger }D_{1}\left( \mathbb{%
-P^{\dagger }Y}\right) 
+P^{\dagger }Y}\right)
 \end{equation*}%
 \begin{eqnarray*}
 &\because &\left[ 
@@ -340,8 +339,8 @@ P^{\dagger }Y}\right)
 \right] \mathbb{Y} \\
 &\sim &N\left( \left[ 
 \begin{array}{c}
-\mathbb{B}\mu  \\ 
-\mathbb{P}_{1}^{\dagger }\mu 
+\mathbb{B}\mu \\ 
+\mathbb{P}_{1}^{\dagger }\mu%
 \end{array}%
 \right] ,\left[ 
 \begin{array}{cc}
@@ -368,7 +367,7 @@ P^{\dagger }Y}\right)
 %EndExpansion
 \mathbb{P}_{1}%
 \end{array}%
-\right] \right) 
+\right] \right)
 \end{eqnarray*}%
 \newline
 \newline
@@ -451,6 +450,87 @@ Thus, $\mathbb{BY}$ and $\underset{\mathbb{Y^{\dagger }AY}}{\underbrace{%
 \text{the function of }\mathbb{AY}}}$ are indep.\newline
 \newline
 $\mathbb{BY\quad \amalg \quad Y^{\dagger }AY}$
+\end{itemize}
+\end{proof}
+\end{theorem}
+
+\bigskip 
+
+\begin{example}
+$\mathbb{Y}\sim N_{n}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+}\boldsymbol{1},\sigma ^{2}I_{n}\right) $ $\left( \text{i.e. }Y_{i}\overset{%
+\text{iid}}{\sim }N\left( \mu ,\sigma ^{2}\right) \right) $%
+\begin{equation*}
+\left( n-1\right) S^{2}=\mathbb{Y}^{\dagger }\left( I-\frac{1}{n}J\right) 
+\mathbb{Y=Y}^{\dagger }\mathbb{AY}
+\end{equation*}%
+\begin{equation*}
+\bar{Y}=\frac{1}{n}\boldsymbol{1}^{\dagger }\mathbb{Y}=\mathbb{BY}
+\end{equation*}%
+\begin{equation*}
+\mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{A}=\frac{1}{n}\boldsymbol{1}^{\dagger }\sigma ^{2}I\left( I-\frac{1}{%
+n}J\right) =\frac{\sigma ^{2}}{n}\boldsymbol{1}^{\dagger }\left( I-\frac{1}{n%
+}J\right) =\boldsymbol{0}
+\end{equation*}%
+\begin{eqnarray*}
+&\therefore &\left( n-1\right) S^{2}\text{ and }\bar{Y}\text{ are indep} \\
+&\Rightarrow &S^{2}\text{ and }\bar{Y}
+\end{eqnarray*}
+\end{example}
+
+\bigskip 
+
+\begin{theorem}
+Suppose $\mathbb{Y}\sim N_{n}\left( \mathbb{%
+%TCIMACRO{\TeXButton{mu_dstroke}{\mu\mkern-12.3mu\mu}}%
+%BeginExpansion
+\mu\mkern-12.3mu\mu%
+%EndExpansion
+},%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\right) $. If $\mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{A}=0$, then $\underset{\Leftrightarrow P_{\mathbb{X}}}{\underbrace{%
+\mathbb{Y}^{\dagger }\mathbb{AY}}}$ and $\underset{\rightarrow \left(
+1-\Leftrightarrow P_{\mathbb{X}}\right) }{\underbrace{\mathbb{Y}^{\dagger }%
+\mathbb{BY}}}$ are independent.
+
+\begin{proof}
+
+\begin{itemize}
+\item[Case 1] (Symmetric)%
+\begin{eqnarray*}
+\mathbb{A} &=&\mathbb{PDP}^{\dagger }=\mathbb{P}_{1}D_{1}\mathbb{P}%
+_{1}^{\dagger } \\
+\mathbb{B} &=&\mathbb{QRQ}^{\dagger }=\mathbb{Q}_{1}\mathbb{R}_{1}\mathbb{Q}%
+_{1}^{\dagger }
+\end{eqnarray*}%
+where%
+\begin{eqnarray*}
+\mathbb{D}_{1} &=&diag\left( \lambda _{1},\cdots ,\lambda _{r}\right) \text{
+and }r\left( \mathbb{A}\right) =\gamma  \\
+\mathbb{R}_{1} &=&diag\left( \lambda _{1},\cdots ,\lambda _{t}\right) \text{
+and }r\left( \mathbb{B}\right) =t
+\end{eqnarray*}%
+$\because \mathbb{P}$ and $\mathbb{Q}$ are orthogonal\newline
+\newline
+$\Rightarrow \mathbb{P}_{1}^{\dagger }\mathbb{P}_{1}=I_{r}$ and $\mathbb{R}%
+_{1}^{\dagger }\mathbb{R}_{1}=I_{t}$
 \end{itemize}
 \end{proof}
 \end{theorem}
