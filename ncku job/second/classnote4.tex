@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, April 26, 2016 16:16:27}
+%TCIDATA{LastRevised=Thursday, April 28, 2016 16:08:05}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -454,7 +454,7 @@ $\mathbb{BY\quad \amalg \quad Y^{\dagger }AY}$
 \end{proof}
 \end{theorem}
 
-\bigskip 
+\bigskip
 
 \begin{example}
 $\mathbb{Y}\sim N_{n}\left( \mathbb{%
@@ -487,7 +487,7 @@ n}J\right) =\frac{\sigma ^{2}}{n}\boldsymbol{1}^{\dagger }\left( I-\frac{1}{n%
 \end{eqnarray*}
 \end{example}
 
-\bigskip 
+\bigskip
 
 \begin{theorem}
 Suppose $\mathbb{Y}\sim N_{n}\left( \mathbb{%
@@ -506,9 +506,9 @@ Suppose $\mathbb{Y}\sim N_{n}\left( \mathbb{%
 \tsum\mkern-20mu\tsum%
 %EndExpansion
 \mathbb{A}=0$, then $\underset{\Leftrightarrow P_{\mathbb{X}}}{\underbrace{%
-\mathbb{Y}^{\dagger }\mathbb{AY}}}$ and $\underset{\rightarrow \left(
-1-\Leftrightarrow P_{\mathbb{X}}\right) }{\underbrace{\mathbb{Y}^{\dagger }%
-\mathbb{BY}}}$ are independent.
+\mathbb{Y}^{\dagger }\mathbb{AY}}}$ and $\underset{\rightarrow \left( I-P_{%
+\mathbb{X}}\right) }{\underbrace{\mathbb{Y}^{\dagger }\mathbb{BY}}}$ are
+independent.
 
 \begin{proof}
 
@@ -530,9 +530,142 @@ and }r\left( \mathbb{B}\right) =t
 $\because \mathbb{P}$ and $\mathbb{Q}$ are orthogonal\newline
 \newline
 $\Rightarrow \mathbb{P}_{1}^{\dagger }\mathbb{P}_{1}=I_{r}$ and $\mathbb{R}%
-_{1}^{\dagger }\mathbb{R}_{1}=I_{t}$
+_{1}^{\dagger }\mathbb{R}_{1}=I_{t}$\newline
+\newline
+Suppose that $\mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{A}=\boldsymbol{0}$, then%
+\begin{eqnarray*}
+\boldsymbol{0} &=&\mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{A}=Q_{1}\mathbb{R}_{1}Q_{1}^{\dagger }%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{P}_{1}\mathbb{D}_{1}\mathbb{P}_{1}^{\dagger } \\
+&=&Q_{1}^{\dagger }Q_{1}\mathbb{R}_{1}Q^{\dagger }%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{P}_{1}\mathbb{D}_{1}\mathbb{P}_{1}^{\dagger }\mathbb{P}_{1} \\
+&=&\mathbb{R}_{1}Q^{\dagger }%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{P}_{1}\mathbb{D}_{1} \\
+&=&\mathbb{R}_{1}^{-1}\quad \cdots \quad \mathbb{D}_{1}^{-1} \\
+&=&Q_{1}^{\dagger }\tsum \mathbb{P}_{1}=Cov\left( Q_{1}^{\dagger }\mathbb{Y},%
+\mathbb{P}_{1}^{\dagger }\mathbb{Y}\right) =\boldsymbol{0}
+\end{eqnarray*}%
+\begin{equation*}
+\Rightarrow \left[ 
+\begin{array}{c}
+\mathbb{P}_{1}^{\dagger } \\ 
+\mathbb{Q}_{1}^{\dagger }%
+\end{array}%
+\right] \mathbb{Y}\sim N\left( \left[ 
+\begin{array}{c}
+\mathbb{P}_{1}^{\dagger }\mu  \\ 
+\mathbb{Q}_{1}^{\dagger }\mu 
+\end{array}%
+\right] ,\left[ 
+\begin{array}{cc}
+P_{1}^{\dagger }\tsum P_{1} & \boldsymbol{0} \\ 
+\boldsymbol{0} & Q_{1}^{\dagger }\tsum Q_{1}%
+\end{array}%
+\right] \right) 
+\end{equation*}%
+$\therefore \mathbb{P}_{1}^{\dagger }\mathbb{Y}$ and $\mathbb{Q}%
+_{1}^{\dagger }\mathbb{Y}$ are jointly normal and uncorrelated\newline
+\newline
+$\therefore \mathbb{P}_{1}^{\dagger }\mathbb{Y}$ and $\mathbb{Q}%
+_{1}^{\dagger }\mathbb{Y}$ are indep $\Rightarrow \mathbb{Y^{\dagger }AY}$
+and $\mathbb{Y^{\dagger }BY}$ are indep.\newline
+\newline
+
+\item[Case 2] 
+\begin{eqnarray*}
+\mathbb{Y^{\dagger }AY} &=&\mathbb{Y^{\dagger }A}^{\dagger }\mathbb{AY}=%
+\overset{\mathbb{Y}^{\ast }}{\left( \mathbb{AY}\right) \mathbb{^{\dagger }}}%
+\overset{\mathbb{Y}^{\ast }}{\left( \mathbb{AY}\right) } \\
+\mathbb{Y^{\dagger }BY} &=&\quad \mathbb{\cdots }\quad =\left( \mathbb{BY}%
+\right) \mathbb{^{\dagger }}\left( \mathbb{BY}\right) 
+\end{eqnarray*}%
+\begin{equation*}
+Cov\left( \mathbb{BY},\mathbb{AY}\right) =\mathbb{B}%
+%TCIMACRO{\TeXButton{sum_dstroke}{\tsum\mkern-20mu\tsum}}%
+%BeginExpansion
+\tsum\mkern-20mu\tsum%
+%EndExpansion
+\mathbb{A}=\boldsymbol{0}
+\end{equation*}%
+$\therefore \mathbb{BY}$ and $\mathbb{AY}$ are indep\newline
+\newline
+$\Rightarrow \overset{\mathbb{Y^{\dagger }BY}}{\left( \mathbb{BY}\right) 
+\mathbb{^{\dagger }}\left( \mathbb{BY}\right) }$ and $\overset{\mathbb{%
+Y^{\dagger }AY}}{\left( \mathbb{AY}\right) \mathbb{^{\dagger }}\left( 
+\mathbb{AY}\right) }$ are indep
 \end{itemize}
 \end{proof}
 \end{theorem}
+
+\bigskip
+
+\begin{example}
+Consider $\mathbb{Y=X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
++%
+%TCIMACRO{\TeXButton{epsilon_dstroke}{\epsilon\mkern-10mu \epsilon}}%
+%BeginExpansion
+\epsilon\mkern-10mu \epsilon%
+%EndExpansion
+$\qquad $%
+%TCIMACRO{\TeXButton{epsilon_dstroke}{\epsilon\mkern-10mu \epsilon}}%
+%BeginExpansion
+\epsilon\mkern-10mu \epsilon%
+%EndExpansion
+\sim N_{n}\left( \boldsymbol{0},\sigma ^{2}I_{n}\right) $%
+\begin{equation*}
+P_{\mathbb{X}}=\mathbb{X}\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}%
+\mathbb{X}^{\dagger }\mathbb{\quad }\left( \text{i.e. }\mathbb{Y}\sim
+N_{n}\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+,\sigma ^{2}I_{n}\right) \right) 
+\end{equation*}%
+\begin{equation*}
+\frac{\mathbb{Y}^{\dagger }\left( 1-P_{\mathbb{X}}\right) \mathbb{Y}}{\sigma
+^{2}}\sim \chi _{n-r}^{2}
+\end{equation*}%
+and%
+\begin{equation*}
+\frac{\mathbb{Y}^{\dagger }P_{\mathbb{X}}\mathbb{Y}}{\sigma ^{2}}\sim \chi
+_{r}^{2}\left( \frac{\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) ^{\dagger }\left( \mathbb{X}%
+%TCIMACRO{\TeXButton{beta_dstroke}{\beta\mkern-9.6mu \beta}}%
+%BeginExpansion
+\beta\mkern-9.6mu \beta%
+%EndExpansion
+\right) }{2\sigma ^{2}}\right) 
+\end{equation*}
+\end{example}
 
 \end{document}
