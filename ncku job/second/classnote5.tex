@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, May 04, 2016 21:03:11}
+%TCIDATA{LastRevised=Thursday, May 05, 2016 12:09:06}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -99,7 +99,7 @@ n}$ nonsingular matrix s.t \fbox{$\mathbb{PP}^{\dagger }=\mathbb{V}$}
 $E\left( \mathbb{P}^{-1}\boldsymbol{\varepsilon }\right) =\boldsymbol{0}$%
 \newline
 \begin{eqnarray*}
-Var\left( \mathbb{P}^{-1}\boldsymbol{\varepsilon }\right)  &=&\mathbb{P}%
+Var\left( \mathbb{P}^{-1}\boldsymbol{\varepsilon }\right) &=&\mathbb{P}%
 ^{-1}Var\left( \boldsymbol{\varepsilon }\right) \left( \mathbb{P}%
 ^{-1}\right) ^{\dagger } \\
 &=&\sigma ^{2}P^{-1}V\left( P^{-1}\right) ^{\dagger } \\
@@ -113,7 +113,7 @@ $\therefore $OLS is%
 \mathbb{X}\right) ^{\dagger }\left( \mathbb{P}^{-1}\mathbb{X}\right) \right)
 ^{-1}\left( \mathbb{P}^{-1}\mathbb{X}\right) ^{\dagger }\mathbb{P}^{-1}%
 \mathbb{Y} \\
-&&\vdots  \\
+&&\vdots \\
 &=&\left( \mathbb{X}^{\dagger }V^{-1}\mathbb{X}\right) ^{-1}\mathbb{X}%
 ^{\dagger }\mathbb{V}^{-1}\mathbb{Y} \\
 &\hookrightarrow &\text{generalized least squares}
@@ -123,8 +123,101 @@ $\therefore $OLS is%
 $Var\left( P^{-1}\varepsilon \right) =Cov\left( P^{-1}\varepsilon
 ,P^{-1}\varepsilon \right) =P^{-1}\fbox{$\quad $}\left( P^{-1}\right)
 ^{\dagger }$
+
+\item 
+\begin{eqnarray*}
+&&\left( \mathbb{Y-X}\hat{\beta}\right) ^{\dagger }V^{-1}\left( \mathbb{Y-X}%
+\hat{\beta}\right)  \\
+&=&\left( \mathbb{Y-X}\left( \mathbb{X}^{\dagger }V^{-1}\mathbb{X}\right)
+^{-1}\mathbb{X}^{\dagger }\mathbb{V}^{-1}\mathbb{Y}\right) ^{\dagger }V^{-1}
+\\
+&&\left( \mathbb{Y-X}\left( \mathbb{X}^{\dagger }V^{-1}\mathbb{X}\right)
+^{-1}\mathbb{X}^{\dagger }\mathbb{V}^{-1}\mathbb{Y}\right)  \\
+&=&\left[ \left( I-\left( \ast \right) \right) \mathbb{Y}\right] ^{\dagger
+}V^{-1}\left[ \left( I-\left( \ast \right) \right) \mathbb{Y}\right] 
+\end{eqnarray*}%
+where $(\ast )=\mathbb{X}\left( \mathbb{X}^{\dagger }V^{-1}\mathbb{X}\right)
+^{-1}\mathbb{X}^{\dagger }$%
+\begin{eqnarray*}
+&=&\mathbb{Y}^{\dagger }\left[ V^{-1}-\left( \ast \right) V^{-1}\right] %
+\left[ I-\left( \ast \right) \right] \mathbb{Y} \\
+&&\vdots  \\
+&=&\mathbb{Y}^{\dagger }\left[ V^{-1}-V^{-1}\mathbb{X}\left( \mathbb{X}%
+^{\dagger }V^{-1}\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger }V^{-1}\right] 
+\mathbb{Y}
+\end{eqnarray*}%
+\newline
+\newline
+\begin{eqnarray*}
+&\therefore &E\left( \mathbb{Y}^{\dagger }\left[ V^{-1}-V^{-1}\mathbb{X}%
+\left( \mathbb{X}^{\dagger }V^{-1}\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger
+}V^{-1}\right] \mathbb{Y}\right)  \\
+&=&tr\left( \sigma ^{2}V\left[ V^{-1}-V^{-1}\mathbb{X}\left( \mathbb{X}%
+^{\dagger }V^{-1}\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger }V^{-1}\right]
++\right.  \\
+&&\left( \mathbb{X}\beta \right) ^{\dagger }\left[ V^{-1}-V^{-1}\mathbb{X}%
+\left( \mathbb{X}^{\dagger }V^{-1}\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger
+}V^{-1}\right] \left( \mathbb{X}\beta \right)  \\
+&=&\sigma ^{2}tr\left( V\left[ V^{-1}-V^{-1}\mathbb{X}\left( \mathbb{X}%
+^{\dagger }V^{-1}\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger }V^{-1}\right]
+\right) +0 \\
+&=&\sigma ^{2}\left[ \underset{tr\left( I_{n}\right) }{\underbrace{n}}%
+-tr\left( I_{pp}\right) \right] =\sigma ^{2}\left( n-p\right) 
+\end{eqnarray*}%
+\newline
+\newline
+\begin{equation*}
+E\left( \mathbb{Y}^{\dagger }A\mathbb{Y}\right) =tr\left( A\tsum \right)
++\mu ^{\dagger }A\mu 
+\end{equation*}
 \end{enumerate}
 \end{proof}
 \end{theorem}
+
+\bigskip
+
+Note:
+
+\begin{enumerate}
+\item If $V=diag\left( v_{1},\cdots ,v_{m}\right) $, then%
+\begin{eqnarray*}
+Q\left( \boldsymbol{\beta }\right) &=&\left( \mathbb{Y-X}\boldsymbol{\beta }%
+\right) ^{\dagger }V^{-1}\left( \mathbb{Y-X}\boldsymbol{\beta }\right) \\
+&=&\tsum\limits_{i=1}^{n}\mathcal{W}_{i}\left( y_{i}-x_{i}^{\dagger }%
+\boldsymbol{\beta }\right) ^{2}
+\end{eqnarray*}%
+where $\mathcal{W}_{i}=\frac{1}{v_{i}}$ and $x_{i}$ is the ith row of $%
+\mathbb{X}$. $\hat{\beta}$ is called \textbf{weighted\ least squares
+estimator}.
+
+\item $\star $ If $l^{\dagger }\boldsymbol{\beta }$ is estimator, then $%
+l^{\dagger }\boldsymbol{\hat{\beta}}$ is the BLUE for $l^{\dagger }%
+\boldsymbol{\beta }$.\newline
+\newline
+\end{enumerate}
+
+\begin{example}
+$\mathbb{Y}=\mathbb{X}\boldsymbol{\beta }+\boldsymbol{\varepsilon }$, where%
+\begin{eqnarray*}
+Var\left( \boldsymbol{\varepsilon }\right) &=&\sigma ^{2}\left[ 
+\begin{array}{ccc}
+1 &  & \sigma \\ 
+& \ddots &  \\ 
+\sigma &  & 1%
+\end{array}%
+\right] \\
+&=&\left[ 
+\begin{array}{cc}
+\boldsymbol{1} & \mathbb{X}_{c}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\alpha \\ 
+\boldsymbol{\beta }_{1}%
+\end{array}%
+\right] +\boldsymbol{\varepsilon }
+\end{eqnarray*}%
+\newline
+\end{example}
 
 \end{document}
