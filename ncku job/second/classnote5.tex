@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, May 06, 2016 11:55:09}
+%TCIDATA{LastRevised=Friday, May 06, 2016 16:47:58}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -199,20 +199,20 @@ l^{\dagger }\boldsymbol{\hat{\beta}}$ is the BLUE for $l^{\dagger }%
 \begin{example}
 $\mathbb{Y}=\mathbb{X}\boldsymbol{\beta }+\boldsymbol{\varepsilon }$, where%
 \begin{eqnarray*}
-Var\left( \boldsymbol{\varepsilon }\right)  &=&\sigma ^{2}\left[ 
+Var\left( \boldsymbol{\varepsilon }\right) &=&\sigma ^{2}\left[ 
 \begin{array}{ccc}
-1 &  & \sigma  \\ 
-& \ddots  &  \\ 
-\sigma  &  & 1%
+1 &  & \sigma \\ 
+& \ddots &  \\ 
+\sigma &  & 1%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\left[ 
 \begin{array}{cc}
 \boldsymbol{1} & \mathbb{X}_{c}%
 \end{array}%
 \right] \left[ 
 \begin{array}{c}
-\alpha  \\ 
+\alpha \\ 
 \boldsymbol{\beta }_{1}%
 \end{array}%
 \right] +\boldsymbol{\varepsilon }
@@ -221,7 +221,7 @@ Var\left( \boldsymbol{\varepsilon }\right)  &=&\sigma ^{2}\left[
 V=\sigma ^{2}\left[ 
 \begin{array}{ccc}
 v_{11} & v_{12} &  \\ 
-& \ddots  &  \\ 
+& \ddots &  \\ 
 &  & 
 \end{array}%
 \right] _{n\times n}
@@ -239,7 +239,7 @@ bn & \boldsymbol{0}^{\dagger } \\
 bn\bar{y} \\ 
 a\mathbb{X}_{c}^{\dagger }\mathbb{Y}%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\left[ 
 \begin{array}{cc}
 \frac{1}{bn} & \boldsymbol{0}^{\dagger } \\ 
@@ -251,14 +251,14 @@ _{c}\right) ^{-1}%
 bn\bar{y} \\ 
 a\mathbb{X}_{c}^{\dagger }\mathbb{Y}%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\left[ 
 \begin{array}{c}
 \bar{y} \\ 
 \left( \mathbb{X}_{c}^{\dagger }\mathbb{X}_{c}\right) ^{-1}\mathbb{X}%
 _{c}^{\dagger }\mathbb{Y}%
 \end{array}%
-\right] 
+\right]
 \end{eqnarray*}%
 $\therefore $ the usual least squares estimators are BLUE for a covariance
 structure with equal variances and correlations.
@@ -267,6 +267,44 @@ structure with equal variances and correlations.
 \bigskip
 
 \paragraph{Misspecification of the Error Structure}
+
+\begin{equation*}
+\mathbb{Y}=\mathbb{X}\boldsymbol{\beta }+\boldsymbol{\varepsilon }\quad
+,\quad E\left( \boldsymbol{\varepsilon }\right) =\boldsymbol{0}\quad ,\quad
+Var\left( \boldsymbol{\varepsilon }\right) =\sigma ^{2}V\Leftrightarrow
+\sigma ^{2}I
+\end{equation*}
+
+Consider%
+\begin{equation*}
+\boldsymbol{\hat{\beta}}_{OLS}=\left( \mathbb{X}^{\dagger }\mathbb{X}\right)
+^{-1}\mathbb{X}^{\dagger }\mathbb{Y}
+\end{equation*}%
+\begin{eqnarray*}
+E\left( \boldsymbol{\hat{\beta}}_{OLS}\right) &=&E\left( \left( \mathbb{X}%
+^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger }\mathbb{Y}\right) \\
+&=&\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger
+}E\left( \mathbb{Y}\right) \\
+&=&\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger }%
+\mathbb{X}\boldsymbol{\beta } \\
+&=&\boldsymbol{\beta }
+\end{eqnarray*}%
+\begin{eqnarray*}
+Var\left( \boldsymbol{\hat{\beta}}_{OLS}\right) &=&Var\left( \left( \mathbb{X%
+}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger }\mathbb{Y}\right) \\
+&=&Var\left( A\mathbb{Y}\right) \\
+&=&\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}^{\dagger
+}Var\left( \mathbb{Y}\right) \left[ \left( \mathbb{X}^{\dagger }\mathbb{X}%
+\right) ^{-1}\mathbb{X}^{\dagger }\right] ^{\dagger } \\
+&=&\fbox{$\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}%
+^{\dagger }\sigma ^{2}V\mathbb{X}\left( \mathbb{X}^{\dagger }\mathbb{X}%
+\right) ^{-1}$}\geq Var\left( \boldsymbol{\hat{\beta}}_{OLS}\right)
+\end{eqnarray*}
+
+\bigskip
+
+$\frac{\hat{\theta}-E\left( \hat{\theta}\right) }{\sqrt{Var\left( \hat{\theta%
+}\right) }}\quad \frac{\hat{\theta}}{\sqrt{Var\left( \hat{\theta}\right) }}$
 
 \bigskip
 
@@ -335,9 +373,9 @@ _{2}}}\boldsymbol{\beta }_{2}\quad \quad \text{bias}
 
 \item 
 \begin{eqnarray*}
-Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) &=&Var\left( 
+Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right)  &=&Var\left( 
 \underline{\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
-\mathbb{X}_{1}^{\dagger }}\mathbb{Y}\right) \\
+\mathbb{X}_{1}^{\dagger }}\mathbb{Y}\right)  \\
 &=&\underline{\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
 \mathbb{X}_{1}^{\dagger }}\underset{\sigma ^{2}I}{\underbrace{Var\left( 
 \mathbb{Y}\right) }}\underline{\left[ \left( \mathbb{X}_{1}^{\dagger }%
@@ -348,7 +386,7 @@ Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) &=&Var\left(
 &=&\sigma ^{2}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}
 \end{eqnarray*}%
 \begin{eqnarray*}
-Var\left( \boldsymbol{\hat{\beta}}\right) &=&\sigma ^{2}\left( \mathbb{X}%
+Var\left( \boldsymbol{\hat{\beta}}\right)  &=&\sigma ^{2}\left( \mathbb{X}%
 ^{\dagger }\mathbb{X}\right) ^{-1} \\
 &=&\sigma ^{2}\left[ \left[ 
 \begin{array}{cc}
@@ -388,7 +426,7 @@ G_{21} & G_{22}%
 G^{11} & G^{12} \\ 
 G^{21} & G^{22}%
 \end{array}%
-\right]
+\right] 
 \end{eqnarray*}%
 tools:%
 \begin{eqnarray*}
@@ -405,9 +443,54 @@ tools:%
 \mathbb{D}^{-1} \\ 
 -\mathbb{D}^{-1}\mathbb{A}_{21}\mathbb{A}_{11}^{-1} & \mathbb{D}^{-1}%
 \end{array}%
-\right]
+\right] 
 \end{eqnarray*}%
-where $D=\mathbb{A}_{22}-\mathbb{A}_{21}\mathbb{A}_{11}^{-1}\mathbb{A}_{12}$
+where $D=\mathbb{A}_{22}-\mathbb{A}_{21}\mathbb{A}_{11}^{-1}\mathbb{A}_{12}$%
+\begin{eqnarray*}
+G^{11} &=&\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}\mathbb{%
++} \\
+&&\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) \mathbb{X}%
+_{1}^{\dagger }\mathbb{X}_{2}\left[ \mathbb{X}_{2}^{\dagger }\mathbb{X}_{2}-%
+\mathbb{X}_{2}\mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}%
+\right) ^{-1}\mathbb{X}_{1}\mathbb{X}_{2}\right] ^{-1}\times  \\
+&&\mathbb{X}_{2}^{\dagger }\mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }%
+\mathbb{X}_{1}\right) ^{-1}
+\end{eqnarray*}%
+\newline
+\newline
+\begin{equation*}
+\left. 
+\begin{array}{c}
+Var\left( \boldsymbol{\hat{\beta}}_{1}\right) =\sigma ^{2}G^{11} \\ 
+Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) =\sigma ^{2}\left( 
+\mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
+\end{array}%
+\right] 
+\end{equation*}%
+\newline
+\newline
+\begin{eqnarray*}
+&\therefore &Var\left( \boldsymbol{\hat{\beta}}_{1}\right) -Var\left( 
+\boldsymbol{\hat{\beta}}_{1}^{\ast }\right) =\sigma ^{2}\left[ \left( 
+\mathbb{X}_{1}^{\dagger }\mathbb{X}\right) ^{-1}+\mathbb{A}B^{-1}\mathbb{A}%
+^{\dagger }\right]  \\
+&&-\sigma ^{2}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}\right) ^{-1} \\
+&=&\sigma ^{2}\underset{\text{P.D. why?}}{\fbox{$\mathbb{AB}^{-1}\mathbb{A}%
+^{\dagger }$}}
+\end{eqnarray*}
+
+\item 
+\begin{eqnarray*}
+E\left( S_{1}^{2}\right)  &=&\sigma ^{2}+ \\
+&&\frac{\boldsymbol{\beta }_{2}^{\dagger }\mathbb{X}_{2}^{\dagger }\left[ I-%
+\mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
+\mathbb{X}_{1}^{\dagger }\right] \mathbb{X}_{2}\boldsymbol{\beta }_{2}}{%
+n-P_{1}}
+\end{eqnarray*}%
+where $S_{1}^{2}=\frac{\left( \mathbb{Y}-\mathbb{X}_{1}\boldsymbol{\hat{\beta%
+}}_{1}^{\ast }\right) ^{\dagger }\left( \mathbb{Y}-\mathbb{X}_{1}\boldsymbol{%
+\hat{\beta}}_{1}^{\ast }\right) }{n-P_{1}}=\frac{\text{SSE}_{1}}{n-P_{1}}$
+and $\gamma \left( \mathbb{X}_{1}\right) =P_{1}$
 \end{enumerate}
 \end{proof}
 \end{theorem}
