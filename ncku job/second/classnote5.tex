@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, May 06, 2016 16:47:58}
+%TCIDATA{LastRevised=Sunday, May 08, 2016 11:19:50}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,7 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-\input{tcilatex}
+
 
 \begin{document}
 
@@ -373,9 +373,9 @@ _{2}}}\boldsymbol{\beta }_{2}\quad \quad \text{bias}
 
 \item 
 \begin{eqnarray*}
-Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right)  &=&Var\left( 
+Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) &=&Var\left( 
 \underline{\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
-\mathbb{X}_{1}^{\dagger }}\mathbb{Y}\right)  \\
+\mathbb{X}_{1}^{\dagger }}\mathbb{Y}\right) \\
 &=&\underline{\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
 \mathbb{X}_{1}^{\dagger }}\underset{\sigma ^{2}I}{\underbrace{Var\left( 
 \mathbb{Y}\right) }}\underline{\left[ \left( \mathbb{X}_{1}^{\dagger }%
@@ -386,7 +386,7 @@ Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right)  &=&Var\left(
 &=&\sigma ^{2}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}
 \end{eqnarray*}%
 \begin{eqnarray*}
-Var\left( \boldsymbol{\hat{\beta}}\right)  &=&\sigma ^{2}\left( \mathbb{X}%
+Var\left( \boldsymbol{\hat{\beta}}\right) &=&\sigma ^{2}\left( \mathbb{X}%
 ^{\dagger }\mathbb{X}\right) ^{-1} \\
 &=&\sigma ^{2}\left[ \left[ 
 \begin{array}{cc}
@@ -426,7 +426,7 @@ G_{21} & G_{22}%
 G^{11} & G^{12} \\ 
 G^{21} & G^{22}%
 \end{array}%
-\right] 
+\right]
 \end{eqnarray*}%
 tools:%
 \begin{eqnarray*}
@@ -443,7 +443,7 @@ tools:%
 \mathbb{D}^{-1} \\ 
 -\mathbb{D}^{-1}\mathbb{A}_{21}\mathbb{A}_{11}^{-1} & \mathbb{D}^{-1}%
 \end{array}%
-\right] 
+\right]
 \end{eqnarray*}%
 where $D=\mathbb{A}_{22}-\mathbb{A}_{21}\mathbb{A}_{11}^{-1}\mathbb{A}_{12}$%
 \begin{eqnarray*}
@@ -452,7 +452,7 @@ G^{11} &=&\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}\mathbb{%
 &&\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) \mathbb{X}%
 _{1}^{\dagger }\mathbb{X}_{2}\left[ \mathbb{X}_{2}^{\dagger }\mathbb{X}_{2}-%
 \mathbb{X}_{2}\mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}%
-\right) ^{-1}\mathbb{X}_{1}\mathbb{X}_{2}\right] ^{-1}\times  \\
+\right) ^{-1}\mathbb{X}_{1}\mathbb{X}_{2}\right] ^{-1}\times \\
 &&\mathbb{X}_{2}^{\dagger }\mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }%
 \mathbb{X}_{1}\right) ^{-1}
 \end{eqnarray*}%
@@ -465,7 +465,7 @@ Var\left( \boldsymbol{\hat{\beta}}_{1}\right) =\sigma ^{2}G^{11} \\
 Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) =\sigma ^{2}\left( 
 \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 \newline
 \newline
@@ -473,7 +473,7 @@ Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) =\sigma ^{2}\left(
 &\therefore &Var\left( \boldsymbol{\hat{\beta}}_{1}\right) -Var\left( 
 \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) =\sigma ^{2}\left[ \left( 
 \mathbb{X}_{1}^{\dagger }\mathbb{X}\right) ^{-1}+\mathbb{A}B^{-1}\mathbb{A}%
-^{\dagger }\right]  \\
+^{\dagger }\right] \\
 &&-\sigma ^{2}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}\right) ^{-1} \\
 &=&\sigma ^{2}\underset{\text{P.D. why?}}{\fbox{$\mathbb{AB}^{-1}\mathbb{A}%
 ^{\dagger }$}}
@@ -481,7 +481,7 @@ Var\left( \boldsymbol{\hat{\beta}}_{1}^{\ast }\right) =\sigma ^{2}\left(
 
 \item 
 \begin{eqnarray*}
-E\left( S_{1}^{2}\right)  &=&\sigma ^{2}+ \\
+E\left( S_{1}^{2}\right) &=&\sigma ^{2}+ \\
 &&\frac{\boldsymbol{\beta }_{2}^{\dagger }\mathbb{X}_{2}^{\dagger }\left[ I-%
 \mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
 \mathbb{X}_{1}^{\dagger }\right] \mathbb{X}_{2}\boldsymbol{\beta }_{2}}{%
@@ -491,7 +491,116 @@ where $S_{1}^{2}=\frac{\left( \mathbb{Y}-\mathbb{X}_{1}\boldsymbol{\hat{\beta%
 }}_{1}^{\ast }\right) ^{\dagger }\left( \mathbb{Y}-\mathbb{X}_{1}\boldsymbol{%
 \hat{\beta}}_{1}^{\ast }\right) }{n-P_{1}}=\frac{\text{SSE}_{1}}{n-P_{1}}$
 and $\gamma \left( \mathbb{X}_{1}\right) =P_{1}$
+
+\begin{proof}
+\begin{eqnarray*}
+E\left( \text{SSE}_{1}\right) &=&E\left( \mathbb{Y}^{\dagger }\left[ I-%
+\mathbb{X}_{1}\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}%
+\mathbb{X}_{1}^{\dagger }\right] \mathbb{Y}\right) \\
+&=&tr\left( \left( I-P_{\mathbb{X}_{1}}\right) \sigma ^{2}I\right) +\left( 
+\mathbb{X}\beta \right) ^{\dagger }\left[ I-P_{\mathbb{X}_{1}}\right] \left( 
+\mathbb{X}\beta \right) \\
+&&\left( tr\left( I_{n\times n}\right) =n\quad tr\left( P_{\mathbb{X}%
+_{1}}\right) =tr\left( \mathbb{X}_{1}\right) =P_{1}\right) \\
+&=&\sigma ^{2}\left( n-P_{1}\right) +\underset{\left( \ast \right) }{%
+\underbrace{\beta _{2}^{\dagger }\mathbb{X}_{2}^{\dagger }\left[ I-P_{%
+\mathbb{X}_{1}}\right] \mathbb{X}_{2}\beta _{2}}}
+\end{eqnarray*}%
+\begin{equation*}
+\therefore E\left( \frac{\text{SSE}_{1}}{n-P_{1}}\right) =\sigma ^{2}+\frac{%
+\left( \ast \right) }{n-P_{1}}\geq 0
+\end{equation*}
+\end{proof}
 \end{enumerate}
+\end{proof}
+\end{theorem}
+
+\bigskip
+
+\paragraph{Orthogalization}
+
+\begin{equation*}
+\mathbb{X}=\left[ 
+\begin{array}{cc}
+\mathbb{X}_{1} & \mathbb{X}_{2}%
+\end{array}%
+\right] \quad \boldsymbol{\beta }=\left[ 
+\begin{array}{c}
+\boldsymbol{\beta }_{1} \\ 
+\boldsymbol{\beta }_{2}%
+\end{array}%
+\right] \quad \mathbb{Y}=\mathbb{X}\boldsymbol{\beta }+\boldsymbol{%
+\varepsilon }
+\end{equation*}
+
+\begin{theorem}
+If $\mathbb{X}_{1}^{\dagger }\mathbb{X}_{2}=\boldsymbol{0}$, then estimator
+of $\boldsymbol{\beta }_{1}$ in the full model $\mathbb{Y}=\mathbb{X}_{1}%
+\boldsymbol{\beta }_{1}+\mathbb{X}_{2}\boldsymbol{\beta }_{2}+\boldsymbol{%
+\varepsilon }$ is same as the estimator of $\boldsymbol{\beta }_{1}^{\ast }$
+in the redued model%
+\begin{equation*}
+\Downarrow \left[ 
+\begin{array}{c}
+\mathbb{Y}=\mathbb{X}_{1}\boldsymbol{\beta }_{1}+\boldsymbol{\varepsilon }
+\\ 
+\boldsymbol{\hat{\beta}}_{1}^{\ast }=\left( \mathbb{X}_{1}^{\dagger }\mathbb{%
+X}_{1}\right) ^{-1}\mathbb{X}_{1}^{\dagger }\mathbb{Y}%
+\end{array}%
+\right.
+\end{equation*}
+
+\begin{proof}
+OLS of $\boldsymbol{\beta }_{1}$ is $\boldsymbol{\hat{\beta}}_{1}^{\ast
+}=\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1}\mathbb{X}%
+_{1}^{\dagger }\mathbb{Y}$\newline
+OLS of $\boldsymbol{\beta }$ is 
+\begin{eqnarray*}
+\boldsymbol{\hat{\beta}} &=&\left[ 
+\begin{array}{c}
+\boldsymbol{\hat{\beta}}_{1} \\ 
+\boldsymbol{\hat{\beta}}_{2}%
+\end{array}%
+\right] =\left( \mathbb{X}^{\dagger }\mathbb{X}\right) ^{-1}\mathbb{X}%
+^{\dagger }\mathbb{Y} \\
+&=&\left[ 
+\begin{array}{cc}
+\mathbb{X}_{1}^{\dagger }\mathbb{X}_{1} & \mathbb{X}_{1}^{\dagger }\mathbb{X}%
+_{2} \\ 
+\mathbb{X}_{2}^{\dagger }\mathbb{X}_{1} & \mathbb{X}_{2}^{\dagger }\mathbb{X}%
+_{2}%
+\end{array}%
+\right] ^{-1}\left[ 
+\begin{array}{c}
+\mathbb{X}_{1}\mathbb{Y} \\ 
+\mathbb{X}_{2}\mathbb{Y}%
+\end{array}%
+\right]  \\
+&&\left[ \because \mathbb{X}_{1}^{\dagger }\mathbb{X}_{2}=\boldsymbol{0}%
+\Downarrow \right]  \\
+&=&\left[ 
+\begin{array}{cc}
+\left( \mathbb{X}_{1}^{\dagger }\mathbb{X}_{1}\right) ^{-1} & \boldsymbol{0}%
+^{\dagger } \\ 
+\boldsymbol{0} & \left( \mathbb{X}_{2}^{\dagger }\mathbb{X}_{2}\right) ^{-1}%
+\end{array}%
+\right] _{2\times 2}\left[ 
+\begin{array}{c}
+\mathbb{X}_{1}^{\dagger }\mathbb{Y} \\ 
+\mathbb{X}_{2}^{\dagger }\mathbb{Y}%
+\end{array}%
+\right] _{2\times 1} \\
+&=&\left[ 
+\begin{array}{c}
+\underset{\boldsymbol{\hat{\beta}}_{1}^{\ast }}{\underbrace{\overset{%
+\boldsymbol{\hat{\beta}}_{1}}{\overbrace{\left( \mathbb{X}_{1}^{\dagger }%
+\mathbb{X}_{1}\right) ^{-1}}}\mathbb{X}_{1}^{\dagger }\mathbb{Y}}} \\ 
+\overset{\boldsymbol{\hat{\beta}}_{2}}{\overbrace{\left( \mathbb{X}%
+_{2}^{\dagger }\mathbb{X}_{2}\right) ^{-1}}}\mathbb{X}_{2}^{\dagger }\mathbb{%
+Y}%
+\end{array}%
+\right] 
+\end{eqnarray*}
 \end{proof}
 \end{theorem}
 
