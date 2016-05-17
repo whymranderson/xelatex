@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, May 17, 2016 15:42:17}
+%TCIDATA{LastRevised=Tuesday, May 17, 2016 16:33:11}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,6 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
+
 \input{tcilatex}
 
 \begin{document}
@@ -60,12 +61,12 @@
 
 Consider the model%
 \begin{equation*}
-Y_{ij}=\mu +a_{i}+\varepsilon _{ij}
+Y_{ij}=\mu +a_{i}+\varepsilon _{ij}\qquad 
+\begin{array}{c}
+i=1,\cdots ,a \\ 
+j=1,\cdots ,n%
+\end{array}%
 \end{equation*}%
-\begin{eqnarray*}
-i &=&1,\cdots ,a \\
-j &=&1,\cdots ,n
-\end{eqnarray*}%
 where $a_{i}\sim \mathcal{N}\left( 0,\sigma _{a}^{2}\right) $ and $%
 \varepsilon _{ij}\sim \mathcal{N}\left( 0,\sigma ^{2}\right) $, and the $%
 \varepsilon _{ij}$ and $a_{i}$ are $JI+I$ independent random variables.
@@ -85,32 +86,119 @@ clinics is selected at random from a large population of clinics and, within
 each clinic, a random sample of $J=5$ patients is selected.
 \end{example}
 
-\bigskip 
+\bigskip
 
 The matrix form
 
 \begin{eqnarray*}
 Y_{11} &=&\mu +\alpha _{1}+\varepsilon _{11} \\
 Y_{12} &=&\mu +\alpha _{1}+\varepsilon _{12} \\
-&&\vdots  \\
+&&\vdots \\
 Y_{1n} &=&\mu +\alpha _{1}+\varepsilon _{1n} \\
-&&\vdots  \\
+&&\vdots \\
 Y_{a1} &=&\mu +\alpha _{I}+\varepsilon _{I1} \\
-&&\vdots  \\
+&&\vdots \\
 Y_{an} &=&\mu +\alpha _{I}+\varepsilon _{In}
 \end{eqnarray*}%
 \begin{equation*}
 \Leftrightarrow \left[ 
 \begin{array}{c}
 Y_{11} \\ 
-\vdots  \\ 
+\vdots \\ 
 Y_{1n} \\ 
-\vdots  \\ 
+\vdots \\ 
 Y_{I1} \\ 
-\vdots  \\ 
+\vdots \\ 
 Y_{IJ}%
 \end{array}%
-\right] =\left[ {}\right] 
+\right] =\left[ \underset{a+1\text{ colomn}}{\underbrace{%
+\begin{array}{ccccc}
+1_{n} & 1_{n} &  &  &  \\ 
+&  & 1_{n} &  &  \\ 
+\vdots &  &  & \ddots &  \\ 
+1_{n} &  &  &  & 1_{n}%
+\end{array}%
+}}\right] _{a_{n}\times \left( a+1\right) }\left[ 
+\begin{array}{c}
+\mu \\ 
+\alpha _{1} \\ 
+\vdots \\ 
+\alpha _{a}%
+\end{array}%
+\right]
 \end{equation*}
+
+\bigskip
+
+\begin{equation*}
+\mathbf{Y}=\mu 1_{an}+\mathbf{Za+\varepsilon }
+\end{equation*}%
+where $\mathbf{Z}$ is an $an\times a$ matrix, $\mathbf{a}$ is $a\times 1$
+unknown random vector.
+
+\bigskip
+
+\begin{theorem}
+Consider the model $\mathbf{Y}=\mathbf{x\beta }+\tsum\limits_{i=1}^{m}%
+\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{\varepsilon }$, where $\mathbf{x}$ is a
+known $n\times p$ matrix, the $\mathbf{Z}_{i}$'s are known $n_{i}\times
+r_{i} $ full-rank matrix, $\mathbf{\beta }$ is a $p\times 1$ vector of
+unknown parameters, $\mathbf{\varepsilon }$ is an $n\times 1$ unkown random
+vector such that $E\left( \mathbf{\varepsilon }\right) =\mathbf{0}$ and $%
+V\left( \mathbf{\varepsilon }\right) =\sigma ^{2}I_{n}$, and $\mathbf{a}_{i}$
+are $r_{i}\times 1$ unknown random vectors such that $E\left( \mathbf{a}%
+_{i}\right) =\mathbf{0}$ and $Var\left( \mathbf{a}_{i}\right) =\sigma
+_{i}^{2}I_{r_{i}}$. Furthermore, $Cov\left( \mathbf{a}_{i},\mathbf{a}%
+_{j}\right) =\mathbf{0}$ for $i\neq j$ and $Cov\left( \mathbf{a}_{i},\mathbf{%
+\varepsilon }\right) =\mathbf{0}\quad \forall i$. Then
+
+\begin{enumerate}
+\item $E\left( \mathbf{Y}\right) =\mathbf{x\beta }$
+
+\item $Var\left( \mathbf{Y}\right) =\tsum\limits_{i=1}^{m}\sigma _{i}^{2}%
+\mathbf{Z}_{i}\mathbf{Z}_{i}^{\dagger }+\sigma ^{2}I_{n}$
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+\item 
+\begin{eqnarray*}
+E\left( \mathbf{Y}\right) &=&E\left( \mathbf{x\beta }+\tsum\limits_{i=1}^{m}%
+\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{\varepsilon }\right) \\
+&=&\mathbf{x\beta }+\tsum\limits_{i=1}^{m}\left[ \mathbf{Z}_{i}E\left( 
+\mathbf{a}_{i}\right) +E\left( \mathbf{\varepsilon }\right) \right] \\
+&=&\mathbf{x\beta }
+\end{eqnarray*}
+
+\item 
+\begin{eqnarray*}
+Var\left( \mathbf{Y}\right) &=&Var\left( \mathbf{x\beta }+\tsum%
+\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{\varepsilon }\right) \\
+&=&Var\left( \tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{%
+\varepsilon }\right) \\
+&=&Var\left( \tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}\right)
++Var\left( \mathbf{\varepsilon }\right) +Cov\left( \tsum\limits_{i=1}^{m}%
+\mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{\varepsilon }\right) \\
+&=&\tsum\limits_{i=1}^{m}Var\left( \mathbf{Z}_{i}\mathbf{a}_{i}\right)
++\tsum\limits_{i\neq j}Cov\left( \mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{Z}_{j}%
+\mathbf{a}_{j}\right) +\sigma ^{2}I_{n} \\
+&&+\tsum\limits_{i=1}^{m}Cov\left( \mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{%
+\varepsilon }\right) +\tsum\limits_{i=1}^{m}Cov\left( \mathbf{\varepsilon ,Z}%
+_{i}\mathbf{a}_{i}\right) \\
+&=&\tsum\limits_{i=1}^{m}\mathbf{Z}_{i}Var\left( \mathbf{Z}_{i}\mathbf{a}%
+_{i}\right) \mathbf{Z}_{i}^{\dagger }+\tsum\limits_{i\neq j}\mathbf{Z}%
+_{i}Cov\left( \mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{Z}_{j}\mathbf{a}%
+_{j}\right) \mathbf{Z}_{i}^{\dagger }+\sigma ^{2}I_{n} \\
+&&+\tsum\limits_{i=1}^{m}\mathbf{Z}_{i}Cov\left( \mathbf{Z}_{i}\mathbf{a}%
+_{i},\mathbf{\varepsilon }\right) +\tsum\limits_{i=1}^{m}Cov\left( \mathbf{%
+\varepsilon ,Z}_{i}\mathbf{a}_{i}\right) \mathbf{Z}_{i}^{\dagger } \\
+&=&\tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\sigma _{i}^{2}I_{r_{i}}\mathbf{Z}%
+_{i}^{\dagger }+\sigma ^{2}I_{n} \\
+&=&\tsum\limits_{i=1}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}%
+_{i}^{\dagger }+\sigma ^{2}I_{n}
+\end{eqnarray*}
+\end{enumerate}
+\end{proof}
+\end{theorem}
 
 \end{document}
