@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, May 20, 2016 11:46:33}
+%TCIDATA{LastRevised=Friday, May 20, 2016 15:35:37}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 \input{tcilatex}
 
 \begin{document}
@@ -316,11 +315,11 @@ where%
 \sigma _{a}^{2} & \sigma _{a}^{2}+\sigma ^{2} & \sigma _{a}^{2} \\ 
 \sigma _{a}^{2} & \sigma _{a}^{2} & \sigma _{a}^{2}+\sigma ^{2}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 \end{itemize}
 
-\bigskip 
+\bigskip
 
 \subsection{Estimation of Variance Components}
 
@@ -337,11 +336,11 @@ unknown parameters, $\mathbf{\varepsilon \sim }\mathcal{N}_{n}\left(
 \mathbf{a}_{j}\right) =\mathbf{0}\quad \forall i\neq j$ and $Cov\left( 
 \mathbf{a}_{i},\mathbf{\varepsilon }\right) =\mathbf{0}\quad \forall i$.
 
-\bigskip 
+\bigskip
 
 \begin{equation*}
 \therefore \mathbf{Y}\sim \mathcal{N}\left( \mathbf{x\beta }%
-,\tsum\nolimits_{n\times n}\right) 
+,\tsum\nolimits_{n\times n}\right)
 \end{equation*}%
 where $\tsum =\tsum\limits_{i=1}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}%
 _{i}^{\dagger }+\sigma ^{2}I=\tsum\limits_{i=1}^{m}\sigma _{i}^{2}\mathbf{Z}%
@@ -352,7 +351,7 @@ E\left( \mathbf{KY}\right) =\mathbf{kx\beta }=0\Leftrightarrow \mathbf{kx}=%
 \end{equation*}%
 (residual maximum likelihood)
 
-\bigskip 
+\bigskip
 
 \begin{theorem}
 A full-rank matrix $\mathbf{K}$ with maximal number of rows such that $%
@@ -363,7 +362,7 @@ K}$ must be of the form $\mathbf{K}=\mathbf{C}\left( I-P_{\mathbf{x}}\right)
 transformation of the rows of $I-P_{\mathbf{x}}$.
 \end{theorem}
 
-\bigskip 
+\bigskip
 
 Note:
 
@@ -379,16 +378,70 @@ vector of linearcombinations of $\mathbf{\hat{\varepsilon}}$
 \mathcal{N}_{n-r}\left( \mathbf{0},\mathbf{K}\tsum \mathbf{K}^{\dagger
 }\right) $%
 \begin{eqnarray*}
-E\left( \mathbf{KY}\right)  &=&\mathbf{kx\beta }=\mathbf{0} \\
-Var\left( \mathbf{KY}\right)  &=&\mathbf{K}Var\left( \mathbf{Y}\right) 
+E\left( \mathbf{KY}\right) &=&\mathbf{kx\beta }=\mathbf{0} \\
+Var\left( \mathbf{KY}\right) &=&\mathbf{K}Var\left( \mathbf{Y}\right) 
 \mathbf{K}^{\dagger }=\mathbf{K}\tsum \mathbf{K}^{\dagger }
 \end{eqnarray*}
 \end{enumerate}
 
-\bigskip 
+\bigskip
 
 \begin{theorem}
-Consider the model in which 
+Consider the model in which $\mathbf{Y}\sim \mathcal{N}_{n}\left( \mathbf{%
+x\beta },\tsum \right) $, where $\tsum =\tsum\limits_{i=0}^{m}\sigma _{i}^{2}%
+\mathbf{Z}_{i}\mathbf{Z}_{i}^{\dagger }$ and let $\mathbf{K}$ be a matrix
+such that $\mathbf{kx}=\mathbf{0}$. Then a set of $m+1$ estimating equations
+for $\sigma _{0}^{2},\cdots ,\sigma _{m}^{2}$ is given by%
+\begin{eqnarray*}
+tr\left[ \mathbf{K}^{\dagger }\left( \mathbf{K}\tsum \mathbf{K}^{\dagger
+}\right) ^{-1}\mathbf{KZ}_{i}\mathbf{Z}_{i}^{\dagger }\right]  &=&\mathbf{Y}%
+^{\dagger }\mathbf{K}^{\dagger }\left( \mathbf{K}\tsum \mathbf{K}^{\dagger
+}\right) ^{-1}\mathbf{KZ}_{i}\mathbf{Z}_{i}^{\dagger }\times  \\
+&&\mathbf{K}^{\dagger }\left( \mathbf{K}\tsum \mathbf{K}^{\dagger }\right)
+^{-1}\mathbf{KY}
+\end{eqnarray*}%
+\begin{equation*}
+i=0,\cdots ,m
+\end{equation*}
+
+\begin{proof}
+\newline
+$\because \mathbf{KY}\sim \mathcal{N}_{n-r}\left( \mathbf{0},\mathbf{K}\tsum 
+\mathbf{K}^{\dagger }\right) $\newline
+$\therefore $ the log likelihood of $KT$ is%
+\begin{eqnarray*}
+\ln  &<&\left( \sigma _{0}^{2},\sigma _{1}^{2},\cdots ,\sigma
+_{m}^{2}\right)  \\
+&=&\ln \left[ \frac{1}{\left( \sqrt{2\pi }\right) ^{n-r}\left\vert \mathbf{K}%
+\tsum \mathbf{K}^{\dagger }\right\vert ^{\frac{1}{2}}}e^{-\frac{\left( 
+\mathbf{y}^{\prime }-0\right) ^{\dagger }\left( \mathbf{K}\tsum \mathbf{K}%
+^{\dagger }\right) ^{-1}\left( \mathbf{y}^{\prime }-0\right) }{2}}\right]  \\
+&=&-\frac{n-r}{2}\ln 2\pi -\frac{1}{2}\ln \left\vert \mathbf{K}\tsum \mathbf{%
+K}^{\dagger }\right\vert -\frac{1}{2}\left( \mathbf{Ky}\right) ^{\dagger
+}\left( \mathbf{K}\tsum \mathbf{K}^{\dagger }\right) ^{-1}\left( \mathbf{Ky}%
+\right)  \\
+&=&-\frac{n-r}{2}\ln 2\pi -\frac{1}{2}\ln \left\vert \mathbf{K}\left(
+\tsum\limits_{i=0}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}_{i}^{\dagger
+}\right) \mathbf{K}^{\dagger }\right\vert  \\
+&&-\frac{1}{2}\mathbf{y}^{\dagger }\mathbf{K}^{\dagger }\left[ \mathbf{%
+K\left( \tsum\limits_{i=0}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}%
+_{i}^{\dagger }\right) K}^{\dagger }\right] ^{-1}\mathbf{Ky}
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Let $\mathbf{A}$ be an $n\times n$ positive definite matrix. Then%
+\begin{equation*}
+\frac{\partial \ln \left\vert \mathbf{A}\right\vert }{\partial \chi }%
+=tr\left( \mathbf{A}^{-1}\frac{\partial \mathbf{A}}{\partial \chi }\right) 
+\end{equation*}
+
+\item 
+\begin{equation*}
+\frac{\partial \mathbf{A}^{-1}}{\partial \chi }=-\mathbf{A}^{-1}\frac{%
+\partial \mathbf{A}}{\partial \chi }\mathbf{A}^{-1}
+\end{equation*}
+\end{enumerate}
+\end{proof}
 \end{theorem}
 
 \end{document}
