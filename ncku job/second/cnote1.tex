@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Wednesday, May 18, 2016 11:50:28}
+%TCIDATA{LastRevised=Friday, May 20, 2016 11:46:33}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,6 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
+\input{tcilatex}
 
 \begin{document}
 
@@ -70,7 +71,7 @@ where $a_{i}\sim \mathcal{N}\left( 0,\sigma _{a}^{2}\right) $ and $%
 \varepsilon _{ij}\sim \mathcal{N}\left( 0,\sigma ^{2}\right) $, and the $%
 \varepsilon _{ij}$ and $a_{i}$ are $JI+I$ independent random variables.
 
-\bigskip 
+\bigskip
 
 \begin{example}
 Suppose that we are interested in studying the output in numbers of parts
@@ -93,49 +94,49 @@ The matrix form%
 \begin{eqnarray*}
 Y_{11} &=&\mu +\alpha _{1}+\varepsilon _{11} \\
 Y_{12} &=&\mu +\alpha _{1}+\varepsilon _{12} \\
-&&\vdots  \\
+&&\vdots \\
 Y_{1n} &=&\mu +\alpha _{1}+\varepsilon _{1n} \\
-&&\vdots  \\
+&&\vdots \\
 Y_{a1} &=&\mu +\alpha _{I}+\varepsilon _{I1} \\
-&&\vdots  \\
+&&\vdots \\
 Y_{an} &=&\mu +\alpha _{I}+\varepsilon _{In}
 \end{eqnarray*}%
 \begin{equation*}
 \Leftrightarrow \left[ 
 \begin{array}{c}
 Y_{11} \\ 
-\vdots  \\ 
+\vdots \\ 
 Y_{1n} \\ 
-\vdots  \\ 
+\vdots \\ 
 Y_{I1} \\ 
-\vdots  \\ 
+\vdots \\ 
 Y_{IJ}%
 \end{array}%
 \right] =\underset{a+1\text{ colomn}}{\left[ \underbrace{%
 \begin{array}{c}
 1_{n} \\ 
 \\ 
-\vdots  \\ 
+\vdots \\ 
 1_{n}%
 \end{array}%
 }\right. \left. \underbrace{%
 \begin{array}{cccc}
 1_{n} &  &  &  \\ 
 & 1_{n} &  &  \\ 
-&  & \ddots  &  \\ 
+&  & \ddots &  \\ 
 &  &  & 1_{n}%
 \end{array}%
 }\right] _{a_{n}\times \left( a+1\right) }}\left[ 
 \begin{array}{c}
-\mu  \\ 
+\mu \\ 
 \alpha _{1} \\ 
-\vdots  \\ 
+\vdots \\ 
 \alpha _{a}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 \begin{equation*}
 \mathbf{Y}=\mu \boldsymbol{1}_{an}+\mathbf{Za+\varepsilon }
@@ -179,20 +180,19 @@ E\left( \mathbf{Y}\right) &=&E\left( \mathbf{x\beta }+\tsum\limits_{i=1}^{m}%
 
 \item 
 \begin{eqnarray*}
-Var\left( \mathbf{Y}\right)  &=&Var\left( \mathbf{x\beta }%
-+\tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{\varepsilon }%
-\right)  \\
+Var\left( \mathbf{Y}\right) &=&Var\left( \mathbf{x\beta }+\tsum%
+\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{\varepsilon }\right) \\
 &=&Var\left( \tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}+\mathbf{%
-\varepsilon }\right)  \\
+\varepsilon }\right) \\
 &=&Var\left( \tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}_{i}\right)
 +Var\left( \mathbf{\varepsilon }\right) +Cov\left( \tsum\limits_{i=1}^{m}%
-\mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{\varepsilon }\right)  \\
+\mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{\varepsilon }\right) \\
 &=&\tsum\limits_{i=1}^{m}Var\left( \mathbf{Z}_{i}\mathbf{a}_{i}\right)
 +\tsum\limits_{i\neq j}Cov\left( \mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{Z}_{j}%
 \mathbf{a}_{j}\right) +\sigma ^{2}I_{n} \\
 &&+\tsum\limits_{i=1}^{m}Cov\left( \mathbf{Z}_{i}\mathbf{a}_{i},\mathbf{%
 \varepsilon }\right) +\tsum\limits_{i=1}^{m}Cov\left( \mathbf{\varepsilon ,Z}%
-_{i}\mathbf{a}_{i}\right)  \\
+_{i}\mathbf{a}_{i}\right) \\
 &=&\tsum\limits_{i=1}^{m}\mathbf{Z}_{i}Var\left( \mathbf{Z}_{i}\mathbf{a}%
 _{i}\right) \mathbf{Z}_{i}^{\dagger }+\tsum\limits_{i\neq j}\mathbf{Z}%
 _{i}Cov\left( \mathbf{a}_{i},\mathbf{a}_{j}\right) \mathbf{Z}_{j}+\sigma
@@ -316,8 +316,79 @@ where%
 \sigma _{a}^{2} & \sigma _{a}^{2}+\sigma ^{2} & \sigma _{a}^{2} \\ 
 \sigma _{a}^{2} & \sigma _{a}^{2} & \sigma _{a}^{2}+\sigma ^{2}%
 \end{array}%
-\right]
+\right] 
 \end{equation*}
 \end{itemize}
+
+\bigskip 
+
+\subsection{Estimation of Variance Components}
+
+Consider the model%
+\begin{equation*}
+\mathbf{Y}=\mathbf{x\beta }+\tsum\limits_{i=1}^{m}\mathbf{Z}_{i}\mathbf{a}%
+_{i}+\mathbf{\varepsilon }
+\end{equation*}%
+where $\mathbf{x}$ is $n\times p$ matrix, $\mathbf{Z}_{i}$'s are $n\times
+r_{i}$ full-rank matrix, $\mathbf{\beta }$ is a $p\times 1$ vector of
+unknown parameters, $\mathbf{\varepsilon \sim }\mathcal{N}_{n}\left(
+0,\sigma ^{2}I_{n}\right) $ and $\mathbf{a}_{i}\sim \mathcal{N}\left( 
+\mathbf{0},\sigma _{i}^{2}I_{r_{i}}\right) $, $Cov\left( \mathbf{a}_{i},%
+\mathbf{a}_{j}\right) =\mathbf{0}\quad \forall i\neq j$ and $Cov\left( 
+\mathbf{a}_{i},\mathbf{\varepsilon }\right) =\mathbf{0}\quad \forall i$.
+
+\bigskip 
+
+\begin{equation*}
+\therefore \mathbf{Y}\sim \mathcal{N}\left( \mathbf{x\beta }%
+,\tsum\nolimits_{n\times n}\right) 
+\end{equation*}%
+where $\tsum =\tsum\limits_{i=1}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}%
+_{i}^{\dagger }+\sigma ^{2}I=\tsum\limits_{i=1}^{m}\sigma _{i}^{2}\mathbf{Z}%
+_{i}\quad $($\sigma _{0}^{2}=\sigma ^{2}$ and $I_{n}=\mathbf{Z}_{0}$)%
+\begin{equation*}
+E\left( \mathbf{KY}\right) =\mathbf{kx\beta }=0\Leftrightarrow \mathbf{kx}=%
+\mathbf{0}\Leftrightarrow \text{REML}
+\end{equation*}%
+(residual maximum likelihood)
+
+\bigskip 
+
+\begin{theorem}
+A full-rank matrix $\mathbf{K}$ with maximal number of rows such that $%
+\mathbf{kx}=\mathbf{0}$, is an $\left( n-r\right) \times n$ matrix. $\mathbf{%
+K}$ must be of the form $\mathbf{K}=\mathbf{C}\left( I-P_{\mathbf{x}}\right)
+=\mathbf{C}\left[ I-\mathbf{x}\left( \mathbf{x}^{\dagger }\mathbf{x}\right)
+^{-1}\mathbf{x}^{\dagger }\right] $ where $\mathbf{0}$ specifies a full-rank
+transformation of the rows of $I-P_{\mathbf{x}}$.
+\end{theorem}
+
+\bigskip 
+
+Note:
+
+\begin{enumerate}
+\item there are infinite number of $\mathbf{K}$
+
+\item $\left( I-P_{\mathbf{x}}\right) \mathbf{Y}$ gives the ordinary
+residual vector $\mathbf{\hat{\varepsilon}}$\newline
+$\mathbf{KY}=\mathbf{C}\left( I-P_{\mathbf{x}}\right) \mathbf{Y}$ is a
+vector of linearcombinations of $\mathbf{\hat{\varepsilon}}$
+
+\item $\mathbf{K}_{\left( n-r\right) \times n}\mathbf{Y}_{n\times 1}\sim 
+\mathcal{N}_{n-r}\left( \mathbf{0},\mathbf{K}\tsum \mathbf{K}^{\dagger
+}\right) $%
+\begin{eqnarray*}
+E\left( \mathbf{KY}\right)  &=&\mathbf{kx\beta }=\mathbf{0} \\
+Var\left( \mathbf{KY}\right)  &=&\mathbf{K}Var\left( \mathbf{Y}\right) 
+\mathbf{K}^{\dagger }=\mathbf{K}\tsum \mathbf{K}^{\dagger }
+\end{eqnarray*}
+\end{enumerate}
+
+\bigskip 
+
+\begin{theorem}
+Consider the model in which 
+\end{theorem}
 
 \end{document}
