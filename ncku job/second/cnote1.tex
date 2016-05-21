@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, May 20, 2016 16:09:42}
+%TCIDATA{LastRevised=Saturday, May 21, 2016 13:57:39}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,6 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
+\input{tcilatex}
 
 \begin{document}
 
@@ -340,7 +341,7 @@ unknown parameters, $\mathbf{\varepsilon \sim }\mathcal{N}_{n}\left(
 
 \begin{equation*}
 \therefore \mathbf{Y}\sim \mathcal{N}\left( \mathbf{x\beta }%
-,\tsum\nolimits_{n\times n}\right) 
+,\tsum\nolimits_{n\times n}\right)
 \end{equation*}%
 where $\tsum =\tsum\limits_{i=1}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}%
 _{i}^{\dagger }+\sigma ^{2}I=\tsum\limits_{i=0}^{m}\sigma _{i}^{2}\mathbf{Z}%
@@ -407,26 +408,26 @@ i=0,\cdots ,m
 \begin{proof}
 \begin{equation*}
 \because \mathbf{KY}\sim \mathcal{N}_{n-r}\left( \mathbf{0},\mathbf{K}\tsum 
-\mathbf{K}^{\dagger }\right) 
+\mathbf{K}^{\dagger }\right)
 \end{equation*}%
 \begin{equation*}
 \therefore \text{the log likelihood of }KT\text{ is}
 \end{equation*}%
 \begin{eqnarray*}
-&&\ln L\left( \sigma _{0}^{2},\sigma _{1}^{2},\cdots ,\sigma _{m}^{2}\right) 
+&&\ln L\left( \sigma _{0}^{2},\sigma _{1}^{2},\cdots ,\sigma _{m}^{2}\right)
 \\
 &=&\ln \left[ \frac{1}{\left( \sqrt{2\pi }\right) ^{n-r}\left\vert \mathbf{K}%
 \tsum \mathbf{K}^{\dagger }\right\vert ^{\frac{1}{2}}}{\LARGE e}^{-\frac{%
 \left( \mathbf{y}^{\prime }-0\right) ^{\dagger }\left( \mathbf{K}\tsum 
 \mathbf{K}^{\dagger }\right) ^{-1}\left( \mathbf{y}^{\prime }-0\right) }{2}}%
-\right]  \\
+\right] \\
 &=&-\frac{n-r}{2}\ln 2\pi -\frac{1}{2}\ln \left\vert \mathbf{K}\tsum \mathbf{%
 K}^{\dagger }\right\vert -\frac{1}{2}\left( \mathbf{Ky}\right) ^{\dagger
 }\left( \mathbf{K}\tsum \mathbf{K}^{\dagger }\right) ^{-1}\left( \mathbf{Ky}%
-\right)  \\
+\right) \\
 &=&-\frac{n-r}{2}\ln 2\pi -\frac{1}{2}\ln \left\vert \mathbf{K}\left(
 \tsum\limits_{i=0}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}_{i}^{\dagger
-}\right) \mathbf{K}^{\dagger }\right\vert  \\
+}\right) \mathbf{K}^{\dagger }\right\vert \\
 &&-\frac{1}{2}\mathbf{y}^{\dagger }\mathbf{K}^{\dagger }\left[ \mathbf{%
 K\left( \tsum\limits_{i=0}^{m}\sigma _{i}^{2}\mathbf{Z}_{i}\mathbf{Z}%
 _{i}^{\dagger }\right) K}^{\dagger }\right] ^{-1}\mathbf{Ky}
@@ -487,5 +488,173 @@ where $a_{i}\sim \mathcal{N}\left( 0,\sigma _{a}^{2}\right) $ and $%
 a_{i},a_{j}\right) =0\quad i\neq j$ and $Cov\left( a_{i},\varepsilon \right)
 =0$
 \end{example}
+
+\bigskip 
+
+\begin{equation*}
+\mathbf{Y}_{12}=\mu \mathbf{1}_{12}+\mathbf{Z}_{12\times 3}\mathbf{a}%
+_{3\times 1}+\mathbf{\varepsilon }_{12}
+\end{equation*}%
+where $\mathbf{Z}=\left[ 
+\begin{array}{ccc}
+\boldsymbol{1}_{4} & \boldsymbol{0} & \boldsymbol{0} \\ 
+\boldsymbol{0} & \boldsymbol{1}_{4} & \boldsymbol{0} \\ 
+\boldsymbol{0} & \boldsymbol{0} & \boldsymbol{1}_{4}%
+\end{array}%
+\right] _{12\times 3}$
+
+\bigskip 
+
+$\therefore $%
+\begin{equation*}
+\tsum =\sigma _{a}^{2}\underset{\left[ 
+\begin{array}{ccc}
+J_{4} &  &  \\ 
+& J_{4} &  \\ 
+&  & J_{4}%
+\end{array}%
+\right] }{\underbrace{\mathbf{Z}}}\mathbf{Z}^{\dagger }+\sigma ^{2}I_{12}=%
+\left[ 
+\begin{array}{ccc}
+\tsum_{1} & \boldsymbol{0} & \boldsymbol{0} \\ 
+\boldsymbol{0} & \tsum_{1} & \boldsymbol{0} \\ 
+\boldsymbol{0} & \boldsymbol{0} & \tsum_{1}%
+\end{array}%
+\right] 
+\end{equation*}%
+where%
+\begin{equation*}
+\tsum\nolimits_{1}=\left[ 
+\begin{array}{cccc}
+\sigma _{a}^{2}+\sigma ^{2} & \sigma _{a}^{2} & \sigma _{a}^{2} & \sigma
+_{a}^{2} \\ 
+& \sigma _{a}^{2}+\sigma ^{2} & \sigma _{a}^{2} & \sigma _{a}^{2} \\ 
+&  & \sigma _{a}^{2}+\sigma ^{2} & \sigma _{a}^{2} \\ 
+&  &  & \sigma _{a}^{2}+\sigma ^{2}%
+\end{array}%
+\right] 
+\end{equation*}
+
+\bigskip 
+
+Then $I_{12\times 12}-P_{\mathbf{x}}=I-\boldsymbol{1}_{12}\left( \boldsymbol{%
+1}_{12}^{\dagger }\boldsymbol{1}\right) ^{-1}\boldsymbol{1}_{12}^{\dagger
+}=I_{12}-\frac{1}{12}J_{12}$
+
+A suitable $\mathbf{C}$ would be $\mathbf{C}=\left[ I_{12},\mathbf{O}_{12}%
+\right] _{12\times 24}$ and\newline
+$\mathbf{K}_{11\times 12}=\mathbf{C}_{11\times 12}\left( I-P_{\mathbf{x}%
+}\right) _{12\times 12}=\left[ 
+\begin{array}{cc}
+1_{11} & \mathbf{O}_{11}%
+\end{array}%
+\right] _{11\times 12}\left( I_{12}-\frac{1}{12}J_{12}\right) $
+
+\bigskip 
+
+$K\tsum K^{\dagger }=\left( I_{12}-\frac{1}{12}J_{12}\right) \tsum \left(
+I_{12}-\frac{1}{12}J_{12}\right) =\left( \tsum -\frac{1}{12}J\tsum \right)
+\left( I_{12}-\frac{1}{12}J_{12}\right) $\newline
+$=\tsum -\frac{1}{12}\tsum J_{12}-\frac{1}{12}J\tsum +\frac{1}{14x}J\tsum J$
+
+\bigskip 
+
+$tr\left( K^{\prime }\left( K\tsum K^{\dagger }\right) ^{-1}K\mathbf{Z}_{0}%
+\mathbf{Z}_{0}^{\dagger }\right) =tr\left( K^{\prime }\left( K\tsum
+K^{\dagger }\right) ^{-1}xJ_{12}\right) =$
+
+$\left( K\tsum K^{\dagger }\right) ^{-1}=\left( K\left( \sigma
+_{0}^{2}I_{12}+\sigma _{1}^{2}Z_{1}Z_{1}^{\dagger }\right) K\right) ^{-1}$
+
+\bigskip 
+
+\bigskip 
+
+\section{The General Mixed Model}
+
+\bigskip 
+
+\begin{eqnarray*}
+\mathbf{Y} &=&\mathbf{x\beta }+\mathbf{Z\mu }+\mathbf{\varepsilon \quad
+,\quad \varepsilon }\sim \mathcal{N}\left( 0,\mathbf{R}\right) \mathbf{\quad
+,\quad \mu }\sim \mathcal{N}\left( 0,\mathbf{G}\right)  \\
+&&\mathbf{X,Z,R,G}\text{ are all known}
+\end{eqnarray*}%
+where $\mathbf{X}$ and $\mathbf{Z}$ are $n\times p$ and $n\times q$
+matrices, and%
+\begin{equation*}
+\mathbf{\varepsilon }^{\ast }=\left[ 
+\begin{array}{c}
+\mathbf{\mu } \\ 
+\varepsilon 
+\end{array}%
+\right] =\left[ 
+\begin{array}{cc}
+\mathbf{Z} & I%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mathbf{\mu } \\ 
+\varepsilon 
+\end{array}%
+\right] =\mathbf{A}\left[ 
+\begin{array}{c}
+\mathbf{\mu } \\ 
+\varepsilon 
+\end{array}%
+\right] 
+\end{equation*}
+
+\bigskip 
+
+\begin{equation*}
+\mathbf{Y}=\mathbf{x\beta }+\mathbf{\varepsilon }^{\ast }\mathbf{,}\text{
+where }\mathbf{\varepsilon }^{\ast }\sim \mathcal{N}_{n}\left( 0,\mathbf{V}%
+\right) 
+\end{equation*}%
+\begin{eqnarray*}
+\mathbf{V} &=&Var\left( \mathbf{A}\left[ 
+\begin{array}{c}
+\mathbf{\mu } \\ 
+\varepsilon 
+\end{array}%
+\right] \right)  \\
+&=&\mathbf{A}\left[ 
+\begin{array}{cc}
+\mathbf{G} &  \\ 
+& \mathbf{R}%
+\end{array}%
+\right] \mathbf{A}^{\dagger } \\
+&=&\left[ 
+\begin{array}{cc}
+\mathbf{Z} & I%
+\end{array}%
+\right] \left[ 
+\begin{array}{cc}
+\mathbf{G} &  \\ 
+& \mathbf{R}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mathbf{Z}^{\dagger } \\ 
+I%
+\end{array}%
+\right]  \\
+&=&\left[ 
+\begin{array}{cc}
+\mathbf{ZG} & \mathbf{R}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mathbf{Z}^{\dagger } \\ 
+I%
+\end{array}%
+\right]  \\
+&=&\mathbf{ZGZ}^{\dagger }+I\mathbf{R}
+\end{eqnarray*}
+
+\bigskip 
+
+Recall: 
 
 \end{document}
