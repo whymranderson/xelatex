@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Saturday, May 21, 2016 13:57:39}
+%TCIDATA{LastRevised=Sunday, May 22, 2016 14:51:54}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,7 +50,7 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-\input{tcilatex}
+
 
 \begin{document}
 
@@ -489,7 +489,7 @@ a_{i},a_{j}\right) =0\quad i\neq j$ and $Cov\left( a_{i},\varepsilon \right)
 =0$
 \end{example}
 
-\bigskip 
+\bigskip
 
 \begin{equation*}
 \mathbf{Y}_{12}=\mu \mathbf{1}_{12}+\mathbf{Z}_{12\times 3}\mathbf{a}%
@@ -503,7 +503,7 @@ where $\mathbf{Z}=\left[
 \end{array}%
 \right] _{12\times 3}$
 
-\bigskip 
+\bigskip
 
 $\therefore $%
 \begin{equation*}
@@ -520,7 +520,7 @@ J_{4} &  &  \\
 \boldsymbol{0} & \tsum_{1} & \boldsymbol{0} \\ 
 \boldsymbol{0} & \boldsymbol{0} & \tsum_{1}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 where%
 \begin{equation*}
@@ -532,14 +532,16 @@ _{a}^{2} \\
 &  & \sigma _{a}^{2}+\sigma ^{2} & \sigma _{a}^{2} \\ 
 &  &  & \sigma _{a}^{2}+\sigma ^{2}%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 Then $I_{12\times 12}-P_{\mathbf{x}}=I-\boldsymbol{1}_{12}\left( \boldsymbol{%
 1}_{12}^{\dagger }\boldsymbol{1}\right) ^{-1}\boldsymbol{1}_{12}^{\dagger
 }=I_{12}-\frac{1}{12}J_{12}$
+
+\bigskip 
 
 A suitable $\mathbf{C}$ would be $\mathbf{C}=\left[ I_{12},\mathbf{O}_{12}%
 \right] _{12\times 24}$ and\newline
@@ -550,14 +552,14 @@ $\mathbf{K}_{11\times 12}=\mathbf{C}_{11\times 12}\left( I-P_{\mathbf{x}%
 \end{array}%
 \right] _{11\times 12}\left( I_{12}-\frac{1}{12}J_{12}\right) $
 
-\bigskip 
+\bigskip
 
 $K\tsum K^{\dagger }=\left( I_{12}-\frac{1}{12}J_{12}\right) \tsum \left(
 I_{12}-\frac{1}{12}J_{12}\right) =\left( \tsum -\frac{1}{12}J\tsum \right)
 \left( I_{12}-\frac{1}{12}J_{12}\right) $\newline
 $=\tsum -\frac{1}{12}\tsum J_{12}-\frac{1}{12}J\tsum +\frac{1}{14x}J\tsum J$
 
-\bigskip 
+\bigskip
 
 $tr\left( K^{\prime }\left( K\tsum K^{\dagger }\right) ^{-1}K\mathbf{Z}_{0}%
 \mathbf{Z}_{0}^{\dagger }\right) =tr\left( K^{\prime }\left( K\tsum
@@ -566,13 +568,13 @@ K^{\dagger }\right) ^{-1}xJ_{12}\right) =$
 $\left( K\tsum K^{\dagger }\right) ^{-1}=\left( K\left( \sigma
 _{0}^{2}I_{12}+\sigma _{1}^{2}Z_{1}Z_{1}^{\dagger }\right) K\right) ^{-1}$
 
-\bigskip 
+\bigskip
 
-\bigskip 
+\bigskip
 
 \section{The General Mixed Model}
 
-\bigskip 
+\bigskip
 
 \begin{eqnarray*}
 \mathbf{Y} &=&\mathbf{x\beta }+\mathbf{Z\mu }+\mathbf{\varepsilon \quad
@@ -586,7 +588,7 @@ matrices, and%
 \mathbf{\varepsilon }^{\ast }=\left[ 
 \begin{array}{c}
 \mathbf{\mu } \\ 
-\varepsilon 
+\mathbf{\varepsilon }%
 \end{array}%
 \right] =\left[ 
 \begin{array}{cc}
@@ -595,17 +597,17 @@ matrices, and%
 \right] \left[ 
 \begin{array}{c}
 \mathbf{\mu } \\ 
-\varepsilon 
+\mathbf{\varepsilon }%
 \end{array}%
 \right] =\mathbf{A}\left[ 
 \begin{array}{c}
 \mathbf{\mu } \\ 
-\varepsilon 
+\mathbf{\varepsilon }%
 \end{array}%
 \right] 
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 \begin{equation*}
 \mathbf{Y}=\mathbf{x\beta }+\mathbf{\varepsilon }^{\ast }\mathbf{,}\text{
@@ -616,13 +618,13 @@ where }\mathbf{\varepsilon }^{\ast }\sim \mathcal{N}_{n}\left( 0,\mathbf{V}%
 \mathbf{V} &=&Var\left( \mathbf{A}\left[ 
 \begin{array}{c}
 \mathbf{\mu } \\ 
-\varepsilon 
+\mathbf{\varepsilon }%
 \end{array}%
 \right] \right)  \\
 &=&\mathbf{A}\left[ 
 \begin{array}{cc}
-\mathbf{G} &  \\ 
-& \mathbf{R}%
+\mathbf{G} & 0 \\ 
+0 & \mathbf{R}%
 \end{array}%
 \right] \mathbf{A}^{\dagger } \\
 &=&\left[ 
@@ -631,8 +633,8 @@ where }\mathbf{\varepsilon }^{\ast }\sim \mathcal{N}_{n}\left( 0,\mathbf{V}%
 \end{array}%
 \right] \left[ 
 \begin{array}{cc}
-\mathbf{G} &  \\ 
-& \mathbf{R}%
+\mathbf{G} & 0 \\ 
+0 & \mathbf{R}%
 \end{array}%
 \right] \left[ 
 \begin{array}{c}
@@ -653,8 +655,107 @@ I%
 &=&\mathbf{ZGZ}^{\dagger }+I\mathbf{R}
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
-Recall: 
+Recall: $\mathbf{Y}=\mathbf{x\beta }+\mathbf{\varepsilon }$, $\mathbf{%
+\varepsilon }\sim \mathcal{N}_{n}\left( 0,\tsum \right) $, $\tsum $ known, $%
+\tsum =\tsum^{\frac{1}{2}}\left( \tsum^{\frac{1}{2}}\right) ^{\dagger }$%
+\begin{equation*}
+\Rightarrow \tsum\nolimits^{-\frac{1}{2}}\mathbf{Y}\sim \mathcal{N}%
+_{n}\left( 0,\underset{I_{n}}{\underbrace{\tsum\nolimits^{-\frac{1}{2}}\tsum
+\left( \tsum\nolimits^{-\frac{1}{2}}\right) ^{\dagger }}}\right)
+\end{equation*}%
+\newline
+$\therefore $ the LSE of $\mathbf{\beta }$ is%
+\begin{equation*}
+\mathbf{\hat{\beta}}=\left( \mathbf{x}^{\dagger }\tsum\nolimits^{-1}\mathbf{x%
+}\right) ^{-1}\mathbf{x}^{\dagger }\tsum\nolimits^{-1}\mathbf{Y\quad }\text{%
+, the weighted LSE}
+\end{equation*}
+
+\bigskip
+
+\begin{itemize}
+\item $\mathbf{\hat{\beta}}=\left( \mathbf{x}^{\dagger }V^{-1}\mathbf{x}%
+\right) ^{-1}\mathbf{x}^{\dagger }V^{-1}\mathbf{Y}$
+
+\item Estimation of $\mathbf{\mu }$:%
+\begin{equation*}
+\mathbf{Y}\sim \mathcal{N}_{n}\left( \mathbf{x},V\right) \quad ,\quad 
+\mathbf{\mu }=\mathcal{N}\left( 0,\mathbf{G}\right)
+\end{equation*}%
+\begin{eqnarray*}
+Cov\left( \mathbf{Y,\mu }\right) &=&Cov\left( \mathbf{x\beta }+\mathbf{Z\mu }%
++\mathbf{\varepsilon ,\mu }\right) \\
+&=&Cov\left( \mathbf{Z\mu ,\mu }\right) +Cov\left( \mathbf{\varepsilon ,\mu }%
+\right) \\
+&=&\mathbf{Z}Var\left( \mathbf{\mu }\right) +\mathbf{0} \\
+&=&\mathbf{ZG}
+\end{eqnarray*}%
+\begin{equation*}
+\Rightarrow \left[ 
+\begin{array}{c}
+\mathbf{Y} \\ 
+\mathbf{\mu }%
+\end{array}%
+\right] \sim \mathcal{N}_{n+q}\left( \left[ 
+\begin{array}{c}
+\mathbf{x\beta } \\ 
+\boldsymbol{0}%
+\end{array}%
+\right] ,\left[ 
+\begin{array}{cc}
+\mathbf{V} & \mathbf{ZG} \\ 
+\mathbf{GZ}^{\dagger } & \mathbf{G}%
+\end{array}%
+\right] \right)
+\end{equation*}
+\end{itemize}
+
+\bigskip
+
+recall: 
+\begin{equation*}
+\left[ 
+\begin{array}{c}
+\mathbf{Y} \\ 
+\mathbf{Z}%
+\end{array}%
+\right] \sim \mathcal{N}\left( \left[ 
+\begin{array}{c}
+\mathbf{\mu }_{\mathbf{Y}} \\ 
+\mathbf{\mu }_{\mathbf{Z}}%
+\end{array}%
+\right] ,\left[ 
+\begin{array}{cc}
+\tsum\nolimits_{\mathbf{Y}} & \tsum\nolimits_{\mathbf{YZ}} \\ 
+\tsum\nolimits_{\mathbf{ZY}} & \tsum\nolimits_{\mathbf{Z}}%
+\end{array}%
+\right] \right)
+\end{equation*}%
+\begin{equation*}
+\Rightarrow \mathbf{Z}|\mathbf{Y}\sim \mathcal{N}\left( \mathbf{\mu }_{%
+\mathbf{Z}|\mathbf{Y}},\tsum\nolimits_{\mathbf{Z}|\mathbf{Y}}\right)
+\end{equation*}%
+with%
+\begin{eqnarray*}
+\mathbf{\mu }_{\mathbf{Z}|\mathbf{Y}} &=&\mathbf{\mu }_{Z}+\tsum%
+\nolimits_{ZY}\tsum\nolimits_{Y}^{-1}\left( \mathbf{Y}-\mathbf{\mu }%
+_{Y}\right) \\
+\tsum\nolimits_{\mathbf{Z}|\mathbf{Y}}
+&=&\tsum\nolimits_{Z}-\tsum\nolimits_{ZY}\tsum\nolimits_{Y}^{-1}\tsum%
+\nolimits_{YZ}
+\end{eqnarray*}%
+\begin{eqnarray*}
+E\left( \mathbf{\mu }|\mathbf{Y}\right) &=&\mathbf{\mu }_{\mu
+}+\tsum\nolimits_{\mathbf{\mu Y}}\tsum\nolimits_{Y}^{-1}\left( \mathbf{%
+Y-x\beta }\right) \\
+&=&0+\mathbf{GZ}^{\dagger }\mathbf{V}^{-1}\left( \mathbf{Y-x\beta }\right) \\
+&=&\mathbf{GZ}^{\dagger }\mathbf{V}^{-1}\left( \mathbf{Y-x\beta }\right)
+\end{eqnarray*}%
+is the best linear unbiased predictor of $\mathbf{\mu }$ (BLUP).\newline
+\newline
+Thus, $\mathbf{\tilde{\mu}=GZ}^{\dagger }\mathbf{V}^{-1}\left( \mathbf{Y-x%
+\hat{\beta}}\right) $ is the empirical BLUP.
 
 \end{document}

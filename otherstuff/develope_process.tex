@@ -46,43 +46,37 @@
             \textbf{更改對應的影響}
             \nodepart{second}
             \begin{enumerate}
-            \item 1. 每一個項目的更改都會影響相關項目
-  	 \item 2. 影響會傳播
-  	 \item 3. 傳播後可能要與原更動項目來回好幾次才會達到最佳的情況
-  	 \item 4. 很多解決問題的步驟值得記錄下來並做成網頁放上網站，也很花時間。
-  	 \item 5. 已經很多傳播做成一鑑完成按鍵，如E->B,A->B,demo舉例
+            \item 1. 每一個項目的更改都會影響相關項目，影響會傳播，傳播後可能要與原更動項目來回好幾次才會達到最佳的情況，很花時間。
+  	 \item 2. 很多解決問題的步驟值得記錄下來並做成網頁放上網站，也很花時間。
+  	 \item 3. 已經很多影響傳播做成一鑑完成按鍵，如E->B,A->B,demo舉例。不過還有很多還沒有。
 	 \end{enumerate}
 };
 \node [item,left=of a]   (manual)     {%
             \textbf{B. 技術手冊}
             \nodepart{second}
             \begin{enumerate}
-            \item 1. 教學文件
-  	 \item 2. 軟體操作手冊
-  	 \item 3. 程式函式說明書
-  	 \item 編輯很花時間。
-  	 \item 有保持一個程式演進進程文字紀錄，一段時間就要撰寫紀錄也相當搞剛。
-  	 \item 3D圖形製作，文件中圖形位置擺放花時間(MSword>LaTeX)
-  	 \item 實體書DIY製作，一旦有更新，要重作實體書，至今六七本，需非常多列印，列印至少上千張紙，編輯社影印社不會告訴你的秘辛。做出一本書的繁瑣度。更新->校稿->重新列印，反覆發生。
+            \item 1. 教學文件【軟體操作說明，程式函式說明書需要一直更新編輯很花時間】
+  	 \item 2. 有保持一個程式演進進程文字紀錄，一段時間就要撰寫紀錄也相當搞剛。
+  	 \item 3. 文件的3D圖形製作花時間，文件中圖形位置擺放花時間(MSword比LaTeX更花時間!)
+  	 \item 4. 實體書DIY製作，一旦有更新，要重作實體書，至今六七本，需非常多列印，列印至少上千張紙，編輯社影印社不會告訴你的秘辛。做出一本書的繁瑣度。更新->校稿->重新列印，反覆發生。
 	 \end{enumerate}
  };
 \node [item,right=of a]      (extend)    {%
             \textbf{E. 擴充性}
             \nodepart{second}
             \begin{enumerate}
-            \item 1. bluetooth平板應用
+            \item 1. (A法的應用)平板gyro無線連結應用初步完成，接下來若要真正演示需要濾波，因平板gyro噪音非常大。
   	 \item 2. 準確度，A法與compedra上的ejss陀螺模擬比較
   	 \item 3. 陀螺環不會停止旋轉的原因
   	 \item 4. 加Unity3D遊戲物件轉動模擬演示、第一人稱飛機遊戲滑鼠控制器演示。(皆為C法的應用)
+	 \item 5. 大力士舉飛輪的例子基礎已完成。還有非常多瑣碎的事情需要補起來。
 	 \end{enumerate}
   };
 \node [item,above=of a] (animation){
-            \textbf{A. 動畫製作OpenGL}
+            \textbf{A. 動畫製作}
             \nodepart{second}
             \begin{enumerate}
-            \item 1. 將所有例子改為opengl動畫
-  	 \item 2. 加入物理量的文字label動畫
-  	 \item 3. 加ASUS平板陀螺儀演示(A法的應用)
+  	 \item 1. (A法的應用)將ASUS平板陀螺儀演示放入模擬程式，初步完成。
   	 \item 4. 美觀化(加光線追蹤)
   	 \item --GUI使用者介面部分--
   	 \item a. OpenGL animation關閉後要手動重啟一個新個interpreter，因為glut的關係
@@ -121,8 +115,8 @@
             \textbf{C. 檔案備份與管理}
             \nodepart{second}
             \begin{enumerate}
-            \item 1. git學習時期很花時間
-  	 \item 2. 檔案規劃整理花時間
+            \item 1. git學習很花時間
+  	 \item 2. 檔案規劃思考與整理花時間
 	 \end{enumerate}
 };
 \node [item,below right=of a,xshift=-2cm](outreach) {%
@@ -132,7 +126,7 @@
             \item 1. 以B的內容來製作翻轉教學影片，拍影片編輯影片要花九倍時間
   	 \item 2. 下鄉教學的機會找不太到?，職訓?青輔? 台南市內處處碰壁
   	 \item 3. 文宣，廣告(又要列印)
-  	 \item 若有回饋，則要來回修正上面許多相關項目(如藍哥回饋三法比較圖)
+  	 \item 若有回饋，則要來回修正上面許多相關項目(如藍哥回饋三法比較圖，irslab kuku提浮點數誤差累積，此兩項目已完成。)
 	 \end{enumerate}
   };
 \end{scope}
