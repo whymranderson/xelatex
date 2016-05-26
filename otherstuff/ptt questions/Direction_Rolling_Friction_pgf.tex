@@ -1,0 +1,185 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ignoreall]{geometry}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{multicol}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, April 06, 2016 11:13:15}
+%TCIDATA{LastRevised=Thursday, May 26, 2016 16:58:23}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../../tcilatex}
+
+
+
+\begin{document}
+
+
+\part{The direction of rolling friction w/o slippling}
+
+How to determine the direction of friction force acting on a rolling object?
+This is important and is ensential to solving the dynamics of rolling
+motions.
+
+\begin{case}
+Round object freely rolling down the hill\newline
+\newline
+The only force that makes the object rotate is friction so friction has to
+go up the hill. This friction force is exerted on the wheel by the slope.
+
+\input{../../../../Scripts/cordtrans/cases_fig_only/whatever.pgf}
+\end{case}
+
+\newpage
+
+\begin{case}
+Object is forced to roll up the hill initially but external force is removed
+once the object is going upward. We are considering the later part of the
+motion when the external force is removed, so only gravitation is in place.
+The wheel is still rolling up the hill.\newline
+\newline
+The rotation of the object slows down as it climbs up the hill. Friction is
+the only force that produces a torque to slow down the rotation. So it needs
+to go against the rotating direction. So the friction force acting on the
+wheel is up the hill.
+
+\input{../../../../Scripts/cordtrans/cases_fig_only/friction2.pgf}
+\end{case}
+
+\newpage
+
+\begin{case}
+External force $F_{p}$ passing through CM point\newline
+\input{../../../../Scripts/cordtrans/cases_fig_only/case3a.pgf}\newline
+Friction is still the only force that produces an angular acceleration, so
+friction should have the same direction as angular acceleration. If the
+object is moving to the right and rotating faster, friction acting on the
+object goes towards left. If the object is moving to the left and rotation
+slow down because of the external force slowing it down, the friction force
+goes towards the left, to produce a torque and a angular acceleration to
+slow down the rotation.\newline
+\input{../../../../Scripts/cordtrans/cases_fig_only/case3b.pgf}%
+\[
+\left\{ 
+\begin{array}{c}
+F_{p}-F_{fr}=ma \\ 
+F_{fr}\cdot R=I\alpha =I\frac{a}{R}%
+\end{array}%
+\right. 
+\]
+\end{case}
+
+\newpage
+
+\begin{case}
+An external torque (not force), like on car tire.\newline
+\input{../../../../Scripts/cordtrans/cases_fig_only/case4a.pgf}\newline
+In this case, the rule of friction is not to cause rotation; the rotation
+about the center is done by the external torque. From 2nd law, in order to
+have no slipping, a translational force is needed to accelerate the CM of
+the object to move. Otherwise the object will slip. Friction in this case
+acts as this \emph{force}, to give the CM of the object an acceleration to
+the right. One can judge from the relative movement between the object and
+the ground too. Friction prevents the object from skidding at the contact.
+So friction acting on the object goes to the right, while the mutual
+friction force acting on the ground goes to the left.%
+\begin{eqnarray*}
+&&\left\{ 
+\begin{array}{c}
+F_{fr}=ma \\ 
+\tau -F_{fr}\cdot R=I\alpha =I\frac{a}{R}%
+\end{array}%
+\right. \\
+&\Rightarrow &a=\frac{\tau }{mR+\frac{I}{R}}
+\end{eqnarray*}%
+\input{../../../../Scripts/cordtrans/cases_fig_only/case4b.pgf}
+\end{case}
+
+\newpage 
+
+\begin{case}
+External forces not passing through CM pivot. (so there are both external
+force and torque.)
+\end{case}
+
+%TCIMACRO{\TeXButton{2columns}{\begin{multicols}{2}}}%
+%BeginExpansion
+\begin{multicols}{2}%
+%EndExpansion
+
+Let assume friction goes right, then
+
+\input{../../../../Scripts/cordtrans/cases_fig_only/case5c.pgf}
+
+from 2nd law%
+\begin{eqnarray*}
+&&\left\{ 
+\begin{array}{c}
+F_{p}+F_{fr}=ma \\ 
+\left( F_{p}-F_{fr}\right) R=I\alpha =I\frac{a}{R}%
+\end{array}%
+\right. \\
+&\Rightarrow &F_{fr}=\frac{1}{2}\left( m-\frac{I}{R^{2}}\right) a
+\end{eqnarray*}
+
+So if $mR^{2}>I$, then $F_{fr}$ goes to the right!
+
+\bigskip
+
+If frction goes to the left,
+
+\input{../../../../Scripts/cordtrans/cases_fig_only/case5c.pgf}
+
+\begin{eqnarray*}
+&&\left\{ 
+\begin{array}{c}
+F_{p}-F_{fr}=ma \\ 
+\left( F_{p}+F_{fr}\right) R=I\alpha =I\frac{a}{R}%
+\end{array}%
+\right. \\
+&\Rightarrow &F_{fr}=\frac{1}{2}\left( \frac{I}{R^{2}}-m\right) a
+\end{eqnarray*}
+
+So if $mR^{2}<I$, then $F_{fr}$ goes to the left!
+
+\bigskip
+
+%TCIMACRO{\TeXButton{end2columns}{\end{multicols}}}%
+%BeginExpansion
+\end{multicols}%
+%EndExpansion
+
+In this case the direction of friction depends on the condition $mR^{2}>I$
+or $mR^{2}<I$.
+
+\end{document}
