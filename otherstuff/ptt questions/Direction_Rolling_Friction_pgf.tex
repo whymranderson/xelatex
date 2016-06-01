@@ -11,7 +11,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, April 06, 2016 11:13:15}
-%TCIDATA{LastRevised=Thursday, May 26, 2016 16:58:23}
+%TCIDATA{LastRevised=Friday, May 27, 2016 16:48:06}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -39,6 +39,7 @@
 \newtheorem{summary}[theorem]{Summary}
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \input{../../tcilatex}
+\setlength{\columnseprule}{1pt}
 
 
 
@@ -125,19 +126,23 @@ F_{fr}=ma \\
 \input{../../../../Scripts/cordtrans/cases_fig_only/case4b.pgf}
 \end{case}
 
-\newpage 
+\newpage
 
 \begin{case}
 External forces not passing through CM pivot. (so there are both external
 force and torque.)
 \end{case}
 
+\input{../../../../Scripts/cordtrans/cases_fig_only/case5a.pgf}
+
+\bigskip
+
 %TCIMACRO{\TeXButton{2columns}{\begin{multicols}{2}}}%
 %BeginExpansion
 \begin{multicols}{2}%
 %EndExpansion
 
-Let assume friction goes right, then
+Let assume friction acting on the wheel goes right, then
 
 \input{../../../../Scripts/cordtrans/cases_fig_only/case5c.pgf}
 
@@ -156,9 +161,9 @@ So if $mR^{2}>I$, then $F_{fr}$ goes to the right!
 
 \bigskip
 
-If frction goes to the left,
+If frction acting on the wheel goes to the left,
 
-\input{../../../../Scripts/cordtrans/cases_fig_only/case5c.pgf}
+\input{../../../../Scripts/cordtrans/cases_fig_only/case5b.pgf}
 
 \begin{eqnarray*}
 &&\left\{ 
@@ -179,7 +184,12 @@ So if $mR^{2}<I$, then $F_{fr}$ goes to the left!
 \end{multicols}%
 %EndExpansion
 
+\bigskip
+
 In this case the direction of friction depends on the condition $mR^{2}>I$
-or $mR^{2}<I$.
+or $mR^{2}<I$. We can also recgonize in the first senario if $mR^{2}<I$ then 
+$F_{fr}$ is negative, so the friction should be opposite to the positive
+direction we assume (to the right). This way we can save the time of working
+on the 2nd case.
 
 \end{document}
