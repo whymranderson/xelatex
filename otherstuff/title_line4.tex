@@ -1,27 +1,26 @@
-%\documentclass[12pt,twoside]{article}
-%\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
-%\usepackage{fontspec}
-%\usepackage{xeCJK}
-%\setmainfont{Times New Roman}
-%\setsansfont{Verdana}
-%\setmonofont{Courier New}                    % tt
-%\setCJKmainfont{微軟正黑體}
-%\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
-%\usepackage{graphicx}
-%\usepackage{pgf}
-%\usepackage{pstricks,pst-node}
-%
-%\renewcommand{\today}{西元\number \year 年\ifcase \month \or 1月\or 2月\or 3月\or 4月\or 5月\or 6月\or 7月\or 8月\or 9月\or 10月\or 11月\or 12月\fi
-%} 
-%
-%\begin{document}
+\documentclass[12pt,twoside]{article}
+\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}                    % tt
+\setCJKmainfont{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{pstricks,pst-node}
 
-\begin{pspicture}(6in,2in)
-%\psgrid
+\renewcommand{\today}{西元\number \year 年\ifcase \month \or 1月\or 2月\or 3月\or 4月\or 5月\or 6月\or 7月\or 8月\or 9月\or 10月\or 11月\or 12月\fi
+} 
+
+\begin{document}
+
+\begin{pspicture}(-0.5in,0.2in)(5.5in,2.2in)
+\psgrid
 
 \rput[B](13 cm,-1.25cm){
 \rnode{A}{
-\includegraphics[scale=0.37]{./otherstuff/logo_Aug29_test.PNG}%../
+\includegraphics[scale=0.37]{logo_Aug29_test.PNG}%.././otherstuff
 }}
 
 \rput[b](5.5cm,0.8cm){
@@ -50,7 +49,7 @@
 
 \rput[B](5.5 cm,3.3cm){
 \rnode{E}{
-\includegraphics[scale=0.5]{./otherstuff/decoration_line.PNG}%..//otherstuff
+\includegraphics[scale=0.5]{decoration_line.PNG}%..//otherstuff
 }}
 
 
@@ -60,4 +59,4 @@
 \end{pspicture}
 
 
-%\end{document}
+\end{document}
