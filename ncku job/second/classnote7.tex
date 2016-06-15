@@ -1,0 +1,219 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{accents}
+\usepackage[ignoreall,a4paper]{geometry}
+\usepackage{fancyhdr}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
+%TCIDATA{LastRevised=Wednesday, June 15, 2016 16:57:51}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{ComputeDefs=
+%$W=\left( 1-\sigma \right) I$
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../../tcilatex}
+\DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+
+\input{tcilatex}
+
+\begin{document}
+
+
+\section{Non-full-Rank Models}
+
+\begin{enumerate}
+\item linear combination of the parameters
+
+\item reparameterization
+
+\item $^{\bigstar }$constraints
+\end{enumerate}
+
+\bigskip
+
+\begin{example}
+\begin{enumerate}
+\item One\_Way model%
+\begin{equation*}
+y_{ij}=\mu +\alpha _{i}+\varepsilon _{ij}\quad i=1,2\quad j=1,2,3
+\end{equation*}%
+\begin{equation*}
+\left[ 
+\begin{array}{c}
+y_{11} \\ 
+y_{12} \\ 
+y_{13} \\ 
+y_{21} \\ 
+y_{22} \\ 
+y_{23}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{ccc}
+1 & 1 & 0 \\ 
+1 & 1 & 0 \\ 
+1 & 1 & 0 \\ 
+1 & 0 & 1 \\ 
+1 & 0 & 1 \\ 
+1 & 0 & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu \\ 
+\alpha _{1} \\ 
+\alpha _{2}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{c}
+\epsilon _{11} \\ 
+\epsilon _{12} \\ 
+\epsilon _{13} \\ 
+\epsilon _{21} \\ 
+\epsilon _{22} \\ 
+\epsilon _{23}%
+\end{array}%
+\right]
+\end{equation*}%
+\newline
+\newline
+\begin{equation*}
+\mathbf{Y=}\underset{6\times 3}{\mathbf{X}}\mathbf{\beta +\epsilon },\quad
+r\left( \mathbf{X}\right) =2<3
+\end{equation*}
+
+\item Two\_Way model%
+\begin{equation*}
+y_{ij}=\mu +\alpha _{i}+\beta _{j}+\varepsilon _{ij}\quad 
+\begin{tabular}{l}
+$i=1,2$ \\ 
+$j=1,2$%
+\end{tabular}%
+\end{equation*}%
+\begin{equation*}
+\left[ 
+\begin{array}{c}
+y_{11} \\ 
+y_{12} \\ 
+y_{21} \\ 
+y_{22}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{ccccc}
+1 & 1 & 0 & 1 & 0 \\ 
+1 & 1 & 0 & 0 & 1 \\ 
+1 & 0 & 1 & 1 & 0 \\ 
+1 & 0 & 1 & 0 & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu \\ 
+\alpha _{1} \\ 
+\alpha _{2} \\ 
+\beta _{1} \\ 
+\beta _{2}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{c}
+\varepsilon _{11} \\ 
+\varepsilon _{12} \\ 
+\varepsilon _{21} \\ 
+\varepsilon _{22}%
+\end{array}%
+\right]
+\end{equation*}%
+\newline
+\newline
+\begin{equation*}
+\mathbf{Y=}\underset{4\times 5}{\mathbf{X}}\mathbf{\beta +\epsilon },\quad
+r\left( \mathbf{X}\right) =3<5
+\end{equation*}
+\end{enumerate}
+\end{example}
+
+\bigskip
+
+Consider the model%
+\begin{equation*}
+\mathbf{Y=X\beta +\epsilon }
+\end{equation*}%
+where $E\left( \mathbf{\epsilon }\right) =\mathbf{0}$, and $Var\left( 
+\mathbf{\epsilon }\right) =\sigma ^{2}I_{n}$ and $\mathbf{X}$ is a $n\times
+p $ matrix with $r\left( \mathbf{X}\right) <p\leq n$.
+
+Then the least square estimator of $\mathbf{\beta }$ is%
+\begin{equation*}
+\mathbf{\hat{\beta}}=\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
+\mathbf{X}^{\dagger }\mathbf{Y\quad }\text{(it's not square)}
+\end{equation*}%
+\begin{eqnarray*}
+E\left( \mathbf{\hat{\beta}}\right) &=&E\left[ \left( \mathbf{X}^{\dagger }%
+\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\mathbf{Y}\right] =\left( \mathbf{%
+X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }E\left( \mathbf{Y}%
+\right) \\
+&=&\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }%
+\mathbf{X\beta \neq \beta }
+\end{eqnarray*}%
+\begin{eqnarray*}
+Var\left( \mathbf{\hat{\beta}}\right) &=&Var\left( \left( \mathbf{X}%
+^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\mathbf{Y}\right)
+=\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger
+}Var\left( \mathbf{Y}\right) \left[ \left( \mathbf{X}^{\dagger }\mathbf{X}%
+\right) ^{-}\mathbf{X}^{\dagger }\right] \\
+&=&\sigma ^{2}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}%
+^{\dagger }\mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-} \\
+&&\text{(it's not invariant to the choice of }\left( \mathbf{X}^{\dagger }%
+\mathbf{X}\right) ^{-}\text{)}
+\end{eqnarray*}
+
+\bigskip
+
+\begin{theorem}
+In the model $\mathbf{Y=X\beta +\epsilon }$, where $E\left( \mathbf{\epsilon 
+}\right) =\mathbf{0}$\quad $Var\left( \mathbf{\epsilon }\right) =\sigma
+^{2}I $ and $\mathbf{X}$ is $n\times p$ matrix with $r\left( \mathbf{X}%
+\right) =r<p\leq n$, the $\boldsymbol{\lambda }^{\dagger }\mathbf{\beta }$
+is estimable iff one of the following conditions holds:
+
+\begin{enumerate}
+\item $\boldsymbol{\lambda }^{\dagger }\in R\left( \mathbf{X}\right) \quad
+\left( \exists \ \mathbf{a}\quad \text{s.t.}\quad \mathbf{a}^{\dagger }%
+\mathbf{X=}\boldsymbol{\lambda }^{\dagger }\right) $
+\end{enumerate}
+\end{theorem}
+
+\end{document}
