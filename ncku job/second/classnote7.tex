@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Thursday, June 16, 2016 11:19:39}
+%TCIDATA{LastRevised=Friday, June 17, 2016 11:37:37}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,6 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
+
 
 
 \begin{document}
@@ -406,6 +407,136 @@ $, then
 $Var\left( \mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y}\right)
 =\sigma ^{2}\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{X\gamma =%
 }\sigma ^{2}\mathbf{\gamma \lambda }$
+
+\item $^{\bigstar \bigstar }Var\left( \mathbf{\lambda }^{\dagger }\mathbf{%
+\hat{\beta}}\right) $ is unique (invariant to the choice of $\mathbf{\gamma }
+$ or $\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}$)
 \end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+\item 
+\begin{eqnarray*}
+E\left( \mathbf{\lambda }^{\dagger }\mathbf{\hat{\beta}}\right) &=&E\left( 
+\mathbf{\lambda }^{\dagger }\left( \mathbf{X}^{\dagger }\mathbf{X}\right)
+^{-}\mathbf{X}^{\dagger }\mathbf{Y}\right) \\
+&=&\mathbf{\lambda }^{\dagger }\left( \mathbf{X}^{\dagger }\mathbf{X}\right)
+^{-}\mathbf{X}^{\dagger }\mathbf{X\beta \quad }\text{(i.e. }\mathbf{\lambda }%
+^{\dagger }\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}%
+^{\dagger }\mathbf{X=\lambda }^{\dagger }\text{)} \\
+&=&\mathbf{\lambda }^{\dagger }\mathbf{\beta }
+\end{eqnarray*}%
+\begin{eqnarray*}
+E\left( \mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y}\right) &=&%
+\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{X\beta =}\left( 
+\mathbf{X}^{\dagger }\mathbf{X\gamma }\right) ^{\dagger }\mathbf{\beta } \\
+&=&\mathbf{\lambda }^{\dagger }\mathbf{\beta \quad }\text{(}\mathbf{X}%
+^{\dagger }\mathbf{X\gamma =\lambda }\text{)}
+\end{eqnarray*}
+
+\item[3.] let $\mathbf{\gamma }_{1}$ and $\mathbf{\gamma }_{2}$ such that $%
+\mathbf{X}^{\dagger }\mathbf{X\gamma }_{1}=\mathbf{X}^{\dagger }\mathbf{%
+X\gamma }_{2}=\mathbf{\lambda }$\newline
+$\Rightarrow \mathbf{\gamma }_{1}^{\dagger }\mathbf{X}^{\dagger }\mathbf{X%
+\hat{\beta}}=\mathbf{\gamma }_{1}^{\dagger }\mathbf{X^{\dagger }Y}$ and $%
+\mathbf{\gamma }_{2}^{\dagger }\mathbf{X}^{\dagger }\mathbf{X\hat{\beta}}=%
+\mathbf{\gamma }_{2}^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y}$\newline
+$\Rightarrow \mathbf{\gamma }_{1}^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y}=%
+\mathbf{\gamma }_{2}^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y}$
+
+\item[5.] $\because \mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right)
+^{-}\mathbf{X}^{\dagger }$ isinvariant to the choice of $\left( \mathbf{X}%
+^{\dagger }\mathbf{X}\right) ^{-}$ (why!)\newline
+hints:$\left\{ 
+\begin{tabular}{l}
+1. $\mathbf{X}^{\dagger }\mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}%
+\right) ^{-}\mathbf{X}^{\dagger }\mathbf{X=X}^{\dagger }\mathbf{X}$ \\ 
+2. $\mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}%
+^{\dagger }\mathbf{X=X}$ \\ 
+3. $\mathbf{X}G_{1}\mathbf{X}^{\dagger }\mathbf{X=X}G_{2}\mathbf{X}^{\dagger
+}\mathbf{X}$ \\ 
+$\vdots $ \\ 
+$G_{1}=G_{2}$%
+\end{tabular}%
+\right. $\newline
+\newline
+Let $G_{1}$ and $G_{2}$ be two generalized inverse of $\left( \mathbf{X}%
+^{\dagger }\mathbf{X}\right) $ then%
+\begin{eqnarray*}
+\mathbf{X}G_{1}\mathbf{X}^{\dagger } &\mathbf{=}&\mathbf{X}G_{2}\mathbf{X}%
+^{\dagger }\quad \text{(}\mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}%
+\right) ^{-}\mathbf{X}^{\dagger }\text{ is invariant)} \\
+&\Rightarrow &\mathbf{a}^{\dagger }\mathbf{X}G_{1}\mathbf{X}^{\dagger }%
+\mathbf{a=\mathbf{a}^{\dagger }X}G_{2}\mathbf{X}^{\dagger }\mathbf{a,}\quad 
+\text{where }\mathbf{a}^{\dagger }\mathbf{X=\lambda } \\
+&&\text{(}\mathbf{\lambda }^{\dagger }\mathbf{\beta }\text{ is estimable)} \\
+&\Rightarrow &\mathbf{\lambda }G_{1}\mathbf{\lambda }^{\dagger }=\mathbf{%
+\lambda }G_{2}\mathbf{\lambda }^{\dagger } \\
+&\therefore &G_{1}=G_{2}
+\end{eqnarray*}
+\end{enumerate}
+\end{proof}
+
+\bigskip
+
+\begin{theorem}
+If $\mathbf{\lambda }^{\dagger }\mathbf{\beta }$ is an estimable function in
+the linear model $\mathbf{Y=X\beta +\epsilon }$, where $r\left( \mathbf{X}%
+\right) =r<p\leq n$, then $\mathbf{\lambda }^{\dagger }\mathbf{\beta }$ and $%
+\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y}$ is BLUE.
+
+\begin{proof}
+\begin{eqnarray*}
+&&\mathbf{\lambda }^{\dagger }\mathbf{\beta }\text{ is estimable} \\
+&\Rightarrow &\exists \ \mathbf{a\quad }\text{s.t.}\mathbf{\quad a}^{\dagger
+}\mathbf{X=\lambda }^{\dagger } \\
+&\Rightarrow &\exists \ \mathbf{\gamma \quad }\text{s.t.}\mathbf{\quad
+\gamma ^{\dagger }X}^{\dagger }\mathbf{X=\lambda }^{\dagger }
+\end{eqnarray*}%
+\newline
+\newline
+let $\mathbf{a}^{\dagger }\mathbf{Y}$ be a linear estimator of $\mathbf{%
+\lambda }^{\dagger }\mathbf{\beta }$, WLOG, let $\mathbf{a}^{\dagger }=%
+\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{+C}^{\dagger }$
+where $\mathbf{\gamma }^{\dagger }$ is a solution to $\mathbf{\lambda
+^{\dagger }=\gamma ^{\dagger }X}^{\dagger }\mathbf{X}$%
+\begin{eqnarray*}
+E\left( \mathbf{a}^{\dagger }\mathbf{Y}\right) &=&E\left( \left( \mathbf{%
+\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{+C}^{\dagger }\right) 
+\mathbf{Y}\right) \\
+&=&\left( \mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{+C}%
+^{\dagger }\right) \mathbf{X\beta } \\
+&=&\left( \mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{X+C}%
+^{\dagger }\mathbf{X}\right) \mathbf{\beta } \\
+&=&\mathbf{\lambda }^{\dagger }\mathbf{\beta }
+\end{eqnarray*}%
+\begin{eqnarray*}
+&\Rightarrow &\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{X+C}%
+^{\dagger }\mathbf{X=\lambda }^{\dagger } \\
+&\Rightarrow &\mathbf{C}^{\dagger }\mathbf{X=0\quad }\text{(}\because 
+\mathbf{\lambda ^{\dagger }=\gamma ^{\dagger }X}^{\dagger }\mathbf{X}\text{)}
+\end{eqnarray*}%
+\begin{eqnarray*}
+Var\left( \mathbf{a}^{\dagger }\mathbf{Y}\right) &=&\mathbf{a}^{\dagger
+}\sigma ^{2}I\left( \mathbf{a}^{\dagger }\right) ^{\dagger } \\
+&=&\sigma ^{2}\mathbf{a}^{\dagger }\mathbf{a}=\sigma ^{2}\left[ \left( 
+\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{+C}^{\dagger
+}\right) \left( \mathbf{\gamma X+C}\right) \right] \\
+&=&\sigma ^{2}\left[ \mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{%
+X+\mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }C+C}^{\dagger }\mathbf{%
+X\gamma +C}^{\dagger }\mathbf{C}\right] \\
+&=&\sigma ^{2}\left[ \mathbf{\gamma }^{\dagger }\mathbf{X}^{\dagger }\mathbf{%
+X+}\underset{\text{min=0}}{\underbrace{\mathbf{C}^{\dagger }\mathbf{C}}}%
+\right]
+\end{eqnarray*}%
+\begin{eqnarray*}
+\mathbf{\hat{\beta}} &=&\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
+\mathbf{X}^{\dagger }\mathbf{Y} \\
+\underset{\quad \hookrightarrow \text{BLUE}}{\mathbf{\lambda }^{\dagger }%
+\mathbf{\hat{\beta}}} &\mathbf{\leadsto }&\mathbf{\lambda }^{\dagger }%
+\mathbf{\beta }
+\end{eqnarray*}
+\end{proof}
+\end{theorem}
 
 \end{document}
