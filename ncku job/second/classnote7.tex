@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Friday, June 17, 2016 11:37:37}
+%TCIDATA{LastRevised=Sunday, June 19, 2016 10:58:13}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -537,6 +537,224 @@ X+}\underset{\text{min=0}}{\underbrace{\mathbf{C}^{\dagger }\mathbf{C}}}%
 \mathbf{\beta }
 \end{eqnarray*}
 \end{proof}
+
+\begin{proof}
+
+\begin{enumerate}
+\item 
+\begin{eqnarray*}
+E\left( \text{SSE}\right)  &=&E\left( \mathbf{Y}^{\dagger }\left( I-P_{%
+\mathbf{X}}\right) \mathbf{Y}\right) ,\quad P_{\mathbf{X}}=\mathbf{X}\left( 
+\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger } \\
+&=&tr\left( \left( I_{n}-P_{\mathbf{X}}\right) \sigma ^{2}I\right) +\left( 
+\mathbf{X\beta }\right) ^{\dagger }\left( I-P_{\mathbf{X}}\right) \left( 
+\mathbf{X\beta }\right)  \\
+&=&\sigma ^{2}tr\left( I_{n}-P_{\mathbf{X}}\right) +\mathbf{\beta }^{\dagger
+}\mathbf{X}^{\dagger }\left( I-P_{\mathbf{X}}\right) \mathbf{X\beta } \\
+&=&\sigma ^{2}tr\left( I_{n}-\mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}%
+\right) ^{-}\mathbf{X}^{\dagger }\right) +0 \\
+&=&\sigma ^{2}\left[ n-tr\left( \mathbf{X}\left( \mathbf{X}^{\dagger }%
+\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\right) \right]  \\
+&=&\sigma ^{2}\left[ n-\underset{r\left( \mathbf{X}\right) =r}{\underbrace{%
+r\left( \mathbf{X}^{\dagger }\mathbf{X}\right) }}\right]  \\
+&=&\sigma ^{2}\left[ n-r\right] 
+\end{eqnarray*}%
+\begin{equation*}
+E\left( S^{2}\right) =E\left( \frac{\left( \mathbf{Y}-\mathbf{X\hat{\beta}}%
+\right) ^{\dagger }\left( \mathbf{Y}-\mathbf{X\hat{\beta}}\right) }{n-r}%
+\right) =\sigma ^{2}
+\end{equation*}
+
+\item $\because $ SSE $=\mathbf{Y}^{\dagger }\left( I-P_{\mathbf{X}}\right) 
+\mathbf{Y}$, $P_{\mathbf{X}}=\mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}%
+\right) ^{-}\mathbf{X}^{\dagger }$\newline
+$\because \mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
+\mathbf{X}^{\dagger }$ is invariant to choice of $\left( \mathbf{X}^{\dagger
+}\mathbf{X}\right) ^{-}$\newline
+$\therefore $SSE is invariant to choice of $\left( \mathbf{X}^{\dagger }%
+\mathbf{X}\right) ^{-}$
+\end{enumerate}
+\end{proof}
 \end{theorem}
+
+\bigskip
+
+\subsubsection{Reparmeterization}
+
+\begin{eqnarray*}
+\mathbf{Y} &=&\mathbf{X\beta +\epsilon \quad }\text{non-full-rank model} \\
+&=&\mathbf{ZU\beta +\epsilon } \\
+&=&\mathbf{Z\gamma +\epsilon \quad }\text{full-rank model}
+\end{eqnarray*}
+
+\begin{enumerate}
+\item $\underset{r\times p}{\mathbf{U}}\underset{p\times 1}{\mathbf{\beta }}%
+\mathbf{=}\underset{r\times 1}{\mathbf{\gamma }}$\newline
+$\mathbf{\gamma }$ linearly indep. estimable functions of $\mathbf{\beta }$
+
+\item $\mathbf{ZU=X}$\newline
+$\Rightarrow \mathbf{ZUU}^{\dagger }=\mathbf{XU}^{\dagger }$\newline
+$\Rightarrow \mathbf{Z=XU}^{\dagger }\left( \mathbf{UU}^{\dagger }\right)
+^{-1}$ where $\mathbf{Z}$ is full-rank with $r\left( \mathbf{Z}\right) =r$
+
+\item $\mathbf{\hat{\gamma}=}\left( \mathbf{Z^{\dagger }Z}\right) ^{-1}%
+\mathbf{Z^{\dagger }Y}$%
+\begin{eqnarray*}
+S^{2} &=&\frac{\left( \mathbf{Y-Z\hat{\gamma}}\right) ^{\dagger }\left( 
+\mathbf{Y-Z\hat{\gamma}}\right) }{n-r} \\
+&=&\frac{\left( \mathbf{Y}-\mathbf{X\hat{\beta}}\right) ^{\dagger }\left( 
+\mathbf{Y}-\mathbf{X\hat{\beta}}\right) }{n-r},\quad \mathbf{Z\gamma =X\beta 
+}\Leftrightarrow \mathbf{Z\hat{\gamma}=X\hat{\beta}}
+\end{eqnarray*}
+\end{enumerate}
+
+\bigskip
+
+\begin{example}
+Consider the model%
+\begin{equation*}
+y_{ij}=\mu +\alpha _{i}+\varepsilon _{ij},\quad i=1,2,\quad j=1,2
+\end{equation*}%
+\begin{equation*}
+\mathbf{Y=X\beta +\epsilon =}\left[ 
+\begin{array}{ccc}
+1 & 1 & 0 \\ 
+1 & 1 & 0 \\ 
+1 & 0 & 1 \\ 
+1 & 0 & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu \\ 
+\alpha _{1} \\ 
+\alpha _{2}%
+\end{array}%
+\right] +\epsilon ,\quad r\left( \mathbf{X}\right) =2
+\end{equation*}%
+\newline
+let%
+\begin{eqnarray*}
+\mathbf{\gamma } &\mathbf{=}&\left[ 
+\begin{array}{c}
+\gamma _{1} \\ 
+\gamma _{2}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+\mu +\alpha _{1} \\ 
+\mu +\alpha _{2}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{ccc}
+1 & 1 & 0 \\ 
+1 & 0 & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu \\ 
+\alpha _{1} \\ 
+\alpha _{2}%
+\end{array}%
+\right] \\
+&=&\mathbf{U\beta }
+\end{eqnarray*}%
+\begin{equation*}
+\mathbf{Z}=\mathbf{XU}^{\dagger }\left( \mathbf{UU}^{\dagger }\right) ^{-1}=%
+\left[ 
+\begin{array}{cc}
+1 & 0 \\ 
+1 & 0 \\ 
+0 & 1 \\ 
+0 & 1%
+\end{array}%
+\right] ,\quad r\left( \mathbf{Z}\right) =2
+\end{equation*}%
+\begin{equation*}
+\mathbf{Z}^{\dagger }\mathbf{Y=}\left[ 
+\begin{array}{cccc}
+1 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+Y_{11} \\ 
+Y_{12} \\ 
+Y_{21} \\ 
+Y_{22}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+y_{1} \\ 
+y_{2}%
+\end{array}%
+\right]
+\end{equation*}%
+\begin{equation*}
+\mathbf{Z}^{\dagger }\mathbf{Z=}\left[ 
+\begin{array}{cccc}
+1 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{cc}
+1 & 0 \\ 
+1 & 0 \\ 
+0 & 1 \\ 
+0 & 1%
+\end{array}%
+\right] =\left[ 
+\begin{array}{cc}
+2 & 0 \\ 
+0 & 2%
+\end{array}%
+\right]
+\end{equation*}%
+\begin{equation*}
+\mathbf{Z}^{\dagger }\mathbf{Z\hat{\gamma}=Z}^{\dagger }\mathbf{Y}
+\end{equation*}%
+\begin{equation*}
+\left[ 
+\begin{array}{cc}
+2 & 0 \\ 
+0 & 2%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\hat{r}_{1} \\ 
+\hat{r}_{2}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+y_{1} \\ 
+y_{2}%
+\end{array}%
+\right] \quad 
+\begin{tabular}{l}
+$\hat{r}_{1}=\frac{y_{1}}{2}$ \\ 
+$\hat{r}_{2}=\frac{y_{2}}{2}$%
+\end{tabular}%
+\end{equation*}
+\end{example}
+
+\bigskip
+
+\paragraph{Side Conditions}
+
+\begin{theorem}
+If $\mathbf{Y}=\mathbf{X\beta +\epsilon }$ where $\mathbf{X}$ is $n\times p$
+matrix with $r\left( \mathbf{X}\right) =r<p\leq n$, and if $\Pi _{\left(
+p-r\right) \times p}$ matrix with $r\left( \Pi \right) =p-r$ such that $\Pi 
+\mathbf{\beta }$ is a set of nonestimable functions, then there is a unique
+vector $\hat{\beta}$ that satisfies both
+
+\begin{enumerate}
+\item $\mathbf{X}^{\dagger }\mathbf{X}\hat{\beta}=\mathbf{X^{\dagger }Y}$,
+and
+
+\item $\Pi \mathbf{\beta =0}$
+\end{enumerate}
+\end{theorem}
+
+\bigskip
 
 \end{document}
