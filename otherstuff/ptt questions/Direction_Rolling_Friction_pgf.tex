@@ -11,7 +11,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, April 06, 2016 11:13:15}
-%TCIDATA{LastRevised=Saturday, June 18, 2016 10:33:52}
+%TCIDATA{LastRevised=Monday, June 20, 2016 11:47:14}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -40,7 +40,6 @@
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \input{../../tcilatex}
 \setlength{\columnseprule}{1pt}
-
 
 
 \begin{document}
@@ -104,7 +103,8 @@ F_{fr}\cdot R=I\alpha =I\frac{a}{R}%
 \newpage
 
 \begin{case}
-An external torque (not force), like on car tire.\newline
+An external torque (not force) acting around the axial, like on car tire.%
+\newline
 \input{../../../../Scripts/cordtrans/cases_fig_only/case4a.pgf}\newline
 In this case, the rule of friction is not to cause rotation; the rotation
 about the center is done by the external torque. From 2nd law, in order to
@@ -121,10 +121,30 @@ friction force acting on the ground goes to the left.%
 F_{fr}=ma \\ 
 \tau -F_{fr}\cdot R=I\alpha =I\frac{a}{R}%
 \end{array}%
-\right. \\
+\right.  \\
 &\Rightarrow &a=\frac{\tau }{mR+\frac{I}{R}}
 \end{eqnarray*}%
-\input{../../../../Scripts/cordtrans/cases_fig_only/case4b.pgf}
+\input{../../../../Scripts/cordtrans/cases_fig_only/case4b.pgf}\newline
+There is an interesting conclusion we can draw from the result of our
+calculation. In a real car race, the beginning part or the start off part of
+the race is very important. A car driver want to accelerate as fast as they
+can, but at the same time not to cause the tire to slip and loose grip. How
+to control the acceleration throttle and peddle is a hard problem. Well not
+so hard if you have studied this example. From the last equation we arrived,
+we know the acceleration of the tire $a$, which is essentially the same as
+the car's acceleration, is directly proportional to the torque $\tau $. So
+before you may think you want to start with a smooth peddle control and put
+a little bit of throttle in the beginning so as not to loose grip. Wrong.
+Once you give the tire a torque $\tau $, you acceleration $a$ will be
+proportional to $\tau $, what you want is the highest throttle right at the
+beginning! Of course not so high as to loose grip. So next time in a formula
+race, when the red light off and green light lid, put down the highest
+throttle that will not cause slip immediately. Give it a try. Easier to say
+than done! Ideally this is what you want to do. In reality, when you start
+off, the weight will tranfer from the front tires to the rear tires (because
+of the accleralation!), so there will be some delay before your rear tire
+get maximal down force and maximal grip. And drivers need to take this delay
+into account.
 \end{case}
 
 \newpage
@@ -234,7 +254,7 @@ friction acting on the roller.
 
 \input{../../../../Scripts/cordtrans/cases_fig_only/friction_study3a.pgf}
 
-\bigskip 
+\bigskip
 
 Friction can go up or down the hill, depending on the condition. Similar to
 case 5.

@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Monday, June 20, 2016 16:20:57}
+%TCIDATA{LastRevised=Tuesday, June 21, 2016 11:36:04}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -50,7 +50,6 @@
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
 
-\input{tcilatex}
 
 \begin{document}
 
@@ -755,7 +754,7 @@ and
 \end{enumerate}
 \end{theorem}
 
-\bigskip 
+\bigskip
 
 \begin{example}
 Consider%
@@ -781,7 +780,8 @@ y_{23}%
 1 & 0 & 1 \\ 
 1 & 0 & 1%
 \end{array}%
-\right] _{6\times 3\curvearrowright r\left( \mathbf{X}\right) =\_\_}\left[ 
+\right] _{6\times 3\curvearrowright r\left( \mathbf{X}\right) =\_\_\_\_}%
+\left[ 
 \begin{array}{c}
 \mu  \\ 
 \alpha _{1} \\ 
@@ -791,6 +791,7 @@ y_{23}%
 \end{equation*}%
 \newline
 let $\alpha _{1}+\alpha _{2}=0\Leftrightarrow \alpha _{1}=-\alpha _{2}$%
+\newline
 \newline
 side condition $\left[ 
 \begin{array}{ccc}
@@ -805,7 +806,7 @@ side condition $\left[
 \right] =\Pi \mathbf{\beta }$%
 \begin{eqnarray*}
 y_{1j} &=&\mu ^{\ast }+\alpha _{1}+\varepsilon _{1j} \\
-y_{2j} &=&\mu ^{\ast }+\alpha _{1}+\varepsilon _{2j}
+y_{2j} &=&\mu ^{\ast }-\alpha _{1}+\varepsilon _{2j}
 \end{eqnarray*}%
 \newline
 Thus, we have%
@@ -840,9 +841,13 @@ y_{23}%
 ^{\ast }\text{is full-rank}
 \end{equation*}%
 \newline
-$\therefore $the parameter $\mu ^{\ast }$ and $\alpha _{1}^{\ast }$ can be
+$\therefore $ the parameter $\mu ^{\ast }$ and $\alpha _{1}^{\ast }$ can be
 estimable
+\end{example}
 
+\bigskip 
+
+\begin{example}
 \begin{proof}
 the two sets of equation%
 \begin{eqnarray*}
@@ -867,7 +872,7 @@ the two sets of equation%
 \end{array}%
 \right] 
 \end{equation*}%
-$\because $the rows of $\Pi $ are linearly independent and $\underset{\text{%
+$\because $ the rows of $\Pi $ are linearly independent and $\underset{\text{%
 (nonestimable)}}{\underline{\text{are not functions of the rows of \textbf{X}%
 }}}$\newline
 \newline
@@ -918,8 +923,200 @@ the system of equations%
 \Leftrightarrow \left( \mathbf{X}^{\dagger }\mathbf{X+}\Pi ^{\dagger }\Pi
 \right) \hat{\beta}=\mathbf{X}^{\dagger }\mathbf{Y+}\Pi ^{\dagger }\mathbf{%
 0\quad (\ast )}
+\end{equation*}%
+\begin{eqnarray*}
+\hat{\beta} &=&\left( \left[ 
+\begin{array}{c}
+\mathbf{X} \\ 
+\Pi 
+\end{array}%
+\right] ^{\dagger }\left[ 
+\begin{array}{c}
+\mathbf{X} \\ 
+\Pi 
+\end{array}%
+\right] \right) ^{-1}\left[ 
+\begin{array}{c}
+\mathbf{X} \\ 
+\Pi 
+\end{array}%
+\right] ^{-1}\left[ 
+\begin{array}{c}
+\mathbf{Y} \\ 
+\mathbf{0}%
+\end{array}%
+\right]  \\
+&=&\left( \mathbf{X}^{\dagger }\mathbf{X+}\Pi ^{\dagger }\Pi \right)
+^{-1}\left( \mathbf{X}^{\dagger }\mathbf{Y+}\Pi ^{\dagger }\mathbf{0}\right) 
+\\
+&=&\left( \mathbf{X}^{\dagger }\mathbf{X+}\Pi ^{\dagger }\Pi \right) ^{-1}%
+\mathbf{X}^{\dagger }\mathbf{Y}
+\end{eqnarray*}%
+\newline
+by $\left( \ast \right) $, we have%
+\begin{equation*}
+\mathbf{X}^{\dagger }\mathbf{X\hat{\beta}+}\Pi ^{\dagger }\Pi \hat{\beta}=%
+\mathbf{X}^{\dagger }\mathbf{Y}
+\end{equation*}%
+\begin{equation*}
+\Leftrightarrow \mathbf{X}^{\dagger }\mathbf{X\hat{\beta}+}\Pi ^{\dagger
+}\Pi \hat{\beta}=\mathbf{X}^{\dagger }\mathbf{Y}
 \end{equation*}
 \end{proof}
+\end{example}
+
+\begin{example}
+Consider%
+\begin{equation*}
+\mathbf{X}=\left[ 
+\begin{array}{ccc}
+1 & 1 & 0 \\ 
+1 & 1 & 0 \\ 
+1 & 1 & 0 \\ 
+1 & 0 & 1 \\ 
+1 & 0 & 1 \\ 
+1 & 0 & 1%
+\end{array}%
+\right] \text{ and }\Pi =\left[ 
+\begin{array}{ccc}
+0 & 1 & 1%
+\end{array}%
+\right]
+\end{equation*}%
+\begin{equation*}
+\left( \mathbf{X}^{\dagger }\mathbf{X+}\Pi ^{\dagger }\Pi \right) ^{-1}=%
+\frac{1}{4}\left[ 
+\begin{array}{ccc}
+2 & -1 & -1 \\ 
+-1 & 2 & 0 \\ 
+-1 & - & 2%
+\end{array}%
+\right] ,\text{\quad }\mathbf{X}^{\dagger }\mathbf{Y=}\left[ 
+\begin{array}{c}
+y_{\cdot \cdot } \\ 
+y_{1\cdot } \\ 
+y_{2\cdot }%
+\end{array}%
+\right]
+\end{equation*}%
+Thus,%
+\begin{eqnarray*}
+\mathbf{\hat{\beta}} &\mathbf{=}&\frac{1}{4}\left[ 
+\begin{array}{ccc}
+2 & -1 & -1 \\ 
+-1 & 2 & 0 \\ 
+-1 & - & 2%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+y_{\cdot \cdot } \\ 
+y_{1\cdot } \\ 
+y_{2\cdot }%
+\end{array}%
+\right] \\
+&=&\left[ 
+\begin{array}{c}
+\frac{2y_{\cdot \cdot }-y_{1\cdot }-y_{2\cdot }}{4} \\ 
+\frac{-y_{\cdot \cdot }+2y_{1\cdot }}{4} \\ 
+\frac{-y_{\cdot \cdot }+2y_{2\cdot }}{2}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+\frac{2\left( y_{1\cdot }+y_{2\cdot }\right) -y_{1\cdot }-y_{2\cdot }}{4} \\ 
+\frac{-\left( y_{1\cdot }+y_{2\cdot }\right) +2y_{1\cdot }}{4} \\ 
+\frac{-\left( y_{1\cdot }+y_{2\cdot }\right) +2y_{2\cdot }}{2}%
+\end{array}%
+\right] \\
+&=&\left[ 
+\begin{array}{c}
+\bar{y}_{\cdot \cdot } \\ 
+\bar{y}_{1\cdot }-\bar{y}_{\cdot \cdot } \\ 
+\bar{y}_{2\cdot }-\bar{y}_{\cdot \cdot }%
+\end{array}%
+\right]
+\end{eqnarray*}%
+\begin{equation*}
+\Pi \mathbf{\beta }=0\Leftrightarrow \alpha _{1}+\alpha _{2}=0\quad \text{%
+side condition}
+\end{equation*}
+\end{example}
+
+\bigskip
+
+\section{Testing Hypothesis}
+
+\begin{definition}
+A hypothesis $H_{0}:\beta _{1}=\cdots =\beta _{q}$ is said to be testable if
+there exists a set of linearly independent estimable $\mathbf{\lambda }%
+_{1}^{\dagger }\mathbf{\beta }$, $\mathbf{\lambda }_{2}^{\dagger }\mathbf{%
+\beta }$, $\cdots $, $\mathbf{\lambda }_{t}^{\dagger }\mathbf{\beta }$ s.t.%
+\newline
+\begin{equation*}
+H_{0}\text{ is true if and only if }\mathbf{\lambda }_{1}^{\dagger }\mathbf{%
+\beta }=\mathbf{\lambda }_{2}^{\dagger }\mathbf{\beta }=\cdots =\mathbf{%
+\lambda }_{t}^{\dagger }\mathbf{\beta }
+\end{equation*}
+\end{definition}
+
+\bigskip
+
+note:%
+\begin{equation*}
+\beta _{1}=\cdots =\beta _{q}\Leftrightarrow \left[ 
+\begin{array}{c}
+\mathbf{\lambda }_{1}^{\dagger }\mathbf{\beta } \\ 
+\vdots \\ 
+\mathbf{\lambda }_{q-1}^{\dagger }\mathbf{\beta }%
+\end{array}%
+\right] =\left[ 
+\begin{array}{c}
+0 \\ 
+\vdots \\ 
+0%
+\end{array}%
+\right]
+\end{equation*}%
+where $\mathbf{\lambda }_{1}^{\dagger }\mathbf{\beta }$, $\mathbf{\lambda }%
+_{2}^{\dagger }\mathbf{\beta }$, $\cdots $, $\mathbf{\lambda }%
+_{q-1}^{\dagger }\mathbf{\beta }$ is a set of linearly independent estimable
+functions.
+
+\bigskip
+
+\begin{example}
+Consider a model%
+\begin{equation*}
+y_{ij}=\mu +\alpha _{i}+\beta _{j}+\varepsilon _{ij}\quad 
+\begin{tabular}{l}
+$i=1,2,3$ \\ 
+$j=1,2,3$%
+\end{tabular}%
+\end{equation*}%
+the design matrix is 
+\begin{equation*}
+\mathbf{X}=\left[ 
+\begin{array}{ccccccc}
+1 & 1 & 0 & 0 & 1 & 0 & 0 \\ 
+1 & 1 & 0 & 0 & 0 & 0 & 0 \\ 
+1 & 1 & 0 & 0 & 0 & 0 & 1 \\ 
+1 & 0 & 1 & 0 & 1 & 0 & 0 \\ 
+1 & 0 & 1 & 0 & 0 & 1 & 0 \\ 
+1 & 0 & 1 & 0 & 0 & 0 & 1 \\ 
+1 & 0 & 0 & 1 & 1 & 0 & 0 \\ 
+1 & 0 & 0 & 1 & 0 & 1 & 0 \\ 
+1 & 0 & 0 & 1 & 0 & 0 & 1%
+\end{array}%
+\right] \quad \mathbf{\beta }=\left[ 
+\begin{array}{c}
+\mu \\ 
+\alpha _{1} \\ 
+\alpha _{2} \\ 
+\beta _{1} \\ 
+\beta _{2} \\ 
+\beta _{3}%
+\end{array}%
+\right]
+\end{equation*}
 \end{example}
 
 \end{document}
