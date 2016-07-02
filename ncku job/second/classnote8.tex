@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Thursday, June 30, 2016 16:13:34}
+%TCIDATA{LastRevised=Saturday, July 02, 2016 10:50:15}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,6 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
+
 \input{tcilatex}
 
 \begin{document}
@@ -74,39 +75,39 @@ the assumptions
 \item $\sum\limits_{i=1}^{k}\alpha _{i}=0$ (side condition)
 \end{enumerate}
 
-\bigskip 
+\bigskip
 
 the design matrix%
 \begin{equation*}
 \left[ 
 \begin{array}{c}
 y_{11} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{1n} \\ 
 y_{21} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{2n} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{k1} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{kn}%
 \end{array}%
 \right] =\left[ 
 \begin{array}{cccccc}
-1 & 1 & 0 & 0 & \cdots  & 0 \\ 
-\vdots  &  &  &  &  &  \\ 
-1 & 1 & 0 & 0 & \cdots  & 0 \\ 
-1 & 0 & 1 & 0 & \cdots  &  \\ 
-1 & 0 & 1 & 0 & \cdots  &  \\ 
+1 & 1 & 0 & 0 & \cdots & 0 \\ 
+\vdots &  &  &  &  &  \\ 
+1 & 1 & 0 & 0 & \cdots & 0 \\ 
+1 & 0 & 1 & 0 & \cdots &  \\ 
+1 & 0 & 1 & 0 & \cdots &  \\ 
 1 &  &  &  &  & 1 \\ 
 1 & 0 & 0 &  &  & 1%
 \end{array}%
 \right] \left[ 
 \begin{array}{c}
-\mu  \\ 
+\mu \\ 
 \alpha _{1} \\ 
 \alpha _{2} \\ 
-\vdots  \\ 
+\vdots \\ 
 \alpha _{k}%
 \end{array}%
 \right] +\mathbf{\epsilon }
@@ -117,8 +118,8 @@ the design matrix is $kn\times \left( k+1\right) $ of rank $k$
 \begin{equation*}
 \mathbf{X}^{\dagger }\mathbf{X}=\left[ 
 \begin{array}{cccccc}
-kn & n & n &  & \cdots  & n \\ 
-n & n & n & 0 & \cdots  & 0 \\ 
+kn & n & n &  & \cdots & n \\ 
+n & n & n & 0 & \cdots & 0 \\ 
 n & 0 &  &  &  & n%
 \end{array}%
 \right] _{\left( k+1\right) \times \left( k+1\right) }\quad \mathbf{X}%
@@ -126,13 +127,13 @@ n & 0 &  &  &  & n%
 \begin{array}{c}
 y_{\cdot \cdot } \\ 
 y_{1\cdot } \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{k\cdot }%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 the normal equations can be expressed as%
 \begin{eqnarray*}
@@ -162,13 +163,142 @@ S^{2}=\frac{\text{SSE}}{k\left( n-1\right) }=\frac{\mathbf{Y}^{\dagger
 &=&\sum_{i=1}^{k}\sum_{j=1}^{k}\left( y_{ij}-\bar{y}_{i\cdot }\right) ^{2}
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
 \paragraph{Testing}
 
 \begin{equation*}
 H_{0}:\mu _{1}=\cdots =\mu _{k}\quad \left( H_{0}:\alpha _{1}=\cdots =\alpha
-_{k}\right) 
+_{k}\right)
 \end{equation*}
+
+\bigskip 
+
+The Full-Reduced-Model Approach%
+\begin{equation*}
+\begin{tabular}{l}
+the full model $Y_{ij}=\mu +\alpha _{i}+\varepsilon _{ij}$ \\ 
+the reduced model $Y_{ij}=\mu +\varepsilon _{ij}$%
+\end{tabular}%
+\end{equation*}
+
+the matrix form of R.M. is%
+\begin{equation*}
+\mathbf{Y}=\mu \underset{\mathbf{X}_{i}}{\fbox{1$_{kn}$}}+\mathbf{\epsilon }
+\end{equation*}
+
+for the R.M., the estimator is%
+\begin{equation*}
+\hat{\mu}=\left( \mathbf{1}^{\dagger }\mathbf{1}\right) ^{-1}\mathbf{1}%
+^{\dagger }\mathbf{Y}=\frac{y_{\cdot \cdot }}{kn}=\bar{y}_{\cdot \cdot }
+\end{equation*}%
+\begin{equation*}
+\hat{\beta}^{\dagger }1^{\dagger }\mathbf{Y=}\left( \bar{y}_{\cdot \cdot
+}^{\dagger }\right) y_{\cdot \cdot }=\frac{y_{\cdot \cdot }^{2}}{kn}
+\end{equation*}%
+\begin{eqnarray*}
+&\therefore &\text{SSR}=\mathbf{\hat{\beta}X}^{\dagger }\mathbf{Y-}\hat{\beta%
+}^{\dagger }\mathbf{1}^{\dagger }\mathbf{Y=}\sum\limits_{i=1}^{k}\frac{%
+y_{i\cdot }^{2}}{n}-\frac{y_{\cdot \cdot }^{2}}{kn} \\
+&=&n\sum\limits_{i=1}^{k}\left( \bar{y}_{i\cdot }-\bar{y}_{\cdot \cdot
+}\right) ^{2}
+\end{eqnarray*}
+
+\bigskip
+
+ANOVA Table
+
+\bigskip 
+
+\begin{tabular}{lllll}
+S.V. & df & S.S & M.S. & E(M.S.) \\ 
+treat & $k-1$ & $\sum\limits_{i=1}^{k}\frac{y_{i\cdot }^{2}}{n}-\frac{%
+y_{\cdot \cdot }^{2}}{kn}$ & $\frac{\text{SSR}}{k-1}$ & $\sigma ^{2}+\frac{n%
+}{k-1}\sum \alpha _{i}^{2}$ \\ 
+Error & $k\left( n-1\right) $ & $\sum \sum y_{ij}^{2}-\sum \frac{y_{i}^{2}}{n%
+}$ & $\frac{\text{SSE}}{k\left( n-1\right) }$ & $\sigma ^{2}$ \\ 
+Total & $kn-1$ & $\sum \sum y_{ij}^{2}-\frac{y_{\cdot \cdot }^{2}}{n}$ &  & 
+\end{tabular}
+
+\bigskip
+
+\begin{equation*}
+\text{SSR}=\mathbf{Y}^{\dagger }\left( P_{\mathbf{X}}-P_{\mathbf{W}}\right) 
+\mathbf{Y}
+\end{equation*}%
+\begin{eqnarray*}
+P_{\mathbf{X}}-P_{\mathbf{W}} &=&\mathbf{X}\left( \mathbf{X}^{\dagger }%
+\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }-1_{nk}\left( 1^{\dagger
+}1\right) ^{-}1^{\dagger } \\
+&=&\frac{1}{n}\left[ 
+\begin{array}{cccc}
+J_{n\times n} & 0 & \cdots & 0 \\ 
+0 & J &  &  \\ 
+&  & \ddots &  \\ 
+J &  &  & J%
+\end{array}%
+\right] -\frac{1}{kn}\left[ 
+\begin{array}{ccc}
+J_{n\times n} & \cdots & J_{n\times n} \\ 
+&  &  \\ 
+J_{n\times n} &  & J_{n\times n}%
+\end{array}%
+\right] \\
+&=&\frac{1}{kn}\left[ 
+\begin{array}{cccc}
+\left( k-1\right) J & -J & \cdots & -J \\ 
+-J & \left( k-1\right) J &  & \vdots \\ 
+&  &  & \vdots \\ 
+-J & -J &  & \left( k-1\right) J%
+\end{array}%
+\right]
+\end{eqnarray*}
+
+\begin{eqnarray*}
+E\left( \text{SSR}\right) &=&E\left( \mathbf{Y}^{\dagger }\left( P_{\mathbf{X%
+}}-P_{\mathbf{W}}\right) \mathbf{Y}\right) \\
+&=&tr\left( \left( P_{\mathbf{X}}-P_{\mathbf{W}}\right) \sigma ^{2}I\right)
++\left( \mathbf{X\beta }\right) ^{\dagger }\left( P_{\mathbf{X}}-P_{\mathbf{W%
+}}\right) \mathbf{X\beta }
+\end{eqnarray*}%
+\begin{eqnarray*}
+tr\left( P_{\mathbf{X}}-P_{\mathbf{W}}\right) &=&tr\left( \mathbf{X}\left( 
+\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }-1\left(
+1^{\dagger }1\right) ^{-}1^{\dagger }\right) \\
+&=&tr\left( \mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
+\mathbf{X}^{\dagger }\right) -tr\left( \frac{1}{kn}J_{nk}\right) \\
+&=&r\left( \mathbf{X}\right) -1 \\
+&=&k-1
+\end{eqnarray*}
+
+\begin{eqnarray*}
+&&\left( \mathbf{X\beta }\right) ^{\dagger }\left( P_{\mathbf{X}}-P_{\mathbf{%
+W}}\right) \mathbf{X\beta } \\
+&=&\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{X}}\mathbf{X\beta -}%
+\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{W}}\mathbf{X\beta \quad
+\_\_\_}\left( \ast \right) 
+\end{eqnarray*}%
+\begin{eqnarray*}
+\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{X}}\mathbf{X\beta } &%
+\mathbf{=}&\mathbf{\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}X}\left( 
+\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\mathbf{%
+X\beta } \\
+&=&\mathbf{\mathbf{\beta }^{\dagger }}\left( \mathbf{\mathbf{X^{\dagger }}X}%
+\right) \mathbf{\beta } \\
+&&\vdots  \\
+&=&kn\mu ^{2}+n\sum \alpha _{i}^{2}
+\end{eqnarray*}%
+\begin{eqnarray*}
+\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{W}}\mathbf{X\beta } &=&%
+\mathbf{\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}}1\left( 1^{\dagger
+}1\right) ^{-1}1^{\dagger }\mathbf{X\beta } \\
+&=&\cdots  \\
+&=&kn\mu +n\sum\limits_{i=1}^{k}\alpha _{i}=kn\mu 
+\end{eqnarray*}%
+\begin{eqnarray*}
+&\therefore &\left( \ast \right) =n\sum \alpha _{i}^{2} \\
+&\therefore &E\left( \text{SSR}\right) =\sigma ^{2}\left( k-1\right)
++n\sum\limits_{i=1}^{k}\alpha _{i}^{2}
+\end{eqnarray*}
 
 \end{document}
