@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Sunday, July 03, 2016 12:15:56}
+%TCIDATA{LastRevised=Sunday, July 03, 2016 14:40:59}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 \input{tcilatex}
 
 \begin{document}
@@ -216,13 +215,13 @@ N_{q}\left( \mathbf{C\beta },\sigma ^{2}\mathbf{C}\left( \mathbf{X}^{\dagger
 
 \item $F=\frac{\frac{\text{SSH}/\sigma ^{2}}{q}}{\frac{\text{SSE}/\sigma ^{2}%
 }{n-r}}\sim F_{q,n-r}\left( \frac{\left( \mathbf{C\beta }\right) ^{\dagger
-}\left( \sigma ^{2}H\right) ^{-1}\left( \mathbf{C\beta }\right) }{2}\right) ,
-$ where $H=\mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}%
+}\left( \sigma ^{2}H\right) ^{-1}\left( \mathbf{C\beta }\right) }{2}\right)
+, $ where $H=\mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}%
 \mathbf{C}^{\dagger }$
 \end{enumerate}
 \end{theorem}
 
-\bigskip 
+\bigskip
 
 \begin{theorem}
 \begin{eqnarray*}
@@ -233,7 +232,7 @@ H_{0} &:&\mathbf{C\beta -\tau =0}
 Consider the model%
 \begin{equation*}
 \mathbf{Y=X\beta +\epsilon \quad ,\quad \epsilon }\sim N_{n}\left( 0,\sigma
-^{2}I\right) 
+^{2}I\right)
 \end{equation*}%
 \newline
 Let $\mathbf{C}$ be a $q\times p$ matrix with $r\left( \mathbf{C}\right)
@@ -254,7 +253,7 @@ C\beta -\tau }\right) }{\sigma ^{2}}\right] $
 \end{enumerate}
 \end{theorem}
 
-\bigskip 
+\bigskip
 
 \paragraph{Testing on $\protect\beta _{j}$ or $\mathbf{a}^{\dagger }\mathbf{%
 \protect\beta }$}
@@ -274,12 +273,12 @@ F=\frac{\left( \mathbf{a}^{\dagger }\mathbf{\hat{\beta}}\right) ^{\dagger }%
 ^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{a}\right] }
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 Consider $H_{0}:\mathbf{\beta }_{j}\mathbf{=0}\Leftrightarrow H_{0}:\mathbf{a%
 }^{\dagger }\mathbf{\beta =0}$, where $\mathbf{a}^{\dagger }=\left[ 
 \begin{array}{ccccccc}
-0 & 0 & \cdots  & 1 & 0 & \cdots  & 0%
+0 & 0 & \cdots & 1 & 0 & \cdots & 0%
 \end{array}%
 \right] $%
 \begin{equation*}
@@ -289,13 +288,13 @@ where $g_{jj}$ is the $i$th diagonal elements of $\left( \mathbf{X}^{\dagger
 }\mathbf{X}\right) ^{-1}$%
 \begin{eqnarray*}
 F &=&\left( \frac{\hat{\beta}_{j}}{S^{2}\sqrt{g_{jj}}}\right) ^{2}\sim
-F_{1,n-r}\left( 0\right)  \\
-&=&\left( t_{j}^{2}\right) \curvearrowright t_{n-r}\left( 0\right) 
+F_{1,n-r}\left( 0\right) \\
+&=&\left( t_{j}^{2}\right) \curvearrowright t_{n-r}\left( 0\right)
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
-\bigskip 
+\bigskip
 
 \subsection{The full-reduced model test versus the general linear hypothesis
 test}
@@ -338,8 +337,85 @@ _{c}^{\ast \dagger }\mathbf{X^{\dagger }Y} \\
 \beta}-}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{C}%
 ^{\dagger }\left[ \mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right)
 ^{-1}\mathbf{C}^{\dagger }\right] ^{-1}\mathbf{C\hat{\beta}}\right] \mathbf{%
-X^{\dagger }Y}
-\end{eqnarray*}
+X^{\dagger }Y} \\
+&=&\mathbf{\hat{\beta}}^{\dagger }\mathbf{X^{\dagger }Y-}\left[ \mathbf{\hat{%
+\beta}}^{\dagger }\mathbf{-\hat{\beta}}^{\dagger }\mathbf{C}^{\dagger }\left[
+\mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{C}%
+^{\dagger }\right] ^{-1}\mathbf{C\left( \mathbf{X}^{\dagger }\mathbf{X}%
+\right) ^{-1}}\right] \mathbf{X^{\dagger }Y} \\
+&=&\mathbf{\hat{\beta}}^{\dagger }\mathbf{X^{\dagger }Y-\hat{\beta}}%
+^{\dagger }\mathbf{X^{\dagger }Y+\hat{\beta}}^{\dagger }\mathbf{C}^{\dagger }%
+\left[ \mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{C%
+}^{\dagger }\right] ^{-1}\underset{\hat{\beta}}{\underbrace{\mathbf{C\left( 
+\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}X^{\dagger }Y}}} \\
+&=&\mathbf{\hat{\beta}}^{\dagger }\mathbf{C}^{\dagger }\left[ \mathbf{C}%
+\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{C}^{\dagger }%
+\right] ^{-1}\mathbf{C\hat{\beta}}
+\end{eqnarray*}%
+\begin{equation*}
+F=\frac{\text{SSH}/q}{\text{SSE}/\left( n-r\right) },\quad r^{\ast
+}=r-r_{0}=P_{1}+P_{2}-P_{1}=\underset{\text{why}}{\underbrace{P_{2}=q}}
+\end{equation*}
+\end{proof}
+\end{theorem}
+
+\bigskip 
+
+\bigskip 
+
+\paragraph{Likelihood Ratio Tests}
+
+\begin{equation*}
+\mathbf{Y=X\beta +\epsilon \quad ,\quad \epsilon }\sim N_{n}\left( 0,\sigma
+^{2}I\right) 
+\end{equation*}%
+\begin{equation*}
+H_{0}:\mathbf{\beta =0}\quad H_{1}:\mathbf{\beta \neq 0}
+\end{equation*}
+
+\bigskip 
+
+the likelihood ratio%
+\begin{equation*}
+\text{LR}=\frac{\text{max}_{H_{0}}L\left( \mathbf{\beta },\sigma ^{2}\right) 
+}{\text{max}_{H_{1}}L\left( \mathbf{\beta },\sigma ^{2}\right) }
+\end{equation*}%
+where%
+\begin{equation*}
+L\left( \mathbf{\beta },\sigma ^{2}\right) =\left( 2\pi \sigma ^{2}\right)
+^{-\frac{n}{2}}e^{-\frac{\left( \mathbf{Y-X\beta }\right) ^{\dagger }\left( 
+\mathbf{Y-X\beta }\right) }{2\sigma ^{2}}}==\frac{\text{max }L\left( \mathbf{%
+0},\sigma ^{2}\right) }{\text{max }L\left( \mathbf{\beta },\sigma
+^{2}\right) }
+\end{equation*}
+
+\bigskip 
+
+\begin{theorem}
+The likelihood ratio test for $H_{0}:\mathbf{\beta =0}$ can be based on%
+\begin{equation*}
+F=\frac{\mathbf{\hat{\beta}X^{\dagger }Y}/P}{\left( \mathbf{Y^{\dagger }Y}-%
+\mathbf{\hat{\beta}}^{\dagger }\mathbf{X^{\dagger }Y}\right) /\left(
+n-p\right) }=\frac{\left( \mathbf{\hat{\beta}}^{\dagger }\mathbf{X^{\dagger
+}Y}\right) \left( n-p\right) }{\left( \mathbf{Y^{\dagger }Y}-\mathbf{\hat{%
+\beta}}^{\dagger }\mathbf{X^{\dagger }Y}\right) P}
+\end{equation*}%
+We reject $H_{0}$ if $F>F_{\alpha ,p,n-p}$
+
+\begin{proof}
+\begin{eqnarray*}
+\text{max}_{H_{0}}L\left( \mathbf{\beta },\sigma ^{2}\right)  &=&L\left( 
+\mathbf{\hat{\beta}},\hat{\sigma}^{2}\right)  \\
+&=&\left( 2\pi \hat{\sigma}^{2}\right) ^{-\frac{n}{2}}e^{-\frac{\left( 
+\mathbf{Y-X\hat{\beta}}\right) ^{\dagger }\left( \mathbf{Y-X\hat{\beta}}%
+\right) }{2\hat{\sigma}^{2}}}
+\end{eqnarray*}%
+where%
+\begin{equation*}
+\mathbf{\hat{\beta}}=\mathbf{\left( \mathbf{X}^{\dagger }\mathbf{X}\right)
+^{-1}X^{\dagger }Y}\text{ and }\hat{\sigma}^{2}=\frac{\left( \mathbf{Y-X\hat{%
+\beta}}\right) ^{\dagger }\left( \mathbf{Y-X\hat{\beta}}\right) }{n}
+\end{equation*}
 \end{proof}
 \end{theorem}
 
