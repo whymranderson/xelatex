@@ -374,8 +374,8 @@ RBPlotFunctionV4.rotmat\_from\_A\_2\_B\U{7684}\U{8aaa}\U{660e})\U{ff0c}%
 
 \bigskip
 
-\paragraph{A\U{65b9}\U{6cd5}\U{ff1a}\U{8f49}\U{52d5}\U{7a4d}\U{5206}\U{5668}%
-\U{539f}\U{7406}}
+\subsubsection{A\U{65b9}\U{6cd5}\U{ff1a}\U{8f49}\U{52d5}\U{7a4d}\U{5206}%
+\U{5668}\U{539f}\U{7406}}
 
 \U{9996}\U{5148}A\U{65b9}\U{6cd5}\U{70ba}\U{ff0c}\U{6578}\U{503c}\U{89e3}%
 \U{8f49}\U{52d5}\U{5ea7}\U{6a19}\U{7684}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}%
@@ -427,11 +427,73 @@ topEOM(wi,torquei)\texttt{\U{fe5e}}\U{5f97}\U{5230}\U{8cbc}\U{9ad4}\U{89d2}%
 \U{3002}}DCM\U{905e}\U{63a8}\U{7684}\U{7a0b}\U{5f0f}\U{5728}DCMiter\U{65b9}%
 \U{7a0b}\U{88e1}\U{3002}
 
-\U{8cbc}code
+%TCIMACRO{%
+%\TeXButton{method_a_code}{def EulerDCMiter(self): 
+%    '''Solve for next body angular velocity using Euler-Newton equations with current body orientation. Then rotate the body with the new body angular velocity to arrive at new orietation. Then repeat and iterate. Rotation of body is done with direction-cosine matrix (DCM) constructed from body angular velocity. This is the A method. Also this method use :math:`\\omega(t_{i+1})dt` in rotation vector approximation by default. One can also choose to use the J-cycle rotation approximation with option use_Jcycle=1.'''
+%    for i in range(1,self.N+1):
+%        #%%'''
+%        
+%        if self.UsePY_ODE == 1:  #Use python odeint ODE solver
+%            from scipy.integrate import odeint            
+%            ictemp = self.w[i-1,:]
+%            
+%            if self.use_Jcycle == 1: #Use J-cycle to better approximate coning rotation vector
+%                inserted_tlist = np.linspace(self.tlist[i-1],self.tlist[i],4)
+%                self.w[i-1,:],wi0,wi1,self.w[i,:]= odeint(self.topEOM,ictemp,inserted_tlist,(self.Tau_body_temp,))
+%                J_dt = inserted_tlist[1]-inserted_tlist[0]               
+%                J_rho_i = self.CalculateRhoInJCycle(self.w[i-1,:],wi0,wi1,J_dt)
+%                rotation_vec_approximation = J_rho_i
+%                
+%            else:
+%                self.w[i-1,:],self.w[i,:]= odeint(self.topEOM,ictemp,self.tlist[i-1:i+1],(self.Tau_body_temp,))
+%                rotation_vec_approximation = (self.w[i,:])*self.h
+%        else:
+%            self.w[i,:]=self.topRK(self.w[i-1,:],self.Tau_body_temp)
+%            rotation_vec_approximation = (self.w[i,:])*self.h
+%        #%%'''
+%        self.w_lab[i-1,:] = np.dot(self.TrackMat_temp,self.w[i-1,:])
+%        self.L_lab[i,:]=self.Tau_lab_temp*self.h + self.L_lab[i-1,:]
+%        #print np.dot(self.cordvec[i-1,:2,2],self.L_lab[i-1,:2])      
+%        self.TrackMat_temp = np.dot(self.TrackMat_temp,CK(rotation_vec_approximation))        # +w_body_hasbun[i,:] wi here, _body_hasbun
+%        # TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
+%        for j in range(3):
+%            self.cordvec[i,:,j]=np.dot(self.TrackMat_temp,np.eye(3)[j,:])
+%}}%
+%BeginExpansion
+def EulerDCMiter(self): 
+    '''Solve for next body angular velocity using Euler-Newton equations with current body orientation. Then rotate the body with the new body angular velocity to arrive at new orietation. Then repeat and iterate. Rotation of body is done with direction-cosine matrix (DCM) constructed from body angular velocity. This is the A method. Also this method use :math:`\\omega(t_{i+1})dt` in rotation vector approximation by default. One can also choose to use the J-cycle rotation approximation with option use_Jcycle=1.'''
+    for i in range(1,self.N+1):
+        #%%'''
+        
+        if self.UsePY_ODE == 1:  #Use python odeint ODE solver
+            from scipy.integrate import odeint            
+            ictemp = self.w[i-1,:]
+            
+            if self.use_Jcycle == 1: #Use J-cycle to better approximate coning rotation vector
+                inserted_tlist = np.linspace(self.tlist[i-1],self.tlist[i],4)
+                self.w[i-1,:],wi0,wi1,self.w[i,:]= odeint(self.topEOM,ictemp,inserted_tlist,(self.Tau_body_temp,))
+                J_dt = inserted_tlist[1]-inserted_tlist[0]               
+                J_rho_i = self.CalculateRhoInJCycle(self.w[i-1,:],wi0,wi1,J_dt)
+                rotation_vec_approximation = J_rho_i
+                
+            else:
+                self.w[i-1,:],self.w[i,:]= odeint(self.topEOM,ictemp,self.tlist[i-1:i+1],(self.Tau_body_temp,))
+                rotation_vec_approximation = (self.w[i,:])*self.h
+        else:
+            self.w[i,:]=self.topRK(self.w[i-1,:],self.Tau_body_temp)
+            rotation_vec_approximation = (self.w[i,:])*self.h
+        #%%'''
+        self.w_lab[i-1,:] = np.dot(self.TrackMat_temp,self.w[i-1,:])
+        self.L_lab[i,:]=self.Tau_lab_temp*self.h + self.L_lab[i-1,:]
+        #print np.dot(self.cordvec[i-1,:2,2],self.L_lab[i-1,:2])      
+        self.TrackMat_temp = np.dot(self.TrackMat_temp,CK(rotation_vec_approximation))        # +w_body_hasbun[i,:] wi here, _body_hasbun
+        # TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
+        for j in range(3):
+            self.cordvec[i,:,j]=np.dot(self.TrackMat_temp,np.eye(3)[j,:])
+%
+%EndExpansion
 
-\bigskip
-
-\paragraph{B\U{65b9}\U{6cd5}\U{ff1a}Lagrangian\U{89e3}\U{6790}\U{89e3}}
+\subsubsection{B\U{65b9}\U{6cd5}\U{ff1a}Lagrangian\U{89e3}\U{6790}\U{89e3}}
 
 B\U{65b9}\U{6cd5}\U{ff0c}\emph{\U{6578}\U{503c}\U{89e3}\U{5c24}\U{62c9}%
 \U{89d2}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}}\U{ff0c}\U{5c31}\U{662f}\U{5c07}%
@@ -460,8 +522,6 @@ B\U{65b9}\U{6cd5}\U{ff0c}\emph{\U{6578}\U{503c}\U{89e3}\U{5c24}\U{62c9}%
 \U{4e5f}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{5c07}\U{6bd4}\U{8f03}AB\U{5169}%
 \U{7a2e}\U{65b9}\U{6cd5}\U{7d66}\U{51fa}\U{7684}\U{7d50}\U{679c}\U{3002}
 
-\bigskip
-
 \U{503c}\U{5f97}\U{4e00}\U{63d0}\U{7684}\U{662f}\U{ff0c}B\U{65b9}\U{6cd5}%
 \U{8207}\U{4f7f}\U{7528}Lagrange\U{529b}\U{5b78}\U{6240}\U{5f97}\U{5230}%
 \U{7684}\U{65b9}\U{7a0b}\U{662f}\U{53ef}\U{4ee5}reduce\U{6210}\U{4e00}%
@@ -475,8 +535,6 @@ B\U{65b9}\U{6cd5}\U{ff0c}\emph{\U{6578}\U{503c}\U{89e3}\U{5c24}\U{62c9}%
 3.50\U{6700}\U{7d42}\U{5f97}\U{5230}\U{7684}\U{662f}\U{4e00}\U{6a23}\U{7684}%
 \U{5fae}\U{5206}\U{65b9}\U{7a0b}\U{7d44}\U{5373}\U{53ef}\U{5f97}\U{77e5}%
 \U{3002}
-
-\bigskip
 
 B\U{65b9}\U{6cd5}\U{7684}\U{7a0b}\U{5f0f}\U{78bc}\U{4f86}\U{81ea}Hasbun%
 \U{6559}\U{6388}\U{7684}\U{8457}\U{4f5c}\cite{hasbun}\U{ff0c}\U{4e0d}\U{904e}%
@@ -499,8 +557,6 @@ HasbunEulerEquationODEsolve\U{ff0c}\U{5217}\U{5728}\U{6700}\U{5f8c}\U{7684}%
 \U{6240}\U{4ee5}\U{6703}\U{6709}\U{5947}\U{7570}\U{9ede}\U{554f}\U{984c}%
 \U{ff0c}$\theta $\U{5728}\U{96f6}\U{5ea6}\U{6642}\U{6703}\U{7522}\U{751f}NaN%
 \U{3002}
-
-\bigskip
 
 A\U{65b9}\U{6cd5}\U{53ef}\U{4ee5}\U{9069}\U{7528}\U{65bc}\U{4efb}\U{610f}%
 \U{7684}\U{9640}\U{87ba}\U{72c0}\U{614b}\U{ff0c}\U{56e0}\U{6b64}\U{4e0d}%
@@ -525,9 +581,8 @@ A\U{65b9}\U{6cd5}\U{53ef}\U{4ee5}\U{9069}\U{7528}\U{65bc}\U{4efb}\U{610f}%
 \U{8907}\U{96dc}\U{7a0b}\U{5ea6}\U{ff0c}\U{56e0}\U{6b64}\U{5404}\U{6709}%
 \U{5176}\U{9069}\U{7528}\U{5834}\U{5408}\U{3002}
 
-\bigskip
-
-\paragraph{C\U{65b9}\U{6cd5}\U{ff1a}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{6cd5}}
+\subsubsection{C\U{65b9}\U{6cd5}\U{ff1a}\U{59ff}\U{614b}\U{4f30}\U{6e2c}%
+\U{6cd5}}
 
 \U{7b2c}\U{4e09}\U{7a2e}C\U{65b9}\U{6cd5}\U{662f}\U{ff0c}\U{5728}\U{6211}%
 \U{5011}\U{5f9e}B\U{65b9}\U{6cd5}\U{5f97}\U{5230}\U{5c24}\U{62c9}\U{89d2}%
@@ -571,14 +626,27 @@ A\U{65b9}\U{6cd5}\U{53ef}\U{4ee5}\U{9069}\U{7528}\U{65bc}\U{4efb}\U{610f}%
 \U{611f}\U{6e2c}\U{5668}\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{4e0a}%
 \U{9762}\U{3002}
 
+%TCIMACRO{%
+%\TeXButton{method_c_code}{\begin{minted}[linenos,fontsize=\footnotesize]{python}
+%for i in range(1,self.N+1):
+%   C_rotation_vect_i = self.w_body_hasbun[i-1,:]*self.h
+%   self.TrackMat_temp_hasbun = np.dot(self.TrackMat_temp_hasbun
+%   ,CK(C_rotation_vect_i))
+%   # TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
+%   for j in range(3):
+%       self.cordvec[i,:,j+10]=np.dot(self.TrackMat_temp_hasbun,np.eye(3)[j,:])
+%\end{minted}}}%
+%BeginExpansion
 \begin{minted}[linenos,fontsize=\footnotesize]{python}
 for i in range(1,self.N+1):
    C_rotation_vect_i = self.w_body_hasbun[i-1,:]*self.h
-   self.TrackMat_temp_hasbun = np.dot(self.TrackMat_temp_hasbun,CK(C_rotation_vect_i))
+   self.TrackMat_temp_hasbun = np.dot(self.TrackMat_temp_hasbun
+   ,CK(C_rotation_vect_i))
    # TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
    for j in range(3):
        self.cordvec[i,:,j+10]=np.dot(self.TrackMat_temp_hasbun,np.eye(3)[j,:])
-\end{minted}
+\end{minted}%
+%EndExpansion
 
 \U{9019}\U{88e1}\U{4e5f}\U{53ef}\U{4ee5}\U{5f9e}\U{7a0b}\U{5f0f}\U{78bc}%
 \U{770b}\U{51fa}\U{ff0c}\U{6211}\U{5011}\U{7684}\U{59ff}\U{614b}\U{6f14}%
@@ -595,8 +663,6 @@ for i in range(1,self.N+1):
 \U{7d1a}\U{7684}IC\U{3002}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{7684}\U{7a0b}%
 \U{5f0f}\U{78bc}\U{662f}\U{6709}\U{5176}\U{512a}\U{52e2}\U{3002}
 
-\bigskip
-
 \U{6211}\U{5011}\U{9019}\U{908a}\U{8207}B\U{65b9}\U{6cd5}\U{7684}\U{6bd4}%
 \U{8f03}\U{4e5f}\U{63d0}\U{4f9b}\U{4e86}\U{4e00}\U{500b}\U{5e73}\U{53f0}%
 \U{ff0c}\U{4f86}\U{9a57}\U{8b49}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{6f14}%
@@ -607,7 +673,8 @@ for i in range(1,self.N+1):
 
 \bigskip
 
-\paragraph{MEMS\U{9640}\U{87ba}\U{5100}\U{611f}\U{6e2c}\U{5668}Gyro Sensor}
+\subsubsection{MEMS\U{9640}\U{87ba}\U{5100}\U{611f}\U{6e2c}\U{5668}Gyro
+Sensor}
 
 MEMS\U{9640}\U{87ba}\U{5100}\U{611f}\U{6e2c}\U{5668}\U{4f7f}\U{7528}\U{7684}%
 \U{539f}\U{7406}\U{4e26}\U{4e0d}\U{662f}\U{9640}\U{87ba}\U{7684}\U{5b9a}%
@@ -643,8 +710,6 @@ MEMS\U{9640}\U{87ba}\U{5100}\U{611f}\U{6e2c}\U{5668}\U{4f7f}\U{7528}\U{7684}%
 \U{6709}\U{9640}\U{87ba}\U{7684}\U{5169}\U{500b}\U{5b57}\U{ff0c}\U{56e0}%
 \U{70ba}\U{4ed6}\U{80cc}\U{5f8c}\U{7684}\U{7269}\U{7406}\U{8ddf}\U{9640}%
 \U{87ba}\U{6709}\U{76f8}\U{540c}\U{7684}\U{4f86}\U{6e90}\U{3002}
-
-\bigskip
 
 \U{6211}\U{5011}\U{5c07}\U{5728}\U{7bc4}\U{4f8b}\U{8207}\U{5206}\U{6790}%
 \U{4e2d}\U{8a73}\U{7d30}\U{8a0e}\U{8ad6}ABC\U{4e09}\U{7a2e}\U{65b9}\U{6cd5}%

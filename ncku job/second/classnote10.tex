@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Monday, July 04, 2016 11:44:49}
+%TCIDATA{LastRevised=Monday, July 04, 2016 17:00:46}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -51,6 +51,7 @@
 \fancyfoot[C]{\thepage}
 
 
+
 \begin{document}
 
 
@@ -63,10 +64,10 @@ ratio test.
 As $\mathbf{C\beta =0}$. Let%
 \begin{eqnarray*}
 V &=&l\left( \mathbf{\beta },\sigma ^{2}\right) +\mathbf{\lambda }^{\dagger
-}\left( \mathbf{C\beta -0}\right)  \\
+}\left( \mathbf{C\beta -0}\right) \\
 &=&-\frac{n}{2}\ln 2\pi -\frac{n}{2}\ln \sigma ^{2}-\frac{\left( \mathbf{%
 Y-X\beta }\right) ^{\dagger }\left( \mathbf{Y-X\beta }\right) }{2\hat{\sigma}%
-^{2}}+\mathbf{\lambda }^{\dagger }\left( \mathbf{C\beta -0}\right) 
+^{2}}+\mathbf{\lambda }^{\dagger }\left( \mathbf{C\beta -0}\right)
 \end{eqnarray*}%
 \begin{equation*}
 \begin{array}{c}
@@ -84,7 +85,7 @@ $-\frac{n}{2\sigma ^{2}}+\frac{1}{2\left( \sigma ^{2}\right) ^{2}}\left(
 \right) =0$ \\ 
 $\mathbf{C\beta }=\mathbf{0}$%
 \end{tabular}%
-\right. 
+\right.
 \end{equation*}%
 \begin{equation*}
 \Rightarrow \hat{\beta}_{0}=\hat{\beta}-\left( \mathbf{X}^{\dagger }\mathbf{X%
@@ -98,7 +99,7 @@ $\mathbf{C\beta }=\mathbf{0}$%
 \mathbf{X}\right) ^{-1}\mathbf{C}^{\dagger }\right] ^{-1}\mathbf{C\hat{\beta}%
 } \\
 &=&\frac{1}{n}\left( \mathbf{Y-X}\hat{\beta}_{0}\right) ^{\dagger }\left( 
-\mathbf{Y-X}\hat{\beta}_{0}\right) 
+\mathbf{Y-X}\hat{\beta}_{0}\right)
 \end{eqnarray*}%
 \newline
 Recall%
@@ -161,14 +162,14 @@ LSE of $\mathbf{\lambda }^{\dagger }\mathbf{\beta }$ is $\mathbf{\lambda }%
 \begin{equation*}
 \mathbf{\lambda }^{\dagger }\mathbf{\hat{\beta}}\sim N_{1}\left( \mathbf{%
 \lambda }^{\dagger }\mathbf{\beta },\sigma ^{2}\mathbf{\lambda }^{\dagger
-}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{\lambda }\right) 
+}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{\lambda }\right)
 \end{equation*}%
 Thus,%
 \begin{equation*}
 Z=\frac{\mathbf{\lambda }^{\dagger }\mathbf{\hat{\beta}}-\mathbf{\lambda }%
 ^{\dagger }\mathbf{\beta }}{\sqrt{\sigma ^{2}\mathbf{\lambda }^{\dagger
 }\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{\lambda }}}\sim
-N\left( 0,1\right) 
+N\left( 0,1\right)
 \end{equation*}%
 \begin{eqnarray*}
 t &=&\frac{\mathbf{\lambda }^{\dagger }\hat{\beta}\mathbf{-\lambda }%
@@ -205,7 +206,88 @@ indep}
 P_{r}\left\{ -t_{n-r,\alpha /2}\leq \frac{\mathbf{\lambda }^{\dagger }%
 \mathbf{\hat{\beta}-\lambda }^{\dagger }\mathbf{\beta }}{\sqrt{\text{MSE }%
 \mathbf{\lambda }^{\dagger }\left( \mathbf{X}^{\dagger }\mathbf{X}\right)
-^{-1}\mathbf{\lambda }}}\leq t_{n-r,\alpha /2}\right\} =1-\alpha
+^{-1}\mathbf{\lambda }}}\leq t_{n-r,\alpha /2}\right\} =1-\alpha 
+\end{equation*}%
+\newline
+\newline
+$\Rightarrow \mathbf{\lambda }^{\dagger }\mathbf{\hat{\beta}}\pm
+t_{n-r,\alpha /2}\sqrt{\text{MSE }\mathbf{\lambda }^{\dagger }\left( \mathbf{%
+X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{\lambda }}$ is a $100\left(
+1-\alpha \right) $ percent C.I for $\mathbf{\lambda }^{\dagger }\mathbf{%
+\beta }$.\newline
+\newline
+
+$\lambda =\left[ 0,0,\cdots ,1,0,0,\cdots \right] \quad g_{jj}$
+
+\bigskip 
+
+\paragraph{Prediction Interval}
+
+\begin{equation*}
+\begin{tabular}{l}
+confidence interval: for parameter $\left( E\left( \mathbf{Y}\right) =%
+\mathbf{X\beta }\right) $ \\ 
+prediction interval: for random variable $\left( y_{0}=\mathbf{X}%
+_{0}^{\dagger }\mathbf{\beta }+\varepsilon _{0}\right) $%
+\end{tabular}%
+\end{equation*}%
+\newline
+We predict $y_{0}$ by $\hat{y}_{0}=\mathbf{X}_{0}^{\dagger }\mathbf{\hat{%
+\beta}}$, $\hat{y}_{0}$ and $y_{0}$ are indep (why)%
+\begin{eqnarray*}
+Var\left( y_{0}-\hat{y}_{0}\right) &=&Var\left( y_{0}-\mathbf{X}%
+_{0}^{\dagger }\mathbf{\hat{\beta}}\right) \\
+&=&Var\left( \mathbf{X}_{0}^{\dagger }\mathbf{\beta }+\varepsilon _{0}-%
+\mathbf{X}_{0}^{\dagger }\mathbf{\hat{\beta}}\right) \\
+&=&Var\left( \varepsilon _{0}\right) -Var\left( \mathbf{X}_{0}^{\dagger }%
+\mathbf{\hat{\beta}}\right) \\
+&=&\sigma ^{2}+\mathbf{X}_{0}^{\dagger }Var\left( \mathbf{\hat{\beta}}%
+\right) \mathbf{X}_{0} \\
+&=&\sigma ^{2}\left( 1+\mathbf{X}_{0}^{\dagger }\left( \mathbf{X}^{\dagger }%
+\mathbf{X}\right) ^{-1}\mathbf{X}_{0}\right)
+\end{eqnarray*}%
+\begin{eqnarray*}
+&&\frac{\left( y_{0}-\hat{y}_{0}\right) -E\left( y_{0}-\hat{y}_{0}\right) }{%
+\sqrt{Var\left( y_{0}-\hat{y}_{0}\right) }} \\
+&=&\frac{y_{0}-\hat{y}_{0}}{\sqrt{\sigma ^{2}\left( 1+\mathbf{X}%
+_{0}^{\dagger }\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{X}%
+_{0}\right) }}\sim Z
+\end{eqnarray*}%
+\begin{equation*}
+\frac{y_{0}-\hat{y}_{0}}{\sqrt{\text{MSE}\left( 1+\mathbf{X}_{0}^{\dagger
+}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{X}_{0}\right) }}%
+\sim t_{n-r}
+\end{equation*}%
+$\therefore \left( 1-\alpha \right) \%$ P.I for $y_{0}$ is%
+\begin{equation*}
+\hat{y}_{0}\pm t_{n-r,\alpha /2}\sqrt{\text{MSE}\left( 1+\mathbf{X}%
+_{0}^{\dagger }\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-1}\mathbf{X}%
+_{0}\right) }
+\end{equation*}
+
+\bigskip
+
+\paragraph{Confidence Interval for $\protect\sigma ^{2}$}
+
+\bigskip 
+
+\begin{equation*}
+\because \frac{\mathbf{Y}^{\dagger }\left( I-P_{\mathbf{X}}\right) \mathbf{Y}%
+}{\sigma ^{2}}\sim \chi _{n-r}^{2}
+\end{equation*}%
+\begin{eqnarray*}
+&\Rightarrow &\Pr \left\{ \chi _{n-r,1-\frac{\alpha }{2}}^{2}\leq \frac{%
+\mathbf{Y}^{\dagger }\left( I-P_{\mathbf{X}}\right) \mathbf{Y}}{\sigma ^{2}}%
+\leq \chi _{n-r,\frac{\alpha }{2}}^{2}\right\} =1-\alpha \\
+&\Rightarrow &\Pr \left\{ \chi _{n-r,1-\frac{\alpha }{2}}^{2}\leq \frac{%
+\text{MSE}\times \left( n-r\right) }{\sigma ^{2}}\leq \chi _{n-r,\frac{%
+\alpha }{2}}^{2}\right\} =1-\alpha
+\end{eqnarray*}%
+\begin{equation*}
+\left[ \frac{\left( n-r\right) \times \text{MSE}}{\chi _{n-r,\frac{\alpha }{2%
+}}^{2}},\frac{\left( n-r\right) \times \text{MSE}}{\chi _{n-r,1-\frac{\alpha 
+}{2}}^{2}}\right] \text{ is the }\left( 1-\alpha \right) \%\text{ C.I for }%
+\sigma ^{2}
 \end{equation*}
 
 \end{document}
