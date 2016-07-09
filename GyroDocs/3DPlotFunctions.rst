@@ -11,7 +11,7 @@ objects by setting ``Drawoption['A_axes'] = True``, to make the belonging
 physical observables visible in a 3D animation. These data are processed in 
 the ``AnimationFrameSetup()`` function in the ``RBPlotFunctionVxx`` module.
 
-.. literalinclude:: ..\Physics_and_Animation_Modules_Library\RGCordTransV15.py
+.. literalinclude:: ..\..\..\Scripts\cordtrans\Physics_and_Animation_Modules_Library\RGCordTransV15.py
    :language: python
    :start-after: self.DrawOption = {
    :end-before:  '''Available drawing options''' 
