@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Saturday, July 09, 2016 19:54:53}
+%TCIDATA{LastRevised=Sunday, July 10, 2016 11:21:15}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-\input{tcilatex}
+
 
 \begin{document}
 
@@ -209,7 +209,7 @@ I_{3}-\frac{1}{4}J_{3}\right) \frac{1}{n}A=\frac{1}{n}\mathbf{A}^{\dagger }%
 -J_{n} & -J_{n} & 3J_{n} & -J_{n} \\ 
 -J_{n} & -J_{n} & -J_{n} & 3J_{n}%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\frac{1}{n}\left[ 
 \begin{array}{cccc}
 J_{n} & 0 & 0 & 0 \\ 
@@ -235,7 +235,7 @@ _{i}-\frac{1}{4n}\mathbf{Y}^{\dagger }J_{4n}\mathbf{Y\quad ,}\text{where }%
 \mathbf{y}_{1}^{\dagger } & \mathbf{y}_{2}^{\dagger } & \mathbf{y}%
 _{3}^{\dagger } & \mathbf{y}_{4}^{\dagger }%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\frac{1}{n}\sum\limits_{i=1}^{4}\mathbf{y}_{i}^{\dagger }\mathbf{11}%
 ^{\dagger }\mathbf{y}_{i}-\frac{1}{4n}\mathbf{Y}^{\dagger }\mathbf{1}_{4n}%
 \mathbf{1}_{4n}\mathbf{Y} \\
@@ -243,33 +243,33 @@ _{3}^{\dagger } & \mathbf{y}_{4}^{\dagger }%
 \cdot }^{2}
 \end{eqnarray*}%
 \begin{eqnarray*}
-E\left( \text{SSH}\right)  &=&E\left( \mathbf{Y}^{\dagger }\mathbf{X}\left( 
+E\left( \text{SSH}\right) &=&E\left( \mathbf{Y}^{\dagger }\mathbf{X}\left( 
 \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{C}^{\dagger }\left[ 
 \mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{C}%
 ^{\dagger }\right] ^{-1}\mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}%
-\right) ^{-}\mathbf{X}^{\dagger }\mathbf{Y}\right)  \\
+\right) ^{-}\mathbf{X}^{\dagger }\mathbf{Y}\right) \\
 &=&tr\left( \mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
 \mathbf{C}^{\dagger }\left[ \mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}%
 \right) ^{-}\mathbf{C}^{\dagger }\right] ^{-1}\mathbf{C}\left( \mathbf{X}%
-^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\sigma ^{2}I\right)  \\
+^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\sigma ^{2}I\right) \\
 &&+\left( \mathbf{X\beta }\right) ^{\dagger }\Delta \left( \mathbf{X\beta }%
-\right)  \\
+\right) \\
 &=&\sigma ^{2}tr\left( \left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
 \mathbf{C}^{\dagger }\left[ \mathbf{\quad }\right] ^{-1}\underset{\mathbf{C}}%
 {\underbrace{\mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
-\mathbf{X}^{\dagger }\mathbf{X}}}\right)  \\
+\mathbf{X}^{\dagger }\mathbf{X}}}\right) \\
 &&+\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}\Delta \left( \mathbf{%
-X\beta }\right)  \\
+X\beta }\right) \\
 &=&\sigma ^{2}tr\left( \mathbf{C}\left( \mathbf{X}^{\dagger }\mathbf{X}%
 \right) ^{-}\mathbf{C}^{\dagger }\left[ \mathbf{C}\left( \mathbf{X}^{\dagger
 }\mathbf{X}\right) ^{-}\mathbf{C}^{\dagger }\right] \right) +\mathbf{\beta }%
-^{\dagger }\mathbf{C^{\dagger }}\Delta \left( \mathbf{C\beta }\right)  \\
+^{\dagger }\mathbf{C^{\dagger }}\Delta \left( \mathbf{C\beta }\right) \\
 &=&\sigma ^{2}tr\left( I_{3}\right) +\left( \mathbf{C\beta }\right)
 ^{\dagger }\left( n\left( I_{3}-\frac{1}{4}J_{3}\right) \right) \left( 
-\mathbf{C\beta }\right)  \\
+\mathbf{C\beta }\right) \\
 &=&3\sigma ^{2}+n\mathbf{\beta }^{\dagger }\left( C^{\dagger }C-\frac{1}{4}%
 C^{\dagger }J_{3}C\right) \mathbf{\beta \quad }\text{see page 355} \\
-&&\vdots  \\
+&&\vdots \\
 &=&3\sigma ^{2}+n\mathbf{\beta }^{\dagger }\left( \left[ 
 \begin{array}{cc}
 0 & \mathbf{0}^{1} \\ 
@@ -292,7 +292,132 @@ E\left( \text{SSH}\right) =\left( k-1\right) \sigma
 \text{SSH}=\frac{1}{n}\sum\limits_{i=1}^{k}y_{i\cdot }^{2}-\frac{1}{kn}%
 y_{\cdot \cdot }^{2}%
 \end{array}%
-\right. 
+\right.
 \end{equation*}
+
+\bigskip
+
+\bigskip
+
+\section{Two-Way ANOVA: Balanced Case}
+
+the two-way balanced model%
+\begin{eqnarray*}
+y_{ijk} &=&\mu +\alpha _{i}+\beta _{j}+\gamma _{ij}+\varepsilon _{ijk}\quad
+,\quad 
+\begin{tabular}{l}
+$i=1,\cdots ,a$ \\ 
+$j=1,\cdots ,b$ \\ 
+$k=1,\cdots ,n$%
+\end{tabular}
+\\
+&=&\mu _{ij}+\varepsilon _{ijk} \\
+&=&\bar{\mu}_{\cdot \cdot }+\left( \bar{\mu}_{i\cdot }-\bar{\mu}_{\cdot
+\cdot }\right) +\left( \bar{\mu}_{\cdot j}-\bar{\mu}_{\cdot \cdot }\right)
++\left( \mu _{ij}-\bar{\mu}_{i\cdot }-\bar{\mu}_{\cdot j}+\bar{\mu}_{\cdot
+\cdot }\right) \\
+&&+\varepsilon _{ijk} \\
+&=&\mu ^{\ast }+\alpha _{i}^{\ast }+\beta _{j}^{\ast }+\gamma _{ij}^{\ast
+}+\varepsilon _{ijk}
+\end{eqnarray*}%
+\begin{equation*}
+\begin{tabular}{l}
+$\sum \alpha _{i}^{\ast }=0$ \\ 
+$\sum \beta _{i}^{\ast }=0$ \\ 
+$\sum_{i=1}\gamma _{ij}^{\ast }=0\quad \forall \ J$ \\ 
+$\sum_{j=1}^{b}\gamma _{ij}^{\ast }=0\quad \forall \ i$%
+\end{tabular}%
+\end{equation*}%
+\begin{eqnarray*}
+\alpha _{i}^{\ast } &=&\alpha _{i}-\bar{\alpha}_{\cdot }+\bar{\gamma}%
+_{i\cdot }-\bar{\gamma}_{\cdot \cdot } \\
+\beta _{j}^{\ast } &=&\beta _{i}-\bar{\beta}_{\cdot }+\bar{\gamma}_{\cdot j}-%
+\bar{\gamma}_{\cdot \cdot } \\
+\gamma _{ij}^{\ast } &=&\gamma _{ij}-\bar{\gamma}_{i\cdot }+\bar{\gamma}%
+_{\cdot j}+\bar{\gamma}_{\cdot \cdot }
+\end{eqnarray*}
+
+Assumptions:
+
+\begin{enumerate}
+\item $E\left( \varepsilon _{ijk}\right) =0\quad \forall \ i,j,k$
+
+\item $Var\left( \varepsilon _{ijk}\right) =\sigma ^{2}\quad \forall \ i,j,k$
+
+\item $Cov\left( \varepsilon _{ijk},\varepsilon _{rst}\right) =0\quad
+\forall \ \left( i,j,k\right) \neq \left( r,s,t\right) $
+
+\item $\varepsilon _{ijk}\sim \mathcal{N}\left( 0,\sigma ^{2}\right) $
+\end{enumerate}
+
+\bigskip
+
+\paragraph{Estimable Functions}
+
+Consider $a=3$, $b=3$, $n=2$ and the model%
+\begin{equation*}
+y_{ijk}=\mu +\alpha _{i}+\beta _{j}+\gamma _{ij}+\varepsilon _{ijk}\quad
+,\quad 
+\begin{tabular}{l}
+$i=1,2,3$ \\ 
+$j=1,2$ \\ 
+$k=1,2$%
+\end{tabular}%
+\end{equation*}%
+the matrix form%
+\begin{equation*}
+\left[ 
+\begin{array}{c}
+y_{111} \\ 
+y_{112} \\ 
+y_{121} \\ 
+y_{122} \\ 
+\vdots  \\ 
+y_{321} \\ 
+y_{322}%
+\end{array}%
+\right] _{12\times 1}=\left[ 
+\begin{array}{cccccccccccc}
+& 1 & 0 & 0 & 1 & 0 & 1 &  &  &  &  &  \\ 
+& 1 & 0 & 0 & 1 & 0 & 1 &  &  &  &  &  \\ 
+& 1 & 0 & 0 & 0 & 1 &  & 1 &  &  &  &  \\ 
+& 1 & 0 & 0 & 0 & 1 &  & 1 &  &  &  &  \\ 
+& 0 & 1 & 0 & 1 & 0 &  &  & 1 &  &  &  \\ 
+\mathbf{1}_{12} & 0 & 1 & 0 & 1 & 0 &  &  & 1 &  &  &  \\ 
+& 0 & 1 & 0 & 0 & 1 &  &  &  & 1 &  &  \\ 
+& 0 & 1 & 0 & 0 & 1 &  &  &  & 1 &  &  \\ 
+& 0 & 0 & 1 & 1 & 0 &  &  &  &  & 1 &  \\ 
+& 0 & 0 & 1 & 1 & 0 &  &  &  &  & 1 &  \\ 
+& 0 & 0 & 1 & 0 & 1 &  &  &  &  &  & 1 \\ 
+& 0 & 0 & 1 & 0 & 1 &  &  &  &  &  & 1%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\alpha  \\ 
+\alpha _{1} \\ 
+\alpha _{2} \\ 
+\alpha _{3} \\ 
+\beta _{1} \\ 
+\beta _{2} \\ 
+\gamma _{11} \\ 
+\gamma _{12} \\ 
+\gamma _{21} \\ 
+\gamma _{22} \\ 
+\gamma _{31} \\ 
+\gamma _{32}%
+\end{array}%
+\right] +\mathbf{\epsilon }
+\end{equation*}%
+\begin{equation*}
+\mathbf{Y}_{12\times 1}\mathbf{=X}_{12\times 12}\mathbf{\beta }_{12\times 1}%
+\mathbf{+\epsilon }_{12\times 1},\text{ where }r\left( \mathbf{X}\right)
+=r\left( \mathbf{X}^{\dagger }\mathbf{X}\right) =6\text{ (i.e. }a\times b%
+\text{)}
+\end{equation*}
+
+We can find 6 linearly independent estimable functions of parameters.
+
+We can obtain these estimable functions from $\mathbf{X\beta }$\textbf{\ }or 
+$\mathbf{X}^{\dagger }\mathbf{X\beta }$.
 
 \end{document}
