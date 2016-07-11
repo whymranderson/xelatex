@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Sunday, July 10, 2016 16:00:04}
+%TCIDATA{LastRevised=Monday, July 11, 2016 15:20:35}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,7 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-\input{tcilatex}
+
 
 \begin{document}
 
@@ -85,7 +85,7 @@ y_{22\cdot } \\
 y_{31\cdot } \\ 
 y_{32\cdot }%
 \end{array}%
-\right] 
+\right]
 \end{equation*}%
 the normal equations can be expressed as%
 \begin{eqnarray*}
@@ -132,5 +132,199 @@ S^{2} &=&\frac{\text{SSE}}{ab\left( n-1\right) }=\frac{\mathbf{Y}^{\dagger
 \mathbf{X}^{\dagger }\mathbf{Y}}{ab\left( n-1\right) }
 \end{eqnarray*}%
 is unbiased estimator of $\sigma ^{2}$.
+
+\begin{eqnarray*}
+&&\mathbf{\hat{\beta}}^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y} \\
+&=&\left[ 
+\begin{array}{ccccccc}
+\bar{y}_{\cdot \cdot \cdot } & \bar{y}_{i\cdot \cdot }-\bar{y}_{\cdot \cdot
+\cdot } & \cdots & \bar{y}_{\cdot j\cdot }-\bar{y}_{\cdot \cdot \cdot } & 
+\cdots & \bar{y}_{11\cdot }-\bar{y}_{1\cdot \cdot }-\bar{y}_{\cdot 1\cdot }+%
+\bar{y}_{\cdot \cdot \cdot } & \cdots%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+y_{\cdot \cdot \cdot } \\ 
+y_{1\cdot \cdot } \\ 
+\vdots \\ 
+y_{\cdot 1\cdot } \\ 
+\vdots \\ 
+y_{11\cdot } \\ 
+\vdots \\ 
+y_{ab\cdot }%
+\end{array}%
+\right]
+\end{eqnarray*}%
+\begin{eqnarray*}
+&=&\bar{y}_{\cdot \cdot \cdot }y_{\cdot \cdot \cdot }+y_{1\cdot \cdot
+}\left( \bar{y}_{1\cdot \cdot }-\bar{y}_{\cdot \cdot \cdot }\right) +\cdots
++y_{a\cdot \cdot }\left( \bar{y}_{a\cdot \cdot }-\bar{y}_{\cdot \cdot \cdot
+}\right) \\
+&&+y_{\cdot 1\cdot }\left( \bar{y}_{\cdot 1\cdot }-\bar{y}_{\cdot \cdot
+\cdot }\right) +\cdots +y_{\cdot b\cdot }\left( \bar{y}_{\cdot b\cdot }-\bar{%
+y}_{\cdot \cdot \cdot }\right) \\
+&&+y_{11\cdot }\left( \bar{y}_{11\cdot }-\bar{y}_{\cdot \cdot \cdot }\right)
++\cdots +y_{ab\cdot }\left( \bar{y}_{ab\cdot }-\bar{y}_{\cdot \cdot \cdot
+}\right) \\
+&=&\sum\limits_{i=1}^{a}\sum_{j=1}^{b}\bar{y}_{ij\cdot }\underset{n\bar{y}%
+_{ij\cdot }}{\underbrace{y_{ij\cdot }}}=n\sum\limits_{i=1}^{a}\sum_{j=1}^{b}%
+\bar{y}_{ij\cdot }^{2}=\sum\limits_{i=1}^{a}\sum_{j=1}^{b}\frac{y_{ij\cdot
+}^{2}}{n}
+\end{eqnarray*}%
+\begin{equation*}
+\mathbf{Y}^{\dagger }\mathbf{Y}-\mathbf{\hat{\beta}}^{\dagger }\mathbf{X}%
+^{\dagger }\mathbf{Y}=\sum\limits_{i}\sum\limits_{j}\sum\limits_{k}y_{ijk}-n%
+\sum\limits_{i}\sum\limits_{j}\bar{y}_{ij\cdot
+}^{2}=\sum\limits_{i}\sum\limits_{j}\sum\limits_{k}\left( y_{ijk}-\bar{y}%
+_{ij\cdot }\right) ^{2}
+\end{equation*}%
+\begin{equation*}
+\therefore \text{SSE}=\sum\limits_{ijk}\left( y_{ijk}-\bar{y}_{ij\cdot
+}\right) ^{2}
+\end{equation*}
+
+\bigskip
+
+\subsubsection{Testing Hypotheses}
+
+\paragraph{Full-Reduced-Model Approach (main effects $H_{0}:\protect\alpha %
+_{1}=\cdots =\protect\alpha _{a}$)}
+
+\begin{equation*}
+\begin{tabular}{l}
+the full model is $y_{ijk}=\mu +\alpha _{i}+\beta _{j}+\gamma
+_{ij}+\varepsilon _{ijk}$ \\ 
+the reduced model is $y_{ijk}=\mu +\beta _{j}+\gamma _{ij}+\varepsilon
+_{ijk} $%
+\end{tabular}%
+\end{equation*}%
+\begin{eqnarray*}
+\mathbf{\hat{\beta}}^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y} &=&\bar{y}%
+_{\cdot \cdot \cdot }y_{\cdot \cdot \cdot }+y_{\cdot 1\cdot }\left( \bar{y}%
+_{\cdot 1\cdot }-\bar{y}_{\cdot \cdot \cdot }\right) +\cdots +y_{\cdot
+b\cdot }\left( \bar{y}_{\cdot b\cdot }-\bar{y}_{\cdot \cdot \cdot }\right) \\
+&&+y_{11\cdot }\left( \bar{y}_{11\cdot }-\bar{y}_{\cdot \cdot \cdot }\right)
++\cdots +y_{ab\cdot }\left( \bar{y}_{ab\cdot }-\bar{y}_{\cdot \cdot \cdot
+}\right)
+\end{eqnarray*}%
+\begin{eqnarray*}
+&\therefore &\text{SSR}=\mathbf{\hat{\beta}}^{\dagger }\mathbf{X}^{\dagger }%
+\mathbf{Y}-\mathbf{\hat{\beta}}_{1}^{\dagger }\mathbf{X}_{1}^{\dagger }%
+\mathbf{Y=}y_{1\cdot \cdot }\left( \bar{y}_{1\cdot \cdot }-\bar{y}_{\cdot
+\cdot \cdot }\right) +\cdots +y_{a\cdot \cdot }\left( \bar{y}_{a\cdot \cdot
+}-\bar{y}_{\cdot \cdot \cdot }\right) \\
+&=&\sum\limits_{i=1}^{n}\frac{y_{i\cdot \cdot }^{2}}{bn}-\bar{y}_{\cdot
+\cdot \cdot }\sum\limits_{i=1}^{a}\bar{y}_{i\cdot \cdot } \\
+&=&\sum\limits_{i=1}^{n}\frac{y_{i\cdot \cdot }^{2}}{bn}-\frac{y_{\cdot
+\cdot \cdot }^{2}}{abn}=bn\sum\limits_{i=1}^{a}\left( y_{i\cdot \cdot }-\bar{%
+y}_{\cdot \cdot \cdot }\right) ^{2}
+\end{eqnarray*}
+
+$H_{0}:\beta _{1}=\cdots =\beta _{b}$%
+\begin{equation*}
+\text{SSR}=\sum\limits_{j=1}^{b}\frac{y_{\cdot j\cdot }^{2}}{an}-\frac{%
+y_{\cdot \cdot \cdot }^{2}}{abn}
+\end{equation*}
+
+$H_{0}:\gamma _{ij}=0$%
+\begin{equation*}
+\text{SSR}=\sum\limits_{i=1}^{a}\sum\limits_{j=1}^{b}\frac{y_{ij\cdot }^{2}}{%
+n}-\sum\limits_{i=1}^{a}\frac{y_{i\cdot \cdot }^{2}}{bn}-\sum%
+\limits_{j=1}^{b}\frac{y_{\cdot j\cdot }^{2}}{an}+\frac{y_{\cdot \cdot \cdot
+}^{2}}{abn}
+\end{equation*}
+
+\bigskip
+
+\begin{equation*}
+\begin{tabular}{lllll}
+S.V. & df & \c{S}\c{S} & M.S. & E(M.S.) \\ \hline
+Factor A & \multicolumn{1}{|l}{$a-1$} & $\sum\limits_{i=1}^{a}\frac{%
+y_{i\cdot \cdot }^{2}}{bn}-\frac{y_{\cdot \cdot \cdot }^{2}}{abn}$ & $\frac{%
+\text{SSA}}{a-1}$ & $\sigma ^{2}+bn\frac{\sum \alpha _{i}^{2}}{a-1}$ \\ 
+Factor B & \multicolumn{1}{|l}{$b-1$} & $\sum\limits_{j=1}^{b}\frac{y_{\cdot
+j\cdot }^{2}}{an}-\frac{y_{\cdot \cdot \cdot }^{2}}{abn}$ & $\frac{\text{SSB}%
+}{b-1}$ & $\sigma ^{2}+an\frac{\sum \beta _{j}^{2}}{b-1}$ \\ 
+Intersection & \multicolumn{1}{|l}{$%
+\begin{array}{c}
+\left( a-1\right) \times \\ 
+\left( b-1\right)%
+\end{array}%
+$} & $%
+\begin{array}{c}
+\sum\limits_{i=1}^{a}\sum\limits_{j=1}^{b}\frac{y_{ij\cdot }^{2}}{n}%
+-\sum\limits_{i=1}^{a}\frac{y_{i\cdot \cdot }^{2}}{bn} \\ 
+-\sum\limits_{j=1}^{b}\frac{y_{\cdot j\cdot }^{2}}{an}+\frac{y_{\cdot \cdot
+\cdot }^{2}}{abn}%
+\end{array}%
+$ & $\frac{\text{SSAB}}{\left( a-1\right) \left( b-1\right) }$ & $%
+\begin{array}{c}
+\sigma ^{2}+ \\ 
+n\sum\limits_{i}\sum\limits_{j}\frac{\gamma _{ij}^{2}}{\left( a-1\right)
+\left( b-1\right) }%
+\end{array}%
+$ \\ 
+Error & \multicolumn{1}{|l}{$ab\left( n-1\right) $} & $%
+\begin{array}{c}
+\sum\limits_{i}\sum\limits_{j}\sum\limits_{k}y_{ijk}^{2}-\sum\limits_{i}\sum%
+\limits_{j}\frac{y_{ij\cdot }^{2}}{n} \\ 
+\left( \sum\limits_{i}\sum\limits_{j}\sum\limits_{k}\left( y_{ijk}-\bar{y}%
+_{ij\cdot }\right) ^{2}\right)%
+\end{array}%
+$ & $\frac{\text{SSE}}{ab\left( n-1\right) }$ & $\sigma ^{2}$ \\ 
+Total & \multicolumn{1}{|l}{$abn-1$} & $\sum\limits_{i}\sum\limits_{j}\sum%
+\limits_{k}y_{ijk}^{2}-\frac{y_{\cdot \cdot \cdot }^{2}}{abn}$ &  & 
+\end{tabular}%
+\end{equation*}
+
+\bigskip 
+
+\begin{equation*}
+E\left( \text{MSA}\right) =E\left( \frac{\text{SSA}}{a-1}\right) =\frac{1}{%
+a-1}E\left( \sum\limits_{i=1}^{a}\frac{y_{i\cdot \cdot }^{2}}{bn}-\frac{%
+y_{\cdot \cdot \cdot }^{2}}{abn}\right) 
+\end{equation*}
+
+\begin{eqnarray*}
+E\left( y_{\cdot \cdot \cdot }^{2}\right)  &=&E\left[ \left(
+\sum\limits_{i}\sum\limits_{j}\sum\limits_{k}y_{ijk}\right) ^{2}\right]  \\
+&=&E\left[ \left( \sum \sum \sum \left( \mu +\alpha _{i}+\beta _{j}+\gamma
+_{ij}+\varepsilon _{ijk}\right) \right) ^{2}\right]  \\
+&=&E\left[ \left( abn\mu +\beta n\sum \alpha _{i}+an\sum \beta _{j}+n\sum
+\sum \gamma _{ij}+\sum\limits_{ijk}\varepsilon _{ijk}\right) ^{2}\right]  \\
+&=&E\left[ a^{2}b^{2}n^{2}\mu ^{2}+2abn\mu \left(
+\sum\limits_{ijk}\varepsilon _{ijk}\right) +\left(
+\sum\limits_{ijk}\varepsilon _{ijk}\right) ^{2}\right]  \\
+&=&a^{2}b^{2}n^{2}\mu ^{2}+2abn\mu \left( \sum\limits_{ijk}\varepsilon
+_{ijk}\right) +E\left( \sum\limits_{ijk}\varepsilon _{ijk}^{2}\right)
++E\left( \sum\limits_{ijk=rst}\varepsilon _{ijk}\varepsilon _{rst}\right)  \\
+&=&a^{2}b^{2}n^{2}\mu ^{2}+abn\sigma ^{2}
+\end{eqnarray*}%
+\begin{equation*}
+E\left( \varepsilon _{ijk}\right) =0\quad E\left( \varepsilon
+_{ijk}^{2}\right) =\sigma ^{2}\quad E\left( \varepsilon _{ijk}\varepsilon
+_{rst}\right) =0
+\end{equation*}
+
+\bigskip 
+
+\begin{eqnarray*}
+E\left( \sum\limits_{i=1}^{a}y_{i\cdot \cdot }^{2}\right)  &=&E\left[
+\sum\limits_{i=1}^{a}\left(
+\sum\limits_{j=1}^{b}\sum\limits_{k=1}^{n}y_{ijk}\right) ^{2}\right]  \\
+&=&\cdots  \\
+&=&a^{2}b^{2}n^{2}\mu ^{2}+b^{2}n^{2}\sum_{i=1}^{a}\alpha _{i}^{2}+abn\sigma
+^{2}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+E\left( \text{MSA}\right) &=&\frac{1}{a-1}\left[ \frac{a^{2}b^{2}n^{2}\mu
+^{2}+b^{2}n^{2}\sum_{i=1}^{a}\alpha _{i}^{2}+abn\sigma ^{2}}{bn}-\frac{%
+a^{2}b^{2}n^{2}\mu ^{2}+abn\sigma ^{2}}{abn}\right] \\
+&=&\frac{1}{a-1}\left[ abn\mu ^{2}+bn\sum \alpha _{i}^{2}+a\sigma
+^{2}-abn\mu ^{2}-\sigma ^{2}\right] \\
+&=&\frac{1}{a-1}\left[ \sigma ^{2}\left( a-1\right) +bn\sum \alpha _{i}^{2}%
+\right] =\sigma ^{2}+\frac{bn\sum \alpha _{i}^{2}}{a-1}
+\end{eqnarray*}
 
 \end{document}
