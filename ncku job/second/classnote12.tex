@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Monday, July 11, 2016 17:18:15}
+%TCIDATA{LastRevised=Tuesday, July 12, 2016 11:04:29}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -85,10 +85,10 @@ y_{22\cdot } \\
 y_{31\cdot } \\ 
 y_{32\cdot }%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 
-\bigskip 
+\bigskip
 
 the normal equations can be expressed as%
 \begin{eqnarray*}
@@ -474,6 +474,27 @@ _{3}^{\dagger }%
 1}_{12}\mathbf{1}_{12}^{\dagger }\mathbf{Y} \\
 &=&\sum\limits_{i=1}^{3}\frac{y_{i\cdot }^{2}}{4}-\frac{y_{\cdot \cdot \cdot
 }^{2}}{12}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+E\left( \text{SSH}\right)  &=&E\left[ \mathbf{Y}^{\dagger }\mathbf{AY}\right]
+\\
+&=&tr\left( \mathbf{A}\sigma ^{2}I\right) +\left( \mathbf{X\beta }\right)
+^{\dagger }\mathbf{A}\left( \mathbf{X\beta }\right)  \\
+&=&\sigma ^{2}tr\left( \mathbf{A}\right) +\mathbf{\beta X^{\dagger }AX\beta }
+\\
+&=&\sigma ^{2}tr\left( I_{2}\right) +\mathbf{\beta }^{\dagger }\mathbf{C}%
+^{\dagger }\left[ \mathbf{C}\left( \mathbf{X^{\dagger }X}\right) ^{-}\mathbf{%
+C}^{\dagger }\right] ^{-1}\mathbf{C\beta \quad \quad }\text{p.407} \\
+&&\vdots  \\
+&=&2\sigma ^{2}+4\sum\limits_{i=1}^{3}\alpha
+_{i}^{2}+4\sum\limits_{i=1}^{3}\alpha _{i}\gamma _{i\cdot
+}+\sum\limits_{i=1}^{3}\gamma _{i\cdot }^{2}-\frac{4}{3}\alpha _{\cdot }^{2}-%
+\frac{4}{3}\alpha _{\cdot }\gamma _{\cdot \cdot } \\
+&&-\frac{1}{3}\gamma _{\cdot \cdot }^{2} \\
+&=&2\sigma ^{2}+4\sum\limits_{i=1}^{3}\left( \alpha _{i}-\bar{\alpha}_{\cdot
+}+\bar{\gamma}_{i\cdot }-\bar{\gamma}_{\cdot \cdot }\right) ^{2} \\
+&=&2\sigma ^{2}+4\sum\limits_{i=1}^{3}\alpha _{i}^{2}
 \end{eqnarray*}
 
 \end{document}
