@@ -14,7 +14,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Wednesday, November 25, 2015 15:33:37}
-%TCIDATA{LastRevised=Tuesday, July 12, 2016 11:41:51}
+%TCIDATA{LastRevised=Tuesday, July 12, 2016 16:20:10}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
 %TCIDATA{CSTFile=40 LaTeX article.cst}
@@ -49,7 +49,6 @@
 \DeclareMathAccent{\wtilde}{\mathord}{largesymbols}{"65}
 \pagestyle{fancy}
 \fancyfoot[C]{\thepage}
-
 \input{tcilatex}
 
 \begin{document}
@@ -84,36 +83,36 @@ the matrix form%
 \left[ 
 \begin{array}{c}
 y_{11} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{1n} \\ 
 y_{21} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{2n} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{k1} \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{kn}%
 \end{array}%
 \right] =\left[ 
 \begin{array}{ccccc}
 1 & 1 & 0 &  & 0 \\ 
-1 & 1 & 0 & \cdots  & \vdots  \\ 
+1 & 1 & 0 & \cdots & \vdots \\ 
 1 & 1 & 0 &  & 0 \\ 
 1 & 1 & 0 &  &  \\ 
 & 0 & 1 &  &  \\ 
-\vdots  & 0 & 1 & \cdots  & \vdots  \\ 
+\vdots & 0 & 1 & \cdots & \vdots \\ 
 & 0 & 1 &  &  \\ 
-&  & \vdots  &  &  \\ 
+&  & \vdots &  &  \\ 
 1 & 0 & 0 &  & 1 \\ 
-&  & \vdots  & \cdots  &  \\ 
+&  & \vdots & \cdots &  \\ 
 1 & 0 & 0 &  & 1%
 \end{array}%
 \right] \left[ 
 \begin{array}{c}
-\mu  \\ 
+\mu \\ 
 \alpha _{1} \\ 
 \alpha _{2} \\ 
-\vdots  \\ 
+\vdots \\ 
 \alpha _{k}%
 \end{array}%
 \right] +\mathbf{\epsilon }
@@ -124,9 +123,9 @@ the design matrix is $kn\times \left( k+1\right) $ of rank $k$
 \begin{equation*}
 \mathbf{X}^{\dagger }\mathbf{X}=\left[ 
 \begin{array}{cccccc}
-kn & n & n &  & \cdots  & n \\ 
-n & n & n & 0 & \cdots  & 0 \\ 
-\vdots  &  & \vdots  &  &  & \vdots  \\ 
+kn & n & n &  & \cdots & n \\ 
+n & n & n & 0 & \cdots & 0 \\ 
+\vdots &  & \vdots &  &  & \vdots \\ 
 n & 0 &  &  &  & n%
 \end{array}%
 \right] _{\left( k+1\right) \times \left( k+1\right) }\quad \mathbf{X}%
@@ -134,10 +133,10 @@ n & 0 &  &  &  & n%
 \begin{array}{c}
 y_{\cdot \cdot } \\ 
 y_{1\cdot } \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{k\cdot }%
 \end{array}%
-\right] 
+\right]
 \end{equation*}
 
 \bigskip
@@ -164,7 +163,7 @@ S^{2}=\frac{\text{SSE}}{k\left( n-1\right) }=\frac{\mathbf{Y}^{\dagger
 \end{equation*}%
 is unbiased estimator of $\sigma ^{2}$
 
-\bigskip 
+\bigskip
 
 \begin{eqnarray*}
 \text{SSE} &=&\mathbf{Y}\left( I-\mathbf{X}\left( \mathbf{X}^{\dagger }%
@@ -178,29 +177,29 @@ is unbiased estimator of $\sigma ^{2}$
 \begin{eqnarray*}
 \mathbf{\hat{\beta}}^{\dagger }\mathbf{X}^{\dagger }\mathbf{Y} &=&\left[ 
 \begin{array}{cccc}
-\hat{\mu} & \hat{\alpha}_{1} & \cdots  & \hat{\alpha}_{k}%
+\hat{\mu} & \hat{\alpha}_{1} & \cdots & \hat{\alpha}_{k}%
 \end{array}%
 \right] \left[ 
 \begin{array}{c}
 y_{\cdot \cdot } \\ 
 y_{1\cdot } \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{k\cdot }%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\left[ 
 \begin{array}{cccc}
 \bar{y}_{\cdot \cdot } & \frac{y_{1\cdot }}{n}-\bar{y}_{\cdot \cdot } & 
-\cdots  & \frac{y_{k\cdot }}{n}-\bar{y}_{\cdot \cdot }%
+\cdots & \frac{y_{k\cdot }}{n}-\bar{y}_{\cdot \cdot }%
 \end{array}%
 \right] \left[ 
 \begin{array}{c}
 y_{\cdot \cdot } \\ 
 y_{1\cdot } \\ 
-\vdots  \\ 
+\vdots \\ 
 y_{k\cdot }%
 \end{array}%
-\right]  \\
+\right] \\
 &=&\bar{y}_{\cdot \cdot }y_{\cdot \cdot }+\left( \frac{y_{1\cdot }}{n}-\bar{y%
 }_{\cdot \cdot }\right) y_{1\cdot }+\cdots +\left( \frac{y_{k\cdot }}{n}-%
 \bar{y}_{\cdot \cdot }\right) y_{k\cdot } \\
@@ -231,7 +230,7 @@ i &=&1,\cdots ,k \\
 j &=&1,\cdots ,n
 \end{eqnarray*}
 
-\bigskip 
+\bigskip
 
 the matrix form of R.M. is%
 \begin{equation*}
@@ -280,46 +279,47 @@ Total & $kn-1$ & $\sum \sum y_{ij}^{2}-\frac{y_{\cdot \cdot }^{2}}{n}$ &  &
 \end{equation*}%
 \begin{eqnarray*}
 P_{\mathbf{X}}-P_{\mathbf{W}} &=&\mathbf{X}\left( \mathbf{X}^{\dagger }%
-\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }-1_{nk}\left( 1^{\dagger
-}1\right) ^{-}1^{\dagger } \\
+\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }-\mathbf{1}_{nk}\left( \mathbf{1}%
+^{\dagger }\mathbf{1}\right) ^{-}\mathbf{1}^{\dagger } \\
 &=&\frac{1}{n}\left[ 
 \begin{array}{cccc}
-J_{n\times n} & 0 & \cdots & 0 \\ 
-0 & J &  &  \\ 
-&  & \ddots &  \\ 
-J &  &  & J%
+J_{n\times n} & 0 & \cdots  & 0 \\ 
+0 & J &  & 0 \\ 
+\vdots  &  & \ddots  & \vdots  \\ 
+J &  & \cdots  & J%
 \end{array}%
 \right] -\frac{1}{kn}\left[ 
 \begin{array}{ccc}
-J_{n\times n} & \cdots & J_{n\times n} \\ 
-&  &  \\ 
-J_{n\times n} &  & J_{n\times n}%
+J_{n\times n} & \cdots  & J_{n\times n} \\ 
+\vdots  & \ddots  & \vdots  \\ 
+J_{n\times n} & \cdots  & J_{n\times n}%
 \end{array}%
-\right] \\
+\right]  \\
 &=&\frac{1}{kn}\left[ 
 \begin{array}{cccc}
-\left( k-1\right) J & -J & \cdots & -J \\ 
--J & \left( k-1\right) J &  & \vdots \\ 
-&  &  & \vdots \\ 
--J & -J &  & \left( k-1\right) J%
+\left( k-1\right) J & -J & \cdots  & -J \\ 
+-J & \left( k-1\right) J &  & \vdots  \\ 
+\vdots  & \vdots  & \ddots  & \vdots  \\ 
+-J & -J & \cdots  & \left( k-1\right) J%
 \end{array}%
-\right]
+\right] 
 \end{eqnarray*}
 
 \begin{eqnarray*}
-E\left( \text{SSR}\right) &=&E\left( \mathbf{Y}^{\dagger }\left( P_{\mathbf{X%
-}}-P_{\mathbf{W}}\right) \mathbf{Y}\right) \\
+E\left( \text{SSR}\right)  &=&E\left( \mathbf{Y}^{\dagger }\left( P_{\mathbf{%
+X}}-P_{\mathbf{W}}\right) \mathbf{Y}\right)  \\
 &=&tr\left( \left( P_{\mathbf{X}}-P_{\mathbf{W}}\right) \sigma ^{2}I\right)
 +\left( \mathbf{X\beta }\right) ^{\dagger }\left( P_{\mathbf{X}}-P_{\mathbf{W%
 }}\right) \mathbf{X\beta }
 \end{eqnarray*}%
 \begin{eqnarray*}
-tr\left( P_{\mathbf{X}}-P_{\mathbf{W}}\right) &=&tr\left( \mathbf{X}\left( 
-\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }-1\left(
-1^{\dagger }1\right) ^{-}1^{\dagger }\right) \\
+tr\left( P_{\mathbf{X}}-P_{\mathbf{W}}\right)  &=&tr\left( \mathbf{X}\left( 
+\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }-\mathbf{1}%
+\left( \mathbf{1}^{\dagger }\mathbf{1}\right) ^{-}\mathbf{1}^{\dagger
+}\right)  \\
 &=&tr\left( \mathbf{X}\left( \mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}%
-\mathbf{X}^{\dagger }\right) -tr\left( \frac{1}{kn}J_{nk}\right) \\
-&=&r\left( \mathbf{X}\right) -1 \\
+\mathbf{X}^{\dagger }\right) -tr\left( \frac{1}{kn}J_{nk}\right)  \\
+&=&r\left( \mathbf{X}\right) -\frac{1}{kn}tr\left( J_{nk}\right)  \\
 &=&k-1
 \end{eqnarray*}
 
@@ -328,29 +328,111 @@ tr\left( P_{\mathbf{X}}-P_{\mathbf{W}}\right) &=&tr\left( \mathbf{X}\left(
 W}}\right) \mathbf{X\beta } \\
 &=&\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{X}}\mathbf{X\beta -}%
 \left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{W}}\mathbf{X\beta \quad
-\_\_\_}\left( \ast \right)
+\_\_\_}\left( \ast \right) 
 \end{eqnarray*}%
 \begin{eqnarray*}
-\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{X}}\mathbf{X\beta } &%
-\mathbf{=}&\mathbf{\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}X}\left( 
-\mathbf{X}^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\mathbf{%
-X\beta } \\
+\left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{X}}\mathbf{X\beta } &=&%
+\mathbf{\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}X}\left( \mathbf{X}%
+^{\dagger }\mathbf{X}\right) ^{-}\mathbf{X}^{\dagger }\mathbf{X\beta } \\
 &=&\mathbf{\mathbf{\beta }^{\dagger }}\left( \mathbf{\mathbf{X^{\dagger }}X}%
 \right) \mathbf{\beta } \\
-&&\vdots \\
-&=&kn\mu ^{2}+n\sum \alpha _{i}^{2}
+&=&\left[ 
+\begin{array}{cccc}
+\mu  & \alpha _{1} & \cdots  & \alpha _{k}%
+\end{array}%
+\right] \left[ 
+\begin{array}{cccc}
+kn & n & \cdots  & n \\ 
+n & n &  & 0 \\ 
+\vdots  &  & \ddots  &  \\ 
+n & 0 &  & n%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu  \\ 
+\alpha _{1} \\ 
+\vdots  \\ 
+\alpha _{k}%
+\end{array}%
+\right]  \\
+&=&n\left[ 
+\begin{array}{cccc}
+k\mu +\sum\limits_{i=1}^{k}\alpha _{i} & \mu +\alpha _{1} & \cdots  & \mu
++\alpha _{k}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu  \\ 
+\alpha _{1} \\ 
+\vdots  \\ 
+\alpha _{k}%
+\end{array}%
+\right]  \\
+&=&n\left[ k\mu ^{2}+\mu \sum \alpha _{i}+\sum\limits_{i=1}^{k}\left( \mu
++\alpha _{i}\right) \alpha _{i}\right]  \\
+&=&kn\mu ^{2}+n\sum_{i=1}^{k}\alpha _{i}^{2}\mathbf{\quad \_\_\_}\left( \ast
+\right) 
 \end{eqnarray*}%
 \begin{eqnarray*}
 \left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{W}}\mathbf{X\beta } &=&%
 \mathbf{\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}}1\left( 1^{\dagger
 }1\right) ^{-1}1^{\dagger }\mathbf{X\beta } \\
-&=&\cdots \\
-&=&kn\mu +n\sum\limits_{i=1}^{k}\alpha _{i}=kn\mu
-\end{eqnarray*}%
-\begin{eqnarray*}
-&\therefore &\left( \ast \right) =n\sum \alpha _{i}^{2} \\
-&\therefore &E\left( \text{SSR}\right) =\sigma ^{2}\left( k-1\right)
-+n\sum\limits_{i=1}^{k}\alpha _{i}^{2}
+&=&\mathbf{\mathbf{\beta }^{\dagger }\mathbf{X^{\dagger }}}1\frac{1}{kn}%
+1^{\dagger }\mathbf{X\beta } \\
+&=&\frac{1}{kn}\left( 1^{\dagger }\mathbf{X\beta }\right) ^{2}
 \end{eqnarray*}
+
+\begin{eqnarray*}
+\mathbf{1}_{nk\times 1}^{\dagger }\mathbf{X\beta } &\mathbf{=}&\left[ 
+\begin{array}{ccc}
+\mathbf{1}_{n}^{\dagger } & \mathbf{\cdots } & \mathbf{1}_{n}^{\dagger }%
+\end{array}%
+\right] \left[ 
+\begin{array}{ccccc}
+\mathbf{1}_{n} & \mathbf{1}_{n} & 0 & \cdots  & 0 \\ 
+&  & \mathbf{1}_{n} &  &  \\ 
+\vdots  &  &  & \ddots  & \vdots  \\ 
+\mathbf{1}_{n} &  &  & \cdots  & \mathbf{1}_{n}%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu  \\ 
+\alpha _{1} \\ 
+\vdots  \\ 
+\alpha _{k}%
+\end{array}%
+\right]  \\
+&=&\left[ 
+\begin{array}{cccc}
+kn & n & \cdots  & n%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\mu  \\ 
+\alpha _{1} \\ 
+\vdots  \\ 
+\alpha _{k}%
+\end{array}%
+\right]  \\
+&=&kn\mu +n\sum\limits_{i=1}^{k}\alpha _{i}=kn\mu 
+\end{eqnarray*}%
+\begin{equation*}
+\therefore \left( \mathbf{X\beta }\right) ^{\dagger }P_{\mathbf{W}}\mathbf{%
+X\beta }=\frac{1}{kn}\left( 1^{\dagger }\mathbf{X\beta }\right) ^{2}=\frac{1%
+}{kn}\left( kn\mu \right) ^{2}=kn\mu ^{2}\mathbf{\_\_\_}\left( \ast \right) 
+\end{equation*}
+
+\bigskip 
+
+\begin{equation*}
+\left( \mathbf{X\beta }\right) ^{\dagger }\left( P_{\mathbf{X}}-P_{\mathbf{W}%
+}\right) \mathbf{X\beta }=kn\mu ^{2}+n\sum_{i=1}^{k}\alpha _{i}^{2}-kn\mu
+^{2}=n\sum_{i=1}^{k}\alpha _{i}^{2}
+\end{equation*}
+
+\begin{equation*}
+\therefore E\left( \text{SSR}\right) =\sigma ^{2}\left( k-1\right)
++n\sum\limits_{i=1}^{k}\alpha _{i}^{2}
+\end{equation*}
 
 \end{document}
