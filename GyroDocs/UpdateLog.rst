@@ -1,6 +1,9 @@
 Updates and changelog
 =====================
 
+2016/7/13
+   Major organization on program files.
+
 2016/6/11
    Added two demo example with animations to GUI_v3 user interface as two 
    simple-enough push buttons. First one is Hercules flywheel demonstration. 
