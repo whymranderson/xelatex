@@ -1,0 +1,549 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\documentclass[12pt,a4paper]{article}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{pstricks,pst-node}
+
+\setCJKmainfont[AutoFakeBold=1.5]{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman Times New Roman
+\font_sans Verdana
+\font_typewriter Courier New
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle false
+\pdf_quoted_options "hidelinks"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+GyroSoft Simulation
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/logo_June27_2016.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=0.6
+\backslash
+textwidth]{../figs/logo_June27_2016.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+簡介Premise
+\end_layout
+
+\begin_layout Standard
+此文件將微機電陀螺儀感測器的物理與向量在轉動座標與慣性座標中的變換公式做了完美的連結。並且也觸類旁通地推導出了計算機中轉動的模擬器原理。讓同學可以在學習陀螺之餘
+，完全掌握陀螺與陀螺儀的應用。
+\end_layout
+
+\begin_layout Standard
+這份教材也某種程度上介紹了大家所不知道的陀螺儀的應用。一般對於陀螺儀的認知不外乎就是影片上常見的陀螺定軸性，與陀螺的逆動性，這些特性都可以在一般物理影片上，或者
+是科學教育館中的體驗教具中學習到。程度再好一點的學生可能會知道陀螺儀有在導航上的應用。
+\end_layout
+
+\begin_layout Standard
+不過，很少有人知道陀螺儀事實上也有其他的應用，而且就在你我日常生活當中。比如說，有些好的手機裡面就有陀螺儀感測器，如iphone。作手機的工程師可能會告訴你，手
+機裡面的陀螺儀並不是裡面真的有一顆在旋轉的轉子，而是微機電結構，因此原理與陀螺儀不相同。這邊要告訴你，雖然他裡面沒有旋轉的轉子，但是微機電陀螺儀感測器量測的物理
+量"貼體角速度"，卻是從陀螺的運動原理推導而來。也正是因為如此，陀螺儀感測器事實上沿用了陀螺運動方程的一些應用，其中包括了正確的積分貼體角速度之後，就可以得到感
+測器的方向隨時間的變化(或稱姿態隨時間的變化)，這即是用上陀螺的運動方程中貼體角速度的觀念。這也是為什麼陀螺儀感測器的名子中仍然保有陀螺兩個字的原因。不過大部分
+的人甚至包括微機電的工程師都無法很好的說明，他們通常都會強調微機電陀螺儀使用的是類似柯式力的原理，但是它們連微機電陀螺儀量到的物理量是甚麼都講不出來，當然也不會
+知道貼體角速度與陀螺的運動方程"牛頓由拉方程"之間的緊密關係，以及貼體兩個字的重要性。
+\end_layout
+
+\begin_layout Standard
+因此此教材是教大家所不知道的陀螺儀在日常生活的廣泛應用。包括手機中的微機電MEMS陀螺儀如何積分測得的貼體角速度來得到手機的絕對方向或姿態。以及電腦模擬中的3d
+物理引擎如何不用歐拉角而直接積分描述剛體轉動的牛頓歐拉方程,此方程正是陀螺運動的核心方程，此電腦模擬涵蓋領域非常廣泛，如電腦遊戲3d物理引擎，CAD的3d物理運
+動模擬，統計物理中的molecular dynamics分子運動模擬，不用歐拉角可以加速模擬速度非常多。
+\end_layout
+
+\begin_layout Standard
+此教材屬於陀螺相關選修教材，適合當作大學選修講義。此教材包含了工作室獨立開發的陀螺儀應用模擬的電腦程式平台，以及手工製作及裝訂的實體書籍。
+\end_layout
+
+\begin_layout Section
+程式平台
+\end_layout
+
+\begin_layout Standard
+陀螺儀章動進動3D模擬程式，轉動積分器與姿態估測平台
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/GUI_v3.PNG
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+特色:
+\end_layout
+
+\begin_layout Enumerate
+不用到實驗室用陀螺儀，在家也可以做陀螺儀實驗。
+\end_layout
+
+\begin_layout Enumerate
+最完整的陀螺章動與進動的3D展示動畫，可任意設定初始條件!
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+包含尖點、有環、波紋、正圓。獨家！ 
+\end_layout
+
+\begin_layout Enumerate
+演算法克服一般Lagrange法所無法處θ理的在
+\begin_inset Formula $\theta=0$
+\end_inset
+
+度的singularity奇異點問題！獨家！
+\end_layout
+
+\begin_layout Enumerate
+具有特殊解算任意初始狀態下給出真正的正圓運動的初始值能力。獨家！此包含
+\begin_inset Formula $θ=90$
+\end_inset
+
+度的singularity奇異點特殊狀況！
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+實體陀螺儀的摩擦damping太大，一般不方便觀察到章動nutation運動，模擬程式可以完美給出。
+\end_layout
+
+\begin_layout Enumerate
+可以指定陀螺任意的初始條件。沒有
+\begin_inset Formula $90$
+\end_inset
+
+度角的奇異點限制。
+\end_layout
+
+\begin_layout Enumerate
+完整且公開的Python原始碼。並且以免費並強大的Python程式編程，不需購買價格昂貴的軟體如Matlab。
+\end_layout
+
+\begin_layout Enumerate
+提供與實體陀螺儀的對照比較demo影片，適合當理論與實驗的比較教材。
+\end_layout
+
+\begin_layout Enumerate
+動畫也清楚顯示出
+\begin_inset Formula $L$
+\end_inset
+
+總角動量，
+\begin_inset Formula $\omega$
+\end_inset
+
+角速度，
+\begin_inset Formula $z$
+\end_inset
+
+陀螺對稱軸三向量，方便觀察轉動向量如何在body cone與space cone上相互繞行。
+\end_layout
+
+\begin_layout Enumerate
+大多數人對
+\begin_inset Formula $L$
+\end_inset
+
+總角動量會有個錯誤的觀念是，會認為陀螺的角動量的量值是不會變的，因此以為L向量的軌跡是一個圓，因為力矩與
+\begin_inset Formula $L$
+\end_inset
+
+垂直。事實上力矩與L不總是垂直！這或許是因為大部分網路上甚至是wiki上的資訊(貼Linkxxx)都不夠正確完整。這邊可以藉由模擬結果清楚的觀察到L向量的軌跡不
+是一個正圓，這是錯誤的印象。同學也可以藉由此程式學習到，L向量的軌跡會落在一水平的平面上，但不是正圓。
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/L_not_circle.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{../figs/L_not_circle.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+最清楚的理論與程式說明文件，大部分的說明文件都缺乏耐心清楚解釋，導致讀者要花更多時間去學習程式怎麼用。這部份是我特別用心的一點。因此說明文件特別花心思整理，脈絡
+由淺入深，先介紹理論，再解釋程式，讀者不會霧裡看花。應用上無障礙。 程式以物件化模組化編寫，使用、應用及更新都非常方便。
+\end_layout
+
+\begin_layout Enumerate
+獨家解算出陀螺與原點的接觸力!並且可以將接觸力顯示在動畫上，方便同學以牛頓力學及力矩的觀點思考陀螺章動與進動。
+\end_layout
+
+\begin_layout Enumerate
+動畫可輸出成影片mp4格式。python跟opengl動畫都可以。方便使用者紀錄或者呈現實驗結果。
+\end_layout
+
+\begin_layout Subsection*
+姿態估測與轉動積分器實驗平台
+\end_layout
+
+\begin_layout Enumerate
+不用買角速度感測器，也可以做姿態估測實驗。
+\end_layout
+
+\begin_layout Enumerate
+內建三種演算法，並且三種方法都可以顯示在動畫上來進行比較與討論。獨家！ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+牛頓尤拉方程 + 
+\begin_inset Quotes eld
+\end_inset
+
+轉動向量
+\begin_inset Quotes erd
+\end_inset
+
+積分法
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+a方法即為常見的電腦3d轉動物理模擬引擎使用的方法，舉例如知名的3D遊戲製作軟體Unity3D。
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Lagrange + 歐拉角法 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+此為一般學校所教方法，是最準確的方法，但因運算計算量太大，無法直接被業界採用，也較少直接應用性。
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+姿態估測方向餘弦演算法 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measurement unit所使用的姿態解算法，因此可做為角速度感測
+器的學習及姿態控制比較平台。
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+最為完整，深入淺出的姿態估測理論推導與實際應用的說明文件。一般姿態動力學的文獻書籍都非常的艱澀難懂，這邊我選擇將它各個擊破，讓我自己以及其他人都可以好好吸收，並
+且提供實際應用的例子。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/otherstuff/cellphone.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{../otherstuff/cellphone.PNG}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/Zwiener_1.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{../figs/Zwiener_1.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/ASUS_test.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{../figs/ASUS_test.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+第一第三種方法都會有偏移誤差，而且會隨時間累積，這也是相當重要的一個課題。我們的教材文件也會詳細解釋誤差來源與原因，並且與Lagrangian的解析解比較。這也
+是為什麼要有第二種方法的原因，有個正確的reference可以隨時比較。因此這套軟體也是不同積分器的比較平台。因為我們的平台可以將偏移誤差以動畫的形式觀察，方便
+觀察偏移的運動及大小。獨家。
+\end_layout
+
+\begin_layout Subsubsection*
+文章的節錄段落：微機電陀螺儀與陀螺的關係 
+\end_layout
+
+\begin_layout Standard
+MEMS陀螺儀感測器是一種角速度感測器，可以測量物體轉動的角速度。但他所使用的原理並不是陀螺的定軸性，也就是說微機電陀螺儀的原理並不是利用陀螺儀在無外力的狀態下
+會指向一個固定的方向的這個原理。
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+那為什麼MEMS陀螺儀感測器的名子中有陀螺兩個字呢？原因我們畫在下圖中。其實陀螺儀感測器量到的物理量是貼體角速度，並且積分貼體角速度之後可以得到感測器在空間中的
+絕對姿態，而貼體角速度正是牛頓由拉方程的核心物理量，而陀螺的運動正是由牛頓由拉方程所描述，也因此，我們可以說，其實陀螺儀感測器所量測的物理量，其實跟陀螺的物理有
+相同的來源，這也是為什麼明明是微機電構造的陀螺儀感測器中會有陀螺的兩個字，因為他背後的物理跟陀螺有非常重要的關係。而這原理同時也是轉動積分器的核心原理。
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../otherstuff/MEMS_omega_relation_graph.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+這部分的原理在目前的教材中還很缺乏。舉例如大學物理系或機械系在大一大二教重轉子的牛頓由拉方程的時候，都是教重轉子陀螺，解完後也就沒有連結實際應用，沒有提到其實此
+方程在日常生活的眾多應用連結。陀螺雖然是很舊的東西，但換個角度就可以學習到其新的應用面向及其新的應用性。
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+多數手機裡面就有三個互相垂直的單軸角速度計來組成陀螺儀，各別由微機電構造所組成。因此我們在轉手機的時候，手機就會測量到沿著手機的三個軸轉動的角速度值，也就是貼體
+角速度，都常稱作roll、pitch、yaw三方向的角速度。讀者可以在自己的Android手機上試著安裝Google Play商店上的免費的Sensor
+ Kinetics App就可以知道自己的手機裡面有沒有陀螺儀，若有，則該App會自動顯示陀螺儀測量到的值，以及有個簡單的小應用模擬。
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+給高中同學陀螺運動的補充解釋 - 陀螺與地面接觸點的接觸力討論 http://whymranderson.blogspot.tw/2015/05/blog-post
+_13.html#more
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+簡報及影片
+\end_layout
+
+\begin_layout Itemize
+成大機械系高等動力學專題演講
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+powerpoint簡報
+\end_layout
+
+\begin_layout Itemize
+翻轉影片
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+中研院資創所曹博士组上專題演講
+\end_layout
+
+\begin_layout Itemize
+Meetup Python Tainan User Group 演講
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+powerpoint簡報
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+歡迎詢問並購買此教材。
+\end_layout
+
+\end_body
+\end_document
