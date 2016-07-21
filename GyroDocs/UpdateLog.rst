@@ -1,6 +1,15 @@
 Updates and changelog
 =====================
 
+2016/7/21
+   Now OpenGL animation can be saved into a mp4 movie by making savePNGYesNo = 
+   True in the cubegyro_opengl_animation_1.py file, default to False. Remeber to
+   change it back to False after you are done with saving.
+   Movie's play speed can be adjusted, e.g., to slow down
+   the play speed to better observe the gyroscopic motion. See more in the 
+   description/docstring of the function ``savePNG`` in the software manual under
+   the OpenGL animation module.
+
 2016/7/13
    Major organization on program files.
 
