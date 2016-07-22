@@ -56,7 +56,7 @@ All available variables accessible after functions HasbunEulerEquationODEsolve()
 
    .. attribute:: theta0
 
-      euler angle's theta[t0] in rad, this is the tilt angle of gyroscope's body z from space z axis.
+      :math:`\Omega_{0}` in degree, this is the tilt angle of gyroscope's body z from space z axis.
 
    .. attribute:: b=-(Iz-Iy)/Ix*w[0,2]
 
