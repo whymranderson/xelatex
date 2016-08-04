@@ -1,6 +1,11 @@
 Updates and changelog
 =====================
 
+2016/8/3
+   Adding OpenGL animation to the ASUS gyro case study. This includes making a
+   OpenGL slab to represent the ASUS pad. This also takes the concept of state
+   machine.
+
 2016/7/21
    Now OpenGL animation can be saved into a mp4 movie by making savePNGYesNo = 
    True in the cubegyro_opengl_animation_1.py file, default to False. Remeber to
@@ -11,7 +16,8 @@ Updates and changelog
    the OpenGL animation module.
 
 2016/7/13
-   Major organization on program files.
+   Major organization on program files. Remove all unnessesary. Move gyrodoc
+   folder eslewhere. 
 
 2016/6/11
    Added two demo example with animations to GUI_v3 user interface as two 

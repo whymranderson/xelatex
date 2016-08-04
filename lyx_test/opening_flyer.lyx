@@ -7,6 +7,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{xeCJK}
 \usepackage{graphicx}
+\usepackage[space]{grffile} %allow space in path of graphic files, in LYX export to Latex(XeTex) then removed all \string" so that XeLaTeX can compile 
 \usepackage{pstricks,pst-node}
 
 \setCJKmainfont[AutoFakeBold=1.5]{微軟正黑體}
@@ -103,30 +104,12 @@ GyroSoft Simulation
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=0.6
-\backslash
-textwidth]{../figs/logo_June27_2016.png}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 簡介Premise
 \end_layout
 
 \begin_layout Standard
-此文件將微機電陀螺儀感測器的物理與向量在轉動座標與慣性座標中的變換公式做了完美的連結。並且也觸類旁通地推導出了計算機中轉動的模擬器原理。讓同學可以在學習陀螺之餘
+此文件將微機電陀螺儀感測器的物理與轉動座標與慣性座標中的角速度變換公式做了完美的連結。並且也觸類旁通地推導出了計算機中轉動的模擬器原理。讓同學可以在學習陀螺之餘
 ，完全掌握陀螺與陀螺儀的應用。
 \end_layout
 
@@ -137,11 +120,11 @@ textwidth]{../figs/logo_June27_2016.png}
 
 \begin_layout Standard
 不過，很少有人知道陀螺儀事實上也有其他的應用，而且就在你我日常生活當中。比如說，有些好的手機裡面就有陀螺儀感測器，如iphone。作手機的工程師可能會告訴你，手
-機裡面的陀螺儀並不是裡面真的有一顆在旋轉的轉子，而是微機電結構，因此原理與陀螺儀不相同。這邊要告訴你，雖然他裡面沒有旋轉的轉子，但是微機電陀螺儀感測器量測的物理
-量"貼體角速度"，卻是從陀螺的運動原理推導而來。也正是因為如此，陀螺儀感測器事實上沿用了陀螺運動方程的一些應用，其中包括了正確的積分貼體角速度之後，就可以得到感
-測器的方向隨時間的變化(或稱姿態隨時間的變化)，這即是用上陀螺的運動方程中貼體角速度的觀念。這也是為什麼陀螺儀感測器的名子中仍然保有陀螺兩個字的原因。不過大部分
-的人甚至包括微機電的工程師都無法很好的說明，他們通常都會強調微機電陀螺儀使用的是類似柯式力的原理，但是它們連微機電陀螺儀量到的物理量是甚麼都講不出來，當然也不會
-知道貼體角速度與陀螺的運動方程"牛頓由拉方程"之間的緊密關係，以及貼體兩個字的重要性。
+機裡面的陀螺儀並不是有個在轉的東西，並不是裡面真的有一顆在旋轉的轉子，而是微機電結構，因此原理與陀螺儀不相同。這邊要告訴你，雖然他裡面沒有旋轉的轉子，但是微機電
+陀螺儀感測器量測的物理量"貼體角速度"，卻是從陀螺的運動原理推導而來。也正是因為如此，陀螺儀感測器事實上沿用了陀螺運動方程的一些應用，其中包括了正確的積分貼體角
+速度之後，就可以得到感測器的方向隨時間的變化(或稱姿態隨時間的變化)，這即是用上陀螺的運動方程中貼體角速度的觀念。這也是為什麼陀螺儀感測器的名子中仍然保有陀螺兩
+個字的原因。不過大部分的人甚至包括微機電的工程師都無法很好的說明，他們通常都會強調微機電陀螺儀使用的是類似柯式力的原理，但是它們連微機電陀螺儀量到的物理量是甚麼
+都講不出來，當然也不會知道貼體角速度與陀螺的運動方程"牛頓由拉方程"之間的緊密關係，以及貼體兩個字的重要性。
 \end_layout
 
 \begin_layout Standard
@@ -265,25 +248,6 @@ textwidth]{../figs/logo_June27_2016.png}
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=0.3
-\backslash
-textwidth]{../figs/L_not_circle.png}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -367,24 +331,6 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=0.3
-\backslash
-textwidth]{../otherstuff/cellphone.PNG}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/Zwiener_1.png
 	scale 10
@@ -395,45 +341,9 @@ textwidth]{../otherstuff/cellphone.PNG}
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=0.3
-\backslash
-textwidth]{../figs/Zwiener_1.png}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/ASUS_test.png
 	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[width=0.3
-\backslash
-textwidth]{../figs/ASUS_test.png}
-\end_layout
 
 \end_inset
 
