@@ -3,8 +3,15 @@ Updates and changelog
 
 2016/8/3
    Adding OpenGL animation to the ASUS gyro case study. This includes making a
-   OpenGL slab to represent the ASUS pad. This also takes the concept of state
+   OpenGL slab to represent the ASUS pad. This also takes the concept of a state
    machine.
+   Succesfully incoporate LYX to editing doc workflow and exporting doc to LaTeX file 
+   that TeXLive(XeLaTeX) can compile. Only minute adjustment is needed and
+   it can be done automatically with python (remove all \string"). Doc can be
+   exported to HTML as well thanks to LYX versital abilities, which I will be 
+   using to generate my prodoct page on my website. This means all editing is
+   done on LYX. To generate high quality pdf typeset doc and html landing page
+   one simply just push export button and LYX will handle the rest.
 
 2016/7/21
    Now OpenGL animation can be saved into a mp4 movie by making savePNGYesNo = 
