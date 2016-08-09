@@ -5,6 +5,7 @@ Updates and changelog
    Adding OpenGL animation to the ASUS gyro case study. This includes making a
    OpenGL slab to represent the ASUS pad. This also takes the concept of a state
    machine.
+
    Succesfully incoporate LYX to editing doc workflow and exporting doc to LaTeX file 
    that TeXLive(XeLaTeX) can compile. Only minute adjustment is needed and
    it can be done automatically with python (remove all \string"). Doc can be
@@ -23,8 +24,9 @@ Updates and changelog
    the OpenGL animation module.
 
 2016/7/13
-   Major organization on program files. Remove all unnessesary. Move gyrodoc
-   folder eslewhere. 
+   Major rearrangement on program files. Remove all unnessesary. Move gyrodoc
+   folder eslewhere. Major reorganization of the contents, e.g. the orders of
+   the paragraphs, of pdf document material.
 
 2016/6/11
    Added two demo example with animations to GUI_v3 user interface as two 
