@@ -243,7 +243,8 @@ GyroSoft Simulation
 
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/L_not_circle.png
-	scale 30
+	scale 50
+	rotateOrigin center
 
 \end_inset
 
@@ -324,6 +325,7 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/otherstuff/cellphone.PNG
+	rotateOrigin center
 
 \end_inset
 
@@ -333,7 +335,8 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/Zwiener_1.png
-	scale 10
+	scale 40
+	rotateOrigin center
 
 \end_inset
 
@@ -343,7 +346,8 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/ASUS_test.png
-	scale 60
+	scale 40
+	rotateOrigin center
 
 \end_inset
 
@@ -472,8 +476,8 @@ powerpoint簡報
 \end_layout
 
 \begin_layout Standard
-當然，這邊我所做的東西雖然是我原創的，但是並不是新的東西，原創的部分是我將不同的領域連結了起來，這部分絕對在任何地方都看不到，並且用很基礎的原理去深入淺出去解釋
-。
+當然，這邊我所做的東西雖然是我原創的，但是並不是新的東西，原創的部分是我將不同的領域連結了起來，這部分絕對在任何地方都看不到，並且用很基礎的原理耐心的去深入淺出
+去解釋。耐心這點也是目前高等教育的教材所共同欠缺的。
 \end_layout
 
 \begin_layout Standard
@@ -481,9 +485,10 @@ powerpoint簡報
 \end_layout
 
 \begin_layout Standard
-如何獨立並且不倚靠學校任何的資源去完成一個你想做的專案。這邊做了一個實作範例。這不是甚麼偉大的問題，很多時候只是在沒有資源下如何把路走通打通而已，在沒有資源情況
-下去克服困難去完成一件簡單的事，是一件非常困難的事情，尤其是在這甚麼都要錢甚麼都愈來愈貴的年代。這一件簡單的事可能因為你手邊沒有正確的資源而變得非常困難，你必須
-想出替代品，一切也只能靠自己。因此能不倚靠資源自給自足是相當難得的。
+如何以不過度浪費資源的去完成一個你想做的專案，這邊做了一個實作範例。對比現今許多大學內過度浪費資源過度浪費公帑的現況，我認為這是很重要的，因為，這些過度的浪費已
+經在回來找我們，要我們付出極昂貴的代價，我們承受不起的代價。我的教材根本不是甚麼偉大的問題，但很多時候只是在沒有資源下如何把路走通打通而已，在沒有資源情況下去克
+服困難去完成一件簡單的事，是一件非常困難的事情，尤其是在這甚麼都要錢甚麼都愈來愈貴，並且硬體資源或實體空間土地都被壟斷的年代。一件簡單的事可能因為你手邊沒有正確
+的資源而變得非常困難，但，只能慢慢一步一步去想出替代品，一切也只能靠自己。因此能精簡資源幾乎達到自給自足我認為是相當難得的。
 \end_layout
 
 \end_body
