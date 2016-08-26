@@ -224,6 +224,17 @@ GyroSoft Simulation
 \end_inset
 
 陀螺對稱軸三向量，方便觀察轉動向量如何在body cone與space cone上相互繞行。
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/spacebodycone.png
+	lyxscale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -243,6 +254,7 @@ GyroSoft Simulation
 
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/L_not_circle.png
+	lyxscale 60
 	scale 50
 	rotateOrigin center
 

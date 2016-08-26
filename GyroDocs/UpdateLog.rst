@@ -1,17 +1,25 @@
 Updates and changelog
 =====================
 
+2016/8/26
+   Progress on OpenGL ASUS gyro sensor animation. Completed the integration of 
+   socket receiving angular velocity data to OpenGL animation module. Also
+   completed animation on gyro_ring_test.py where Asus pad is displayed on the 
+   same OpenGL gyroscope platform animation we already had, only in this case 
+   the cube is replaced with a slab.
+
 2016/8/3
    Adding OpenGL animation to the ASUS gyro case study. This includes making a
    OpenGL slab to represent the ASUS pad. This also takes the concept of a state
    machine.
 
+2016/8/3
    Succesfully incoporate LYX to editing doc workflow and exporting doc to LaTeX file 
    that TeXLive(XeLaTeX) can compile. Only minute adjustment is needed and
-   it can be done automatically with python (remove all \string"). Doc can be
+   it can be done automatically with python (remove all \\string"). Doc can be
    exported to HTML as well thanks to LYX versital abilities, which I will be 
-   using to generate my prodoct page on my website. This means all editing is
-   done on LYX. To generate high quality pdf typeset doc and html landing page
+   using to generate my product page on my website. This means all editing can be
+   done on LYX. To generate high quality pdf typeset docs and a html landing page
    one simply just push export button and LYX will handle the rest.
 
 2016/7/21
