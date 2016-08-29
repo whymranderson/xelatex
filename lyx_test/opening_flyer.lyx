@@ -6,12 +6,12 @@
 \begin_preamble
 \documentclass[12pt,a4paper]{article}
 \usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=1.5]{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}
 \usepackage{graphicx}
 \usepackage[space]{grffile} %allow space in path of graphic files, in LYX export to Latex(XeTex) then removed all \string" so that XeLaTeX can compile 
 \usepackage{pstricks,pst-node}
-
-\setCJKmainfont[AutoFakeBold=1.5]{微軟正黑體}
-\setCJKfamilyfont{kai}{標楷體}
+\usepackage{hyperref}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -90,7 +90,7 @@
 \begin_body
 
 \begin_layout Title
-GyroSoft Simulation
+GyroSoft Simulation 文件與模擬程式簡介
 \end_layout
 
 \begin_layout Standard
@@ -105,7 +105,7 @@ GyroSoft Simulation
 \end_layout
 
 \begin_layout Section
-簡介Premise
+提要
 \end_layout
 
 \begin_layout Standard
@@ -231,6 +231,7 @@ GyroSoft Simulation
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/spacebodycone.png
 	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -238,16 +239,25 @@ GyroSoft Simulation
 \end_layout
 
 \begin_layout Enumerate
-大多數人對
-\begin_inset Formula $L$
+大多數人對L總角動量會有個錯誤的觀念是，都會以為L向量的軌跡是一個圓，因為力矩與L垂直。事實上力矩與L不總是垂直。舉例如某校的普通物理實驗的網路翻轉影片
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.youtube.com/watch?v=E-L6lU1akg4"
+target "https://www.youtube.com/watch?v=E-L6lU1akg4"
+
 \end_inset
 
-總角動量會有個錯誤的觀念是，會認為陀螺的角動量的量值是不會變的，因此以為L向量的軌跡是一個圓，因為力矩與
-\begin_inset Formula $L$
+，在影片3分48秒的時候就介紹L的軌跡總是一個圓，且量值不變。但事實上這只有在某些特殊狀況下才成立，只有在Z軸軌跡是正圓運動時才會有此結論。一般的狀況下L的量值
+都不是定值。這或許是因為大部分網路上甚至是wiki上的資訊
+\begin_inset CommandInset href
+LatexCommand href
+name "http://hyperphysics.phy-astr.gsu.edu/hbase/top.html"
+target "http://hyperphysics.phy-astr.gsu.edu/hbase/top.html"
+
 \end_inset
 
-垂直。事實上力矩與L不總是垂直！這或許是因為大部分網路上甚至是wiki上的資訊(貼Linkxxx)都不夠正確完整。這邊可以藉由模擬結果清楚的觀察到L向量的軌跡不
-是一個正圓，這是錯誤的印象。同學也可以藉由此程式學習到，L向量的軌跡會落在一水平的平面上，但不是正圓。
+都不夠正確完整，因此大多數人都會有此錯誤印象，我以前也是。這邊可以藉由模擬結果清楚的觀察到L向量的軌跡不總是一個正圓。同學也可以藉由此教材及模擬動畫軟體學習到，
+L向量的軌跡會落在一水平的平面上，但不一定是正圓。
 \begin_inset Newline newline
 \end_inset
 
@@ -303,7 +313,7 @@ GyroSoft Simulation
 
 \begin_deeper
 \begin_layout Enumerate
-a方法即為常見的電腦3d轉動物理模擬引擎使用的方法，舉例如知名的3D遊戲製作軟體Unity3D。
+a方法即為常見的電腦3d物理轉動模擬引擎使用的方法，舉例如知名的3D遊戲製作軟體Unity3D。
 \end_layout
 
 \end_deeper
@@ -313,7 +323,7 @@ Lagrange + 歐拉角法
 
 \begin_deeper
 \begin_layout Enumerate
-此為一般學校所教方法，是最準確的方法，但因運算計算量太大，無法直接被業界採用，也較少直接應用性。
+此為一般學校所教方法，是最準確的方法，但因計算複雜運算量太大，無法直接在業界應用，也較少直接應用性。因此一般在計算機應用上皆採用(a)方法。
 \end_layout
 
 \end_deeper
@@ -327,13 +337,13 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 器的學習及姿態控制比較平台。
 \end_layout
 
-\end_deeper
-\end_deeper
 \begin_layout Enumerate
 最為完整，深入淺出的姿態估測理論推導與實際應用的說明文件。一般姿態動力學的文獻書籍都非常的艱澀難懂，這邊我選擇將它各個擊破，讓我自己以及其他人都可以好好吸收，並
 且提供實際應用的例子。
 \end_layout
 
+\end_deeper
+\end_deeper
 \begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/otherstuff/cellphone.PNG
@@ -342,9 +352,6 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/Zwiener_1.png
 	scale 40
@@ -366,11 +373,12 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 
 \end_layout
 
-\begin_layout Enumerate
-第一第三種方法都會有偏移誤差，而且會隨時間累積，這也是相當重要的一個課題。我們的教材文件也會詳細解釋誤差來源與原因，並且與Lagrangian的解析解比較。這也
-是為什麼要有第二種方法的原因，有個正確的reference可以隨時比較。因此這套軟體也是不同積分器的比較平台。因為我們的平台可以將偏移誤差以動畫的形式觀察，方便
-觀察偏移的運動及大小。獨家。誤差的偏移，是微機電陀螺儀的一個很大的限制，因此一般微機電陀螺儀無法單獨使用，他的三維運動準確度隨時間發散的太快，一般一定要搭配三維
-加速度計，或其他校正裝置。但是，微機電陀螺儀目前還是短時間內能最靈敏的感測"自身"方向姿態旋轉的儀器，因此又是缺他不可。因此還是有學習推廣的必要。
+\begin_layout Description
+(a)(c)方法的缺點 第一第三種方法都會有偏移誤差，而且會隨時間累積，這也是相當重要的一個課題。我們的教材文件也會詳細解釋誤差來源與原因，並且與Lagrang
+ian的解析解比較。這也是為什麼要有第二種方法的原因，有個正確的reference可以隨時比較。因此這套軟體也是不同積分器的比較平台。因為我們的平台可以將偏移誤
+差以動畫的形式觀察，方便觀察偏移的運動及大小。獨家。誤差的偏移，是微機電陀螺儀的一個很大的限制，因此一般微機電陀螺儀無法單獨使用，他的三維運動準確度隨時間發散的
+太快，一般一定要搭配三維加速度計，或其他校正裝置。但是，微機電陀螺儀目前還是短時間內能最靈敏的感測"自身"方向姿態旋轉的儀器，因此又是缺他不可。因此還是有學習推
+廣的必要。
 \end_layout
 
 \begin_layout Subsubsection*
@@ -419,8 +427,23 @@ input{../otherstuff/MEMS_omega_relation_graph.tex}
 
 \begin_layout Standard
 多數手機裡面就有三個互相垂直的單軸角速度計來組成陀螺儀，各別由微機電構造所組成。因此我們在轉手機的時候，手機就會測量到沿著手機的三個軸轉動的角速度值，也就是貼體
-角速度，都常稱作roll、pitch、yaw三方向的角速度。讀者可以在自己的Android手機上試著安裝Google Play商店上的免費的Sensor
- Kinetics App就可以知道自己的手機裡面有沒有陀螺儀，若有，則該App會自動顯示陀螺儀測量到的值，以及有個簡單的小應用模擬。
+角速度，都常稱作roll、pitch、yaw三方向的角速度。讀者可以在自己的Android手機上試著安裝Google Play商店上幾個免費的App
+\end_layout
+
+\begin_layout Itemize
+Sensor Kinetics
+\end_layout
+
+\begin_layout Itemize
+SensoDuino
+\end_layout
+
+\begin_layout Itemize
+Wireless IMU by Jan Zwiener
+\begin_inset Newline newline
+\end_inset
+
+就可以知道自己的手機裡面有沒有陀螺儀，若有，則App會自動顯示陀螺儀測量到的值，以及有個簡單的小應用模擬。
 \begin_inset Newline newline
 \end_inset
 
@@ -428,8 +451,15 @@ input{../otherstuff/MEMS_omega_relation_graph.tex}
 \end_layout
 
 \begin_layout Standard
-給高中同學陀螺運動的補充解釋 - 陀螺與地面接觸點的接觸力討論 http://whymranderson.blogspot.tw/2015/05/blog-post
-_13.html#more
+給高中同學陀螺運動的補充解釋 - 陀螺與地面接觸點的接觸力討論
+\begin_inset CommandInset href
+LatexCommand href
+name "http://whymranderson.blogspot.tw/2015/05/blog-post_13.html#more"
+target "http://whymranderson.blogspot.tw/2015/05/blog-post_13.html#more"
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -462,10 +492,26 @@ target "https://www.youtube.com/watch?v=mittAGOQYYc"
 \begin_deeper
 \begin_layout Itemize
 powerpoint簡報
+\begin_inset CommandInset href
+LatexCommand href
+name "http://whymranderson.blogspot.tw/2015/04/blog-post_24.html"
+target "http://whymranderson.blogspot.tw/2015/04/blog-post_24.html"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 翻轉影片
+\begin_inset CommandInset href
+LatexCommand href
+name "http://whymranderson.blogspot.tw/2015/06/blog-post.html"
+target "http://whymranderson.blogspot.tw/2015/06/blog-post.html"
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -480,11 +526,42 @@ Meetup Python Tainan User Group 演講
 \begin_deeper
 \begin_layout Itemize
 powerpoint簡報
+\begin_inset CommandInset href
+LatexCommand href
+name "http://whymranderson.blogspot.tw/2015/04/pytainan-meetup-slides.html"
+target "http://whymranderson.blogspot.tw/2015/04/pytainan-meetup-slides.html"
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset VSpace 1em
+\end_inset
+
+模擬程式的動畫影片請到我的部落格觀看
+\begin_inset CommandInset href
+LatexCommand href
+name "http://whymranderson.blogspot.tw/p/innovative-materials.html"
+target "http://whymranderson.blogspot.tw/p/innovative-materials.html"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection*
 歡迎詢問並購買此教材。
+\begin_inset VSpace 1em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+後言
 \end_layout
 
 \begin_layout Standard
