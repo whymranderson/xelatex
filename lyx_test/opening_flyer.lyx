@@ -11,7 +11,7 @@
 \usepackage{graphicx}
 \usepackage[space]{grffile} %allow space in path of graphic files, in LYX export to Latex(XeTex) then removed all \string" so that XeLaTeX can compile 
 \usepackage{pstricks,pst-node}
-\usepackage{hyperref}
+\usepackage[breaklinks=true]{hyperref}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -109,6 +109,41 @@ GyroSoft Simulation 文件與模擬程式簡介
 \end_layout
 
 \begin_layout Standard
+這份文件釐清大部分民眾對陀螺儀的幾點錯誤了解
+\end_layout
+
+\begin_layout Enumerate
+大部分民眾不知道目前日常生活中有很多陀螺儀的應用，它們以為陀螺儀很古老很舊的東西，甚至有些工程師也只知道陀螺儀只有導航上的應用。事實上，舉例。
+\end_layout
+
+\begin_layout Enumerate
+這些應用中的陀螺儀，並不是一個儀器裡面有在旋轉的東西。也就是裡面沒有旋轉的轉子。所以原理也不是旋轉轉子所帶來的定軸性。那原理是甚麼?為什麼他會叫做陀螺儀?
+ 較陀螺儀應該跟定軸性有些關係吧?
+\end_layout
+
+\begin_layout Enumerate
+這些應用中的陀螺儀體積都只有小拇指指甲的一半還小。是微機電結構。
+\end_layout
+
+\begin_layout Enumerate
+他所使用的原理是類似慣性守恆的原理，靜者恆靜動者恆動。因此也叫做imu。原理跟陀螺不盡相同，那你問，那為什麼名字中有陀螺兩個字?
+\end_layout
+
+\begin_layout Enumerate
+微機電陀螺儀測量的物理量是"貼體角速度"。而貼體角速度的概念是從陀螺的運動原理推導而來。貼體兩個字很關鍵。因此微機電陀螺儀中仍然保有陀螺兩個字，因為我們會教你，
+他跟陀螺的運動原理有莫大的關係。
+\end_layout
+
+\begin_layout Enumerate
+正確積分貼體角速度之後可得到待測物體的方向或姿態。而完整了解貼體角速度跟陀螺運動原理的關係，就是學習正確積分貼體角速度的關鍵。
+\end_layout
+
+\begin_layout Enumerate
+最後此文件就告訴你如何用學習到的貼體角速度積分方法應用在日常生活的應用上，並且用程式語言去模擬實作。包括，手機裡的微機電陀螺儀如何偵測自身手機的轉動。以及電腦遊
+戲如何積分物體在遊戲中受到外力時的真實轉動。
+\end_layout
+
+\begin_layout Standard
 此文件將微機電陀螺儀感測器的物理與轉動座標與慣性座標中的角速度變換公式做了完美的連結。並且也觸類旁通地推導出了計算機中轉動的模擬器原理。讓同學可以在學習陀螺之餘
 ，完全掌握陀螺與陀螺儀的應用。
 \end_layout
@@ -128,9 +163,64 @@ GyroSoft Simulation 文件與模擬程式簡介
 \end_layout
 
 \begin_layout Standard
-因此此教材是教大家所不知道的陀螺儀在日常生活的廣泛應用。包括手機中的微機電MEMS陀螺儀如何積分測得的貼體角速度來得到手機的絕對方向或姿態。以及電腦模擬中的3d
-物理引擎如何不用歐拉角而直接積分描述剛體轉動的牛頓歐拉方程,此方程正是陀螺運動的核心方程，此電腦模擬涵蓋領域非常廣泛，如電腦遊戲3d物理引擎，CAD的3d物理運
-動模擬，統計物理中的molecular dynamics分子運動模擬，不用歐拉角可以加速模擬速度非常多。
+舉例如大學物理系或機械系在大一大二教重轉子的牛頓由拉方程的時候，都是教重轉子陀螺，解完後最多也只提到了科式力的應用，也就沒有連結真正的實際應用，沒有提到其實此方
+程在日常生活的眾多應用連結。陀螺雖然是很舊的東西，但他還是有一些新的應用性是課本上所來不及更新的。也因為如此，大部分學生甚至老師都不曉得陀螺儀有非常多日常生活的
+應用。這部分的原理在普遍教材中還很缺乏。目前也沒有相關書籍可以連結相關的知識，因此這裡嘗試以此文件補足這個缺失。以下列出幾項陀螺儀的日常應用，這些都是已經有產品
+在賣的應用，但很少人知道裡面有陀螺儀，就算知道也不曉得是體積非常小只有小拇指指甲大小的微機電陀螺儀，並非傳統有轉子的陀螺儀。
+\end_layout
+
+\begin_layout Enumerate
+機器人吸塵器。iRoobot等。以前吸塵器是採用地毯式搜索的方式，來找回家的路。現在有了陀螺儀，他無時無刻都約略知道自己相對於家的所在位置，回家變得相當容易，不
+用浪費時間繞路，也可以延長電池壽命。也由於知道自己的位置，打掃的路徑也變得可以規劃(這一點理論上可以，但不曉得有沒有)。這就是微機電陀螺儀感測器的一個應用。
+ 
+\end_layout
+
+\begin_layout Enumerate
+虛擬實境VR，htc vive，onculus rift等。如:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示了使用體感裝置(陀螺儀感測器就是一種方向感測裝置)
+來在遊戲中控制第一人稱視角的應用，這樣子眼睛想看的視野就可以跟車的行進方向不一樣。也就是說，想要超車就可以轉頭先看看有沒有車了。或者，開車就可以邊觀賞旁邊的風光
+景色，而不是只有看到車子前進方向的景色。
+\end_layout
+
+\begin_layout Enumerate
+還有第二個應用。影片https://www.youtube.com/watch?v=n4pbSI3kOsg
+\begin_inset Newline newline
+\end_inset
+
+這個影片顯示了在家觀賞youtube的人也可以用裝置本身的感測裝置(如手機裡的陀螺儀)來達到控制你想觀察的視角的應用，此例是應用在賽車觀賞上。這個影片你的手機或
+平板要有陀螺儀才會作用喔。如果你轉動你的手機而螢幕上顯示沒有變化的話，可能就是你的裝置沒有微機電陀螺儀感測器嚕。VR虛擬實境其中一個不可或缺的環節就是陀螺儀感測
+器的技術。 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+相機手震穩定器。貼連結。攝影機穩定器。貼連結。硬碟穩定器等，裡面都是微機電陀螺儀的應用。 
+\end_layout
+
+\begin_layout Enumerate
+小型玩具遙控飛機穩定器，四軸飛行器，空拍機，無人機等。目前這類型的遙控飛機，都已經做到能夠自主平衡。自主平衡的意思就是玩家不需要去控制飛機的平衡，只需要控制飛機
+要去哪裡，飛機自己會保持平衡，玩家只需要操控飛機的飛航方向就好。這就是多虧於飛機上的陀螺儀感測器，能夠偵測自身的姿態並且自動做出所需平衡的動作。
+ 
+\end_layout
+
+\begin_layout Enumerate
+運動軌跡感測裝置。此應用非常廣泛，如智慧手錶，智慧手環，智慧衣服，各種智慧型穿戴裝置。網球及高爾夫球選手會配戴一體感裝置，體感裝置內有陀螺儀感測器，可以偵測並且
+重建擊球動作與球拍軌跡，方便職業選手及體育科學作分析。這些分析結果已經應用在網球及高爾夫球的電腦遊戲上。也有人是用在電影的人物姿態重建，比如在李連杰身上佈滿體感
+裝置，可以記錄下他的武打動作軌跡，然後將這軌跡在電腦中套用上不同動畫人物，比如說半獸人，這樣半獸人就可以在電影中打出中國武術。 
+\end_layout
+
+\begin_layout Enumerate
+另外還有就是老人照護的應用，在老人身上配戴體感裝置。藉著體感裝置來偵測老人不同於一般人的行動，來及早發現異常狀況。這部分也會用上資料學習與資料鑑識。
+\end_layout
+
+\begin_layout Standard
+因此此教材是教大家所不知道的陀螺儀在日常生活的廣泛應用的原理。包括手機中的微機電MEMS陀螺儀如何積分測得的貼體角速度來得到手機的絕對方向或姿態。以及電腦模擬中
+的3d物理引擎如何不用歐拉角而直接積分描述剛體轉動的牛頓歐拉方程,此方程正是陀螺運動的核心方程，此電腦模擬涵蓋領域非常廣泛，如電腦遊戲3d物理引擎，CAD的3d
+物理運動模擬，統計物理中的molecular dynamics分子運動模擬，不用歐拉角可以加速模擬速度非常多。
 \end_layout
 
 \begin_layout Standard
@@ -553,7 +643,7 @@ target "http://whymranderson.blogspot.tw/p/innovative-materials.html"
 \end_layout
 
 \begin_layout Subsubsection*
-歡迎詢問並購買此教材。
+正文在下一頁本簡介文件之後開始。歡迎詢問並購買此教材。
 \begin_inset VSpace 1em
 \end_inset
 
@@ -561,7 +651,7 @@ target "http://whymranderson.blogspot.tw/p/innovative-materials.html"
 \end_layout
 
 \begin_layout Subsubsection*
-後言
+後記
 \end_layout
 
 \begin_layout Standard
