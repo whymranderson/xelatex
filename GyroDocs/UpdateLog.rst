@@ -1,6 +1,16 @@
 Updates and changelog
 =====================
 
+2016/11
+   Mission accomplished on ASUS pad rotation visualization on OpenGL. Really 
+   hyped. The result is actually quite good. Best app communication speed setting is 
+   medium. OpenGL movie plays so smooth. And drift error or accuracy is actually not
+   bad at all. Use high(game) speed will have some lagging occured, will look into
+   it later.
+
+2016/10
+   GUI program underwent major upgrade. Need more elaboration here...
+
 2016/8/26
    Progress on OpenGL ASUS gyro sensor animation. Completed the integration of 
    socket receiving angular velocity data to OpenGL animation module. Also
