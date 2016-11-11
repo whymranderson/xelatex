@@ -2,6 +2,10 @@ Updates and changelog
 =====================
 
 2016/11
+   Added a section of graphic user interface creation using Tkinter. Digression, created
+   CSGO database using Django and sqlite on my second website. whymrandersonwhy.pythonanywhere.com
+
+2016/11
    Mission accomplished on ASUS pad rotation visualization on OpenGL. Really 
    hyped. The result is actually quite good. Best app communication speed setting is 
    medium. OpenGL movie plays so smooth. And drift error or accuracy is actually not
