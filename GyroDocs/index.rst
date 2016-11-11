@@ -18,6 +18,6 @@ figure and animation generating functions.
    RigidBodyClass
    3DPlotFunctions
    OpenGL_3DGyro_Module
+   Tkinter_module
    UpdateLog
-
 

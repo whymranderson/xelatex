@@ -20,6 +20,7 @@ import sys, os
 sys.path.insert(0, 'C:/Documents and Settings/The One/My Documents/tony/Scripts/cordtrans/Physics_and_Animation_Modules_Library/')
 sys.path.append('C:/Documents and Settings/The One/My Documents/tony/Scripts/cordtrans/opengltest/')
 sys.path.append('C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/otherstuff')
+sys.path.append('C:/Documents and Settings/The One/My Documents/tony/Scripts/cordtrans/Demo_Examples/')
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
