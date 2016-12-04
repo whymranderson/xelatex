@@ -90,7 +90,7 @@
 \begin_body
 
 \begin_layout Title
-GyroSoft Simulation 文件與模擬程式簡介
+陀螺儀應用教材
 \end_layout
 
 \begin_layout Standard
@@ -104,95 +104,32 @@ GyroSoft Simulation 文件與模擬程式簡介
 
 \end_layout
 
+\begin_layout Author
+GyroSoft Simulation
+\end_layout
+
 \begin_layout Section
-簡介-普羅大眾
-\end_layout
-
-\begin_layout Subsubsection*
-陀螺儀與玩具陀螺有甚麼不一樣呢
+簡介
 \end_layout
 
 \begin_layout Standard
-一般玩具陀螺與我們這邊所說的陀螺有一個很大的不同的地方，玩具陀螺是底部與地面的接觸點並沒有固定住，他可以在地面上亂走。但是我們這邊所說的陀螺，是接觸地面的那個點
-必須固定住不動，或者是旋轉本體上有一個點是相對於空間靜止的。通常一般市面上買的到的玩具陀螺都沒有辦法固定住一點，因此是看不到我們上面所說的運動的。因此通常得要買
-到陀螺儀等級的陀螺，才會有一個固定的接觸點，因此通常價格不斐，這也是為什麼大部分人只看過玩具陀螺而沒看過陀螺儀。要有一個固定的接觸點，又要能夠自由旋轉，是必須要
-有一些設計過的機械結構才有辦法做到。請參考我拍攝的實體陀螺儀章進動的影片。
+教材是教大家陀螺儀在日常生活的廣泛應用，包含了背後的原理與實作。包括手機中的微機電MEMS陀螺儀如何積分測得的貼體角速度來得到手機的絕對方向或姿態。以及電腦模擬
+中的3D物理引擎如何不用歐拉角而直接積分描述剛體轉動的牛頓歐拉方程。此方程正是陀螺運動的核心方程。此電腦模擬涵蓋領域非常廣泛，如電腦遊戲3D物理引擎，CAD的3
+D物理運動模擬，統計物理中的molecular dynamics分子運動模擬。此教材屬於陀螺相關選修教材，適合當作大學選修講義。教材包含了工作室獨立開發的陀螺儀
+應用模擬的電腦程式平台，以及手工製作及裝訂的實體書籍。
 \end_layout
 
-\begin_layout Subsubsection*
-大部分民眾對陀螺儀的幾點錯誤了解
-\end_layout
-
-\begin_layout Enumerate
-大部分民眾不知道目前日常生活中有很多陀螺儀的應用，它們以為陀螺儀很古老很舊的東西，甚至有些工程師也只知道陀螺儀只有導航上的應用。我們以下會列舉。
-\end_layout
-
-\begin_layout Enumerate
-這些應用中的陀螺儀，並不是一個儀器裡面有個旋轉的轉子。也就是裡面沒有旋轉的東西。所以原理也不是旋轉轉子所帶來的角動量守恆而產生的定軸或定向性。那原理是甚麼呢？為
-什麼他名子中還是有陀螺呢？ 跟陀螺應該有些關係吧?
-\end_layout
-
-\begin_layout Enumerate
-這些應用中的陀螺儀體積都只有小拇指指甲的一半還小。是微機電結構。但大部份人聽到陀螺儀都以為是傳統的陀螺儀，也就是裡面有一顆在轉的轉子。這與現今廣泛應用的陀螺儀差
-距甚遠。
-\end_layout
-
-\begin_layout Enumerate
-這些新式陀螺儀所使用的原理是類似慣性守恆的原理，靜者恆靜動者恆動。因此也叫做Inertial Measurement Unit (IMU)。原理跟陀螺不盡相同，
-那你問，那為什麼名字中有陀螺兩個字？這邊會告訴你它們之間巧妙的關係。
-\end_layout
-
-\begin_layout Enumerate
-這些新式陀螺儀，又叫微機電陀螺儀，或微機電陀螺儀感測器，測量的物理量是
-\emph on
-貼體角速度
-\emph default
-。而貼體角速度的概念是從陀螺的運動原理推導而來。貼體兩個字很關鍵。因此微機電陀螺儀中仍然保有陀螺兩個字，因為我們會教你，他跟陀螺的運動原理有莫大的關係。
-\end_layout
-
-\begin_layout Enumerate
-正確積分貼體角速度之後可得到待測物體的方向或姿態。而完整了解貼體角速度跟陀螺運動原理的關係，就是學習正確積分貼體角速度的關鍵。
-\end_layout
-
-\begin_layout Enumerate
-最後此文件就告訴你如何用學習到的貼體角速度積分方法應用在日常生活的應用上，並且用程式語言去模擬實作。包括，手機裡的微機電陀螺儀如何偵測自身手機的轉動。以及電腦遊
-戲如何積分物體在遊戲中受到外力時的真實轉動。
+\begin_layout Subsection*
+大部分民眾對陀螺儀的刻板印象與錯誤認知
 \end_layout
 
 \begin_layout Standard
-此文件將微機電陀螺儀感測器的物理與轉動座標與慣性座標中的角速度變換公式做了完美的連結。並且也觸類旁通地推導出了計算機中轉動的模擬器原理。讓同學可以在學習陀螺之餘
-，完全掌握陀螺與陀螺儀的應用。
-\end_layout
-
-\begin_layout Standard
-這份教材也某種程度上介紹了大家所不知道的陀螺儀的應用。一般對於陀螺儀的認知不外乎就是影片上常見的陀螺定軸性，與陀螺的逆動性，這些特性都可以在一般物理影片上，或者
-是科學教育館中的體驗教具中學習到。程度再好一點的學生可能會知道陀螺儀有在導航上的應用。
-\end_layout
-
-\begin_layout Standard
-不過，很少有人知道陀螺儀事實上也有其他的應用，而且就在你我日常生活當中。比如說，有些好的手機裡面就有陀螺儀感測器，如iphone。作手機的工程師可能會告訴你，手
-機裡面的陀螺儀並不是有個在轉的東西，並不是裡面真的有一顆在旋轉的轉子，而是微機電結構，因此原理與陀螺儀不相同。這邊要告訴你，雖然他裡面沒有旋轉的轉子，但是微機電
-陀螺儀感測器量測的物理量"貼體角速度"，卻是從陀螺的運動原理推導而來。也正是因為如此，陀螺儀感測器事實上沿用了陀螺運動方程的一些應用，其中包括了正確的積分貼體角
-速度之後，就可以得到感測器的方向隨時間的變化(或稱姿態隨時間的變化)，這即是用上陀螺的運動方程中貼體角速度的觀念。這也是為什麼陀螺儀感測器的名子中仍然保有陀螺兩
-個字的原因。不過大部分的人甚至包括微機電的工程師都無法很好的說明，他們通常都會強調微機電陀螺儀使用的是類似柯式力的原理，但是它們連微機電陀螺儀量到的物理量是甚麼
-都講不出來，當然也不會知道貼體角速度與陀螺的運動方程"牛頓由拉方程"之間的緊密關係，以及貼體兩個字的重要性。
-\end_layout
-
-\begin_layout Standard
-舉例如大學物理系或機械系在大一大二教重轉子的牛頓由拉方程的時候，都是教重轉子陀螺，解完後最多也只提到了科式力的應用，也就沒有連結真正的實際應用，沒有提到其實此方
-程在日常生活的眾多應用連結。陀螺雖然是很舊的東西，但他還是有一些新的應用性是課本上所來不及更新的。也因為如此，大部分學生甚至老師都不曉得陀螺儀有非常多日常生活的
-應用。這部分的原理在普遍教材中還很缺乏。目前也沒有相關書籍可以連結相關的知識，因此這裡嘗試以此文件補足這個缺失。以下列出幾項陀螺儀的日常應用，這些都是已經有產品
-在賣的應用，但很少人知道裡面有陀螺儀，就算知道也不曉得是體積非常小只有小拇指指甲大小的微機電陀螺儀，並非傳統有轉子的陀螺儀。
+大部分民眾不知道目前日常生活中有很多陀螺儀的應用，它們以為陀螺儀很古老很舊的東西，甚至有些工程師也只知道陀螺儀只有導航上的應用。以下列舉幾項，更多應用請見教材書
+本。
 \end_layout
 
 \begin_layout Subsubsection*
 陀螺儀感測器的廣泛應用
-\end_layout
-
-\begin_layout Enumerate
-機器人吸塵器。iRoobot等。以前吸塵器是採用地毯式搜索的方式，來找回家的路。現在有了陀螺儀，他無時無刻都約略知道自己相對於家的所在位置，回家變得相當容易，不
-用浪費時間繞路，也可以延長電池壽命。也由於知道自己的位置，打掃的路徑也變得可以規劃(這一點理論上可以，但不曉得有沒有)。這就是微機電陀螺儀感測器的一個應用。
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -218,10 +155,6 @@ VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示�
 
 \end_deeper
 \begin_layout Enumerate
-相機手震穩定器。貼連結。攝影機穩定器。貼連結。硬碟穩定器等，裡面都是微機電陀螺儀的應用。 
-\end_layout
-
-\begin_layout Enumerate
 小型玩具遙控飛機穩定器，四軸飛行器，空拍機，無人機等。目前這類型的遙控飛機，都已經做到能夠自主平衡。自主平衡的意思就是玩家不需要去控制飛機的平衡，只需要控制飛機
 要去哪裡，飛機自己會保持平衡，玩家只需要操控飛機的飛航方向就好。這就是多虧於飛機上的陀螺儀感測器，能夠偵測自身的姿態並且自動做出所需平衡的動作。
  
@@ -234,26 +167,77 @@ VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示�
 \end_layout
 
 \begin_layout Enumerate
-另外還有就是老人照護的應用，在老人身上配戴體感裝置。藉著體感裝置來偵測老人不同於一般人的行動，來及早發現異常狀況。這部分也會用上資料學習與資料鑑識。
-\end_layout
-
-\begin_layout Enumerate
 平衡自走車。有沒有看過國外警察站在一種會自動平衡的自走車上。這也是因為裡面有微機電陀螺儀的緣故。一般人甚至是我以前都以為裡面是有一顆傳統陀螺儀，非也。裡面是用上
 微機電陀螺儀。
 \end_layout
 
-\begin_layout Standard
-因此此教材是教大家所不知道的陀螺儀在日常生活的廣泛應用的原理。包括手機中的微機電MEMS陀螺儀如何積分測得的貼體角速度來得到手機的絕對方向或姿態。以及電腦模擬中
-的3d物理引擎如何不用歐拉角而直接積分描述剛體轉動的牛頓歐拉方程,此方程正是陀螺運動的核心方程，此電腦模擬涵蓋領域非常廣泛，如電腦遊戲3d物理引擎，CAD的3d
-物理運動模擬，統計物理中的molecular dynamics分子運動模擬，不用歐拉角可以加速模擬速度非常多。
+\begin_layout Subsubsection*
+一般人的錯誤認知
+\end_layout
+
+\begin_layout Itemize
+這些應用中的陀螺儀，並不是一個儀器裡面有個旋轉的轉子。也就是裡面沒有旋轉的東西。所以原理也不是旋轉轉子所帶來的角動量守恆而產生的定軸或定向性。那原理是甚麼呢？為
+什麼他名子中還是有陀螺呢？ 跟陀螺應該有些關係吧?
+\end_layout
+
+\begin_layout Itemize
+這些應用中的陀螺儀體積都只有小拇指指甲的一半還小。是微機電結構。但大部份人聽到陀螺儀都以為是傳統的陀螺儀，也就是裡面有一顆在轉的轉子。這與現今廣泛應用的陀螺儀差
+距甚遠。
+\end_layout
+
+\begin_layout Itemize
+這些新式陀螺儀所使用的原理是類似慣性守恆的原理，靜者恆靜動者恆動。因此也叫做Inertial Measurement Unit (IMU)。原理跟陀螺不盡相同，
+那你問，那為什麼名字中有陀螺兩個字？這邊會告訴你它們之間巧妙的關係。
+\end_layout
+
+\begin_layout Itemize
+這些新式陀螺儀，又叫微機電陀螺儀，或微機電陀螺儀感測器，測量的物理量是
+\emph on
+貼體角速度
+\emph default
+。而貼體角速度的概念是從陀螺的運動原理推導而來。貼體兩個字很關鍵。因此微機電陀螺儀中仍然保有陀螺兩個字，因為我們會教你，他跟陀螺的運動原理有莫大的關係。
+\end_layout
+
+\begin_layout Itemize
+正確積分貼體角速度之後可得到待測物體的方向或姿態。而完整了解貼體角速度跟陀螺運動原理的關係，就是學習正確積分貼體角速度的關鍵。
 \end_layout
 
 \begin_layout Standard
-此教材屬於陀螺相關選修教材，適合當作大學選修講義。此教材包含了工作室獨立開發的陀螺儀應用模擬的電腦程式平台，以及手工製作及裝訂的實體書籍。
+此文件就是讓大家學習如何將貼體角速度的積分方法應用在日常生活的應用上，並且用程式語言去模擬實作。包括，手機裡的微機電陀螺儀如何偵測自身手機的轉動。以及電腦遊戲如
+何積分物體在遊戲中受到外力時的真實轉動。
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+此文件將微機電陀螺儀感測器的物理與轉動座標與慣性座標中的角速度變換公式做了清楚的連結。並且也觸類旁通地推導出了計算機中轉動的模擬器原理。讓同學可以在學習陀螺之餘
+，完全掌握陀螺與陀螺儀的應用。
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+不過大部分的人甚至包括微機電的工程師都無法很好的說明陀螺與微機電陀螺儀的關係，他們通常都會強調微機電陀螺儀使用的是類似柯式力的原理，因此他們會說原理不相同。但是
+它們連微機電陀螺儀量到的物理量是甚麼都講不出來，當然也不會知道貼體角速度與陀螺的運動方程"牛頓由拉方程"之間的緊密關係，以及貼體兩個字的重要性。
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+舉例如大學物理系或機械系在大一大二教重轉子的牛頓由拉方程的時候，都是教重轉子陀螺，解完後最多也只提到了科式力的應用，教到這裡也就沒有繼續衍伸下去了，錯失連結真正
+的實際應用的機會，沒有提到其實此方程在日常生活的眾多應用連結。陀螺儀雖然是很舊的東西，但他還是有一些新的應用性是課本上所來不及更新的。也因為如此，大部分學生甚至
+老師都不曉得陀螺儀有非常多日常生活的應用。這部分的原理在普遍教材中還很缺乏。目前也沒有相關書籍可以連結相關的知識，因此這裡嘗試以此文件補足這個缺失。以下列出幾項
+陀螺儀的日常應用，這些都是已經有產品在賣的應用，但很少人知道裡面有陀螺儀，就算知道也不曉得是體積非常小只有小拇指指甲大小的微機電陀螺儀，並非傳統有轉子的陀螺儀。
 \end_layout
 
 \begin_layout Section
-程式平台
+模擬程式平台
 \end_layout
 
 \begin_layout Standard
@@ -355,6 +339,10 @@ VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示�
 
 \begin_layout Enumerate
 大多數人對L總角動量會有個錯誤的觀念是，都會以為L向量的軌跡是一個圓，因為力矩與L垂直。事實上力矩與L不總是垂直。舉例如某校的普通物理實驗的網路翻轉影片
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "https://www.youtube.com/watch?v=E-L6lU1akg4"
@@ -364,6 +352,10 @@ target "https://www.youtube.com/watch?v=E-L6lU1akg4"
 
 ，在影片3分48秒的時候就介紹L的軌跡總是一個圓，且量值不變。但事實上這只有在某些特殊狀況下才成立，只有在Z軸軌跡是正圓運動時才會有此結論。一般的狀況下L的量值
 都不是定值。這或許是因為大部分網路上甚至是wiki上的資訊
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "http://hyperphysics.phy-astr.gsu.edu/hbase/top.html"
@@ -501,31 +493,22 @@ ian的解析解比較。這也是為什麼要有第二種方法的原因，有�
 \end_layout
 
 \begin_layout Standard
-MEMS陀螺儀感測器是一種角速度感測器，可以測量物體轉動的角速度。但他所使用的原理並不是陀螺的定軸性，也就是說微機電陀螺儀的原理並不是利用陀螺儀在無外力的狀態下
-會指向一個固定的方向的這個原理。
-\begin_inset Newline newline
+MEMS陀螺儀感測器是一種慣性感測器。可以測量物體轉動的角速度。因此也較做角速度感測器。與一般人認知不同的是，他所使用的原理並不是陀螺的定軸性，也就是說微機電陀
+螺儀的原理並不是利用陀螺儀在無外力的狀態下會指向一個固定的方向的這個原理。
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-那為什麼MEMS陀螺儀感測器的名子中有陀螺兩個字呢？原因我們畫在下圖中。其實陀螺儀感測器量到的物理量是貼體角速度，並且積分貼體角速度之後可以得到感測器在空間中的
-絕對姿態，而貼體角速度正是牛頓由拉方程的核心物理量，而陀螺的運動正是由牛頓由拉方程所描述，也因此，我們可以說，其實陀螺儀感測器所量測的物理量，其實跟陀螺的物理有
-相同的來源，這也是為什麼明明是微機電構造的陀螺儀感測器中會有陀螺的兩個字，因為他背後的物理跟陀螺有非常重要的關係。而這原理同時也是轉動積分器的核心原理。
+那為什麼MEMS陀螺儀感測器的名子中有陀螺兩個字呢？其實陀螺儀感測器量到的物理量是貼體角速度，並且積分貼體角速度之後可以得到感測器在空間中的絕對姿態，而貼體角速
+度正是牛頓由拉方程的核心物理量，而陀螺的運動正是由牛頓由拉方程所描述，也因此，我們可以說，其實陀螺儀感測器所量測的物理量，其實跟陀螺的物理有相同的來源，這也是為
+什麼明明是微機電構造的陀螺儀感測器中會有陀螺的兩個字，因為他背後的物理跟陀螺有非常重要的關係。而這原理同時也是轉動積分器的核心原理。
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-input{../otherstuff/MEMS_omega_relation_graph.tex}
-\end_layout
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -534,7 +517,7 @@ input{../otherstuff/MEMS_omega_relation_graph.tex}
 \begin_layout Standard
 這部分的原理在目前的教材中還很缺乏。舉例如大學物理系或機械系在大一大二教重轉子的牛頓由拉方程的時候，都是教重轉子陀螺，解完後也就沒有連結實際應用，沒有提到其實此
 方程在日常生活的眾多應用連結。陀螺雖然是很舊的東西，但換個角度就可以學習到其新的應用面向及其新的應用性。
-\begin_inset Newline newline
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -559,7 +542,7 @@ Wireless IMU by Jan Zwiener
 \end_inset
 
 就可以知道自己的手機裡面有沒有陀螺儀，若有，則App會自動顯示陀螺儀測量到的值，以及有個簡單的小應用模擬。
-\begin_inset Newline newline
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -567,6 +550,9 @@ Wireless IMU by Jan Zwiener
 
 \begin_layout Standard
 給高中同學陀螺運動的補充解釋 - 陀螺與地面接觸點的接觸力討論
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset href
 LatexCommand href
 name "http://whymranderson.blogspot.tw/2015/05/blog-post_13.html#more"
@@ -582,15 +568,22 @@ target "http://whymranderson.blogspot.tw/2015/05/blog-post_13.html#more"
 \end_layout
 
 \begin_layout Standard
-給物理系同學。物理系同學可不能以為陀螺儀就只是一台好大的儀器，裡面有飛快的轉子，然後只知道他有導航的應用而已。而是要了解一下目前產業與日常生活中用到的感測裝置，
-體感裝置，包括體積只有小拇指指甲一半小的微機電陀螺儀感測器，就經常在手機上看到。而且微機電陀螺儀裡面雖然沒有飛快的轉子，但是至少要知道他與陀螺的物理的緊密關係。
-這才是大學普物該與日常生活機電產業連結的基礎物理知識。知道原理之後在學習此原理在其他產業應用，如遊戲中的轉動物理引擎，也是直接相關聯。這是物理系比其他工程科系有
-競爭力的地方，知道背後的完整原理，就可以完全掌握他完整的應用，知道其他人所不知道的跨領域產業應用。而不是像某大學的普物線上課程，教陀螺儀這樣教
+給物理系同學。物理系同學可不能以為陀螺儀就只是一台儀器，裡面有飛快的轉子，然後只知道他有導航的應用而已。而是要了解一下目前產業與日常生活中用到的感測裝置，體感裝
+置，包括體積只有小拇指指甲一半小的微機電陀螺儀感測器，就經常在手機，平板，智慧手表上看到。而且微機電陀螺儀裡面雖然沒有飛快的轉子，但是至少要知道他與陀螺的物理的
+緊密關係。這才是大學普物該與日常生活機電產業連結的基礎物理知識。知道原理之後在學習此原理在其他產業應用，如遊戲中的轉動物理引擎，也是直接相關聯。這是物理系比其他
+工程科系有競爭力的地方，知道背後的完整原理，就可以完全掌握他完整的應用，知道其他人所不知道的跨領域產業應用。而不是像某大學的普物線上課程，教陀螺儀這樣教
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset href
 LatexCommand href
 name "https://www.youtube.com/watch?v=mittAGOQYYc"
 target "https://www.youtube.com/watch?v=mittAGOQYYc"
 
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 。影片中從1小時19分鐘開始到最後，就是在講陀螺儀。但是完全沒有講到目前陀螺儀的真正日常生活的應用。
@@ -607,6 +600,10 @@ target "https://www.youtube.com/watch?v=mittAGOQYYc"
 \begin_deeper
 \begin_layout Itemize
 powerpoint簡報
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "http://whymranderson.blogspot.tw/2015/04/blog-post_24.html"
@@ -619,6 +616,10 @@ target "http://whymranderson.blogspot.tw/2015/04/blog-post_24.html"
 
 \begin_layout Itemize
 翻轉影片
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "http://whymranderson.blogspot.tw/2015/06/blog-post.html"
@@ -641,6 +642,10 @@ Meetup Python Tainan User Group 演講
 \begin_deeper
 \begin_layout Itemize
 powerpoint簡報
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "http://whymranderson.blogspot.tw/2015/04/pytainan-meetup-slides.html"
@@ -656,7 +661,15 @@ target "http://whymranderson.blogspot.tw/2015/04/pytainan-meetup-slides.html"
 \begin_inset VSpace 1em
 \end_inset
 
-模擬程式的動畫影片請到我的部落格觀看
+
+\end_layout
+
+\begin_layout Subsubsection*
+一些模擬程式的示範影片請到我的部落格觀看
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "http://whymranderson.blogspot.tw/p/innovative-materials.html"
@@ -665,10 +678,6 @@ target "http://whymranderson.blogspot.tw/p/innovative-materials.html"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection*
-正文在下一頁本簡介文件之後開始。歡迎詢問並購買此教材。
 \begin_inset VSpace 1em
 \end_inset
 
@@ -676,23 +685,18 @@ target "http://whymranderson.blogspot.tw/p/innovative-materials.html"
 \end_layout
 
 \begin_layout Subsubsection*
-後記
+教材正文連結
 \end_layout
 
 \begin_layout Standard
-當然，這邊我所做的東西雖然是我原創的，但是並不是新的東西，原創的部分是我將不同的領域連結了起來，這部分絕對在任何地方都看不到，並且用很基礎的原理耐心的去深入淺出
-去解釋。耐心這點也是目前高等教育的教材所共同欠缺的。
-\end_layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://whymrandersonwhy.pythonanywhere.com/gyro.html"
+target "http://whymrandersonwhy.pythonanywhere.com/gyro.html"
 
-\begin_layout Standard
-現在的課本教材已經很落伍了，內容二十多年沒有更新，代表現在我們的學生念的東西跟二十年前念的差不多。但產業已經在試很多新東西了。
-\end_layout
+\end_inset
 
-\begin_layout Standard
-如何以不過度浪費資源的去完成一個你想做的專案，這邊做了一個實作範例。對比現今許多大學內過度浪費資源過度浪費公帑的現況，我認為這是很重要的，因為，這些過度的浪費已
-經在回來找我們，要我們付出極昂貴的代價，我們承受不起的代價。我的教材根本不是甚麼偉大的問題，但很多時候只是在沒有資源下如何把路走通打通而已，在沒有資源情況下去克
-服困難去完成一件簡單的事，是一件非常困難的事情，尤其是在這甚麼都要錢甚麼都愈來愈貴，並且硬體資源或實體空間土地都被壟斷的年代。一件簡單的事可能因為你手邊沒有正確
-的資源而變得非常困難，但，只能慢慢一步一步去想出替代品，一切也只能靠自己。因此能精簡資源幾乎達到自給自足我認為是相當難得的。
+
 \end_layout
 
 \end_body

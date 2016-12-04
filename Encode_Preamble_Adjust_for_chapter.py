@@ -115,6 +115,7 @@ new_preamble = [
 "        \\fi%\n",
 "    }%\n",
 "\\makeatother\n",
+"\\setcounter{secnumdepth}{1}",
 "\\newtheorem{theorem}{Theorem}\n",
 "\\newtheorem{case}[theorem]{Case}\n",
 "\\newtheorem{remark}[theorem]{Remark}\n",

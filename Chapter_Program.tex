@@ -6,7 +6,7 @@
 
 \setcounter{page}{1}
 
-\bigskip 
+\bigskip
 
 \U{6b64}\U{8edf}\U{9ad4}\U{7d50}\U{5408}\U{4e86}\U{9640}\U{87ba}\U{5100}%
 \U{7ae0}\U{52d5}\U{9032}\U{52d5}3D\U{6a21}\U{64ec}\U{7a0b}\U{5f0f}\U{ff0c}%
@@ -192,7 +192,7 @@ angular rate sensor\U{7b49}inertial measurement unit\U{6240}\U{4f7f}\U{7528}%
 \U{5b50}\U{3002}
 \end{enumerate}
 
-\bigskip 
+\bigskip
 
 \U{6700}\U{65b0}\U{7248}\U{8edf}\U{9ad4}(2016/July)\U{53ef}\U{5728}\U{6b64}%
 \U{4e0b}\U{8f09}
@@ -275,7 +275,7 @@ Python\U{fe5d}\U{5982}Python 3.x\U{fe5e}\U{6703}\U{6709}\U{4e00}\U{4e9b}%
 \U{90fd}\U{5217}\U{5728}\U{6587}\U{4ef6}\U{6700}\U{5f8c}\U{7684}\U{8edf}%
 \U{9ad4}\U{8aaa}\U{660e}\U{66f8}\U{4e2d}\U{3002}
 
-\bigskip 
+\bigskip
 
 \U{8aaa}\U{660e}\U{66f8}\U{540d}\U{7a31}\U{662f}GyroSoft Simulation
 Documentation\U{3002}\U{4e00}\U{822c}\U{8b80}\U{8005}\U{4f7f}\U{7528}\U{8996}%
@@ -394,11 +394,30 @@ topEOM(wi,torquei)\texttt{\U{fe5e}}\U{5f97}\U{5230}\U{8cbc}\U{9ad4}\U{89d2}%
 \U{5217}\U{7684}\U{7dad}\U{5ea6}shape=(N,3,7)\texttt{\U{3002}\U{5176}\U{4e2d}%
 \U{7dad}\U{5ea6}\U{70ba}}7\texttt{\U{7684}\U{65b9}\U{5411}\U{7684}\U{9996}%
 \U{8981}\U{4e09}\U{500b}\U{9663}\U{5217}\U{5c31}\U{662f}}xyz\texttt{\U{8ef8}%
-\U{3002}}DCM\U{905e}\U{63a8}\U{7684}\U{7a0b}\U{5f0f}\U{5728}DCMiter\U{65b9}%
-\U{7a0b}\U{88e1}\U{3002}
+\U{3002}}xyz\U{8ef8}\U{905e}\U{63a8}\U{7684}\U{7a0b}\U{5f0f}\U{5728}%
+EulerDCMiter$()$\U{65b9}\U{7a0b}\U{88e1}\U{ff0c}\U{4ee5}\U{4e0b}\U{5217}%
+\U{51fa}\U{65b9}\U{7a0b}\U{7684}\U{4e3b}\U{8981}xyz\U{8ef8}\U{905e}\U{63a8}%
+\U{90e8}\U{5206}\U{3002}\U{6b64}\U{6cd5}\U{4e00}\U{822c}\U{4e5f}\U{7a31}%
+\U{4f5c}DCM(direction cosine matrix) iteration\U{65b9}\U{5411}\U{9918}%
+\U{5f26}\U{77e9}\U{9663}\U{905e}\U{63a8}\U{6cd5}\U{ff0c}\U{56e0}\U{70ba}xyz%
+\U{8ef8}\U{7684}cordvec\U{77e9}\U{9663}\U{5373}\U{662f}DCM\U{77e9}\U{9663}%
+\U{3002}\U{9019}\U{4e5f}\U{662f}\U{65b9}\U{7a0b}\U{540d}\U{7a31}\U{7684}%
+\U{539f}\U{56e0}\U{3002}
 
+%\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+%\inputminted[linenos,fontsize=\footnotesize,gobble=12,breaklines,breakanywhere,firstline=287,lastline=297]{python}{../../Scripts/cordtrans/Physics_and_Animation_Modules_Library/RGCordTransV15.py}
+%\end{mdframed}
 \begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
-\inputminted[linenos,fontsize=\footnotesize,gobble=12,breaklines,breakanywhere,firstline=287,lastline=297]{python}{../../Scripts/cordtrans/Physics_and_Animation_Modules_Library/RGCordTransV15.py}
+\begin{minted}[linenos,fontsize=\footnotesize,breaklines,breakanywhere]{python}
+def EulerDCMiter(self):
+    #some code let along
+    rotation_vec_approximation = (self.w[i,:])*self.h
+    self.TrackMat_temp = np.dot(self.TrackMat_temp,CK(rotation_vec_approximation))
+    #TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
+    for j in range(3):
+        self.cordvec[i,:,j]=np.dot(self.TrackMat_temp,np.eye(3)[j,:])
+    #more code let along
+\end{minted}
 \end{mdframed}
 
 \subsubsection{B\U{65b9}\U{6cd5}\U{ff1a}Lagrangian\U{89e3}\U{6790}\U{89e3}}
@@ -451,7 +470,7 @@ B\U{65b9}\U{6cd5}\U{7684}\U{7a0b}\U{5f0f}\U{78bc}\U{4f86}\U{81ea}Hasbun%
 python\U{7a0b}\U{5f0f}\U{78bc}\U{6bd4}\U{8f03}\U{ff0c}\U{6211}\U{5c07}%
 \U{4ed6}\U{7684}\U{7a0b}\U{5f0f}\U{91cd}\U{5beb}\U{6210}python\U{7a0b}%
 \U{5f0f}\U{78bc}\U{ff0c}\U{6b64}\U{65b9}\U{7a0b}\U{53eb}\U{505a}%
-HasbunEulerEquationODEsolve\U{ff0c}\U{5217}\U{5728}\U{6700}\U{5f8c}\U{7684}%
+HasbunEulerEquationODEsolve()\U{ff0c}\U{5217}\U{5728}\U{6700}\U{5f8c}\U{7684}%
 \U{7a0b}\U{5f0f}\U{8aaa}\U{660e}\U{66f8}\U{4e2d}\U{3002}\U{88dc}\U{5145}%
 \U{4e00}\U{63d0}\U{ff0c}Hasbun\U{6559}\U{6388}\U{6240}\U{63a1}\U{7528}%
 \U{7684}\U{5c24}\U{62c9}\U{89d2}\U{5b9a}\U{7fa9}\U{8207}\U{6211}\U{7684}%
@@ -511,58 +530,69 @@ A\U{65b9}\U{6cd5}\U{53ef}\U{4ee5}\U{9069}\U{7528}\U{65bc}\U{4efb}\U{610f}%
 \U{6a5f}\U{7684}\U{59ff}\U{614b}\U{611f}\U{6e2c}\U{5668}\U{ff0c}\U{6b64}%
 \U{6642}\U{6b64}\U{65b9}\U{6cd5}\U{662f}\U{552f}\U{4e00}\U{53ef}\U{4ee5}%
 \U{4f30}\U{6e2c}\U{7269}\U{9ad4}\U{59ff}\U{614b}\U{7684}\U{65b9}\U{6cd5}%
-\U{3002}\U{6b64}\U{6cd5}\U{6211}\U{5011}\U{4e5f}\U{8aaa}\U{662f}\U{4ee5}%
-\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{76f4}\U{63a5}\U{505a}\U{59ff}%
-\U{614b}\U{65b9}\U{5411}\U{9918}\U{5f26}\U{77e9}\U{9663}\U{905e}\U{63a8}%
-\U{6cd5}\U{3002}\U{9019}\U{88e1}\U{8981}\U{6ce8}\U{610f}\U{8207}A\U{65b9}%
-\U{6cd5}\U{4e0d}\U{540c}\U{7684}\U{662f}\U{ff0c}A\U{65b9}\U{6cd5}\U{6709}%
-\U{5229}\U{7528}\U{8cbc}\U{9ad4}\U{5c24}\U{62c9}\U{65b9}\U{7a0b}\U{4ee5}%
-\U{4e0a}\U{4e00}\U{500b}\U{59ff}\U{614b}\U{4f86}\U{8a08}\U{7b97}\U{4e0b}%
-\U{4e00}\U{500b}\U{8cbc}\U{89d2}\U{ff0c}\U{5728}\U{4ee5}\U{4e0b}\U{4e00}%
-\U{500b}\U{8cbc}\U{89d2}\U{53bb}\U{6c42}\U{5f97}\U{65b0}\U{7684}\U{59ff}%
-\U{614b}\U{3002}\U{56e0}\U{6b64}A\U{65b9}\U{6cd5}\U{53ea}\U{8981}\U{77e5}%
-\U{9053}\U{521d}\U{59cb}\U{89d2}\U{901f}\U{5ea6}\U{ff0c}\U{8207}\U{5916}%
-\U{529b}\U{529b}\U{77e9}\U{9805}\U{7684}\U{578b}\U{5f0f}\U{3002}C\U{65b9}%
-\U{6cd5}\U{662f}\U{53ea}\U{9700}\U{8981}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}%
-\U{5ea6}\U{ff0c}\U{4e0d}\U{7ba1}\U{662f}\U{5f9e}\U{91cf}\U{6e2c}\U{5f97}%
-\U{4f86}\U{ff0c}\U{6216}\U{8005}\U{662f}\U{5f9e}\U{7406}\U{8ad6}\U{5f97}%
-\U{4f86}\U{ff0c}C\U{65b9}\U{6cd5}\U{53ea}\U{8ca0}\U{8cac}\U{59ff}\U{614b}%
-\U{77e9}\U{9663}\U{905e}\U{63a8}\U{3002}\U{82e5}\U{52a0}\U{4e0a}\U{566a}%
-\U{97f3}\U{904e}\U{6ffe}\U{ff0c}C\U{65b9}\U{6cd5}\U{5373}\U{70ba}\U{89d2}%
-\U{901f}\U{5ea6}\U{611f}\U{6e2c}\U{5668}\U{89e3}\U{7b97}\U{59ff}\U{614b}%
-\U{7684}\U{516c}\U{5f0f}\U{ff0c}\U{56e0}\U{6b64}\U{9069}\U{7528}\U{5728}%
-\U{611f}\U{6e2c}\U{5668}\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}\U{4e0a}%
-\U{9762}\U{3002}
+\U{ff0c}\U{56e0}\U{70ba}\U{6211}\U{5011}\U{7121}\U{6cd5}\U{5411}A\U{6cd5}%
+\U{4e00}\U{6a23}\U{4ee5}\U{725b}\U{9813}\U{7531}\U{62c9}\U{65b9}\U{7a0b}%
+\U{4f86}\U{905e}\U{63a8}\U{ff0c}\U{56e0}\U{70ba}\U{7f3a}\U{4e4f}\U{529b}%
+\U{77e9}\U{9805}\U{3002}\U{6b64}\U{6cd5}\U{6211}\U{5011}\U{4e5f}\U{8aaa}%
+\U{662f}\U{4ee5}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{76f4}\U{63a5}%
+\U{505a}\U{59ff}\U{614b}\U{65b9}\U{5411}\U{9918}\U{5f26}\U{77e9}\U{9663}%
+\U{905e}\U{63a8}\U{6cd5}\U{3002}\U{9019}\U{88e1}\U{8981}\U{6ce8}\U{610f}%
+\U{8207}A\U{65b9}\U{6cd5}\U{4e0d}\U{540c}\U{7684}\U{662f}\U{ff0c}A\U{65b9}%
+\U{6cd5}\U{6709}\U{5229}\U{7528}\U{8cbc}\U{9ad4}\U{7684}\U{725b}\U{9813}%
+\U{5c24}\U{62c9}\U{65b9}\U{7a0b}\U{4ee5}\U{4e0a}\U{4e00}\U{500b}\U{59ff}%
+\U{614b}\U{4f86}\U{8a08}\U{7b97}\U{4e0b}\U{4e00}\U{500b}\U{8cbc}\U{89d2}%
+\U{ff0c}\U{5728}\U{4ee5}\U{4e0b}\U{4e00}\U{500b}\U{8cbc}\U{89d2}\U{53bb}%
+\U{6c42}\U{5f97}\U{65b0}\U{7684}\U{59ff}\U{614b}\U{3002}\U{56e0}\U{6b64}A%
+\U{65b9}\U{6cd5}\U{8981}\U{77e5}\U{9053}\U{521d}\U{59cb}\U{89d2}\U{901f}%
+\U{5ea6}\U{ff0c}\U{8207}\U{5916}\U{529b}\U{529b}\U{77e9}\U{9805}\U{7684}%
+\U{578b}\U{5f0f}\U{3002}C\U{65b9}\U{6cd5}\U{662f}\U{53ea}\U{9700}\U{8981}%
+\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{ff0c}\U{4e0d}\U{7ba1}\U{662f}%
+\U{5f9e}\U{91cf}\U{6e2c}\U{5f97}\U{4f86}\U{ff0c}\U{6216}\U{8005}\U{662f}%
+\U{5f9e}\U{7406}\U{8ad6}\U{5f97}\U{4f86}\U{ff0c}C\U{65b9}\U{6cd5}\U{53ea}%
+\U{9700}\U{8981}\U{7528}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{5373}%
+\U{53ef}\U{505a}\U{59ff}\U{614b}\U{77e9}\U{9663}\U{905e}\U{63a8}\U{3002}%
+\U{82e5}\U{52a0}\U{4e0a}\U{566a}\U{97f3}\U{904e}\U{6ffe}\U{ff0c}C\U{65b9}%
+\U{6cd5}\U{5373}\U{70ba}\U{89d2}\U{901f}\U{5ea6}\U{611f}\U{6e2c}\U{5668}%
+\U{89e3}\U{7b97}\U{59ff}\U{614b}\U{7684}\U{516c}\U{5f0f}\U{ff0c}\U{56e0}%
+\U{6b64}\U{9069}\U{7528}\U{5728}\U{5fae}\U{6a5f}\U{96fb}\U{9640}\U{87ba}%
+\U{5100}\U{611f}\U{6e2c}\U{5668}\U{7684}\U{59ff}\U{614b}\U{4f30}\U{6e2c}%
+\U{4e0a}\U{9762}\U{3002}
 
 \begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
 \begin{minted}[linenos,fontsize=\footnotesize,breaklines,breakanywhere]{python}
-for i in range(1,self.N+1):
-C_rotation_vect_i = self.w_body_hasbun[i-1,:]*self.h
-self.TrackMat_temp_hasbun = np.dot(self.TrackMat_temp_hasbun,CK(C_rotation_vect_i))
-# TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
-for j in range(3):
-   self.cordvec[i,:,j+10]=np.dot(self.TrackMat_temp_hasbun,np.eye(3)[j,:])
+def directDCMiter(self):
+    #only showing the relavent code
+    for i in range(1,self.N+1):
+        C_rotation_vect_i = self.w_body_hasbun[i-1,:]*self.h
+        self.TrackMat_temp_hasbun = np.dot(self.TrackMat_temp_hasbun,CK(C_rotation_vect_i))
+        #Remember TrackMat_temp is the transformation matrix for A_s(ti-1) to A_lab(ti)
+        for j in range(3):
+            self.cordvec[i,:,j+10] = np.dot(self.TrackMat_temp_hasbun,np.eye(3)[j,:])
 \end{minted}
 \end{mdframed}
 
 \U{9019}\U{88e1}\U{4e5f}\U{53ef}\U{4ee5}\U{5f9e}\U{7a0b}\U{5f0f}\U{78bc}%
 \U{770b}\U{51fa}\U{ff0c}\U{6211}\U{5011}\U{7684}\U{59ff}\U{614b}\U{6f14}%
-\U{7b97}\U{53ea}\U{8981}\U{4e09}\U{884c}\U{7a0b}\U{5f0f}\U{78bc}\U{ff0c}%
-\U{975e}\U{5e38}\U{7684}\U{7cbe}\U{7c21}\U{ff0c}\U{82e5}\U{662f}\U{4f7f}%
-\U{7528}\U{4e86}\U{6b50}\U{62c9}\U{89d2}\U{ff0c}\U{5c31}\U{9084}\U{9700}%
-\U{8981}\U{8f49}\U{63db}\U{56de}lab frame\U{ff0c}\U{975e}\U{5e38}\U{975e}%
-\U{5e38}\U{7684}\U{8907}\U{96dc}\U{3002}\U{56e0}\U{6b64}\U{6211}\U{5011}%
-\U{7684}\U{7a0b}\U{5f0f}\U{78bc}\U{6709}\U{5176}\U{7279}\U{5225}\U{4e4b}%
-\U{8655}\U{ff0c}\U{5728}\U{61c9}\U{7528}\U{4e0a}\U{53ea}\U{9700}\U{8981}%
-\U{4e00}\U{5c0f}\U{584a}IC\U{5373}\U{53ef}\U{505a}\U{59ff}\U{614b}\U{904b}%
-\U{7b97}\U{3002}\U{82e5}\U{4f7f}\U{7528}\U{6b50}\U{62c9}\U{89d2}\U{ff0c}%
-\U{5c31}\U{5f97}\U{4f7f}\U{7528}\U{4e0a}micro processor unit (MPU)\U{7b49}%
-\U{7d1a}\U{7684}IC\U{3002}\U{4e26}\U{4e14}\U{7cbe}\U{7c21}\U{7684}\U{7a0b}%
-\U{5f0f}\U{8207}\U{5b8c}\U{6574}\U{7684}\U{7406}\U{8ad6}\U{4e5f}\U{65b9}%
-\U{4fbf}\U{65bc}\U{65e5}\U{5f8c}\U{7dad}\U{8b77}\U{4ee5}\U{53ca}\U{64f4}%
-\U{5145}\U{6216}\U{61c9}\U{7528}\U{6211}\U{5011}\U{7684}\U{7a0b}\U{5f0f}%
-\U{78bc}\U{ff0c}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{7684}\U{7a0b}\U{5f0f}%
-\U{78bc}\U{662f}\U{6709}\U{5176}\U{512a}\U{52e2}\U{3002}
+\U{7b97}\U{6838}\U{5fc3}\U{53ea}\U{8981}\U{4e94}\U{884c}\U{7a0b}\U{5f0f}%
+\U{78bc}\U{ff0c}\U{975e}\U{5e38}\U{7684}\U{7cbe}\U{7c21}\U{ff0c}\U{9019}%
+\U{662f}DCM\U{77e9}\U{9663}\U{905e}\U{63a8}\U{7684}\U{512a}\U{52e2}\U{3002}%
+\U{82e5}\U{662f}\U{4f7f}\U{7528}\U{4e86}\U{50b3}\U{7d71}\U{7684}B\U{65b9}%
+\U{6cd5}\U{ff0c}\U{4f7f}\U{7528}\U{4e0a}\U{6b50}\U{62c9}\U{89d2}auler angles%
+\U{ff0c}\U{5c31}\U{9084}\U{9700}\U{8981}\U{8f49}\U{63db}\U{56de}lab frame%
+\U{ff0c}\U{975e}\U{5e38}\U{975e}\U{5e38}\U{7684}\U{8907}\U{96dc}\U{ff0c}%
+\U{6703}\U{6d88}\U{8017}\U{76f8}\U{7576}\U{5927}\U{7684}\U{8a18}\U{61b6}%
+\U{9ad4}\U{8cc7}\U{6e90}\U{3002}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{7684}%
+\U{7a0b}\U{5f0f}\U{78bc}\U{6709}\U{5176}\U{7279}\U{5225}\U{4e4b}\U{8655}%
+\U{ff0c}\U{5728}\U{61c9}\U{7528}\U{4e0a}\U{53ea}\U{9700}\U{8981}\U{4e00}%
+\U{5c0f}\U{584a}IC\U{5373}\U{53ef}\U{505a}\U{59ff}\U{614b}\U{904b}\U{7b97}%
+\U{3002}\U{82e5}\U{4f7f}\U{7528}\U{6b50}\U{62c9}\U{89d2}\U{ff0c}\U{5c31}%
+\U{5f97}\U{4f7f}\U{7528}\U{4e0a}micro processor unit (MPU)\U{7b49}\U{7d1a}%
+\U{7684}IC\U{3002}\U{4e26}\U{4e14}\U{7cbe}\U{7c21}\U{7684}\U{7a0b}\U{5f0f}%
+\U{8207}\U{5b8c}\U{6574}\U{7684}\U{7406}\U{8ad6}\U{4e5f}\U{65b9}\U{4fbf}%
+\U{65bc}\U{65e5}\U{5f8c}\U{7dad}\U{8b77}\U{4ee5}\U{53ca}\U{64f4}\U{5145}%
+\U{6216}\U{61c9}\U{7528}\U{6211}\U{5011}\U{7684}\U{7a0b}\U{5f0f}\U{78bc}%
+\U{ff0c}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{7684}\U{7a0b}\U{5f0f}\U{78bc}%
+\U{662f}\U{6709}\U{5176}\U{512a}\U{52e2}\U{3002}
 
 \paragraph{A\U{3001}C\U{65b9}\U{6cd5}\U{7684}\U{7406}\U{8ad6}\U{9a57}\U{8b49}%
 \U{8207}\U{7b2c}\U{4e09}\U{65b9}\U{7a0b}\U{5f0f}\U{78bc}\U{7684}\U{6bd4}%
@@ -650,13 +680,17 @@ Simulation V-3\U{3011}\U{7b2c}\U{4e09}\U{7248}\U{7684}\U{52d5}\U{756b}%
 
 \bigskip
 
-\U{9996}\U{5148}\U{7a0b}\U{5f0f}\U{9808}\U{5148}\U{5efa}\U{7acb}\U{4e00}%
-\U{500b}RigidBodyObject\U{7269}\U{4ef6}\U{ff0c}\U{7136}\U{5f8c}\U{ff0c}%
-\U{4ee5}\U{4e0b}\U{5169}\U{500b}\U{65b9}\U{7a0b}\U{51fa}\U{73fe}\U{7684}%
-\U{4f4d}\U{7f6e}\U{9700}\U{8981}\U{7279}\U{5225}\U{7559}\U{610f}
+\U{9996}\U{5148}\U{7a0b}\U{5f0f}\U{9808}\U{6703}\U{5efa}\U{7acb}\U{4e00}%
+\U{500b}RigidBodyObject\U{7269}\U{4ef6}\U{ff0c}\U{5927}\U{591a}\U{6578}%
+\U{53c3}\U{6578}\U{7684}\U{8a2d}\U{5b9a}\U{9084}\U{7b97}\U{662f}\U{76f4}%
+\U{89ba}\U{ff0c}\U{770b}code\U{5373}\U{53ef}\U{731c}\U{6e2c}\U{5176}\U{542b}%
+\U{7fa9}\U{ff0c}\U{4ee5}\U{4e0b}\U{5217}\U{51fa}\U{5e7e}\U{500b}\U{8f03}%
+\U{4e0d}\U{76f4}\U{89ba}\U{7684}\U{51fd}\U{6578}\U{ff0c}\U{6709}\U{4e9b}%
+\U{51fd}\U{6578}\U{547c}\U{53eb}\U{7684}\U{524d}\U{5f8c}\U{6642}\U{6a5f}%
+\U{9700}\U{8981}\U{6ce8}\U{610f}\U{3002}
 
 \begin{description}
-\item[GenerateDependentVariables()] \U{4ee5}\U{7d66}\U{5b9a}\U{7684}\U{53c3}%
+\item[b = RG.RigidBodyObject()] \U{4ee5}\U{7d66}\U{5b9a}\U{7684}\U{53c3}%
 \U{6578}\U{521d}\U{59cb}\U{5316}\U{6240}\U{6709}\U{7269}\U{7406}\U{91cf}%
 \U{7684}\U{9663}\U{5217}\U{ff0c}\U{4e5f}\U{53ef}\U{4ee5}\U{8aaa}\U{7d66}%
 \U{5b9a}\U{8a18}\U{61b6}\U{9ad4}\U{7a7a}\U{9593}\U{4ee5}\U{4fbf}\U{5132}%
@@ -669,37 +703,37 @@ Simulation V-3\U{3011}\U{7b2c}\U{4e09}\U{7248}\U{7684}\U{52d5}\U{756b}%
 \U{6578}\U{5f8c}\U{505a}\U{ff0c}\U{5982}\U{91cd}\U{529b}\U{53c3}\U{6578}$%
 g=9.8$\U{82e5}\U{6539}\U{8b8a}\U{ff0c}\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}%
 \U{9808}\U{5728}$g=9.8$\U{4e4b}\U{5f8c}\U{505a}\U{3002}\U{53e6}\U{5916}%
-\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}\U{9808}\U{5728}setcase()\U{6b65}\U{9a5f}%
-\U{4e4b}\U{524d}\U{3002}
+\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}\U{9808}\U{5728}b.classical\_case\U{6b65}%
+\U{9a5f}\U{4e4b}\U{524d}\U{3002}
 
-\item[setcase()] \U{5f9e}\U{56db}\U{7a2e}\U{7d93}\U{5178}\U{904b}\U{52d5}%
-\U{4e2d}\U{8a2d}\U{5b9a}\U{4e00}\U{7a2e}\U{7d93}\U{5178}\U{7ae0}\U{52d5}%
-\U{9032}\U{52d5}\U{7684}\U{904b}\U{52d5}\U{ff0c}\U{6216}\U{8a2d}\U{5b9a}%
-\U{5176}\U{5b83}\U{7684}\U{4efb}\U{610f}\U{521d}\U{59cb}\U{89d2}\U{901f}%
-\U{5ea6}\U{3002}\U{6b64}\U{7a0b}\U{5f0f}\U{7684}\U{4e00}\U{500b}\U{7279}%
-\U{8272}\U{5c31}\U{662f}\U{7a0b}\U{5f0f}\U{53ef}\U{4ee5}\U{4f9d}\U{7167}%
-\U{7d66}\U{5b9a}\U{7684}\U{521d}\U{59cb}\U{503c}\U{53c3}\U{6578}\U{8a08}%
-\U{7b97}\U{56db}\U{7a2e}\U{7d93}\U{5178}\U{904b}\U{52d5}\U{7684}\U{6240}%
-\U{9700}\U{689d}\U{4ef6}\U{3002}1\U{70ba}\U{5c16}\U{9ede}\U{ff0c}2\U{6709}%
-\U{74b0}\U{ff0c}3\U{7121}\U{74b0}\U{ff0c}4\U{6b63}\U{5713}\U{904b}\U{52d5}%
-\U{3002}\U{4e5f}\U{56e0}\U{70ba}\U{7a0b}\U{5f0f}\U{6703}\U{9700}\U{8981}%
-\U{7528}\U{5230}\U{7d66}\U{5b9a}\U{53c3}\U{6578}\U{53ca}\U{5176}\U{9663}%
-\U{5217}\U{56e0}\U{6b64}\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}\U{9808}\U{5728}%
-\U{53c3}\U{6578}\U{8a2d}\U{5b9a}\U{5b8c}\U{53ca}GenerateDependentVariables()%
-\U{5f8c}\U{505a}\U{3002}
+\item[b.classical\_case = 1] \U{5f9e}\U{56db}\U{7a2e}\U{7d93}\U{5178}\U{904b}%
+\U{52d5}\U{4e2d}\U{8a2d}\U{5b9a}\U{4e00}\U{7a2e}\U{7d93}\U{5178}\U{7ae0}%
+\U{52d5}\U{9032}\U{52d5}\U{7684}\U{904b}\U{52d5}\U{ff0c}\U{6216}\U{8a2d}%
+\U{5b9a}\U{5176}\U{5b83}\U{7684}\U{4efb}\U{610f}\U{521d}\U{59cb}\U{89d2}%
+\U{901f}\U{5ea6}\U{3002}\U{6b64}\U{7a0b}\U{5f0f}\U{7684}\U{4e00}\U{500b}%
+\U{7279}\U{8272}\U{5c31}\U{662f}\U{7a0b}\U{5f0f}\U{53ef}\U{4ee5}\U{4f9d}%
+\U{7167}\U{7d66}\U{5b9a}\U{7684}\U{521d}\U{59cb}\U{503c}\U{53c3}\U{6578}%
+\U{8a08}\U{7b97}\U{56db}\U{7a2e}\U{7d93}\U{5178}\U{904b}\U{52d5}\U{7684}%
+\U{6240}\U{9700}\U{689d}\U{4ef6}\U{3002}1\U{70ba}\U{5c16}\U{9ede}\U{ff0c}2%
+\U{6709}\U{74b0}\U{ff0c}3\U{7121}\U{74b0}\U{ff0c}4\U{6b63}\U{5713}\U{904b}%
+\U{52d5}\U{3002}\U{4e5f}\U{56e0}\U{70ba}\U{7a0b}\U{5f0f}\U{6703}\U{9700}%
+\U{8981}\U{7528}\U{5230}\U{7d66}\U{5b9a}\U{53c3}\U{6578}\U{53ca}\U{5176}%
+\U{9663}\U{5217}\U{56e0}\U{6b64}\U{6b64}\U{6b65}\U{9a5f}\U{5fc5}\U{9808}%
+\U{5728}\U{53c3}\U{6578}\U{8a2d}\U{5b9a}\U{5b8c}\U{53ca}%
+GenerateDependentVariables()\U{5f8c}\U{505a}\U{3002}
 
-\item[line\_ani = animation.FuncAnimation(...)] \U{547c}\U{53eb}\U{8b93}%
-python\U{52d5}\U{756b}\U{52d5}\U{8d77}\U{4f86}\U{7684}\U{7a0b}\U{5e8f}%
-\U{3002}\U{6b64}\U{52d5}\U{756b}\U{70ba}\U{4e0b}\U{65b9}\U{5716}\U{4e2d}%
-\U{53f3}\U{65b9}\U{7684}\U{7c0d}\U{7a7a}\U{5716}\U{3002}\U{9019}\U{4e00}%
-\U{500b}\U{7a0b}\U{5e8f}\U{5fc5}\U{9808}\U{8ddf}fig or handle of fig\U{5728}%
-\U{540c}\U{4e00}\U{500b}runtime\U{ff0c}\U{624d}\U{80fd}\U{5920}\U{6b63}%
-\U{78ba}\U{7684}\U{6e05}\U{6389}\U{4e0a}\U{4e00}\U{500b}\U{756b}\U{9762}%
-\U{4f86}\U{5283}\U{51fa}\U{4e0b}\U{4e00}\U{500b}\U{756b}\U{9762}\U{3002}%
-\U{56e0}\U{6b64}\U{6b64}\U{547c}\U{53eb}\U{4e0d}\U{80fd}\U{653e}\U{5728}%
-\U{5176}\U{4ed6}\U{7684}function\U{4e2d}\U{3002}\U{9019}\U{4e5f}\U{7b97}%
-\U{662f}matplotlib\U{7684}\U{4e00}\U{500b}\U{9650}\U{5236}\U{4e4b}\U{4e00}%
-\U{3002}
+\item[animation\_manager = RBPlot.mplot3d\_animation()] \U{547c}\U{53eb}%
+\U{8b93}python\U{52d5}\U{756b}\U{52d5}\U{8d77}\U{4f86}\U{7684}\U{7a0b}%
+\U{5e8f}\U{3002}\U{6b64}\U{52d5}\U{756b}\U{70ba}\U{4e0b}\U{65b9}\U{5716}%
+\U{4e2d}\U{53f3}\U{65b9}\U{7684}\U{7c0d}\U{7a7a}\U{5716}\U{3002}\U{9019}%
+\U{4e00}\U{500b}\U{7a0b}\U{5e8f}\U{5fc5}\U{9808}\U{8ddf}fig or handle of fig%
+\U{5728}\U{540c}\U{4e00}\U{500b}runtime\U{ff0c}\U{624d}\U{80fd}\U{5920}%
+\U{6b63}\U{78ba}\U{7684}\U{6e05}\U{6389}\U{4e0a}\U{4e00}\U{500b}\U{756b}%
+\U{9762}\U{4f86}\U{5283}\U{51fa}\U{4e0b}\U{4e00}\U{500b}\U{756b}\U{9762}%
+\U{3002}\U{56e0}\U{6b64}\U{6b64}\U{547c}\U{53eb}\U{4e0d}\U{80fd}\U{653e}%
+\U{5728}\U{5176}\U{4ed6}\U{7684}function\U{4e2d}\U{3002}\U{9019}\U{4e5f}%
+\U{7b97}\U{662f}matplotlib\U{7684}\U{4e00}\U{500b}\U{9650}\U{5236}\U{4e4b}%
+\U{4e00}\U{3002}
 \end{description}
 
 \bigskip
