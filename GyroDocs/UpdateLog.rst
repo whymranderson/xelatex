@@ -1,9 +1,16 @@
 Updates and changelog
 =====================
 
+2016/12
+   Fixing and upgrading the two old noise-included orien estimation demos.
+   Meanwhile clean up some slow code and make code more modulized. Documentation
+   code correction on case 16 and program chapter. Gyrodoc overfull line 
+   correction.
+
 2016/11
-   Added a section of graphic user interface creation using Tkinter. Digression, created
-   CSGO database using Django and sqlite on my second website. whymrandersonwhy.pythonanywhere.com
+   Added a section of graphic user interface creation using Tkinter. A 
+   digression, created a CSGO database using Django and sqlite on my second 
+   website. whymrandersonwhy.pythonanywhere.com
 
 2016/11
    Mission accomplished on ASUS pad rotation visualization on OpenGL. Really 
