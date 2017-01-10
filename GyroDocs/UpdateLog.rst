@@ -1,6 +1,14 @@
 Updates and changelog
 =====================
 
+2017/1
+   Completed the virtual reality demo using OpenGL. Created
+   a 3D snenary in which one can change his angle of view with
+   ASUS tablet, exploiting the gyro sensor inside.
+   Also implemented our orientation algorithm. This is a suplementing
+   example to my material to show how orientation algorithm (or more basically,
+   body angular velocity) is applied to the rotational control in VR.
+
 2016/12
    Fixing and upgrading the two old noise-included orien estimation demos.
    Meanwhile clean up some slow code and make code more modulized. Documentation
@@ -10,7 +18,11 @@ Updates and changelog
 2016/11
    Added a section of graphic user interface creation using Tkinter. A 
    digression, created a CSGO database using Django and sqlite on my second 
-   website. whymrandersonwhy.pythonanywhere.com
+   website. whymrandersonwhy.pythonanywhere.com. Unlike some big CSGO websites
+   lacking the basic ability to show schedules by team (that is when you go to a
+   team's page you won't see their upcoming schedule they are attending.), our
+   database model has this scoop funtionality. It is considered during the design
+   phase, day one, when building the Entity-Relation database table model.
 
 2016/11
    Mission accomplished on ASUS pad rotation visualization on OpenGL. Really 
