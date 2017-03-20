@@ -120,6 +120,7 @@ new_preamble = [
 "\\newtheorem{case}[theorem]{Case}\n",
 "\\newtheorem{remark}[theorem]{Remark}\n",
 "\\definecolor{bg}{rgb}{0.95,0.95,0.95}\n",
+"\\input{tcilatex}\n",
 "\\begin{document}\n",
 ]
 
