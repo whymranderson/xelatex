@@ -74,6 +74,11 @@ new_preamble = [
 "\usepackage{minted}\n",
 "\usepackage{pdfpages}\n",
 "\usepackage{mdframed}\n",
+
+"\usepackage{everyshi}\n",
+"\\newcounter{xpage}\stepcounter{xpage}\n",
+"\EveryShipout{\stepcounter{xpage}}\n",
+
 "\usepackage{fancyhdr}\n",
 "\pagestyle{fancy}\n",
 "\\fancyhf{}\n",
