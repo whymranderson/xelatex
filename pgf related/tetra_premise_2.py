@@ -63,12 +63,18 @@ class Arrow3D(FancyArrowPatch):
         FancyArrowPatch.draw(self, renderer)
 ###
 
-
-
+def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,in_point):
+    '''Return a point which is projected normally to the plane by another point. in_point is a point on the plane. Vec1 cross Vec2 should go toward the out_point.'''
+    plane_normal = np.cross(plane_vec1,plane_vec2)
+    plane_normal = plane_normal/np.linalg.norm(plane_normal)
+    projected = np.dot(-out_point+in_point,-plane_normal)*(-plane_normal) + out_point#
+    #projected = -2*plane_normal+out_point
+    return projected
+    
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
 ax2 = p3.Axes3D(fig2)
-ax2.view_init(elev=55, azim=-6)
+ax2.view_init(elev=21, azim=-22)
 ax2.set_color_cycle('b')
 
 '''
@@ -84,64 +90,69 @@ linez.set_color('k')
 ax2.text(0,0,6, r'$z_s$', fontsize=18,verticalalignment='bottom', horizontalalignment='left')
 '''
 
-pA = np.array([0,0,0])
-pC = np.array([0,6,0])
-pB = np.array([2,4,6])
-pAp = np.array([10,2.5,0])
-pO = (pA + pAp)/3
-pD = pO + ((pB-pO) + (pC-pO))/4
-
-DOunit = (pD-pO)/np.linalg.norm(pD-pO)
-pE = np.dot(-pO,DOunit)*DOunit + pO
-pF= np.dot(pAp-pO,DOunit)*DOunit + pO
+pB = np.array([0,0,0])
+pD = np.array([0,6,0])
+pA = np.array([1,3.5,4])
+pC = np.array([6,2.5,0])
 
 lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
+lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
-lineAAp, = ax2.plot(*zip(pA,pAp),linewidth = 2,color='b')
-lineBAp, = ax2.plot(*zip(pB,pAp),linewidth = 2,color='b')
-lineCAp, = ax2.plot(*zip(pC,pAp),linewidth = 2,color='b')
-lineAE, = ax2.plot(*zip(pA,pE),linewidth = 1,color='b',linestyle=':')
-lineApF, = ax2.plot(*zip(pAp,pF),linewidth = 1,color='b',linestyle=':')
-lineDF, = ax2.plot(*zip(pO + ((pB-pO) + (pC-pO))/2,pF),linewidth = 1,color='b',linestyle=':')
+lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
+lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 
-for vertex in [pA,pB,pC,pAp]:
-    ax2.plot(*zip(pD,vertex),linewidth = 1,color='b')
+pE = (pB + pD)/2
+
+lineCE, = ax2.plot(*zip(pC,pE),linewidth = 2,color='b')
+lineAE, = ax2.plot(*zip(pA,pE),linewidth = 2,color='b')
+
+pQ = project_a_point_to_a_plane(pE, pA-pB, pC-pB,pA)
+pP = project_a_point_to_a_plane(pE, pC-pD, pA-pD,pA)
+pR = project_a_point_to_a_plane(pA, pD-pC, pB-pC,pD)
+
+lineEQ, = ax2.plot(*zip(pE,pQ),linewidth = 1,color='b')
+lineEP, = ax2.plot(*zip(pE,pP),linewidth = 1,color='b')
+lineAR, = ax2.plot(*zip(pA,pR),linewidth = 1,color='b')
     
 ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*pAp, s = r"$A'$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*pF, s = r"$E'$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.scatter(*pO, marker='o',color = 'k')
+ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pQ, s = r"$Q_\perp$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*pP, s = r"$P_\perp$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pR, s = r"$R_\perp$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+
+ax2.scatter3D(*zip(pQ,pP,pR))
+
 
 def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax):
-    data = 0.3*circle_arc(rot_vec,first_axis,second_axis,2)
+    '''Put a perpendicular symbol to a 90 degree corner.'''
+    data = 0.25*circle_arc(rot_vec,first_axis,second_axis,2)
     data[1,:]=data[1,:]*np.sqrt(2)
     data = data+location_point
     ldata, = ax.plot(data[:,0],data[:,1],data[:,2],'k')
 
-draw_perpendicular_sign(np.cross(DOunit,-pO),-pE,-pD+pO,pE,ax2)
-draw_perpendicular_sign(np.cross(DOunit,-pO),pAp-pF,DOunit,pF,ax2)
+
+#draw_perpendicular_sign(np.cross(pB-pQ,pE-pQ),pB-pQ,pE-pQ,pQ,ax2)
+
 
 #axis1.Axis(ax2,'r')
 #ax2.autoscale_view()
 #ax2.pbaspect= [1,1,0.5]
 #ax2.auto_scale_xyz()
 
-Xt,Yt,Zt = zip(pA,pB,pC,pAp)
+Xt,Yt,Zt = zip(pA,pB,pC,pD)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 3.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
 
 
 mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5
+mid_y = (Y.max()+Y.min()) * 0.5 - 1
 mid_z = (Z.max()+Z.min()) * 0.5
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
