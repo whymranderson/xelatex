@@ -126,8 +126,12 @@
   	 \item 3. 文宣，廣告(又要列印)
   	 \item 若有回饋，則要來回修正上面許多相關項目(如藍哥回饋三法比較圖，irslab kuku提浮點數誤差累積，此兩項目已完成。)
 	 \end{enumerate}
-  };
+ 	};
+ 
+\node [align=center, below=of outreach] (powered) {Powered by TikZ \& PGF \\[-2pt] Modified from Fabian Schuh's EPC flow charts  \\[-2pt] http://www.texample.net/tikz/examples/epc-flow-charts/ };
+
 \end{scope}
+
 \path (animation) 	edge[<->,>=stealth']  node[auto]{BCDF} (a)
 	(manual)	edge[<->,>=stealth'] node[auto]{CDF}		(a)
 	(outreach)	edge[<->,>=stealth'] node[auto]{ABCF}		(a)

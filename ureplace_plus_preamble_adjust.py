@@ -68,7 +68,7 @@ new_preamble = [
 "\usepackage{unicode-math}\n",
 "\usepackage{graphicx}\n",
 "\usepackage[usenames,dvipsnames]{xcolor}\n",
-"\usepackage[hidelinks]{hyperref}\n",
+"\usepackage[hidelinks,colorlinks]{hyperref}\n",
 "\usepackage{pgf}\n",
 "\usepackage{pstricks,pst-node,pst-3dplot}\n",
 "\usepackage{minted}\n",

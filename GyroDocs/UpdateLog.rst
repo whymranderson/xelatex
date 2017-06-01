@@ -1,59 +1,41 @@
 Updates and changelog
 =====================
 
+2017/5
+   py2exe finally clinched. A windows executable mems gyro program is made to easy survey the demo. Still need to make the program cleaner by removing unwanted modules, or including only the needed modules. Added chatter ring and fidget gyro turning faster upon tilting discussion.
+
+2017/5
+   Built a rotational platform to test mems gyro's accuracy. This verifies that rotation ocurring in one fix direction (x axis of gyro?) is quite accurate. Need to verify the y and z direction. And then move onto any axis. And then move on to general motion of a moving rotational axis. Also recorded a video and shared it on my blog.
+
+2017/4
+   Improving GUI window, make it easier to use. Not done yet. Try to come up with an orgainized scheme for all the demos I want to put into the program, for users and me to use the program intuitively and handily. Designing the layout of the GUI windows. Made TKinter window creation functions more modulized.
+
+2017/4
+   Documentation page numbering fix. Previously the page number of the pdf generated has a problem during printing. Automized the work pipeline of LYX to html generation, learned, logged, and blogged about the new skills. Automized the pipeline of SW to html generation. The pevious two automizations mainly invovles LaTeX math handling (MathJax), and some graphics handling. Typeseted a science fair work as a show off to the skill of our workshop.
+
 2017/1
-   Completed the virtual reality demo using OpenGL. Created
-   a 3D snenary in which one can change his angle of view with
-   ASUS tablet, exploiting the gyro sensor inside.
-   Also implemented our orientation algorithm. This is a suplementing
-   example to my material to show how orientation algorithm (or more basically,
-   body angular velocity) is applied to the rotational control in VR.
+   Completed the 3D virtual reality demo using OpenGL. Created a 3D snenary in which one can change his angle of view with ASUS tablet, exploiting the gyro sensor inside. Also implemented our orientation algorithm. This is a suplementing example to my material to show how orientation algorithm (or more basically, body angular velocity) is applied to the rotational control in VR.
 
 2016/12
-   Fixing and upgrading the two old noise-included orien estimation demos.
-   Meanwhile clean up some slow code and make code more modulized. Documentation
-   code correction on case 16 and program chapter. Gyrodoc overfull line 
-   correction.
+   Fixing and upgrading the two old noise-included orien estimation demos. Meanwhile clean up some slow code and make code more modulized. Documentation code correction on case 16 and program chapter. Gyrodoc overfull line correction.
 
 2016/11
-   Added a section of graphic user interface creation using Tkinter. A 
-   digression, created a CSGO database using Django and sqlite on my second 
-   website. whymrandersonwhy.pythonanywhere.com. Unlike some big CSGO websites
-   lacking the basic ability to show schedules by team (that is when you go to a
-   team's page you won't see their upcoming schedule they are attending.), our
-   database model has this scoop funtionality. It is considered during the design
-   phase, day one, when building the Entity-Relation database table model.
+   Added a section of graphic user interface creation using Tkinter. A digression, created a CSGO database using Django and sqlite on my second website. whymrandersonwhy.pythonanywhere.com. Unlike some big CSGO websites lacking the basic ability to show schedules by team (that is when you go to a team's page you won't see their upcoming schedule they are attending.), our database model has this scoop funtionality. It is considered during the design phase, day one, when building the Entity-Relation database table model.
 
 2016/11
-   Mission accomplished on ASUS pad rotation visualization on OpenGL. Really 
-   hyped. The result is actually quite good. Best app communication speed setting is 
-   medium. OpenGL movie plays so smooth. And drift error or accuracy is actually not
-   bad at all. Use high(game) speed will have some lagging occured, will look into
-   it later.
+   Mission accomplished on ASUS pad rotation visualization on OpenGL. Really hyped. The result is actually quite good. Best app communication speed setting is medium. OpenGL movie plays so smooth. And drift error or accuracy is actually not bad at all. Use high(game) speed will have some lagging occured, will look into it later.
 
 2016/10
    GUI program underwent major upgrade. Need more elaboration here...
 
 2016/8/26
-   Progress on OpenGL ASUS gyro sensor animation. Completed the integration of 
-   socket receiving angular velocity data to OpenGL animation module. Also
-   completed animation on gyro_ring_test.py where Asus pad is displayed on the 
-   same OpenGL gyroscope platform animation we already had, only in this case 
-   the cube is replaced with a slab.
+   Progress on OpenGL ASUS gyro sensor animation. Completed the integration of socket receiving angular velocity data to OpenGL animation module. Also completed animation on gyro_ring_test.py where Asus pad is displayed on the same OpenGL gyroscope platform animation we already had, only in this case the cube is replaced with a slab.
 
 2016/8/3
-   Adding OpenGL animation to the ASUS gyro case study. This includes making a
-   OpenGL slab to represent the ASUS pad. This also takes the concept of a state
-   machine.
+   Adding OpenGL animation to the ASUS gyro case study. This includes making a OpenGL slab to represent the ASUS pad. This also takes the concept of a state machine.
 
 2016/8/3
-   Succesfully incoporate LYX to editing doc workflow and exporting doc to LaTeX file 
-   that TeXLive(XeLaTeX) can compile. Only minute adjustment is needed and
-   it can be done automatically with python (remove all \\string"). Doc can be
-   exported to HTML as well thanks to LYX versital abilities, which I will be 
-   using to generate my product page on my website. This means all editing can be
-   done on LYX. To generate high quality pdf typeset docs and a html landing page
-   one simply just push export button and LYX will handle the rest.
+   Succesfully incoporate LYX to editing doc workflow and exporting doc to LaTeX file that TeXLive(XeLaTeX) can compile. Only minute adjustment is needed and it can be done automatically with python (remove all \\string"). Doc can be exported to HTML as well thanks to LYX versital abilities, which I will be using to generate my product page on my website. This means all editing can be done on LYX. To generate high quality pdf typeset docs and a html landing page one simply just push export button and LYX will handle the rest.
 
 2016/7/21
    Now OpenGL animation can be saved into a mp4 movie by making savePNGYesNo = 

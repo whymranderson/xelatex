@@ -21,6 +21,7 @@ sys.path.insert(0, 'C:/Documents and Settings/The One/My Documents/tony/Scripts/
 sys.path.append('C:/Documents and Settings/The One/My Documents/tony/Scripts/cordtrans/opengltest/')
 sys.path.append('C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/otherstuff')
 sys.path.append('C:/Documents and Settings/The One/My Documents/tony/Scripts/cordtrans/Demo_Examples/')
+sys.path.append('C:/Documents and Settings/The One/My Documents/tony/Scripts/cordtrans/GUI_Library/')
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
