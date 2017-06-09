@@ -104,6 +104,10 @@
 
 \end_layout
 
+\begin_layout Date
+06/07/17
+\end_layout
+
 \begin_layout Author
 GyroSoft Simulation
 \end_layout
@@ -138,13 +142,26 @@ D物理運動模擬，統計物理中的molecular dynamics分子運動模擬。�
 
 \begin_deeper
 \begin_layout Enumerate
-VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示了使用體感裝置(陀螺儀感測器就是一種方向感測裝置)
-來在遊戲中控制第一人稱視角的應用，這樣子眼睛想看的視野就可以跟車的行進方向不一樣。也就是說，想要超車就可以轉頭先看看有沒有車了。或者，開車就可以邊觀賞旁邊的風光
-景色，而不是只有看到車子前進方向的景色。
+VR賽車遊戲
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.youtube.com/watch?v=vrYhwLj4FVA"
+
+\end_inset
+
+ 這一個影片顯示了使用體感裝置(陀螺儀感測器就是一種方向感測裝置)來在遊戲中控制第一人稱視角的應用，這樣子眼睛想看的視野就可以跟車的行進方向不一樣。也就是說，想
+要超車就可以轉頭先看看有沒有車了。或者，開車就可以邊觀賞旁邊的風光景色，而不是只有看到車子前進方向的景色。
 \end_layout
 
 \begin_layout Enumerate
-還有第二個應用。影片https://www.youtube.com/watch?v=n4pbSI3kOsg
+還有第二個應用。影片
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.youtube.com/watch?v=n4pbSI3kOsg"
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -245,6 +262,7 @@ VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示�
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/GUI_v3.PNG
 	lyxscale 50
@@ -323,14 +341,29 @@ VR賽車遊戲https://www.youtube.com/watch?v=vrYhwLj4FVA 這一個影片顯示�
 \end_inset
 
 陀螺對稱軸三向量，方便觀察轉動向量如何在body cone與space cone上相互繞行。
-\begin_inset Newline newline
-\end_inset
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
 
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/spacebodycone.png
 	lyxscale 50
 	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -365,15 +398,34 @@ target "http://hyperphysics.phy-astr.gsu.edu/hbase/top.html"
 
 都不夠正確完整，因此大多數人都會有此錯誤印象，我以前也是。這邊可以藉由模擬結果清楚的觀察到L向量的軌跡不總是一個正圓。同學也可以藉由此教材及模擬動畫軟體學習到，
 L向量的軌跡會落在一水平的平面上，但不一定是正圓。
-\begin_inset Newline newline
-\end_inset
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
+\begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/L_not_circle.png
 	lyxscale 60
 	scale 50
 	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -447,11 +499,15 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \begin_layout Enumerate
 最為完整，深入淺出的姿態估測理論推導與實際應用的說明文件。一般姿態動力學的文獻書籍都非常的艱澀難懂，這邊我選擇將它各個擊破，讓我自己以及其他人都可以好好吸收，並
 且提供實際應用的例子。
-\end_layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
-\end_deeper
-\end_deeper
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/otherstuff/cellphone.PNG
 	rotateOrigin center
@@ -459,19 +515,26 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/Zwiener_1.png
+	lyxscale 50
 	scale 40
 	rotateOrigin center
 
 \end_inset
 
 
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
+
 \begin_inset Graphics
 	filename C:/Documents and Settings/The One/My Documents/tony/2014/xelatexfolder/figs/ASUS_test.png
+	lyxscale 40
 	scale 40
 	rotateOrigin center
 
@@ -480,6 +543,18 @@ c方法為陀螺儀角速度感測器或稱angular rate sensor等inertial measur
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Description
 (a)(c)方法的缺點 第一第三種方法都會有偏移誤差，而且會隨時間累積，這也是相當重要的一個課題。我們的教材文件也會詳細解釋誤差來源與原因，並且與Lagrang
 ian的解析解比較。這也是為什麼要有第二種方法的原因，有個正確的reference可以隨時比較。因此這套軟體也是不同積分器的比較平台。因為我們的平台可以將偏移誤

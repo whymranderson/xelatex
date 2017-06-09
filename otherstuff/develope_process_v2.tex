@@ -27,7 +27,7 @@
 
 \begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=8.5cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
 
-\begin{scope}[node distance=1cm]
+\begin{scope}[node distance=0.5cm]
 \node [item=4](a) at (1,1){%
             \textbf{擴充}
             \nodepart{two}
@@ -90,7 +90,14 @@
 \end{enumerate}
 }edge [<-,>=stealth'] (f);
 
-\node [item=2,right=of a](h)
+
+%draw the curve line
+%\draw [->,out = 180, in = 0] (h) to  (f);
+
+\node [inner sep = 0pt, right=of g](gic1){};
+\node [inner sep = 0pt, right=of a](gic2){};
+
+\node [item=2,right=of gic2](h)
 {%
 \textbf{推廣(找專人負責)}
 \nodepart{two}
@@ -99,7 +106,10 @@
             \item 廣告文宣製作，以landing page製作flyer。將LYX中landing page的內容export成xetex碼，然後在texlive按照我們整理好的方式修改成Texlive的xelatex可編譯碼，然後編譯成PDF flyer。列印後發放。
             \item gss logo不同型式的製作，名片電繡等製作。
 \end{enumerate}
-}edge [<-,>=stealth'] (f);
+};%edge [<-,>=stealth'] (f);
+
+
+\draw [rounded corners] (g) --  (gic1.center) -- (gic2.center) -- (h);
 
 
 \end{scope}
