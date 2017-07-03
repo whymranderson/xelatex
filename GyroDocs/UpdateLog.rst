@@ -1,6 +1,9 @@
 Updates and changelog
 =====================
 
+2017/6
+   The two gyro's animation methods, mplot3D and OpenGL, probably should be split up into two separate programs. Now they are tangled and very hard to maintain. Not sure how to design the GUI window layout because there are too many drawing parameters with mplot3D and OpenGL combined. Separating them may be a good idea. Already have 4-5 versions of GUI layout, and am still not satisfied.
+
 2017/5
    py2exe finally clinched. A windows executable mems gyro program is made to easy survey the demo. Still need to make the program cleaner by removing unwanted modules, or including only the needed modules. Added chatter ring and fidget gyro turning faster upon tilting discussion.
 
