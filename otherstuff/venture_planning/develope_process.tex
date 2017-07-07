@@ -1,0 +1,208 @@
+% EPC flow charts
+% Author: Fabian Schuh
+\documentclass{minimal}
+\usepackage{xeCJK} % 分開設置中英文字型
+\setCJKmainfont{微軟正黑體} % 設定中文字型
+
+\usepackage{pgf}
+\usepackage{tikz}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  EPC flow charts
+:Grid: 1x2
+
+
+\end{comment}
+%\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+
+\begin{document}
+\tikzstyle{abstract}=[rectangle, draw=black, rounded corners,  anchor=center, text width=3cm,text centered,rectangle split, rectangle split parts=2]
+
+\begin{tikzpicture}[item/.style={rectangle, draw=black, rounded corners,  anchor=center, text width=5cm,text centered,rectangle split, rectangle split parts=2}]
+
+\begin{scope}[node distance=3cm]
+\node [item](a) at (1,1){%
+            \textbf{更改對應的影響}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. 每一個項目的更改都會影響相關項目，影響會傳播，傳播後可能要與原更動項目來回好幾次才會達到最佳的情況，很花時間。
+  	 \item 2. 很多解決問題的步驟值得記錄下來並做成網頁放上網站，也很花時間。
+  	 \item 3. 已經很多影響傳播做成一鑑完成按鍵，如E->B,A->B,demo舉例。不過還有很多還沒有。
+	 \end{enumerate}
+};
+\node [item,left=of a]   (manual)     {%
+            \textbf{B. 技術手冊}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. 教學文件【軟體操作說明，程式函式說明書需要一直更新編輯很花時間】
+  	 \item 2. 有保持一個程式演進進程文字紀錄，一段時間就要撰寫紀錄也相當搞剛。
+  	 \item 3. 文件的3D圖形製作花時間，文件中圖形位置擺放花時間(MSword比LaTeX更花時間!)
+  	 \item 4. 實體書DIY製作，一旦有更新，要重作實體書，至今六七本，需非常多列印，列印至少上千張紙，編輯社影印社不會告訴你的秘辛。做出一本書的繁瑣度。更新->校稿->重新列印，反覆發生。
+	 \end{enumerate}
+ };
+\node [item,right=of a]      (extend)    {%
+            \textbf{E. 擴充性}
+            \nodepart{second}
+            \begin{enumerate}
+  	 \item 1. 準確度，A法與compedra上的ejss陀螺模擬比較
+  	 \item 2. 陀螺環不會停止旋轉的原因
+  	 \item 3. 加Unity3D遊戲物件轉動模擬演示、第一人稱飛機遊戲滑鼠控制器演示。(皆為C法的應用)
+	 \end{enumerate}
+  };
+\node [item,above=of a] (animation){
+            \textbf{A. 動畫製作}
+            \nodepart{second}
+            \begin{enumerate}
+  	 \item 1. 美觀化?(加光線追蹤)
+  	 \item --GUI使用者介面部分--
+  	 \item a. OpenGL animation關閉後要手動重啟一個新個interpreter，因為glut的關係，怎麼改進?
+  	 \item b. GUI使用者自訂參數 passing in paras 還沒完成
+	 \end{enumerate}
+        };
+\node [item,above left=of a] (beauty){%
+            \textbf{美觀性}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. ABF項目的美術設計相當花時間
+  	 \item 2. 設計需要靈感，需要反覆構圖，需要時間發酵
+  	 \item 3. warowl, immortalHD都會遇到這問題
+  	 \item --目標--
+  	 \item a. spinning cube換成白色加上光影
+	 \end{enumerate}
+  };
+\node [item,above right=of a] (website){%
+            \textbf{F. 網站建立}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. blogger無讓讀者瀏覽相關文章gadget
+  	 \item 2. blogger圖片需一張一張上傳很麻煩，但好處是非常穩定。
+  	 \item 3. Django架站，維護，更新都花時間。pythonanywhere只能拉，所以需要所有更改都要先上傳或推至github，然後再從pythonanywhere去github拉檔案。這也花時間。
+  	 \item 4. 將A或B的內容製作成網站的圖片或動畫影片很花時間，還要上傳至vimeo，通常都要等很久。OpenGL的動畫製作是存一張張png再用ffmpeg存成mp4，在上傳至vimeo，需要時間。
+	 \end{enumerate}
+  };
+\node [item,below = of a,xshift=-2cm](VC) {%
+            \textbf{C. 檔案備份與管理}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. git學習很花時間
+  	 \item 2. 檔案規劃思考與整理花時間
+	 \end{enumerate}
+};
+\node [item,below=of VC] (hire){
+            \textbf{徵夥伴}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. 徵有興趣一起完成此套教材的夥伴
+	 \end{enumerate}
+        };
+
+\node [item,below right=of a,xshift=-2cm](outreach) {%
+            \textbf{D. 推廣}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. 以B的內容來製作翻轉教學影片，拍影片編輯影片要花九倍時間
+  	 \item 2. 下鄉教學的機會找不太到?，職訓?青輔? 台南市內處處碰壁
+  	 \item 3. 文宣，廣告(又要列印)
+  	 \item 若有回饋，則要來回修正上面許多相關項目(如藍哥回饋三法比較圖，irslab kuku提浮點數誤差累積，此兩項目已完成。)
+	 \end{enumerate}
+ 	};
+ 
+\node [align=center, below=of outreach] (powered) {Powered by TikZ \& PGF \\[-2pt] Modified from Fabian Schuh's EPC flow charts  \\[-2pt] http://www.texample.net/tikz/examples/epc-flow-charts/ };
+
+\end{scope}
+
+\path (animation) 	edge[<->,>=stealth']  node[auto]{BCDF} (a)
+	(manual)	edge[<->,>=stealth'] node[auto]{CDF}		(a)
+	(outreach)	edge[<->,>=stealth'] node[auto]{ABCF}		(a)
+	(website)	edge[<->,>=stealth'] node[auto]{C}		(a)
+	(beauty)	edge[<->,>=stealth'] node[auto]{ABDF}		(a)
+	(VC)		edge[<->,>=stealth'] node[auto]{ABDEF}		(a)
+	(extend)	edge[<->,>=stealth'] node[auto]{ABCDF}		(a);
+\end{tikzpicture}
+
+\begin{tikzpicture}[->,>=stealth', node distance=3cm]
+
+ % Position of animation 
+\node (animation) [abstract]
+        {
+            \textbf{動畫製作OpenGL}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. 擴充性
+  	 \item 2. 平板應用
+	 \end{enumerate}
+	 % enumerate has issue in tikz, search display mode related? minipage?
+        };
+        
+ % State: ACK with different content
+ \node (ACK)  [abstract,below left= of animation, text width = 5cm]
+ {%
+            \textbf{技術手冊}
+            \nodepart{second}
+            \begin{enumerate}
+            \item A. 教學文件
+  	 \item B. 軟體操作手冊
+  	 \item C. 程式函式說明書
+  	 \item (編輯很花時間)
+  	 \item 3D圖形製作，文件中圖形位置擺放花時間(MSword>LaTeX)
+	 \end{enumerate}
+ };
+ 
+ % STATE animationREP
+ \node[state,
+  below left =  of ACK,
+  anchor=center,
+  text width=3cm] (animationREP) 
+ {%
+ \begin{tabular}{l}
+  \textbf{animationRep}\\
+  \parbox{2.8cm}{Dekrementiere Slotzähler}
+ \end{tabular}
+ };
+
+ % STATE EPC
+ \node[abstract, below right= of animation] (EPC) 
+ {%
+            \textbf{網站建立}
+            \nodepart{second}
+            \begin{enumerate}
+            \item 1. blogger無讓讀者瀏覽相關文章gadget
+  	 \item 2. 圖片需一張一張上傳很麻煩
+  	 \item 3. Django架站花時間，維護，更新
+	 \end{enumerate}
+  };
+
+ % draw the paths and and print some Text below/above the graph
+ \path (animation) 	edge[bend left=20]  node[anchor=south,above]{$SC_n=0$}
+                                    node[anchor=north,below]{$RN_{16}$} (ACK)
+ (animation)     	edge[bend right=20] node[anchor=south,above]{$SC_n\neq 0$} (animationREP)
+ (ACK)       	edge                                                     (EPC)
+ (EPC)       	edge[bend left]                                          (animationREP)
+ (animationREP)  	edge[loop below]    node[anchor=north,below]{$SC_n\neq 0$} (animationREP)
+ (animationREP)  	edge                node[anchor=left,right]{$SC_n = 0$} (ACK);
+
+\end{tikzpicture}
+
+
+\end{document}

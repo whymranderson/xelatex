@@ -1,0 +1,82 @@
+% EPC flow charts
+% Author: Fabian Schuh
+\documentclass{article}
+\usepackage[inner=0.5in,outer=0.5in,top=0.25in,bottom=0.25in]{geometry}
+\usepackage{xeCJK} % 分開設置中英文字型
+\setCJKmainfont{微軟正黑體} % 設定中文字型
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows}
+\usetikzlibrary{shapes.multipart}
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+\tikzset{
+    phantom/.style={
+           rectangle,
+           rounded corners,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+\setlist[enumerate]{topsep = 0pt, noitemsep}%remove extra empty spaces above enumerate envr, and make the items more compact
+
+\begin{document}
+\tikzstyle{abstract}=[rectangle, draw=black, rounded corners,  anchor=center, text width=3cm,text centered,rectangle split, rectangle split parts=2]
+
+\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=8.5cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
+
+\begin{scope}[node distance=5mm and 5mm]
+
+\node [ item=2](a) at (1,1) {%
+            \textbf{未完成方向}
+            \nodepart{two}
+            \begin{enumerate}
+            	\item upcoming post繼續否？(搜度高但不確定流量)
+            	\item GO model是否要更新成更正確的model？(如果想用上足球聯賽)
+            	\item 輸入資料自動化？(目前錯率高，步驟繁瑣)
+            	\item 一有賽事加入賽事，檢查更正。
+            	\item 賽程公布管理系統可推薦給steam做整合。(長多)
+            	\item GO心得撰寫(短多)
+           \end{enumerate}
+            };
+
+\node [phantom, inner sep = 0pt, right=of a.north east](center_point){};
+
+\node [above right = of a,anchor = south, align = center] (title){\includegraphics[width=0.3\textwidth]{../../figs/csgo_db_logo.png}\\ \LARGE GO事業部規劃};
+
+\node [state,below=of a](b)
+{git log}edge [<-,>=stealth'] (a);
+
+\node [ item=2, right = of center_point, anchor = north west](unique) {%
+            \textbf{特色}
+            \nodepart{two}
+            \begin{enumerate}
+            	\item upcoming post已整合成可用文書處理系統LYX編輯，不須處理raw html檔。
+            	\item upcoming post目前是網路上唯一可查找單一隊伍未來賽事的公開網頁，比HLTV、Liquipedia更方便。
+           \end{enumerate}
+            };
+
+\node [ item=2,below = of b](small) {%
+            \textbf{未完成細項}
+            \nodepart{two}
+            \begin{enumerate}
+            	\item {{varljust:''10''}}在html中只算一個空白。網路上可加這個filter，還需查怎麼裝filter，但若裝了，server端pythonanywhere也要裝，花時間。應推薦加入新版django，一勞永逸。
+            	\item sado and henry post renew
+            	\item db operation檔需要git submodule化，因此部分精華。
+           \end{enumerate}
+            };
+
+\end{scope}
+\end{tikzpicture}
+\end{document}
