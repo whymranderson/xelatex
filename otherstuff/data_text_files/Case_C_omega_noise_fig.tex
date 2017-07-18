@@ -1,0 +1,39 @@
+%\documentclass{article}
+%\usepackage{pstricks,pst-3dplot}
+%\begin{document}
+
+\psset{unit =1in}
+\begin{pspicture}[showgrid=false](-1,-1)(1,1)
+\psset{Alpha=260,Beta=20}
+
+%left lucid sphere
+\pstThreeDSphere[opacity=0.4,strokeopacity=0.2,linewidth=0.8pt](0,0,0){1}
+
+%\fileplotThreeD{./otherstuff/Case_C_stillnoise_amp1_datafilex.txt}%
+%\fileplotThreeD{./otherstuff/Case_C_stillnoise_amp1_datafiley.txt}%./otherstuff/
+\fileplotThreeD[linecolor=red]{./otherstuff/data_text_files/Method_C_omeganoise_amp1_datafilez.txt}%./otherstuff/
+\fileplotThreeD{./otherstuff/data_text_files/Method_B_omeganoise_amp1_datafilez.txt}%./otherstuff/
+%left C axes xyz
+%\pstThreeDLine[linewidth=3pt, linestyle=dashed,linecolor=red,arrows=->](0,0,0)(1,0,0)
+%\pstThreeDLine[linewidth=3pt, linestyle=dashed,linecolor=magenta,arrows=->](0,0,0)(0,0.5,-0.866)
+%\pstThreeDLine[linewidth=3pt, linestyle=dashed,linecolor=blue,arrows=->](0,0,0)(0,0.8660254,0.5)
+\end{pspicture}
+\hspace{1cm}
+\begin{pspicture}[showgrid=false](-1,-1)(1,1)
+\psset{Alpha=260,Beta=20}
+%\pstThreeDCoor[xMax=1,yMax=1,zMax=1]
+\pstThreeDSphere[opacity=0.4,strokeopacity=0.2,linewidth=0.8pt](0,0,0){1}
+%\fileplotThreeD{./otherstuff/Case_C_stillnoise_amp2_datafilex.txt}%./otherstuff/
+%\fileplotThreeD{./otherstuff/Case_C_stillnoise_amp2_datafiley.txt}%./otherstuff/
+%\fileplotThreeD{Method_B_omeganoise_amp1_datafilez.txt'}%./otherstuff/
+\fileplotThreeD[linecolor=red]{./otherstuff/data_text_files/Method_C_omeganoise_amp2_datafilez.txt}%./otherstuff/
+\fileplotThreeD{./otherstuff/data_text_files/Method_B_omeganoise_amp2_datafilez.txt}%./otherstuff/
+
+%C axes xyz
+%\pstThreeDLine[linewidth=3pt, linestyle=dashed,linecolor=red,arrows=->](0,0,0)(1,0,0)
+%\pstThreeDLine[linewidth=3pt, linestyle=dashed,linecolor=magenta,arrows=->](0,0,0)(0,0.5,-0.866)
+%\pstThreeDLine[linewidth=3pt, linestyle=dashed, linecolor=blue,arrows=->](0,0,0)(0,0.8660254,0.5)
+\end{pspicture}
+
+
+%\end{document}

@@ -1,0 +1,31 @@
+%\documentclass{article}
+%\usepackage{pstricks,pst-3dplot}
+%\begin{document}
+
+\psset{unit =1in}
+\begin{pspicture}[showgrid=false](-1,-1)(1,1)
+\psset{Alpha=-90,Beta=30}
+%\pstThreeDCoor[xMax=1,yMax=1,zMax=1]
+\pstThreeDSphere[opacity=0.4,strokeopacity=0.2,linewidth=0.8pt](0,0,0){1}
+\fileplotThreeD{./otherstuff/data_text_files/Case_BC_c_Bz_datafile.txt}%./otherstuff
+\fileplotThreeD[linestyle=dashed]{./otherstuff/data_text_files/Case_BC_c_Cz_datafile.txt}%
+
+%B axes xyz
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=red,arrows=->](0,0,0)(0.99900476, 0.03132993,-0.03174798)
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=magenta,arrows=->](0,0,0)(0.01027445,0.53099894,0.84731019)
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=blue,arrows=->](0,0,0)(0.04340431,-0.84679311,0.53014856)
+
+%C axes xyz
+\pstThreeDLine[linewidth=3pt, linestyle=dashed,
+ linecolor=red,arrows=->](0,0,0)(0.5722595,0.77642445,-0.26397753)
+\pstThreeDLine[linewidth=3pt, linestyle=dashed,
+ linecolor=magenta,arrows=->](0,0,0)(-0.59517984 , 0.6146658   ,0.51763588)
+\pstThreeDLine[linewidth=3pt, linestyle=dashed,
+ linecolor=blue,arrows=->](0,0,0)(0.56416312,-0.13910794 ,0.81386053)
+\end{pspicture}
+
+
+%\end{document}

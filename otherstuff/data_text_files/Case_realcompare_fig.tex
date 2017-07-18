@@ -1,0 +1,30 @@
+%\documentclass[12pt,twoside]{article}
+%\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+%\usepackage{pstricks,pst-3dplot}
+%\usepackage{minted}
+%\usepackage{mdframed}
+%\begin{document}
+%\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+\inputminted[linenos,fontsize=\footnotesize]{python}{../../Scripts/Developement/Development_zone/Gyroscope-Demo-RealCompare.py}
+\end{mdframed}
+\psset{unit =1in}
+\begin{pspicture}[showgrid=false](-5in,-4in)(-4.099in,-4.01in)
+\psset{Alpha=103,Beta=30}
+%\pstThreeDCoor[xMax=1,yMax=1,zMax=1]
+\pstThreeDSphere[opacity=0.4,strokeopacity=0.2,linewidth=0.8pt](0,0,0){1}
+\fileplotThreeD{./otherstuff/data_text_files/Case_realcompare_datafile.txt}%
+
+%A axes xyz
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=red,arrows=->](0,0,0)(1,0,0)
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=magenta,arrows=->](0,0,0)(0,0.5735764,-0.81915204)
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=blue,arrows=->](0,0,0)(0,0.81915204,0.57357644)
+
+\end{pspicture}
+
+
+%\end{document}
