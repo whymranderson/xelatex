@@ -92,7 +92,7 @@ new_preamble = [
 "    \\hbox{}%\n",
 "     \\vspace*{\\fill}\n",
 "     \\begin{center}\n",
-"     \\includegraphics[width=0.5\\textwidth]{./otherstuff/logo_Aug29_test.PNG}\n",
+"     \\includegraphics[width=0.5\\textwidth]{./figs/two_gyro_logo.png}\n",
 "     \\end{center}\n",
 "     \\vspace{\\fill}\n",
 "     \\newpage%    \n",

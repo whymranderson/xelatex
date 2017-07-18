@@ -112,7 +112,7 @@
 \node [state,above=of g](f)   
 {git log}edge [->,>=stealth'] (g);
 
-\node [above = 1cm of gic2, align=center] (title){\includegraphics[width=0.4\textwidth]{../figs/test_new_logo_chinese.png}\\ \LARGE 作業流程};
+\node [above = 1cm of gic2, align=center] (title){\includegraphics[width=0.4\textwidth]{../../figs/test_new_logo_chinese.png}\\ \LARGE 作業流程};
 
 \draw [rounded corners,->,>=stealth'] (e) --  (gic1.center) -- (gic2.center) -- (f);
 
@@ -131,4 +131,26 @@
 
 \end{scope}
 \end{tikzpicture}
+
+% second page
+\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=8.5cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
+\begin{scope}[node distance=5mm and 5mm]
+
+\node [ item=2](thinking) at (1,1) {%
+            \textbf{思考}
+            \nodepart[text width = 8.2cm]{two}
+            \begin{enumerate}
+            	\item GUI使用者自訂參數程式有進展但未完成，GUI module加說明
+            	\begin{enumerate}
+            		\item 想把GUI弄成方便驗證self-energized fidget spinner，但這樣的話需要能夠以GUI方式給力矩，不太可能歐...這裡連問題都不知道是甚麼，不需要做GUI，等到知道問題後再為了方便性做GUI才較好。
+            		\item GUI的目的是將目前所有功能統整呈現，方便操作方便探索，所以應是針對現有已完成的例子。
+            	\end{enumerate}
+            \end{enumerate}
+
+            };
+
+
+\end{scope}
+\end{tikzpicture}
+% end second page
 \end{document}
