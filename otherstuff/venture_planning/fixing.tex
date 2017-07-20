@@ -38,7 +38,7 @@
 
 \begin{scope}[node distance=5mm and 5mm]
 
-\node [ item=4](a) at (1,1) {%
+\node [ item=2](a) at (1,1) {%
             \textbf{weekly routine}
             \nodepart{two}
             \begin{enumerate}
@@ -46,29 +46,32 @@
             	\item SMEG烤箱時間溫度表製作
             	\item compressor 排水閥, still no clue, dangerous
            \end{enumerate}
-           \nodepart{three}\textbf{特色}
-	\nodepart{four}
-            \begin{enumerate}
-            	\item 使用LYX與SW，高度自動化產生django-compatible html(省下很多細微瑣碎步驟)。
-            	\item 讓SW與LYX產生的網頁能夠正確顯示。如SW export links時有點問題，要記錄下可行步驟，並嘗試自動化。
-           \end{enumerate}
             };
 
 \node [phantom, inner sep = 0pt, right=of a.north east](center_point){};
 
 \node [above = of center_point, align = center] (title){\includegraphics[width=0.4\textwidth]{../../figs/logo_June27_2016.png}\\ \LARGE fixing \& crafting};
 
-\node [state,below=of a](b)
-{git log}edge [<-,>=stealth'] (a);
 
 \node [ item=2, right = of center_point, anchor = north west](small) {%
-            \textbf{weekly routine}
+            \textbf{待完成}
             \nodepart{two}
             \begin{enumerate}
             	\item 查怎麼修
+		\item 補褲
+		\item 相機，手機插電
+		\item 電繡片問正興老闆
            \end{enumerate}
             };
 
+\node [ item=2, below = of small](impossible) {%
+            \textbf{大概無法完成了}
+            \nodepart{two}
+            \begin{enumerate}
+            	\item 可繼續印以及可以擦掉的printer
+		\item 調墨水，加墨水
+           \end{enumerate}
+            };
 \end{scope}
 \end{tikzpicture}
 \end{document}

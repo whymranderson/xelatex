@@ -54,7 +54,7 @@
            \nodepart{three}\textbf{待修正事項}
 	\nodepart{four}
 	\begin{enumerate}
-            \item GUI使用者自訂參數程式有進展但未完成，GUI module加說明
+            \item GUI設計卡住，見第二頁討論
             \item OpenGL animation關閉後要手動重啟一個新個interpreter，因為glut的關係，怎麼改進?
             \item py2exe作業系統可執行檔，軟體化
             \item mplot3D例子全換OpenGL？
@@ -144,10 +144,13 @@
             	\begin{enumerate}
             		\item 想把GUI弄成方便驗證self-energized fidget spinner，但這樣的話需要能夠以GUI方式給力矩，不太可能歐...這裡連問題都不知道是甚麼，不需要做GUI，等到知道問題後再為了方便性做GUI才較好。
             		\item GUI的目的是將目前所有功能統整呈現，方便操作方便探索，所以應是針對現有已完成的例子。
-            	\end{enumerate}
+			\item 所以應該是先將gyro demo做成可輕易更改參數，然後可方便觀看AB法的差異。
+			\item 然後C法應該是姿態估測的，或許應該跟gyro demo做切割？所以ABC三法應該要切割一下？
+		\end{enumerate}
             \end{enumerate}
-
             };
+
+\node [above right = of thinking, align=center, anchor = south] (title){\includegraphics[width=0.1\textwidth]{../../figs/test_new_logo_chinese.png} \Huge 卡住kazoo};
 
 
 \end{scope}
