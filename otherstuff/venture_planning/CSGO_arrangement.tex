@@ -1,44 +1,14 @@
 % EPC flow charts
 % Author: Fabian Schuh
 \documentclass{article}
-\usepackage[inner=0.5in,outer=0.5in,top=0.25in,bottom=0.25in]{geometry}
-\usepackage{xeCJK} % 分開設置中英文字型
-\setCJKmainfont{微軟正黑體} % 設定中文字型
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows}
-\usetikzlibrary{shapes.multipart}
-
-\tikzset{
-    state/.style={
-           rectangle,
-           rounded corners,
-           draw=black,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
-\tikzset{
-    phantom/.style={
-           rectangle,
-           rounded corners,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
-\setlist[enumerate]{topsep = 0pt, noitemsep}%remove extra empty spaces above enumerate envr, and make the items more compact
-
+\usepackage{myflowchart}
 \begin{document}
-\tikzstyle{abstract}=[rectangle, draw=black, rounded corners,  anchor=center, text width=3cm,text centered,rectangle split, rectangle split parts=2]
 
-\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=17cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
+\begin{tikzpicture}
 
 \begin{scope}[node distance=5mm and 5mm]
 
-\node [ item=2](a) at (1,1) {%
+\node [ wideitem=2](a) at (1,1) {%
             \textbf{未完成方向}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
@@ -48,7 +18,7 @@
             		\item 能有個網頁可以follow喜歡隊伍的賽程，是還不錯，但當然不是必須的。主要是想看的時候，可以馬上有個網頁可以馬上看到想看的結果，不用在上去Liquipedia或HLTV然後要點老半天找老半天，才找的到喜歡的隊伍的賽程。
 	            	\item 知道原因了，這個東西應該是要在源頭就處理好。也就是在steam端就應該統一管理好，也就是這樣的公布管理系統應該要讓steam來做整合。steam端建立tournament-schedule-team這樣的model後，建立一個網頁讓賽事單位在確認賽程後就直接進入網頁上去做賽事與賽程的輸入與公佈。然後提供API讓大家使用。不過也是正是因為他們沒有弄，我才會想要試試看做出一個測試網頁看看。我覺得應該不錯？或許可以推薦Steam？不過這樣代表要管理team以及tournament兩個新的系統。這會是個很大的系統。不知道steam願不願意去管理這樣大的系統，是個蠻大的投資？
             	\end{itemize}
-            	\item GO model是否要更新成更正確的model？(如果想用上足球聯賽)。試試一點點慢來，不急，一直想若是快點完成能應用上足聯該有多好，這樣反而覺得一直沒有去弄很煩，覺得問題很大。各個擊破。另外一直想著問題大，反而遲遲不肯動手，慢慢累積。
+            	\item GO model是否要更新成更正確的model？(如果想用上足球聯賽)。試試一點點慢來，不急，一直想若是快點完成能應用上足聯該有多好，這樣反而覺得一直沒有去弄很煩，覺得問題很大。各個擊破。另外一直想著問題大，反而遲遲不肯動手，慢慢累積。除非足聯有動作，不然不continue了。
             	\item 輸入資料自動化？一有賽事加入賽事，檢查更正。(目前錯率高，步驟繁瑣 -> 經過自動化後，目前PGL day2賽程手動輸入可縮短至15分鐘完成)
             	\item GO心得撰寫(短多)
            \end{enumerate}
@@ -57,7 +27,7 @@
 
 \node [above = of a, align = center] (title){\includegraphics[width=0.3\textwidth]{../../figs/csgo_db_logo.png}\\ \LARGE GO事業部規劃};
             
-\node [ item=2, below = of a](unique_db) {%
+\node [ wideitem=2, below = of a](unique_db) {%
             \textbf{資料庫賽程管理特色}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
@@ -74,9 +44,9 @@
 \end{tikzpicture}
 
 %second page
-\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=17cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
+\begin{tikzpicture}
 \begin{scope}[node distance=5mm and 5mm]
-\node [ item=2](unique_editing) at (1,1) {%
+\node [ wideitem=2](unique_editing) at (1,1) {%
             \textbf{網頁編輯特色}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
@@ -84,7 +54,7 @@
             	\item upcoming post目前是網路上唯一可查找單一隊伍未來賽事的公開網頁，比HLTV、Liquipedia更方便。
            \end{enumerate}
             };
-\node [ item=2,below = of unique_editing](chores) {%
+\node [ wideitem=2,below = of unique_editing](chores) {%
             \textbf{未完成細項}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
@@ -92,6 +62,7 @@
             	\item sado and henry post renew
             	\item db operation manual input entry.py要加上資料庫找不到所輸入隊伍名子的資料時，所需做的額外處理。
             	\item all coming matches 隊伍重複出現，divisibleby:'2'還有問題
+		\item tour and team page換banner headline; 轉換成LYX編輯
            \end{enumerate}
             };
 

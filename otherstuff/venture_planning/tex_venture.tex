@@ -1,64 +1,36 @@
 % EPC flow charts
 % Author: Fabian Schuh
 \documentclass{article}
-\usepackage[inner=0.5in,outer=0.5in,top=0.25in,bottom=0.25in]{geometry}
-\usepackage{xeCJK} % 分開設置中英文字型
-\setCJKmainfont{微軟正黑體} % 設定中文字型
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows}
-\usetikzlibrary{shapes.multipart}
-
-\tikzset{
-    state/.style={
-           rectangle,
-           rounded corners,
-           draw=black,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
-\tikzset{
-    phantom/.style={
-           rectangle,
-           rounded corners,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
-\setlist[enumerate]{topsep = 0pt, noitemsep}%remove extra empty spaces above enumerate envr, and make the items more compact
+\usepackage{myflowchart}
 
 \begin{document}
-\tikzstyle{abstract}=[rectangle, draw=black, rounded corners,  anchor=center, text width=3cm,text centered,rectangle split, rectangle split parts=2]
-
-\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=8.5cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
-
+\begin{tikzpicture}
 \begin{scope}[node distance=5mm and 5mm]
 
 \node [ item=2](a) at (1,1) {%
             \textbf{未完成方向}
-            \nodepart{two}
+            \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
             	\item 應用subdoc讓case\_g20.tex及其他可以獨立運行，就不用去擔心編譯時期相對路徑找不到檔問題。
             	\item share community, tikz, LYX doc, ...
-            	\item Math.lyx與.pdf清楚化
-            	\item LYX做webpost時的標題列css模組化
+            	\item Math.lyx與.pdf清楚化$\bullet\circ\circ\circ$
+            	\item LYX做webpost時的標題列css模組化$\bullet\circ\circ\circ$
             	\item 軟體學習、紀錄、分享。
             	\item sciencefair typeset conti, 將疊格繪圖方程modulize.
            \end{enumerate}
             };
 
-\node [phantom, inner sep = 0pt, right=of a.north east](center_point){};
+\node [ wideitem=2, above right = of a, anchor = south](incentive) {%
+            \textbf{incentive}
+            \nodepart{two}An auxiliary unit of TeX service providing typeset specialty to the website group and to the gyro simulation group. This unit also provides customized TeX service to other business.
+            };
 
-\node [above = of center_point, align = center] (title){\includegraphics[width=0.4\textwidth]{../../figs/tex_logo.png}\\ \LARGE 事業部規劃};
+\node [above = of incentive, align = center] (title){\includegraphics[width=0.4\textwidth]{../../figs/tex_logo.png}\\ \LARGE 事業部規劃};
 
 
-\node [ item=2, right = of center_point, anchor = north west](unique) {%
+\node [ item=2, below right = of incentive.south, anchor = north west](unique) {%
             \textbf{特色}
-            \nodepart{two}
+            \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
             	\item 使用LYX與SW，高度自動化(省下很多細微瑣碎步驟)。
             	\item 與不同應用做方便性整合，如django，web blog等等。
@@ -67,21 +39,21 @@
 
 \node [ item=2,below = of a](small) {%
             \textbf{未完成細項}
-            \nodepart{two}
+            \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
             	\item 總經排
             	\item chemgreek目前是放在同目錄下，需裝成package。
             	\item LYX export包含有被伺服圖檔的html檔，目前已有一寫下的流程，但還是要做成自動化較方便。
             	\item vec A不對稱問題？
             	\item 順著陀螺外型的powered by LYX SW字串，path?
-            	\item 加入tikz說明書，node position，anchor參數必須要在above right之類參數之後才會有效。
-		\item texlive 2017 installed, but texworks fails to start?! instead using gvim now.
+            	\item 加入tikz說明書，node position，anchor參數必須要在above right之類參數之後才會有效。先回報。
+		\item texlive 2017 installed, but texworks fails to start?! dwmapi.dll找不到。instead using gvim now.
 	    \end{enumerate}
             };
 
 \node [ item=2, below = of unique](LYXcustomization) {%
             \textbf{LYX特殊客製化紀錄}
-            \nodepart{two}
+            \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
             	\item 在LYX中直接加入ScriBD的pdf preview視窗指令，LYX export html後即可成為一具有Scribd pdf預覽視窗的網頁。範例請見網站的疊格服務介紹網頁。
            	\begin{enumerate}

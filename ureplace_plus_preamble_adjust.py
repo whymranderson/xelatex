@@ -67,6 +67,9 @@ new_preamble = [
 "\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}\n",
 "\usepackage{unicode-math}\n",
 "\usepackage{graphicx}\n",
+"\graphicspath{{./figs/}{../../figs/}}\n",
+
+
 "\usepackage[usenames,dvipsnames]{xcolor}\n",
 "\usepackage[hidelinks,colorlinks]{hyperref}\n",
 "\usepackage{pgf}\n",
@@ -74,6 +77,7 @@ new_preamble = [
 "\usepackage{minted}\n",
 "\usepackage{pdfpages}\n",
 "\usepackage{mdframed}\n",
+"\usepackage{subfiles}\n",
 
 "\usepackage{everyshi}\n",
 "\\newcounter{xpage}\stepcounter{xpage}\n",

@@ -1,40 +1,11 @@
 % EPC flow charts
 % Author: Fabian Schuh
 \documentclass{article}
-\usepackage[inner=0.5in,outer=0.5in,top=0.25in,bottom=0.25in]{geometry}
-\usepackage{xeCJK} % 分開設置中英文字型
-\setCJKmainfont{微軟正黑體} % 設定中文字型
-\usepackage{enumitem}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows}
-\usetikzlibrary{shapes.multipart}
-
-\tikzset{
-    state/.style={
-           rectangle,
-           rounded corners,
-           draw=black,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
-\tikzset{
-    phantom/.style={
-           rectangle,
-           rounded corners,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
-\setlist[enumerate]{topsep = 0pt, noitemsep}%remove extra empty spaces above enumerate envr, and make the items more compact
+\usepackage{myflowchart}
 
 \begin{document}
-\tikzstyle{abstract}=[rectangle, draw=black, rounded corners,  anchor=center, text width=3cm,text centered,rectangle split, rectangle split parts=2]
 
-\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=8.5cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
+\begin{tikzpicture}
 
 \begin{scope}[node distance=5mm and 5mm]
 
@@ -63,7 +34,7 @@
 	\end{enumerate}
             };
 
-\node [state,below=of a](b)   
+\node [gitrec,below=of a](b)   
 {git log}edge [<-,>=stealth'] (a);
 
 \node [item=2,below=of b](c)
@@ -77,7 +48,7 @@
 \end{enumerate}
 }edge [<-,>=stealth'] (b);
 
-\node [state,below=of c](d)   
+\node [gitrec,below=of c](d)   
 {git log}edge [<-,>=stealth'] (c);
 
 \node [item=2,below=of d](e)
@@ -96,8 +67,8 @@
 
 
 
-\node [phantom, inner sep = 0pt, below right=of a.north east](gic2){};
-\node [inner sep = 0pt, right=of e](gic1){};
+\node [phantom, below right=of a.north east](gic2){};
+\node [phantom, right=of e](gic1){};
 
 \node [item=2,below right = of gic2](g)
 {\textbf{加入網頁}
@@ -109,10 +80,10 @@
 \end{enumerate}
 };%edge [<-,>=stealth'] (f);
 
-\node [state,above=of g](f)   
+\node [gitrec,above=of g](f)   
 {git log}edge [->,>=stealth'] (g);
 
-\node [above = 1cm of gic2, align=center] (title){\includegraphics[width=0.4\textwidth]{../../figs/test_new_logo_chinese.png}\\ \LARGE 作業流程};
+\node [above right = of a.north east, align=center, anchor = south] (title){\includegraphics[width=0.4\textwidth]{../../figs/test_new_logo_chinese.png}\\ \LARGE 作業流程};
 
 \draw [rounded corners,->,>=stealth'] (e) --  (gic1.center) -- (gic2.center) -- (f);
 
@@ -133,7 +104,7 @@
 \end{tikzpicture}
 
 % second page
-\begin{tikzpicture}[item/.style={draw=black, rounded corners,  anchor=center, text width=8.5cm,align = center,rectangle split, rectangle split parts=#1, rectangle split part align={center, left} }]
+\begin{tikzpicture}[item]
 \begin{scope}[node distance=5mm and 5mm]
 
 \node [ item=2](thinking) at (1,1) {%
@@ -147,11 +118,12 @@
 			\item 所以應該是先將gyro demo做成可輕易更改參數，然後可方便觀看AB法的差異。
 			\item 然後C法應該是姿態估測的，或許應該跟gyro demo做切割？所以ABC三法應該要切割一下？
 		\end{enumerate}
+		\item 階段任務算告一段落。事實上py檔都可獨立跑，GUI實在有點太難，不做了，放下。
+		\item 將目前東西完整記錄，整理，建檔就已經很花時間，做不完了。
             \end{enumerate}
             };
 
-\node [above right = of thinking, align=center, anchor = south] (title){\includegraphics[width=0.1\textwidth]{../../figs/test_new_logo_chinese.png} \Huge 卡住kazoo};
-
+\node [above right = of thinking, align=center, anchor = south] (title){\parbox[c][][c]{0.3\textwidth}{\includegraphics[width=0.3\textwidth]{../../figs/test_new_logo_chinese.png}}\parbox[c][][c]{7cm}{\Huge 卡住kazoo}};
 
 \end{scope}
 \end{tikzpicture}
