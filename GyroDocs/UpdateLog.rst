@@ -197,7 +197,7 @@ Updates and changelog
    C method noise-included still case added.
 
 
-**Manufacture Pipeline** 
+.. **Manufacture Pipeline** 
 
-.. image:: develope_process.png
+.. image:: develope_process_v2.pdf
    :width: 100 %
