@@ -11,6 +11,10 @@ IF %id% == 4 SET chapname=accuracy
 
 python Encode_Preamble_Adjust_for_chapter.py %chapname%
 
+pause
+
 xelatex --shell-escape Chapter_%chapname%_upa.tex
+
+pause
 
 Chapter_%chapname%_upa.pdf

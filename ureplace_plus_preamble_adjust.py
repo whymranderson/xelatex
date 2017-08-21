@@ -112,7 +112,7 @@ new_preamble = [
 "        \\fi%\n",
 "    }%\n",
 "\\makeatother\n",
-"\\setcounter{secnumdepth}{1}",
+"\\setcounter{secnumdepth}{0}",
 ]
 
 for i in range(len(new_preamble)):
