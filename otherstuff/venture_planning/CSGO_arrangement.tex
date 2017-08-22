@@ -66,6 +66,12 @@
            \end{enumerate}
             };
 
+\node [ wideitem=2,below = of chores](gitlog) {%
+            \textbf{last 10 git commits}
+            \nodepart[text width = 16.5cm]{two}
+            \footnotesize \verbatiminput{mysite.log}
+            };
+
 \end{scope}
 \end{tikzpicture}
 

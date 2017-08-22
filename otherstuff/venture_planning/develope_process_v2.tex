@@ -2,7 +2,7 @@
 % Author: Fabian Schuh
 \documentclass{article}
 \usepackage{myflowchart}
-
+\usepackage{verbatim}
 \begin{document}
 
 \begin{tikzpicture}
@@ -122,9 +122,15 @@
 		\item 階段任務算告一段落。事實上py檔都可獨立跑，GUI實在有點太難，不做了，放下。
 		\item 將目前東西完整記錄，整理，建檔就已經很花時間，做不完了。
             \end{enumerate}
-            };
+	    };
 
 \node [above right = of thinking, align=center, anchor = south] (title){\parbox[c][][c]{0.3\textwidth}{\includegraphics[width=0.3\textwidth]{../../figs/test_new_logo_chinese.png}}\parbox[c][][c]{7cm}{\Huge 卡住kazoo}};
+
+\node [ item=2, below right = of title.south, anchor = north west](gitlog) {%
+            \textbf{last 10 git commits}
+            \nodepart[text width = 8.2cm]{two}
+	    \footnotesize \verbatiminput{log.log}
+	    };
 
 \end{scope}
 \end{tikzpicture}
