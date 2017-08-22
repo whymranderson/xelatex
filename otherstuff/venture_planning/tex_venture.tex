@@ -72,4 +72,19 @@
 
 \end{scope}
 \end{tikzpicture}
+
+%Second page
+\begin{tikzpicture}
+\begin{scope}[node distance=5mm and 5mm]
+
+\node [ item=2](gitlog) at (1,1) {%
+            \textbf{last 10 git commits}
+            \nodepart[text width = 8.2cm]{two}
+            \footnotesize \verbatiminput{xelatex.log}
+            };
+
+\end{scope}
+\end{tikzpicture}
+
+
 \end{document}
