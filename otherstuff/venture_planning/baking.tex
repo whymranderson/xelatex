@@ -2,6 +2,7 @@
 % Author: Fabian Schuh
 \documentclass{article}
 \usepackage{myflowchart}
+\usepackage{multicol}
 
 \begin{document}
 
@@ -19,7 +20,7 @@
            \end{enumerate}
             };
 
-\node [above right = of a, align = center, anchor = south, draw = black] (title){\parbox[c][][c]{0.4\textwidth}{\includegraphics[width=0.4\textwidth]{../../figs/baking_logo.png}}};
+\node [above right = of a, align = center, anchor = south] (title){\parbox[c][][c]{0.4\textwidth}{\includegraphics[width=0.4\textwidth]{../../figs/baking_logo.png}}};
 
 \node [ item=2, below = of a](small) {%
             \textbf{weekly routine}
@@ -31,9 +32,10 @@
            \end{enumerate}
             };
 
-\node [ item=2, right = of a.north east, anchor = north west](small) {%
+\node [ wideitem=2,below right = of small, anchor = north](collections) {%
             \textbf{累積作品}
             \nodepart{two}
+	    \begin{multicols}{2}
             \begin{itemize}
 		\item 蝴蝶脆餅
 		\item 黑麥蕎麥麵包
@@ -58,10 +60,13 @@
 		\item Madeleines香檸瑪德蓮
 		\item Foccacia油漬番茄佛卡夏
 		\item 特濃巧克力餅乾
+		\item 黑啤酒麵包
+		\item 達克瓦茲Dacquois
 		\item 小卷(醬汁:醬油醋薑末冰糖) 待加食譜
 		\item 糖醋排骨 待加食譜
 		\item 蝦仁蛋 待問
 	    \end{itemize}
+	    \end{multicols}
             };
 
 \end{scope}
