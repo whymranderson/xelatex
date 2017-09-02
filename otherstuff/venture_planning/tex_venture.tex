@@ -13,9 +13,8 @@
             \begin{enumerate}
             	\item 應用subdoc讓case\_g20.tex及其他可以獨立運行，就不用去擔心編譯時期相對路徑找不到檔問題。
             	\item share community, tikz, LYX doc, ...
-            	\item Math.lyx與.pdf清楚化$\bullet\circ\circ\circ$
-            	\item LYX做webpost時的標題列css模組化$\bullet\circ\circ\circ$
-            	\item 軟體學習、紀錄、分享。
+            	\item Math.lyx與.pdf清楚化$\bullet\bullet\bullet\circ$
+            	\item LYX做webpost時的標題列css模組化$\bullet\circ\circ\circ$，目前是用python做代換。
             	\item sciencefair typeset conti, 將疊格繪圖方程modulize.
            \end{enumerate}
             };
@@ -38,18 +37,25 @@
             };
 
 \node [ item=2,below = of a](small) {%
-            \textbf{未完成細項}
+            \textbf{還需思考的未完成項目}
             \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
 		\item LYX mailing list post suggestion on align environment. Check dev group on this.
 		\item LYX export包含有被伺服圖檔的html檔，目前已有一寫下的流程，但還是要做成自動化較方便。
             	\item vec A不對稱問題？
             	\item 順著陀螺外型的powered by LYX SW字串，path?
-            	\item 加入tikz說明書，node position，anchor參數必須要在above right之類參數之後才會有效。先回報。
 		\item texlive 2017 installed, but texworks fails to start?! dwmapi.dll找不到。instead using gvim now.
 	    \end{enumerate}
             };
 
+\node [ item=2,below = of small](direct) {%
+            \textbf{可直接進行的未完成項目}
+            \nodepart[text width = 8.2cm]{two}
+            \begin{enumerate}
+		\item 畫openGL coordinate圖並加說明。
+            	\item 加入tikz說明書，node position，anchor參數必須要在above right之類參數之後才會有效。去github fork先report issue，然後加說明書?
+	    \end{enumerate}
+            };
 \node [ item=2, below = of unique](LYXcustomization) {%
             \textbf{LYX特殊客製化紀錄}
             \nodepart[text width = 8.2cm]{two}

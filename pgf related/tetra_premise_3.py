@@ -12,7 +12,7 @@ import mpl_toolkits.mplot3d.axes3d as p3
 import matplotlib.animation as animation
 import matplotlib.cm as mplcm
 import matplotlib.colors as colors
-import vector_drawing_basic_geometry_3D
+import vector_drawing_basic_geometry_3D as vlib
 
 #%% Plotting begins
 fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
@@ -39,9 +39,9 @@ pI = (pA + 2*pE)/3
 lineCE, = ax2.plot(*zip(pC,pE),linewidth = 1.5,color='b')
 lineAE, = ax2.plot(*zip(pA,pE),linewidth = 1.5,color='b')
 
-pK = project_a_point_to_a_plane(pI, pA-pB, pC-pB,pA)
-pJ = project_a_point_to_a_plane(pI, pD-pA, pC-pA,pA)
-pH = project_a_point_to_a_plane(pI, pC-pB, pD-pB,pD)
+pK = vlib.project_a_point_to_a_plane(pI, pA-pB, pC-pB,pA)
+pJ = vlib.project_a_point_to_a_plane(pI, pD-pA, pC-pA,pA)
+pH = vlib.project_a_point_to_a_plane(pI, pC-pB, pD-pB,pD)
 
 lineIK, = ax2.plot(*zip(pI,pK),linewidth = 1,color='b',linestyle=':')
 lineIJ, = ax2.plot(*zip(pI,pJ),linewidth = 1,color='b',linestyle=':')
@@ -108,5 +108,5 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
 pyplot.show()
-#pyplot.savefig(r'C:\Documents and Settings\user\My Documents\tony\2014\Xelatexfolder\alphaphi.pgf')
+#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf related\pgf\tetra_premise_3.pgf')
 

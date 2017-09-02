@@ -8,6 +8,7 @@ Elements include: line, perpendicular sign, circle, label,
 
 @author: The One
 """
+import numpy as np
 
 def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax):
     '''Put a perpendicular symbol to a 90 degree corner. The rot_vec
@@ -38,6 +39,14 @@ def circle_arc(axis,start_v,end_v,num_points):
         circle_vecs[i,:] = np.dot(makecir,start_v)
     return circle_vecs
 
+def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,anypointonplane):
+    '''Return a point which is projected normally to the plane by another point. in_point is a point on the plane. Vec1 cross Vec2 should go toward the out_point.'''
+    plane_normal = np.cross(plane_vec1,plane_vec2)
+    plane_normal = plane_normal/np.linalg.norm(plane_normal)
+    projected = np.dot(-out_point+anypointonplane,-plane_normal)*(-plane_normal) + out_point#
+    #projected = -2*plane_normal+out_point
+    return projected
+
 
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 from mpl_toolkits.mplot3d import proj3d
@@ -66,10 +75,3 @@ class Arrow3D(FancyArrowPatch):
         FancyArrowPatch.draw(self, renderer)
 
 
-def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,anypointonplane):
-    '''Return a point which is projected normally to the plane by another point. in_point is a point on the plane. Vec1 cross Vec2 should go toward the out_point.'''
-    plane_normal = np.cross(plane_vec1,plane_vec2)
-    plane_normal = plane_normal/np.linalg.norm(plane_normal)
-    projected = np.dot(-out_point+anypointonplane,-plane_normal)*(-plane_normal) + out_point#
-    #projected = -2*plane_normal+out_point
-    return projected
