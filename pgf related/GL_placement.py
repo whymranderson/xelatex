@@ -34,7 +34,6 @@ pz0 = np.array([0.6,0,0.3])
 pz0_xy = tool.project_a_point_to_a_plane(pz0, px, py, po)
 pz0_yz = tool.project_a_point_to_a_plane(pz0, py, pz, po)
 
-
 farrowx = tool.Arrow3D(*zip(po,px),mutation_scale=16, lw=2, arrowstyle="-|>", 
                        color="b")
 ax2.add_artist(farrowx)
@@ -64,6 +63,10 @@ ax2.add_artist(farrow_z0)
 linepz0pz0_xy, = ax2.plot(*zip(pz0,pz0_xy),linewidth = 1,color='b',linestyle=':')
 linepz0pz0_yz, = ax2.plot(*zip(pz0,pz0_yz),linewidth = 1,color='b',linestyle=':')
 
+arc_alpha = 0.5*tool.circle_arc(-px,pup+pz,pz,20)
+larc_alpha, = ax2.plot(arc_alpha[:,0],arc_alpha[:,1],arc_alpha[:,2],'k')
+
+
 #lineAB, = ax2.plot(*zip(po,px),linewidth = 2,color='b')
 #lineAD, = ax2.plot(*zip(po,pz),linewidth = 2,color='b')
 
@@ -83,9 +86,8 @@ linepz0pz0_yz, = ax2.plot(*zip(pz0,pz0_yz),linewidth = 1,color='b',linestyle=':'
 #linePE, = ax2.plot(*zip(pP,pE),linewidth = 1,color='b')
 #lineFPprime, = ax2.plot(*zip(pF,pPprime),linewidth = 1,color='b')
 
-
-    
-ax2.text(*po, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.annotate(s = r'$A$',xy = (0,0), bbox={'pad':8},va='top')
+#ax2.text(*po, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*px, s = r'$x$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 
 #ax2.scatter3D(*zip(pK,pJ,pH))
@@ -125,5 +127,5 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
 pyplot.show()
-#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf related\pgf\tetra_premise_4.pgf')
+pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf related\pgf\gl_coordinance.pgf')
 
