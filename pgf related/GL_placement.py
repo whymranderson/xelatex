@@ -13,6 +13,7 @@ import matplotlib.animation as animation
 import matplotlib.cm as mplcm
 import matplotlib.colors as colors
 import vector_drawing_basic_geometry_3D as tool
+from mpl_toolkits.mplot3d import proj3d
 
 #%% Plotting begins
 # first set viewing angle in 3D spoce
@@ -66,32 +67,6 @@ linepz0pz0_yz, = ax2.plot(*zip(pz0,pz0_yz),linewidth = 1,color='b',linestyle=':'
 arc_alpha = 0.5*tool.circle_arc(-px,pup+pz,pz,20)
 larc_alpha, = ax2.plot(arc_alpha[:,0],arc_alpha[:,1],arc_alpha[:,2],'k')
 
-
-#lineAB, = ax2.plot(*zip(po,px),linewidth = 2,color='b')
-#lineAD, = ax2.plot(*zip(po,pz),linewidth = 2,color='b')
-
-#pE = (po + pz)/2
-#pF = (2*px + pz)/3
-#pG = (2*px+3*py)/5
-#pH = (4*py+po)/5
-#pPhantom = py+(py-pz)
-
-#lineCPhan, = ax2.plot(*zip(py,pPhantom),linewidth = 1,color='b')
-#lineEG, = ax2.plot(*zip(pE,pG),linewidth = 1,color='b')
-#lineHF, = ax2.plot(*zip(pH,pF),linewidth = 1,color='b')
-
-#pP = pH + 0.7*(pH-pE)
-#pPprime = pG+1.5*(pG-pF)
-# 
-#linePE, = ax2.plot(*zip(pP,pE),linewidth = 1,color='b')
-#lineFPprime, = ax2.plot(*zip(pF,pPprime),linewidth = 1,color='b')
-
-ax2.annotate(s = r'$A$',xy = (0,0), bbox={'pad':8},va='top')
-#ax2.text(*po, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*px, s = r'$x$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-
-#ax2.scatter3D(*zip(pK,pJ,pH))
-
 #draw_perpendicular_sign(np.cross(px-pQ,pE-pQ),px-pQ,pE-pQ,pQ,ax2)
 
 # correcting bug of unequal aspect ratio
@@ -100,12 +75,24 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 max_range = 0.5* np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.0
-mid_x = (X.max()+X.min()) * 0.5 -0.2
-mid_y = (Y.max()+Y.min()) * 0.5 - 0.3
+mid_x = (X.max()+X.min()) * 0.5 - 0.25
+mid_y = (Y.max()+Y.min()) * 0.5 - 0.35
 mid_z = (Z.max()+Z.min()) * 0.5 
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
+
+# Create Annotation
+ax2.annotate(s = r'$x$',xy = tuple(proj3d.proj_transform(*px, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='top',ha='left')
+ax2.annotate(s = r'$y$',xy = tuple(proj3d.proj_transform(*py, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
+ax2.annotate(s = r'$z$',xy = tuple(proj3d.proj_transform(*pz, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
+ax2.annotate(s = r'$\hat{\Omega}_0$',xy = tuple(proj3d.proj_transform(*(py*0.66), M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='bottom',ha='right')
+ax2.annotate(s = r'$z_0$',xy = tuple(proj3d.proj_transform(*pz0, M = ax2.get_proj()))[:2],  fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
+ax2.annotate(s = r'$\alpha$',xy = tuple(proj3d.proj_transform(*arc_alpha[10], M = ax2.get_proj()))[:2],  fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='bottom',ha='right')
+ax2.annotate(s = 'default viewing \n angle ' + r'$\alpha=90^{\circ}$',xy = tuple(proj3d.proj_transform(*(pup*0.9), M = ax2.get_proj()))[:2],  fontsize = 12, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='top',ha='left')
+ax2.annotate(s = 'raise viewing \n angle by setting \n angle ' + r'$\alpha$',xy = tuple(proj3d.proj_transform(*(pup+pz), M = ax2.get_proj()))[:2],  fontsize = 12, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='bottom',ha='center')
+
+
 #ax2.set_xlim3d([-3, 8])
 #ax2.set_ylim3d([-3,8])
 #ax2.set_zlim3d([-3,8])
