@@ -956,6 +956,25 @@ RBPlotFunctionV4.rotmat\_from\_A\_2\_B\U{7684}\U{8aaa}\U{660e})\U{ff0c}%
 \end{center}
 \end{figure}
 
+\begin{center}
+\begin{tabular}{l|l}
+& corresponding name in program \\ \hline
+$\alpha $ & overlook\_angle (in openGL module) \\ 
+$\hat{\Omega}$ & orien (in RGCordtransV15 module)%
+\end{tabular}
+\end{center}
+
+\bigskip 
+
+How python objects is put into openGL coordinate? If nothing is done, things
+will be placed according to openGL defualt viewing angle, which is not what
+we want. Fig?
+
+So we rotate all the objects after they are placed in openGL coordinate
+(python coordinate is untouched) by a viewing direction, to arrive at this (
+say if viewing angle is 90 degree). Other viewing angle can be set by $%
+\alpha $. Fig?
+
 %TCIMACRO{%
 %\TeXButton{clearpage}{\mycleardoublepage{./figs/two_gyro_logo.png}}}%
 %BeginExpansion

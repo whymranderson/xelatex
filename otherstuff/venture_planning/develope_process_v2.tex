@@ -16,7 +16,7 @@
             	\item gyro sensor轉動驗證，準確性歸納。應用？
 		\item 兵乓球轉動積分器檢查。$\circ\circ\circ$
 		\item 易德問$\omega_b$証。
-		\item (排)加openGL coordinate圖。$\bullet\circ\circ$
+		\item (排)加openGL coordinate圖。$\bullet\bullet\circ$
 		\item GUI照note中Fig 7下方的手寫紀錄來分類，照獨自子題，不要想統合了。
             	\item 結合疊格來做立體作圖？
             	\item 增加藍芽傳輸(沒有wifi時)
@@ -54,7 +54,9 @@
 \node [gitrec,below=of c](d)   
 {git log}edge [<-,>=stealth'] (c);
 
-\node [item=2,below=of d](e)
+\node [above right = of a.north east, align=center, anchor = south] (title){\includegraphics[width=0.4\textwidth]{../../figs/test_new_logo_chinese.png}\\ \LARGE 作業流程};
+
+\node [item=2,below right = of title.south, anchor = north west ](e)
 {%
 \textbf{pdf文件}
 \nodepart{two}
@@ -63,17 +65,19 @@
             \item 以Scientific Word軟體撰寫擴充的新內容，寫軟體操作說明，然後使用本工作室開發的自動化流程來進行章節或全書的編譯(使用Xelatex引擎)，來產生PDF技術文件。
             \item 列印，技術文件裝訂成冊
 \end{enumerate}
-}edge [<-,>=stealth'] (d);
+};%edge [<-,>=stealth'] (d);
 
 %draw the curve line
 %\draw [->,out = 180, in = 0] (h) to  (f);
 
 
 
-\node [phantom, below right=of a.north east](gic2){};
-\node [phantom, right=of e](gic1){};
+\node [phantom, left=of e](gic2){};
+\node [phantom, below right=of c](gic1){};
 
-\node [item=2,below right = of gic2](g)
+\node [gitrec,below=of e](f){git log}edge [<-,>=stealth'] (e);
+
+\node [item=2,below = of f](g)
 {\textbf{加入網頁}
 \nodepart{two}
 \begin{enumerate}
@@ -81,14 +85,9 @@
             \item Landing page的修改。以LYX增加Landing page的新內容，然後利用LYX的HTML export功能，若有數學要加上使用Mathjax的選項。然後git push上pyanywere網站。
             \item 有時也需要把技術文件po上網頁，做成blog文章，此時就利用SW中的export HTML功能。需要時要微調。例如production chapter。
 \end{enumerate}
-};%edge [<-,>=stealth'] (f);
+}edge [<-,>=stealth'] (f);
 
-\node [gitrec,above=of g](f)   
-{git log}edge [->,>=stealth'] (g);
-
-\node [above right = of a.north east, align=center, anchor = south] (title){\includegraphics[width=0.4\textwidth]{../../figs/test_new_logo_chinese.png}\\ \LARGE 作業流程};
-
-\draw [rounded corners,->,>=stealth'] (e) --  (gic1.center) -- (gic2.center) -- (f);
+\draw [rounded corners,->,>=stealth'] (d) --  (gic1.center) -- (gic2.center) -- (e);
 
 
 \node [item=2,below=of g](h)
@@ -126,8 +125,8 @@
             \end{enumerate}
 	    };
 
-\node [above right = of thinking, align=center, anchor = south] (title){\parbox[c][][c]{0.3\textwidth}{\includegraphics[width=0.3\textwidth]{../../figs/test_new_logo_chinese.png}}\parbox[c][][c]{7cm}{\Huge 卡住kazoo}};
-
+\node [above right = of thinking.north east, anchor = south] (title){\parbox[c][][c]{0.3\textwidth}{\includegraphics[width=0.3\textwidth]{../../figs/test_new_logo_chinese.png}}};
+%\parbox[c][][c]{5cm}{\Huge 卡住kazoo}
 \node [ item=2, below right = of title.south, anchor = north west](gitlog) {%
             \textbf{last 10 git commits}
             \nodepart[text width = 8.2cm]{two}
