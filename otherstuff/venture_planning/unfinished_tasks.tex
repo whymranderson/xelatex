@@ -1,0 +1,78 @@
+% EPC flow charts
+% Author: Fabian Schuh
+\documentclass{article}
+\usepackage{myflowchart}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\begin{scope}[node distance=5mm and 5mm]
+
+\node [ item=2](a) at (1,1) {%
+            \textbf{未完成的較複雜項目}
+            \nodepart[text width = 8.2cm]{two}
+            \begin{enumerate}
+            	\item 車燈gyro儀
+             	\item django doc improve $\bullet\bullet\circ$
+		\begin{enumerate}
+			\item 加新model到full example
+			\item 可小修m2m section(extra field那段)
+			\item django static file那邊的說明可以再清楚一點？說明django static file的做法是，他希望你把需要伺服的圖檔放在你引用此圖的檔案(如你的html pages)的相同資料夾下，建立一個名為static的資料夾，然後圖檔放在此static資料夾之下(可以在子目錄下)。你說，那我有好多個html檔案都在不同地方，不同資料夾裡面，這些檔案都引用不同的圖檔的話，那不是有一堆static資料夾四散各地？是的，就是這樣。django在執行collectstatic指令時，就是把四散各處的static資料夾以及裡面的需要伺服的圖檔，全部copy到同一個static資料夾下，而此static資料夾會放在我們指定的被伺服的資料夾。你說，那html檔裡的圖檔連結又不是指向這個被伺服的資料夾，對，他會指向之前四散各地的static資料夾連結嘛。但django還會做一個步驟。他會把在html中遇到的圖檔連結，只要遇到有static字串包含在裡面，就會把static前面的超連結字串取代為我們設定的伺服連結。嘿，這樣就可以連到需要的圖檔囉，對吧。劃出例子？
+		\end{enumerate}
+            	\item 椅子削平回家教人
+            	\item 滾筒洗衣機要清洗
+            	\item 印表機level up
+		\item 有水電的地面工作區域 $\bullet\bullet\bullet\circ\circ\circ$
+		\item high definition投影
+                \item vr,gyro體驗館,原力推starwar?
+		\item 乾洗液(目前溫水加乾淨布擦)
+                \item 相機插電
+                \item 好筆的墨水，整理墨水post，入網站。
+		\item 空壓機排水閥修
+                \item 打氣筒修 $\bullet\bullet\circ$ 找不會裂開的高壓軟管
+                \item bank order checks
+                \item 英文整理還有訂下一個時間去查
+                \item 回spyder+manage.py as startupscript問題
+		\item 印烤箱貼紙，製作
+		\item 筆記本的強力夾邊設計及製作，要不會卡其他書以及書包，現在的夾子會卡到然後破壞其他書及書包。
+		\item 低收補助寫下文章
+		\item oldnew文章寫成報案書
+		\item T60相關
+		\begin{enumerate}
+			\item T60電池找(型號已找到，4-17-2017 note)
+			\item 液晶模組diy post未完成的另一半
+		\end{enumerate}
+
+	    \end{enumerate}
+            };
+
+\node [ item=2, right = of a.north east, anchor = north west](continue) {%
+            \textbf{continue..}
+            \nodepart[text width = 8.2cm]{two}
+            \begin{enumerate}
+		\setcounter{enumi}{23}
+            	\item load GUI demo setting 1234.
+            	\item 慢速轉10幾圈，差五度內。快速轉十圈，可差到30度。可能原因見5/10/17。run\_avg有問題？
+            	\item swp加link要變容易。
+            	\item 仿宋體試5/16/17
+            	\item git post整合。1. 回朔。2. 
+            	\item science fair typeset continue.
+            	\item 特殊的tex學習法寫下，排版是一門專業
+		\begin{enumerate}
+			\item xeCJK模組改良，自動抓取常用的中文字型，讓初學者可以引用package後就可以使用，不用再去設定字形。這會讓中文化更加方便容易與普及。
+			\item 心法：學tex人會覺得，常常會遇到連一個簡單的問題都會覺得怎麼那麼麻煩，比如說啊我今天要最快速排出一個非常簡單的文件，所以用usepackage{minimal}應該就夠了，我只需要最簡單的排版就好，結果發現一直編譯不過，卡在字形大小tiny出錯。結果居然是在minimal package裡面沒有定義tiny字形大小。心法就是，就像做硬體一樣，要做一精密精細的作品所需要的工具本來就很多很繁瑣，有時你認為簡單的東西，只要有一個小地方你沒有想到，但這小地方其實需要不少工具，那就不能怪工具不好，是你自己沒想到而已。多數人以為做東西很簡單，那是因為他們只會用幾樣很簡單的工具，就想要應付各式各樣的狀況，結果只做得出一些很爛很醜又不耐用的作品。做東西都是如此，忌氣急敗壞。心法。
+		\end{enumerate}            	
+		\item gui module sphinx doc comment補齊與整理。
+		\item db\_note整理，看如何推銷與賣(可能太難，因為不是你的領域，離你太遙遠，無認識的人)。
+		\item db模型改良，足球聯賽應用。
+		\item py2exe繼續否？
+		\item 滾動碰撞模型建立持續否？是。
+		\item share pstricks and tikz graphs
+		\item logo3D OpenGL engrave continue
+		\item 
+           \end{enumerate}
+            };
+\end{scope}
+\end{tikzpicture}
+\end{document}
