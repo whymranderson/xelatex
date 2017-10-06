@@ -69,6 +69,8 @@ new_preamble = [
 "%\documentclass[12pt,a4paper]{article}\n",
 "\usepackage{amsmath}\n",
 #"\usepackage{fontspec}\n",
+"\usepackage{standalone}\n",
+
 "\usepackage{xeCJK}\n",
 "\setmainfont{Times New Roman}\n",
 "\setsansfont{Verdana}\n",
@@ -86,7 +88,6 @@ new_preamble = [
 "\usepackage{minted}\n",
 "\usepackage{pdfpages}\n",
 "\usepackage{mdframed}\n",
-"\usepackage{standalone}\n",
 
 "\usepackage{everyshi}\n",
 "\\newcounter{xpage}\stepcounter{xpage}\n",

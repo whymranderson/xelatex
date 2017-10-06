@@ -1,6 +1,11 @@
 Updates and changelog
 =====================
 
+2017/8
+   Changlog has now been incorporated with GIT and are displayed as a webpage_ on my website.
+
+.. _webpage: http://whymrandersonwhy.pythonanywhere.com/gitlogs.html
+
 2017/6
    The two gyro's animation methods, mplot3D and OpenGL, probably should be split up into two separate programs. Now they are tangled and very hard to maintain. Not sure how to design the GUI window layout because there are too many drawing parameters with mplot3D and OpenGL combined. Separating them may be a good idea. Already have 4-5 versions of GUI layout, and am still not satisfied.
 
@@ -197,7 +202,10 @@ Updates and changelog
    C method noise-included still case added.
 
 
+.. target-notes::
+
+
 .. **Manufacture Pipeline** 
 
-.. image:: develope_process_v2.pdf
+.. image:: ../otherstuff/venture_planning/all_venture_directions.pdf
    :width: 100 %

@@ -57,6 +57,8 @@ new_preamble = [
 "%\documentclass[12pt,a4paper]{article}\n",
 "\usepackage{amsmath}\n",
 #"\usepackage{fontspec}\n",
+"\usepackage{standalone}\n",
+
 "\usepackage{xeCJK}\n",
 "\setmainfont{Times New Roman}\n",
 "\setsansfont{Verdana}\n",
