@@ -86,6 +86,7 @@ new_preamble = [
 "\usepackage{minted}\n",
 "\usepackage{pdfpages}\n",
 "\usepackage{mdframed}\n",
+"\usepackage{standalone}\n",
 
 "\usepackage{everyshi}\n",
 "\\newcounter{xpage}\stepcounter{xpage}\n",

@@ -333,11 +333,12 @@ whymranderson.blogspot.tw\U{4e2d}\U{7684}\U{52d5}\U{756b}\U{3002}Body xyz%
 \caption{Python\U{7a0b}\U{5f0f}\U{6240}\U{5305}\U{542b}\U{7684}ABC\U{4e09}%
 \U{7a2e}\U{59ff}\U{614b}\U{89e3}\U{7b97}\U{6cd5}\U{793a}\U{610f}\U{5716}%
 \U{3002}}
-\label{ABCmethodsIllustration}
 \begin{center}
-\input{testPSTricks-flowchartV2-insert.tex} 
+\includestandalone[mode=buildmissing]{three_integration_methods_standalone}
+%\input{testPSTricks-flowchartV2-insert.tex}
 %\includegraphics[width=\textwidth]{./figs/ABC_methods_compare.PNG}
 \end{center}
+\label{ABCmethodsIllustration}
 \end{figure}
 
 \subsubsection{A\U{65b9}\U{6cd5}\U{ff1a}\U{8f49}\U{52d5}\U{7a4d}\U{5206}%
@@ -744,11 +745,11 @@ Python\U{7a0b}\U{5f0f}\U{8207}OpenGL\U{4e4b}\U{9593}\U{5ea7}\U{6a19}\U{64fa}%
 
 \begin{figure}[th]
 \caption{OpenGL\U{5ea7}\U{6a19}\U{8abf}\U{6574}\U{3002}}
+\label{gl_defualt}
 \begin{center}
 \input{./pgf_related/pgf/gl_default_view.pgf}%
 \input{./pgf_related/pgf/gl_adjusted_view.pgf}
 \end{center}
-\label{gl_defualt}
 \end{figure}
 
 How python objects are put into OpenGL coordinate? If nothing is done,
@@ -757,7 +758,7 @@ OpenGL coordinate is shown in the left graph of Figure \ref{gl_defualt}.
 This is not what we want. So we rotate all the objects after they are placed
 in OpenGL coordinate and translate them to the center of the display window.
 This is done in the OpenGL annimation module, so Python coordinate part is
-untouched and we don't need to worry things there. 
+untouched and we don't need to worry things there.
 
 To achieve other viewing angle, set it by $\alpha $ in the openGL annimation
 module according to Figure \ref{gl_alpha}.
@@ -769,10 +770,10 @@ module according to Figure \ref{gl_alpha}.
 \U{7a31}\U{8ef8}\U{671d}\U{5411}\U{7684}\U{8f49}\U{52d5}\U{5411}\U{91cf}$%
 \hat{\Omega}_{0}$\U{3002}\U{5716}\U{4e2d}\U{986f}\U{793a}\U{51fa}\U{9640}%
 \U{87ba}\U{5c0d}\U{7a31}\U{8ef8}$z_{0}$\U{3002}}
+\label{gl_alpha}
 \begin{center}
 \input{./pgf_related/pgf/gl_coordinance.pgf}
 \end{center}
-\label{gl_alpha}
 \end{figure}
 
 \begin{center}
