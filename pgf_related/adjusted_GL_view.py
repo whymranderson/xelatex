@@ -45,9 +45,9 @@ pcbr = np.array([cr,0,-cr])
 farrowx = tool.Arrow3D(*zip(po,px),mutation_scale=16, lw=2, arrowstyle="-|>", 
                        color="b")
 ax2.add_artist(farrowx)
-farrowy = tool.Arrow3D(*zip(po,py),mutation_scale=16, lw=2, arrowstyle="-|>", 
-                       color="b")
-ax2.add_artist(farrowy)
+#farrowy = tool.Arrow3D(*zip(po,py),mutation_scale=16, lw=2, arrowstyle="-|>", 
+#                       color="b")
+#ax2.add_artist(farrowy)
 farrowz = tool.Arrow3D(*zip(po,pz),mutation_scale=16, lw=2, arrowstyle="-|>", 
                        color="b")
 ax2.add_artist(farrowz)
@@ -74,11 +74,12 @@ larc_alpha2, = ax2.plot(arc_alpha2[:,0],arc_alpha2[:,1],arc_alpha2[:,2],'k')
 #draw_perpendicular_sign(np.cross(px-pQ,pE-pQ),px-pQ,pE-pQ,pQ,ax2)
 
 # correcting bug of unequal aspect ratio
-Xt,Yt,Zt = zip(po,px,py,pz,1.2*plb,1.2*ptr,1.2*plt,1.2*pbr)
+ff = 0.75
+Xt,Yt,Zt = zip(po,px,py,pz,ff*plb,ff*ptr,ff*plt,ff*pbr)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
-max_range = 0.5* np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.0
+max_range =  np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.0
 mid_x = (X.max()+X.min()) * 0.5 
 mid_y = (Y.max()+Y.min()) * 0.5 
 mid_z = (Z.max()+Z.min()) * 0.5
@@ -90,7 +91,7 @@ ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
 ax2.annotate(s = r'$x$',xy = tuple(proj3d.proj_transform(*px, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='top',ha='left')
 ax2.annotate(s = r'$y$',xy = tuple(proj3d.proj_transform(*pcbl, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='top',ha='right')
 ax2.annotate(s = r'$z$',xy = tuple(proj3d.proj_transform(*pz, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='right')
-ax2.annotate(s = 'window',xy = (0.07,0.05), textcoords = 'axes fraction', fontsize = 14, bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
+ax2.annotate(s = 'window',xy = tuple(proj3d.proj_transform(*plb, M = ax2.get_proj()))[:2], bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
 #pyplot.axhline(y= 0.06, xmin=0.15, xmax=0.85)
 #pyplot.axvline(x= 0.15, ymin=0.15, ymax=0.85)
 #

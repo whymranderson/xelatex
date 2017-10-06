@@ -742,14 +742,25 @@ Python\U{7a0b}\U{5f0f}\U{8207}OpenGL\U{4e4b}\U{9593}\U{5ea7}\U{6a19}\U{64fa}%
 \U{8981}\U{ff0c}\U{6bd4}\U{5982}\U{8aaa}\U{60f3}\U{66f4}\U{6539}\U{89c0}%
 \U{5bdf}\U{65b9}\U{5411}\U{7b49}\U{3002}
 
-How python objects is put into openGL coordinate? If nothing is done, things
-will be placed according to openGL defualt viewing angle, which is not what
-we want. Fig?
+\begin{figure}[th]
+\caption{OpenGL\U{5ea7}\U{6a19}\U{8abf}\U{6574}\U{3002}}
+\begin{center}
+\input{./pgf_related/pgf/gl_default_view.pgf}%
+\input{./pgf_related/pgf/gl_adjusted_view.pgf}
+\end{center}
+\label{gl_defualt}
+\end{figure}
 
-So we rotate all the objects after they are placed in openGL coordinate
-(python coordinate is untouched) by a viewing direction, to arrive at this (
-say if viewing angle is 90 degree). Other viewing angle can be set by $%
-\alpha $. Fig?
+How python objects are put into OpenGL coordinate? If nothing is done,
+things will be placed according to openGL defualt viewing angle. Default
+OpenGL coordinate is shown in the left graph of Figure \ref{gl_defualt}.
+This is not what we want. So we rotate all the objects after they are placed
+in OpenGL coordinate and translate them to the center of the display window.
+This is done in the OpenGL annimation module, so Python coordinate part is
+untouched and we don't need to worry things there. 
+
+To achieve other viewing angle, set it by $\alpha $ in the openGL annimation
+module according to Figure \ref{gl_alpha}.
 
 \begin{figure}[th]
 \caption{OpenGL\U{7684}\U{5ea7}\U{6a19}\U{64fa}\U{653e}\U{8207}\U{89c0}%
@@ -761,11 +772,12 @@ say if viewing angle is 90 degree). Other viewing angle can be set by $%
 \begin{center}
 \input{./pgf_related/pgf/gl_coordinance.pgf}
 \end{center}
+\label{gl_alpha}
 \end{figure}
 
 \begin{center}
 \begin{tabular}{l|l}
-& corresponding name in program \\ \hline
+& corresponding name in the program \\ \hline
 $\alpha $ & overlook\_angle (in openGL module) \\ 
 $\hat{\Omega}$ & orien (in RGCordtransV15 module)%
 \end{tabular}
@@ -928,7 +940,7 @@ Simulation V-3\U{3011}2016 March\U{3002}\U{65b0}\U{7248}\U{7a0b}\U{5f0f}%
 python 3.X\U{7248}\U{9084}\U{4e0d}\U{652f}\U{63f4})\U{5c31}\U{53ef}\U{4ee5}%
 \U{57f7}\U{884c}\U{4e86}\U{3002}
 
-\bigskip 
+\bigskip
 
 \U{5728}OpenGL\U{4e2d}\U{7e6a}\U{88fd}\U{7acb}\U{65b9}\U{9ad4}\U{7684}%
 \U{904b}\U{52d5}\U{4e5f}\U{8ddf}\U{524d}\U{9762}\U{65b9}\U{6cd5}\U{985e}%
