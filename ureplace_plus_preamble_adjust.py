@@ -56,7 +56,6 @@ new_preamble = [
 "\documentclass[12pt,twoside]{article}\n",
 "%\documentclass[12pt,a4paper]{article}\n",
 "\usepackage{amsmath}\n",
-#"\usepackage{fontspec}\n",
 "\usepackage{standalone}\n",
 
 "\usepackage{xeCJK}\n",
