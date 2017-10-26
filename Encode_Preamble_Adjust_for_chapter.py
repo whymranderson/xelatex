@@ -67,6 +67,7 @@ f6 = open(filename +"_upa" + ".tex", 'w')
 new_preamble = [
 "\documentclass[12pt,twoside]{article}\n",
 "\usepackage{gyro_chapter_style}\n",
+"\\begin{document}\n",
 ]
 
 for i in range(len(new_preamble)):
