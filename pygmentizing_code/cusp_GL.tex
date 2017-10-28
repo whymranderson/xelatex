@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\},fontsize=\small, numbers = left, frame=bottomline]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+\PY{k+kn}{import} \PY{n+nn}{sys}
+\PY{n}{sys}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}
+    \PY{l+s}{r\PYZsq{}}\PY{l+s}{C:}\PY{l+s}{\PYZbs{}}\PY{l+s}{Documents and Settings}\PY{l+s}{\PYZbs{}}\PY{l+s}{The One}\PY{l+s}{\PYZbs{}}\PY{l+s}{My Documents}\PY{l+s}{\PYZbs{}}\PY{l+s}{tony}\PY{l+s}{\PYZbs{}}\PY{l+s}{Scripts}\PY{l+s}{\PYZbs{}}\PY{l+s}{cordtrans}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\PY{n}{sys}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{./movie}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\PY{k+kn}{import} \PY{n+nn}{Toolbox.Physics\PYZus{}and\PYZus{}Animation\PYZus{}Modules\PYZus{}Library.RGCordTransV15}
+\PY{n}{RG} \PY{o}{=} \PY{n}{Toolbox}\PY{o}{.}\PY{n}{Physics\PYZus{}and\PYZus{}Animation\PYZus{}Modules\PYZus{}Library}\PY{o}{.}\PY{n}{RGCordTransV15}
+
+\PY{c}{\PYZsh{}\PYZpc{}\PYZpc{} Solve for gyro dynamics}
+\PY{n}{b} \PY{o}{=} \PY{n}{RG}\PY{o}{.}\PY{n}{RigidBodyObject}\PY{p}{(}\PY{p}{)}
+\PY{n}{b}\PY{o}{.}\PY{n}{tn}\PY{o}{=}\PY{l+m+mi}{2}
+\PY{n}{b}\PY{o}{.}\PY{n}{arm} \PY{o}{=} \PY{l+m+mf}{0.2}  \PY{c}{\PYZsh{}: location of center of mass of top from origin in meters}
+\PY{n}{b}\PY{o}{.}\PY{n}{counter\PYZus{}weight} \PY{o}{=} \PY{l+m+mf}{0.0} \PY{c}{\PYZsh{}: mass doesn\PYZsq{}t spin along symmetry axis}
+\PY{n}{b}\PY{o}{.}\PY{n}{counter\PYZus{}weight\PYZus{}location\PYZus{}from\PYZus{}origin} \PY{o}{=} \PY{l+m+mf}{0.0} \PY{c}{\PYZsh{}: location from origin}
+\PY{n}{b}\PY{o}{.}\PY{n}{Iy}\PY{p}{,} \PY{n}{b}\PY{o}{.}\PY{n}{Iz}\PY{p}{,} \PY{n}{b}\PY{o}{.}\PY{n}{Ix}\PY{o}{=}\PY{l+m+mf}{0.002}\PY{p}{,} \PY{l+m+mf}{0.0008}\PY{p}{,} \PY{l+m+mf}{0.002}
+\PY{n}{b}\PY{o}{.}\PY{n}{freq}\PY{p}{,} \PY{n}{b}\PY{o}{.}\PY{n}{g}\PY{o}{=} \PY{l+m+mi}{12}\PY{p}{,} \PY{l+m+mf}{5.0}
+\PY{n}{b}\PY{o}{.}\PY{n}{samplerate} \PY{o}{=}  \PY{l+m+mi}{200}
+\PY{n}{b}\PY{o}{.}\PY{n}{orien} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{radians}\PY{p}{(}\PY{l+m+mi}{49}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\PY{n}{b}\PY{o}{.}\PY{n}{GenerateDependentVariables}\PY{p}{(}\PY{p}{)}  \PY{c}{\PYZsh{}array alocation}
+\PY{n}{b}\PY{o}{.}\PY{n}{EulerDCMiter}\PY{p}{(}\PY{p}{)}    \PY{c}{\PYZsh{}solving}
+
+\PY{c}{\PYZsh{}\PYZpc{}\PYZpc{} OpenGL animation}
+\PY{k+kn}{import} \PY{n+nn}{Toolbox.GL\PYZus{}toolbox.opengl\PYZus{}window\PYZus{}and\PYZus{}animation\PYZus{}creation\PYZus{}module}
+\PY{n}{CRmodule} \PY{o}{=} \PY{n}{Toolbox}\PY{o}{.}\PY{n}{GL\PYZus{}toolbox}\PY{o}{.}\PY{n}{opengl\PYZus{}window\PYZus{}and\PYZus{}animation\PYZus{}creation\PYZus{}module}
+\PY{n}{CR} \PY{o}{=} \PY{n}{CRmodule}\PY{o}{.}\PY{n}{CubeRotate}\PY{p}{(}\PY{p}{)}  \PY{c}{\PYZsh{}opengl context setup    }
+\PY{n}{CR}\PY{o}{.}\PY{n}{RBO} \PY{o}{=} \PY{n}{b}  \PY{c}{\PYZsh{}passing in the solved results}
+\PY{n}{CR}\PY{o}{.}\PY{n}{PNGsaveYESNO} \PY{o}{=} \PY{n+nb+bp}{False} 
+\PY{c}{\PYZsh{}Saving the movie into a series of png files, for example making a movie.}
+\PY{n}{CR}\PY{o}{.}\PY{n}{t\PYZus{}interval}\PY{o}{=}\PY{l+m+mi}{20}
+\PY{n}{CR}\PY{o}{.}\PY{n}{trail\PYZus{}len}\PY{o}{=}\PY{l+m+mi}{150}
+\PY{n}{CR}\PY{o}{.}\PY{n}{setupwindow}\PY{p}{(}\PY{p}{)} \PY{c}{\PYZsh{}animate}
+\end{Verbatim}
