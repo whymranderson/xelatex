@@ -50,7 +50,7 @@ Scientific Workplace\U{6642}\U{6240}\U{7528}\U{7684}\U{529f}\U{80fd}\U{50c5}%
 \U{670d}\U{7684}\U{56f0}\U{96e3}\U{ff0c}\U{4ee5}\U{53ca}\U{5982}\U{4f55}%
 \U{89e3}\U{6c7a}\U{4ed6}\U{5011}\U{3002}
 
-\tableofcontents
+\parttoc
 
 \section{\U{4f7f}\U{7528}Scientific Workplace 5.0 + XeLatex\U{8edf}\U{9ad4}%
 \U{505a}\U{4e2d}\U{82f1}\U{6587}\U{6df7}\U{96dc}\U{4e26}\U{593e}\U{5e36}%
@@ -193,14 +193,14 @@ f2.close()
 %import codecs
 %
 %def dashrepl(matchobj):
-%  return chr(int(matchobj.group(1),16))
+%return chr(int(matchobj.group(1),16))
 %
 %f1 = open('rotationV4pngtest.tex', 'r') # name of your origianl file
 %f2 = codecs.open('rotationV4pngtest.tex.temp', "w", "utf-8") # name of the new file
 %p= re.compile(r"\\U{([\w]{,4})}")
 %
 %for line in f1:
-%  m = re.sub(p,dashrepl,line)
+%m = re.sub(p,dashrepl,line)
 %## print(m)
 %f2.write(m)
 %
@@ -642,6 +642,16 @@ Sphinx\U{4e2d}\U{7684}autodoc\U{5957}\U{4ef6}\U{ff0c}\U{4f3c}\U{4e4e}\U{9084}%
 \U{4e86}\U{4e00}\U{500b}\U{521d}\U{6b65}\U{7db2}\U{7ad9}\U{ff0c}\U{60f3}%
 \U{8981}\U{80fd}\U{5920}\U{6162}\U{6162}\U{812b}\U{96e2}google blogger%
 \U{7684}ubiquity\U{3002}\U{521d}\U{6b65}\U{7d00}\U{9304}\U{3002}
+
+\U{7db2}\U{7ad9}\U{7684}\U{6587}\U{7ae0}\U{662f}\U{642d}\U{914d}\U{4f7f}%
+\U{7528}\U{7de8}\U{8f2f}\U{8edf}\U{9ad4}LYX\U{7de8}\U{8f2f}\U{ff0c}\U{53ef}%
+\U{53c3}\U{8003}\U{7db2}\U{7ad9}\U{88e1}\U{6211}\U{5011}\U{6574}\U{7406}%
+\U{7684}\U{6d41}\U{7a0b}\U{5716}\U{ff0c}\U{4f86}\U{4e86}\U{89e3}\U{6211}%
+\U{5011}\U{5982}\U{4f55}\U{5229}\U{7528}LYX\U{7684}\U{65b9}\U{4fbf}\U{6027}%
+\U{3002}\U{4ee5}\U{53ca}\U{6211}\U{5011}\U{5982}\U{4f55}\U{6574}\U{7406}%
+\U{51fa}\U{4e00}\U{500b}\U{65b9}\U{4fbf}\U{7684}\U{6a19}\U{6e96}\U{5316}%
+\U{6d41}\U{7a0b}\U{ff0c}\U{8b93}LYX\U{80fd}\U{5920}\U{7522}\U{751f}\U{5177}%
+\U{6709}\U{4e0d}\U{540c}\U{529f}\U{80fd}\U{7684}HTML\U{7db2}\U{9801}\U{3002}
 
 \section{3D\U{96fb}\U{8166}\U{52d5}\U{756b}\U{88fd}\U{4f5c}}
 
