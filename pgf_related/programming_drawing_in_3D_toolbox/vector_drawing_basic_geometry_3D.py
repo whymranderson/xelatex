@@ -47,6 +47,27 @@ def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,anypointonplane
     #projected = -2*plane_normal+out_point
     return projected
 
+def return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pB,pC,pD,pE):
+    """Given points ABCDE, return point F. See figure on https://en.wikipedia.org/wiki/Ceva%27s_theorem"""
+    a = np.linalg.norm(pA-pE)
+    b = np.linalg.norm(pC-pE)
+    c = np.linalg.norm(pC-pD)
+    d = np.linalg.norm(pB-pD)
+    e_over_f = b*d/a/c #ace = bdf, 
+    pF = (1/(1+1/e_over_f)*pA + 1/(e_over_f+1)*pB)
+    return pF
+
+def return_intersection_under_Ceva_Theorem(pA,pB,pC,pD,pE):
+    """Given points ABCDE, return point O. See figure on https://en.wikipedia.org/wiki/Ceva%27s_theorem"""
+    ae = np.linalg.norm(pA-pE)
+    ec = np.linalg.norm(pC-pE)
+    cb = np.linalg.norm(pC-pB)
+    bd = np.linalg.norm(pB-pD)
+    do_over_oa = ec*bd/ae/cb #ae/ec * cb/bd * bo/oe = 1, 
+    pO = (pA*do_over_oa /(1+do_over_oa) + pD/(1+do_over_oa ))#(pA*od + pD*oa)/(oa+od)
+    return pO
+
+
 
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 from mpl_toolkits.mplot3d import proj3d
