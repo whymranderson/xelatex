@@ -58,7 +58,13 @@ def return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pB,pC,pD,pE):
     return pF
 
 def return_intersection_under_Ceva_Theorem(pA,pB,pC,pD,pE):
-    """Given points ABCDE, return point O. See figure on https://en.wikipedia.org/wiki/Ceva%27s_theorem"""
+    """Given points ABCDE, return point O. See figure below.
+    
+    .. image:: ./figures/lemma4_fig4.png
+       :scale: 60 %
+       :align: center
+
+    Image By 4C - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1054185"""
     ae = np.linalg.norm(pA-pE)
     ec = np.linalg.norm(pC-pE)
     cb = np.linalg.norm(pC-pB)
@@ -70,7 +76,7 @@ def return_intersection_under_Ceva_Theorem(pA,pB,pC,pD,pE):
 
 
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
-from mpl_toolkits.mplot3d import proj3d
+#from mpl_toolkits.mplot3d import proj3d
 def orthogonal_proj(zfront, zback):
     a = (zfront+zback)/(zfront-zback)
     b = -2*(zfront*zback)/(zfront-zback)
