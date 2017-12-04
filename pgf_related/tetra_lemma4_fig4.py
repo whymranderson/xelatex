@@ -5,9 +5,8 @@ import numpy as np
 #mpl.use('pgf')
 from matplotlib import pyplot
 import mpl_toolkits.mplot3d.axes3d as p3
-import matplotlib.animation as animation
-import matplotlib.cm as mplcm
-import matplotlib.colors as colors
+from mpl_toolkits.mplot3d import proj3d
+
 import sys
 sys.path.append('./programming_drawing_in_3D_toolbox')
 from programming_drawing_in_3D_toolbox.vector_drawing_basic_geometry_3D import return_third_point_on_a_triagle_under_Ceva_Theorem
@@ -81,6 +80,10 @@ ax2.text(*pNp, s = r"$N'$", fontsize=12,verticalalignment='top', horizontalalign
 ax2.text(*pJ, s = r"$J$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pK, s = r"$K$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
+'''
+ax2.annotate(s = r'$x$',xy = tuple(proj3d.proj_transform(*px, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='top',ha='left')
+'''
+
 
 #draw_perpendicular_sign(np.cross(pB-pQ,pE-pQ),pB-pQ,pE-pQ,pQ,ax2)
 
@@ -110,6 +113,26 @@ ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
 #ax2.set_xlim([-0.5,3.7])
 #ax2.set_ylim([-0.5,3.7])
 #ax2.set_zlim([0,6])
+
+
+ax2.annotate("",
+            xy=tuple(proj3d.proj_transform(*pB, M = ax2.get_proj()))[:2], #xycoords='data',
+            xytext=tuple(proj3d.proj_transform(*pE, M = ax2.get_proj()))[:2], #textcoords='data',
+            arrowprops=dict(arrowstyle="-", #linestyle="dashed",
+                            color="0.5",
+                            patchB=None,
+                            shrinkB=0,
+                            connectionstyle="arc3,rad=0.5",
+                            ),
+            )
+
+
+
+pla = (pB+pE)/2
+#ax2.text(*pla, s = r"$a$", fontsize=10,verticalalignment='bottom', horizontalalignment='left')#bbox={'pad':38,'fill':None,'edgecolor':'blue'})
+ax2.annotate(s = 'a',xy = tuple(proj3d.proj_transform(*pla, M = ax2.get_proj()))[:2], bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
+
+
 ax2.set_xticks([])
 ax2.set_yticks([])
 ax2.set_zticks([])
@@ -125,5 +148,5 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
 pyplot.show()
-#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf related\pgf\tetra_premise_2.pgf')
+#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf_related\pgf\lemma4_fig4.pgf')
 

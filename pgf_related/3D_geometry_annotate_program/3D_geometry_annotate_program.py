@@ -9,6 +9,8 @@ Elements include: line, perpendicular sign, circle, label,
 @author: The One
 """
 import numpy as np
+from mpl_toolkits.mplot3d import proj3d
+
 
 def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax):
     '''Put a perpendicular symbol to a 90 degree corner. The rot_vec
@@ -27,7 +29,21 @@ def rotation_matrix(axis,theta):
                      [2*(b*c+a*d), a*a+c*c-b*b-d*d, 2*(c*d-a*b)],
                      [2*(b*d-a*c), 2*(c*d+a*b), a*a+d*d-b*b-c*c]])
 def circle_arc(axis,start_v,end_v,num_points):
-    '''Return the data points of a circle. Axis is the center axis of the circle following right hand rules. Start_v is the vector of the starting point on the circle. End_v is the ending point on the circle. Num_points is the total number of points.'''
+    '''Return the data points of a circle. Axis is the center axis of the circle following right hand rules. Start_v is the vector of the starting point on the circle. End_v is the ending point on the circle. Num_points is the total number of points on the arc. More points give a smoother arc. Vectors take the form like np.array([1,0,0]).
+    
+    .. image:: ./figures/circle_arc_fig.png
+       :scale: 60 %
+       :align: center
+       
+    .. code:: python
+    
+      px = np.array([1,0,0])
+      pA = np.array([0.5,0.5,0.5])
+      n_vec = np.cross(px/np.linalg.norm(px),pA/np.linalg.norm(pA))
+      arc_alpha = 0.3*tool.circle_arc(n_vec,px,pA,20)
+      larc_alpha, = ax2.plot(arc_alpha[:,0],arc_alpha[:,1],arc_alpha[:,2],'r',lw=2)
+
+'''
     axis = axis/np.linalg.norm(axis)
     start_v = start_v/np.linalg.norm(start_v)
     end_v = end_v/np.linalg.norm(end_v)
