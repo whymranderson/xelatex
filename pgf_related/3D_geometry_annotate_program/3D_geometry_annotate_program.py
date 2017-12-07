@@ -2,11 +2,7 @@
 """
 Created on Mon May 08 13:19:33 2017
 
-The 3D vector drawing functions for basic elements in geometry.
-
-Elements include: line, perpendicular sign, circle, label, 
-
-@author: The One
+3D vector drawing functions for basic elements in geometry.
 """
 import numpy as np
 from mpl_toolkits.mplot3d import proj3d

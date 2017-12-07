@@ -1,0 +1,3 @@
+pdflatex Commongeometrydrawingfunctionsin3D.tex
+
+Commongeometrydrawingfunctionsin3D.pdf
