@@ -1,0 +1,26 @@
+\documentclass{standalone}
+
+\usepackage{menukeys}
+
+\newmenumacro{\nixfile}[/]{hyphenatepaths}
+\newmenumacro{\nixpath}[/]{hyphenatepathswithfolder}
+\newmenumacro{\winpath}[bslash]{hyphenatepathswithfolder}
+\newmenumacro{\winfile}[bslash]{hyphenatepaths}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\begin{tabbing}
+\hspace{1em}\=\hspace{1em}\=\hspace{1em}\=\hspace{1em}\=\\\kill
+\nixpath{Demo\_Examples }                            \\
+\>\nixpath{spinning\_top\_gyroscope}       	     \\
+\>\>\nixpath{four\_classical\_motions\_demo} 	     \\
+\>\>\>\nixpath{OpenGL\_animation} 	     \\
+\>\>\>\>\nixfile{cusp\_GL.py}    			     \\
+\>\nixpath{RigidBody\_rotation\_integrator}	     \\
+\>\nixpath{MEMS\_gyro\_sensor} 			\\
+\nixfile{subfile   } 						  \\
+\nixfile{wierd/file}   \\
+\nixfile{file      }                                \\
+\end{tabbing}
+\end{minipage}
+\end{document}
