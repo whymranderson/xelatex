@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+
+\begin{document}
+
+\begin{tikzpicture}
+%[decoration={text along path,text={Powered by MacKichan Scientific Workplace, LYX, LaTeX}}]
+%\draw [decorate] (0,0) -- (3,1) arc (0:180:1.5 and 1);
+\draw [postaction={decoration={text along path, text={Powered by MacKichan Scientific Workplace, LYX, LaTeX},text align={align=right}}, decorate}] plot file {../data_text_files/logoprofile.txt};
+\node[inner sep=0pt] (png) at (0,0)
+    {\includegraphics[width=.25\textwidth]{../../figs/tex_logo.png}};
+
+\end{tikzpicture}
+
+
+\end{document}
