@@ -28,3 +28,13 @@ lemma4_fig4.py
 
 .. tikz:: Ceva's theorem
    :include: ./figures/lemma4_fig4.pgf
+
+gyrologodraw10.py
+-----------------
+
+.. image:: ./figures/logo_June28_2017.png
+   :align: center 
+
+Case_C_omega_noise_fig.tex
+--------------------------
+In ./otherstuff/data_text_files/
