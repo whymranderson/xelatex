@@ -2,6 +2,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d as p3
+import sys
+sys.path.append(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf_related\3D_geometry_annotate_program')
+import annotate_program
+ 
 
 nop = 160
 a0 = 1.0
@@ -37,7 +41,7 @@ def rotation_matrix(axis,theta):
 
 fig3 = plt.figure(3)#,figsize=(1.5,2))#,dpi=200)
 ax3 = p3.Axes3D(fig3)
-ax3.view_init(elev=0, azim=-10)
+ax3.view_init(elev=2, azim=0)
 #ax3.set_axis_bgcolor('black')
 #ax3.set_color_cycle('b')
 
@@ -65,7 +69,7 @@ gyroZvec = np.dot(rotation_matrix((-1,0,0),np.radians(rotate_angle)),[0,1,0])
 
 linedata=[]
 for i in [1,2,3]:
-    Z_vec_array = 2*np.transpose(np.load('../outfile'+str(i)+'.npy'))
+    Z_vec_array = 2*np.transpose(np.load('outfile'+str(i)+'.npy'))
     mmZ,nnZ = np.shape(Z_vec_array)
     #print mmZ,nnZ
     for nnZi in range(nnZ):
@@ -101,33 +105,35 @@ for i in range(roundnumber):
 for j in range(10):
     lucidy[-roundnumber+5-j]=np.sum(lucidy[-roundnumber+5-j-5:-roundnumber+5-j+5])/10
 
+scaley = 5*lucidy
+
 #making a groove
 #gloc = 70
 #lucidy[gloc:gloc+2] = lucidy[gloc:gloc+2]*0
 #%% checking the 2D profile outline shape
-plt.figure(2)
-plt.plot(xx,lucidy)
+#plt.figure(2)
+#plt.plot(xx,lucidy)
 
+#export the 2D profile for putting text on a curved path on our tex logo
 maxi = np.argmax(lucidy)
 
 profiley = np.zeros(2*maxi)
-profiley[:maxi] = -lucidy[maxi:0:-1]
-profiley[maxi:2*maxi] = lucidy[0:maxi]
+profiley[:maxi] = -scaley[maxi:0:-1]
+profiley[maxi:2*maxi] = scaley[0:maxi]
 profilex = np.zeros(2*maxi)
 profilex[:maxi] = xx[maxi:0:-1]
 profilex[maxi:2*maxi] =xx[:maxi]
 
-plt.figure(4)
-plt.plot(profilex,profiley)
-databf=zip(1.18*profilex,5*profiley)
+#plt.figure(4)
+#plt.plot(profilex,profiley)
+databf=zip(profilex,profiley)
 dataaf=np.array(databf)
 
 np.savetxt(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\otherstuff\data_text_files\logoprofile.txt',dataaf, fmt='%.4f', delimiter=' ', newline='\n', header='', footer='', comments='# ')
 
-
-gx = np.outer(5*lucidy, np.sin(v))
+gx = np.outer(scaley, np.sin(v))
 print np.shape(gx), 'gx'
-gz = np.outer(5*lucidy, np.cos(v))
+gz = np.outer(scaley, np.cos(v))
 gy = np.outer(xx,np.ones(np.size(v)))
 gxl = gx.flatten()
 gzl = gz.flatten()
@@ -142,7 +148,7 @@ ax3.plot_surface(gxlr, gylr, gzlr, rstride=1, cstride=1,
                        #alpha=0.1)
 # wireframe
 ax3.plot_wireframe(gxlr, gylr,gzlr, rstride=2, cstride=2,
-                         color='w',
+                         color='w',linewidth=1,
                          alpha=1)
 
 
@@ -155,16 +161,39 @@ ax3.plot(*linedata[0],color='red',linewidth=2)#,s=markersizearray*0.05)#, color=
 ax3.plot(*linedata[1],color='yellow',linewidth=2)#,s=markersizearray*0.05)#, color='b')
 ax3.plot(*linedata[2],color='magenta',linewidth=2)#,s=markersizearray*0.05)#, color='b')
 
-ax3.set_axis_off()  #-> this can turn off the background curtain
 
-ax3.tick_params(labelbottom='off', labeltop='off', labelleft='off', labelright='off')
-ax3.set_xlim(0,10)
-ax3.set_ylim(-7,7)
+#put xyz coord
+#annotate_program.draw_xyz_coordinate_unit_vectors(ax3)
+
+
+#ax3.set_axis_off()  #-> this can turn off the background curtain
+
+#ax3.tick_params(labelbottom='off', labeltop='off', labelleft='off', labelright='off')
+
+#set equal aspect ratio
+Xt = gxlr
+Yt = gylr
+Zt = gzlr
+X = np.array(Xt)
+Y = np.array(Yt)
+Z = np.array(Zt)
+
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
+
+
+mid_x = (X.max()+X.min()) * 0.5
+mid_y = (Y.max()+Y.min()) * 0.5
+mid_z = (Z.max()+Z.min()) * 0.5
+ax3.set_xlim3d(mid_x - max_range, mid_x + max_range)
+ax3.set_ylim3d(mid_y - max_range, mid_y + max_range)
+ax3.set_zlim3d(mid_z - max_range, mid_z + max_range)
+#ax3.set_xlim(-5,5)
+#ax3.set_ylim(2,13)
 #ax3.set_zlim(-13,-3)
 ax3.w_xaxis.set_pane_color((0.0, 0.0, 1.0, 0.0))
 
 
 #print(fig3.get_size_inches())
-
+plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\otherstuff\logos_creation\bg_gyro1.png',dpi=600)
 plt.show()
-#plt.savefig(r'C:\Documents and Settings\user\My Documents\tony\2014\Xelatexfolder\gyrologo6.pgf')
+

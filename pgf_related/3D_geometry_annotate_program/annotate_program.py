@@ -8,6 +8,36 @@ import numpy as np
 from mpl_toolkits.mplot3d import proj3d
 
 
+def draw_xyz_coordinate_unit_vectors(ax4):
+    '''Put xyz coordinate unit vectors with fancy arrows.'''
+    xyz_arrow_data = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
+
+    x_arrow = Arrow3D([0,xyz_arrow_data[0,0]],
+                       [0,0],
+                       [0,0], 
+                        mutation_scale=8,
+                      #lw=4,
+                      arrowstyle="-|>", color="b")
+    ax4.add_artist(x_arrow)
+    ax4.text(*xyz_arrow_data[0,:],s="x",fontsize=12)
+
+    y_arrow = Arrow3D([0,0],
+                       [0,xyz_arrow_data[1,1]],
+                       [0,0], 
+                        mutation_scale=8,
+                      #lw=4,
+                      arrowstyle="-|>", color="b")
+    ax4.add_artist(y_arrow)
+    ax4.text(*xyz_arrow_data[1,:],s="y",fontsize=12)
+    z_arrow = Arrow3D([0,0],
+                       [0,0],
+                       [0,xyz_arrow_data[2,2]], 
+                        mutation_scale=8,
+                      #lw=4,
+                      arrowstyle="-|>", color="b")
+    ax4.add_artist(z_arrow)
+    ax4.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
+
 def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax):
     '''Put a perpendicular symbol to a 90 degree corner. The rot_vec
     is a vector parralel to first_axis crosses seconde_axis. First and seconde_axis are the two sides of the perp sign. Location_point is where the sign goes. ax is the figure axes.'''
