@@ -1,0 +1,722 @@
+
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\begin{document}
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} \PYZhy{}*\PYZhy{} coding: utf\PYZhy{}8 \PYZhy{}*\PYZhy{}}
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{Plot and animation context setup/initialization for Rigid Body class}
+
+\PY{l+s+sd}{Created on Tue Nov 11 16:05:05 2014}
+
+\PY{l+s+sd}{@author: whymranderson.blogspot.tw}
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+\PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{RB animation and draw functions called}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+
+\PY{k+kn}{from} \PY{n+nn}{matplotlib.patches} \PY{k+kn}{import} \PY{n}{FancyArrowPatch}
+\PY{k+kn}{from} \PY{n+nn}{mpl\PYZus{}toolkits.mplot3d} \PY{k+kn}{import} \PY{n}{proj3d}  \PY{c}{\PYZsh{}\PYZlt{}\PYZhy{} uncomment this, you need this}
+
+\PY{k}{class} \PY{n+nc}{Arrow3D}\PY{p}{(}\PY{n}{FancyArrowPatch}\PY{p}{)}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{xs}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{zs}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{n}{FancyArrowPatch}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}verts3d} \PY{o}{=} \PY{n}{xs}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{zs}
+
+    \PY{k}{def} \PY{n+nf}{draw}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{renderer}\PY{p}{)}\PY{p}{:}
+        \PY{n}{xs3d}\PY{p}{,} \PY{n}{ys3d}\PY{p}{,} \PY{n}{zs3d} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}verts3d}
+        \PY{n}{xs}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{zs} \PY{o}{=} \PY{n}{proj3d}\PY{o}{.}\PY{n}{proj\PYZus{}transform}\PY{p}{(}\PY{n}{xs3d}\PY{p}{,} \PY{n}{ys3d}\PY{p}{,} \PY{n}{zs3d}\PY{p}{,} \PY{n}{renderer}\PY{o}{.}\PY{n}{M}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{set\PYZus{}positions}\PY{p}{(}\PY{p}{(}\PY{n}{xs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{ys}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{xs}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{ys}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{n}{FancyArrowPatch}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{renderer}\PY{p}{)}
+
+\PY{n}{polynum} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}   \PY{c}{\PYZsh{} indexing vertices of a closed rectangle}
+
+\PY{k}{def} \PY{n+nf}{CK}\PY{p}{(}\PY{n}{rotvec}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Cayley\PYZhy{}Klein parameters. Important: the built rotation matrix is with its couterclockwise active sense.}
+\PY{l+s+sd}{    This is basically the Rodriguez rotation formula in a matric form.}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{amp} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{rotvec}\PY{p}{,}\PY{n}{rotvec}\PY{p}{)}\PY{p}{)}
+    \PY{k}{if} \PY{n}{amp} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+        \PY{n}{ret} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+    \PY{k}{else}\PY{p}{:}
+        \PY{n}{axis} \PY{o}{=} \PY{n}{rotvec}\PY{o}{/}\PY{n}{amp}
+        \PY{n}{phi} \PY{o}{=} \PY{n}{amp} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{)}
+        \PY{n}{a} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{phi}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{b}\PY{p}{,}\PY{n}{c}\PY{p}{,}\PY{n}{d} \PY{o}{=} \PY{n}{axis}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{phi}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{ret} \PY{o}{=}  \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{a}\PY{o}{*}\PY{n}{a}\PY{o}{+}\PY{n}{b}\PY{o}{*}\PY{n}{b}\PY{o}{\PYZhy{}}\PY{n}{c}\PY{o}{*}\PY{n}{c}\PY{o}{\PYZhy{}}\PY{n}{d}\PY{o}{*}\PY{n}{d}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{b}\PY{o}{*}\PY{n}{c}\PY{o}{\PYZhy{}}\PY{n}{a}\PY{o}{*}\PY{n}{d}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{b}\PY{o}{*}\PY{n}{d}\PY{o}{+}\PY{n}{a}\PY{o}{*}\PY{n}{c}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+                     \PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{b}\PY{o}{*}\PY{n}{c}\PY{o}{+}\PY{n}{a}\PY{o}{*}\PY{n}{d}\PY{p}{)}\PY{p}{,} \PY{n}{a}\PY{o}{*}\PY{n}{a}\PY{o}{+}\PY{n}{c}\PY{o}{*}\PY{n}{c}\PY{o}{\PYZhy{}}\PY{n}{b}\PY{o}{*}\PY{n}{b}\PY{o}{\PYZhy{}}\PY{n}{d}\PY{o}{*}\PY{n}{d}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{c}\PY{o}{*}\PY{n}{d}\PY{o}{\PYZhy{}}\PY{n}{a}\PY{o}{*}\PY{n}{b}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+                     \PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{b}\PY{o}{*}\PY{n}{d}\PY{o}{\PYZhy{}}\PY{n}{a}\PY{o}{*}\PY{n}{c}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{c}\PY{o}{*}\PY{n}{d}\PY{o}{+}\PY{n}{a}\PY{o}{*}\PY{n}{b}\PY{p}{)}\PY{p}{,} \PY{n}{a}\PY{o}{*}\PY{n}{a}\PY{o}{+}\PY{n}{d}\PY{o}{*}\PY{n}{d}\PY{o}{\PYZhy{}}\PY{n}{b}\PY{o}{*}\PY{n}{b}\PY{o}{\PYZhy{}}\PY{n}{c}\PY{o}{*}\PY{n}{c}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+    \PY{k}{return} \PY{n}{ret}
+
+\PY{k}{def} \PY{n+nf}{get111norm}\PY{p}{(}\PY{n}{xyzaxes}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Return array of body (1,1,1) unit vector as a function of time N in size (N,3)}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}    
+    \PY{n}{vec} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{xyzaxes}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{n}{vecnorm} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{vec}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{vec}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{vec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}    
+    \PY{k}{return} \PY{n}{vecnorm}
+
+\PY{k}{def} \PY{n+nf}{CalDiffInDeg}\PY{p}{(}\PY{n}{cordvec}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Calculate and return angle difference between A and B method\PYZsq{}s 111 unit vectors\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{DCM111norm} \PY{o}{=} \PY{n}{get111norm}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+    \PY{n}{Has111norm} \PY{o}{=} \PY{n}{get111norm}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{)}
+    \PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{DCM111norm}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{Has111norm}\PY{p}{)}\PY{p}{)}
+    \PY{n}{diffindeg} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{degrees}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{arccos}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{DCM111norm}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{n}{Has111norm}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{DCM111norm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\PY{c}{\PYZsh{}    print(np.shape(diffindeg))}
+    \PY{k}{return} \PY{n}{diffindeg}
+
+\PY{k}{def} \PY{n+nf}{CalDiffInDegBC}\PY{p}{(}\PY{n}{cordvec}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Calculate and return angle difference between B and C method\PYZsq{}s 111 unit vectors\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{dDCM111norm} \PY{o}{=} \PY{n}{get111norm}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{:}\PY{l+m+mi}{13}\PY{p}{]}\PY{p}{)}
+    \PY{n}{Has111norm} \PY{o}{=} \PY{n}{get111norm}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{)}
+    \PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{dDCM111norm}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{Has111norm}\PY{p}{)}\PY{p}{)}
+    \PY{n}{BCdiffindeg} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{degrees}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{arccos}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{dDCM111norm}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{n}{Has111norm}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{dDCM111norm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+    \PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{BCdiffindeg}\PY{p}{)}\PY{p}{)}
+    \PY{k}{return} \PY{n}{BCdiffindeg}
+
+\PY{k}{def} \PY{n+nf}{getPlotAnimationLines}\PY{p}{(}\PY{n}{RBO}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} no use. \PYZsq{}\PYZsq{}\PYZsq{}Construct and return the line animation data sequence in a rigid body object for 3D animation\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMxAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMyAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMzAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{)}    
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge3} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge4} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge5} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge6} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMxAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMyAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMzAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{lineLData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}bnormData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMxAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMyAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{11}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMzAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+
+
+\PY{n}{sphere\PYZus{}color} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{lightgray}\PY{l+s}{\PYZsq{}}\PY{c}{\PYZsh{}\PYZsq{}\PYZsh{}FFDDDD\PYZsq{}}
+\PY{n}{sphere\PYZus{}alpha} \PY{o}{=} \PY{l+m+mf}{0.1}
+\PY{n}{frame\PYZus{}color} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{darkgray}\PY{l+s}{\PYZsq{}}
+\PY{n}{frame\PYZus{}alpha} \PY{o}{=} \PY{l+m+mf}{0.4}
+\PY{n}{frame\PYZus{}width} \PY{o}{=} \PY{l+m+mi}{1}
+\PY{n}{sphere\PYZus{}grid} \PY{o}{=} \PY{l+m+mi}{25}
+\PY{n}{wirestride} \PY{o}{=} \PY{l+m+mi}{4} \PY{c}{\PYZsh{} this affects the drawing speed, if less than 4}
+
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}lucid\PYZus{}sphere}\PY{p}{(}\PY{n}{axes}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}plot the lucid sphere\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{u} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n}{sphere\PYZus{}grid}\PY{p}{)}
+    \PY{n}{v} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{sphere\PYZus{}grid}\PY{p}{)}
+    \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{u}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+    \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{u}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+    \PY{n}{z} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ones}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{u}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                           \PY{n}{color}\PY{o}{=}\PY{n}{sphere\PYZus{}color}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                           \PY{n}{alpha}\PY{o}{=}\PY{n}{sphere\PYZus{}alpha}\PY{p}{)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                           \PY{n}{color}\PY{o}{=}\PY{n}{sphere\PYZus{}color}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                           \PY{n}{alpha}\PY{o}{=}\PY{n}{sphere\PYZus{}alpha}\PY{p}{)}
+
+    \PY{c}{\PYZsh{} wireframe}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{n}{wirestride}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{n}{wirestride}\PY{p}{,}
+                             \PY{n}{color}\PY{o}{=}\PY{n}{frame\PYZus{}color}\PY{p}{,}
+                             \PY{n}{alpha}\PY{o}{=}\PY{n}{frame\PYZus{}alpha}\PY{p}{)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{n}{wirestride}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{n}{wirestride}\PY{p}{,}
+                             \PY{n}{color}\PY{o}{=}\PY{n}{frame\PYZus{}color}\PY{p}{,}
+                             \PY{n}{alpha}\PY{o}{=}\PY{n}{frame\PYZus{}alpha}\PY{p}{)}
+\PY{c}{\PYZsh{}    \PYZsh{} equator}
+\PY{c}{\PYZsh{}    axes.plot(1.0 * np.cos(u), 1.0 * np.sin(u),}
+\PY{c}{\PYZsh{}                   zs=0, zdir=\PYZsq{}z\PYZsq{}, lw=frame\PYZus{}width,}
+\PY{c}{\PYZsh{}                   color=frame\PYZus{}color)}
+\PY{c}{\PYZsh{}    axes.plot(1.0 * np.cos(u), 1.0 * np.sin(u),}
+\PY{c}{\PYZsh{}                   zs=0, zdir=\PYZsq{}x\PYZsq{}, lw=frame\PYZus{}width,}
+\PY{c}{\PYZsh{}                   color=frame\PYZus{}color)}
+
+
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}support\PYZus{}bar}\PY{p}{(}\PY{n}{axes}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}plot the support bar and disk\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{support\PYZus{}disk\PYZus{}radius} \PY{o}{=} \PY{l+m+mf}{0.2}  
+    \PY{n}{support\PYZus{}bar\PYZus{}length} \PY{o}{=} \PY{l+m+mf}{0.8}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{support\PYZus{}bar\PYZus{}length}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}
+    \PY{n}{ud} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n}{sphere\PYZus{}grid}\PY{p}{)}
+    \PY{n}{vd} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{sphere\PYZus{}grid}\PY{p}{)}
+    \PY{n}{xd} \PY{o}{=} \PY{n}{support\PYZus{}disk\PYZus{}radius}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{ud}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{vd}\PY{p}{)}\PY{p}{)}
+    \PY{n}{yd} \PY{o}{=} \PY{n}{support\PYZus{}disk\PYZus{}radius}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{ud}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{vd}\PY{p}{)}\PY{p}{)}
+    \PY{n}{zd} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{ud}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{vd}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{support\PYZus{}bar\PYZus{}length}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{n}{xd}\PY{p}{,} \PY{n}{yd}\PY{p}{,} \PY{n}{zd}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                           \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                           \PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{xd}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{yd}\PY{p}{,} \PY{n}{zd}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                           \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                           \PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}xy\PYZus{}plane}\PY{p}{(}\PY{n}{axes}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}plot the xy plane\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{u} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n}{sphere\PYZus{}grid}\PY{p}{)}
+    \PY{n}{v} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{sphere\PYZus{}grid}\PY{p}{)}
+    \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{u}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+    \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{outer}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{u}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+    \PY{n}{z} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{u}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                           \PY{n}{color}\PY{o}{=}\PY{n}{sphere\PYZus{}color}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                           \PY{n}{alpha}\PY{o}{=}\PY{n}{sphere\PYZus{}alpha}\PY{p}{)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                           \PY{n}{color}\PY{o}{=}\PY{n}{sphere\PYZus{}color}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}
+                           \PY{n}{alpha}\PY{o}{=}\PY{n}{sphere\PYZus{}alpha}\PY{p}{)}
+
+    \PY{c}{\PYZsh{} wireframe}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                             \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{c}{\PYZsh{}frame\PYZus{}alpha)}
+    \PY{n}{axes}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{p}{,} \PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                             \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{c}{\PYZsh{}frame\PYZus{}alpha)}
+
+\PY{k}{def} \PY{n+nf}{update\PYZus{}line\PYZus{}multiple\PYZus{}segments}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{o}{*}\PY{n}{arg}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}3D Animation function. Take multiple segments line data.\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{arglen} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{arg}\PY{p}{)}
+    \PY{n}{RBO} \PY{o}{=} \PY{n}{arg}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{n}{cubeaf} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{construct\PYZus{}cube\PYZus{}4wires\PYZus{}method}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{display\PYZus{}ABC\PYZus{}cube}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+        \PY{n}{line3DObject} \PY{o}{=} \PY{n}{arg}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+        \PY{k}{for} \PY{n}{linei}\PY{p}{,}\PY{n}{lineid} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{line3DObject}\PY{p}{,}\PY{n}{line3DObject}\PY{p}{)}\PY{p}{:}
+            \PY{n}{linei}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{n}{cubeaf}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{4}\PY{o}{*}\PY{p}{(}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}\PY{l+m+mi}{4}\PY{o}{*}\PY{n}{i}\PY{p}{]}\PY{p}{,}
+                           \PY{n}{cubeaf}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{o}{*}\PY{p}{(}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}\PY{l+m+mi}{4}\PY{o}{*}\PY{n}{i}\PY{p}{]}\PY{p}{)}                 
+            \PY{n}{linei}\PY{o}{.}\PY{n}{set\PYZus{}3d\PYZus{}properties}\PY{p}{(}\PY{n}{cubeaf}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{4}\PY{o}{*}\PY{p}{(}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}\PY{l+m+mi}{4}\PY{o}{*}\PY{n}{i}\PY{p}{]}\PY{p}{)}  
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,}\PY{n}{arglen}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:}
+        \PY{n}{line3DObject} \PY{o}{=} \PY{n}{arg}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+        \PY{n}{line3DData} \PY{o}{=} \PY{n}{arg}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}   
+        \PY{k}{for} \PY{n}{linei}\PY{p}{,}\PY{n}{lineid} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{line3DObject}\PY{p}{,}\PY{n}{line3DObject}\PY{p}{)}\PY{p}{:}
+            \PY{n}{linei}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                           \PY{p}{[}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}\PY{p}{)}                 
+            \PY{n}{linei}\PY{o}{.}\PY{n}{set\PYZus{}3d\PYZus{}properties}\PY{p}{(}\PY{p}{[}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{]}\PY{p}{)}  
+
+\PY{k}{def} \PY{n+nf}{update\PYZus{}line\PYZus{}one\PYZus{}segments}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{o}{*}\PY{n}{arg}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}3D Animation function. Take one segment line data.\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{arglen} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{arg}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{arglen}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:}
+        \PY{n}{line3DObject} \PY{o}{=} \PY{n}{arg}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+        \PY{n}{line3DData} \PY{o}{=} \PY{n}{arg}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}   
+        \PY{k}{for} \PY{n}{linei}\PY{p}{,}\PY{n}{lineid} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{line3DObject}\PY{p}{,}\PY{n}{line3DObject}\PY{p}{)}\PY{p}{:}
+            \PY{n}{linei}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                           \PY{p}{[}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}\PY{p}{)}                 
+            \PY{n}{linei}\PY{o}{.}\PY{n}{set\PYZus{}3d\PYZus{}properties}\PY{p}{(}\PY{p}{[}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{line3DData}\PY{p}{[}\PY{n}{x}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{]}\PY{p}{)} 
+
+\PY{k}{def} \PY{n+nf}{InitFirstAnimationFrame}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{n}{ax}\PY{p}{,}\PY{n}{plt}\PY{p}{)}\PY{p}{:}
+    \PY{c}{\PYZsh{} no use. plot the initial body xyz axes DCM method}
+    \PY{n}{cordvec}\PY{p}{,}\PY{n}{Lzppnorm}\PY{p}{,}\PY{n}{L\PYZus{}plot}\PY{p}{,}\PY{n}{w\PYZus{}lab}\PY{p}{,}\PY{n}{w} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{Lzppnorm}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w}
+    \PY{c}{\PYZsh{}RBO.baxes = [ax.plot(*[ [0+cordvec[0,j,2]/2,(cordvec[0,j,i]+cordvec[0,j,2])/2] for j in range(3) ]) for i in range(3)]}
+    \PY{c}{\PYZsh{}plt.setp(RBO.baxes[2],marker=\PYZsq{}o\PYZsq{}) \PYZsh{}set z axis marker}
+    \PY{c}{\PYZsh{} unpacking list to tuple and list comprehension, see below}
+    \PY{c}{\PYZsh{} baxes[1]=ax.plot([0,cordvec[0,0,0]],[0,cordvec[0,1,0]],[0,cordvec[0,2,0]]), plot x axis line}
+
+    \PY{c}{\PYZsh{} plot the initial body xyz axes from Hasbun\PYZsq{}s euler angle method}
+    \PY{c}{\PYZsh{}RBO.baxes\PYZus{}hasbun = [ax.plot(*[ [0+cordvec[0,j,9]/2,(cordvec[0,j,i]+cordvec[0,j,9])/2] for j in range(3) ]) for i in range(7,10)]}
+    \PY{c}{\PYZsh{}plt.setp(RBO.baxes\PYZus{}hasbun,linestyle=\PYZsq{}:\PYZsq{}) \PYZsh{}set z axis marker}
+
+    \PY{c}{\PYZsh{} Color of the rectangle}
+    \PY{c}{\PYZsh{}\PYZsh{}}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib.cm} \PY{k+kn}{as} \PY{n+nn}{mplcm}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib.colors} \PY{k+kn}{as} \PY{n+nn}{colors}
+    \PY{n}{cm} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{get\PYZus{}cmap}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Oranges}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{cNorm}  \PY{o}{=} \PY{n}{colors}\PY{o}{.}\PY{n}{Normalize}\PY{p}{(}\PY{n}{vmin}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+    \PY{n}{scalarMap} \PY{o}{=} \PY{n}{mplcm}\PY{o}{.}\PY{n}{ScalarMappable}\PY{p}{(}\PY{n}{norm}\PY{o}{=}\PY{n}{cNorm}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cm}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{n}{scalarMap}\PY{o}{.}\PY{n}{to\PYZus{}rgba}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+    \PY{c}{\PYZsh{}\PYZsh{}}
+    \PY{c}{\PYZsh{}}
+
+    \PY{c}{\PYZsh{} plot the initial square box}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    RBO.polylines = [ ax.plot(*[ [cordvec[0,j,polynum[i]],}
+\PY{l+s+sd}{                                  cordvec[0,j,polynum[i+1]]] for j in range(3) ]}
+\PY{l+s+sd}{                            ) for i in range(4) ]}
+\PY{l+s+sd}{    plt.setp(RBO.polylines,lw=5)}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{c}{\PYZsh{}change previous w(t\PYZus{}i\PYZhy{}1) for w(t i\PYZhy{}1) comparison}
+    \PY{n}{linetrace}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{DCM with \PYZdl{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{omega(t\PYZus{}i)\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c}{\PYZsh{}lineLtrance=ax.plot(L\PYZus{}plot[:,0],L\PYZus{}plot[:,1],L\PYZus{}plot[:,2],\PYZsq{}k.\PYZsq{},markersize=2)}
+    \PY{c}{\PYZsh{}HasbunLtrance=ax.plot(Lzppnorm[:,0],Lzppnorm[:,1],Lzppnorm[:,2],\PYZsq{}k\PYZhy{}\PYZsq{},}
+    \PY{c}{\PYZsh{}                 markersize=2,label=\PYZsq{}\PYZdl{}\PYZbs{}omega(t\PYZus{}\PYZob{}i+1\PYZcb{})\PYZdl{} and Hasbun\PYZbs{}\PYZsq{}s result\PYZsq{})}
+\PY{c}{\PYZsh{}    ax.legend()}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    RBO.lineL=ax.plot([0,L\PYZus{}plot[0,0]],}
+\PY{l+s+sd}{                  [0,L\PYZus{}plot[0,1]],}
+\PY{l+s+sd}{                  [0,L\PYZus{}plot[0,2]],\PYZsq{}k\PYZhy{}\PYZsq{})}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{c}{\PYZsh{}HasbunL=ax.plot([0,L\PYZus{}plot[0,0]],}
+    \PY{c}{\PYZsh{}               [0,L\PYZus{}plot[0,1]],}
+    \PY{c}{\PYZsh{}               [0,L\PYZus{}plot[0,2]],\PYZsq{}k\PYZhy{}\PYZsq{})}
+
+    \PY{c}{\PYZsh{} plot angular velocity vector normalized to w(t0)\PYZhy{}\PYZhy{}}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm} \PY{o}{=} \PY{n}{w\PYZus{}lab}\PY{o}{/}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
+    \PY{c}{\PYZsh{}print(w[0,2],np.linalg.norm(w\PYZus{}lab[0,:]))}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}    }
+\PY{l+s+sd}{    RBO.lineW=ax.plot([0,RBO.w\PYZus{}lab\PYZus{}norm[0,0]],}
+\PY{l+s+sd}{                  [0,RBO.w\PYZus{}lab\PYZus{}norm[0,1]],}
+\PY{l+s+sd}{                  [0,RBO.w\PYZus{}lab\PYZus{}norm[0,2]],\PYZsq{}g\PYZhy{}\PYZsq{})}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{c}{\PYZsh{} \PYZhy{}\PYZhy{}\PYZhy{}\PYZhy{}}
+
+\PY{k}{def} \PY{n+nf}{Animation\PYZus{}Setup}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{n}{ax}\PY{p}{,}\PY{n}{plt}\PY{p}{,}\PY{n}{istep}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}DrawOption[\PYZsq{}name of observable\PYZsq{}]=True attributes will be read and corresponding}
+\PY{l+s+sd}{    vectors or trails of the observable will be collected. The animation sequence}
+\PY{l+s+sd}{    data are also contructed here.\PYZsq{}\PYZsq{}\PYZsq{}}
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{xy\PYZus{}plane}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{plot\PYZus{}xy\PYZus{}plane}\PY{p}{(}\PY{n}{ax}\PY{p}{)}
+        
+    \PY{c}{\PYZsh{} plot the initial body xyz axes DCM method}
+    \PY{n}{cordvec} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}axes}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes} \PY{o}{=}\PY{p}{[}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{p}{[} \PY{p}{[}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{4}\PY{o}{+}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)} \PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]} \PY{o}{+} \PY{p}{[}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{p}{[} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)} \PY{p}{]}\PY{p}{)}\PY{p}{]}
+        \PY{c}{\PYZsh{} explaination for the above command: unpacking list to tuple and list comprehension, see next line}
+        \PY{c}{\PYZsh{} baxes[1]=ax.plot([0,cordvec[0,0,0]],[0,cordvec[0,1,0]],[0,cordvec[0,2,0]]), plot x axis line}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{setp}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{baxes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)} \PY{c}{\PYZsh{}set z axis marker}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMxAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{4}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMyAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{4}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMzAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{baxes}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMxAxis}\PY{p}{,}
+                                       \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMyAxis}\PY{p}{,}
+                                        \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{AlineCMzAxis}\PY{p}{)}
+
+
+    \PY{c}{\PYZsh{} plot the initial body xyz axes from Hasbun\PYZsq{}s euler angle method}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}axes}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}hasbun} \PY{o}{=} \PY{p}{[}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{p}{[} \PY{p}{[}\PY{l+m+mi}{0}\PY{o}{+}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{n}{i}\PY{p}{]}\PY{o}{+}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{7}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{]} \PY{c}{\PYZsh{} see above example for understanding}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{setp}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}hasbun}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{linestyle}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMxAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMyAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMzAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}hasbun}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMxAxis}\PY{p}{,}
+            \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}hasbun}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMyAxis}\PY{p}{,}
+            \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}hasbun}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{BlineCMzAxis}\PY{p}{)}
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{C\PYZus{}axes}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}C} \PY{o}{=}\PY{p}{[}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{p}{[} \PY{p}{[}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)} \PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]} \PY{o}{+} \PY{p}{[}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{p}{[} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{cordvec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{]} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)} \PY{p}{]}\PY{p}{)}\PY{p}{]}
+\PY{c}{\PYZsh{}        RBO.baxes\PYZus{}C= [ax.plot(*[ [0+cordvec[0,j,12]/2,(cordvec[0,j,i]+cordvec[0,j,9])/2] for j in range(3) ]) for i in range(10,13)]}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{setp}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}C}\PY{p}{,}\PY{n}{linestyle}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMxAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMyAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{11}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMzAxis} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}C}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMxAxis}\PY{p}{,}
+            \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}C}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMyAxis}\PY{p}{,}
+            \PY{n}{RBO}\PY{o}{.}\PY{n}{baxes\PYZus{}C}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{ClineCMzAxis}\PY{p}{)}
+
+    \PY{c}{\PYZsh{} Color of the rectangle}
+    \PY{c}{\PYZsh{}\PYZsh{}}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib.cm} \PY{k+kn}{as} \PY{n+nn}{mplcm}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib.colors} \PY{k+kn}{as} \PY{n+nn}{colors}
+    \PY{n}{cm} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{get\PYZus{}cmap}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Oranges}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{cNorm}  \PY{o}{=} \PY{n}{colors}\PY{o}{.}\PY{n}{Normalize}\PY{p}{(}\PY{n}{vmin}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{vmax}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+    \PY{n}{scalarMap} \PY{o}{=} \PY{n}{mplcm}\PY{o}{.}\PY{n}{ScalarMappable}\PY{p}{(}\PY{n}{norm}\PY{o}{=}\PY{n}{cNorm}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{cm}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{n}{scalarMap}\PY{o}{.}\PY{n}{to\PYZus{}rgba}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+    \PY{c}{\PYZsh{}\PYZsh{}}
+    \PY{c}{\PYZsh{}}
+
+    \PY{c}{\PYZsh{} plot the initial square box}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}square}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{polylines} \PY{o}{=} \PY{p}{[} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{p}{[} \PY{p}{[}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{n}{polynum}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                                      \PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{n}{j}\PY{p}{,}\PY{n}{polynum}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{]} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)} \PY{p}{]}
+                                      \PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)} \PY{p}{]}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{setp}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{polylines}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge3} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge4} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge5} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge6} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg}\PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{polylines}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge3}\PY{p}{,}
+                                        \PY{n}{RBO}\PY{o}{.}\PY{n}{polylines}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge4}\PY{p}{,}
+                                        \PY{n}{RBO}\PY{o}{.}\PY{n}{polylines}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge5}\PY{p}{,}
+                                        \PY{n}{RBO}\PY{o}{.}\PY{n}{polylines}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{SquareEdge6}\PY{p}{)}
+
+    \PY{c}{\PYZsh{} plot the initial cube}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}cube}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{display\PYZus{}ABC\PYZus{}cube} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{n}{testout} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{construct\PYZus{}cube\PYZus{}4wires\PYZus{}method}\PY{p}{(}\PY{n}{istep}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{display\PYZus{}ABC\PYZus{}cube}\PY{p}{)}
+        \PY{n}{cubeinst1} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{cubeinst2} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{:}\PY{l+m+mi}{8}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{gray}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{cubeinst3} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{:}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{lightgray}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{cubeinst4} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{:}\PY{l+m+mi}{16}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{darkgray}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{c}{\PYZsh{}RBPlot.plot\PYZus{}body\PYZus{}space\PYZus{}cone(ax4,b.cordvec[iframe,:,2],b.w\PYZus{}lab\PYZus{}norm[iframe,:],b.L\PYZus{}plot[iframe])}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{cube\PYZus{}4\PYZus{}lines} \PY{o}{=} \PY{p}{(}\PY{n}{cubeinst1}\PY{p}{,}\PY{n}{cubeinst2}\PY{p}{,}\PY{n}{cubeinst3}\PY{p}{,}\PY{n}{cubeinst4}\PY{p}{)}    
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}cube}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{display\PYZus{}ABC\PYZus{}cube} \PY{o}{=} \PY{l+m+mi}{7}
+    
+        \PY{n}{testout} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{construct\PYZus{}cube\PYZus{}4wires\PYZus{}method}\PY{p}{(}\PY{n}{istep}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{display\PYZus{}ABC\PYZus{}cube}\PY{p}{)}
+        \PY{n}{cubeinst1} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{cubeinst2} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{:}\PY{l+m+mi}{8}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{gray}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{cubeinst3} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{:}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{lightgray}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{cubeinst4} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{o}{*}\PY{n}{testout}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{:}\PY{l+m+mi}{16}\PY{p}{]}\PY{p}{,}\PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{darkgray}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{c}{\PYZsh{}RBPlot.plot\PYZus{}body\PYZus{}space\PYZus{}cone(ax4,b.cordvec[iframe,:,2],b.w\PYZus{}lab\PYZus{}norm[iframe,:],b.L\PYZus{}plot[iframe])}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{cube\PYZus{}4\PYZus{}lines} \PY{o}{=} \PY{p}{(}\PY{n}{cubeinst1}\PY{p}{,}\PY{n}{cubeinst2}\PY{p}{,}\PY{n}{cubeinst3}\PY{p}{,}\PY{n}{cubeinst4}\PY{p}{)}    
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{C\PYZus{}cube}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{display\PYZus{}ABC\PYZus{}cube} \PY{o}{=} \PY{l+m+mi}{10}
+
+
+
+
+    \PY{c}{\PYZsh{}change previous w(t\PYZus{}i\PYZhy{}1) for w(t i\PYZhy{}1) comparison}
+    \PY{n}{trailsamplerate} \PY{o}{=} \PY{l+m+mi}{1}    
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}z\PYZus{}axis\PYZus{}trace}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{zlineAtrace}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+        \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{A method with \PYZdl{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{omega(t\PYZus{}\PYZob{}i+1\PYZcb{})\PYZdl{} and B method}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}Angular Momentum Trace}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{lineLtrance}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}
+                            \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}z\PYZus{}axis\PYZus{}trace}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{Lzppnorm} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{Lzppnorm}
+        \PY{n}{HasbunZtrace}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{Lzppnorm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{Lzppnorm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{Lzppnorm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{omega(t\PYZus{}\PYZob{}i+1\PYZcb{})\PYZdl{} and Hasbun}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s}{s result}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}Angular Momentum Trace}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{L\PYZus{}Bnorm} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}Bnorm}
+        \PY{n}{L\PYZus{}Btraceline}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}Bnorm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}Bnorm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}Bnorm}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{k.}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{C\PYZus{}z\PYZus{}axis\PYZus{}trace}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{zlineCtrace}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{,}
+                            \PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{n}{trailsamplerate}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                          \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{C method}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                     
+\PY{c}{\PYZsh{}    ax.legend()}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}Angular Momentum Vec}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{L\PYZus{}plot} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}
+        
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{lineL}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{L\PYZus{}plot}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{L\PYZus{}plot}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{L\PYZus{}plot}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\PY{c}{\PYZsh{}        print RBO.lineL}
+\PY{c}{\PYZsh{}        fanArrow3d=Arrow3D([0,L\PYZus{}plot[istep,0]],}
+\PY{c}{\PYZsh{}                          [0,L\PYZus{}plot[istep,1]],}
+\PY{c}{\PYZsh{}                          [0,L\PYZus{}plot[istep,2]],arrowstyle=\PYZdq{}\PYZhy{}|\PYZgt{}\PYZdq{}, color=\PYZdq{}b\PYZdq{})}
+\PY{c}{\PYZsh{}        \PYZsh{}RBO.lineL=ax.add\PYZus{}artist(fanArrow3d)}
+\PY{c}{\PYZsh{}        print fanArrow3d}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{lineLAData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{lineL}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{lineLAData}\PY{p}{)}        
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}Angular Momentum Vec}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}    
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{lineL}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{L\PYZus{}Bnorm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{L\PYZus{}Bnorm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{L\PYZus{}Bnorm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{r:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{c}{\PYZsh{}shape of L\PYZus{}Bnorm is (N,3), one vector less than N+1}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{lineLBData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}Bnorm}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{lineL}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{lineLBData}\PY{p}{)}
+
+    \PY{c}{\PYZsh{}RBO.HasbunL=ax.plot([0,L\PYZus{}plot[0,0]],}
+    \PY{c}{\PYZsh{}               [0,L\PYZus{}plot[0,1]],}
+     \PY{c}{\PYZsh{}              [0,L\PYZus{}plot[0,2]],\PYZsq{}k\PYZhy{}\PYZsq{})}
+
+    \PY{c}{\PYZsh{} plot angular velocity vector normalized to w(t0)\PYZhy{}\PYZhy{}}
+    \PY{c}{\PYZsh{}print(w[0,2],np.linalg.norm(w\PYZus{}lab[0,:]))}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}Angular Velocity Vec}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab}\PY{o}{/}\PY{n}{RBO}\PY{o}{.}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{lineW}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}bnormData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{lineW}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}bnormData}\PY{p}{)}
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}Angular Velocity Vector (normalized to t0 value)}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm\PYZus{}hasbun} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}hasbun}\PY{o}{/}\PY{n}{RBO}\PY{o}{.}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
+        \PY{n}{lineW}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm\PYZus{}hasbun}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm\PYZus{}hasbun}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm\PYZus{}hasbun}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{m\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{w\PYZus{}lab\PYZus{}hasbun\PYZus{}normData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{w\PYZus{}lab\PYZus{}norm\PYZus{}hasbun}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{lineW}\PY{p}{,}\PY{n}{w\PYZus{}lab\PYZus{}hasbun\PYZus{}normData}\PY{p}{)}
+
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}contact\PYZus{}force\PYZus{}vector}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{draw\PYZus{}contact\PYZus{}force\PYZus{}vectors\PYZus{}diagram}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{n}{istep}\PY{p}{,}\PY{n}{ax}\PY{p}{)}
+        
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Torque\PYZus{}vector\PYZus{}A\PYZus{}method}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{Tau\PYZus{}lab\PYZus{}A\PYZus{}method}
+        \PY{n}{start\PYZus{}of\PYZus{}vec} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}
+        \PY{n}{end\PYZus{}of\PYZus{}vec} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{Tau\PYZus{}lab\PYZus{}A\PYZus{}method} \PY{o}{+} \PY{n}{RBO}\PY{o}{.}\PY{n}{L\PYZus{}plot}
+        \PY{n}{lineTau}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{start\PYZus{}of\PYZus{}vec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{end\PYZus{}of\PYZus{}vec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                        \PY{p}{[}\PY{n}{start\PYZus{}of\PYZus{}vec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{end\PYZus{}of\PYZus{}vec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                        \PY{p}{[}\PY{n}{start\PYZus{}of\PYZus{}vec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{end\PYZus{}of\PYZus{}vec}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{m\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{tau\PYZus{}lab\PYZus{}A\PYZus{}method} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{start\PYZus{}of\PYZus{}vec}\PY{p}{,}\PY{n}{end\PYZus{}of\PYZus{}vec}\PY{p}{]}\PY{p}{)}
+        \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{lineTau}\PY{p}{,}\PY{n}{tau\PYZus{}lab\PYZus{}A\PYZus{}method}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{mplot3d\PYZus{}animation}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{n}{iframe}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Setup 3D window and prepare animation sequence from the solved}
+\PY{l+s+sd}{    rigid body object. Plot a lucid sphere and static istep\PYZhy{}th keyframe as the }
+\PY{l+s+sd}{    initial frame as it is needed for mplot3D manager. Then call mplot3d }
+\PY{l+s+sd}{    funcanimation manager.\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+    \PY{n}{fig2} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+    \PY{k+kn}{import} \PY{n+nn}{mpl\PYZus{}toolkits.mplot3d} \PY{k+kn}{as} \PY{n+nn}{p3}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{p3}\PY{o}{.}\PY{n}{Axes3D}\PY{p}{(}\PY{n}{fig2}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}axis\PYZus{}off}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{n}{elev}\PY{o}{=}\PY{n}{RBO}\PY{o}{.}\PY{n}{view\PYZus{}overlook\PYZus{}angle}\PY{p}{,} \PY{n}{azim}\PY{o}{=}\PY{n}{RBO}\PY{o}{.}\PY{n}{view\PYZus{}azim\PYZus{}angle}\PY{p}{)}
+    \PY{n}{factor} \PY{o}{=} \PY{l+m+mf}{0.6}    
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlim3d}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{*}\PY{n}{factor}\PY{p}{,} \PY{l+m+mi}{1}\PY{o}{*}\PY{n}{factor}\PY{p}{]}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylim3d}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{*}\PY{n}{factor}\PY{p}{,} \PY{l+m+mi}{1}\PY{o}{*}\PY{n}{factor}\PY{p}{]}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}zlim3d}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{*}\PY{n}{factor}\PY{p}{,} \PY{l+m+mi}{1}\PY{o}{*}\PY{n}{factor}\PY{p}{]}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}yticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}zticks}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{)}
+    \PY{c}{\PYZsh{}ax.autoscale\PYZus{}view(tight=True, scalex=True, scaley=True, scalez=True)}
+    \PY{n}{plot\PYZus{}lucid\PYZus{}sphere}\PY{p}{(}\PY{n}{ax}\PY{p}{)}
+    \PY{n}{plot\PYZus{}support\PYZus{}bar}\PY{p}{(}\PY{n}{ax}\PY{p}{)}
+
+    \PY{c}{\PYZsh{}AnimationFrameSetUp(RBO,ax,plt,iframe)}
+    \PY{n}{Animation\PYZus{}Setup}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{n}{ax}\PY{p}{,}\PY{n}{plt}\PY{p}{,}\PY{n}{iframe}\PY{p}{)}
+    
+    \PY{c}{\PYZsh{}uncomment here to save z motion for drawing gyro logo}
+    \PY{c}{\PYZsh{}np.save(\PYZsq{}outfile\PYZsq{}, b.cordvec[::20,:20,2])}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib.animation} \PY{k+kn}{as} \PY{n+nn}{animation}
+    
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{A\PYZus{}cube}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{|} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{B\PYZus{}cube}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{|} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{C\PYZus{}cube}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{False}\PY{p}{:}
+        \PY{n}{line\PYZus{}ani} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig2}\PY{p}{,} \PY{n}{update\PYZus{}line\PYZus{}one\PYZus{}segments}\PY{p}{,} 
+                                  \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{framerate}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                                  \PY{n}{fargs}\PY{o}{=}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{p}{)}\PY{o}{+} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg}\PY{p}{,}
+                                         \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{blit}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{repeat}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+    \PY{k}{else}\PY{p}{:}
+        \PY{n}{line\PYZus{}ani} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig2}\PY{p}{,} \PY{n}{update\PYZus{}line\PYZus{}multiple\PYZus{}segments}\PY{p}{,} 
+                                  \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{N}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{framerate}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                                  \PY{n}{fargs}\PY{o}{=}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{p}{)}\PY{o}{+} \PY{n}{RBO}\PY{o}{.}\PY{n}{cube\PYZus{}4\PYZus{}lines} \PY{o}{+} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg}\PY{p}{,}
+                                         \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{,} \PY{n}{blit}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{repeat}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+    \PY{k}{return} \PY{n}{line\PYZus{}ani}
+
+
+    
+\PY{k}{def} \PY{n+nf}{draw\PYZus{}contact\PYZus{}force\PYZus{}vectors\PYZus{}diagram}\PY{p}{(}\PY{n}{RBO}\PY{p}{,}\PY{n}{istep}\PY{p}{,}\PY{n}{ax}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}animate the vectors of forces acting on gyro\PYZsq{}s center of mass\PYZsq{}\PYZsq{}\PYZsq{}}   
+    \PY{n}{max\PYZus{}amplitude} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{amax}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+    \PY{c}{\PYZsh{}exclude first and last value of F\PYZus{}cp due to boundary condition on derivative}
+    \PY{k}{print} \PY{n}{max\PYZus{}amplitude}
+    \PY{c}{\PYZsh{}plot contact force        }
+    \PY{n}{line\PYZus{}F\PYZus{}cp}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                      \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                      \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{F\PYZus{}cp\PYZus{}normData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{line\PYZus{}F\PYZus{}cp}\PY{p}{,}\PY{n}{F\PYZus{}cp\PYZus{}normData}\PY{p}{)}
+    \PY{c}{\PYZsh{}plot contact force vertical dash line     }
+    \PY{n}{line\PYZus{}F\PYZus{}cp\PYZus{}v}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                        \PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                        \PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{0}                \PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{F\PYZus{}cp\PYZus{}v\PYZus{}normData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{,}
+                                 \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[} \PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{p}{]}\PY{p}{)}
+                                 \PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{line\PYZus{}F\PYZus{}cp\PYZus{}v}\PY{p}{,}\PY{n}{F\PYZus{}cp\PYZus{}v\PYZus{}normData}\PY{p}{)}
+    
+    \PY{c}{\PYZsh{}plot contact force horizontal dash line}
+    \PY{n}{line\PYZus{}F\PYZus{}cp\PYZus{}h}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                        \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                        \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{b:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{o}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{F\PYZus{}cp\PYZus{}h\PYZus{}normData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+                                \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[} \PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{p}{]}\PY{p}{)}
+                                 \PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{line\PYZus{}F\PYZus{}cp\PYZus{}h}\PY{p}{,}\PY{n}{F\PYZus{}cp\PYZus{}h\PYZus{}normData}\PY{p}{)}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    \PYZsh{}plot contact force along radial direction        }
+\PY{l+s+sd}{    line\PYZus{}F\PYZus{}contact\PYZus{}radial=ax.plot([0,RBO.F\PYZus{}contact\PYZus{}radial[istep,0]],}
+\PY{l+s+sd}{                      [0,RBO.F\PYZus{}contact\PYZus{}radial[istep,1]],}
+\PY{l+s+sd}{                      [0,RBO.F\PYZus{}contact\PYZus{}radial[istep,2]],\PYZsq{}r\PYZhy{}\PYZsq{},marker=\PYZsq{}x\PYZsq{})}
+\PY{l+s+sd}{    F\PYZus{}contact\PYZus{}radial\PYZus{}normData = np.hstack([np.zeros((len(RBO.F\PYZus{}contact\PYZus{}radial[:,0]),3)),RBO.F\PYZus{}contact\PYZus{}radial/max\PYZus{}amplitude])}
+\PY{l+s+sd}{    RBO.linesarg = RBO.linesarg + (line\PYZus{}F\PYZus{}contact\PYZus{}radial,F\PYZus{}contact\PYZus{}radial\PYZus{}normData)}
+\PY{l+s+sd}{            }
+\PY{l+s+sd}{    \PYZsh{}plot contact force tangent to CM trajectory        }
+\PY{l+s+sd}{    line\PYZus{}F\PYZus{}contact\PYZus{}tan=ax.plot([0,RBO.F\PYZus{}contact\PYZus{}tan[istep,0]],}
+\PY{l+s+sd}{                      [0,RBO.F\PYZus{}contact\PYZus{}tan[istep,1]],}
+\PY{l+s+sd}{                      [0,RBO.F\PYZus{}contact\PYZus{}tan[istep,2]],\PYZsq{}r\PYZhy{}\PYZsq{},marker=\PYZsq{}d\PYZsq{})}
+\PY{l+s+sd}{    F\PYZus{}contact\PYZus{}tan\PYZus{}normData = np.hstack([np.zeros((len(RBO.F\PYZus{}contact\PYZus{}tan[:,0]),3)),RBO.F\PYZus{}contact\PYZus{}tan/max\PYZus{}amplitude])}
+\PY{l+s+sd}{    RBO.linesarg = RBO.linesarg + (line\PYZus{}F\PYZus{}contact\PYZus{}tan,F\PYZus{}contact\PYZus{}tan\PYZus{}normData)}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}     
+    \PY{c}{\PYZsh{}plot gravity force vector}
+    \PY{n}{line\PYZus{}F}\PY{o}{=}\PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{F}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                   \PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{F}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                   \PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{n}{istep}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{F}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{F\PYZus{}normData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{[}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{RBO}\PY{o}{.}\PY{n}{F}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{o}{+}\PY{n}{RBO}\PY{o}{.}\PY{n}{cordvec}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{0.09}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{=} \PY{n}{RBO}\PY{o}{.}\PY{n}{linesarg} \PY{o}{+} \PY{p}{(}\PY{n}{line\PYZus{}F}\PY{p}{,}\PY{n}{F\PYZus{}normData}\PY{p}{)}
+    
+    \PY{c}{\PYZsh{}plot contact force trail\PYZsq{}s projection onto horizontal plane}
+    \PY{k}{if} \PY{n}{RBO}\PY{o}{.}\PY{n}{DrawOption}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CF\PYZus{}trail}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{n}{line\PYZus{}F\PYZus{}cp\PYZus{}h\PYZus{}trail} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{,}
+                                    \PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{,}
+                                    \PY{n}{RBO}\PY{o}{.}\PY{n}{F\PYZus{}cp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{/}\PY{n}{max\PYZus{}amplitude}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{r:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c}{\PYZsh{}plot average force}
+    \PY{c}{\PYZsh{}line\PYZus{}average\PYZus{}force = ax.plot()}
+
+\PY{k}{def} \PY{n+nf}{rotmat\PYZus{}from\PYZus{}A\PYZus{}2\PYZus{}B}\PY{p}{(}\PY{n}{A}\PY{p}{,}\PY{n}{B}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Return the active r.h. rotation matrix constructed from rotation vector :math:`C=A\PYZbs{}\PYZbs{}times B`. This matrix rotates any object in the world frame using rotation vector C.\PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{rotunit} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{cross}\PY{p}{(}\PY{n}{A}\PY{p}{,} \PY{n}{B}\PY{p}{)}
+    \PY{n}{rotunit} \PY{o}{=} \PY{n}{rotunit}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{rotunit}\PY{p}{)}
+    \PY{n}{thetarot} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arccos}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{A}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{A}\PY{p}{)}\PY{p}{,}\PY{n}{B}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{B}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+    \PY{n}{rotmat} \PY{o}{=} \PY{n}{CK}\PY{p}{(}\PY{n}{thetarot}\PY{o}{*}\PY{n}{rotunit}\PY{p}{)}
+    \PY{k}{return} \PY{n}{rotmat}
+
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}body\PYZus{}space\PYZus{}cone}\PY{p}{(}\PY{n}{ax}\PY{p}{,}\PY{n}{zn}\PY{p}{,}\PY{n}{omegavec}\PY{p}{,}\PY{n}{Lvec}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    Plot the body and space cone. A static one\PYZhy{}time plot.}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{c}{\PYZsh{} Set up the grid in polar coordinate theta, radius}
+    \PY{n}{cone\PYZus{}theta} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,}\PY{l+m+mi}{90}\PY{p}{)}
+    \PY{n}{bcone\PYZus{}radius} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{zn}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}
+    \PY{n}{np}\PY{o}{.}\PY{n}{square}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{zn}\PY{p}{,}\PY{n}{omegavec}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{omegavec}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+    \PY{p}{)}
+    \PY{n}{bcone\PYZus{}len} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{zn}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{zn}\PY{p}{,}\PY{n}{omegavec}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{omegavec}\PY{p}{)}\PY{p}{)}
+    
+    \PY{n}{cone\PYZus{}r} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{bcone\PYZus{}radius}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}
+    \PY{n}{c1T}\PY{p}{,} \PY{n}{c1R} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{meshgrid}\PY{p}{(}\PY{n}{cone\PYZus{}theta}\PY{p}{,} \PY{n}{cone\PYZus{}r}\PY{p}{)}
+    \PY{c}{\PYZsh{} Then calculate X, Y, and Z}
+    \PY{n}{c1X} \PY{o}{=} \PY{n}{c1R} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{c1T}\PY{p}{)}
+    \PY{n}{c1Y} \PY{o}{=} \PY{n}{c1R} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{c1T}\PY{p}{)}
+    \PY{n}{c1Z} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{c1X}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{c1Y}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{n}{bcone\PYZus{}radius}\PY{o}{*}\PY{n}{bcone\PYZus{}len}
+    \PY{n}{cmm}\PY{p}{,}\PY{n}{cnn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{c1Z}\PY{p}{)}
+    \PY{n}{mat\PYZus{}zn2omega} \PY{o}{=} \PY{n}{rotmat\PYZus{}from\PYZus{}A\PYZus{}2\PYZus{}B}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{n}{zn}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{cmm}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{cnn}\PY{p}{)}\PY{p}{:}
+            \PY{n}{c1X}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c1Y}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c1Z}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{mat\PYZus{}zn2omega}\PY{p}{,}
+            \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{c1X}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c1Y}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c1Z}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+    \PY{c}{\PYZsh{} space cone}
+    \PY{n}{scone\PYZus{}radius} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{omegavec}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}
+    \PY{n}{np}\PY{o}{.}\PY{n}{square}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{Lvec}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{Lvec}\PY{p}{)}\PY{p}{,}\PY{n}{omegavec}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{omegavec}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+    \PY{p}{)}
+    \PY{n}{scone\PYZus{}len} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{omegavec}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{Lvec}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{Lvec}\PY{p}{)}\PY{p}{,}\PY{n}{omegavec}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{omegavec}\PY{p}{)}\PY{p}{)}
+    
+    \PY{n}{cone\PYZus{}r\PYZus{}s} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{scone\PYZus{}radius}\PY{p}{,}\PY{l+m+mi}{15}\PY{p}{)}
+    \PY{n}{c2T}\PY{p}{,} \PY{n}{c2R} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{meshgrid}\PY{p}{(}\PY{n}{cone\PYZus{}theta}\PY{p}{,} \PY{n}{cone\PYZus{}r\PYZus{}s}\PY{p}{)}
+    \PY{c}{\PYZsh{} Then calculate X, Y, and Z}
+    \PY{n}{c2X} \PY{o}{=} \PY{n}{c2R} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{c2T}\PY{p}{)}
+    \PY{n}{c2Y} \PY{o}{=} \PY{n}{c2R} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{c2T}\PY{p}{)}
+    \PY{n}{c2Z} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{c2X}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{c2Y}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{n}{scone\PYZus{}radius}\PY{o}{*}\PY{n}{scone\PYZus{}len}
+    \PY{n}{cmm2}\PY{p}{,}\PY{n}{cnn2} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{c2Z}\PY{p}{)}
+    \PY{n}{mat\PYZus{}omega2L} \PY{o}{=} \PY{n}{rotmat\PYZus{}from\PYZus{}A\PYZus{}2\PYZus{}B}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{n}{Lvec}\PY{p}{)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{cmm2}\PY{p}{)}\PY{p}{:}
+        \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{cnn2}\PY{p}{)}\PY{p}{:}
+            \PY{n}{c2X}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c2Y}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c2Z}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{mat\PYZus{}omega2L}\PY{p}{,}
+            \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{c2X}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c2Y}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{n}{c2Z}\PY{p}{[}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+            
+    
+    \PY{c}{\PYZsh{} Set the Z values outside your range to NaNs so they aren\PYZsq{}t plotted}
+\PY{c}{\PYZsh{}    c1Z[c1Z \PYZlt{} 0] = np.nan}
+\PY{c}{\PYZsh{}    c1Z[c1Z \PYZgt{} 2.1] = np.nan}
+    \PY{n}{ax}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{n}{c1X}\PY{p}{,} \PY{n}{c1Y}\PY{p}{,} \PY{n}{c1Z}\PY{p}{,}\PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.16}\PY{p}{,}\PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}    
+    \PY{n}{ax}\PY{o}{.}\PY{n}{plot\PYZus{}surface}\PY{p}{(}\PY{n}{c2X}\PY{p}{,} \PY{n}{c2Y}\PY{p}{,} \PY{n}{c2Z}\PY{p}{,}\PY{n}{rstride}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{cstride}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.16}\PY{p}{,}\PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}    
+\PY{c}{\PYZsh{}    ax.set\PYZus{}zlim(0,1)}
+    
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}cube\PYZus{}4wires}\PY{p}{(}\PY{n}{ax}\PY{p}{,}\PY{n}{cube4wires}\PY{p}{,}\PY{n}{xframe}\PY{p}{,}\PY{n}{zn}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    No use. Plot the cube from cube vertex data using 4 separate lines each with equal number of segments.}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    \PY{n}{cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z} \PY{o}{=} \PY{l+m+mf}{0.18}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{rotmat\PYZus{}from\PYZus{}A\PYZus{}2\PYZus{}B}\PY{p}{(}\PY{n}{cube4wires}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{n}{zn}\PY{p}{)}\PY{p}{,}
+                                         \PY{n}{np}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{n}{cube4wires}\PY{p}{)}\PY{p}{)}\PY{c}{\PYZsh{}np.transpose(cube4wires)}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{)}\PY{p}{:}
+            \PY{n}{cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{zn}\PY{o}{*}\PY{l+m+mf}{0.18}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}
+    
+ \PY{c}{\PYZsh{}   cubeinst1 = ax.plot(*cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z[:,0:4],c=\PYZsq{}b\PYZsq{},linewidth=.5)}
+ \PY{c}{\PYZsh{}   cubeinst2 = ax.plot(*cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z[:,4:8],c=\PYZsq{}b\PYZsq{},linewidth=.5)}
+  \PY{c}{\PYZsh{}  cubeinst3 = ax.plot(*cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z[:,8:12],c=\PYZsq{}b\PYZsq{},linewidth=.5)}
+   \PY{c}{\PYZsh{} cubeinst4 = ax.plot(*cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z[:,12:16],c=\PYZsq{}b\PYZsq{},linewidth=.5)}
+    \PY{k}{return} \PY{n}{cube\PYZus{}111node\PYZus{}aligning\PYZus{}to\PYZus{}z}
+\end{Verbatim}
+
+\end{document}
