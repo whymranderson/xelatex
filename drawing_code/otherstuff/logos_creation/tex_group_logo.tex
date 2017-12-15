@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+
+\begin{document}
+
+\begin{tikzpicture}
+%[decoration={text along path,text={Powered by MacKichan Scientific Workplace, LYX, LaTeX}}]
+%\draw [decorate] (0,0) -- (3,1) arc (0:180:1.5 and 1);
+\node[inner sep=0pt,anchor = west] (png) at (23mm, 0mm)
+    {\includegraphics{bg_gyro1.png}};
+
+\path [postaction={decoration={text along path, text={|\large|Powered by MacKichan Scientific Workplace, LYX and LaTeX. Established 2013.},text align=fit to path}, decorate}] plot file {../data_text_files/logoprofile.txt};
+%\path [postaction={decoration={text along path, text={|\large|Powered by MacKichan Scientific Workplace, LYX and LaTeX. Established 2013.},text align={align=left}}, decorate}] plot file {../data_text_files/logoprofile.txt};
+
+
+\end{tikzpicture}
+
+
+\end{document}

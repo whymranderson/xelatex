@@ -1,0 +1,29 @@
+\documentclass[12pt]{exam}
+\usepackage{fontspec} % 允許設定字體
+\usepackage{amssymb}
+\usepackage{xeCJK} % 分開設置中英文字型
+\setCJKmainfont{微軟正黑體} % 設定中文字型
+\usepackage{pstricks}
+\footer{}{Page \thepage\ of \numpages}{}
+
+\begin{document}
+\begin{pspicture}[showgrid=false](0.2in,1in)
+\rput[bl](-1in,0.6in){
+\begin{tabular}{lllcc}
+ 1.答案卡?是$\square$否$\blacksquare$ & 
+ 2.答案卷?是$\square$否$\blacksquare$ & 
+ 3.試題共$\numpages$張 &
+ 4.適用班級:\phantom{三個字} &
+ 5.命題教師:\phantom{三個字} \\
+ \multicolumn{5}{c}{\LARGE 104學年度第學年度第1104學年度第1學期第2次期中考高三數學科題目卷} \\
+ 班級: & 座號: & 姓名:  &\multicolumn{2}{c}{請以黑筆書寫} \\
+\hline
+\end{tabular}
+}
+\end{pspicture}
+
+1. 下列何者的圖形為一圓?
+\clearpage
+
+2. 下列何者的圖形為一圓?
+\end{document}
