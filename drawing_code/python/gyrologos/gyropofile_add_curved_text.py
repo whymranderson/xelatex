@@ -39,7 +39,7 @@ def rotation_matrix(axis,theta):
 
 
 #fig3 = plt.figure(3)
-fig3 = plt.figure(3,figsize=(4,4))#,dpi=200)
+fig3 = plt.figure(3,figsize=(4.055118,4.055118))#,dpi=200)
 ax3 = p3.Axes3D(fig3)
 ax3.view_init(elev=1, azim=0)
 #ax3.set_axis_bgcolor('black')
@@ -122,11 +122,15 @@ profiledata3D_lowerhalf = np.array(zip(xx[nop:0:-1],-scaley[nop:0:-1],np.zeros(l
 profiledata3D = np.concatenate((profiledata3D_upperhalf, profiledata3D_lowerhalf), axis=0)
 #print np.shape(profiledata3D)
 #print profiledata3D
+test = annotate_program.offset_curve(profiledata3D,0.3)
+print np.shape(test)
 profiledata2D = profiledata3D[:,:2]
+profiledata2D_shift = test[:,:2]
 
 begin_of_text_on_path_i = nop-70
 text_length = 200
-rolled = np.roll(profiledata2D, begin_of_text_on_path_i , axis=0)
+#rolled = np.roll(profiledata2D, begin_of_text_on_path_i , axis=0)
+rolled = np.roll(profiledata2D_shift, begin_of_text_on_path_i , axis=0)
 #print np.shape(profiledata2D)
 
 maxi = np.argmax(lucidy)
@@ -140,6 +144,8 @@ profilex[maxi:2*maxi] =xx[:maxi]
 
 #plt.figure(4)
 #plt.plot(profilex,profiley)
+#plt.plot(profiledata2D[:,0],profiledata2D[:,1])
+#plt.plot(profiledata2D_shift[:,0],profiledata2D_shift[:,1])
 #plt.plot(rolled[:text_length,0],rolled[:text_length,1])
 databf=zip(rolled[:text_length,0],rolled[:text_length,1])
 dataaf=np.array(databf)
@@ -178,7 +184,7 @@ ax3.plot(*linedata[2],color='magenta',linewidth=2)#,s=markersizearray*0.05)#, co
 
 
 #put xyz coord
-#annotate_program.draw_xyz_coordinate_unit_vectors(ax3)
+annotate_program.draw_xyz_coordinate_unit_vectors(ax3)
 
 
 ax3.set_axis_off()  #-> this can turn off the background curtain
@@ -193,15 +199,15 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 3.7
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() /3.7 #/3.7
+extrapadding = 0.2
 
-
-mid_x = (X.max()+X.min()) * 0.5 
-mid_y = (Y.max()+Y.min()) * 0.5 +0.2
-mid_z = (Z.max()+Z.min()) * 0.5 +0.2
-ax3.set_xlim3d(mid_x - max_range, mid_x + max_range)
-ax3.set_ylim3d(mid_y - max_range, mid_y + max_range)
-ax3.set_zlim3d(mid_z - max_range, mid_z + max_range)
+mid_x = (X.max()+X.min()) * 0.5 +extrapadding
+mid_y = (Y.max()+Y.min()) * 0.5 +extrapadding#+0.2
+mid_z = (Z.max()+Z.min()) * 0.5 +extrapadding#+0.2
+ax3.set_xlim3d(mid_x - max_range, mid_x + max_range )
+ax3.set_ylim3d(mid_y - max_range, mid_y + max_range )
+ax3.set_zlim3d(mid_z - max_range, mid_z + max_range )
 ##ax3.set_xbound(mid_x - max_range, mid_x + max_range)
 ##ax3.set_ybound(mid_y - max_range, mid_y + max_range)
 ##ax3.set_zbound(mid_z - max_range, mid_z + max_range)
@@ -209,10 +215,10 @@ ax3.set_zlim3d(mid_z - max_range, mid_z + max_range)
 #ax3.set_xlim(-5,5)
 #ax3.set_ylim(2,13)
 #ax3.set_zlim(-13,-3)
-ax3.w_xaxis.set_pane_color((0.0, 0.0, 1.0, 0.0))
+#ax3.w_xaxis.set_pane_color((0.0, 0.0, 1.0, 0.0))
 
 
 #print(fig3.get_size_inches())
-plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\otherstuff\logos_creation\bg_gyro1.png',dpi=600)
+#plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\otherstuff\logos_creation\bg_gyro1.png',dpi=600)
 plt.show()
 

@@ -8,6 +8,34 @@ import numpy as np
 from mpl_toolkits.mplot3d import proj3d
 
 
+def offset_curve(curve, length):
+    '''Translate the position of all points on a 3D curve
+    according to each point's normal direction described below, by specified
+    length in mm. This operation is in a 2D plane. The offset normal direction is
+    right hand rule's palm direction, with four fingers point
+    along the curve starting from the first point, and thumb
+    pointing perpendicular to the 2D plane, normally opposing the viewing direction.'''
+
+    newcurve = 0*curve
+    for ind,x in enumerate(curve[:,0]):
+        if ind == 0:
+            tangent = curve[1,:]-curve[0,:]
+            tangentn = tangent/np.linalg.norm(tangent)
+            nvec = np.dot(rotation_matrix([0,0,1],np.pi/2),tangentn)
+            newcurve[0,:] = curve[0,:]+length*nvec
+            #print newcurve
+        else:
+            tangent = curve[ind,:]-curve[ind-1,:]
+            tangentn = tangent/np.linalg.norm(tangent)
+            nvec = np.dot(rotation_matrix([0,0,1],np.pi/2),tangentn)
+            newcurve[ind,:]=curve[ind,:]+length*nvec
+            #print curve[ind,:]+length*nvec
+            #print newcurve[ind,:]
+    return newcurve
+            
+        
+
+
 def draw_xyz_coordinate_unit_vectors(ax4):
     '''Put xyz coordinate unit vectors with fancy arrows.'''
     xyz_arrow_data = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
