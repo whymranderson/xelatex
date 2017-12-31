@@ -1,1 +1,0 @@
-del *.aux *.gz *.bak *.un~ *.tex~ *.sty~

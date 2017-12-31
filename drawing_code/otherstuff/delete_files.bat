@@ -1,1 +1,0 @@
-del *.aux *.log *.gz *.bak
