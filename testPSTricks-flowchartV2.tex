@@ -1,0 +1,146 @@
+\documentclass[12pt,twoside]{article}
+\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}                    % tt
+\setCJKmainfont{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
+\usepackage{pgf}
+\usepackage{pstricks,pst-node}
+\begin{document}
+\begin{pspicture}(0,12cm)(6.9in,9.3in)
+\psgrid
+\footnotesize
+
+\rput(3.2in,9in){
+\rnode{A}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{2.5cm}{\centering 貼體角速度尤拉方程﹝非線性﹞}}}}
+
+\rput(3.2in,8in){
+%\nput{-90}{A}{
+\rnode{B}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{3cm}{\centering 尤拉角尤拉方程﹝高度非線性﹞}}}}
+
+\ncline[nodesep=3pt]{->}{A}{B} \trput{代入尤拉角}
+
+\rput(2.9,20.5){
+\rnode{C}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{5cm}{
+\centering 給定初始貼角以及條件，直接ODE數值解貼角尤拉方程，得下一貼角後，update姿態DCM矩陣，得到新的姿態，再重複以上步驟。}}}}
+
+\rput[Bl](0.2,22){\psscalebox{3}{A}}
+
+\nccurve[angleA=180,angleB=90]{->}{A}{C} \nbput[npos=0.5]{ODE solver}
+
+\rput(3.2in,7in){
+\rnode{D}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{2.6cm}{\centering 尤拉角數值解 $\phi，\theta，\psi，\dot{\phi}，\dot{\theta}，\dot{\psi}$}}}}
+
+\rput[Bl](6.1,21.1){\psscalebox{3}{B}}
+
+\rput(3.2in,6.3in){
+\rnode{D1}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{3cm}{\centering 得到貼體xyz軸向量在空間中隨時間的變化}}}}
+
+\ncline[nodesep=3pt]{->}{B}{D} \trput{\parbox{1.2cm}{ODE solver}}
+\ncline[nodesep=3pt]{->}{D}{D1}
+\ncbox[boxsize=2.1cm,nodesep=5pt,linearc=0.2,linestyle=dashed]{B}{D1}
+
+\rput(14,21.5){
+\rnode{E}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{5cm}{\centering  轉成貼體角速度$\omega_{b}(t)$}}}}
+
+\rput[Bl](11.1,22.1){\psscalebox{3}{C}}
+
+%\ncline[nodesep=3pt]{->}{D}{E} \naput{\parbox{2cm}{轉body frame計算貼體角速度解}}
+\nccurve[angleA=0,angleB=180]{->}{D}{E}
+
+\rput(14,19.3){
+\rnode{E1}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.1]{
+\parbox{6cm}{\centering 這裡的貼角雖然有尤拉角尤拉公式高度非線性的數值誤差，但因角速度$\omega_{b}(t_{i})$並沒有用上上一個姿態來計算，因此此角速度算是尤拉方程的正確解，假設ODE solver夠精確的話，因此$\omega_{b}$誤差並不不會累積。}}}}
+
+\rput(14,17.2){
+\rnode{E2}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{6cm}{\centering  以$\omega_{b}$做姿態矩陣DCM積分。}}}}
+
+\rput(14,15.8){
+\rnode{E3}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{6cm}{\centering  得到貼體xyz軸向量在空間中隨時間的變化}}}}
+
+\ncline[nodesep=3pt]{->}{E}{E1}
+\ncline[nodesep=3pt]{->}{E1}{E2}
+\ncline[nodesep=3pt]{->}{E2}{E3}
+
+\ncbox[boxsize=3.2cm,nodesep=5pt,linearc=0.2,linestyle=dashed]{E}{E3} 
+
+\rput(12,13.5){
+\rnode{F}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.1]{
+\parbox{5cm}{\centering 比較兩種方法給出的貼體(1,1,1)向量之間的角度差異，並討論在四種經典陀螺章進動中此差異有何變化。}}}}
+
+\ncdiagg[nodesep=3pt,angleA=-90,angleB=45]{->}{E3}{F}
+\ncdiagg[nodesep=3pt,angleA=-90,angleB=135]{->}{D1}{F}
+
+\rput(2.9,18){
+\rnode{C1}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{5cm}{
+\centering 這裡的姿態誤差會因為用上上一個姿態位置來計算下一個貼角而造成$\omega_{b}$誤差的累積。}}}}
+
+\rput(2.9,16){
+\rnode{C2}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+\parbox{5cm}{
+\centering 得到貼體xyz軸向量在空間中隨時間的變化}}}}
+
+\ncline[nodesep=3pt]{->}{C}{C1}
+\ncline[nodesep=3pt]{->}{C1}{C2}
+\ncbox[boxsize=2.85cm,nodesep=5pt,linearc=0.2,linestyle=dashed]{C}{C2}
+
+\rput(5,13.5){
+\rnode{G}{
+\psframebox[fillcolor=white,fillstyle=solid,framearc=0.1]{
+\parbox{5cm}{\centering 比較兩種方法給出的貼體(1,1,1)向量之間的角度差異，並討論在四種經典陀螺章進動中此差異有何變化。}}}}
+
+\ncdiagg[nodesep=3pt,angleA=-90,angleB=45]{->}{D1}{G} %\trput{+} \tlput{-}
+\ncdiagg[nodesep=3pt,angleA=-90,angleB=135]{->}{C2}{G} 
+
+%\rput(14,4){
+%\rnode{I}{
+%\psframebox[fillcolor=white,fillstyle=solid]{
+%test}}}
+
+
+\rput[Br](16,12){Diagram created with PSTricks}
+
+%\uput{5}[-90](14,4){
+%\rnode{N}{
+%\psframebox[fillcolor=white,fillstyle=solid,framearc=0.3]{
+%適合中長時間姿態粗估}}}
+
+%\rput(8.5,6){
+%\rnode{J}{
+%\psframebox[fillcolor=white,fillstyle=solid]{
+%\scalebox{0.95}[0.95]{
+%\input{compareDCMEulerAngle.pgf}
+%}
+%}}}
+%
+%\ncline[nodesep=3pt]{->}{G}{J} \nbput[npos=0.5]{blue}
+%\ncline[nodesep=3pt]{->}{F}{J} \nbput[npos=0.5]{red}
+
+
+\end{pspicture}
+
+
+\end{document}

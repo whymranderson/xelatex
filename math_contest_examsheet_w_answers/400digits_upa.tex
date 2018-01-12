@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[inner=0.5 in,outer=0.5in]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}
+\setCJKmainfont{微軟正黑體}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{color}
+
+\begin{document}
+
+
+%TCIMACRO{%
+%\TeXButton{watermark}{\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{60}{{\color{cyan} whymranderson 製版}}}
+%}}}}%
+%BeginExpansion
+\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{45}{{\color{cyan} whymranderson 製版}}}
+}}%
+%EndExpansion
+
+\begin{description}
+\item[2007 國際小學數學自然%
+科學奧林匹亞ISMO-數學基%
+本題第一題] The 400-digit number
+12345678901234567890\ldots 890 is given.
+
+\item Step 1: Cross out all the digits in odd-numbered places.
+
+\item Step 2: Cross out all the digits in odd-numbered places of the
+remaining digits.
+
+\item \ldots 
+
+\item Continue until no digits remain. What is the last digit to be crossed
+out?
+\end{description}
+
+\vspace{2cm}
+Solution:
+\vspace{1cm}
+
+\input{../otherstuff/400digits_graph.tex}\bigskip 
+
+After the first operation, 200 digits will remain and the positions of these
+remains are $2\times N$, where $N$ is an interger. After the second
+operation, 100 digits will remain and the position of them are $2^{2}\times
+N $. 50 digits remain after the third operation and positions of them are $%
+2^{3}\times N$. So in the last operation only 1 digit remains and the
+position of this digit is $2^{8}\times N$. But the position has to been
+smaller than 400, so $N$ can only be 1. So the position is $2^{8}\times
+1=256 $. Because the digit sequence has a repetive period of 10 digits. 256
+position is $25\times 10+6$, so it is the 6th position in the sequence,
+which has a number 6. QED
+
+\end{document}

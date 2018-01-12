@@ -1,0 +1,107 @@
+
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}
+\setCJKmainfont{微軟正黑體}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{color}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+%TCIMACRO{%
+%\TeXButton{donimal graph1}{\begin{center}
+%\includegraphics[scale=0.3]{donimal_graph1.png}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[scale=0.3]{donimal_graph1.png}
+\end{center}%
+%EndExpansion
+
+\begin{description}
+\item[2006小學數學競賽選拔%
+賽初賽第二試應用題%
+第八題] 一套多明諾骨%
+牌共有以上的28張。小%
+華依照相鄰兩張牌相%
+連接處的點數必須相%
+同的規定，將這套多%
+明諾骨牌排成如下圖%
+的一長列，直到28張牌%
+排完為止。請問排完%
+後，最右邊小方格內%
+的點數是幾點？
+\end{description}
+
+%TCIMACRO{%
+%\TeXButton{donimal graph 2}{\begin{center}
+%\includegraphics[scale=0.3]{donimal_graph2.png}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[scale=0.3]{donimal_graph2.png}
+\end{center}%
+%EndExpansion
+
+\bigskip 
+
+28張多明諾骨牌中的每%
+一個數字0\symbol{126}8都有八%
+個，也就是偶數個。%
+在相接骨牌時，由於%
+數字必須相同，代表%
+相接的數字必須成雙%
+成對，也就是有相接%
+的數字出現的次數都%
+是偶數。但是第一個%
+字母沒有與其他相接%
+，由於28張骨牌最後都%
+排完，代表每個數字%
+都要出現偶數次在骨%
+牌中，但是第一個五%
+沒有與其他相接，是%
+奇數，而中間成雙成%
+對的五一定都是偶數%
+個，所以最後一個數%
+字必須是五來達成每%
+個字母都要出現偶數%
+次的要求。
+
+Q.E.D.
+
+\AddToShipoutPictureBG*{% Add picture to current page
+  \AtTextLowerLeft{% Add picture to lower-left corner of paper stock
+  \resizebox{\textwidth}{!}{\rotatebox{60}{{\color{yellow} whymranderson 製版}}}
+    }% http://latex.tug.org/texlive/devsrc/Master/texmf-dist/doc/generic/pstricks/images/tiger.eps
+}
+
+\end{document}

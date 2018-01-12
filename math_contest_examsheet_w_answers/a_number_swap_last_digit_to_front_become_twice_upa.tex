@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}
+\setCJKmainfont{微軟正黑體}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{color}
+
+\begin{document}
+
+
+%TCIMACRO{%
+%\TeXButton{watermark}{\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{60}{{\color{cyan} whymranderson 製版}}}
+%}}}}%
+%BeginExpansion
+\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{60}{{\color{cyan} whymranderson 製版}}}
+}}%
+%EndExpansion
+
+\begin{itemize}
+\item 一個多位數，此多%
+位數的開頭前幾位數%
+可以是零，如$00358$。把%
+最後一位數提到前面%
+就變成原來那位數的%
+兩倍，求最小的此多%
+位數。
+\end{itemize}
+
+\bigskip
+
+\bigskip
+
+設此多位數最後一位%
+數為$b\left( 0<b<9\right) $，其餘位%
+數為$a$，$a$為整數，因%
+此此多位數為$10a+b$%
+\[
+\left( 10a+b\right) \times 2=10^{n}\times b+a 
+\]%
+\[
+\rightarrow 19a=\left( 10^{n}-2\right) b 
+\]%
+\[
+\rightarrow a=\frac{10^{n}-2}{19}\times b 
+\]
+
+接下來我們提供兩個%
+做法，我的方法是用%
+電腦去解，有點作弊%
+。這裡感謝張廷宇醫%
+師提供了一個更正確%
+的作法，可以不需要%
+用到電腦。我們會先%
+解釋張醫師的作法。
+
+\begin{enumerate}
+\item 通常$1$除以質數的結%
+果會是循環小數，而$%
+\frac{1}{19}$也是如此。而我們%
+知道循環小數是可以%
+分數化的。我們要找%
+到符合上面式子的$a$與$b
+$，可以朝$\frac{1}{19}$循環小%
+數分數化的方向去試%
+試看。說不定會找到%
+合適的$a$與$b$。\newline
+我們先算出$\frac{1}{19}=0.\overline{%
+052631578947368421}$，後面$18$位數會%
+無限循環，依照循環%
+小數分數化的公式，%
+我們可以重寫成%
+\[
+\frac{1}{19}=\frac{052631578947368421}{10^{18}-1}=\frac{k}{10^{18}-1}
+\]%
+其中$k=052631578947368421$。朝上面%
+的目標式整理%
+\[
+\frac{10^{18}-1}{19}-1=k-1
+\]%
+\[
+\Rightarrow 10\times \frac{10^{17}-2}{19}=k-1=052631578947368420
+\]%
+\[
+\Rightarrow 1\times \frac{10^{17}-2}{19}=05263157894736842
+\]%
+因此我們就找到符合%
+目標式子的$a$與$b$了。%
+注意我們刻意保留$%
+05263157894736842$的首位數$0$，因為%
+這樣才會有$18$位循環小%
+數，分數化公式才會%
+成立。這樣我們找到$%
+a=05263157894736842$，$b=1$。所以此數%
+字為$052631578947368421$。驗證一下$%
+2\times 052631578947368421=105263157894736842$沒錯！%
+\newline
+那如何證明這是最小%
+滿足條件的數目呢？%
+因為$k$是$\frac{1}{19}$的循環位%
+數，而$\frac{1}{19}$的數值也%
+只有一個，這代表$k$是%
+唯一的循環位數，因%
+此也就會是最小的循%
+環位數。這樣子$\frac{k-1}{10}%
+=05263157894736842$，也就是$a$，就%
+是最小滿足條件式的%
+數值。而$b=1$也是最小，%
+因此$10a+b$，就是最小的%
+滿足條件的數字。
+
+\item (我的作弊方法)由於$%
+0<b<9$，因此$b$的公因數不%
+可能有$19$，所以由於$a$%
+是一整數，代表$\frac{10^{n}-2}{19}$%
+必須是一整數。也就%
+是我們要用方法去找%
+到一個$n$讓$10^{n}-2$有最大質%
+因數$19$，我能想到的方%
+法只能用電腦一個一%
+個去代入$n$然後用電腦%
+求餘數mod找出第一個找%
+到$\frac{10^{n}-2}{19}$餘數為零的$n$%
+。\newline
+電腦程式如下\newline
+\texttt{n = 0\newline
+while (10**n-2) \% 19 != 0:\newline
+\quad n=n+1\newline
+print n}\newline
+找到最小的$n$為$17$，與%
+前面方法相同。因此$a$%
+為$5263157894736842$，$b$為$1$，所以%
+此數為$52631578947368421$。驗算過%
+後發現我們必須在$a$首%
+位加個零，這樣尾數%
+提到前面才會是$%
+2a=105263157894736842$。因此滿足題%
+目最小的此位數為$%
+052631578947368421$。
+\end{enumerate}
+
+\bigskip
+
+Remark: 這裡也提出一個問%
+題，我在算$\frac{1}{19}$的時%
+候遇到一個問題，就%
+是電腦無法顯示足夠%
+的位數，計算機更不%
+用說，因此我是查網%
+路才知道$\frac{1}{19}$的結果%
+與他有幾位旋環小數%
+。這是電腦中很常見%
+的問題。其實電腦應%
+該有指令可以顯示出$64$%
+位元的浮點數$float$，因%
+此我還要去查一下。
+
+\end{document}

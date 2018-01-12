@@ -1,0 +1,785 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Saturday, May 20, 2017 10:54:21}
+%TCIDATA{LastRevised=Saturday, May 20, 2017 11:56:07}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+%TCIMACRO{%
+%\TeXButton{watermark}{\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{45}{{\color{cyan} whymranderson \U{88fd}\U{7248}}}}
+%}}}}%
+%BeginExpansion
+\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{45}{{\color{cyan} whymranderson \U{88fd}\U{7248}}}}
+}}%
+%EndExpansion
+
+\begin{description}
+\item[2007 \U{570b}\U{969b}\U{5c0f}\U{5b78}\U{6578}\U{5b78}\U{81ea}\U{7136}%
+\U{79d1}\U{5b78}\U{5967}\U{6797}\U{5339}\U{4e9e}ISMO-\U{6578}\U{5b78}\U{57fa}%
+\U{672c}\U{984c}\U{7b2c}\U{4e00}\U{984c}] The 400-digit number 
+\[
+12345678901234567890\ldots 890 
+\]
+is given.
+\end{description}
+
+Step 1: Cross out all the digits in odd-numbered places.
+
+Step 2: Cross out all the digits in odd-numbered places of the remaining
+digits.
+
+\ldots
+
+Continue until no digits remain. What is the last digit to be crossed out?
+
+\input{../otherstuff/400digits_graph.tex}\bigskip
+
+After the first operation, 200 digits will remain and the positions of these
+remains are $2\times N$, where $N$ is an interger. After the second
+operation, 100 digits will remain and the position of them are $2^{2}\times
+N $. 50 digits remain after the third operation and positions of them are $%
+2^{3}\times N$. So in the last operation only 1 digit remains and the
+position of this digit is $2^{8}\times N$. But the position has to been
+smaller than 400, so $N$ can only be 1. So the position is $2^{8}\times
+1=256 $. Because the digit sequence has a repetive period of 10 digits. 256
+position is $25\times 10+6$, so it is the 6th position in the sequence,
+which has a number 6. QED
+
+\newpage
+
+\begin{description}
+\item[\U{7db2}\U{8def}\U{984c}\U{76ee}] \U{4e00}\U{500b}\U{591a}\U{4f4d}%
+\U{6578}\U{ff0c}\U{6b64}\U{591a}\U{4f4d}\U{6578}\U{7684}\U{958b}\U{982d}%
+\U{524d}\U{5e7e}\U{4f4d}\U{6578}\U{53ef}\U{4ee5}\U{662f}\U{96f6}\U{ff0c}%
+\U{5982}$00358$\U{3002}\U{628a}\U{6700}\U{5f8c}\U{4e00}\U{4f4d}\U{6578}%
+\U{63d0}\U{5230}\U{524d}\U{9762}\U{5c31}\U{8b8a}\U{6210}\U{539f}\U{4f86}%
+\U{90a3}\U{4f4d}\U{6578}\U{7684}\U{5169}\U{500d}\U{ff0c}\U{6c42}\U{6700}%
+\U{5c0f}\U{7684}\U{6b64}\U{591a}\U{4f4d}\U{6578}\U{3002}
+\end{description}
+
+\bigskip
+
+\bigskip
+
+\U{8a2d}\U{6b64}\U{591a}\U{4f4d}\U{6578}\U{6700}\U{5f8c}\U{4e00}\U{4f4d}%
+\U{6578}\U{70ba}$b\left( 0<b<9\right) $\U{ff0c}\U{5176}\U{9918}\U{4f4d}%
+\U{6578}\U{70ba}$a$\U{ff0c}$a$\U{70ba}\U{6574}\U{6578}\U{ff0c}\U{56e0}%
+\U{6b64}\U{6b64}\U{591a}\U{4f4d}\U{6578}\U{70ba}$10a+b$%
+\[
+\left( 10a+b\right) \times 2=10^{n}\times b+a 
+\]%
+\[
+\rightarrow 19a=\left( 10^{n}-2\right) b 
+\]%
+\[
+\rightarrow a=\frac{10^{n}-2}{19}\times b 
+\]
+
+\U{63a5}\U{4e0b}\U{4f86}\U{6211}\U{5011}\U{63d0}\U{4f9b}\U{5169}\U{500b}%
+\U{505a}\U{6cd5}\U{ff0c}\U{6211}\U{7684}\U{65b9}\U{6cd5}\U{662f}\U{7528}%
+\U{96fb}\U{8166}\U{53bb}\U{89e3}\U{ff0c}\U{6709}\U{9ede}\U{4f5c}\U{5f0a}%
+\U{3002}\U{9019}\U{88e1}\U{611f}\U{8b1d}\U{5f35}\U{5ef7}\U{5b87}\U{91ab}%
+\U{5e2b}\U{63d0}\U{4f9b}\U{4e86}\U{4e00}\U{500b}\U{66f4}\U{6b63}\U{78ba}%
+\U{7684}\U{4f5c}\U{6cd5}\U{ff0c}\U{53ef}\U{4ee5}\U{4e0d}\U{9700}\U{8981}%
+\U{7528}\U{5230}\U{96fb}\U{8166}\U{3002}\U{6211}\U{5011}\U{6703}\U{5148}%
+\U{89e3}\U{91cb}\U{5f35}\U{91ab}\U{5e2b}\U{7684}\U{4f5c}\U{6cd5}\U{3002}
+
+\bigskip
+
+\U{901a}\U{5e38}$1$\U{9664}\U{4ee5}\U{8cea}\U{6578}\U{7684}\U{7d50}\U{679c}%
+\U{6703}\U{662f}\U{5faa}\U{74b0}\U{5c0f}\U{6578}\U{ff0c}\U{800c}$\frac{1}{19}
+$\U{4e5f}\U{662f}\U{5982}\U{6b64}\U{3002}\U{800c}\U{6211}\U{5011}\U{77e5}%
+\U{9053}\U{5faa}\U{74b0}\U{5c0f}\U{6578}\U{662f}\U{53ef}\U{4ee5}\U{5206}%
+\U{6578}\U{5316}\U{7684}\U{3002}\U{6211}\U{5011}\U{8981}\U{627e}\U{5230}%
+\U{7b26}\U{5408}\U{4e0a}\U{9762}\U{5f0f}\U{5b50}\U{7684}$a$\U{8207}$b$%
+\U{ff0c}\U{53ef}\U{4ee5}\U{671d}$\frac{1}{19}$\U{5faa}\U{74b0}\U{5c0f}%
+\U{6578}\U{5206}\U{6578}\U{5316}\U{7684}\U{65b9}\U{5411}\U{53bb}\U{8a66}%
+\U{8a66}\U{770b}\U{3002}\U{8aaa}\U{4e0d}\U{5b9a}\U{6703}\U{627e}\U{5230}%
+\U{5408}\U{9069}\U{7684}$a$\U{8207}$b$\U{3002}
+
+\bigskip
+
+\U{6211}\U{5011}\U{5148}\U{7b97}\U{51fa}$\frac{1}{19}=0.\overline{%
+052631578947368421}$\U{ff0c}\U{5f8c}\U{9762}$18$\U{4f4d}\U{6578}\U{6703}%
+\U{7121}\U{9650}\U{5faa}\U{74b0}\U{ff0c}\U{4f9d}\U{7167}\U{5faa}\U{74b0}%
+\U{5c0f}\U{6578}\U{5206}\U{6578}\U{5316}\U{7684}\U{516c}\U{5f0f}\U{ff0c}%
+\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{91cd}\U{5beb}\U{6210}%
+\[
+\frac{1}{19}=\frac{052631578947368421}{10^{18}-1}=\frac{k}{10^{18}-1} 
+\]%
+\U{5176}\U{4e2d}$k=052631578947368421$\U{3002}\U{671d}\U{4e0a}\U{9762}%
+\U{7684}\U{76ee}\U{6a19}\U{5f0f}\U{6574}\U{7406}%
+\[
+\frac{10^{18}-1}{19}-1=k-1 
+\]%
+\[
+\Rightarrow 10\times \frac{10^{17}-2}{19}=k-1=052631578947368420 
+\]%
+\[
+\Rightarrow 1\times \frac{10^{17}-2}{19}=05263157894736842 
+\]%
+\U{56e0}\U{6b64}\U{6211}\U{5011}\U{5c31}\U{627e}\U{5230}\U{7b26}\U{5408}%
+\U{76ee}\U{6a19}\U{5f0f}\U{5b50}\U{7684}$a$\U{8207}$b$\U{4e86}\U{3002}%
+\U{6ce8}\U{610f}\U{6211}\U{5011}\U{523b}\U{610f}\U{4fdd}\U{7559}$%
+05263157894736842$\U{7684}\U{9996}\U{4f4d}\U{6578}$0$\U{ff0c}\U{56e0}\U{70ba}%
+\U{9019}\U{6a23}\U{624d}\U{6703}\U{6709}$18$\U{4f4d}\U{5faa}\U{74b0}\U{5c0f}%
+\U{6578}\U{ff0c}\U{5206}\U{6578}\U{5316}\U{516c}\U{5f0f}\U{624d}\U{6703}%
+\U{6210}\U{7acb}\U{3002}\U{9019}\U{6a23}\U{6211}\U{5011}\U{627e}\U{5230}$%
+a=05263157894736842$\U{ff0c}$b=1$\U{3002}\U{6240}\U{4ee5}\U{6b64}\U{6578}%
+\U{5b57}\U{70ba}$052631578947368421$\U{3002}\U{9a57}\U{8b49}\U{4e00}\U{4e0b}$%
+2\times 052631578947368421=105263157894736842$\U{6c92}\U{932f}\U{ff01}
+
+\bigskip
+
+\U{90a3}\U{5982}\U{4f55}\U{8b49}\U{660e}\U{9019}\U{662f}\U{6700}\U{5c0f}%
+\U{6eff}\U{8db3}\U{689d}\U{4ef6}\U{7684}\U{6578}\U{76ee}\U{5462}\U{ff1f}%
+\U{56e0}\U{70ba}$k$\U{662f}$\frac{1}{19}$\U{7684}\U{5faa}\U{74b0}\U{4f4d}%
+\U{6578}\U{ff0c}\U{800c}$\frac{1}{19}$\U{7684}\U{6578}\U{503c}\U{4e5f}%
+\U{53ea}\U{6709}\U{4e00}\U{500b}\U{ff0c}\U{9019}\U{4ee3}\U{8868}$k$\U{662f}%
+\U{552f}\U{4e00}\U{7684}\U{5faa}\U{74b0}\U{4f4d}\U{6578}\U{ff0c}\U{56e0}%
+\U{6b64}\U{4e5f}\U{5c31}\U{6703}\U{662f}\U{6700}\U{5c0f}\U{7684}\U{5faa}%
+\U{74b0}\U{4f4d}\U{6578}\U{3002}\U{9019}\U{6a23}\U{5b50}$\frac{k-1}{10}%
+=05263157894736842$\U{ff0c}\U{4e5f}\U{5c31}\U{662f}$a$\U{ff0c}\U{5c31}%
+\U{662f}\U{6700}\U{5c0f}\U{6eff}\U{8db3}\U{689d}\U{4ef6}\U{5f0f}\U{7684}%
+\U{6578}\U{503c}\U{3002}\U{800c}$b=1$\U{4e5f}\U{662f}\U{6700}\U{5c0f}\U{ff0c}%
+\U{56e0}\U{6b64}$10a+b$\U{ff0c}\U{5c31}\U{662f}\U{6700}\U{5c0f}\U{7684}%
+\U{6eff}\U{8db3}\U{689d}\U{4ef6}\U{7684}\U{6578}\U{5b57}\U{3002}
+
+\bigskip
+
+(\U{6211}\U{7684}\U{4f5c}\U{5f0a}\U{65b9}\U{6cd5})\U{7531}\U{65bc}$0<b<9$%
+\U{ff0c}\U{56e0}\U{6b64}$b$\U{7684}\U{516c}\U{56e0}\U{6578}\U{4e0d}\U{53ef}%
+\U{80fd}\U{6709}$19$\U{ff0c}\U{6240}\U{4ee5}\U{7531}\U{65bc}$a$\U{662f}%
+\U{4e00}\U{6574}\U{6578}\U{ff0c}\U{4ee3}\U{8868}$\frac{10^{n}-2}{19}$\U{5fc5}%
+\U{9808}\U{662f}\U{4e00}\U{6574}\U{6578}\U{3002}\U{4e5f}\U{5c31}\U{662f}%
+\U{6211}\U{5011}\U{8981}\U{7528}\U{65b9}\U{6cd5}\U{53bb}\U{627e}\U{5230}%
+\U{4e00}\U{500b}$n$\U{8b93}$10^{n}-2$\U{6709}\U{6700}\U{5927}\U{8cea}\U{56e0}%
+\U{6578}$19$\U{ff0c}\U{6211}\U{80fd}\U{60f3}\U{5230}\U{7684}\U{65b9}\U{6cd5}%
+\U{53ea}\U{80fd}\U{7528}\U{96fb}\U{8166}\U{4e00}\U{500b}\U{4e00}\U{500b}%
+\U{53bb}\U{4ee3}\U{5165}$n$\U{7136}\U{5f8c}\U{7528}\U{96fb}\U{8166}\U{6c42}%
+\U{9918}\U{6578}mod\U{627e}\U{51fa}\U{7b2c}\U{4e00}\U{500b}\U{627e}\U{5230}$%
+\frac{10^{n}-2}{19}$\U{9918}\U{6578}\U{70ba}\U{96f6}\U{7684}$n$\U{3002}%
+\U{96fb}\U{8166}\U{7a0b}\U{5f0f}\U{5982}\U{4e0b}
+\begin{verbatim}
+n = 0
+while (10**n-2) % 19 != 0:
+    n=n+1
+print n
+\end{verbatim}
+
+\U{627e}\U{5230}\U{6700}\U{5c0f}\U{7684}$n$\U{70ba}$17$\U{ff0c}\U{8207}%
+\U{524d}\U{9762}\U{65b9}\U{6cd5}\U{76f8}\U{540c}\U{3002}\U{56e0}\U{6b64}$a$%
+\U{70ba}$5263157894736842$\U{ff0c}$b$\U{70ba}$1$\U{ff0c}\U{6240}\U{4ee5}%
+\U{6b64}\U{6578}\U{70ba}$52631578947368421$\U{3002}\U{9a57}\U{7b97}\U{904e}%
+\U{5f8c}\U{767c}\U{73fe}\U{6211}\U{5011}\U{5fc5}\U{9808}\U{5728}$a$\U{9996}%
+\U{4f4d}\U{52a0}\U{500b}\U{96f6}\U{ff0c}\U{9019}\U{6a23}\U{5c3e}\U{6578}%
+\U{63d0}\U{5230}\U{524d}\U{9762}\U{624d}\U{6703}\U{662f}$%
+2a=105263157894736842$\U{3002}\U{56e0}\U{6b64}\U{6eff}\U{8db3}\U{984c}%
+\U{76ee}\U{6700}\U{5c0f}\U{7684}\U{6b64}\U{4f4d}\U{6578}\U{70ba}$%
+052631578947368421$\U{3002}
+
+\bigskip
+
+Remark: \U{9019}\U{88e1}\U{4e5f}\U{63d0}\U{51fa}\U{4e00}\U{500b}\U{554f}%
+\U{984c}\U{ff0c}\U{6211}\U{5728}\U{7b97}$\frac{1}{19}$\U{7684}\U{6642}%
+\U{5019}\U{9047}\U{5230}\U{4e00}\U{500b}\U{554f}\U{984c}\U{ff0c}\U{5c31}%
+\U{662f}\U{96fb}\U{8166}\U{7121}\U{6cd5}\U{986f}\U{793a}\U{8db3}\U{5920}%
+\U{7684}\U{4f4d}\U{6578}\U{ff0c}\U{8a08}\U{7b97}\U{6a5f}\U{66f4}\U{4e0d}%
+\U{7528}\U{8aaa}\U{ff0c}\U{56e0}\U{6b64}\U{6211}\U{662f}\U{67e5}\U{7db2}%
+\U{8def}\U{624d}\U{77e5}\U{9053}$\frac{1}{19}$\U{7684}\U{7d50}\U{679c}%
+\U{8207}\U{4ed6}\U{6709}\U{5e7e}\U{4f4d}\U{65cb}\U{74b0}\U{5c0f}\U{6578}%
+\U{3002}\U{9019}\U{662f}\U{96fb}\U{8166}\U{4e2d}\U{5f88}\U{5e38}\U{898b}%
+\U{7684}\U{554f}\U{984c}\U{3002}\U{5176}\U{5be6}\U{96fb}\U{8166}\U{61c9}%
+\U{8a72}\U{6709}\U{6307}\U{4ee4}\U{53ef}\U{4ee5}\U{986f}\U{793a}\U{51fa}$64$%
+\U{4f4d}\U{5143}\U{7684}\U{6d6e}\U{9ede}\U{6578}float\U{ff0c}\U{56e0}\U{6b64}%
+\U{6211}\U{9084}\U{8981}\U{53bb}\U{67e5}\U{4e00}\U{4e0b}\U{3002}
+
+\newpage
+
+\begin{description}
+\item[2006\U{5c0f}\U{5b78}\U{6578}\U{5b78}\U{7af6}\U{8cfd}\U{9078}\U{62d4}%
+\U{8cfd}\U{521d}\U{8cfd}\U{7b2c}\U{4e8c}\U{8a66}\U{61c9}\U{7528}\U{984c}%
+\U{7b2c}\U{4e09}\U{984c}] ABC\U{4e09}\U{500b}\U{4eba}\U{73a9}\U{68cb}\U{ff0c}%
+\U{6c92}\U{6709}\U{548c}\U{68cb}\U{ff0c}\U{8f38}\U{5f97}\U{63db}\U{4eba}%
+\U{ff0c}\U{8d0f}\U{7684}\U{7e7c}\U{7e8c}\U{73a9}\U{3002}\U{53ea}\U{77e5}%
+\U{9053}A\U{6700}\U{5f8c}\U{5171}\U{73a9}\U{4e86}10\U{76e4}\U{ff0c}B\U{5171}%
+\U{73a9}\U{4e86}21\U{76e4}\U{ff0c}\U{8acb}\U{554f}\U{7b2c}\U{4e5d}\U{76e4}%
+\U{662f}\U{8ab0}\U{8ddf}\U{8ab0}\U{73a9}?
+\end{description}
+
+\bigskip
+
+\U{5148}\U{756b}\U{5f35}\U{8868}\U{ff0c}1\U{4ee3}\U{8868}\U{73a9}\U{ff0c}0%
+\U{4ee3}\U{8868}\U{6c92}\U{73a9}\U{3002}ABC\U{4ee3}\U{8868}\U{4e09}\U{500b}%
+\U{4eba}\U{3002}
+
+%TCIMACRO{%
+%\TeXButton{Table}{\begin{center}
+%\input{Table-ABC-chess.tex}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\input{Table-ABC-chess.tex}
+\end{center}%
+%EndExpansion
+\bigskip
+
+\U{8f38}\U{4e86}\U{5c31}\U{8981}\U{63db}\U{4eba}\U{ff0c}\U{4ee3}\U{8868}%
+\U{6bcf}\U{500b}\U{4eba}\U{4e0d}\U{80fd}\U{9023}\U{73a9}\U{ff0c}\U{4e5f}%
+\U{5c31}\U{662f}\U{4e0d}\U{80fd}\U{6709}\U{5169}\U{500b}\U{96f6}\U{662f}%
+\U{4e0a}\U{4e0b}\U{76f8}\U{9023}\U{3002}
+
+\bigskip
+
+$A_{0}$\U{4ee3}\U{8868}$A$\U{8f38}\U{7684}\U{7e3d}\U{6b21}\U{6578}\U{ff0c}$%
+A_{1}$\U{4ee3}\U{8868}$A$\U{8d0f}\U{7684}\U{7e3d}\U{6b21}\U{6578}\U{3002}%
+\U{76f8}\U{540c}\U{7684}\U{6211}\U{5011}\U{4e5f}\U{5b9a}\U{7fa9}$%
+B_{0}B_{1}C_{0}C_{1}$\U{3002}\U{6211}\U{5011}\U{5047}\U{8a2d}\U{7e3d}\U{5171}%
+\U{6709}x\U{76e4}\U{ff0c}\U{9019}\U{6a23}\U{7684}\U{8a71}$A_{0}+A_{1}=x$%
+\U{ff0c}$B_{0}+B_{1}=x$\U{ff0c}$C_{0}+C_{1}=x$\U{3002}\U{56e0}\U{6700}%
+\U{5f8c}\U{6211}\U{5011}\U{77e5}\U{9053}$A$\U{73a9}\U{4e86}10\U{76e4}\U{ff0c}%
+$B$\U{73a9}\U{4e86}21\U{76e4}\U{ff0c}\U{6240}\U{4ee5}$A_{1}=10$\U{ff0c}$%
+B_{1}=21$\U{3002}\U{6240}\U{4ee5}$A_{0}=x-10$\U{ff0c}$B_{0}=x-21$\U{ff0c}%
+\U{4e14}\U{6211}\U{5011}\U{77e5}\U{9053}$A_{0}$\U{3001}$B_{0}$\U{5fc5}%
+\U{9808}\U{70ba}\U{5927}\U{65bc}\U{7b49}\U{65bc}\U{96f6}\U{7684}\U{6574}%
+\U{6578}\U{ff0c}\U{6240}\U{4ee5}$x\geq 21$\U{3002}
+
+\bigskip
+
+\U{4f46}\U{56e0}\U{70ba}\U{6bcf}\U{500b}\U{4eba}\U{7684}0\U{4e0d}\U{80fd}%
+\U{76f8}\U{81e8}\U{ff0c}\U{4ee3}\U{8868}$A_{0}$\U{6700}\U{591a}\U{53ea}%
+\U{80fd}\U{70ba}$\frac{x}{2}$(\U{82e5}x\U{70ba}\U{5076}\U{6578})\U{ff0c}%
+\U{6216}$\frac{x+1}{2}($\U{82e5}x\U{70ba}\U{5947}\U{6578})\U{3002}\U{4e5f}%
+\U{5c31}\U{662f}\U{8aaa}$A_{0}$\U{4e0d}\U{7ba1}\U{5982}\U{4f55}\U{90fd}%
+\U{5c0f}\U{65bc}\U{7b49}\U{65bc}$\frac{x+1}{2}$\U{3002}\U{4e0d}\U{904e}%
+\U{6211}\U{5011}\U{53c8}\U{77e5}\U{9053}$A_{0}=x-10$\U{ff0c}\U{9019}\U{6a23}%
+\U{6211}\U{5011}\U{5f97}\U{5230}$x-10\leq \frac{x+1}{2}$\U{ff0c}\U{6574}%
+\U{7406}\U{4e00}\U{4e0b}\U{9019}\U{6a23}$x\leq 21\U{ff0c} $\U{4f46}\U{662f}%
+\U{524d}\U{9762}\U{6211}\U{5011}\U{77e5}\U{9053}$x$\U{5fc5}\U{9808}\U{5927}%
+\U{65bc}\U{7b49}\U{65bc}21\U{ff0c}\U{6240}\U{4ee5}$x$\U{53ea}\U{80fd}\U{70ba}%
+21\U{3002}\U{9019}\U{6a23}\U{7684}\U{8a71}\U{4ee3}\U{8868}\U{7e3d}\U{5171}%
+\U{6709}21\U{76e4}\U{ff0c}\U{7136}\U{5f8c}$A_{0}=11$\U{ff0c}\U{4ee3}\U{8868}%
+21\U{76e4}\U{4e2d}A\U{6c92}\U{73a9}11\U{76e4}\U{ff0c}\U{4f46}\U{662f}\U{56e0}%
+\U{4e0d}\U{6703}\U{9023}\U{8457}\U{6c92}\U{73a9}\U{ff0c}\U{6240}\U{4ee5}%
+\U{4e00}\U{5b9a}\U{662f}\U{4e00}\U{76e4}\U{6c92}\U{73a9}\U{4e00}\U{76e4}%
+\U{73a9}\U{ff0c}\U{4e14}A\U{7b2c}\U{4e00}\U{76e4}\U{4e00}\U{5b9a}\U{662f}0%
+\U{662f}\U{8f38}\U{ff0c}\U{9019}\U{6a23}21\U{76e4}\U{4e2d}\U{624d}\U{53ef}%
+\U{7d66}\U{51fa}11\U{500b}0\U{3002}\U{9019}\U{6a23}\U{4e5f}\U{4ee3}\U{8868}A%
+\U{5947}\U{6578}\U{76e4}\U{90fd}\U{662f}0\U{ff0c}\U{6240}\U{4ee5}\U{7b2c}%
+\U{4e5d}\U{76e4}A\U{662f}0\U{ff0c}\U{4e5f}\U{5c31}\U{662f}A\U{6c92}\U{73a9}%
+\U{ff0c}\U{6240}\U{4ee5}\U{662f}BC\U{73a9}\U{3002}Q.E.D.
+
+\bigskip
+
+\U{884d}\U{4f38}\U{984c}\U{3002}\U{82e5}A\U{73a9}12\U{76e4}\U{ff0c}B\U{73a9}9%
+\U{76e4}\U{ff0c}\U{90a3}C\U{6700}\U{591a}\U{73a9}\U{5e7e}\U{76e4}\U{ff1f}
+
+\newpage
+
+%TCIMACRO{%
+%\TeXButton{donimal graph1}{\begin{center}
+%\includegraphics[scale=0.3]{donimal_graph1.png}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[scale=0.3]{donimal_graph1.png}
+\end{center}%
+%EndExpansion
+
+\begin{description}
+\item[2006\U{5c0f}\U{5b78}\U{6578}\U{5b78}\U{7af6}\U{8cfd}\U{9078}\U{62d4}%
+\U{8cfd}\U{521d}\U{8cfd}\U{7b2c}\U{4e8c}\U{8a66}\U{61c9}\U{7528}\U{984c}%
+\U{7b2c}\U{516b}\U{984c}] \U{4e00}\U{5957}\U{591a}\U{660e}\U{8afe}\U{9aa8}%
+\U{724c}\U{5171}\U{6709}\U{4ee5}\U{4e0a}\U{7684}28\U{5f35}\U{3002}\U{5c0f}%
+\U{83ef}\U{4f9d}\U{7167}\U{76f8}\U{9130}\U{5169}\U{5f35}\U{724c}\U{76f8}%
+\U{9023}\U{63a5}\U{8655}\U{7684}\U{9ede}\U{6578}\U{5fc5}\U{9808}\U{76f8}%
+\U{540c}\U{7684}\U{898f}\U{5b9a}\U{ff0c}\U{5c07}\U{9019}\U{5957}\U{591a}%
+\U{660e}\U{8afe}\U{9aa8}\U{724c}\U{6392}\U{6210}\U{5982}\U{4e0b}\U{5716}%
+\U{7684}\U{4e00}\U{9577}\U{5217}\U{ff0c}\U{76f4}\U{5230}28\U{5f35}\U{724c}%
+\U{6392}\U{5b8c}\U{70ba}\U{6b62}\U{3002}\U{8acb}\U{554f}\U{6392}\U{5b8c}%
+\U{5f8c}\U{ff0c}\U{6700}\U{53f3}\U{908a}\U{5c0f}\U{65b9}\U{683c}\U{5167}%
+\U{7684}\U{9ede}\U{6578}\U{662f}\U{5e7e}\U{9ede}\U{ff1f}
+\end{description}
+
+%TCIMACRO{%
+%\TeXButton{donimal graph 2}{\begin{center}
+%\includegraphics[scale=0.3]{donimal_graph2.png}
+%\end{center}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[scale=0.3]{donimal_graph2.png}
+\end{center}%
+%EndExpansion
+
+\bigskip
+
+28\U{5f35}\U{591a}\U{660e}\U{8afe}\U{9aa8}\U{724c}\U{4e2d}\U{7684}\U{6bcf}%
+\U{4e00}\U{500b}\U{6578}\U{5b57}0\symbol{126}8\U{90fd}\U{6709}\U{516b}%
+\U{500b}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{5076}\U{6578}\U{500b}\U{3002}%
+\U{5728}\U{76f8}\U{63a5}\U{9aa8}\U{724c}\U{6642}\U{ff0c}\U{7531}\U{65bc}%
+\U{6578}\U{5b57}\U{5fc5}\U{9808}\U{76f8}\U{540c}\U{ff0c}\U{4ee3}\U{8868}%
+\U{76f8}\U{63a5}\U{7684}\U{6578}\U{5b57}\U{5fc5}\U{9808}\U{6210}\U{96d9}%
+\U{6210}\U{5c0d}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{6709}\U{76f8}\U{63a5}%
+\U{7684}\U{6578}\U{5b57}\U{51fa}\U{73fe}\U{7684}\U{6b21}\U{6578}\U{90fd}%
+\U{662f}\U{5076}\U{6578}\U{3002}\U{4f46}\U{662f}\U{7b2c}\U{4e00}\U{500b}%
+\U{5b57}\U{6bcd}\U{6c92}\U{6709}\U{8207}\U{5176}\U{4ed6}\U{76f8}\U{63a5}%
+\U{ff0c}\U{7531}\U{65bc}28\U{5f35}\U{9aa8}\U{724c}\U{6700}\U{5f8c}\U{90fd}%
+\U{6392}\U{5b8c}\U{ff0c}\U{4ee3}\U{8868}\U{6bcf}\U{500b}\U{6578}\U{5b57}%
+\U{90fd}\U{8981}\U{51fa}\U{73fe}\U{5076}\U{6578}\U{6b21}\U{5728}\U{9aa8}%
+\U{724c}\U{4e2d}\U{ff0c}\U{4f46}\U{662f}\U{7b2c}\U{4e00}\U{500b}\U{4e94}%
+\U{6c92}\U{6709}\U{8207}\U{5176}\U{4ed6}\U{76f8}\U{63a5}\U{ff0c}\U{662f}%
+\U{5947}\U{6578}\U{ff0c}\U{800c}\U{4e2d}\U{9593}\U{6210}\U{96d9}\U{6210}%
+\U{5c0d}\U{7684}\U{4e94}\U{4e00}\U{5b9a}\U{90fd}\U{662f}\U{5076}\U{6578}%
+\U{500b}\U{ff0c}\U{6240}\U{4ee5}\U{6700}\U{5f8c}\U{4e00}\U{500b}\U{6578}%
+\U{5b57}\U{5fc5}\U{9808}\U{662f}\U{4e94}\U{4f86}\U{9054}\U{6210}\U{6bcf}%
+\U{500b}\U{5b57}\U{6bcd}\U{90fd}\U{8981}\U{51fa}\U{73fe}\U{5076}\U{6578}%
+\U{6b21}\U{7684}\U{8981}\U{6c42}\U{3002}
+
+\newpage
+
+\begin{description}
+\item[2007\U{570b}\U{969b}\U{5c0f}\U{5b78}\U{6578}\U{5b78}\U{53ca}\U{81ea}%
+\U{7136}\U{79d1}\U{5b78}\U{5967}\U{6797}\U{5339}\U{4e9e}IMSO\U{82f1}\U{6587}%
+\U{7248}\U{8a66}\U{984c}\U{6578}\U{5b78}\U{63a2}\U{7d22}\U{984c}\U{7b2c}%
+\U{56db}\U{984c}] 
+\end{description}
+
+%TCIMACRO{%
+%\TeXButton{graphics}{\includegraphics[scale=0.5]{divide_5_6.png}}}%
+%BeginExpansion
+\includegraphics[scale=0.5]{divide_5_6.png}%
+%EndExpansion
+
+\bigskip
+
+Analysis:
+
+The provided graph and the arangement in this problem is intended to
+distract and steer the mindset of the students to think that this is a
+complicated geometric graph problem, but in fact it is really simple. The
+left graph serves as a decoy example of complicated geometric rotation and
+symmetry, and this tricks the students into thinking of more complicated
+geometric shapes in order to fill the same area with 5 and more pieces.
+
+\bigskip
+
+However, it is not your fault to fall into the trap, especially in a
+dilerberate one like this, shit happens all the time. This is a great
+example of learning how to pull yourself out of the trap. I was tricked into
+the complicated graph arrangment. But I stay calm. Forget about the problem.
+If I have a square, how to split it up into 5 identical pieces. If the area
+is 1 by 1 in size, then I am looking for an shape of an area of size equal
+to 0.2 (for 5 pieces). And to keep things simple I randomly choose an
+rectangle of size 1 by 0.2. This is a strip. And suddenly I realized 5 of
+this rectangle can make up for an square. And geometric translation suddenly
+strick my head, after realizing the shape in the problem has translational
+symmetry. The rest is simple.
+
+Solution is the following.
+
+%TCIMACRO{%
+%\TeXButton{solution}{\begin{pspicture}(1in,0.6in)
+%
+%\multirput(0,0)(0.2,0){5}{\psline(0.2,0)(0,0)(0,0.5)(0.3,0.75)(0,1)(0.2,1)}
+%\psline(1,0)(1,0.5)(1.3,0.75)(1,1)
+%
+%\multirput(2,0)(0.1667,0){6}{\psline(0.1667,0)(0,0)(0,0.5)(0.3,0.75)(0,1)(0.1667,1)}
+%\psline(3,0)(3,0.5)(3.3,0.75)(3,1)
+%
+%
+%\end{pspicture}
+%
+%}}%
+%BeginExpansion
+\begin{pspicture}(1in,0.6in)
+
+\multirput(0,0)(0.2,0){5}{\psline(0.2,0)(0,0)(0,0.5)(0.3,0.75)(0,1)(0.2,1)}
+\psline(1,0)(1,0.5)(1.3,0.75)(1,1)
+
+\multirput(2,0)(0.1667,0){6}{\psline(0.1667,0)(0,0)(0,0.5)(0.3,0.75)(0,1)(0.1667,1)}
+\psline(3,0)(3,0.5)(3.3,0.75)(3,1)
+
+
+\end{pspicture}
+
+%
+%EndExpansion
+
+\newpage
+
+\begin{description}
+\item[2012\U{5c0f}\U{5b78}\U{6578}\U{5b78}\U{7af6}\U{8cfd}\U{521d}\U{8cfd}%
+\U{9078}\U{62d4}\U{8cfd}\U{7b2c}\U{4e8c}\U{8a66}\U{61c9}\U{7528}\U{984c}%
+\U{7b2c}\U{5341}\U{4e8c}\U{984c}] \U{5c0f}\U{660e}\U{5bb6}\U{7684}\U{96fb}%
+\U{8a71}\U{865f}\U{78bc}\U{539f}\U{70ba}\U{516d}\U{4f4d}\U{6578}\U{ff0c}%
+\U{56e0}\U{865f}\U{78bc}\U{4e0d}\U{5920}\U{7528}\U{ff0c}\U{96fb}\U{4fe1}%
+\U{516c}\U{53f8}\U{5728}\U{6240}\U{6709}\U{96fb}\U{8a71}\U{865f}\U{78bc}%
+\U{7684}\U{9996}\U{4f4d}\U{6578}\U{8207}\U{7b2c}\U{4e8c}\U{4f4d}\U{6578}%
+\U{4e4b}\U{9593}\U{52a0}\U{4e0a}\U{4e00}\U{500b}\U{6578}\U{78bc}1\U{800c}%
+\U{6210}\U{70ba}\U{4e00}\U{500b}\U{4e03}\U{4f4d}\U{6578}\U{7684}\U{96fb}%
+\U{8a71}\U{865f}\U{78bc}\U{3002}\U{6578}\U{5e74}\U{5f8c}\U{ff0c}\U{96fb}%
+\U{4fe1}\U{516c}\U{53f8}\U{767c}\U{73fe}\U{865f}\U{78bc}\U{4ecd}\U{4e0d}%
+\U{6577}\U{4f7f}\U{7528}\U{ff0c}\U{56e0}\U{6b64}\U{518d}\U{5c07}\U{6240}%
+\U{6709}\U{96fb}\U{8a71}\U{865f}\U{78bc}\U{7684}\U{9996}\U{4f4d}\U{6578}%
+\U{524d}\U{52a0}\U{4e0a}\U{4e00}\U{500b}\U{6578}\U{78bc}2\U{800c}\U{6210}%
+\U{70ba}\U{4e00}\U{500b}\U{516b}\U{4f4d}\U{6578}\U{7684}\U{96fb}\U{8a71}%
+\U{865f}\U{78bc}\U{3002}\U{5c0f}\U{660e}\U{767c}\U{73fe}\U{7d93}\U{904e}%
+\U{9019}\U{5169}\U{6b21}\U{66f4}\U{6539}\U{5f8c}\U{ff0c}\U{5bb6}\U{4e2d}%
+\U{6700}\U{65b0}\U{7684}\U{516b}\U{4f4d}\U{6578}\U{96fb}\U{8a71}\U{865f}%
+\U{78bc}\U{70ba}\U{539f}\U{5148}\U{516d}\U{4f4d}\U{6578}\U{96fb}\U{8a71}%
+\U{865f}\U{78bc}\U{7684}97\U{500d}\U{3002}\U{8acb}\U{554f}\U{5c0f}\U{660e}%
+\U{5bb6}\U{6700}\U{65b0}\U{7684}\U{516b}\U{4f4d}\U{6578}\U{96fb}\U{8a71}%
+\U{865f}\U{78bc}\U{662f}\U{4ec0}\U{9ebc}\U{ff1f}
+\end{description}
+
+\bigskip
+
+\U{5047}\U{8a2d}\U{539f}\U{516d}\U{4f4d}\U{6578}\U{70ba}$XYZABC$\U{ff0c}%
+\U{5f8c}\U{4f86}\U{7684}\U{516b}\U{4f4d}\U{6578}\U{70ba}$2X1YZABC$\U{ff0c}%
+\U{689d}\U{4ef6}\U{662f}%
+\[
+XYZABC\times 97=2X1YZABC
+\]%
+\U{3002}\U{5beb}\U{6210}\U{5341}\U{9032}\U{4f4d}\U{5236}\U{5373}\U{70ba}%
+\U{ff0c}%
+\begin{eqnarray*}
+&&\left( 10000X+10000Y+1000Z+100A+10B+C\right) \times 97 \\
+&=&20000000+1000000X+100000+10000Y+1000Z+100A+10B+C
+\end{eqnarray*}%
+\U{70ba}\U{4e86}\U{4e0d}\U{8981}\U{5beb}\U{90a3}\U{9ebc}\U{591a}\U{500b}%
+\U{96f6}\U{ff0c}\U{6211}\U{5011}\U{6d88}\U{53bb}\U{4e09}\U{500b}\U{96f6}%
+\U{8b8a}\U{6210}(\U{9019}\U{4e00}\U{6b65}\U{53ef}\U{4ee5}\U{4e0d}\U{9700}%
+\U{8981}\U{505a})%
+\begin{eqnarray*}
+&&\left( 100X+10Y+Z+0.1A+0.01B+0.001C\right) \times 97 \\
+&=&20000+1000X+100+10Y+Z+0.1A+0.01B+0.001C
+\end{eqnarray*}%
+\U{6574}\U{7406}\U{4e00}\U{4e0b}\U{6211}\U{5011}\U{5f97}\U{5230}%
+\begin{equation}
+8700X+960Y+96Z+9.6A+0.96B+0.096C=20100  \label{fineX}
+\end{equation}%
+\U{73fe}\U{5728}\U{6211}\U{5011}\U{77e5}\U{9053}$YZABC$\U{6700}\U{5c0f}%
+\U{662f}0\U{ff0c}\U{6700}\U{5927}\U{662f}9%
+\[
+0\leq 960Y+96Z+9.6A+0.96B+0.096C\leq 960\times 9+96\times 9+\cdots 
+\]%
+\U{4e5f}\U{5c31}\U{662f}%
+\[
+10500\leq 8700X\leq 20100
+\]%
+\U{9019}\U{6a23}\U{6211}\U{5011}\U{6703}\U{767c}\U{73fe}%
+\[
+1.2\leq X\leq 2.3
+\]%
+\U{6240}\U{4ee5}$X$\U{53ea}\U{80fd}\U{7b49}\U{65bc}2\U{3002}\U{4ee3}\U{5165}%
+\ref{fineX}\U{5f0f}\U{4e2d}\U{5f97}\U{5230}%
+\[
+960Y+96Z+9.6A+0.96B+0.096C=20100-8700X=2700
+\]%
+\U{7528}\U{540c}\U{6a23}\U{7684}\U{65b9}\U{6cd5}\U{ff0c}\U{56e0}\U{70ba}$ZABC
+$\U{6700}\U{5c0f}\U{96f6}\U{6700}\U{5927}\U{4e5d}%
+\[
+1740\leq 960Y=2700-\left( 96Z+9.6A+0.96B+0.096C\right) \leq 2700
+\]%
+\U{9019}\U{6a23}$Y$\U{53ea}\U{80fd}\U{70ba}2\U{3002}\U{518d}\U{4ee3}\U{5165}%
+\ref{fineX}\U{5f0f}\U{4e2d}\U{6574}\U{7406}%
+\[
+96Z+9.6A+0.96B+0.096C=20100-8700\times 2-960\times 2
+\]%
+\U{6240}\U{4ee5}%
+\[
+684\leq 96Z=780-\left( 9.6A+0.96B+0.096C\right) \leq 780
+\]%
+\U{9019}\U{6a23}$Z$\U{7b49}\U{65bc}8\U{3002}\U{518d}\U{4ee3}\U{5165}\ref%
+{fineX}\U{5f0f}\U{4e2d}\U{6574}\U{7406}%
+\[
+9.6A+0.96B+0.096C=20100-8700\times 2-960\times 2-96\times 8
+\]%
+\U{56e0}\U{6b64}%
+\[
+2.49\leq 9.6A=12-\left( 0.96B+0.096C\right) \leq 12
+\]%
+\U{6240}\U{4ee5}$A=1$\U{3002}\U{518d}\U{4ee3}\U{5165}\ref{fineX}\U{5f0f}%
+\U{4e2d}\U{6574}\U{7406}%
+\[
+0.96B+0.096C=20100-8700\times 2-960\times 2-96\times 8-9.6\times 1=2.4
+\]%
+\U{9019}\U{6a23}%
+\[
+1.6\leq 0.96B\leq 2.4
+\]%
+\U{6240}\U{4ee5}$B=2$\U{3002}\U{518d}\U{4ee3}\U{5165}\ref{fineX}\U{5f0f}%
+\U{6700}\U{5f8c}\U{53ef}\U{6c42}\U{5f97}C%
+\[
+0.096C=20100-8700\times 2-960\times 2-96\times 8-9.6\times 1-0.96\times 2
+\]%
+\U{5f97}\U{5230}$C=5$\U{3002}\U{6240}\U{4ee5}\U{539f}\U{516d}\U{4f4d}\U{6578}%
+\U{70ba}228125\U{ff0c}\U{516b}\U{4f4d}\U{6578}\U{70ba}22128125\U{3002}
+
+\newpage
+
+\U{570b}\U{4e2d}\U{6709}\U{4e00}\U{9053}\U{6a5f}\U{7387}\U{7684}\U{554f}%
+\U{984c}\U{ff0c}\U{6211}\U{89ba}\U{5f97}\U{503c}\U{5f97}\U{6211}\U{5011}%
+\U{804a}\U{804a}\U{ff0c}\U{56e0}\U{70ba}\U{6211}\U{5011}\U{53ef}\U{4ee5}%
+\U{5f9e}\U{9019}\U{554f}\U{984c}\U{770b}\U{5230}\U{6211}\U{5011}\U{570b}%
+\U{9ad8}\U{4e2d}\U{6559}\U{80b2}\U{8207}\U{5927}\U{5b78}\U{6559}\U{80b2}%
+\U{7684}\U{929c}\U{63a5}\U{843d}\U{5dee}\U{3002}\U{800c}\U{9019}\U{4e3b}%
+\U{8981}\U{662f}\U{984c}\U{76ee}\U{51fa}\U{5f97}\U{4e0d}\U{597d}\U{ff0c}%
+\U{662f}\U{8001}\U{5e2b}\U{7684}\U{554f}\U{984c}\U{3002}\U{4f46}\U{5c31}%
+\U{9019}\U{9ebc}\U{4e00}\U{500b}\U{7c21}\U{55ae}\U{7684}\U{51fa}\U{984c}%
+\U{7684}\U{7f3a}\U{5931}\U{ff0c}\U{6703}\U{9020}\U{6210}\U{975e}\U{5e38}%
+\U{591a}\U{5b78}\U{751f}\U{7d5e}\U{76e1}\U{8166}\U{6c41}\U{ff0c}\U{82b1}%
+\U{8cbb}\U{4e14}\U{6d6a}\U{8cbb}\U{975e}\U{5e38}\U{591a}\U{7684}\U{6642}%
+\U{9593}\U{ff0c}\U{751a}\U{81f3}\U{932f}\U{5931}\U{4e00}\U{500b}\U{7406}%
+\U{89e3}\U{975e}\U{5e38}\U{57fa}\U{672c}\U{89c0}\U{5ff5}\U{7684}\U{6a5f}%
+\U{6703}\U{ff0c}\U{4f60}\U{8aaa}\U{9019}\U{503c}\U{4e0d}\U{503c}\U{5f97}%
+\U{8a0e}\U{8ad6}\U{4e00}\U{4e0b}\U{ff1f}
+
+\U{539f}\U{984c}\U{76ee}\U{5728}\U{9019}\U{88e1}%
+\[
+\text{https://www.youtube.com/watch?v=DefzS7\_OD74}
+\]
+
+\bigskip
+
+\U{984c}\U{76ee}\U{662f}\U{ff1a}\U{7532}\U{6709}\U{5169}\U{500b}\U{5c0f}%
+\U{5b69}\U{ff0c}\U{82e5}\U{770b}\U{5230}\U{4e86}\U{7532}\U{5176}\U{4e2d}%
+\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}\U{751f}\U{ff0c}\U{8acb}%
+\U{554f}\U{5169}\U{500b}\U{5c0f}\U{5b69}\U{90fd}\U{662f}\U{5973}\U{751f}%
+\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff1f}
+
+\bigskip
+
+\U{597d}\U{ff0c}\U{6211}\U{5011}\U{5df2}\U{7d93}\U{770b}\U{5230}\U{4e86}%
+\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}\U{751f}\U{4e86}\U{ff0c}%
+\U{6240}\U{4ee5}\U{984c}\U{76ee}\U{554f}\U{5169}\U{500b}\U{5c0f}\U{5b69}%
+\U{90fd}\U{662f}\U{5973}\U{751f}\U{7684}\U{6a5f}\U{7387}\U{ff0c}\U{5176}%
+\U{5be6}\U{5c31}\U{662f}\U{5728}\U{554f}\U{53e6}\U{4e00}\U{500b}\U{5c0f}%
+\U{5b69}\U{4e5f}\U{662f}\U{5973}\U{751f}\U{7684}\U{6a5f}\U{7387}\U{662f}%
+\U{591a}\U{5c11}\U{ff0c}\U{90a3}\U{61c9}\U{8a72}\U{5c31}\U{662f}1/2\U{645f}%
+\U{ff1f}
+
+\bigskip
+
+\U{9019}\U{6642}\U{5019}\U{8001}\U{5e2b}\U{8aaa}\U{8a71}\U{4e86}\U{3002}%
+\U{5982}\U{679c}\U{4f60}\U{5217}\U{51fa}\U{6240}\U{6709}\U{53ef}\U{80fd}%
+\U{ff0c}\U{5047}\U{8a2d}\U{6709}AB\U{5169}\U{500b}\U{5c0f}\U{5b69}\U{ff0c}%
+\U{5247}\U{6240}\U{6709}\U{53ef}\U{80fd}\U{70ba}A\U{7537}B\U{7537}\U{3001}A%
+\U{5973}B\U{7537}\U{3001}A\U{7537}B\U{5973}\U{ff0c}A\U{5973}B\U{5973}\U{3002}%
+\U{5176}\U{4e2d}\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}\U{751f}%
+\U{ff0c}\U{6240}\U{4ee5}\U{7b2c}\U{4e00}\U{7a2e}\U{53ef}\U{80fd}\U{6027}%
+\U{53bb}\U{9664}\U{ff0c}\U{5269}\U{4e0b}\U{4e09}\U{7a2e}\U{53ef}\U{80fd}%
+\U{6027}\U{ff0c}\U{800c}\U{4e09}\U{7a2e}\U{53ef}\U{80fd}\U{6027}\U{4e4b}%
+\U{4e2d}\U{53ea}\U{6709}\U{4e00}\U{7a2e}\U{662f}\U{5169}\U{500b}\U{5973}%
+\U{751f}\U{ff0c}\U{6240}\U{4ee5}\U{7b54}\U{6848}\U{61c9}\U{8a72}\U{662f}1//3%
+\U{3002}
+
+\bigskip
+
+\U{4f46}\U{662f}\U{ff0c}\U{6211}\U{5011}\U{4f86}\U{66f4}\U{4ed4}\U{7d30}%
+\U{7684}\U{5be9}\U{8996}\U{539f}\U{4f86}\U{7684}\U{984c}\U{76ee}\U{3002}%
+\U{6211}\U{5011}\U{91cd}\U{65b0}\U{628a}\U{554f}\U{984c}\U{554f}\U{7684}%
+\U{65b9}\U{5f0f}\U{6539}\U{8b8a}\U{4e00}\U{4e0b}\U{ff0c}\U{4f46}\U{662f}%
+\U{9084}\U{662f}\U{4e00}\U{6a23}\U{7684}\U{554f}\U{984c}\U{3002}
+
+\begin{enumerate}
+\item \U{5047}\U{8a2d}\U{4eca}\U{5929}\U{6211}\U{5011}\U{770b}\U{5230}%
+\U{5176}\U{4e2d}\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{540d}\U{5b50}\U{53eb}Emily%
+\U{ff0c}\U{5979}\U{662f}\U{5973}\U{751f}\U{ff0c}\U{90a3}\U{9ebc}\U{53e6}%
+\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}\U{751f}\U{7684}\U{6a5f}%
+\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff1f}
+
+\item \U{5047}\U{8a2d}\U{4eca}\U{5929}\U{6709}\U{4e00}\U{500b}\U{623f}%
+\U{9593}\U{ff0c}\U{88e1}\U{9762}\U{6709}\U{5169}\U{500b}\U{4eba}\U{ff0c}%
+\U{4eca}\U{5929}\U{8d70}\U{51fa}\U{4f86}\U{4e00}\U{500b}\U{4eba}\U{4ed6}%
+\U{544a}\U{8a34}\U{6211}\U{5011}\U{4ed6}\U{53eb}emily\U{ff0c}\U{6211}\U{5011}%
+\U{770b}\U{5230}\U{662f}\U{5973}\U{751f}\U{ff0c}\U{90a3}\U{8acb}\U{554f}%
+\U{623f}\U{9593}\U{88e1}\U{9762}\U{53e6}\U{4e00}\U{500b}\U{4eba}\U{662f}%
+\U{5973}\U{751f}\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff1f}
+
+\item \U{53c8}\U{ff0c}\U{518d}\U{63db}\U{4e00}\U{500b}\U{65b9}\U{5f0f}%
+\U{554f}\U{ff0c}\U{5047}\U{8a2d}\U{623f}\U{9593}\U{88e1}\U{9762}\U{6709}%
+\U{5169}\U{500b}\U{4eba}\U{ff0c}\U{6211}\U{5011}\U{53ea}\U{77e5}\U{9053}%
+\U{88e1}\U{9762}\U{81f3}\U{5c11}\U{6709}\U{4e00}\U{500b}\U{4eba}\U{662f}%
+\U{5973}\U{751f}\U{ff0c}\U{6211}\U{5011}\U{4e26}\U{6c92}\U{6709}\U{770b}%
+\U{5230}\U{ff0c}\U{90a3}\U{9ebc}\U{8acb}\U{554f}\U{623f}\U{9593}\U{88e1}%
+\U{9762}\U{5169}\U{500b}\U{4eba}\U{90fd}\U{662f}\U{5973}\U{751f}\U{7684}%
+\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff1f}
+\end{enumerate}
+
+\bigskip
+
+\U{4ee5}\U{4e0a}\U{6240}\U{5617}\U{8a66}\U{544a}\U{8a34}\U{5927}\U{5bb6}%
+\U{7684}\U{9019}\U{500b}\U{89c0}\U{5ff5}\U{5176}\U{5be6}\U{662f}\U{4e00}%
+\U{500b}\U{6a5f}\U{7387}\U{4e2d}\U{975e}\U{5e38}\U{91cd}\U{8981}\U{7684}%
+\U{89c0}\U{5ff5}\U{ff0c}\U{6392}\U{5217} \U{8207} \U{7d44}\U{5408}\U{3002}%
+\U{7b2c}\U{4e00}\U{984c}\U{7684}\U{7b54}\U{6848}\U{662f}1/2\U{ff0c}\U{56e0}%
+\U{70ba}\U{7b2c}\U{4e00}\U{500b}\U{4eba}\U{6211}\U{5011}\U{5df2}\U{7d93}%
+\U{770b}\U{5230}\U{662f}\U{5973}\U{751f}\U{ff0c}\U{9019}\U{662f}\U{7b2c}%
+\U{4e00}\U{4ef6}\U{4e8b}\U{ff0c}\U{7b2c}\U{4e8c}\U{4ef6}\U{4e8b}\U{7b2c}%
+\U{4e8c}\U{500b}\U{4eba}\U{662f}\U{7537}\U{662f}\U{5973}\U{6211}\U{5011}%
+\U{95dc}\U{5fc3}\U{7684}\U{662f}\U{8207}\U{7b2c}\U{4e00}\U{4ef6}\U{4e8b}%
+\U{60c5}\U{7121}\U{95dc}\U{7684}\U{4e8b}\U{ff0c}\U{5169}\U{4ef6}\U{4e8b}%
+\U{60c5}\U{53ea}\U{662f}\U{7167}\U{8457}\U{6b21}\U{5e8f}\U{5148}\U{5f8c}%
+\U{554f}\U{ff0c}\U{9019}\U{7a2e}\U{985e}\U{578b}\U{7684}\U{6982}\U{5ff5}%
+\U{6211}\U{5011}\U{7a31}\U{4f5c}\U{6392}\U{5217}\U{3002}\U{7b2c}\U{4e8c}%
+\U{984c}\U{8ddf}\U{7b2c}\U{4e00}\U{984c}\U{4e00}\U{6a21}\U{4e00}\U{6a23}%
+\U{3002}\U{7b2c}\U{4e09}\U{984c}\U{ff0c}\U{56e0}\U{70ba}\U{6211}\U{5011}%
+\U{53ea}\U{77e5}\U{9053}\U{88e1}\U{9762}\U{6709}\U{4e00}\U{500b}\U{662f}%
+\U{5973}\U{751f}\U{ff0c}\U{4f46}\U{662f}\U{88e1}\U{9762}AB\U{5169}\U{4eba}%
+\U{ff0c}\U{6211}\U{5011}\U{4e0d}\U{77e5}\U{9053}\U{8ab0}\U{662f}\U{5973}%
+\U{751f}\U{ff0c}\U{6240}\U{4ee5}\U{78ba}\U{5be6}\U{82e5}\U{662f}\U{628a}%
+\U{6240}\U{4ee5}\U{53ef}\U{80fd}\U{6027}AB\U{7537}\U{5973}\U{7d44}\U{5408}%
+\U{8d77}\U{4f86}\U{6703}\U{6709}\U{56db}\U{7a2e}\U{72c0}\U{6cc1}\U{ff0c}%
+\U{7136}\U{5f8c}\U{53bb}\U{6389}\U{5169}\U{500b}\U{4eba}\U{90fd}\U{662f}%
+\U{7537}\U{751f}\U{7684}\U{60c5}\U{6cc1}\U{ff0c}\U{5269}\U{4e09}\U{7a2e}%
+\U{72c0}\U{6cc1}\U{ff0c}\U{800c}\U{53ea}\U{6709}\U{4e00}\U{7a2e}\U{5169}%
+\U{500b}\U{4eba}\U{90fd}\U{662f}\U{5973}\U{751f}\U{ff0c}\U{6240}\U{4ee5}%
+\U{662f}1/3\U{3002}\U{9019}\U{7a2e}\U{985e}\U{578b}\U{7684}\U{6982}\U{5ff5}%
+\U{ff0c}\U{7a31}\U{4f5c}\U{7d44}\U{5408}\U{3002}
+
+\bigskip
+
+\U{6211}\U{5011}\U{518d}\U{56de}\U{4f86}\U{770b}\U{539f}\U{984c}\U{76ee}%
+\U{ff0c}"\U{82e5}\U{770b}\U{5230}\U{4e86}\U{7532}\U{5176}\U{4e2d}\U{4e00}%
+\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}\U{751f}"\U{ff0c}\U{9019}\U{5176}%
+\U{5be6}\U{662f}\U{6709}\U{9ede}\U{7d66}\U{51fa}\U{4e86}\U{6392}\U{5217}%
+\U{7684}\U{6982}\U{5ff5}\U{ff0c}\U{56e0}\U{70ba}\U{6211}\U{5011}\U{5df2}%
+\U{7d93}\U{770b}\U{5230}\U{7279}\U{5b9a}\U{7684}\U{4eba}\U{4e86}\U{ff0c}%
+\U{7136}\U{5f8c}"\U{8acb}\U{554f}\U{5169}\U{500b}\U{5c0f}\U{5b69}\U{90fd}%
+\U{662f}\U{5973}\U{751f}\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}%
+\U{ff1f}"\U{ff0c}\U{9019}\U{5c31}\U{5947}\U{602a}\U{4e86}\U{ff0c}\U{9019}%
+\U{5176}\U{5be6}\U{6709}\U{9ede}\U{96b1}\U{542b}\U{4e86}\U{7d44}\U{5408}%
+\U{7684}\U{610f}\U{5473}\U{5728}\U{88e1}\U{9762}\U{4e86}\U{ff0c}\U{6709}%
+\U{9ede}\U{5728}\U{554f}\U{7d44}\U{5408}\U{7684}\U{6982}\U{5ff5}\U{ff0c}%
+\U{9019}\U{6a23}\U{5c31}\U{984c}\U{76ee}\U{5c31}\U{6709}\U{9ede}\U{4e0d}%
+\U{6e05}\U{695a}\U{ff0c}\U{5230}\U{5e95}\U{662f}\U{8981}\U{554f}\U{6392}%
+\U{5217}\U{ff0c}\U{9084}\U{662f}\U{7d44}\U{5408}\U{7684}\U{554f}\U{984c}%
+\U{ff1f}
+
+\bigskip
+
+\U{5982}\U{679c}\U{554f}\U{984c}\U{662f}"\U{82e5}\U{770b}\U{5230}\U{4e86}%
+\U{7532}\U{5176}\U{4e2d}\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}%
+\U{751f}\U{ff0c}\U{53e6}\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}%
+\U{751f}\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}"\U{ff0c}\U{90a3}%
+\U{7b54}\U{6848}\U{662f}1/2\U{3002}\U{9019}\U{662f}\U{975e}\U{5e38}\U{6070}%
+\U{7576}\U{7684}\U{6392}\U{5217}\U{554f}\U{984c}\U{3002}\U{5982}\U{679c}%
+\U{554f}\U{984c}\U{662f}"\U{82e5}\U{77e5}\U{9053}\U{7532}\U{81f3}\U{5c11}%
+\U{6709}\U{4e00}\U{500b}\U{5c0f}\U{5b69}\U{662f}\U{5973}\U{751f}\U{ff0c}%
+\U{90a3}\U{5169}\U{500b}\U{5c0f}\U{5b69}\U{90fd}\U{662f}\U{5973}\U{751f}%
+\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff1f}"\U{ff0c}\U{90a3}%
+\U{7b54}\U{6848}\U{662f}1/3\U{3002}\U{9019}\U{6a23}\U{5c31}\U{662f}\U{975e}%
+\U{5e38}\U{597d}\U{7684}\U{7d44}\U{5408}\U{554f}\U{984c}\U{3002}
+
+\bigskip
+
+\U{70ba}\U{4ec0}\U{9ebc}\U{9019}\U{500b}\U{5728}\U{570b}\U{4e2d}\U{968e}%
+\U{6bb5}\U{5c31}\U{5f88}\U{91cd}\U{8981}\U{ff1f}\U{56e0}\U{70ba}\U{5728}%
+\U{9ad8}\U{4e2d}\U{6559}\U{5230}\U{6392}\U{5217}\U{7d44}\U{5408}\U{7684}%
+\U{6642}\U{5019}\U{ff0c}\U{5c31}\U{7528}\U{4e0a}\U{4e86}\U{9019}\U{500b}%
+\U{6982}\U{5ff5}\U{3002}\U{8209}\U{500b}\U{4f8b}\U{5b50}\U{70ba}\U{4ec0}%
+\U{9ebc}\U{9ad8}\U{4e2d}\U{6703}\U{7528}\U{4e0a}\U{9019}\U{500b}\U{4f8b}%
+\U{5b50}\U{3002}\U{4e00}\U{500b}\U{888b}\U{5b50}\U{88e1}\U{9762}\U{6709}%
+\U{9ed1}\U{767d}\U{5169}\U{7a2e}\U{7403}\U{ff0c}\U{9ed1}\U{767d}\U{6578}%
+\U{76ee}\U{4e00}\U{6a23}\U{591a}\U{ff0c}\U{62ff}\U{51fa}\U{7403}\U{770b}%
+\U{5b8c}\U{984f}\U{8272}\U{5f8c}\U{8981}\U{653e}\U{56de}\U{53bb}\U{3002}%
+\U{7b2c}\U{4e00}\U{6b21}\U{5f9e}\U{88e1}\U{9762}\U{62ff}\U{51fa}\U{4e00}%
+\U{9846}\U{767d}\U{7403}\U{ff0c}\U{653e}\U{56de}\U{53bb}\U{ff0c}\U{8acb}%
+\U{554f}\U{7b2c}\U{4e8c}\U{6b21}\U{662f}\U{767d}\U{7403}\U{7684}\U{6a5f}%
+\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff1f}\U{662f}1/2\U{3002}\U{662f}\U{6392}%
+\U{5217}\U{554f}\U{984c}\U{3002}
+
+\bigskip
+
+\U{82e5}\U{662f}\U{4e00}\U{6b21}\U{62ff}\U{51fa}\U{5169}\U{9846}\U{7403}%
+\U{ff0c}\U{8acb}\U{554f}\U{5169}\U{9846}\U{7403}\U{90fd}\U{662f}\U{767d}%
+\U{8272}\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff0c}\U{662f}1/4%
+\U{3002}\U{662f}\U{7d44}\U{5408}\U{554f}\U{984c}\U{3002}\U{82e5}\U{77e5}%
+\U{9053}\U{62ff}\U{51fa}\U{7684}\U{5169}\U{9846}\U{7403}\U{5176}\U{4e2d}%
+\U{81f3}\U{5c11}\U{6709}\U{4e00}\U{9846}\U{7403}\U{662f}\U{767d}\U{8272}%
+\U{ff0c}\U{4f46}\U{4e0d}\U{77e5}\U{9053}\U{662f}\U{54ea}\U{4e00}\U{9846}%
+\U{ff0c}\U{8acb}\U{554f}\U{5169}\U{9846}\U{7403}\U{90fd}\U{662f}\U{767d}%
+\U{8272}\U{7684}\U{6a5f}\U{7387}\U{662f}\U{591a}\U{5c11}\U{ff0c}\U{662f}1/3%
+\U{3002}\U{4e5f}\U{662f}\U{7d44}\U{5408}\U{554f}\U{984c}\U{3002}
+
+\bigskip
+
+\U{6240}\U{4ee5}\U{9ad8}\U{4e2d}\U{7684}\U{6392}\U{5217}\U{7d44}\U{5408}%
+\U{7684}\U{6982}\U{5ff5}\U{5f9e}\U{570b}\U{4e2d}\U{5c31}\U{958b}\U{59cb}%
+\U{4ecb}\U{7d39}\U{4e86}\U{ff0c}\U{4f46}\U{662f}\U{770b}\U{4ecb}\U{7d39}%
+\U{5f97}\U{597d}\U{4e0d}\U{597d}\U{3002}\U{5927}\U{5b78}\U{5462}\U{ff1f}%
+\U{5f9e}\U{6392}\U{5217}\U{7d44}\U{5408}\U{51fa}\U{767c}\U{7684}\U{61c9}%
+\U{7528}\U{6027}\U{5462}\U{ff0c}\U{90a3}\U{66f4}\U{591a}\U{4e86}\U{3002}%
+\U{71b1}\U{529b}\U{5b78}\U{4e2d}\U{7684}\U{6c23}\U{9ad4}\U{5206}\U{5b50}%
+\U{52d5}\U{529b}\U{8ad6}\U{ff0c}\U{5206}\U{5b50}\U{7684}\U{53ef}\U{5206}%
+\U{8fa8}\U{6027}\U{8207}\U{4e0d}\U{53ef}\U{5206}\U{8fa8}\U{59d3}\U{ff0c}%
+\U{90fd}\U{662f}\U{6392}\U{5217}\U{7d44}\U{5408}\U{7684}\U{539f}\U{7406}%
+\U{3002}\U{7d71}\U{8a08}\U{529b}\U{5b78}\U{6240}\U{7528}\U{5230}\U{7684}%
+\U{6a5f}\U{7387}\U{8ad6}\U{4e5f}\U{662f}\U{4ee5}\U{6392}\U{5217}\U{7d44}%
+\U{5408}\U{70ba}\U{5176}\U{91cd}\U{8981}\U{6839}\U{57fa}\U{3002}
+
+\bigskip
+
+\U{6240}\U{4ee5}\U{82e5}\U{662f}\U{80fd}\U{5728}\U{570b}\U{4e2d}\U{968e}%
+\U{6bb5}\U{5c31}\U{5c07}\U{6b64}\U{89c0}\U{5ff5}\U{4ecb}\U{7d39}\U{6e05}%
+\U{695a}\U{ff0c}\U{90a3}\U{771f}\U{7684}\U{4e8b}\U{6703}\U{5c0d}\U{672a}%
+\U{4f86}\U{4e8b}\U{534a}\U{529f}\U{500d}\U{ff0c}\U{800c}\U{4e14}\U{5f9e}%
+\U{984c}\U{76ee}\U{4e0a}\U{7684}\U{8a2d}\U{8a08}\U{5c31}\U{5f88}\U{91cd}%
+\U{8981}\U{ff0c}\U{82e5}\U{662f}\U{984c}\U{76ee}\U{8a2d}\U{8a08}\U{5f97}%
+\U{4e0d}\U{597d}\U{ff0c}\U{90a3}\U{9ebc}\U{771f}\U{7684}\U{6703}\U{4e8b}%
+\U{500d}\U{529f}\U{534a}\U{ff0c}\U{9019}\U{6a23}\U{4e8b}\U{534a}\U{529f}%
+\U{500d}\U{8207}\U{4e8b}\U{500d}\U{529f}\U{534a}\U{7684}\U{5dee}\U{8ddd}%
+\U{ff0c}\U{53ef}\U{662f}\U{56db}\U{500d}\U{7684}\U{5dee}\U{8ddd}\U{963f}%
+\U{3002}\U{4e26}\U{4e14}\U{ff0c}\U{5982}\U{679c}\U{8003}\U{8a66}\U{4e2d}%
+\U{53ea}\U{6709}\U{4e00}\U{984c}\U{662f}\U{9019}\U{6a23}\U{4e5f}\U{5c31}%
+\U{7b97}\U{4e86}\U{3002}\U{8981}\U{662f}\U{6240}\U{6709}\U{984c}\U{76ee}%
+\U{6709}\U{516b}\U{6210}\U{7684}\U{984c}\U{76ee}\U{90fd}\U{662f}\U{9019}%
+\U{6a23}\U{ff0c}\U{90a3}\U{5b78}\U{751f}\U{5c31}\U{5f88}\U{7d2f}\U{5f88}%
+\U{8f9b}\U{82e6}\U{4e86}\U{ff0c}\U{5927}\U{6982}\U{4e5f}\U{6839}\U{672c}%
+\U{4e0d}\U{6703}\U{60f3}\U{5b78}\U{4e86}\U{3002}\U{4e0d}\U{904e}\U{5b78}%
+\U{751f}\U{6216}\U{5bb6}\U{9577}\U{4e5f}\U{4e0d}\U{5fc5}\U{592a}\U{7dca}%
+\U{5f35}\U{ff0c}\U{5b78}\U{7fd2}\U{672c}\U{4f86}\U{5c31}\U{662f}\U{9760}%
+\U{5f9e}\U{932f}\U{8aa4}\U{4e2d}\U{5b78}\U{ff0c}\U{672c}\U{4f86}\U{5c31}%
+\U{662f}\U{8981}\U{9760}\U{6454}\U{5012}\U{4f86}\U{5b78}\U{7fd2}\U{600e}%
+\U{9ebc}\U{8dd1}\U{6b65}\U{3002}\U{4e26}\U{4e0d}\U{662f}\U{8aaa}\U{984c}%
+\U{76ee}\U{8a2d}\U{8a08}\U{7684}\U{597d}\U{ff0c}\U{5b78}\U{751f}\U{5c31}%
+\U{4e00}\U{5b9a}\U{5b78}\U{5f97}\U{6703}\U{ff0c}\U{6709}\U{592a}\U{591a}%
+\U{7684}\U{56e0}\U{7d20}\U{5728}\U{88e1}\U{9762}\U{4e86}\U{3002}\U{4e00}%
+\U{6b65}\U{4e00}\U{6b65}\U{4f86}\U{ff0c}\U{6709}\U{7a69}\U{5b9a}\U{7684}%
+\U{9032}\U{6b65}\U{624d}\U{6bd4}\U{8f03}\U{91cd}\U{8981}\U{3002}
+
+\end{document}

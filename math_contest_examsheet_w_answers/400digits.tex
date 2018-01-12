@@ -1,0 +1,82 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Sunday, May 17, 2015 12:37:39}
+%TCIDATA{LastRevised=Saturday, May 20, 2017 11:30:28}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+%TCIMACRO{%
+%\TeXButton{watermark}{\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{60}{{\color{cyan} whymranderson \U{88fd}\U{7248}}}}
+%}}}}%
+%BeginExpansion
+\AddToShipoutPictureBG{  \AtTextLowerLeft{  \resizebox{\textwidth}{!}{\rotatebox{60}{{\color{cyan} whymranderson \U{88fd}\U{7248}}}}
+}}%
+%EndExpansion
+
+\begin{description}
+\item[2007 \U{570b}\U{969b}\U{5c0f}\U{5b78}\U{6578}\U{5b78}\U{81ea}\U{7136}%
+\U{79d1}\U{5b78}\U{5967}\U{6797}\U{5339}\U{4e9e}ISMO-\U{6578}\U{5b78}\U{57fa}%
+\U{672c}\U{984c}\U{7b2c}\U{4e00}\U{984c}] The 400-digit number 
+\[
+12345678901234567890\ldots 890
+\]
+is given.
+
+\item Step 1: Cross out all the digits in odd-numbered places.
+
+\item Step 2: Cross out all the digits in odd-numbered places of the
+remaining digits.
+
+\item \ldots
+
+\item Continue until no digits remain. What is the last digit to be crossed
+out?
+\end{description}
+
+\input{../otherstuff/400digits_graph.tex}\bigskip
+
+After the first operation, 200 digits will remain and the positions of these
+remains are $2\times N$, where $N$ is an interger. After the second
+operation, 100 digits will remain and the position of them are $2^{2}\times
+N $. 50 digits remain after the third operation and positions of them are $%
+2^{3}\times N$. So in the last operation only 1 digit remains and the
+position of this digit is $2^{8}\times N$. But the position has to been
+smaller than 400, so $N$ can only be 1. So the position is $2^{8}\times
+1=256 $. Because the digit sequence has a repetive period of 10 digits. 256
+position is $25\times 10+6$, so it is the 6th position in the sequence,
+which has a number 6. QED
+
+\end{document}

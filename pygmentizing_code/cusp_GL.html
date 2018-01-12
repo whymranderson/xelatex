@@ -1,0 +1,31 @@
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s">r&#39;C:\Documents and Settings\The One\My Documents\tony\Scripts\cordtrans&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;./movie&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">Toolbox.Physics_and_Animation_Modules_Library.RGCordTransV15</span>
+<span class="n">RG</span> <span class="o">=</span> <span class="n">Toolbox</span><span class="o">.</span><span class="n">Physics_and_Animation_Modules_Library</span><span class="o">.</span><span class="n">RGCordTransV15</span>
+
+<span class="c">#%% Solve for gyro dynamics</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">RG</span><span class="o">.</span><span class="n">RigidBodyObject</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">tn</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">b</span><span class="o">.</span><span class="n">arm</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c">#: location of center of mass of top from origin in meters</span>
+<span class="n">b</span><span class="o">.</span><span class="n">counter_weight</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c">#: mass doesn&#39;t spin along symmetry axis</span>
+<span class="n">b</span><span class="o">.</span><span class="n">counter_weight_location_from_origin</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c">#: location from origin</span>
+<span class="n">b</span><span class="o">.</span><span class="n">Iy</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">Iz</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">Ix</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.0008</span><span class="p">,</span> <span class="mf">0.002</span>
+<span class="n">b</span><span class="o">.</span><span class="n">freq</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">g</span><span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">5.0</span>
+<span class="n">b</span><span class="o">.</span><span class="n">samplerate</span> <span class="o">=</span>  <span class="mi">200</span>
+<span class="n">b</span><span class="o">.</span><span class="n">orien</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">49</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">b</span><span class="o">.</span><span class="n">GenerateDependentVariables</span><span class="p">()</span>  <span class="c">#array alocation</span>
+<span class="n">b</span><span class="o">.</span><span class="n">EulerDCMiter</span><span class="p">()</span>    <span class="c">#solving</span>
+
+<span class="c">#%% OpenGL animation</span>
+<span class="kn">import</span> <span class="nn">Toolbox.GL_toolbox.opengl_window_and_animation_creation_module</span>
+<span class="n">CRmodule</span> <span class="o">=</span> <span class="n">Toolbox</span><span class="o">.</span><span class="n">GL_toolbox</span><span class="o">.</span><span class="n">opengl_window_and_animation_creation_module</span>
+<span class="n">CR</span> <span class="o">=</span> <span class="n">CRmodule</span><span class="o">.</span><span class="n">CubeRotate</span><span class="p">()</span>  <span class="c">#opengl context setup    </span>
+<span class="n">CR</span><span class="o">.</span><span class="n">RBO</span> <span class="o">=</span> <span class="n">b</span>  <span class="c">#passing in the solved results</span>
+<span class="n">CR</span><span class="o">.</span><span class="n">PNGsaveYESNO</span> <span class="o">=</span> <span class="bp">False</span> 
+<span class="n">CR</span><span class="o">.</span><span class="n">t_interval</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">CR</span><span class="o">.</span><span class="n">trail_len</span><span class="o">=</span><span class="mi">150</span>
+<span class="n">CR</span><span class="o">.</span><span class="n">setupwindow</span><span class="p">()</span> <span class="c">#animate</span>
+</pre></div>
