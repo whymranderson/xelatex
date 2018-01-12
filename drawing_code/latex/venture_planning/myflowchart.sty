@@ -1,0 +1,72 @@
+\usepackage[inner=0.5in,outer=0.5in,top=0.25in,bottom=0.25in]{geometry}
+\usepackage{xeCJK} % 分開設置中英文字型
+\setCJKmainfont{微軟正黑體} % 設定中文字型
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{positioning,arrows}
+\usetikzlibrary{shapes.multipart}
+
+\tikzset{
+	wideitem/.style={
+		draw=black, 
+		rounded corners, 
+		anchor=center, 
+		text width=17cm,
+		align = center,
+		rectangle split,
+		rectangle split parts=#1,
+		rectangle split part align={center, left} 
+           },
+}
+
+\tikzset{
+	item/.style={
+		draw=black, 
+		rounded corners,  
+		anchor=center, 
+		text width=8.5cm,
+		align = center,
+		rectangle split, 
+		rectangle split parts=#1, 
+		rectangle split part align={center, left} 
+	},
+}
+
+\tikzset{
+    phantom/.style={
+           rectangle,
+           rounded corners,
+%	   draw = black,
+           minimum height=2em,
+           inner sep=2pt,
+	   text width = 0pt,
+           text centered,
+           },
+}
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+\tikzset{
+	gitrec/.style={
+		rectangle,
+		draw =black,
+		rounded corners,
+	        minimum height=2em,
+		text width = 3cm,
+		text centered,
+		},
+	}
+
+\setlist[enumerate]{topsep = 0pt, noitemsep}%remove extra empty spaces above enumerate envr, and make the items more compact
+
+

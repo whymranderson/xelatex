@@ -1,0 +1,23 @@
+%\documentclass[12pt,twoside]{article}
+%\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+%\usepackage{pstricks,pst-3dplot}
+%\usepackage{minted}
+%\usepackage{mdframed}
+%\begin{document}
+%\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\psset{unit =1in}
+\begin{pspicture}[showgrid=false](-1,-1)(1,1)
+\psset{Alpha=90,Beta=20}
+%\pstThreeDCoor[xMax=1,yMax=1,zMax=1]
+\pstThreeDSphere[opacity=0.4,strokeopacity=0.2,linewidth=0.8pt](0,0,0){1}
+\fileplotThreeD{./otherstuff/data_text_files/Case_A_f0_1deg_datafile.txt}%./otherstuff/
+
+%A axes xyz
+\fileplotThreeD[linewidth=2pt,linecolor=blue]{./otherstuff/data_text_files/Case_A_f0_1deg_square_datafile.txt}%./otherstuff/
+
+
+
+\pstThreeDLine[linewidth=2pt,%
+ linecolor=blue,arrows=->](0,0,0)(0,0.01745241,0.9998477 )
+
+\end{pspicture}

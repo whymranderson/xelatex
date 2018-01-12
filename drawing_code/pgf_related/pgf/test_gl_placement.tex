@@ -1,0 +1,53 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside]{amsart}
+\usepackage{mathtools}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+  \theoremstyle{plain}
+  \newtheorem*{thm*}{\protect\theoremname}
+  \theoremstyle{plain}
+  \newtheorem*{lem*}{\protect\lemmaname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{xeCJK}
+\setCJKmainfont{微軟正黑體}
+
+\makeatother
+
+  \providecommand{\lemmaname}{Lemma}
+  \providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\title{四面體內共點線及共線點的研究}
+
+
+\author{梁軟蝦，莊硬漢，謝短腿，劉鐵支}
+
+
+\author{指導老師:朱老爺}
+\begin{abstract}
+參加台灣省第三十七屆科學作品\end{abstract}
+
+\maketitle
+\begin{lem*}
+$ABCD$為四面體，$E$、$H$、$G$、$F$四點分別為$\overline{AD}$、$\overline{AC}$、$\overline{BC}$、$\overline{BD}$上的點，則$\overline{EG}$和$\overline{FH}$有交點的充分必要條件為
+\[
+\frac{\overline{DE}}{\overline{AE}}\times\frac{\overline{AH}}{\overline{CH}}\times\frac{\overline{CG}}{\overline{BG}}\times\frac{\overline{BF}}{\overline{DF}}=1
+\]
+若$\frac{\overline{DE}}{\overline{AE}}\geq\frac{\overline{CH}}{\overline{AH}}$。
+
+\input{gl_coordinance.pgf}
+
+
+\end{lem*}
+
+\end{document}

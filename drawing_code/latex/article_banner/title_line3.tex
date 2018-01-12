@@ -1,0 +1,49 @@
+%\documentclass[12pt,twoside]{article}
+%\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+%\usepackage{fontspec}
+%\usepackage{xeCJK}
+%\setmainfont{Times New Roman}
+%\setsansfont{Verdana}
+%\setmonofont{Courier New}                    % tt
+%\setCJKmainfont{微軟正黑體}
+%\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually 
+%\usepackage{graphicx}
+%\usepackage{pgf}
+%\usepackage{pstricks,pst-node}
+%
+%\renewcommand{\today}{西元\number \year 年\ifcase \month \or 1月\or 2月\or 3月\or 4月\or 5月\or 6月\or 7月\or 8月\or 9月\or 10月\or 11月\or 12月\fi
+%} 
+
+%\begin{document}
+
+\begin{pspicture}(6in,2in)
+%\psgrid
+
+\rput[bl](0,0){
+\rnode{A}{
+\input{gyrologo5.pgf}
+}}
+
+\rput[bl](3,0.2){
+\rnode{B}{
+\includegraphics[scale=0.5]{./otherstuff/gyro_title_line3.PNG}
+}}
+
+\rput[bl](4,2){
+\rnode{C}{
+\large \textcolor{gray}{深談貼體角速度在剛體轉動積分器與姿態估測的實際應用}
+}}
+
+\rput[bl](5,3){
+\rnode{D}{
+\large 小良，台南，\today
+}}
+
+
+
+
+
+\end{pspicture}
+
+
+%\end{document}

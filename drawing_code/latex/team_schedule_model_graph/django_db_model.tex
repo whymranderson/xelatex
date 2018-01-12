@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}
+\setCJKmainfont[AutoFakeBold=1.5]{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}
+\newcommand*{\kai}{\CJKfamily{kai}}
+\usepackage[inner=1in,outer=1in,top=0.7in,bottom=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pgf}
+\usepackage{minted}
+\usepackage{mdframed}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\begin{document}
+
+\begin{mdframed}[leftline=false, rightline=false,backgroundcolor=bg]
+\begin{minted}[linenos,fontsize=\footnotesize,breaklines,breakanywhere]{python}
+
+from django.db import models
+
+# Create your models here.
+
+class Publisher(models.Model):
+    '''no use'''
+    name = models.CharField(max_length=30)
+    address = models.CharField(max_length=50)
+    city = models.CharField(max_length=60)
+    state_province = models.CharField(max_length=30)
+    country = models.CharField(max_length=50)
+    website = models.URLField()
+    
+    def __unicode__(self):
+        return self.name
+   
+class TeamProfile(models.Model):
+    TeamName = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.TeamName
+        
+class PlayerProfile(models.Model):
+    '''no use'''
+    avatar_name = models.CharField(max_length=30)
+    full_name = models.CharField(max_length=50)
+    active_team = models.CharField(max_length=30)
+    chinese_name = models.CharField(max_length=60)
+    suggested_chinese_name = models.CharField(max_length=50)
+    role = models.CharField(max_length=30)
+    team = models.ForeignKey(TeamProfile,
+                             on_delete=models.SET_NULL,
+                             blank=True,
+                             null=True,
+                             )
+    
+    def __unicode__(self):
+        return self.avatar_name
+
+class PlayerProfile_test_import(models.Model):
+    '''only for import'''
+    avatar_name = models.CharField(max_length=30)
+    active_team = models.CharField(max_length=30)
+    
+    def __unicode__(self):
+        return self.avatar_name
+
+class TeamProfile_test_normalization(models.Model):
+    TeamName = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.TeamName
+        
+class PlayerProfile_ForeignKeys(models.Model):
+    avatar_name = models.CharField(max_length=30)
+    active_team = models.ForeignKey(TeamProfile_test_normalization,
+                             on_delete=models.SET_NULL,
+                             blank=True,
+                             null=True,
+                             )
+    def __unicode__(self):
+        return self.avatar_name
+        
+class Tournament_List(models.Model):
+    name = models.CharField(max_length=30, verbose_name = "tournament name")
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    twitch = models.URLField(verbose_name = 'link to twitch stream TV')
+    def __unicode__(self):
+        return self.name
+        
+class Tournament_Participants(models.Model):
+    tour = models.ForeignKey(Tournament_List,on_delete=models.SET_NULL,null=True,blank=True)
+    team = models.ForeignKey(TeamProfile_test_normalization,
+                             on_delete=models.SET_NULL,
+                             blank=True,
+                             null=True,)
+    def __unicode__(self):
+        return self.tour
+
+class ECSS2_Schedule(models.Model):
+    team = models.ForeignKey(TeamProfile_test_normalization,
+                              verbose_name = 'first team name', 
+                             on_delete=models.SET_NULL,
+                             blank=True,
+                             null=True,)
+    schedule = models.DateTimeField(verbose_name = 'date and time of the match')
+    def __unicode__(self):
+        return self.schedule.strftime("%x")
+
+\end{minted}
+\end{mdframed}
+
+\end{document}

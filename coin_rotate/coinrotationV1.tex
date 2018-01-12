@@ -1,0 +1,276 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, July 17, 2014 16:08:59}
+%TCIDATA{LastRevised=Tuesday, November 18, 2014 12:21:19}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\bigskip \input{coinlogo.pgf} \input{cointitle.pgf}
+
+\bigskip \U{786c}\U{5e63}\U{7684}\U{6efe}\U{52d5}\U{76ee}\U{524d}\U{7684}%
+\U{6a21}\U{64ec}\U{5927}\U{591a}\U{63a1}\U{7528}\U{525b}\U{9ad4}\U{5075}%
+\U{6e2c}\U{6cd5}\U{ff0c}\U{8209}\U{4f8b}\U{5982}cinema 4D\U{ff0c}Maya\U{ff0c}%
+AutoDesk 3ds Max: Reactor\U{7b49}3D\U{8edf}\U{9ad4}\U{6240}\U{4f7f}\U{7528}%
+\U{7684}\U{7269}\U{7406}\U{5f15}\U{64ce}\U{fe5d}physics engine\U{fe5e}%
+\U{90fd}\U{662f}\U{63a1}\U{7528}\U{525b}\U{9ad4}\U{5075}\U{6e2c}\U{3002}%
+\U{76ee}\U{524d}\U{514d}\U{8cbb}\U{7684}\U{525b}\U{9ad4}\U{5075}\U{6e2c}%
+\U{7a0b}\U{5f0f}\U{5eab}\U{5927}\U{81f4}\U{6709}open dynamics engine, bullet
+physics, high precision\U{7b49}\U{3002}\U{5176}\U{4e2d}\U{53ea}\U{6709}high
+precision\U{6709}\U{6240}\U{8b02}\U{7684}\U{7b26}\U{5408}\U{5de5}\U{7a0b}%
+\U{4f7f}\U{7528}\U{7684}\U{7cbe}\U{78ba}\U{5ea6}\U{3002}\U{7531}\U{65bc}%
+\U{525b}\U{9ad4}\U{5075}\U{6e2c}\U{6cd5}\U{4e3b}\U{8981}\U{662f}\U{61c9}%
+\U{7528}\U{5728}\U{78b0}\U{649e}\U{6216}\U{8005}\U{7206}\U{70b8}\U{7b49}%
+\U{7269}\U{7406}\U{6a21}\U{64ec}\U{ff0c}\U{5176}\U{662f}\U{4ee5}\U{63a5}%
+\U{89f8}\U{9ede}\U{7684}\U{5075}\U{6e2c}\U{70ba}\U{8a08}\U{7b97}\U{539f}%
+\U{7406}\U{ff0c}\U{56e0}\U{6b64}\U{5176}\U{8a08}\U{7b97}\U{91cf}\U{975e}%
+\U{5e38}\U{5927}\U{ff0c}\U{5927}\U{591a}\U{7121}\U{6cd5}\U{505a}\U{9577}%
+\U{6642}\U{9593}\U{6216}\U{8005}\U{9ad8}\U{7cbe}\U{5ea6}\U{7684}\U{6a21}%
+\U{64ec}\U{ff0c}\U{61c9}\U{7528}\U{4e0a}\U{6efe}\U{52d5}\U{9019}\U{985e}%
+\U{578b}\U{7684}\U{904b}\U{52d5}\U{689d}\U{4ef6}\U{662f}\U{6bd4}\U{8f03}%
+\U{5403}\U{529b}\U{7684}\U{3002}\U{9019}\U{908a}\U{5efa}\U{7acb}\U{5728}%
+\U{57fa}\U{790e}\U{7684}\U{63a5}\U{89f8}\U{9ede}\U{5075}\U{6e2c}\U{6cd5}%
+\U{7684}\U{539f}\U{7406}\U{4e4b}\U{4e0a}\U{ff0c}\U{5229}\U{7528}\U{4e26}%
+\U{52a0}\U{4e0a}\U{786c}\U{5e63}\U{6efe}\U{52d5}\U{7279}\U{6709}\U{7684}%
+\U{6efe}\U{52d5}\U{5e7e}\U{4f55}\U{689d}\U{4ef6}\U{ff0c}\U{4f86}\U{505a}%
+\U{63d0}\U{9ad8}\U{7cbe}\U{5ea6}\U{4e14}\U{589e}\U{52a0}\U{8a08}\U{7b97}%
+\U{901f}\U{5ea6}\U{7684}\U{6efe}\U{52d5}\U{6a21}\U{64ec}\U{3002}
+
+\U{6211}\U{5011}\U{628a}\U{771f}\U{6b63}\U{7684}\U{786c}\U{5e63}\U{8fd1}%
+\U{4f3c}\U{6210}\U{4e00}\U{500b}\U{7121}\U{539a}\U{5ea6}\U{7684}\U{5713}%
+\U{9762}\U{ff0c}\U{4e26}\U{4e14}\U{6b64}\U{5713}\U{9762}\U{7531}\U{8a31}%
+\U{591a}\U{6247}\U{5f62}\U{4e09}\U{89d2}\U{5f62}\U{7d44}\U{6210}\U{ff0c}%
+\U{6bcf}\U{500b}\U{6247}\U{5f62}\U{4e09}\U{89d2}\U{5f62}\U{7684}\U{5f35}%
+\U{89d2}\U{70ba}$\theta $\U{ff0c}\U{6211}\U{5011}\U{77e5}\U{9053}\U{ff0c}%
+\U{7576}$\theta $\U{53d6}\U{5f88}\U{5c0f}\U{6642}\U{ff0c}\U{6b64}\U{8fd1}%
+\U{4f3c}\U{5c31}\U{6703}\U{63a5}\U{8fd1}\U{4e00}\U{500b}\U{771f}\U{6b63}%
+\U{7684}\U{6b63}\U{5713}\U{3002}
+
+\U{9019}\U{6a23}\U{7684}\U{8a71}\U{ff0c}\U{7576}\U{786c}\U{5e63}\U{5728}%
+\U{6efe}\U{52d5}\U{6642}\U{ff0c}\U{5c31}\U{76f8}\U{7576}\U{662f}\U{8207}%
+\U{5730}\U{9762}\U{7684}\U{63a5}\U{89f8}\U{9ede}\U{5728}\U{773e}\U{591a}%
+\U{6247}\U{5f62}\U{4e09}\U{89d2}\U{5f62}\U{7684}\U{920d}\U{9802}\U{9ede}%
+\U{8b8a}\U{5316}\U{8b8a}\U{63db}\U{7684}\U{4e00}\U{500b}\U{904b}\U{52d5}%
+\U{3002}
+
+\U{6211}\U{5011}\U{8003}\U{616e}\U{6b64}\U{8fd1}\U{4f3c}\U{4e0b}\U{7684}%
+\U{4e00}\U{5c0f}\U{90e8}\U{5206}\U{8f49}\U{52d5}\U{ff0c}\U{4e5f}\U{5c31}%
+\U{662f}\U{8207}\U{5730}\U{9762}\U{63a5}\U{89f8}\U{9ede}\U{5f9e}\U{4e00}%
+\U{500b}\U{920d}\U{9802}\U{9ede}\U{8b8a}\U{63db}\U{5230}\U{4e0b}\U{4e00}%
+\U{500b}\U{920d}\U{9802}\U{9ede}\U{7684}\U{904b}\U{52d5}\U{ff0c}\U{9019}%
+\U{4e5f}\U{662f}\U{69cb}\U{6210}\U{6574}\U{7684}\U{786c}\U{5e63}\U{6efe}%
+\U{52d5}\U{7684}\U{57fa}\U{790e}\U{8f49}\U{52d5}\U{ff0c}\U{7576}$\theta $%
+\U{5920}\U{5c0f}\U{ff0c}\U{9019}\U{4e00}\U{6b65}\U{7684}\U{8f49}\U{52d5}%
+\U{4e5f}\U{53ef}\U{8996}\U{70ba}\U{4e00}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}%
+\U{3002}\U{63a5}\U{8457}\U{ff0c}\U{6211}\U{5011}\U{518d}\U{628a}\U{9019}%
+\U{4e00}\U{500b}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}\U{5206}\U{6210}\U{4e09}%
+\U{500b}\U{6b65}\U{9a5f}\U{ff0c}\U{9019}\U{4e09}\U{500b}\U{6b65}\U{9a5f}%
+\U{4e5f}\U{662f}\U{4e09}\U{500b}\U{8f49}\U{52d5}\U{ff0c}\U{56e0}\U{70ba}%
+\U{8003}\U{616e}\U{5230}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}\U{5411}\U{91cf}%
+\U{52a0}\U{6cd5}\U{7684}\U{53ef}\U{4ea4}\U{63db}\U{6027}(associative)\U{ff0c}%
+\U{6211}\U{5011}\U{9078}\U{64c7}\U{4e00}\U{7279}\U{5b9a}\U{9806}\U{5e8f}%
+\U{4e26}\U{4e14}\U{6cbf}\U{8457}\U{5f7c}\U{6b64}\U{4e92}\U{5782}\U{7684}%
+\U{4e09}\U{500b}\U{8f49}\U{8ef8}\U{7684}\U{4e09}\U{500b}\U{8f49}\U{52d5}%
+\U{ff0c}\U{4ee5}\U{4fbf}\U{6211}\U{5011}\U{4f7f}\U{7528}\U{5c24}\U{62c9}%
+\U{65b9}\U{7a0b}\U{4e2d}\U{7684}\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}%
+\U{4f86}\U{505a}\U{6578}\U{503c}\U{6a21}\U{64ec}\U{3002}
+
+\U{4ee5}\U{4e0b}\U{5c31}\U{70ba}\U{9019}\U{4e09}\U{6b65}\U{9a5f}\U{8f49}%
+\U{52d5}\U{4f5c}\U{8a73}\U{7d30}\U{63cf}\U{8ff0}\U{ff1a}
+
+\begin{figure}[th]
+\caption{{}}
+\label{figure1}
+\begin{center}
+\fbox{\input{circleCP.pgf}}
+\end{center}
+\end{figure}
+
+\begin{figure}[th]
+\caption{{}Succesive rolling from CP$_{0}$, CP$_{1}$, CP$_{2}$.}
+\begin{center}
+\fbox{\input{cm0cm1cm2.pgf}}
+\end{center}
+\end{figure}
+
+\begin{enumerate}
+\item \U{7b2c}\U{4e00}\U{6b65}\U{5148}\U{6cbf}\U{8457}$CP_{0}CM_{0}$\U{8ef8}%
+\U{8f49}\U{ff0c}\U{8f49}\U{5230}$cirCP_{1}$\U{89f8}\U{5730}\U{70ba}\U{6b62}%
+\U{ff0c}\U{8f49}\U{52d5}\U{7684}\U{901f}\U{7387}\U{70ba}\U{6cbf}body $\hat{y}%
+_{0}$\U{7684}\U{89d2}\U{901f}\U{5ea6}$\omega _{y}$\U{ff0c}\U{8ddf}\U{4e0a}%
+\U{4e00}\U{7ae0}\U{4e00}\U{6a23}\U{6211}\U{5011}\U{6703}\U{4ee5}\U{4e0b}%
+\U{4e00}\U{6b65}\U{7684}\U{6642}\U{9593}$t_{1}$\U{4f86}\U{8fd1}\U{4f3c}%
+\U{ff0c}\U{5373}$\omega _{y}\left( t_{1}\right) $\U{3002}
+
+\item \U{8a2d}$cirCP_{1}$\U{89f8}\U{5730}\U{4f4d}\U{7f6e}\U{70ba}$%
+CP_{0}^{\prime }$\U{ff0c}\U{7531}\U{65bc}$cirCP_{1}$\U{5df2}\U{89f8}\U{5730}%
+\U{ff0c}\U{63a5}\U{4e0b}\U{4f86}\U{4ee3}\U{8868}\U{4e09}\U{89d2}\U{5f62}%
+\U{5728}$CP_{0}$\U{7684}\U{7aef}\U{9ede}\U{6703}\U{88ab}\U{62ac}\U{8d77}%
+\U{ff0c}\U{56e0}\U{6b64}\U{9019}\U{4e00}\U{6b65}\U{6211}\U{5011}\U{8003}%
+\U{616e}\U{4e09}\U{89d2}\U{6247}\U{5f62}\U{6cbf}\U{8457}$CP_{0}^{\prime
+}CM_{0}$\U{8ef8}\U{8f49}\U{52d5}\U{ff0c}\U{7531}\U{65bc}\U{7576}\U{6211}%
+\U{5011}\U{53d6}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}\U{6642}\U{ff0c}\U{8f49}%
+\U{52d5}\U{7684}\U{63a5}\U{89f8}\U{9ede}\U{7684}\U{901f}\U{5ea6}\U{5728}%
+\U{89f8}\U{5730}\U{524d}\U{5f8c}\U{662f}\U{9023}\U{7e8c}\U{800c}\U{4e14}%
+\U{5e73}\U{6ed1}\U{7684}\footnote{\U{9019}\U{908a}\U{9700}\U{8981}\U{4e00}%
+\U{9ede}\U{89e3}\U{91cb}\U{6216}\U{5f15}\U{7528}\U{3002}}\U{ff0c}\U{56e0}%
+\U{6b64}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{8fd1}\U{4f3c}\U{6b64}\U{90e8}%
+\U{5206}\U{6cbf}\U{8457}$CP_{0}^{\prime }CM_{0}$\U{8f49}\U{52d5}\U{7684}%
+\U{89d2}\U{901f}\U{5ea6}\U{70ba}\U{89f8}\U{5730}\U{524d}\U{6cbf}\U{8457}$%
+CP_{0}CM_{0}$\U{8f49}\U{52d5}\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{ff0c}\U{5373}%
+$\omega _{y}\left( t_{1}\right) $\U{3002}\U{4ee5}\U{4e0a}\U{5169}\U{90e8}%
+\U{5206}\U{6b77}\U{7d93}$2dt$\U{6642}\U{9593}\U{ff0c}\U{5206}\U{5225}\U{6cbf}%
+\U{8457}\U{5169}\U{500b}\U{8ef8}\U{3001}\U{5169}\U{500b}\U{63a5}\U{89f8}%
+\U{9ede}\U{3001}\U{53ca}\U{89d2}\U{901f}\U{5ea6}\U{8fd1}\U{4f3c}\U{70ba}%
+\U{76f8}\U{540c}\U{7684}\U{8f49}\U{52d5}\U{5f8c}\U{ff0c}\U{6b64}\U{6642}%
+\U{6247}\U{5f62}\U{4e09}\U{89d2}\U{5f62}(\U{6216}\U{786c}\U{5e63})\U{5728}$%
+\hat{y}_{0}\hat{x}_{1}$\U{5e73}\U{9762}\U{3002}
+
+\item \U{63a5}\U{8457}\U{786c}\U{5e63}\U{6cbf}\U{8457}body $\hat{z}%
+_{0}^{\prime }$\U{8ef8}\U{8f49}\U{ff0c}\U{9019}\U{53ea}\U{6703}\U{9020}%
+\U{6210}$\hat{x}_{0}^{\prime }$\U{65b9}\U{5411}\U{4e0a}\U{7684}\U{5e73}%
+\U{79fb}\U{ff0c}\U{63a5}\U{89f8}\U{9ede}$CP_{0}^{\prime }$\U{5e73}\U{79fb}%
+\U{5230}$CP_{1}$\U{ff0c}\U{8cea}\U{5fc3}$CM_{0}$\U{5230}$CM_{0}^{\prime }$%
+\U{ff0c}\U{9019}\U{6b65}\U{9a5f}\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{70ba}$%
+\omega _{z0}\left( t_{1}\right) $\U{ff0c}\U{6ce8}\U{610f}\U{6211}\U{5011}%
+\U{9084}\U{662f}\U{53d6}\U{4e0b}\U{4e00}\U{6642}\U{9593}$t_{1}$\U{6642}%
+\U{9593}\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{8fd1}\U{4f3c}\U{503c}\U{3002}%
+\U{fe5d}\U{7531}\U{65bc}\U{7576}$\theta $\U{53d6}\U{6975}\U{9650}\U{5c0f}%
+\U{5f8c}\U{ff0c}\U{786c}\U{5e63}\U{5728}\U{9019}\U{4e00}\U{6b65}\U{7684}%
+\U{8f49}\U{52d5}\U{5177}\U{6709}$CMCP$\U{8ef8}\U{7e3d}\U{662f}\U{8207}%
+\U{5730}\U{9762}\U{7684}\U{63a5}\U{89f8}\U{9ede}\U{5207}\U{7dda}\U{65b9}%
+\U{5411}\U{5782}\U{76f4}\U{7684}\U{7279}\U{6027}\U{ff0c}\U{56e0}\U{6b64}%
+\U{9019}\U{88e1}\U{6211}\U{5011}\U{4e0d}\U{7d30}\U{63a2}\U{6b64}\U{8f49}%
+\U{52d5}\U{904e}\U{7a0b}\U{ff0c}\U{800c}\U{505a}\U{9019}\U{4e00}\U{7c21}%
+\U{5316}\U{3002}\U{82e5}\U{8981}\U{66f4}\U{4ed4}\U{7d30}\U{ff0c}\U{6211}%
+\U{5011}\U{4e5f}\U{662f}\U{53ef}\U{4ee5}\U{518d}\U{8003}\U{616e}\U{4e09}%
+\U{89d2}\U{5f62}\U{6cbf}\U{4e2d}\U{5fc3}\U{9ede}\U{920d}\U{89d2}$%
+CP_{0}^{\prime }$\U{9ede}\U{53ca}$z_{0}^{\prime }$\U{8ef8}\U{8f49}\U{52d5}%
+\U{ff0c}\U{76f4}\U{5230}\U{4e09}\U{89d2}\U{578b}\U{53e6}\U{4e00}\U{920d}%
+\U{9ede}\U{89f8}\U{5730}\U{ff0c}\U{6b64}\U{9ede}\U{70ba}$CP_{1}$\U{ff0c}%
+\U{63a5}\U{8457}\U{4e09}\U{89d2}\U{5f62}\U{4ee5}$CP_{1}$\U{70ba}\U{4e2d}%
+\U{5fc3}\U{9ede}\U{ff0c}$z_{1}$\U{8ef8}\U{70ba}\U{8f49}\U{8ef8}\U{ff0c}$%
+CP_{0}^{\prime }$\U{9ede}\U{62ac}\U{8d77}\U{ff0c}\U{5230}$CM_{0}^{\prime
+}CP_{1}$\U{8207}$x_{1}$\U{5782}\U{76f4}\U{3002}\U{4e0d}\U{904e}\U{6211}%
+\U{5011}\U{53ef}\U{4ee5}\U{5148}\U{770b}\U{770b}\U{6211}\U{5011}\U{7684}%
+\U{7c21}\U{5316}\U{8868}\U{73fe}\U{5982}\U{4f55}\U{3002}\U{fe5d}\U{6ce8}%
+\U{610f}\U{6211}\U{5011}\U{90fd}\U{662f}\U{7528}\U{4e0b}\U{4e00}\U{6642}%
+\U{523b}$t_{i+1}$\U{7684}\U{6642}\U{9593}\U{4f86}\U{505a}$t_{i}$\U{5230}$%
+t_{i+1}$\U{6642}\U{7684}\U{8f49}\U{52d5}\U{3002}\U{fe5e}
+
+\item \U{7136}\U{5f8c}\U{6cbf}\U{8457}$x_{0}^{\prime }$\U{8ef8}\U{4ee5}$%
+\omega _{x^{\prime }0}$\U{89d2}\U{901f}\U{5ea6}\U{8f49}\U{ff0c}$%
+C_{0}^{\prime }$\U{8ef8}\U{8f49}\U{5230}$C_{1}$\U{3002}\U{6b64}\U{6b65}%
+\U{63cf}\U{8ff0}\U{786c}\U{5e63}\U{7684}\U{9ad8}\U{5ea6}\U{8b8a}\U{5316}%
+\U{3002}
+
+\item \U{9019}\U{6a23}\U{5b8c}\U{6210}\U{4e00}\U{6b21}$t_{0}\symbol{126}%
+t_{1} $\U{7684}\U{8f49}\U{52d5}\U{ff0c}\U{63a5}\U{8457}\U{91cd}\U{8907}%
+\U{4ee5}\U{4e0a}\U{4f86}\U{9054}\U{6210}$t_{1}\symbol{126}t_{2}$\U{8f49}%
+\U{52d5}\U{3002}
+\end{enumerate}
+
+\begin{figure}[th]
+\caption{{}The relation graph of $\protect\alpha $ and $\protect\phi $.}
+\label{alphaphifig}
+\begin{center}
+\fbox{\input{alphaphi.pgf}}
+\end{center}
+\end{figure}
+
+\U{5728}\U{5047}\U{8a2d}\U{786c}\U{5e63}\U{70ba}\U{6247}\U{5f62}\U{7684}%
+\U{72c0}\U{614b}\U{4e0b}\U{ff0c}\U{6211}\U{5011}\U{5fc5}\U{9808}\U{5148}%
+\U{8a0e}\U{8ad6}\U{4e00}\U{500b}\U{72c0}\U{6cc1}\U{ff0c}\U{5047}\U{8a2d}%
+\U{786c}\U{5e63}\U{53ea}\U{6cbf}\U{8457}$\overline{CP_{0}CM_{0}}$\U{8f49}%
+\U{52d5}\U{ff0c}\U{4e14}\U{6211}\U{5011}\U{8003}\U{616e}\U{8f49}\U{52d5}%
+\U{5230}$CP_{0}CP_{1}$\U{5169}\U{9ede}\U{90fd}\U{89f8}\U{5730}\U{70ba}%
+\U{6b62}\U{ff0c}\U{898b}\U{5716}\ref{alphaphifig}\U{ff0c}\U{539f}\U{672c}%
+\U{786c}\U{5e63}\U{5728}$\Delta CP_{0}CM_{0}cirCP_{1}$\U{5e73}\U{9762}%
+\U{ff0c}\U{8f49}\U{52d5}\U{5f8c}\U{786c}\U{5e63}\U{5728}$\Delta
+CP_{0}CM_{0}CP_{1}$\U{5e73}\U{9762}\U{3002}\U{6211}\U{5011}\U{60f3}\U{8981}%
+\U{5c07}$CP_{1}$\U{7684}\U{4f4d}\U{7f6e}\U{8868}\U{9054}\U{6210}\U{6211}%
+\U{5011}\U{5df2}\U{77e5}\U{53c3}\U{6578}\U{7684}\U{51fd}\U{6578}\U{ff0c}%
+\U{66f4}\U{91cd}\U{8981}\U{7684}\U{662f}\U{ff0c}\U{6211}\U{5011}\U{8981}%
+\U{77e5}\U{9053}$CP_{1}$\U{7684}\U{4f4d}\U{7f6e}\U{8207}\U{6cbf}\U{8457}$%
+\overline{CP_{0}CM_{0}}$\U{8ef8}\U{7684}\U{8cbc}\U{9ad4}\U{8f49}\U{52d5}%
+\U{89d2}\U{901f}\U{5ea6}\U{7684}\U{95dc}\U{4fc2}\U{3002}\U{82e5}\U{5047}%
+\U{8a2d}$\overline{CP_{0}CP_{1}}$\U{8207}$\hat{x}_{0}$\U{7684}\U{593e}%
+\U{89d2}\U{70ba}$\alpha $\U{ff0c}\U{6cbf}\U{8457}$body$\U{8ef8}$\overline{%
+CP_{0}CM_{0}}$\U{8f49}\U{52d5}\U{7684}\U{89d2}\U{5ea6}\U{70ba}$\phi 
+\footnote{\U{82e5}\U{5f9e}$cirCP_{1}$\U{3001}$CP_{1}$\U{5206}\U{5225}\U{4f5c}%
+\U{5782}\U{7dda}\U{81f3}$\overline{CP_{0}CM_{0}}$\U{ff0c}$\phi $\U{5373}%
+\U{70ba}\U{5169}\U{5782}\U{7dda}\U{7684}\U{593e}\U{89d2}\U{ff0c}\U{898b}%
+\U{5716}\U{3002}}$\U{ff0c}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{8b49}\U{660e}$%
+\alpha $\U{8207}$\phi $\U{7684}\U{95dc}\U{4fc2}\U{5f0f}\U{70ba}%
+\[
+\cos \left( \phi \right) =\frac{\cos \left( \alpha \right) }{\cos \left( 
+\frac{\theta }{2}\right) } 
+\]%
+\U{4e26}\U{4e14}%
+\[
+\sin \left( \alpha \right) =\frac{\sin \left( \frac{\theta }{2}\right) }{%
+\cos \left( \beta \right) } 
+\]
+
+\U{7576}$\theta $\U{8da8}\U{8fd1}\U{65bc}0\U{ff0c}\U{63a5}\U{89f8}\U{9ede}%
+\U{89f8}\U{5730}\U{901f}\U{5ea6}\U{6703}\U{8b8a}0\U{8b8a}\U{5e73}\U{6ed1}%
+\U{3002}\U{52a0}\U{5716}\#\#
+
+\U{6211}\U{5011}\U{4ee5}steady state $\dot{\theta}=0$\U{7684}\U{72c0}\U{6cc1}%
+\U{4f86}\U{8ddf}\U{89e3}\U{6790}\U{89e3}\cite{Ginsberg}\U{505a}\U{6bd4}%
+\U{8f03}\U{ff0c}\U{56e0}\U{70ba}\U{66f8}\U{4e0a}\U{662f}\U{63a1}\U{7528}%
+\U{5c24}\U{62c9}\U{89d2}\U{ff0c}\U{56e0}\U{6b64}\U{8981}\U{505a}\U{6bd4}%
+\U{8f03}\U{7684}\U{8a71}\U{ff0c}\U{5fc5}\U{9808}\U{8207}\U{5c24}\U{62c9}%
+\U{89d2}\U{505a}\U{9023}\U{7d50}\U{ff0c}\U{82e5}\U{4ee5}\U{5716}\ref{figure1}%
+\U{4e2d}space xyz\U{8207}body xyz\U{7684}\U{5c24}\U{62c9}\U{89d2}\U{95dc}%
+\U{4fc2}\U{ff0c}\U{4e26}\U{4e14}\U{4ee5}\U{66f8}\U{4e0a}\U{63a1}\U{7528}%
+\U{7684}z-y-z\U{8f49}\U{8ef8}\U{8f49}$\varphi -\theta -\phi $\U{89d2}\U{7684}%
+\U{5b9a}\U{7fa9}\U{fe5d}\U{6ce8}\U{610f}\U{8207}\U{6211}\U{5011}\U{6280}%
+\U{8853}\U{6587}\U{4ef6}\U{4e00}\U{63a1}\U{7528}\U{7684}\U{5c24}\U{62c9}%
+\U{89d2}\U{5b9a}\U{7fa9}\U{4e0d}\U{540c}\U{fe5e}\U{ff0c}\U{5247}\U{5f9e}%
+space xyz\U{8f49}\U{5230}body xyz\U{7684}\U{5c24}\U{62c9}\U{89d2}\U{521d}%
+\U{59cb}\U{503c}\U{70ba}$\varphi =-\frac{\pi }{2}\U{ff0c} \theta =\frac{\pi 
+}{2}-$lean angle$\U{ff0c} \phi =\frac{\pi }{2}$\U{ff0c}\U{5176}\U{4e2d}lean
+angle\U{70ba}\U{786c}\U{5e63}\U{5e73}\U{9762}\U{8207}space z\U{593e}\U{89d2}%
+\U{3002}
+
+\bigskip
+
+\begin{thebibliography}{9}
+\bibitem{Ginsberg} Jerry H. Ginsberg, Advanced Engineering Dynamics 2nd.,
+Harper \& Row Publishers Inc., New York, 1988
+\end{thebibliography}
+
+\end{document}

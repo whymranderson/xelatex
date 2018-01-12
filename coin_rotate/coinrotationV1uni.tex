@@ -1,0 +1,276 @@
+\documentclass[12pt,twoside]{article}
+%\documentclass[12pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\setCJKmainfont{微軟正黑體}
+\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+\usepackage{unicode-math}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pgf}
+\usepackage{pstricks,pst-node}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\bigskip \input{coinlogo.pgf} \input{cointitle.pgf}
+
+\bigskip 硬幣的滾動目前的%
+模擬大多採用剛體偵%
+測法，舉例如cinema 4D，Maya，%
+AutoDesk 3ds Max: Reactor等3D軟體所使用%
+的物理引擎﹝physics engine﹞%
+都是採用剛體偵測。%
+目前免費的剛體偵測%
+程式庫大致有open dynamics engine, bullet
+physics, high precision等。其中只有high
+precision有所謂的符合工程%
+使用的精確度。由於%
+剛體偵測法主要是應%
+用在碰撞或者爆炸等%
+物理模擬，其是以接%
+觸點的偵測為計算原%
+理，因此其計算量非%
+常大，大多無法做長%
+時間或者高精度的模%
+擬，應用上滾動這類%
+型的運動條件是比較%
+吃力的。這邊建立在%
+基礎的接觸點偵測法%
+的原理之上，利用並%
+加上硬幣滾動特有的%
+滾動幾何條件，來做%
+提高精度且增加計算%
+速度的滾動模擬。
+
+我們把真正的硬幣近%
+似成一個無厚度的圓%
+面，並且此圓面由許%
+多扇形三角形組成，%
+每個扇形三角形的張%
+角為$\theta $，我們知道，%
+當$\theta $取很小時，此近%
+似就會接近一個真正%
+的正圓。
+
+這樣的話，當硬幣在%
+滾動時，就相當是與%
+地面的接觸點在眾多%
+扇形三角形的鈍頂點%
+變化變換的一個運動%
+。
+
+我們考慮此近似下的%
+一小部分轉動，也就%
+是與地面接觸點從一%
+個鈍頂點變換到下一%
+個鈍頂點的運動，這%
+也是構成整的硬幣滾%
+動的基礎轉動，當$\theta $%
+夠小，這一步的轉動%
+也可視為一微小轉動%
+。接著，我們再把這%
+一個微小轉動分成三%
+個步驟，這三個步驟%
+也是三個轉動，因為%
+考慮到微小轉動向量%
+加法的可交換性(associative)，%
+我們選擇一特定順序%
+並且沿著彼此互垂的%
+三個轉軸的三個轉動%
+，以便我們使用尤拉%
+方程中的貼體角速度%
+來做數值模擬。
+
+以下就為這三步驟轉%
+動作詳細描述：
+
+\begin{figure}[th]
+\caption{{}}
+\label{figure1}
+\begin{center}
+\fbox{\input{circleCP.pgf}}
+\end{center}
+\end{figure}
+
+\begin{figure}[th]
+\caption{{}Succesive rolling from CP$_{0}$, CP$_{1}$, CP$_{2}$.}
+\begin{center}
+\fbox{\input{cm0cm1cm2.pgf}}
+\end{center}
+\end{figure}
+
+\begin{enumerate}
+\item 第一步先沿著$CP_{0}CM_{0}$軸%
+轉，轉到$cirCP_{1}$觸地為止%
+，轉動的速率為沿body $\hat{y}%
+_{0}$的角速度$\omega _{y}$，跟上%
+一章一樣我們會以下%
+一步的時間$t_{1}$來近似%
+，即$\omega _{y}\left( t_{1}\right) $。
+
+\item 設$cirCP_{1}$觸地位置為$%
+CP_{0}^{\prime }$，由於$cirCP_{1}$已觸地%
+，接下來代表三角形%
+在$CP_{0}$的端點會被抬起%
+，因此這一步我們考%
+慮三角扇形沿著$CP_{0}^{\prime
+}CM_{0}$軸轉動，由於當我%
+們取微小轉動時，轉%
+動的接觸點的速度在%
+觸地前後是連續而且%
+平滑的\footnote{這邊需要一%
+點解釋或引用。}，因%
+此我們可以近似此部%
+分沿著$CP_{0}^{\prime }CM_{0}$轉動的%
+角速度為觸地前沿著$%
+CP_{0}CM_{0}$轉動的角速度，即%
+$\omega _{y}\left( t_{1}\right) $。以上兩部%
+分歷經$2dt$時間，分別沿%
+著兩個軸、兩個接觸%
+點、及角速度近似為%
+相同的轉動後，此時%
+扇形三角形(或硬幣)在$%
+\hat{y}_{0}\hat{x}_{1}$平面。
+
+\item 接著硬幣沿著body $\hat{z}%
+_{0}^{\prime }$軸轉，這只會造%
+成$\hat{x}_{0}^{\prime }$方向上的平%
+移，接觸點$CP_{0}^{\prime }$平移%
+到$CP_{1}$，質心$CM_{0}$到$CM_{0}^{\prime }$%
+，這步驟的角速度為$%
+\omega _{z0}\left( t_{1}\right) $，注意我們%
+還是取下一時間$t_{1}$時%
+間的角速度近似值。%
+﹝由於當$\theta $取極限小%
+後，硬幣在這一步的%
+轉動具有$CMCP$軸總是與%
+地面的接觸點切線方%
+向垂直的特性，因此%
+這裡我們不細探此轉%
+動過程，而做這一簡%
+化。若要更仔細，我%
+們也是可以再考慮三%
+角形沿中心點鈍角$%
+CP_{0}^{\prime }$點及$z_{0}^{\prime }$軸轉動%
+，直到三角型另一鈍%
+點觸地，此點為$CP_{1}$，%
+接著三角形以$CP_{1}$為中%
+心點，$z_{1}$軸為轉軸，$%
+CP_{0}^{\prime }$點抬起，到$CM_{0}^{\prime
+}CP_{1}$與$x_{1}$垂直。不過我%
+們可以先看看我們的%
+簡化表現如何。﹝注%
+意我們都是用下一時%
+刻$t_{i+1}$的時間來做$t_{i}$到$%
+t_{i+1}$時的轉動。﹞
+
+\item 然後沿著$x_{0}^{\prime }$軸以$%
+\omega _{x^{\prime }0}$角速度轉，$%
+C_{0}^{\prime }$軸轉到$C_{1}$。此步%
+描述硬幣的高度變化%
+。
+
+\item 這樣完成一次$t_{0}\symbol{126}%
+t_{1} $的轉動，接著重複%
+以上來達成$t_{1}\symbol{126}t_{2}$轉%
+動。
+\end{enumerate}
+
+\begin{figure}[th]
+\caption{{}The relation graph of $\protect\alpha $ and $\protect\phi $.}
+\label{alphaphifig}
+\begin{center}
+\fbox{\input{alphaphi.pgf}}
+\end{center}
+\end{figure}
+
+在假設硬幣為扇形的%
+狀態下，我們必須先%
+討論一個狀況，假設%
+硬幣只沿著$\overline{CP_{0}CM_{0}}$轉%
+動，且我們考慮轉動%
+到$CP_{0}CP_{1}$兩點都觸地為%
+止，見圖\ref{alphaphifig}，原本%
+硬幣在$\Delta CP_{0}CM_{0}cirCP_{1}$平面%
+，轉動後硬幣在$\Delta
+CP_{0}CM_{0}CP_{1}$平面。我們想要%
+將$CP_{1}$的位置表達成我%
+們已知參數的函數，%
+更重要的是，我們要%
+知道$CP_{1}$的位置與沿著$%
+\overline{CP_{0}CM_{0}}$軸的貼體轉動%
+角速度的關係。若假%
+設$\overline{CP_{0}CP_{1}}$與$\hat{x}_{0}$的夾%
+角為$\alpha $，沿著$body$軸$\overline{%
+CP_{0}CM_{0}}$轉動的角度為$\phi 
+\footnote{若從$cirCP_{1}$、$CP_{1}$分別作%
+垂線至$\overline{CP_{0}CM_{0}}$，$\phi $即%
+為兩垂線的夾角，見%
+圖。}$，我們可以證明$%
+\alpha $與$\phi $的關係式為%
+\[
+\cos \left( \phi \right) =\frac{\cos \left( \alpha \right) }{\cos \left( 
+\frac{\theta }{2}\right) } 
+\]%
+並且%
+\[
+\sin \left( \alpha \right) =\frac{\sin \left( \frac{\theta }{2}\right) }{%
+\cos \left( \beta \right) } 
+\]
+
+當$\theta $趨近於0，接觸點%
+觸地速度會變0變平滑%
+。加圖\#\#
+
+我們以steady state $\dot{\theta}=0$的狀況%
+來跟解析解\cite{Ginsberg}做比%
+較，因為書上是採用%
+尤拉角，因此要做比%
+較的話，必須與尤拉%
+角做連結，若以圖\ref{figure1}%
+中space xyz與body xyz的尤拉角關%
+係，並且以書上採用%
+的z-y-z轉軸轉$\varphi -\theta -\phi $角的%
+定義﹝注意與我們技%
+術文件一採用的尤拉%
+角定義不同﹞，則從%
+space xyz轉到body xyz的尤拉角初%
+始值為$\varphi =-\frac{\pi }{2}， \theta =\frac{\pi 
+}{2}-$lean angle$， \phi =\frac{\pi }{2}$，其中lean
+angle為硬幣平面與space z夾角%
+。
+
+\bigskip
+
+\begin{thebibliography}{9}
+\bibitem{Ginsberg} Jerry H. Ginsberg, Advanced Engineering Dynamics 2nd.,
+Harper \& Row Publishers Inc., New York, 1988
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,1281 @@
+
+\documentclass[notes=show,beamer]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Monday, March 27, 2006 16:48:17}
+%TCIDATA{LastRevised=Monday, November 27, 2006 13:01:24}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%TCIDATA{Language=American English}
+%TCIDATA{CSTFile=beamer.cst}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\input{tcilatex}
+\begin{document}
+
+\title[]{Creating Beamer presentations in \textsl{Scientific WorkPlace }and 
+\textsl{Scientific Word}}
+\author{MacKichan Software Technical Support}
+\date{March 2006}
+\maketitle
+
+\section{Creating Beamer presentations in Scientific WorkPlace and
+Scientific Word}
+
+\subsection{What is Beamer?}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{What is Beamer?}
+
+\begin{itemize}
+\item Beamer is a 
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+document class that produces presentations and transparency slides.
+
+\item Beamer presentations feature
+
+\begin{itemize}
+\item \textsc{pdf}%
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+output.
+
+\item Global and local control of layout, color, and fonts.
+
+\item List items that can appear one at a time.
+
+\item Overlays and dynamic transitions between slides.
+
+\item Standard 
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+constructs.
+
+\item Typeset text, mathematics like this $\frac{-b\pm \sqrt{b^{2}-4ac}}{2a}$%
+, and graphics.
+\end{itemize}
+\end{itemize}
+
+\FRAME{dtbpF}{0.2888in}{0.3105in}{0pt}{}{}{logo.wmf}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"PICT";valid_file "F";width 0.2888in;height 0.3105in;depth
+0pt;original-width 0.2603in;original-height 0.2811in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename
+'graphics/logo.wmf';file-properties "XNPEU";}}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Basic tasks in creating a Beamer presentation}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Basic tasks in creating a Beamer presentation}
+
+\begin{enumerate}
+\item Start a new document with the Slides - Beamer shell in the Other
+Documents shell directory.
+
+\item Choose a presentation theme to define the appearance of the
+presentation.
+
+\item Create a frame for each slide in the presentation.
+
+\item Organize information in lists and columns.
+
+\item Create transitions between frames.
+
+\item Add graphics and animations.
+
+\item Typeset the presentation with \textsc{pdf}\LaTeX{}.
+\end{enumerate}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Using presentation themes}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Using presentation themes}
+
+\begin{stepitemize}
+\item Beamer \textit{presentation themes} automatically define all aspects
+of a presentation's layout and appearance.
+
+\item Use a presentation theme to format your presentation quickly.
+
+\item Beamer has five types of presentation themes:
+
+\begin{itemize}
+\item 
+%TCIMACRO{\qhyperref{}{}{nav}{Without navigation bars}}%
+%BeginExpansion
+\hyperref{}{}{nav}{Without navigation bars}%
+%EndExpansion
+
+\item 
+%TCIMACRO{\qhyperref{}{}{tree}{With tree-like navigation bars}}%
+%BeginExpansion
+\hyperref{}{}{tree}{With tree-like navigation bars}%
+%EndExpansion
+
+\item 
+%TCIMACRO{\qhyperref{}{}{toc}{With a table of contents sidebar}}%
+%BeginExpansion
+\hyperref{}{}{toc}{With a table of contents sidebar}%
+%EndExpansion
+
+\item 
+%TCIMACRO{\qhyperref{}{}{mini}{With a mini-frame navigation bar}}%
+%BeginExpansion
+\hyperref{}{}{mini}{With a mini-frame navigation bar}%
+%EndExpansion
+
+\item \hyperlink{sec}{With section and subsection tables}
+\end{itemize}
+
+\item This sample presentation uses the Madrid theme, which is without
+navigation bars.
+
+\item Sample any of the themes by adding the command \texttt{\TEXTsymbol{%
+\backslash}usetheme\{themename\}} to the preamble of this document,
+replacing any existing \texttt{\TEXTsymbol{\backslash}usetheme} command.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\hypertarget{nav}{}\QTR{frametitle}{Using presentation themes}
+
+\QTR{framesubtitle}{Themes without navigation bars}
+
+\begin{itemize}
+\item \textbf{Default}: a professional, no-nonsense theme
+
+\item \textbf{Bergen}: divides the frame into vertical boxes
+
+\item \textbf{Boadilla}: gives much information in little space
+
+\item \textbf{Madrid}: similar to Boadilla but with fancier item icons
+
+\item \textbf{Pittsburgh}: professional, with right-flush titles
+
+\item \textbf{Rochester}: a professional theme with a horizontal header panel
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\hypertarget{tree}{}\QTR{frametitle}{Using presentation themes}
+
+\QTR{framesubtitle}{Themes that display a tree-like navigation bar}
+
+\begin{itemize}
+\item \textbf{Antibes}: a theme with a strong appearance, with a navigation
+bar at the top
+
+\item \textbf{JuanLesPins}: a smoother, rounder version of Antibes
+
+\item \textbf{Montpellier}: professional, with basic navigational hints at
+the bottom
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\hypertarget{toc}{}\QTR{frametitle}{Using presentation themes}
+
+\QTR{framesubtitle}{Themes with a table of contents sidebar}
+
+\begin{itemize}
+\item \textbf{Berkeley}: a professional theme with a with a horizontal
+header panel
+
+\item \textbf{PaloAlto}: a less forceful form of Berkeley
+
+\item \textbf{Goettingen}: with a full table of contents on the right and no
+header panel
+
+\item \textbf{Marburg}: a very strong variation of Goettingen
+
+\item \textbf{Hannover}: TOC sidebar on the left balances right-flush titles
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\hypertarget{mini}{}\QTR{frametitle}{Using presentation themes}
+
+\QTR{framesubtitle}{Themes with a mini-frame navigation bar}
+
+\begin{itemize}
+\item \textbf{Berlin}: a theme with strong rectangular areas and a
+navigation\ bar at the top
+
+\item \textbf{Ilmenau}: a variation of Berlin
+
+\item \textbf{Dresden}: a variation of Ilmenau
+
+\item \textbf{Darmstadt}: similar to Dresden with rounded theorem boxes and
+icons
+
+\item \textbf{Frankfurt}: like Darmstadt but without subsection information
+
+\item \textbf{Singapore}: a softer appearance; divides headings from text
+with shading
+
+\item \textbf{Szeged}: softer, with strong horizontal lines
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\hypertarget{sec}{}\QTR{frametitle}{Using presentation themes}
+
+\QTR{framesubtitle}{Themes with section and subsection tables}
+
+\begin{itemize}
+\item \textbf{Copenhagen}: shows current section and subsection at top,
+title and author at bottom; no shadows
+
+\item \textbf{Luebeck}: a boxier variation of Copenhagen
+
+\item \textbf{Malmoe}: a more professional variation of Copenhagen
+
+\item \textbf{Warsaw}: a variation of Copenhagen, with a strong appearance
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Using outer and inner themes}
+
+Instead of using complete presentation themes, you can define presentation
+elements separately.
+
+\begin{itemize}
+\item Use \textbf{Outer themes }to define the overall frame layout, borders,
+headers, sidebars, footers, and navigation bars.
+
+\item Use \textbf{Inner themes }to define the appearance of title pages,
+lists, blocks of text, theorems and proofs, figures, tables, footnotes, and
+bibliography entries.
+
+\item For full information, see
+TCITeX/TeX/LaTeX/contrib/beamer/doc/beameruserguide.pdf provided as part of
+the downloaded support.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Creating frames}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Creating frames}
+
+\begin{stepitemize}
+\item All the information in a Beamer\emph{\ }presentation is contained in 
+\textit{frames.}
+
+\item Each frame corresponds to a single presentation slide.
+
+\item To create frames in a Beamer document,
+
+\begin{stepenumerate}
+\item Apply a frame fragment:
+
+\begin{stepitemize}
+\item The \textbf{Frame with title and subtitle} fragment starts and ends a
+new frame and includes a title and subtitle.
+
+\item The \textbf{Frame with title }fragment starts and ends a new frame and
+includes a title.
+
+\item The \textbf{Frame} fragment starts and ends a new frame.
+\end{stepitemize}
+
+\item Place the text for the frame between the BeginFrame and EndFrame
+fields.
+
+\item Enter the frame title and subtitle.
+
+If you used the Frame fragment, apply the Frame title and Frame subtitle
+text tags as necessary.
+\end{stepenumerate}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Suppressing frame headlines, footlines, and sidebars}
+
+%TCIMACRO{\TeXButton{BeginFrame[plain]}{\begin{frame}[plain]}}%
+%BeginExpansion
+\begin{frame}[plain]%
+%EndExpansion
+
+\QTR{frametitle}{Suppressing frame headlines, footlines, and sidebars}
+
+\begin{itemize}
+\item Having a frame without the usual frame elements is useful:
+
+\begin{itemize}
+\item The text area is slightly larger.
+
+\item Large graphics may look nicer.
+\end{itemize}
+
+\item To create a frame that suppresses the headlines, footlines, and
+sidebars,
+
+\begin{enumerate}
+\item Apply the BeginFrame fragment to start a frame.
+
+\item Double-click the fragment to open the TeX field.
+
+\item In the entry area, place the insertion point at the end of the 
+\TEXTsymbol{\backslash}begin\{frame\} command and type \textbf{[plain]}.
+
+\item Choose \textbf{OK}.
+
+\item Apply the EndFrame fragment to end the frame.
+
+\item Place the text for the frame between the two fragments.
+\end{enumerate}
+
+\item To illustrate, the headline, footline, and sidebars have been
+suppressed in this frame.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Breaking frames automatically}
+
+%TCIMACRO{%
+%\TeXButton{BeginFrame[allowframebreaks]}{\begin{frame}[allowframebreaks]}}%
+%BeginExpansion
+\begin{frame}[allowframebreaks]%
+%EndExpansion
+
+\QTR{frametitle}{Breaking frames automatically}
+
+\begin{itemize}
+\item When information extends beyond the boundaries of a single slide, you
+can use a Beamer option to automatically create additional slides within the
+frame.
+
+\item To break the frame automatically,
+
+\begin{enumerate}
+\item Apply the BeginFrame fragment to start a frame.
+
+\item Double-click the fragment to open the TeX field.
+
+\item In the entry area, place the insertion point at the end of the 
+\TEXTsymbol{\backslash}begin\{frame\} command and type \textbf{%
+[allowframebreaks]}.
+
+\item Choose \textbf{OK}.
+
+\item Apply the EndFrame fragment to end the frame.
+
+\item Place the text for the frame between the two fragments.
+\end{enumerate}
+
+\item Beamer modifies the Frame title to indicate which of several slides is
+displayed. Here, you see "Breaking frames automatically I".
+
+\item To illustrate automatic frame breaking, this frame contains
+information that continues to an additional slide.
+
+\begin{itemize}
+\item The BeginFrame fragment for this frame contains [allowframebreaks].
+
+\item No other changes to the document are necessary.
+
+\item Beamer automatically creates as many additional slides as are needed
+to contain the information in the frame.
+
+\item Note the designation of a slide number in the Frame title. Now you see
+"Breaking frames automatically II".
+\end{itemize}
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Working with lists}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\begin{itemize}
+\item Use lists to organize information on slides.
+
+\item Types of lists:
+
+\begin{itemize}
+\item Standard Numbered and Bullet lists
+
+\item Step lists
+
+\item Alert step lists
+\end{itemize}
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Step lists}
+
+\begin{stepitemize}
+\item \textbf{Step lists} enhance presentations by displaying the list items
+one at a time.
+
+\item Enter numbered step lists with the Step Numbered List Item tag.
+
+\item Enter bulleted step lists with the Step Bullet List Item tag.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Alert step lists}
+
+\begin{stepitemizewithalert}
+\item \textbf{Alert step lists} enhance presentations by highlighting the
+most recently displayed item in a step list.
+
+\item Enter numbered alert lists with the Alert Step Numbered List Item tag.
+
+\item Enter bulleted alert lists with the Alert Step Bullet List Item tag.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Display of nested lists}
+
+\begin{itemize}
+\item Instead of stepping through a list item by item, you can effectively
+display a top-level list item together with its associated subitems.%
+%TCIMACRO{\TeXButton{Pause}{\pause}}%
+%BeginExpansion
+\pause%
+%EndExpansion
+
+\item For each top-level list item,
+
+\begin{enumerate}
+\item Create a standard Bullet List or Numbered List Item, with subitems.
+
+\item Place the \textbf{Pause} fragment at the end of the last subitem.
+\end{enumerate}
+
+Beamer automatically displays the top-level item and its subitems, then
+pauses before displaying the next top-level item.%
+%TCIMACRO{\TeXButton{Pause}{\pause}}%
+%BeginExpansion
+\pause%
+%EndExpansion
+
+\item This frame illustrates the use of the Pause fragment to display a
+nested list.
+
+\begin{enumerate}
+\item First subitem
+
+\item Second subitem%
+%TCIMACRO{\TeXButton{Pause}{\pause}}%
+%BeginExpansion
+\pause%
+%EndExpansion
+\end{enumerate}
+
+\item Another top-level item
+
+\begin{enumerate}
+\item First subitem
+
+\item Final subitem
+\end{enumerate}
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Change meaning of the Alert Step Bullet list}{\renewenvironment{stepitemizewithalert}{\begin{itemize}[<0-| alert@+>]}{\end{itemize} }}}%
+%BeginExpansion
+\renewenvironment{stepitemizewithalert}{\begin{itemize}[<0-| alert@+>]}{\end{itemize} }%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Modification of Alert step lists}
+
+\begin{stepitemizewithalert}
+\item You can modify Alert step lists to display all items in the list at
+once but highlight the items as you step through the list.
+
+\item You can also modify the lists to change the colors used for list items.
+
+\item This frame displays all the items in this list at the same time using
+the default colors.
+
+\item Items are highlighted as you move from one to the next.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Change meaning of the Alert Step Bullet list}{\renewenvironment{stepitemizewithalert}{\begingroup\begin{itemize}[<0-| alert@+>]
+%\setbeamercolor{alerted text}{fg=black}
+%\setbeamercolor{unhighlighted text}{fg=black!40}\usebeamercolor[fg]{unhighlighted text}
+%}{\end{itemize}\endgroup }}}%
+%BeginExpansion
+\renewenvironment{stepitemizewithalert}{\begingroup\begin{itemize}[<0-| alert@+>]
+\setbeamercolor{alerted text}{fg=black}
+\setbeamercolor{unhighlighted text}{fg=black!40}\usebeamercolor[fg]{unhighlighted text}
+}{\end{itemize}\endgroup }%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Modification of Alert step lists}
+
+\begin{stepitemizewithalert}
+\item This frame displays all the items in this list at the same time using
+a gray scale instead of the default colors.
+
+\item Items are highlighted as you step through the list.
+
+\item The frame displays the highlighted item in black and displays other
+items using a 40\% gray scale.
+
+\item A TeX command placed before the BeginFrame fragment specifies the
+colors.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Change meaning of the Alert Step Bullet list}{\renewenvironment{stepitemizewithalert}{\begingroup\begin{itemize}[<0-| alert@+>]
+%\setbeamercolor{alerted text}{fg=black}
+%\setbeamercolor{unhighlighted text}{fg=black!20}\usebeamercolor[fg]{unhighlighted text}
+%}{\end{itemize}\endgroup }}}%
+%BeginExpansion
+\renewenvironment{stepitemizewithalert}{\begingroup\begin{itemize}[<0-| alert@+>]
+\setbeamercolor{alerted text}{fg=black}
+\setbeamercolor{unhighlighted text}{fg=black!20}\usebeamercolor[fg]{unhighlighted text}
+}{\end{itemize}\endgroup }%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Modification of Alert step lists}
+
+\begin{stepitemizewithalert}
+\item This frame displays all the items in this list at the same time using
+a lighter gray scale.
+
+\item Items are highlighted as you step through the list.
+
+\item The frame displays highlighted items in black and displays other items
+using a 20\% gray scale. Compare it to the previous frame.
+
+\item A TeX command placed before the BeginFrame fragment specifies the
+colors.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Reset default for Alert Step Bullet list}{\renewenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }}}%
+%BeginExpansion
+\renewenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}[allowframebreaks]}}%
+%BeginExpansion
+\begin{frame}[allowframebreaks]%
+%EndExpansion
+
+\QTR{frametitle}{Working with lists}
+
+\QTR{framesubtitle}{Modification of Alert step lists}
+
+\begin{itemize}
+\item You can modify Alert step lists globally or individually.
+
+\item To modify all Alert step lists in your document,
+
+\begin{enumerate}
+\item In your document preamble, find the \TEXTsymbol{\backslash}%
+newenvironment\{stepenumeratewithalert\} command (for Alert numbered lists)\
+or the \TEXTsymbol{\backslash}newenvironment\{stepitemizewithalert\} command
+(for Alert bullet lists).
+
+\item Replace the command with the command(s) necessary for the changes you
+want to make, and choose \textbf{OK}.
+\end{enumerate}
+
+\item To modify individual Alert step lists,
+
+\begin{enumerate}
+\item Place the insertion point before the BeginFrame statement for the
+frame containing the lists you want to modify.
+
+\item Enter a TeX field and type the command(s) necessary for the changes
+you want to make, then choose \textbf{OK}.
+\end{enumerate}
+
+\item See the package documentation for detailed information about package
+commands. You can also use the commands in this sample document as models.
+Remember that when you place commands in the preamble, you must use 
+\TEXTsymbol{\backslash}newcommand statements instead of \TEXTsymbol{%
+\backslash}renewcommand statements.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Adding transitions}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Adding transitions}
+
+\begin{stepitemize}
+\item Beamer enhances presentations with dynamic transitions between frames.
+
+\item Apply fragments to create these types of dynamic transitions:
+
+\begin{stepitemize}
+\item \textbf{Horizontal and vertical blinds}: Blinds Horizontal, Blinds
+Vertical
+
+\item \textbf{Boxes}:\ Box In, Box Out
+
+\item \textbf{Dissolves}: Dissolve, Glitter, Wipe
+
+\item \textbf{Horizontal fades:} Split Horizontal In, Split Horizontal Out
+
+\item \textbf{Vertical fades: }Split Vertical In, Split Vertical Out
+\end{stepitemize}
+
+\item Each fragment controls the transition from the frame that precedes it
+to the frame that contains it.
+
+\item This sample presentation uses the Box Out transition.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Working with color}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with color}
+
+\begin{itemize}
+\item Because specifying color for individual elements is complex, use
+Beamer \textit{color themes} to define the use of all color in a
+presentation:
+
+\begin{itemize}
+\item \textbf{Default color theme} has black text, white background, blue
+structural elements, alerts in red, examples in dark green.
+
+\item \textbf{Complete color themes }specify all colors for all parts of a
+frame. Available color themes: albatross, beetle, crane, dove, fly, seagull,
+wolverine, beaver.
+
+\item \textbf{Special purpose color theme }defines colors for sidebars.
+
+\item \textbf{Inner color themes }define colors for inner elements. Named
+for flowers.
+
+\item \textbf{Outer color themes} define colors for outer elements. Named
+for sea animals.
+\end{itemize}
+
+\item This presentation uses the default color theme.
+
+\item To use a different color theme, add the command \texttt{\TEXTsymbol{%
+\backslash}usecolortheme\{colorthemename\}} to the preamble, replacing any
+existing \texttt{\TEXTsymbol{\backslash}usecolortheme} command.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Working with fonts}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with fonts}
+
+\begin{itemize}
+\item Beamer \textit{font themes }define the use of fonts in a presentation:
+
+\begin{itemize}
+\item \textbf{Default }font theme uses a sans serif font in various sizes.
+
+\item \textbf{Serif }uses a serif font in various sizes.
+
+\item \textbf{Professional }suppresses Beamer font control in favor of
+installed fonts.
+
+\item \textbf{Structurebold, structureitalicserif, }and \textbf{%
+structuresmallcapsserif }change the font used for structural elements such
+as headers, footers, and sidebars.
+\end{itemize}
+
+\item This presentation uses the default font scheme.
+
+\item To use a different font theme, add the command \texttt{\TEXTsymbol{%
+\backslash}usefonttheme\{fontthemename\}} to the preamble of your document,
+replacing any existing \texttt{\TEXTsymbol{\backslash}usefonttheme} command.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Using columns}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Using columns}
+
+Beamer supports multiple columns of text.
+
+%TCIMACRO{\TeXButton{BeginColumns}{\begin{columns}[5cm]}}%
+%BeginExpansion
+\begin{columns}[5cm]%
+%EndExpansion
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\begin{stepitemizewithalert}
+\item To begin columns, apply the BeginColumns fragment.
+
+\item Revise the fragment to set the column width.
+
+\item The default fragment uses a column width of 6 cm.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\begin{stepitemizewithalert}
+\item To begin later columns, apply and revise the Column fragment.
+
+\item Columns can contain inline graphics and movies.
+
+\item To end the last column, apply the EndColumns fragment.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{EndColumns}{\end{columns}}}%
+%BeginExpansion
+\end{columns}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Adding graphics}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Adding graphics}
+
+\begin{itemize}
+\item Frames can contain graphics \FRAME{itbpF}{20.875pt}{22.4375pt}{2pt}{}{%
+}{logo.wmf}{\special{language "Scientific Word";type
+"GRAPHIC";maintain-aspect-ratio TRUE;display "PICT";valid_file "F";width
+20.875pt;height 22.4375pt;depth 2pt;original-width 0.2603in;original-height
+0.2811in;cropleft "0";croptop "1";cropright "1";cropbottom "0";filename
+'graphics/logo.wmf';file-properties "XNPEU";}} and movies.
+
+\item Columns provide support for laying out graphics and text:
+\end{itemize}
+
+%TCIMACRO{\TeXButton{BeginColumns}{\begin{columns}[5cm]}}%
+%BeginExpansion
+\begin{columns}[5cm]%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\FRAME{itbpF}{2.4889in}{1.6613in}{0in}{}{}{tubeknot.jpg}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"USEDEF";valid_file "F";width 2.4889in;height 1.6613in;depth
+0in;original-width 2.4483in;original-height 1.625in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename
+'graphics/TubeKnot.jpg';file-properties "XNPEU";}}
+
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\begin{theorem}
+A picture is worth 1000 words.
+\end{theorem}
+
+\begin{proof}
+Look to the left.
+\end{proof}
+
+%TCIMACRO{\TeXButton{EndColumns}{\end{columns}}}%
+%BeginExpansion
+\end{columns}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Embedding animations}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Embedding animations}
+
+\begin{itemize}
+\item Beamer presentations can include graphics and animations:\bigskip
+\end{itemize}
+
+%TCIMACRO{\TeXButton{BeginColumns}{\begin{columns}[5cm]}}%
+%BeginExpansion
+\begin{columns}[5cm]%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+%TCIMACRO{%
+%\TeXButton{Movie}{\movie[palindrome,borderwidth=1pt,width=2in,height=1.5in]{Click me!}{TubeKnot.avi}}}%
+%BeginExpansion
+\movie[palindrome,borderwidth=1pt,width=2in,height=1.5in]{Click me!}{TubeKnot.avi}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\begin{theorem}
+An animation is worth 1,000,000 words.
+\end{theorem}
+
+\begin{proof}
+Click to the left.
+\end{proof}
+
+%TCIMACRO{\TeXButton{EndColumns}{\end{columns}}}%
+%BeginExpansion
+\end{columns}%
+%EndExpansion
+\bigskip
+
+{\scriptsize This slide shows an AVI\ file of an animated plot generated in 
+\textsl{SWP }and exported from VCAM.}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Floating graphics and tables}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Floating graphics and tables}
+
+Usually, floating graphics and tables are automatically labelled as Figure
+and Table along with a figure and table number. With Beamer, no number is
+printed, since numbers make little sense in a normal presentation. You can
+override the default setting to allow automatic numbering. Add the following
+to the document preamble:
+
+\texttt{\TEXTsymbol{\backslash}setbeamertemplate\{caption\}[numbered]}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Setting class options}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Setting class options}
+
+Use class options to
+
+\begin{itemize}
+\item Set the base font size for the presentation.
+
+\item Set text alignment.
+
+\item Set equation numbering.
+
+\item Set print quality.
+
+\item Format displayed equations.
+
+\item Create a presentation, handout, or set of transparencies.
+
+\item Hide or display notes.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Setting class options}
+
+\QTR{framesubtitle}{Notes}
+
+\note{Here is a Beamer note.}
+
+\begin{itemize}
+\item This sample document is originally supplied with the notes class
+option set to Show.
+
+\item This frame contains a note so that you can test the notes options.
+
+\item To see the note, scroll to the next frame
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Learn more about Beamer}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Learn more about Beamer}
+
+\begin{itemize}
+\item This\ sample document, the Slides - Beamer shell, and the associated
+fragments provide basic support for Beamer in \textsl{SWP }and \textsl{SW}.
+
+\item For complete information, read the Beamer User Guide (a .pdf file):
+
+See TCITeX/TeX/LaTeX/contrib/beamer/doc/beameruserguide.pdf in your program
+installation.
+
+\item For support, contact \textbf{support@mackichan.com}.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\end{document}
