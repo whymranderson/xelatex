@@ -8,3 +8,6 @@ test_minted
 *.log
 *.out
 *.bak
+*_uni.tex
+*_upa.tex
+*.un~
