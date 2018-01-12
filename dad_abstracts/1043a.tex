@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS IS A SMALL BARE BONES TEMPLATE FILE,
+% FOR ISSW24 ABSTRACTS COURTESY OF THE AUTHORS.
+%
+% NOTE WHERE AND HOW THE UNIQUE NUMBER 9998 IS USED IN THIS
+% TEMPLATE.  YOU MUST REPLACE THIS WITH YOUR UNIQUE NUMBER !!!
+%
+% COMMENTS ARE IN CAPITALS. REPLACE THE SAMPLE TEXT WITH YOUR OWN.
+% NOTE YOU ALSO NEED TO OBTAIN THE STYLE FILE iswabs24.sty
+% FROM OUR WEB SITE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Abstract: 1191A.tex                  PUT YOUR ABSTRACT FILE NAME
+%Contact:  SM Liang                   PUT YOUR NAME HERE
+%EMail:    Frank.Houwing@anu.edu.au   PUT YOUR EMAIL ADDRESS HERE
+%Tel:      +886-6-2349281             PUT YOUR PHONE NUMBER HERE
+%Fax:      +886-6-2389940             PUT YOUR FAX NUMBER HERE
+%Postal:   Dept. of Aero & Astro      PUT YOUR POSTAL ADDRESS HERE
+%          National Cheng Kung University
+%          Tainan, Taiwan 701
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THE FOLLOWING FIVE COMMANDS MUST BE INCLUDED
+% TO PRODUCE THE CORRECT FORMAT.
+\documentclass[10pt,twoside,twocolumn,letterpaper]{article}
+\usepackage{iswabs24}
+\pagestyle{myheadings}
+\begin{document}
+\baselineskip 10pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DO NOT PUT ANY OF YOUR OWN COMMANDS IN THE PREAMBLE ABOVE.
+% THESE COULD BE INCOMPATIBLE WITH OUR LaTeXing ENVIRONMENT.
+% DO NOT CHANGE THE FORMATTING !!!!!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE: INSERT THE FULL TITLE OF YOUR PAPER IN THE TITLE COMMAND:
+\title{A Combined Scaling Method for Calculation of Blast Wave Propagation in an Exhaust Pipe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AUTHORS: INSERT THE AUTHORS' NAMES AND ADDRESSES AS SHOWN BELOW:
+%(NOTE THE USE OF THE \thanks{  } CONSTRUCTION TO INCLUDE A
+% PRESENT ADDRESS)
+\author{S. M. Liang,
+%\thanks{Present address: Deparment of Aeronautics and Astronautics,
+%National Cheng Kung University, Tainan, Tawan 701}
+S. J. Tsai, W. T. Chung \\
+\rm{Department of Aeronautics and Astronautics,
+National Cheng Kung University, Tainan, Taiwan}
+\vspace{4pt}}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INDEX: INSERT THE AUTHORS' NAMES FOR THE INDEX,
+% SURNAME FIRST, GIVEN INITIAL LAST:
+\index{Liang, S.M.} \index{Tsai, H.J.}
+\index{Cheung, W.T} \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT TEXT: TYPE IN YOUR ABSTRACT, STARTING BELOW:
+In nature, there exist many small scales in a flow such as flow in composite materials, flow and transport in porous media, turbulent flows, and exhaust pipe flows. Direct numerical simulations of these multi-scale flow problems are extremely difficult, even impossible, due to the wide range of lengths or times in the underlying physical problems. Thus, constructing an appropriate upscale modeling method is important for analyzing multi-scale flows.
+In this paper, we will use an exhaust pipe flow of internal combustion engines such as in vehicles as a benchmark problem that includes two different time scales. In general, a vehicle's exhaust pipe may have a diameter($D$)-to-length($L$) ratio of about 1/75. The flow speed, $V$, at the pipe inlet is about 3-10m/s. However, the sound speed $c$ at the inlet is about 500m/s or less. Let $t_{1}$, $t_{2}$ be the dimensionless time variables. Thus we can define $t_{1}$ as $tc/D$, for $t_{2}$ for $tV/L$, where $t$ is the dimensional time variable. It is clear that $t_{1} = t_{2}L/MD$, where $M = V/c$ is the Mach number. The factor $L/MD$ can be about 5000 for a real case. For the flow in an exhaust pipe, it involves different time scales of heat transfer, friction, and wave propagation. For feasible and fast computation, we need a strategy of different time scaling and grid spacing for capturing physical process and phenomenon. It is proposed that the up-scaling dimensionless time, $t_{1}$, and a reasonably fine grid are used for the computation of blast wave propagation, resulting in accurate prediction of instant peak pressures, and the dimensionless time, $t_{2}$, and a reasonable coarse grid for fast and accurate computation of a base flow with the friction and heat transfer effects. A quasi-one-dimensional time-dependent Euler system with source terms of pipe cross-section area variation, friction force ($F$), and heat transfer rate ($\dot{q}$) is solved by using a high-resolution method of a fifth-order weighted essential non-oscillation scheme for spatial derivatives and a fourth-order Runge-Kutta method for time integration. By combining these two scaling procedures, an accurate solution can be obtained with less computational time. It is found that for the $t_{1}$ scaling, $F=fM^2/2$ and $\dot{q}=4\bar{h}M^{3}(T_{t}-T_{a})/\rho_{i}V^{3}$, and $F=fL/2D$, $\dot{q}=4\bar{h}(T_{t}-T_{a})L/\rho_{i}V^{3}D$  for the $t_{2}$ scaling, where $f$ is the skin friction coefficient, $\bar{h}$ the average overall heat transfer coefficient, $\rho_{i}$  the density at the pipe inlet, $T_{t}$ the stagnation temperature, and $T_{a}$ the ambient temperature. In the former case, both $F$ and $\dot{q}$ are very small and can be neglected because of small values of $M$ for real cases. For the latter case, both $F$ and $\dot{q}$ may be not negligible. Test cases of steady flow with friction or heat ejection in a constant area duct are verified for checking correct expressions of $F$ and $\dot{q}$ . Figure 1 shows the comparison result of the first test case of subsonic steady flow with friction (John, 1984). Figure 2 shows the comparison result of the second test case of supersonic steady flow with heat ejection (John, 1984). In both cases good agreement is obtained. In particular, it was found that the $t_{2}$ scaling resulted in a faster convergence rate and a more accurate solution than the $t_{1}$ scaling for both test cases. An actual exhaust pipe will be investigated and compared with experimental data of pressure, temperature and flow speed at some check points.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIGURES: AN EXAMPLE FOR INSERTING A FIGURE FOLLOWS.
+% THE FIGURE FILE, liangf1.eps IS AVAILABLE FROM OUR SITE
+\begin{figure}[!ht] \epsfxsize=0.9\columnwidth
+\epsfbox{1043f1.eps}
+% FIGURE CAPTION:  THIS IS WHERE YOU PUT THE CAPTION TO THE FIGURE
+\caption{Comparison of the computed pressure distribution with theoretical values for case 1.}
+% FIGURE LABEL:  THE FIGURE SHOULD ALSO BE LABELLED.  SUCH A LABEL
+% IS USED IN THE TEXT BELOW
+\end{figure}
+%\label{9998ALab1} \end{figure}
+
+\begin{figure}[!ht] \epsfxsize=0.78\columnwidth
+\epsfbox{1043f2.eps}
+% FIGURE CAPTION:  THIS IS WHERE YOU PUT THE CAPTION TO THE FIGURE
+\caption{Comparison of the computed pressure distribution with theoretical values for case 2.}
+% FIGURE LABEL:  THE FIGURE SHOULD ALSO BE LABELLED.  SUCH A LABEL
+% IS USED IN THE TEXT BELOW
+\end{figure}
+%\label{9998ALab2} \end{figure}
+
+{\small {\bf Acknowledgements.} This work is supported by Yen CL Industry Fundation Project 93S13 and National Science Council Contract NSC-92-2218-E-006-019.}
+
+% BIBLIOGRAPHY: AN EXAMPLE OF THE BIBLIOGRAPHY FOLLOWS. PLEASE
+% PUT YOUR REFERENCES INTO ALPHABETICAL ORDER.
+\begin{thebibliography}{}
+\bibitem[John, J. E. A. 1984]{9998ARef1}
+John, J. E. A. (1984), Gas Dynamics, Allyn and Bacon, Inc., USA, p. 184 \& 214 
+\end{thebibliography}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  END OF TEMPLATE FILE 9998A.tex FOR ISSW24 ABSTRACT
