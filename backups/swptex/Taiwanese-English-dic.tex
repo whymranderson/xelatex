@@ -1,0 +1,31 @@
+
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}
+\setCJKmainfont{微軟正黑體}
+
+\begin{document}
+
+\begin{center}
+\begin{tabular}{| l | l | l | l |}
+  %\multicolumn{2}{|c|}{RGCordTransV11.py} \\
+   \hline
+   & 優點 & 缺點 & 適合用途 \\%\\ \cline{2-2}
+   \hline
+   B法  & 模擬時間可以很長  & 需知道力矩項 &  \\
+   \hline
+   A法 & 計算量小，快 & 模擬時間短 & 電腦遊戲引擎 \\
+          & 程式容易          & 誤差較大    & 教學軟體 \\
+   \hline
+   C法 & 不須知道力矩項  & 誤差最大 & 陀螺儀感測器的姿態演算解算\\
+   \hline
+   
+\end{tabular}
+\end{center}
+
+
+
+\end{document}

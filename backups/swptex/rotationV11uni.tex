@@ -1,0 +1,1940 @@
+\documentclass[12pt,twoside]{article}
+%\documentclass[12pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Verdana}
+\setmonofont{Courier New}                    % tt
+\setCJKmainfont{微軟正黑體}
+\setCJKfamilyfont{kai}{標楷體}		% for changing the title font in title.pgf -> have to manually % add {\kai } in the pgf file
+\newcommand*{\kai}{\CJKfamily{kai}}
+\usepackage[inner=1in,outer=0.6in,top=0.7in,bottom=1in]{geometry}
+\usepackage{unicode-math}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pgf}
+\usepackage{pstricks,pst-node}
+\usepackage{minted}
+
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Monday, January 13, 2014 11:43:31}
+%TCIDATA{LastRevised=Tuesday, November 25, 2014 15:42:11}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="International\Traditional Chinese Article">}
+%TCIDATA{CSTFile=Traditional Chinese.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\input{gyrologo2.pgf} \input{title3.pgf}
+
+\part{導言\protect\bigskip}
+
+以陀螺的三維運動而%
+言，幾乎所有古典力%
+學的書上推導出貼體%
+角速度的尤拉方程之%
+後，就會求諸Euler angles來得%
+到Lagrangian，接著用elliptical integral解%
+出解析解。或者，以%
+數值方法解其尤拉角%
+的尤拉方程ODE，然後再%
+以尤拉角模擬其運動%
+。不過，若對尤拉方%
+程透徹理解，只要有%
+貼體角速度，也可以%
+利用轉動向量﹝rotation vector%
+﹞，用姿態估測的方%
+法直接簡單地數值模%
+擬剛體轉動，這樣就%
+不需要用到Lagrangian或Euler angles%
+。這個方法屬於姿態%
+估測學中的方向餘弦%
+遞推法﹝iteration of direction cosine matrix, DCM%
+﹞。這裡將姿態﹝orientation
+or attitude﹞動力學與姿態估%
+測應用在剛體轉動的%
+尤拉運動方程上，以%
+姿態估測中的方向餘%
+弦法來積分尤拉方程%
+的貼體角速度轉動向%
+量，以此達到模擬剛%
+體的轉動，並且應用%
+在陀螺的三維運動上%
+。這邊不只是只有介%
+紹公式，還以淺顯易%
+懂的方式給出姿態的%
+運動方程，所以只要%
+有基礎的線性代數矩%
+陣知識，就可以掌握%
+此方法。這裡詳述的%
+這些理論在物理書籍%
+上比較少見，反而在%
+航空太空領域或電機%
+的姿態控制領域才有%
+講解，但大多也缺乏%
+清楚的解釋，只給出%
+複雜的公式，這樣在%
+應用層面的時候會發%
+生比較多不必要的試%
+誤與嘗試。這裡我將%
+這觀念連結錯綜複雜%
+的東西清楚地寫下來%
+，以供自己以及別人%
+參考。
+
+這裡詳述的方法可以%
+廣泛的運用於任何剛%
+體轉動或其尤拉方程%
+。因此，此處所涉及%
+的方向餘弦遞推的完%
+整理解還可應用上其%
+他相關領域。舉例來%
+說，這裡在作陀螺模%
+擬的姿態演算程式可%
+以用在陀螺儀這類型%
+的綁附式慣性感測器\cite%
+[Ch 3.6.4]{titterton}上，積分測得的%
+貼體角速度來作姿態%
+估測，這將在第四章%
+作介紹。仿間姿態演%
+算法林立，但真能跑%
+得起來的沒半個，因%
+為那些程式是沒有經%
+過驗證的。這邊從根%
+本的推導開始，一步%
+步進階到實用的程式%
+碼，每一步推導出來%
+的公式都有標明轉動%
+方向是遵守左手還是%
+右手定則，以及標明%
+轉動矩陣是取其主動%
+性轉向量或是被動性%
+轉坐標軸，這一點是%
+所有書上所共同缺乏%
+的，而這在實際應用%
+的時候尤其重要，這%
+樣子推導出來的公式%
+我們可以很方便的檢%
+查其正確性，也可以%
+很放心地應用在其他%
+地方。另外，這邊提%
+供與第三方程式碼的%
+比較，驗證我們公式%
+的正確性。這裡介紹%
+的尤拉方程的數值化%
+也可以應用上剛體物%
+理模擬﹝simulation of rigid body﹞，%
+這在電腦遊戲的物理%
+引擎\cite[Ch 2.3]{pixarnote}中也是有%
+其廣泛的應用性。這%
+邊我們呈現以這些方%
+法數值模擬高精度的%
+三維陀螺運動，並且%
+模擬結果也與其它文%
+獻\cite{hasbun}作比較驗證了其%
+正確性。這邊提供的%
+詳細解說也適合當作%
+大學物理系或資工系%
+或航太系的練習題。
+
+Wolfgang Christian教授也有做過類%
+似的陀螺模擬\cite{wolfgangSimMeth}%
+，不過他使用的是四%
+元數遞推法，可惜剛%
+體轉動部分的演算法%
+並不公開，也沒有跟%
+解析解作比較。我這%
+裡是有跟尤拉角法的%
+解析解做比較，不過%
+我下一步也希望能跟%
+四元數法這類的數值%
+解能做比較，因此我%
+還在找辦法把他的程%
+式的結果輸出出來。%
+值得一提的是，他有%
+把程式寫成一個獨立%
+的可執行檔，公開在%
+comPADRE網路上，此程式是%
+互動性的，使用起來%
+非常的方便，這也是%
+我的目標之一。四元%
+數法的理論也可以在\cite%
+{rapaport}文獻中找到。
+
+這裡的實際應用例子%
+，也提供了一個，以%
+尤拉方程來驗證姿態%
+估測演算法的正確性%
+的一個實例。即以尤%
+拉方程解析解或數值%
+解給出的貼體角速度%
+來做姿態估測，結果%
+再與解析解本身的尤%
+拉角解析結果直接比%
+較，這樣比較的即是%
+姿態估測演算法的估%
+測能力。這邊似乎是%
+第一個完整融合尤拉%
+方程與姿態估測的實%
+際應用的例子。
+
+這篇文章的架構是：
+
+\begin{enumerate}
+\item 第一部分為最完整%
+的剛體轉動運動方程%
+尤拉方程的推導證明%
+。因為要做轉動軸的%
+轉動向量數值積分必%
+須要對尤拉方程有最%
+正確的理解。這邊補%
+充了Goldstein Classical Mechanics\cite{goldstein}中的%
+證明觀念跳來跳去的%
+缺失，以及大多數的%
+書上推導尤拉方程解%
+釋模糊的地方。轉動%
+理論在航太科系書籍%
+較有教導，但可惜講%
+述通常過於複雜，要%
+不就是過於簡化，缺%
+乏與基本原理的結合%
+，並且大部分也無提%
+供實際實例操作這重%
+要的一環，這裡則提%
+供完整的陀螺模擬實%
+例與完整公開的code供練%
+習。
+
+\item 接著藉由第一段尤%
+拉方程的推導來嚴謹%
+的證明Euler equation中的貼體%
+角速度﹝angular velocity along body frame﹞%
+可直接用於建立剛體%
+特徵軸與lab frame間的主動%
+與被動轉動矩陣\thinspace ，%
+並以此推導出方向餘%
+弦法的主要遞推原理%
+來積分剛體轉動，追%
+蹤每一時刻的剛體特%
+徵軸在lab frame的位置。並%
+以python程式編寫演算法%
+，並以python繪圖庫matplotlib來%
+作3D動畫。
+
+\item 接著說明了以貼體%
+轉動向量來近似t到t+dt時%
+間的微小轉動時我們%
+將以在t+dt時間的貼體角%
+速度來近似，即以$\vec{\omega}%
+_{b}\left( t+dt\right) $來建立dt時間內%
+的轉動矩陣$\footnote{%
+The path order exponential of $\vec{\omega}_{b}$ from time t to t+dt. This
+will be discussed more in the text.}$。這裡也比%
+較一般常見的$\vec{\omega}_{b}\left(
+t\right) $方法的結果來證明%
+此優化所帶來精度上%
+的提升。最後將以上%
+方法應用上陀螺的三%
+維運動，模擬結果將%
+與文獻\cite{hasbun}的尤拉角法%
+做比較。
+\end{enumerate}
+
+\part{尤拉方程與姿態動%
+力方程的推導}
+
+若你有需要用到剛體%
+轉動尤拉方程的計算%
+，你應該會遇過下面%
+的疑問。尤拉方程中%
+的力矩項，明明在推%
+導的時候是沿著固定%
+的space座標取分量，為什%
+麼在計算在應用的時%
+候反而要沿著貼體的body%
+座標取分量？﹝如Goldstein
+classical mechanics第二版書中4-124公%
+式﹞。這邊很少有書%
+上會去詳細解釋清楚%
+，這裡從最根本出發%
+一次解決你的疑惑。
+
+首先我們必須再次證%
+明向量變化量在不同%
+觀測座標中的關係，%
+即公式\ref{eq1}，這次你會%
+發現在應用此公式的%
+時候有不少地方是要%
+注意的。由於當我實%
+際在解這問題時我發%
+現Goldstein classical mechanics書中還有幾%
+點證明在應用層面還%
+不夠清楚，讓我在應%
+用的時候花了好多時%
+間去釐清，因此這邊%
+寫上我認為可以補充%
+書上的推導證明。首%
+先我們從以下公式開%
+始
+
+\begin{equation}
+\left( \frac{d\vec{L}}{dt}\right) _{s}=\left( \frac{d\vec{L}}{dt}\right)
+_{b}+\vec{\omega}\times \vec{L}  \label{eq1}
+\end{equation}%
+對此公式的理解將是%
+整篇文章最重要的基%
+礎。此公式如何而來%
+？此公式為一隨時間%
+變動的向量在恆定座%
+標與非恆定座標(此例%
+為轉動中座標)之間線%
+性變換的結果。以下%
+是此公式的推導。
+
+\begin{figure}[th]
+\caption{{}}
+\label{firstfig}
+\begin{center}
+\fbox{\input{rateofchange.pgf}}
+\end{center}
+\end{figure}
+\bigskip
+
+首先考慮一恆定座標%
+S(space)，一轉動座標b(body)，%
+為了方便討論矩陣轉%
+換的主被動性與座標%
+轉換的左右手法則，%
+我們這邊方便的先假%
+設$\hat{S}_{x}， \hat{b}_{x}$兩軸重合%
+，因此圖中顯示了body frame%
+沿著$+\hat{S}_{x}$遵守右手定%
+則逆時針轉了$\Omega $角度%
+，依右手定則此角位%
+移向量$\hat{\Omega}$會在$+\hat{S}_{x}$方%
+向。但是接下來的推%
+導以及所有公式都適%
+用任意的座標旋轉，%
+這邊是為了方便討論%
+矩陣的主動被動的方%
+向性，以及在之後的%
+推導方便我們追蹤正%
+負號以及矩陣主動被%
+動意義的改變，因此%
+在圖中做了一個方便%
+我們思考的情形。另%
+外，大部分書上在討%
+論座標轉換時有時候%
+給的公式是遵守左手%
+定則，但這與物理定%
+律所採納的右手定則%
+相反，因此這邊我寫%
+下完整的右手定則的%
+推導，希望之後的人%
+不需要像我一樣花了%
+大半時間在轉換不同%
+公式間左手右手定則%
+帶來的正負號的改變%
+。
+
+\bigskip 依照圖\ref{firstfig}所示，%
+我們可以寫下$\vec{A}$向量%
+在S,b座標間的關係%
+\begin{equation*}
+\left( \vec{A}\right) _{b}=\underset{\text{passive, r.h.}}{\Omega }\left( 
+\vec{A}\right) _{s}
+\end{equation*}%
+其中$\Omega $是s frame到b frame的座%
+標轉換矩陣，因為是%
+轉換座標軸，因此矩%
+陣取被動含意，並且%
+我們採用右手定則，%
+因此逆時針方向為正%
+方向。接下來只要有%
+用到矩陣的運算我都%
+會標明主被動及左右%
+手(r.h. right-hand or l.h. left-hand)，這樣我%
+們可以很快速對照圖%
+表來理解轉動方向，%
+這很重要。
+
+若我們考慮$\Omega $的角度%
+很小$\Omega \rightarrow d\Omega $(infinitesimal rotation)，%
+則$d\Omega $矩陣與unity matrix相去%
+不遠，可以寫成$1$(unity matrix) +$%
+\epsilon $(infinitesimal matrix)，$\epsilon $具有%
+antisymmetric matrix的特性\cite[p. 169]{goldstein}，%
+帶入上式%
+\begin{equation*}
+\left( \vec{A}\right) _{b}=\underset{\text{passive, r.h.}}{\left( 1+\epsilon
+\right) }\left( \vec{A}\right) _{s}
+\end{equation*}%
+infinitesimal matrix有個特性，很容%
+易自行驗證，%
+\begin{equation*}
+\underset{\text{r.h., passive or active}}{\epsilon }=\left[ 
+\begin{array}{ccc}
+0 & \epsilon _{3}\geq 0 & -\epsilon _{2}\leq 0 \\ 
+-\epsilon _{3} & 0 & \epsilon _{1}\geq 0 \\ 
+\epsilon _{2} & -\epsilon _{1} & 0%
+\end{array}%
+\right] \text{, }\underset{\text{l.h., passive or active}}{\epsilon }=\left[ 
+\begin{array}{ccc}
+0 & -\epsilon _{3}\leq 0 & \epsilon _{2}\geq 0 \\ 
++\epsilon _{3} & 0 & -\epsilon _{1}\leq 0 \\ 
+-\epsilon _{2} & \epsilon _{1} & 0%
+\end{array}%
+\right]
+\end{equation*}
+
+\bigskip 現在我們考慮$\vec{A}$是$+%
+\hat{b}_{y}$軸的狀況，不過考%
+慮相同矩陣$\left( 1+\epsilon \right) $的%
+主動特性，也就是主%
+動轉向量，這樣的話%
+轉動方向會與原本的%
+方向相反，變左手定%
+則，我們會得到%
+\begin{equation*}
+\left( \hat{S}_{y}\right) _{s}=\underset{\text{active, l.h.}}{\left(
+1+\epsilon \right) }\times \left( \hat{b}_{y}\right) _{s}
+\end{equation*}%
+整理一下%
+\begin{equation*}
+\left( \hat{b}_{y}\right) _{s}=\underset{\text{active, r.h.}}{\underbrace{%
+\left[ \left( 1+\epsilon \right) \right] ^{T}}}\times \left( \hat{S}%
+_{y}\right) _{s}=\underset{\text{active, l.h.}}{\left( 1-\epsilon \right) }%
+\times \left( \hat{S}_{y}\right) _{s}
+\end{equation*}%
+代入上面r.h. $\epsilon $的公式(%
+因$\epsilon $還是原本的矩陣)%
+，整理一下%
+\begin{equation*}
+\left( \hat{b}_{y}\right) _{s}-\left( \hat{S}_{y}\right) _{s}=-\left[ 
+\begin{array}{ccc}
+0 & \epsilon _{3}\geq 0 & -\epsilon _{2}\leq 0 \\ 
+-\epsilon _{3} & 0 & \epsilon _{1}\geq 0 \\ 
+\epsilon _{2} & -\epsilon _{1} & 0%
+\end{array}%
+\right] \times \left( \hat{S}_{y}\right) _{s}
+\end{equation*}%
+利用向量外積，上式%
+也可寫成%
+\begin{equation*}
+\left( \hat{b}_{y}\right) _{s}-\left( \hat{S}_{y}\right) _{s}=\left( \vec{%
+\epsilon}\right) _{s}\times \left( \hat{S}_{y}\right) _{s}
+\end{equation*}%
+其中$\vec{\epsilon}=\left[ 
+\begin{array}{c}
+\epsilon _{1} \\ 
+\epsilon _{2} \\ 
+\epsilon _{3}%
+\end{array}%
+\right] _{s}$為一向量，在S frame中%
+的分量為$\epsilon _{1}$，$\epsilon _{2}$%
+，$\epsilon _{3}$。
+
+現在我們將上式跟微%
+小轉動公式Rodrigues rotation formula比%
+較%
+\begin{equation*}
+\vec{r}^{\prime }-\vec{r}=d\vec{\Omega}\times \vec{r}
+\end{equation*}%
+$d\vec{\Omega}$是r到r'的r.h.角位移%
+向量\thinspace ，因此我們得%
+到$\vec{\epsilon}=d\vec{\Omega}$，$d\vec{\Omega}$就是%
+s frame到b frame的角位移向量%
+(follow r.h. rule)%
+\begin{equation*}
+\left( \hat{b}_{y}\right) _{s}-\left( \hat{S}_{y}\right) _{s}=\left( d\vec{%
+\Omega}\right) _{s}\times \left( \hat{S}_{y}\right) _{s}
+\end{equation*}%
+這一點很重要，因為%
+我們將證明此$\left( d\vec{\Omega}\right)
+_{s}$跟接下來我們要推導%
+的尤拉公式中的貼體%
+角速度$\vec{\omega}$有直接相%
+關性，並且以此來做%
+我們模擬剛體轉動的%
+基礎。
+
+以上的討論是考慮$\vec{A}$%
+向量不隨時間變動的%
+情況，接下來我們必%
+須討論$\vec{A}$以及b frame皆隨%
+時間變動的狀況。
+
+\bigskip 
+\begin{figure}[th]
+\caption{Rate change of a vector observed in a inertial and non-inertial
+frame.}
+\label{ratevecfig}
+\begin{center}
+\fbox{\input{rateofchanget2tdt.pgf}}
+\end{center}
+\end{figure}
+
+\bigskip 在時間t時我們令S與b
+frame重合，過了dt時間原%
+本的$\vec{A}$向量加了一改%
+變量$d\vec{A}$變成$\vec{A}^{\prime }$，並%
+且b frame依右手定則轉動%
+了一微小角度(infinitisemal rotation)%
+，在此前提下，向量$%
+\vec{A}$在t時間符合%
+\begin{equation}
+\left( \vec{A}\right) _{s(t)}=\left( \vec{A}\right) _{b(t)}  \label{roc1}
+\end{equation}%
+接著，在t+dt時間$\vec{A}+d\vec{A}$%
+向量在s與b frame間的關係%
+為%
+\begin{equation*}
+\left( \vec{A}^{\prime }\right) _{b(t+dt)}=\underset{\text{passive, r.h.}}{%
+\Omega }\left( \vec{A}^{\prime }\right) _{s(t+dt)}
+\end{equation*}%
+$\Omega $為s, b frame轉動矩陣(passive r.h.)%
+，此$\Omega $矩陣與上一段$%
+\vec{A}$不變動的情況的$\Omega $%
+矩陣完全相同，我們%
+取s到b frame的轉動為微小%
+量，$\Omega \rightarrow d\Omega $，上式依%
+之前所述的原理可寫%
+成%
+\begin{equation*}
+\left( \vec{A}^{\prime }\right) _{b(t+dt)}=\underset{\text{passive, r.h.}}{%
+\left( 1+\epsilon \right) }\left( \vec{A}^{\prime }\right) _{s(t+dt)}
+\end{equation*}%
+要強調這邊的$\epsilon $矩陣%
+跟之前上一段的$\epsilon $矩%
+陣是完全相同的，重%
+新整理上式%
+\begin{equation}
+\left( \vec{A}^{\prime }\right) _{s(t+dt)}=\left( \vec{A}^{\prime }\right)
+_{b(t+dt)}-\epsilon \left( \vec{A}^{\prime }\right) _{s(t+dt)}  \label{roc2}
+\end{equation}%
+接著我們用\ref{roc2}式減去%
+\ref{roc1}式，%
+\begin{eqnarray}
+\left( \vec{A}^{\prime }\right) _{s(t+dt)}-\left( \vec{A}\right) _{s(t)}
+&=&\left( d\vec{A}\right) _{s}\text{ , (the change in observable A in space
+frame)}  \notag \\
+&=&\left( \left( \vec{A}^{\prime }\right) _{b(t+dt)}-\left( \vec{A}\right)
+_{b(t)}\right) -\epsilon \left( \vec{A}^{\prime }\right) _{s(t+dt)}  \notag
+\\
+&=&\left( d\vec{A}\right) _{body}-\epsilon \left( \vec{A}^{\prime }\right)
+_{s(t+dt)}  \notag \\
+&=&\left( d\vec{A}\right) _{body}-\epsilon \left( \vec{A}+d\vec{A}\right)
+_{s(t+dt)}  \label{roc4}
+\end{eqnarray}%
+注意，由於s frame式恆定%
+座標因此s frame不變動，$%
+s(t+dt)=s(t)$。忽略高階項$\epsilon
+\left( d\vec{A}\right) _{s(t+dt)}$，重新整理%
+成%
+\begin{equation*}
+\left( d\vec{A}\right) _{s}=\left( d\vec{A}\right) _{b}-\underset{\text{r.h.}%
+}{\epsilon }\left( \vec{A}\right) _{s(t)}
+\end{equation*}%
+接下來我們只要記得%
+我們的下標b frame總是在t+dt%
+時的frame，s frame總是指在t時%
+間的frame，我們將不再寫%
+出frame所對應的時間。依%
+之前所述原理代入r.h. $%
+\epsilon $的公式，並且利用%
+向量外積%
+\begin{eqnarray}
+\left( d\vec{A}\right) _{s} &=&\left( d\vec{A}\right) _{b}-\left[ 
+\begin{array}{ccc}
+0 & \epsilon _{3}\geq 0 & -\epsilon _{2}\leq 0 \\ 
+-\epsilon _{3} & 0 & \epsilon _{1}\geq 0 \\ 
+\epsilon _{2} & -\epsilon _{1} & 0%
+\end{array}%
+\right] \left( \vec{A}\right) _{s}  \notag \\
+&=&\left( d\vec{A}\right) _{b}-\left( \vec{A}\right) _{s}\times \left( d\vec{%
+\Omega}\right) _{s}  \label{roc3} \\
+&=&\left( d\vec{A}\right) _{b}+\left( d\vec{\Omega}\right) _{s}\times \left( 
+\vec{A}\right) _{s}  \notag
+\end{eqnarray}%
+因為這裡的$\epsilon $矩陣與%
+上一段的$\epsilon $矩陣是一%
+樣的，因此我們也可%
+以用上之前轉動公式%
+所推導的微小轉動矩%
+陣$\epsilon $所對應的轉動向%
+量$\left( d\vec{\Omega}\right) $，這樣我%
+們就得到了rate of change of a
+vector/observable in a rotating frame公式%
+\begin{equation}
+\left( d\vec{A}\right) _{s}=\left( d\vec{A}\right) _{b}+\left( d\vec{\Omega}%
+\right) _{s}\times \left( \vec{A}\right) _{s}  \label{rateofdomega}
+\end{equation}%
+我們連結了不同觀測%
+座標觀測到的物理變%
+化量，並且所用到都%
+是已知的物理量$\left( d\vec{\Omega}%
+\right) _{s}$與$\left( \vec{A}\right) _{s}$。這邊%
+要強調，因為這裡的$%
+\epsilon $矩陣與上一段的$\epsilon $%
+矩陣是一樣的，所以%
+證明了$d\vec{\Omega}$所對應的%
+向量就是s frame轉到b frame的%
+角位移向量(r.h.)，這樣%
+強調的目的是，接下%
+來$d\vec{\Omega}$所導出的貼體%
+角速度，就是s frame轉到b
+frame的角速度，因為這跟%
+一般我們對貼體角速%
+度的定義與認知並不%
+一樣，這裡再次強調%
+，我們必須考慮了t時%
+間s與b frame重合，才能得%
+到這結果。接下來會%
+說明，也是因為如此%
+，我們才能利用貼體%
+角速度來作座標軸的%
+轉動追蹤，因此此觀%
+念至關重要。另外要%
+注意的是$\vec{A}$與$d\vec{\Omega}$是%
+沿著t時間的s frame取的投%
+影量。這邊值得一提%
+的是，傳統公式大多%
+寫成%
+\begin{equation*}
+\left( d\vec{A}\right) _{s}=\left( d\vec{A}\right) _{b}+\left( d\vec{\Omega}%
+\right) _{b}\times \left( \vec{A}\right) _{b}
+\end{equation*}%
+為什麼這邊的$d\vec{\Omega}$是%
+沿著body取分量呢？注意%
+\ref{roc3}式中當我們將微小%
+轉動矩陣$\epsilon $寫成向量$d%
+\vec{\Omega}$時，我們並沒有侷%
+限此向量是定義在哪%
+一個觀測座標，因此%
+沿著s或b frame取都是可以%
+的。另外\ref{roc4}式中我們%
+忽略了高階項$\epsilon \left( d\vec{A}%
+\right) _{s(t+dt)}$，因此留下了$\epsilon
+\left( \vec{A}\right) _{s(t+dt)}=\epsilon \left( \vec{A}\right) _{s(t)}$%
+，但其實我們也可以%
+取另一個近似%
+\begin{equation*}
+-\epsilon \left( \vec{A}+d\vec{A}\right) _{s(t+dt)}=-\epsilon \left( \vec{A}%
+\right) _{b(t+dt)}
+\end{equation*}%
+若我們考慮s到b frame的轉%
+動非常的微小，我們%
+只是做了一個不一樣%
+的忽略方法。這樣的%
+話，我們就得到傳統%
+公式。這裡也是Goldstein\cite%
+{goldstein}裡面的附註說明$\left( d%
+\vec{\Omega}\right) \times \left( \vec{A}\right) $沿著s或b
+frame取分量都是可以的，%
+只要外積矩陣運算後%
+出來的結果是一樣的%
+就可以，不過他並沒%
+有給出背後的原因。
+
+\bigskip \ref{rateofdomega}式取微分即得%
+到一般常見的形式，%
+這邊我們取沿s frame給出%
+的公式，方便我們之%
+後作數值模擬%
+\begin{equation}
+\left( \frac{d\vec{A}}{dt}\right) _{s}=\left( \frac{d\vec{A}}{dt}\right)
+_{b}+\left( \vec{\omega}\right) _{s}\times \left( \vec{A}\right) _{s}
+\label{rateofchange}
+\end{equation}%
+其中$\left( \vec{\omega}\right) _{s}$為$\left( \frac{d\vec{%
+\Omega}}{dt}\right) _{s}$，根據我們之%
+前對$d\vec{\Omega}$的定義與強%
+調，我們知道$\left( \vec{\omega}\right)
+_{s}$即為s frame到b frame的瞬時角%
+速度。
+
+嚴謹的定義了$d\vec{\Omega}$與$%
+\left( \vec{\omega}\right) _{s}$後，我們接%
+著需要討論如何從$\left( \vec{%
+\omega}\right) _{s}$求回相對應的轉%
+動矩陣，這邊你會認%
+為，不是將$\left( \vec{\omega}\right) _{s}$%
+的xyz分量帶入之前$1+\epsilon $%
+矩陣中的$\epsilon _{1}\epsilon _{2}\epsilon _{3}$%
+就可以了嗎，這樣是%
+不行的，因為從之前%
+微小轉動的推導可以%
+看出，$\epsilon _{1}\epsilon _{2}\epsilon _{3}$是%
+符合特定的antisymmetric matrix properties%
+的，但任意的角速度%
+向量$\left( \vec{\omega}\right) _{s}$可不然%
+。這邊我們利用Calvin Klein
+parameter來近似原本的轉動%
+矩陣﹝CK parameters矩陣基本上%
+與轉動公式Rodrigues rotation formula同%
+源\cite{goldstein}﹞，這邊我們%
+給他一個新代號$CK(d\vec{\Omega})$%
+，當然，接下來只要%
+是矩陣運算我們都會%
+寫上$CK$的主被動及左右%
+手性質，方便我們與%
+圖對照與思考\footnote{力矩%
+給出的角速度是遵守%
+右手定則(counterclockwise)，所以CK%
+矩陣必須使用其active
+counterclockwise sense才能描述正確%
+向量轉動，要小心，%
+因大部分書上(如Goldstein)給%
+的公式都是active clockwise(follow左%
+手定則)(舉例如書上的%
+Caley Klein parameter rotation matrix)，因此差%
+一個負號，這裡我花%
+了許多時間把文獻上%
+所有公式轉成了正確%
+的右手定則。}。%
+\begin{eqnarray*}
+\underset{\text{r.h.}}{CK(d\vec{\Omega})} &=&\left[ 
+\begin{array}{ccc}
+a^{2}+b^{2}-c^{2}-d^{2} & 2(bc-ad) & 2(bd+ac) \\ 
+2(bc+ad) & a^{2}+c^{2}-b^{2}-d^{2} & 2(cd-ab) \\ 
+2(bd-ac) & 2(cd+ab) & a^{2}+d^{2}-b^{2}-c^{2}%
+\end{array}%
+\right] \text{,} \\
+\text{with }a &=&\cos \left( \frac{\left\vert d\vec{\Omega}\right\vert }{2}%
+\right) \text{, b, c, d = component of }d\hat{\Omega}\cdot \sin \left( \frac{%
+\left\vert d\vec{\Omega}\right\vert }{2}\right)
+\end{eqnarray*}%
+現在，我們一再強調$d%
+\vec{\Omega}$所對應的是s frame轉動%
+到b frame，因此我們建立%
+的$CK(d\vec{\Omega})$矩陣具有以下%
+的特性，根據圖\ref{ratevecfig}%
+，%
+\begin{eqnarray*}
+\left( \vec{A}\right) _{b} &=&\underset{\text{passive, r.h.}}{CK(d\vec{\Omega%
+})}\left( \vec{A}\right) _{s} \\
+\left( \hat{S}_{y}\right) _{s} &=&\underset{\text{active, l.h.}}{CK(d\vec{%
+\Omega})}\left( \hat{b}_{y}\right) _{s}
+\end{eqnarray*}%
+或者也可寫成%
+\begin{eqnarray}
+\left( \vec{A}\right) _{s} &=&\underset{\text{active, l.h.}}{\underbrace{%
+\left[ CK(d\vec{\Omega})\right] ^{T}}}\left( \vec{A}\right) _{b}
+\label{frametrans} \\
+\left( \hat{b}_{y}\right) _{s} &=&\underset{\text{active, r.h.}}{\underbrace{%
+\left[ CK(d\vec{\Omega})\right] ^{T}}}\left( \hat{S}_{y}\right) _{s}
+\label{vecrot}
+\end{eqnarray}%
+這代表了，若我們知%
+道s frame到b frame的轉動角度%
+，我們就可以求出t+dt時%
+間的xyz軸在t時間xyz軸的%
+投影量。若我們知道%
+的是s到b frame的瞬時角速%
+度$\left( \vec{\omega}\right) _{s}$則可帶入$%
+CK(\left( \vec{\omega}\right) _{s}\cdot dt)^{T}$來得到%
+轉矩矩陣。以上兩式%
+就是模擬或追蹤剛體%
+的body frame的x,y,z軸轉動的基%
+礎。
+
+\begin{figure}[th]
+\caption{How to apply rate-of-change-of-a-vector equation to numerically
+simulate a true rotation. Here $S_{x}S_{y}b_{x}b_{y}$ are not shown.}
+\label{szsbtdtfig}
+\begin{center}
+\fbox{\input{SzBz.pgf}}
+\end{center}
+\end{figure}
+
+上述的微小轉動是只%
+考慮t到t+dt時間內的變化%
+，現在我們將用遞推%
+並且discrete的方式，求出body
+frame在實驗者處在的靜止%
+座標的變化。因此現%
+在我們設定一個真正%
+的靜止座標Lab frame\thinspace ，見%
+圖\ref{szsbtdtfig}，此為真正的%
+觀測者所處在的inertial frame%
+。考慮任意一段微小%
+轉動t到t+dt，在t時刻時%
+我們將剛體的principle axes設%
+定為S frame，再將t+dt時刻剛%
+體的principle axes設定為b frame，這%
+樣代表s frame到b frame就是剛%
+體t到t+dt的轉動，並且s%
+到b frame的瞬時角速度也%
+是剛體轉動的瞬時角%
+速度。我們重新將\ref{vecrot}%
+式寫成%
+\begin{equation}
+\hat{y}_{s}\left( t+dt\right) =\underset{\text{active, r.h.}}{\underbrace{%
+\left[ CK\left( \vec{\omega}_{s}\left( t\right) dt\right) \right] ^{T}}}\hat{%
+y}_{s}\left( t\right)  \label{vecrot05}
+\end{equation}%
+$\hat{y}_{s}\left( t\right) $現在為t時間%
+剛體特徵軸$\hat{y}$在s frame(也%
+是t時刻)的投影，這代%
+表$\hat{y}_{s}\left( t\right) $即為單位向%
+量$\left[ 
+\begin{array}{ccc}
+0 & 1 & 0%
+\end{array}%
+\right] $。現在我們再將上%
+式寫成%
+\begin{equation}
+\hat{y}_{s}\left( t_{i+1}\right) =\underset{\text{active, r.h.}}{\underbrace{%
+\left[ CK\left( \vec{\omega}_{s}\left( t_{i}\right) \Delta t\right) \right]
+^{T}}}\times \left[ 
+\begin{array}{ccc}
+0 & 1 & 0%
+\end{array}%
+\right]  \label{vecrot1}
+\end{equation}
+
+\begin{figure}[th]
+\caption{Boby軸在每一分段t到t+dt%
+的追蹤示意圖。}
+\begin{center}
+\fbox{\input{Zt0Zt1.pgf}}
+\end{center}
+\end{figure}
+
+\begin{figure}[th]
+\caption{陀螺的初始值設定%
+。此初始值設定對應%
+的尤拉角初始值﹝以$%
+z-x^{\prime }-z^{\prime }$為轉軸順序分%
+別以右手定則轉動$\protect%
+\phi $，$\protect\theta $，$\protect\varphi $﹞為$%
+\protect\phi _{0}=0$，$\protect\theta _{0}=-\left\vert \hat{\Omega}%
+_{0}\right\vert $，$\protect\varphi _{0}=0$。在Hasbun%
+教授的尤拉解法中需%
+要此尤拉角初始值，%
+來給出與我們方向餘%
+弦法相同的初始條件%
+。}
+\begin{center}
+\fbox{\input{orien.pgf}}
+\end{center}
+\end{figure}
+
+假設陀螺特徵軸在lab frame%
+的起始位置已知$\hat{x}\hat{y}\hat{z%
+}_{lab}(t_{0})$，初始貼體角速%
+度已知$\vec{\omega}_{s}(t_{0})$，依照%
+以往下標代表的是觀%
+測的frame。首先我們將s frame%
+放在$\left( \hat{x}\hat{y}\hat{z}_{lab}(t_{0})\right) $，%
+這樣依照圖\ref{szsbtdtfig}及其%
+所述原理，b frame的軸就%
+是我們要求的$\hat{x}\hat{y}\hat{z}%
+_{lab}(t_{1})$。我們先看$\hat{z}$軸%
+，\ref{vecrot1}式告訴我們%
+\begin{equation*}
+\underset{\text{active, r.h.}}{\hat{z}_{0}\left( t_{1}\right) =\underbrace{%
+\left[ CK\left( \vec{\omega}_{s}\left( t_{0}\right) dt\right) \right] ^{T}}}%
+\times \hat{z}_{0}\left( t_{0}\right) \underset{\text{active, r.h.}}{=%
+\underbrace{\left[ CK\left( \vec{\omega}_{s}\left( t_{0}\right) dt\right) %
+\right] ^{T}}}\times \left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right]
+\end{equation*}%
+其中$\hat{z}_{0}\left( t_{0})\text{，}\hat{z}%
+_{0}(t_{1}\right) $代表時間為$t_{0}$與$%
+t_{1}$的\^{z}軸在$t_{0}$時間的座%
+標軸(也就是s frame)的投影%
+，因此$\hat{z}_{0}\left( t_{0}\right) $為單%
+位向量$\left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right] $。這樣子我們求得%
+下一個z軸的位置在$t_{0}$%
+的投影，不過我們得%
+轉回lab frame，我們假設lab frame%
+的$xyz$軸到陀螺初始位置%
+$\hat{x}\hat{y}\hat{z}_{lab}(t_{0})$的轉動向量%
+是$\vec{\Omega}_{0}， $這樣我們可%
+以用$\vec{\Omega}_{0}$輕易的改變%
+陀螺初始位置，運用%
+上\ref{frametrans}式%
+\begin{equation*}
+\hat{z}_{lab}\left( t_{1}\right) =\underset{\text{passive, l.h.}}{%
+\underbrace{\left[ CK\left( \vec{\Omega}_{0}\right) \right] ^{T}}}\times 
+\hat{z}_{0}\left( t_{1}\right)
+\end{equation*}%
+注意這邊矩陣就取被%
+動含意，結合以上兩%
+式得到%
+\begin{eqnarray*}
+\hat{z}_{lab}\left( t_{1}\right) &=&\underset{\text{passive, l.h.}}{%
+\underbrace{\left[ CK\left( \vec{\Omega}_{0}\right) \right] ^{T}}}\underset{%
+\text{active, r.h.}}{\underbrace{\left[ CK\left( \vec{\omega}_{s}\left(
+t_{0}\right) dt\right) \right] ^{T}}}\times \hat{z}_{0}\left( t_{0}\right) \\
+&=&\underset{\text{passive, l.h.}}{\underbrace{\left[ CK\left( \vec{\Omega}%
+_{0}\right) \right] ^{T}}}\underset{\text{active, r.h.}}{\underbrace{\left[
+CK\left( \vec{\omega}_{s}\left( t_{0}\right) dt\right) \right] ^{T}}}\times %
+\left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right]
+\end{eqnarray*}%
+這樣我們就從t$_{0}$時間%
+得到t$_{1}$時間陀螺z軸的%
+位置。
+
+接著若我們知道$\hat{z}_{lab}\left(
+t_{i}\right) $，再從尤拉方程%
+數值法解出的$\vec{\omega}_{s}\left(
+t_{0},t_{1},\cdots ,t_{i}\right) $(接下來會說%
+明)，我們同樣可以求%
+得$\hat{z}_{lab}\left( t_{i+1}\right) $，首先用%
+\ref{vecrot}式%
+\begin{eqnarray*}
+\hat{z}_{i}\left( t_{i+1}\right) &=&\underset{\text{active, r.h.}}{%
+\underbrace{\left[ CK\left( \vec{\omega}_{s}\left( t_{i}\right) dt\right) %
+\right] ^{T}}}\times \hat{z}_{i}\left( t_{i}\right) \\
+&=&\underset{\text{active, r.h.}}{\underbrace{\left[ CK\left( \vec{\omega}%
+_{s}\left( t_{i}\right) dt\right) \right] ^{T}}}\times \left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right]
+\end{eqnarray*}%
+再用\ref{frametrans}式轉回到lab frame%
+\begin{eqnarray}
+\hat{z}_{lab}\left( t_{i+1}\right) &=&\underset{\text{passive, l.h.}}{%
+\underbrace{\left[ CK\left( lab\rightarrow t_{i}\right) \right] ^{T}}}\times 
+\hat{z}_{i}\left( t_{i+1}\right)  \notag \\
+&=&\underset{\text{passive, l.h.}}{\underbrace{\left[ CK\left( \vec{\Omega}%
+_{0}\right) \cdot CK\left( \vec{\omega}_{s}\left( t_{0}\right) dt\right)
+\cdot CK\left( \vec{\omega}_{s}\left( t_{1}\right) dt\right) \cdot \cdots
+\cdot CK\left( \vec{\omega}_{s}\left( t_{i-1}\right) dt\right) \right] ^{T}}}%
+\times  \notag \\
+&&\hat{z}_{i}\left( t_{i+1}\right)  \notag \\
+&=&\underset{\text{passive, l.h.}}{\underbrace{\left[ CK\left( \vec{\Omega}%
+_{0}\right) \cdot CK\left( \vec{\omega}_{s}\left( t_{0}\right) dt\right)
+\cdot CK\left( \vec{\omega}_{s}\left( t_{1}\right) dt\right) \cdot \cdots
+\cdot CK\left( \vec{\omega}_{s}\left( t_{i-1}\right) dt\right) \right] ^{T}}}%
+\times  \notag \\
+&&\underset{\text{active, r.h.}}{\underbrace{\left[ CK\left( \vec{\omega}%
+_{s}\left( t_{i}\right) dt\right) \right] ^{T}}}\times \left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right]  \label{iterateeq0}
+\end{eqnarray}%
+這裡用上不同時間微%
+小轉動矩陣的commutive性質$%
+\left( AB\right) C=A\left( BC\right) $。這樣我%
+們就得到了所有時刻$%
+\left( t_{0},t_{1},\cdots ,t_{i+1}\right) $z軸在lab frame位%
+置的公式，同樣方法%
+可求得x,y軸。可以看出%
+上面所有passive的矩陣的%
+作用只是再把坐標軸%
+從body frame轉回到lab frame。若我%
+們再用上轉動矩陣相%
+乘即等於轉動向量相%
+加的事實\cite{goldstein}，上式%
+可在寫成%
+\begin{equation}
+\hat{z}_{lab}\left( t_{i+1}\right) ==\left[ CK\left( \vec{\Omega}%
+_{0}+\sum\limits_{m=0}^{i}\vec{\omega}_{s}\left( t_{m}\right) \right) \right]
+^{T}\times \left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right]  \label{iterateeq2}
+\end{equation}%
+不過要注意，只有CK內%
+包含的所有轉動向量%
+都是要微小轉動向量%
+此條公式才會成立。%
+﹝在我們的Python程式中%
+也包含有使用此公式%
+的選項，讀者可以自%
+由切換比較。用此公%
+式的好處是，矩陣的%
+相乘轉換成了矩陣的%
+相加，在速度及記憶%
+體的佔用上此近似會%
+有優勢。不過，程式%
+預設是使用\ref{iterateeq0}公式%
+，因$\vec{\Omega}_{0}$量值不小。%
+﹞另外這邊我們就省%
+略了矩陣的主被動左%
+右手的標示，但注意%
+，我們的CK矩陣是定義%
+右手定則，遵守物理%
+定律。這裡若不強調%
+會產生問題，因為很%
+多書上給的是CK是左手%
+公式。並且，若要了%
+解公式，主被動及左%
+右手的標示是必須保%
+留並且對照圖表才有%
+辦法了解公式如何而%
+來以及轉動方向是如%
+何，而這也是大部分%
+書上所缺乏的。這樣%
+，我們就得到了剛體%
+特徵軸的追蹤公式，%
+並且只要知道"貼體"角%
+速度﹝注意並不是角%
+速度在lab frame的觀察值，%
+當然如果知道這個，%
+我就不用寫這麼多了%
+。﹞就可以求得。同%
+理可得$\hat{x}_{lab}\left( t_{i+1}\right) $，$\hat{y}%
+_{lab}\left( t_{i+1}\right) $。
+
+\bigskip 若將$\hat{x}_{lab}\left( t_{i+1}\right) $，$\hat{y%
+}_{lab}\left( t_{i+1}\right) $，$\hat{z}_{lab}\left( t_{i+1}\right) $%
+的三個行組成一矩陣C%
+，我們會發現\ref{iterateeq2}式%
+即為導航書籍上常看%
+到的方向餘弦遞推理%
+論的姿態矩陣動力方%
+程\cite{titterton}%
+\begin{eqnarray}
+C(t_{i+1}) &=&C(t_{i})\exp (\int \omega dt)\text{ or}  \label{iterationC} \\
+\dot{C}(t_{i+1}) &=&C(t_{i})\times \omega (t)
+\end{eqnarray}%
+不過很少有書上會把%
+此公式解釋的清楚，%
+比如說，\ref{iterationCK}式中的%
+transpose若不經過我們每一%
+步轉動矩陣都紀錄並%
+寫下主被動與左右手%
+性質，實際應用的時%
+候我們將不知道要套%
+用transpose矩陣，轉動向量%
+的主動還是坐標系的%
+被動特性以及轉動方%
+向遵守是左手還是右%
+手定則，這樣將造成%
+極大的困擾。因此我%
+們知道，只給出\ref{iterationC}%
+公式只是一小步，離%
+實作層面還有很大一%
+段距離。此式中$\exp (\int \omega
+dt)$為path order exponential，關於此，%
+以及要如何證明$\exp (\int \omega
+dt)$是我們的CK矩陣，可%
+以在\cite[Page 49]{tong}找到，並注%
+意連結與$\sin $，$\cos $的泰%
+勒展開的關係。
+
+以上為轉動坐標系中%
+的向量變化量與恆定%
+坐標系中的向量變化%
+量與轉動坐標系的角%
+速度的關係推導，不%
+過我們發現我們必須%
+要知道所有時刻的貼%
+體角速度$\vec{\omega}_{s}\left( t_{0}\cdots
+t_{i}\right) $。若是在慣性感%
+測器的應用，由於strap-down%
+﹝捷聯式or綁附式﹞慣%
+性感測器測量得的就%
+是貼體角速度，因此%
+我們可以直接帶入我%
+們的公式，這就是捷%
+聯式慣性感測器姿態%
+估測演算法的一種演%
+算法，我們會在第四%
+部分說明。接下來我%
+們說明如何從尤拉方%
+程數值求出$\vec{\omega}_{s}\left( t_{0}\cdots
+t_{i}\right) $，並以此帶入姿%
+態遞推公式來模擬陀%
+螺運動。
+
+將\ref{rateofchange}式應用上一段s%
+到b frame，t到t+dt的微小轉動%
+，並且考慮$\vec{A}$為剛體%
+角動量$\vec{L}$，則我們得%
+到%
+\begin{equation}
+\left( \Gamma \right) _{s}=\left( \frac{d\vec{L}}{dt}\right) _{s}=\left( 
+\frac{d\vec{L}}{dt}\right) _{b}+\left( \vec{\omega}\right) _{s}\times \left( 
+\vec{L}\right) _{s}  \label{liw}
+\end{equation}%
+這裡第一等號也用上%
+牛頓定律。現在我們%
+從\ref{rateofdomega}式知道$\left( d\vec{\Omega}%
+\right) _{s}$是s到b frame的角位移，%
+而經由我們之前剛體%
+特徵軸的設定，s到b frame%
+正是我們剛體特徵軸%
+從t到t+dt的角位移，因此%
+$\left( \frac{d\vec{\Omega}}{dt}\right) _{s}=\left( \vec{\omega}\right) _{s}$%
+正是剛體的瞬時角速%
+度﹝沿著t時間s frame取分%
+量﹞，接著，因為s, b frame%
+都是沿著body principle axes而取，%
+因此沿s frame的角動量$\left( \vec{L%
+}\right) _{s}$可以寫成%
+\begin{equation*}
+\left( \vec{L}\right) _{s}=\left[ 
+\begin{array}{ccc}
+I_{xx} & 0 & 0 \\ 
+0 & I_{yy} & 0 \\ 
+0 & 0 & I_{zz}%
+\end{array}%
+\right] \times \left( \vec{\omega}\right) _{s}
+\end{equation*}%
+並且沿著b frame的$\left( \frac{d\vec{L}}{dt}%
+\right) _{b}$項也可寫成%
+\begin{equation*}
+\left( \frac{d\vec{L}}{dt}\right) _{b}=\left[ 
+\begin{array}{ccc}
+I_{xx} & 0 & 0 \\ 
+0 & I_{yy} & 0 \\ 
+0 & 0 & I_{zz}%
+\end{array}%
+\right] \times \frac{d\left( \vec{\omega}\right) _{b}}{dt}
+\end{equation*}%
+其中$I_{xx}$、$I_{yy}$、$I_{zz}$都不%
+隨時間變動。再次注%
+意$\left( \Gamma \right) _{s}$與$\left( \vec{\omega}\right) _{s}$%
+與$\left( \vec{L}\right) _{s}$都是沿著t時%
+刻的剛體特徵軸(也就%
+是s frame)取的投影，並不%
+是Lab frame的投影，這點要%
+特別注意，基本上這%
+代表，$\left( \Gamma \right) _{s}$是貼體%
+的角動量！這裡大部%
+分的書上都沒有給出%
+恰當的原因，如果用lab
+frame的$\Gamma $那麼就無法成%
+功的數值化喔\footnote{注意%
+因為s frame會持續的改變%
+所以$\left( \vec{\Gamma}\right) _{s}$不可取$%
+\left( \vec{\Gamma}\right) _{lab}$的值，同理$%
+\left( \vec{\omega}\right) _{s}$也不是$\left( \vec{\omega}%
+\right) _{lab}$，兩者都必須經%
+過轉換從lab轉到t時刻s frame%
+。}。這邊我們證明了\ref%
+{liw}式最後那一項中的兩%
+個$\vec{\omega}$是相同的\footnote{但%
+我們必須強調，任意%
+情況下，角速度$\left( \vec{\omega}%
+\right) $在body轉動座標下的投%
+影並不是body座標上觀察%
+到的角速度！這是很%
+常見的錯誤，這裡我%
+們是有條件的考慮t到t+dt%
+時刻的t時刻s,b座標重和%
+。}。代入$\vec{L}$並展開\ref{liw}%
+式，我們就得到所謂%
+的尤拉公式(Euler's equation)%
+\begin{eqnarray}
+\Gamma _{x}(t) &=&I_{x}\dot{\omega}_{x}+(I_{z}-I_{y})\omega _{y}\left(
+t\right) \omega _{z}\left( t\right)  \notag \\
+\Gamma _{y}(t) &=&I_{y}\dot{\omega}_{y}+(I_{x}-I_{z})\omega _{x}\omega _{z}
+\label{eulereqbody} \\
+\Gamma _{z}(t) &=&I_{z}\dot{\omega}_{z}+(I_{x}-I_{y})\omega _{x}\omega _{y} 
+\notag
+\end{eqnarray}%
+其中$\vec{\omega}_{b}=\left[ 
+\begin{array}{ccc}
+\omega _{x} & \omega _{y} & \omega _{z}%
+\end{array}%
+\right] $。注意$\vec{\Gamma}$及$\vec{\omega}$的%
+x,y,z分量都是沿著t時刻%
+的剛體特徵軸s frame取的%
+分量，這點必須要強%
+調。之後數值模擬的%
+時候這點是非常重要%
+的。
+
+接下來應用上陀螺，%
+若考慮陀螺的條件 $%
+I_{x}=I_{y}\neq I_{z}$，\ref{eulereqbody}式可寫%
+成%
+\begin{equation}
+\frac{d}{dt}\left[ 
+\begin{array}{c}
+\omega _{x} \\ 
+\omega _{y} \\ 
+\omega _{z}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{ccc}
+0 & -\frac{I_{z}-I_{y}}{I_{x}}\omega _{z} & 0 \\ 
+-\frac{I_{x}-I_{z}}{I_{y}}\omega _{z} & 0 & 0 \\ 
+0 & 0 & 0%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\omega _{x} \\ 
+\omega _{y} \\ 
+\omega _{z}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{c}
+\frac{\Gamma _{x}}{I_{x}} \\ 
+\frac{\Gamma _{y}}{I_{y}} \\ 
+\frac{\Gamma _{z}}{I_{z}}%
+\end{array}%
+\right]
+\end{equation}%
+如之前所強調，右邊%
+所有項都是在時間為t%
+時刻的s frame取得值，也%
+因此以上的微分方程%
+組可以用普通數值由%
+拉法或四階Ruge Kutta求出左%
+側$\omega _{x,y,z}(t+dt)$，也就是從$\vec{%
+\omega}_{s}(t)$求得$\vec{\omega}_{s}(t+dt)$。不%
+過對於任意的剛體轉%
+動系統，只要能從\ref%
+{eulereqbody}式右側$\vec{\omega}_{s}(t)$求得%
+左側$\vec{\omega}_{s}(t+dt)$，都還是%
+能夠適用接下來的模%
+擬方法，也因此這裡%
+描述的方法是具有任%
+意一般性的，可以應%
+用在任何的剛體轉動%
+。有不少的數值方法%
+可以解一般的非線性%
+一階ODE尤拉方程\cite{matlab}。%
+這裡我以Ruge Kutta四階法求%
+解上式，來得到$\vec{\omega}%
+_{s}\left( t_{0}\cdots t_{i}\right) $，並且寫成%
+python程式，程式將在下%
+一章介紹。
+
+\begin{figure}[th]
+\caption{陀螺的對稱軸的單%
+位向量的模擬軌跡圖%
+。以$\protect\omega (t_{i})$或$\protect\omega (t_{i+1})$%
+轉動向量來近似$t_{i}$到$%
+t_{i+1}$時間的轉動的模擬%
+結果，並與Hasbun教授的%
+正確解比較。$\protect\omega (t_{i+1})$%
+的結果與Hasbun教授的結%
+果在此圖形中幾乎重%
+合，這代表以$\protect\omega (t_{i+1})$%
+來近似比$\protect\omega (t_{i})$好很%
+多。}
+\label{wtiwti1}
+\begin{center}
+\fbox{\input{wti_wtiplus1.pgf}}
+\end{center}
+\end{figure}
+
+\section{以$t_{i+1}$時間的轉動向%
+量來近似$t_{i}$到$t_{i+1}$的轉%
+動}
+
+以上\ref{vecrot05}式中以$CK\left( \vec{\omega}%
+_{s}(t_{i})dt\right) $來近似t$_{i}$到t$_{i+1}$%
+的轉動事實上還不夠%
+好，圖\ref{wtiwti1}顯示，以$\omega
+(t_{i})$轉動向量近似的結%
+果與Hasbun的正確結果偏%
+差不少。這邊我提出%
+以$CK\left( \vec{\omega}_{s}(t_{i+1})dt\right) $來近%
+似t$_{i}$到t$_{i+1}$的轉動，圖\ref%
+{wtiwti1}顯示模擬結果幾乎%
+與Hasbun的正確解重合，%
+至少此圖表上無法看%
+出任何差別。為什麼%
+有如此大的影響，以%
+下我也嘗試提供物理%
+解釋。這裡我們暫時%
+假設$\vec{\omega}_{s}(t_{i})dt=\vec{\Omega}_{s}(t_{i})$，%
+我們知道轉動向量在$%
+t_{i+1}$跟$t_{i}$時刻在body frame中的%
+向量值一般不會一樣%
+，也就是$\vec{\Omega}_{i+1}(t_{i+1})\neq \vec{\Omega}%
+_{i}(t_{i})$，這代表從$t_{i}$到$t_{i+1}$%
+時，轉動向量在body座標%
+上有變化，也因此我%
+們不能夠單只考慮陀%
+螺轉了$\vec{\Omega}_{s}(t_{i})$而已，%
+此額外轉動向量的變%
+化在$t_{i}$時s frame的向量值%
+為$\Omega _{i+1}(t_{i+1})-\Omega _{i}(t_{i})=\Omega
+_{i}(t_{i})+d\Omega _{i}(dt)-\Omega _{i}(t_{i})=d\Omega _{s}(dt)$，%
+也是一個轉動向量，%
+所以space空間中總共的轉%
+動可以考慮成兩步，%
+第一步轉$\Omega _{s}(t_{i})$，第二%
+步轉$d\Omega _{s}(dt)$，寫成轉動%
+矩陣%
+\begin{equation}
+CK(\Omega _{s}(t_{i}))\times CK(d\Omega _{s}(dt))=CK(\Omega
+_{s}(t_{i})+d\Omega _{s}(dt))=CK(\Omega _{i+1}(t_{i+1}))
+\end{equation}%
+這代表我們只要考慮%
+陀螺從t到t+dt的時候是轉%
+了$\Omega _{s}(t+dt)$而不只是$\Omega _{s}(t)$%
+，因此考慮$\Omega _{s}(t+dt)$我們%
+就更準確的近似了這%
+個轉動，以下的Python程%
+式模擬會證明，考慮%
+了$\Omega _{s}(t+dt)$給出的結果比$%
+\Omega _{s}(t)$好非常多。若如%
+此考慮則\ref{iterateeq0}式變成%
+\begin{eqnarray}
+\hat{z}_{lab}\left( t_{i+1}\right) &=&\left[ CK\left( \vec{\Omega}%
+_{0}\right) \cdot CK\left( \vec{\omega}_{s}\left( t_{1}\right) dt\right)
+\cdot CK\left( \vec{\omega}_{s}\left( t_{2}\right) dt\right) \cdot \cdots
+\cdot CK\left( \vec{\omega}_{s}\left( t_{i+1}\right) dt\right) \right]
+^{T}\times  \notag \\
+&&\left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right]  \label{iterationCK}
+\end{eqnarray}%
+此公式即為我Python程式%
+中使用的DCM遞推的公式%
+。相同方法可求得另%
+外兩軸x,y的運動。
+
+若需要更精確的近似%
+，書\cite[Page 301, Equation 10.24]{titterton}中也%
+給出轉動向量的近似%
+公式，不過此公式頗%
+為複雜，因此這邊先%
+嘗試比較以我們$t_{i+1}$方%
+法與解析解的不同。%
+下面就將上述方法寫%
+成python程式，以尤拉方%
+程數值解出貼體角速%
+度，接著用遞推公式\ref%
+{iterateeq2}畫圖模擬其xyz軸運%
+動。這邊劃出四種陀%
+螺的經典運動。
+
+\begin{figure}[th]
+\caption{}
+\begin{center}
+\fbox{\input{FourClassics.pgf}}
+\end{center}
+\end{figure}
+
+總結而言，我們上述%
+所使用的方法為，數%
+值解轉動座標的貼體%
+角速度尤拉方程，得%
+到下一個新的貼體角%
+速度作DCM遞推。我們接%
+下來就跟另外兩種方%
+法比較，並且也說明%
+每種方法適合的應用%
+場合。其中一種是傳%
+統的數值解空間座標%
+的尤拉角尤拉方程。%
+此方法雖然最傳統，%
+但帶入尤拉角的尤拉%
+方程式呈現高度的非%
+線性化，因此數值計%
+算上的誤差會最大。%
+並且，一般若是外力%
+力矩項隨時間而變化%
+，或帶入尤拉角的力%
+矩項過於複雜，則此%
+方式便不適用，因為%
+此步驟還得人為降階%
+成一階ODE聯立方程組，%
+才能作數值計算。若%
+力矩項過於複雜甚至%
+降階步驟困難，這時%
+候就適合用我們的DCM方%
+法。另一個比較方法%
+跟數值解空間座標尤%
+拉角尤拉方程相似，%
+當解出尤拉角隨時間%
+的數值解之後，我們%
+將尤拉角的解轉成貼%
+體角速度，然後再以DCM%
+方法積分出所有的姿%
+態。此方法適用的情%
+形就是，當貼體角速%
+度已知，而力矩為未%
+知，此方法可以直接%
+以DCM方法遞推求出姿態%
+。此方法即為角速度%
+感測器的姿態解算演%
+算原理，因此適用於%
+感測器的姿態估測上%
+。此三種方法的比較%
+在圖\ref{compareDCM-Hasbun}有詳細的%
+圖示解釋。
+
+即時解尤拉方程然後%
+作DCM姿態遞推的好處是%
+，不用事先知道力矩%
+項，因此會比尤拉角%
+尤拉方程方法更適用%
+於力矩會隨時間變動%
+或力矩為未知的情況%
+，舉例來說，我們可%
+以用在機器人的恣態%
+控制上面，又或者，%
+可以用在有用到剛體%
+轉動的遊戲物理引擎%
+上面。這些狀況都是%
+尤拉角尤拉方程中的%
+力矩項無法事先預知%
+，因此無法事先解其%
+尤拉角尤拉方程。又%
+或者，若是力矩項太%
+過複雜，如無人機的%
+空氣動力，也適合使%
+用我們這邊所介紹的%
+即時解尤拉方程並作%
+姿態遞推，只要有角%
+加速度計可以測量角%
+加速度就可以。我們%
+這邊所介紹的陀螺，%
+是一個應用的例子，%
+由於陀螺的轉動速度%
+是每秒20轉，因此轉動%
+速度很高，對於姿態%
+遞推的精度要求算很%
+高，因此陀螺適合當%
+作驗證姿態遞推演算%
+的非常好的例子，若%
+陀螺能算的準，其他%
+轉動速度不高的情況%
+將會非常準。陀螺的%
+情況我們可以比喻為%
+，把機器人或無人機%
+丟入龍捲風裡面，並%
+且要作姿態控制。
+
+\part{方向餘弦演算法Python程%
+式碼之說明}
+
+程式經過幾次升級修%
+改後，目前已經以物%
+件導向方式編寫完成%
+。主要是環繞著一個%
+類別﹝class﹞名為RigidBodyObject來%
+發展。此類別的宣告%
+及其方法﹝演算法的%
+主程式﹞被包在一個%
+套件module裡，此套件為%
+RGCordTransV11.py檔，使用前先import
+RGCordTransV11。以下為如何使%
+用程式的一個簡單範%
+例，以及其輸出的陀%
+螺動畫，我們將此範%
+例存成一個test.py檔，裡%
+面的內容為
+
+\begin{quotation}
+import matplotlib.pyplot as plt
+
+import mpl\_toolkits.mplot3d as p3
+
+import matplotlib.animation as animation
+
+import RBPlotFunction as RBPlot
+
+import RGCordTransV11 as RG
+
+b1 = RG.RigidBodyObject()
+
+\#set para here
+
+b1.tn=1.45
+
+b1.GenerateDependentVariables()
+
+\#set case here(after dep var is created)
+
+b1.setcase(2)
+
+b1.HasbunEulerEquationODEsolve()
+
+b1.eulerW2bodyW()
+
+b1.EulerDCMiter()
+
+\#\%\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Plot figure top animation
+
+fig2 = plt.figure(2,figsize=(4,2.66))
+
+ax4 = p3.Axes3D(fig2)
+
+ax4.view\_init(elev=20, azim=125)
+
+ax4.set\_xlim3d([-0.8, 0.8])
+
+ax4.set\_ylim3d([-0.8, 0.8])
+
+ax4.set\_zlim3d([0, 0.8])
+
+RBPlot.xthAnimationFrame(b1,ax4,plt)
+
+ax4.set\_xticks([])
+
+ax4.set\_yticks([])
+
+ax4.set\_zticks([])
+
+line\_ani = animation.FuncAnimation(fig2, RBPlot.update\_line,
+list(range(1,b.N,15)),
+
+fargs=(b.baxes+b.polylines+b.baxes\_hasbun,
+
+b.lineL,b.lineW,b.cordvec,b.L\_plot,
+
+b.w\_b\_norm),interval=10, blit=False,repeat=False)
+
+plt.show()
+\end{quotation}
+
+模擬程式畫出剛體特%
+徵軸的x, y, z軸單位向量%
+，我們以一個正方形%
+來代表剛體，正方形%
+的中心點定在z軸的二%
+分之一處，由於Python的%
+Matplotlib三維繪圖程式庫mplot3d%
+並沒有太多的3D繪圖支%
+援，因此這邊只是以%
+一個簡單的示意的正%
+方形來代表陀螺，之%
+後我也考慮將模擬結%
+果輸出至專門做3D rendering的%
+繪圖程式語言，如openGL%
+，來做更精美的陀螺%
+外觀。z軸單位向量的%
+頂點對時間的軌跡圖%
+，也就是locus，是以藍色%
+的曲線表示。Hasbun教授%
+的尤拉角法給出的z軸%
+單位向量的locus，是以黑%
+色的曲線表示。另外%
+剛體的總角動量的單%
+位向量以黑色線段表%
+示，剛體的角速度除%
+以角速度初始值量值%
+的normalized向量以綠色線段%
+表示。
+
+\begin{figure}[th]
+\caption{{}模擬條件(SI units): I=0.002; Is=0.0008;
+g=9.8; M=1 ; arm=.04; spin freq= 20 Hz; Initial angle from vertical 54.57
+degree; Sampling rate 2000 Hz.}
+\begin{center}
+\fbox{\input{AnimationFig.pgf}}
+\end{center}
+\end{figure}
+
+這裡提供的Python程式碼%
+可以適用於任意的陀%
+螺狀態，因此不會遇%
+到以尤拉角表達的方%
+法所遇到在九十度角%
+所遭遇的奇異點問題%
+。這個程式碼也包含%
+了Hasbun教授在他的著作%
+中\cite{hasbun}提供的Matlab程式碼%
+轉成的Python程式碼，由%
+於我希望能夠作系統%
+性的比較，所以花了%
+一些時間將Hasbun教授的Matlab%
+程式碼重寫成Python程式%
+碼。因此在我的Python程%
+式碼中也包含了Hasbun教%
+授的程式，此程式函%
+數叫做\texttt{HasbunMatlabTop()}，其定%
+義在\texttt{top.py}檔案中。Hasbun教%
+授的程式碼是尤拉角%
+所寫出來的，所以會%
+有奇異點問題，$\theta $在%
+九十度時會產生NaN。不%
+過，尤拉角法解出的%
+是解析解，所以只要%
+不發散，結果會是絕%
+對正確的。由於姿態%
+的方向餘弦遞推是一%
+種數值近似，因此會%
+有數值誤差﹝numerical drift﹞%
+，也因此我們有跟解%
+析解比較的必要。當%
+然，方向餘弦法適用%
+任意的剛體轉動方程%
+，可直接套用，而尤%
+拉角法還得要看轉動%
+尤拉方程的複雜程度%
+，必須要能寫成一階ODE%
+微分方程組，才能做%
+數值積分，因此各有%
+其優缺點。我們這邊%
+比較方向餘弦法與Hasbun%
+教授尤拉法所算出來%
+的陀螺對稱軸﹝body z軸%
+﹞之間的夾角角度\thinspace 
+，見圖\ref{compare}。可以看出%
+來模擬結果此夾角角%
+度在任意時刻都小於0.1
+degree。這代表我們的方%
+法是可行的。補充一%
+下，Hasbun教授的尤拉角%
+的定義也是依照$z-x^{\prime
+}-z^{\prime }$軸依序依照右手%
+定則轉動$\phi $，$\theta $，$\varphi $%
+角。 
+\begin{figure}[th]
+\caption{{}模擬條件(SI units): I=0.002; Is=0.0008;
+g=9.8; M=1 ; arm=.04; spin freq= 20 Hz; Initial angle from vertical 54.57
+degree; Sampling rate 2500 Hz.}
+\begin{center}
+\fbox{\input{compare.pgf}}
+\end{center}
+\end{figure}
+
+使用$\omega (t+dt)$來做t時間的%
+轉動近似讓我們的程%
+式碼變得非常簡單，%
+比書中\cite[Page 301, Equation 10.24]{titterton}給%
+出的轉動向量近似公%
+式簡單太多了。簡單%
+的程式碼代表之後在%
+做速度優化，或轉寫%
+成速度快的編譯式語%
+言上，會簡單非常多%
+。主程式叫做\texttt{RGCordTrans.py}%
+。我使用的Python版本為Python
+2.7.5 - Anaconda 1.8.0 (32-bit)，NumPy 1.7.1，SciPy 0.13.0%
+，Matplotlib 1.3.1。不同版本的%
+Python﹝如Python 3.x﹞會有一些%
+指令的不同需要做小%
+修改，可以聯絡我我%
+可以幫做修正。\texttt{RGCordTrans%
+主程式可調整的}參數%
+為
+
+\begin{quotation}
+M = 1 \#mass in kg
+
+\#R = 0.025 \#radius of disk in m
+
+\#L = 0.01 \#width of disk in m
+
+arm = 0.04 \#level arm of Center of mass in m
+
+Iy= 0.002 \#moment of inertial, substitute disk formula if needed
+Iy=0.25*M*R**2 + 1/12*M*L**2 +M*arm**2
+
+Iz= 0.0008 \#Iz = 0.5*M*R**2
+
+Ix= 0.002
+
+g = 9.8 \#gravity m/s\symbol{94}2
+
+F = np.array([0,0,-M*g]) \#gravity f
+
+freq = 20 \#top rotating angular speed in hertz
+
+tn=1.2*1 \# end of simulation time, take longer time if tn \TEXTsymbol{>} 10
+seconds
+
+t0=0 \# start of time zero
+
+samplerate = 2000 \# rate of iteration in Hz
+
+N = (tn-t0)*samplerate \#number of steps
+
+h = (tn-t0)/N \#time step interval
+\end{quotation}
+
+主程式以四階Rugge Kutta ﹝%
+topRK(wi,torquei)﹞直接數值解陀%
+螺尤拉方程﹝topEOM(wi,torquei)\texttt{%
+﹞}得到貼體角速度，%
+接著用遞推公式\ref{iterateeq0}%
+來得到陀螺特徵軸xyz軸%
+的單位向量cordvec對時間%
+的變化。cordvec陣列的維%
+度shape=(N,3,7)\texttt{。其中維度為%
+}7\texttt{的方向的首要三個%
+陣列就是}xyz\texttt{軸。}
+
+DCM遞推的程式為以下五%
+行
+
+\begin{quotation}
+for i in range(1,N+1):
+
+w[i,:]=topRK(w[i-1,:],Tau\_body\_temp)
+
+TrackMat\_temp = np.dot(TrackMat\_temp,CK(w[i,:]*h)) \qquad \# wi here,
+
+for j in range(3):
+
+cordvec[i,:,j]=np.dot(TrackMat\_temp,np.eye(3)[j,:])
+\end{quotation}
+
+注意力矩我們是用沿%
+著body軸的Tau\_body\_temp。
+
+\begin{figure}[th]
+\caption{比較DCM法與Hasbun教授尤%
+拉角法的流程圖。}
+\label{compareDCM-Hasbun}
+\begin{center}
+\input{testPSTricks-flowchart}
+\end{center}
+\end{figure}
+
+以下列出程式所用到%
+的兩個module，分別為%
+RGCordTransV11.py檔與RBPlotFunc.py檔中所%
+包含的程式
+
+\begin{itemize}
+\item RGCordTransV11.py
+
+\begin{itemize}
+\item Class RigidBodyObject
+
+\begin{itemize}
+\item Method
+
+\begin{itemize}
+\item 
+user level
+
+\item GenerateDependentVariable
+
+\item setcase
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\part{在綁缚式慣性感測%
+器姿態演算的應用}
+
+上面的五行遞推DCM的程%
+式可以獨立出來應用%
+在感測器的姿態估測%
+上。由於DCM是考慮貼體%
+角速度$\vec{\omega}$，因此主%
+要應用在綁缚式慣性%
+感測元件﹝strap-down IMU﹞上%
+，此類包含範圍涵蓋%
+陀螺儀角速度感測器%
+，微機電角速度感測%
+器，等諸如此類的元%
+件。只要把元件讀到%
+的貼體角速度資料輸%
+出，然後正確的輸入%
+到我們這邊的DCM遞推程%
+式，就可以得到物件%
+轉動的姿態。這邊大%
+部分的書籍都無法從%
+原理說起，都只有提%
+供公式，而且也很少%
+詳細的說明公式如何%
+使用。不過要補充的%
+是，我這邊只有轉動%
+部分，並沒有平移部%
+分的演算法，不過轉%
+動姿態是姿態估測的%
+基礎，平移的演算是%
+相對容易很多的。並%
+且，這邊也沒有噪音%
+過濾的功能，因為任%
+何的量測儀器都會有%
+噪音，因此在輸入DCM遞%
+推前，必須先經過過%
+濾。一般常見的過濾%
+方法是卡爾曼濾波，%
+這裡不作噪音濾波的%
+討論。
+
+\part{補充}
+
+陀螺等周速運動(Figure \ref%
+{figure_uniform})的初始值條件如%
+何計算呢?等周速的條%
+件在Goldstein第二版5-77式給出%
+\begin{equation}
+Mgl=\dot{\phi}\left( I_{3}\omega _{3}-I_{1}\dot{\phi}\cos \theta _{0}\right)
+\end{equation}%
+，不過此式是由尤拉%
+角(euler angles)給出，但我們%
+需要的是anguler velocity along body的初%
+始值，因此我們必須%
+轉換尤拉角到anguler velocity along body%
+，方法如下。上式中$%
+\omega _{3}$即為我們的$\left( \omega
+_{z}\right) _{b}$，比如說是20 Hz，$%
+\theta _{0}$即為我們之前的orien%
+向量所定，由上式可%
+求出兩組$\dot{\phi}(t_{0})$。另外%
+尤拉角跟anugler velocity along body的關%
+係式在書\cite[Chapter 4, Equation 125]{goldstein} 
+給出%
+\begin{eqnarray}
+(\omega _{x})_{b} &=&\dot{\phi}\sin \theta \sin \psi +\dot{\theta}\cos \psi
+\\
+(\omega _{y})_{b} &=&\dot{\phi}\sin \theta \cos \psi -\dot{\theta}\sin \psi
+\\
+(\omega _{z})_{b} &=&\dot{\phi}\cos \theta +\dot{\psi}
+\end{eqnarray}%
+知道$\dot{\phi}(t_{0})$、$\theta _{0}$、$\dot{\theta}%
+_{0}=0$及$\psi _{0}$，用一二條後%
+就可得到$\omega _{xb}(t_{0})$與$\omega
+_{yb}(t_{0})$，這樣我們就得到%
+anguler velocity along body的初始值。因%
+為$\dot{\phi}(t_{0})$有兩組，因此%
+解出的貼體角速度也%
+會有兩組，兩組的物%
+理意義分別如下，一%
+種情況是fast top，這個狀%
+況相當於重力的影響%
+遠小於總角動量$L$，因%
+此這個特別的例子基%
+本上相當於忽略重力%
+，而陀螺基本上會像%
+一個free top一樣進行precession。%
+另一種狀況是slow top，也%
+就是上面模擬結果中%
+第四種的狀況，這裡%
+提供的python程式所有情%
+況都可以模擬。另外%
+一個特殊的情況是在fast
+top的情形下，如果初始%
+值$\theta _{0}=0$，也就是陀螺z%
+軸的起始狀態是垂直%
+於水平面的，這樣的%
+話陀螺幾乎會像靜止%
+不動一樣，我們也叫%
+這情況做sleeping top。
+
+\begin{remark}
+要陀螺具有Precession and Nutation的%
+動作，L/$\Delta L$必須要大，%
+如果L小於$\Delta L$，則只會%
+有陀螺質量受重力影%
+響往下倒下的運動(不%
+過這對檢查程式有沒%
+有錯誤很有幫助!)，理%
+想上L至少要大於$\Delta L$，%
+最好L大大於$\Delta L$。化成%
+數值上的比較：這代%
+表%
+\begin{equation}
+L\gg \Delta L\Rightarrow I\cdot 2\pi f\gg \vec{\Gamma}\Delta t\Rightarrow
+I\cdot 2\pi f\gg \vec{r}\times \vec{F}\cdot 1/f\Rightarrow f\gg \sqrt{\frac{%
+arm\cdot Mg\cdot \sin (\theta )}{2\pi I\cdot G}}
+\end{equation}%
+where $\theta $ is gyro's tilt angle and G is moment of inertial geometry
+factor. 考慮$\Delta t$的量級大約%
+是陀螺轉幾圈的時間%
+(characteristic time)，量級上約是$\sim
+1/f$，若假設arm是10 cm, M = 1kg, g=10 m/s$^{2}$%
+, I = 0.5M(0.05)$^{2}$,則f最少要10 Hertz以%
+上。因此我們將以這%
+些參數比較f = 1, 10, 50 Hertz所給%
+出的陀螺運動。
+\end{remark}
+
+\href{https://drive.google.com/file/d/0B96HmLH-SQVmM1dvYlFiQm9ESGM/edit?usp=sharing%
+}{\underline{\color{blue}%
+\smash{Python code:
+https://drive.google.com/file/d/0B96HmLH-SQVmM1dvYlFiQm9ESGM/edit?usp=sharing}%
+}}
+
+\href{http://tinypic.com/r/10cw9yf/8}{\underline{\color{blue}%
+\smash{3D
+animation: http://tinypic.com/r/10cw9yf/8}}}
+
+This document is prepared with Scientific Workplace 5.0 and typeset with Tex
+Live 2013 (Xelatex). \href{http://whymranderson.blogspot.tw/2014/03/how-to-convert-swp-50-special-unicode.html%
+}{\underline{\color{blue}\smash{Blogpost: http://ppt.cc/yS2-}}}
+
+If you feel like supporting this work, you can \href{https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=WlwN4JPJMnohiYq8N9IuRiEIHqDEyNxauM_sF1u1Qh3M5sQBsssTjYFi4yu&dispatch=5885d80a13c0db1f8e263663d3faee8d5402c249c5a2cfd4a145d37ec05e9a5e%
+}{\underline{\color{blue}\smash{donate here: http://ppt.cc/-L9p}}}.
+
+\begin{thebibliography}{9}
+\bibitem{goldstein} Herbert Goldstein, \emph{Classical Mechanics}. Addison
+Wesley, Massachusetts, 2nd Edition, 1980
+
+\bibitem{tong} David Tong, \emph{Classical Dynamics University of Cambridge
+Part II Mathematical Tripos.} Cambridge UK, 2004-2005, (Course note,
+available on the web)
+
+\bibitem{matlab} \href{http://www.mathworks.com/help/matlab/ordinary-differential-equations.html%
+}{\underline{\color{blue}%
+\smash{Matlab online documentation - Ordinary
+differential equations.}}}, Matlab R2014a
+
+\bibitem{徐鐘} 徐小明 钟万勰，%
+\textit{刚体动力学的四元%
+数表示及保辛积分}，%
+《应用数学和力学》 2014%
+， 35（1）： 111
+
+\bibitem{hasbun} Javier E. Hasbun, \emph{Classical Mechanics with Matlab
+Appications.} Jones and Bartlett Publishers, London UK, 2009
+
+\bibitem{titterton} D.H. Titterton and J.L. Weston, \emph{Strapdown inertial
+navigation technology}, Peter Peregrinus Ltd., London UK, 1997
+
+\bibitem{pixarnote} David Baraff\textit{, }\href{http://graphics.cs.cmu.edu/courses/15-869-F08/lec/14/notesg.pdf%
+}{\underline{\color{blue}%
+\smash{Physically Based Modeling - Rigid Body
+Simulation}}}, Pixar Animation Studios notes
+
+\bibitem{wolfgangSimMeth} Harvey Gould and Jan Tobochnik and Wolfgang
+Christian, \emph{An Introduction to Computer Simulation Methods Third Edition%
+}, Addison-Wesley, 2006, \href{http://www.opensourcephysics.org/items/detail.cfm?ID=7375%
+}{\underline{\color{blue}\smash{draft available on comPADRE}}}
+
+\bibitem{rapaport} Dennis Rapaport, \emph{The Art of Molecular Dynamics
+Simulation 2nd Edition}, Cambridge University Press, 2004
+\end{thebibliography}
+
+\end{document}

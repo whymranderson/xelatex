@@ -1,0 +1,733 @@
+
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{sw2unicode}
+\usepackage[UT1]{fontenc}
+\usepackage{pmingliu}
+\usepackage[left=0.95in,right=0.95in,top=2cm,bottom=2.54cm]{geometry}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Monday, January 13, 2014 11:43:31}
+%TCIDATA{LastRevised=Tuesday, April 15, 2014 11:25:36}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="International\Traditional Chinese Article">}
+%TCIDATA{CSTFile=Traditional Chinese.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\subsection{\U{9640}\U{87ba}\U{7684}\U{7c21}\U{6613}\U{6578}\U{503c}\U{6a21}%
+\U{64ec}}
+
+\U{6211}\U{5011}\U{77e5}\U{9053}\U{525b}\U{9ad4}\U{8f49}\U{52d5}\U{4e2d}%
+\U{5f9e}\U{725b}\U{9813}\U{5b9a}\U{5f8b}\U{51fa}\U{767c}\U{800c}\U{5f97}%
+\U{5230}\U{7684}\U{5c24}\U{62c9}\U{904b}\U{52d5}\U{65b9}\U{7a0b}\U{7d66}%
+\U{51fa}\U{7684}\U{662f}\U{89d2}\U{901f}\U{5ea6}\U{5728}body\U{5ea7}\U{6a19}%
+\U{7684}\U{5206}\U{91cf}\U{ff0c}\U{4e00}\U{822c}\U{529b}\U{5b78}\U{7684}%
+\U{66f8}\U{4e0a}\U{8aaa}\U{660e}\U{5230}\U{89d2}\U{901f}\U{5ea6}\U{7684}%
+\U{5c24}\U{62c9}\U{904b}\U{52d5}\U{65b9}\U{7a0b}\U{ff0c}\U{5c31}\U{6703}%
+\U{8f49}\U{800c}\U{6c42}\U{8af8}euler angle\U{4f86}\U{5f97}\U{5230}Lagrangian%
+\U{ff0c}\U{63a5}\U{8457}\U{5982}\U{679c}\U{662f}\U{9640}\U{87ba}\U{7684}%
+\U{4f8b}\U{5b50}\U{5c31}\U{4ee5}elliptical integral\U{89e3}\U{51fa}\U{89e3}%
+\U{6790}\U{89e3}\U{ff0c}\U{7136}\U{5f8c}\U{5c31}\U{53ef}\U{4ee5}\U{6a21}%
+\U{64ec}\U{5176}\U{904b}\U{52d5}\U{3002}\U{9019}\U{6a23}\U{505a}\U{53ef}%
+\U{4ee5}\U{5f97}\U{5230}\U{6700}\U{5b8c}\U{6574}\U{7684}\U{89e3}\U{6790}%
+\U{89e3}\U{3002}\U{4e0d}\U{904e}\U{82e5}\U{53ea}\U{60f3}\U{8981}\U{6a21}%
+\U{64ec}\U{5176}\U{904b}\U{52d5}\U{ff0c}\U{4e26}\U{4e0d}\U{662f}\U{90a3}%
+\U{9ebc}\U{5728}\U{610f}\U{6709}\U{6c92}\U{6709}\U{5f97}\U{5230}\U{89e3}%
+\U{6790}\U{89e3}\U{ff0c}\U{6211}\U{9019}\U{908a}\U{5206}\U{4eab}\U{4e00}%
+\U{500b}\U{53ea}\U{8981}\U{5f97}\U{5230}body\U{5206}\U{91cf}\U{89d2}\U{901f}%
+\U{5ea6}\U{7684}\U{5c24}\U{62c9}\U{904b}\U{52d5}\U{65b9}\U{7a0b}\U{52a0}%
+\U{4e0a}\U{7d66}\U{5b9a}\U{521d}\U{59cb}\U{503c}\U{ff0c}\U{5c31}\U{53ef}%
+\U{4ee5}\U{6578}\U{503c}\U{6a21}\U{64ec}\U{9640}\U{87ba}\U{8f49}\U{52d5}%
+\U{ff0c}\U{96d6}\U{7136}\U{7121}\U{6cd5}\U{5f97}\U{5230}\U{89e3}\U{6790}%
+\U{89e3}\U{ff0c}\U{4f46}\U{4ee5}\U{6b64}\U{65b9}\U{6cd5}\U{5beb}\U{51fa}%
+\U{7684}python\U{6a21}\U{64ec}\U{7a0b}\U{5f0f}\U{76f8}\U{8f03}\U{65bc}%
+Lagrangian\U{65b9}\U{6cd5}\U{7c21}\U{55ae}\U{8a31}\U{591a}\U{3002}\U{4e26}%
+\U{4e14}\U{6b64}\U{8655}\U{6240}\U{6d89}\U{53ca}\U{7684}\U{7269}\U{7406}%
+\U{53ca}body\U{89d2}\U{901f}\U{5ea6}\U{7684}\U{7406}\U{89e3}\U{9084}\U{53ef}%
+\U{61c9}\U{7528}\U{4e0a}\U{8a31}\U{591a}\U{76f8}\U{95dc}\U{9818}\U{57df}%
+\U{3002}\U{56e0}\U{6b64}\U{9019}\U{908a}\U{6211}\U{5011}\U{5448}\U{73fe}%
+\U{4ee5}\U{6b64}body\U{89d2}\U{901f}\U{5ea6}\U{5982}\U{4f55}\U{6578}\U{503c}%
+\U{6a21}\U{64ec}\U{5b8c}\U{6574}\U{7684}\U{9640}\U{87ba}\U{904b}\U{52d5}%
+\U{3002}
+
+\U{9019}\U{88e1}\U{4ee5}\U{9640}\U{87ba}\U{70ba}\U{4f8b}\U{5b50}\U{ff0c}%
+\U{5c07}\U{9640}\U{87ba}\U{7684}\U{904b}\U{52d5}\U{5206}\U{89e3}\U{6210}%
+\U{70ba}\U{5f88}\U{591a}\U{500b}t\U{5230}t+dt\U{6642}\U{9593}\U{7684}\U{5fae}%
+\U{5c0f}\U{8f49}\U{52d5}\U{ff0c}\U{6b64}\U{4f5c}\U{6cd5}\U{6709}\U{4e86}%
+\U{5169}\U{500b}\U{76ee}\U{7684}\U{ff1a}
+
+\begin{enumerate}
+\item \U{8b49}\U{660e}Euler equation\U{4e2d}\U{7684}\U{9640}\U{87ba}\U{89d2}%
+\U{901f}\U{5ea6}\U{5728}body\U{7684}\U{5206}\U{91cf}\U{5c31}\U{662f}t\U{5230}%
+t+dt\U{6642}\U{9593}\U{9640}\U{87ba}\U{7684}body frame\U{5728}space frame%
+\U{7684}\U{8f49}\U{52d5}\U{89d2}\U{901f}\U{5ea6}\U{53ca}\U{8f49}\U{52d5}%
+\U{77e9}\U{9663}\U{3002}
+
+\item \U{5728}\U{6578}\U{503c}\U{89e3}\U{525b}\U{9ad4}\U{8f49}\U{52d5}%
+\U{5c24}\U{62c9}\U{65b9}\U{7a0b}\U{6642}\U{ff0c}t\U{5230}t+dt\U{6642}\U{9593}%
+\U{7684}\U{5fae}\U{5c0f}\U{5ea7}\U{6a19}\U{904b}\U{52d5}\U{5c07}\U{53ef}%
+\U{4ee5}\U{975e}\U{5e38}\U{6e96}\U{78ba}\U{5730}\U{4ee5}\U{5728}t+dt\U{6642}%
+\U{9593}\U{7684}body\U{89d2}\U{901f}\U{5ea6}\U{4f86}\U{8fd1}\U{4f3c}\U{ff0c}%
+\U{5373}\U{8f49}\U{52d5}\U{77e9}\U{9663}$[1+\omega _{b}(t+dt)]\times dt%
+\footnote{%
+The path order intergral of $\omega _{b}$ from time t to t+dt. This will be
+discussed more in the text.}$\U{ff0c}\U{9019}\U{88e1}\U{5c07}\U{5c55}\U{793a}%
+\U{4ee5}\U{6b64}\U{8fd1}\U{4f3c}\U{52a0}\U{4e0a}\U{7528}\U{7c21}\U{55ae}%
+\U{7684}\U{56db}\U{968e}Runge Kutta\U{5c31}\U{53ef}\U{4ee5}\U{89e3}\U{51fa}%
+\U{5f88}\U{7cbe}\U{78ba}\U{7684}\U{9640}\U{87ba}\U{904b}\U{52d5}\U{3002}(%
+\U{76ee}\U{524d}\U{4e00}\U{822c}\U{9640}\U{87ba}\U{904b}\U{52d5}\U{90fd}%
+\U{9700}\U{8981}\U{883b}\U{9ad8}\U{968e}\U{7684}\U{6578}\U{503c}\U{8a08}%
+\U{7b97}\U{4f86}\U{907f}\U{514d}\U{5176}\U{4e2d}\U{4e00}\U{4e9b}\U{5b88}%
+\U{6046}\U{7684}\U{904b}\U{52d5}\U{91cf}\U{9000}\U{5316}\U{3002}\U{6b64}%
+\U{65b9}\U{6cd5}\U{5c07}\U{4ee5}\U{975e}\U{5e38}\U{7c21}\U{55ae}\U{7684}%
+\U{56db}\U{968e}Runge Kutta\U{4f86}\U{5f97}\U{5230}\U{975e}\U{5e38}\U{7406}%
+\U{60f3}\U{7684}\U{7d50}\U{679c}\U{3002})
+\end{enumerate}
+
+\begin{summary}
+\U{4e00}\U{822c}\U{8a8d}\U{70ba}\U{89e3}\U{51fa}\U{9640}\U{87ba}\U{7684}%
+\U{89d2}\U{901f}\U{5ea6}\U{5728}body\U{4e0a}\U{7684}\U{5206}\U{91cf}\U{4e26}%
+\U{7121}\U{592a}\U{5927}\U{7528}\U{8655}\U{ff0c}\U{9019}\U{88e1}\U{6211}%
+\U{5011}\U{8b49}\U{660e}\U{4e86}\U{53ea}\U{8981}\U{5c0d}\U{9640}\U{87ba}%
+\U{7269}\U{7406}\U{53ca}\U{7dda}\U{6027}\U{4ee3}\U{63db}\U{77ad}\U{89e3}%
+\U{900f}\U{5fb9}\U{ff0c}\U{4f9d}\U{7136}\U{80fd}\U{5920}\U{7528}\U{6578}%
+\U{503c}\U{8a08}\U{7b97}\U{7684}\U{65b9}\U{6cd5}\U{5b8c}\U{6574}\U{6a21}%
+\U{64ec}\U{4e09}\U{7dad}\U{7a7a}\U{9593}\U{9640}\U{87ba}\U{7684}\U{904b}%
+\U{52d5}\U{3002}
+\end{summary}
+
+\U{9996}\U{5148}\U{6211}\U{5011}\U{5148}\U{8a0e}\U{8ad6}\U{5411}\U{91cf}%
+\U{8b8a}\U{5316}\U{91cf}\U{5728}\U{4e0d}\U{540c}\U{89c0}\U{6e2c}\U{5ea7}%
+\U{6a19}\U{4e2d}\U{7684}\U{95dc}\U{4fc2}\U{3002}\U{7531}\U{65bc}\U{7576}%
+\U{6211}\U{5be6}\U{969b}\U{5728}\U{89e3}\U{9019}\U{554f}\U{984c}\U{6642}%
+\U{6211}\U{767c}\U{73fe}Goldstein classical mechanics\U{66f8}\U{4e2d}\U{63cf}%
+\U{8ff0}\U{7684}\U{9084}\U{4e0d}\U{662f}\U{90a3}\U{9ebc}\U{6e05}\U{695a}%
+\U{ff0c}\U{56e0}\U{6b64}\U{9019}\U{908a}\U{5beb}\U{4e0a}\U{6211}\U{8a8d}%
+\U{70ba}\U{53ef}\U{4ee5}\U{88dc}\U{5145}\U{66f8}\U{4e0a}\U{7684}\U{63a8}%
+\U{5c0e}\U{8b49}\U{660e}\U{3002}
+
+\begin{equation}
+\left( \frac{d\vec{L}}{dt}\right) _{s}=\left( \frac{d\vec{L}}{dt}\right)
+_{b}+\vec{\omega}\times \vec{L}
+\end{equation}
+
+\U{6b64}\U{516c}\U{5f0f}\U{5982}\U{4f55}\U{800c}\U{4f86}\U{ff1f}\U{6b64}%
+\U{516c}\U{5f0f}\U{70ba}\U{4e00}\U{96a8}\U{6642}\U{9593}\U{8b8a}\U{52d5}%
+\U{7684}\U{5411}\U{91cf}\U{5728}\U{6046}\U{5b9a}\U{5ea7}\U{6a19}\U{8207}%
+\U{975e}\U{6046}\U{5b9a}\U{5ea7}\U{6a19}(\U{6b64}\U{4f8b}\U{70ba}\U{8f49}%
+\U{52d5}\U{4e2d}\U{5ea7}\U{6a19})\U{4e4b}\U{9593}\U{7dda}\U{6027}\U{8b8a}%
+\U{63db}\U{7684}\U{7d50}\U{679c}\U{3002}
+
+\begin{figure}[th]
+\caption{Rate change of a vector observed in two different coordinates.}
+\begin{center}
+\fbox{\includegraphics{vecratechange.eps}}
+\end{center}
+\end{figure}
+\bigskip
+
+\U{5728}\U{6046}\U{5b9a}\U{5ea7}\U{6a19}S(space)\U{4e2d}\U{ff0c}\U{5728}%
+\U{6642}\U{9593}\U{70ba}t\U{7684}\U{6642}\U{5019}\U{4e00}\U{5411}\U{91cf}$%
+\vec{A}$\U{ff0c}\U{904e}\U{4e86}\U{6642}\U{9593}dt\U{5f8c}\U{ff0c}\U{89c0}%
+\U{5bdf}\U{503c}\U{70ba}$\vec{A}+d\vec{A}$\U{ff0c}%
+\begin{eqnarray}
+t &:&(\vec{A})_{s} \\
+t+dt &:&\left( \vec{A}+d\vec{A}\right) _{s}
+\end{eqnarray}%
+\U{5728}\U{8f49}\U{52d5}\U{5ea7}\U{6a19}b(body)\U{4e2d}\U{ff0c}\U{6642}%
+\U{9593}\U{70ba}t\U{7684}\U{6642}\U{5019}$\vec{A}$\U{5411}\U{91cf}\U{5728}b%
+\U{4e2d}\U{7684}\U{89c0}\U{5bdf}\U{503c}\U{70ba}$\left( \vec{A}\right) _{b}$%
+(= $\Omega \times \left( \vec{A}\right) _{s}$ \U{ff0c}\U{3a9}\U{662f}S frame%
+\U{5230}b frame\U{7684}\U{8f49}\U{52d5}\U{77e9}\U{9663})\U{3002}\U{6642}%
+\U{9593}\U{70ba}t+dt\U{7684}\U{6642}\U{5019}body\U{4e2d}\U{89c0}\U{5bdf}%
+\U{503c}\U{70ba}$\left( \vec{A}+d\vec{A}\right) _{b}$\U{ff0c}%
+\begin{eqnarray}
+t &:&\left( \vec{A}\right) _{b} \\
+t+dt &:&\left( \vec{A}+d\vec{A}\right) _{b}
+\end{eqnarray}%
+\U{5728}t+dt\U{6642}\U{5fc5}\U{9808}\U{6eff}\U{8db3}%
+\begin{equation}
+\left( \vec{A}+d\vec{A}\right) _{b}=\underset{passive}{\left( \Omega
++d\Omega \right) }\times \left( \vec{A}+d\vec{A}\right) _{s}
+\label{finiterotmatrix}
+\end{equation}%
+passive\U{8868}\U{793a}\U{8f49}\U{52d5}\U{77e9}\U{9663}\U{53d6}\U{5176}%
+\U{88ab}\U{52d5}\U{542b}\U{610f}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{8f49}%
+\U{5750}\U{6a19}\U{8ef8}\U{ff0c}\U{4e0a}\U{5f0f}\U{5c55}\U{958b}\U{5f8c}%
+\U{5f97}%
+\begin{equation}
+\Omega \times \left( d\vec{A}\right) _{s}=\left( d\vec{A}\right)
+_{b}+d\Omega \times \left( \vec{A}\right) _{s}
+\end{equation}
+
+\U{73fe}\U{5728}\U{82e5}\U{5047}\U{8a2d}t\U{6642}\U{9593}S\U{ff0c}b\U{5ea7}%
+\U{6a19}\U{91cd}\U{5408}\U{ff0c}\U{5247}$\Omega $=Unity\U{ff0c}$\left( \vec{A%
+}\right) _{s}=\left( \vec{A}\right) _{b}$\U{ff0c}\U{5247}\U{4e0a}\U{5f0f}%
+\begin{equation}
+\left( d\vec{A}\right) _{s}=\left( d\vec{A}\right) _{b}+d\Omega \times
+\left( \vec{A}\right) _{b}  \label{vectorrateofchange}
+\end{equation}
+
+\bigskip \U{6211}\U{5011}\U{5c07}\U{5728}\U{9640}\U{87ba}\U{7684}\U{6bcf}%
+\U{4e00}\U{6bb5}t\U{5230}t+dt\U{7684}\U{5206}\U{89e3}\U{904b}\U{52d5}\U{904b}%
+\U{7528}\U{6bcf}\U{500b}t\U{6642}S\U{ff0c}b\U{5ea7}\U{6a19}\U{91cd}\U{5408}%
+\U{7684}\U{4e8b}\U{5be6}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{904b}\U{7528}%
+\U{4e0a}\ref{vectorrateofchange}\U{5f0f}\U{3002}\U{4e5f}\U{5c31}\U{662f}%
+\U{6211}\U{5011}\U{5c07}\U{6301}\U{7e8c}\U{5730}\U{6539}\U{8b8a}space\U{5ea7}%
+\U{6a19}\U{4f86}\U{7b26}\U{5408}\U{9019}\U{500b}\U{689d}\U{4ef6}\U{ff0c}%
+\U{4f46}\U{662f}\U{7576}\U{7136}\U{6211}\U{5011}\U{6703}\U{8ddf}\U{8e64}space%
+\U{5ea7}\U{6a19}\U{6bcf}\U{4e00}\U{500b}\U{8b8a}\U{63db}\U{7684}\U{4f4d}%
+\U{7f6e}\U{4f86}\U{6700}\U{7d42}\U{6a21}\U{64ec}\U{9640}\U{87ba}\U{904b}%
+\U{52d5}\U{2027}(\U{6ce8}\U{610f}\ref{vectorrateofchange}\U{5f0f}\U{4e2d}$%
+\Omega ,d\Omega $\U{90fd}\U{662f}s\U{5230}b\U{7684}\U{8f49}\U{52d5}\U{77e9}%
+\U{9663})\U{3002}
+
+\U{53e6}\U{5916}\U{ff0c}\U{5728}t\U{6642}s\U{ff0c}b\U{91cd}\U{548c}\U{60c5}%
+\U{6cc1}\U{4e0b}\U{82e5}\U{6211}\U{5011}\U{52a0}\U{4e0a}\U{8003}\U{616e}$%
+\vec{A}$\U{5411}\U{91cf}fixed\U{5728}b\U{5ea7}\U{6a19}\U{4e2d}\U{4e0d}%
+\U{8b8a}\U{52d5}(\U{5982}body\U{7684}xyz\U{8ef8}\U{ff0c}\U{5728}body\U{5ea7}%
+\U{6a19}\U{4e2d}\U{70ba}\U{56fa}\U{5b9a}\U{503c})\U{ff0c}\U{4e26}\U{4e14}%
+\U{8003}\U{616e}\U{8f49}\U{52d5}\U{77e9}\U{9663}\U{7684}\U{4e3b}\U{52d5}%
+\U{7279}\U{6027}\U{ff0c}\U{5247}\ref{finiterotmatrix}\U{5f0f}\U{8b8a}\U{6210}%
+\begin{equation}
+\left( \hat{z}_{s}\right) _{s}=\underset{active}{\left( 1+d\Omega \right) }%
+\times \left( \hat{z}_{b}\right) _{s}  \label{baxesrot}
+\end{equation}%
+\U{9996}\U{5148}\ref{baxesrot}\U{5f0f}\U{5f88}\U{91cd}\U{8981}\U{7684}%
+\U{4e00}\U{500b}\U{7279}\U{6027}\U{662f}\U{ff0c}\U{7576}\U{6211}\U{5011}%
+\U{61c9}\U{7528}\U{4e0a}\U{8f49}\U{52d5}\U{77e9}\U{9663}\U{7684}\U{4e3b}%
+\U{52d5}\U{7279}\U{6027}\U{ff0c}\U{5f9e}\ref{baxesrot}\U{5f0f}\U{53ef}%
+\U{4ee5}\U{77e5}\U{9053}\U{8f49}\U{52d5}\U{77e9}\U{9663}$1+d\Omega $\U{4e3b}%
+\U{52d5}\U{5730}\U{628a}body\U{7684}z\U{8ef8}$\left( \hat{z}_{b}\right) _{s}$%
+\U{8f49}\U{5230}space\U{7684}z\U{8ef8}$\left( \hat{z}_{s}\right) _{s}$%
+\U{ff0c}\U{9019}\U{4e5f}\U{4ee3}\U{8868}\U{8f49}\U{52d5}\U{77e9}\U{9663}$%
+1+d\Omega $\U{53d6}\U{5176}\U{4e3b}\U{52d5}\U{7279}\U{6027}\U{6642}\U{5176}%
+\U{6240}\U{5c6c}\U{7684}\U{8f49}\U{52d5}\U{77e9}\U{9663}\U{4f5c}\U{7528}%
+\U{5728}body z\U{8ef8}\U{7b49}\U{540c}\U{65bc}body z \U{8ef8}\U{5728}space%
+\U{7a7a}\U{9593}\U{7684}\U{8f49}\U{52d5}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}$%
+\frac{d\Omega }{dt}$\U{70ba}body z\U{8ef8}\U{5728}\U{7a7a}\U{9593}\U{7684}%
+\U{89d2}\U{901f}\U{5ea6}\U{ff01}(\U{5728}\U{6642}\U{9593}\U{70ba}t\U{5230}%
+t+dt\U{7684}\U{6642}\U{5019})\U{ff0c}\U{6b64}\U{4e8b}\U{5be6}\U{5c0d}fixed%
+\U{5728}body\U{4e0a}\U{7684}\U{4efb}\U{610f}\U{5411}\U{91cf}\U{90fd}\U{6210}%
+\U{7acb}\U{ff0c}\U{6240}\U{4ee5}body x, y\U{8ef8}\U{4e5f}\U{6210}\U{7acb}%
+\U{3002}\U{53e6}\U{4e00}\U{500b}\U{770b}\U{6cd5}\U{662f}\U{ff0c}\U{56e0}%
+\U{70ba} space \U{8207} body frame\U{5728}t\U{6642}\U{91cd}\U{5408}\U{ff0c}%
+\U{56e0}\U{6b64}space\U{7684}\U{88ab}\U{52d5}\U{8f49}\U{52d5}\U{77e9}\U{9663}%
+$d\Omega $ = body\U{7684}\U{4e3b}\U{52d5}\U{8f49}\U{52d5}\U{77e9}\U{9663}$%
+d\Omega $\U{ff0c}\U{7a0d}\U{5f8c}\U{6211}\U{5011}\U{5c07}\U{6703}\U{61c9}%
+\U{7528}\U{4e0a}\U{9019}\U{4e00}\U{91cd}\U{8981}\U{7684}\U{7279}\U{6027}%
+\U{3002}\U{9019}\U{88e1}\U{7684}\U{7d50}\U{8ad6}\U{662f}\U{ff0c}\U{4e3b}%
+\U{52d5}\U{7279}\U{6027}\U{7684}$d\Omega $\U{7b49}\U{540c}\U{65bc}body%
+\U{5728}space\U{7a7a}\U{9593}\U{7684}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}\U{3002}
+
+\begin{remark}
+Goldstein\U{4e2d}$d\mathbf{\Omega }\times \mathbf{G}$\U{4e2d}\U{7684}\textbf{%
+G}\U{662f}\U{5728}space\U{5ea7}\U{6a19}\U{ff0c}\U{4f46}\U{56e0}t\U{6642}s,b%
+\U{5169}\U{5ea7}\U{6a19}\U{91cd}\U{548c}\U{ff0c}\U{7528}s\U{6216}body\U{662f}%
+\U{90fd}\U{53ef}\U{4ee5}\U{7684}\U{3002}\U{9019}\U{4e5f}\U{662f}\U{70ba}%
+\U{4ec0}\U{9ebc}goldstein p176(version 2)\U{8aaa}\U{660e}\U{ff0c}\ref%
+{vectorrateofchange}\U{5f0f}\U{4e2d}$\vec{A}$\U{6216}$\vec{b}$\U{5411}%
+\U{91cf}\U{6cbf}\U{8457}space\U{6216}\U{6cbf}\U{8457}body\U{65b9}\U{5411}%
+\U{53d6}\U{5206}\U{91cf}\U{90fd}\U{662f}\U{53ef}\U{4ee5}\U{7684}\U{3002}%
+\U{800c}Goldstein\U{5f8c}\U{4f86}\U{7528}\U{4e0a}\U{9640}\U{87ba}\U{5f8c}%
+\U{ff0c}\U{662f}\U{53d6}body\U{65b9}\U{5411}\U{7684}\U{5206}\U{91cf}\U{6c92}%
+\U{932f}\U{3002}
+\end{remark}
+
+\begin{remark}
+\U{4f46}\U{6211}\U{5011}\U{5fc5}\U{9808}\U{5f37}\U{8abf}\U{ff0c}\U{4efb}%
+\U{610f}\U{60c5}\U{6cc1}\U{4e0b}\U{ff0c}\U{89d2}\U{901f}\U{5ea6}$\left( \vec{%
+\omega}\right) $\U{5728}body\U{8f49}\U{52d5}\U{5ea7}\U{6a19}\U{4e0b}\U{7684}%
+\U{6295}\U{5f71}\U{4e26}\U{4e0d}\U{662f}body\U{5ea7}\U{6a19}\U{4e0a}\U{89c0}%
+\U{5bdf}\U{5230}\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{ff01}\U{9019}\U{88e1}%
+\U{6211}\U{5011}\U{662f}\U{6709}\U{689d}\U{4ef6}\U{7684}\U{8003}\U{616e}t%
+\U{5230}t+dt\U{6642}\U{523b}\U{7684}t\U{6642}\U{523b}s,b\U{5ea7}\U{6a19}%
+\U{91cd}\U{548c}\U{3002}
+\end{remark}
+
+\begin{remark}
+\U{89d2}\U{901f}\U{5ea6}\U{8207}Lie algebra\U{76f8}\U{95dc}\U{9023}\U{ff0c}%
+SO(3) tangent\U{ff0c}$\dot{\Omega}^{T}=-\dot{\Omega}$\U{ff0c}$e^{\Omega }$%
+\U{662f}orthogonal matrix\U{ff0c}wikipedia(orthogonal transformation)\U{4e0a}%
+\U{6709}\U{4e9b}\U{7dda}\U{7d22}\U{3002}
+\end{remark}
+
+\U{63a5}\U{4e0b}\U{4f86}\U{7528}\U{4e0a}\U{9640}\U{87ba}\U{ff0c}\U{53d6}%
+\U{9640}\U{87ba}\U{7684}\U{81ea}\U{65cb}\U{8ef8}\U{70ba}body z\U{8ef8}%
+\U{ff0c}\U{53d6}$\vec{A}$\U{5411}\U{91cf}\U{70ba}\U{9640}\U{87ba}\U{89d2}%
+\U{52d5}\U{91cf}$\vec{L}$\U{ff0c}\U{4ee5}\U{53ca}\U{5c0d}\ref%
+{vectorrateofchange}\U{5f0f}\U{53d6}\U{5fae}\U{5206}\U{5373}\U{5f97}\U{5230}
+
+\begin{equation}
+\left( \vec{\Gamma}\right) _{s}=\left( \frac{d\vec{L}}{dt}\right)
+_{s}=\left( \frac{d\vec{L}}{dt}\right) _{b}+d\dot{\Omega}\times \left( \vec{L%
+}\right) _{b}  \label{newton1}
+\end{equation}%
+\U{5176}\U{4e2d}$\vec{\Gamma}$\U{70ba}Torque\U{ff0c}$d\dot{\Omega}$\U{6211}%
+\U{5011}\U{5df2}\U{7d93}\U{8b49}\U{660e}\U{662f}body xyz\U{8ef8}\U{76f8}%
+\U{5c0d}\U{65bc}space frame\U{7684}\U{8f49}\U{52d5}\U{89d2}\U{901f}\U{5ea6}%
+\U{ff0c}\U{56e0}euler theorem\U{77e5}\U{8f49}\U{52d5}\U{77e9}\U{9663}$%
+d\Omega $\U{53ef}\U{770b}\U{6210}\U{4e00}\U{5411}\U{91cf}\U{ff0c}\U{56e0}%
+\U{6b64}\U{6b64}\U{5411}\U{91cf} $d\Omega $\U{5373}\U{7b49}\U{65bc} $\left( 
+\vec{\omega}\right) _{b}\cdot dt$\U{ff0c}\U{91cd}\U{65b0}\U{6574}\U{7406}%
+\U{5f8c}\U{5f97}%
+\begin{equation}
+\left( \vec{\Gamma}\right) _{s}=\left( \frac{dI\vec{\omega}}{dt}\right) _{b}+%
+\vec{\omega}\times \left( I\vec{\omega}\right) _{b}  \label{newton2}
+\end{equation}%
+(\U{4e5f}\U{53ef}\U{5f9e}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}(infinitesimal
+rotation)\U{7684}\U{5411}\U{91cf}\U{76f8}\U{52a0}\U{7279}\U{6027}\U{8003}%
+\U{616e}\U{ff0c}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{8003}\U{616e}$d\Omega $%
+\U{7684}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}\U{662f}body x y z\U{8ef8}\U{5206}%
+\U{5225}\U{7684}\U{5fae}\U{5c0f}\U{8f49}\U{52d5}\U{800c}\U{7d44}\U{6210}%
+\U{ff0c}\U{9019}\U{4ee3}\U{8868}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{5beb}$%
+d\Omega =(\omega _{x}\hat{x}_{b}+\omega _{y}\hat{y}_{b}+\omega _{z}\hat{z}%
+_{b})dt$\U{ff0c}$d\Omega $\U{5373}\U{7b49}\U{65bc} $\left( \vec{\omega}%
+\right) _{b}\cdot dt$)\U{3002}\U{53e6}\U{5916}\U{5728} body axis\U{4e2d}$I$%
+\U{662f} diagonal\U{7684}\U{ff0c}\U{56e0}\U{6b64}$\left( \vec{L}\right)
+_{b}=I\times $ \U{89d2}\U{901f}\U{5ea6}\U{5728}body\U{7684}\U{5206}\U{91cf}$%
+\vec{\omega}$\U{ff0c}\U{56e0}\U{6b64}$(\vec{L})_{b}=I\times \vec{\omega}$%
+\U{3002}\U{82e5}\U{52a0}\U{4e0a}\U{8003}\U{616e}\U{9640}\U{87ba}\U{7684}%
+\U{689d}\U{4ef6} $I_{x}=I_{y}\neq I_{z}$\U{ff0c}Eq.(\ref{newton2})\U{53ef}%
+\U{4ee5}\U{5beb}\U{6210}%
+\begin{eqnarray}
+\Gamma _{x} &=&I_{x}\dot{\omega}_{x}+(I_{z}-I_{y})\omega _{y}\omega _{z} \\
+\Gamma _{y} &=&I_{y}\dot{\omega}_{y}+(I_{x}-I_{z})\omega _{x}\omega _{z} \\
+\Gamma _{z} &=&I_{z}\dot{\omega}_{z}=0
+\end{eqnarray}%
+\U{91cd}\U{65b0}\U{6574}\U{7406}\U{5f97}%
+\begin{eqnarray}
+\dot{\omega}_{x} &=&-\frac{I_{z}-I_{y}}{I_{x}}\omega _{y}\omega _{z}+\frac{%
+\Gamma _{x}}{I_{x}} \\
+\dot{\omega}_{y} &=&-\frac{I_{x}-I_{z}}{I_{y}}\omega _{x}\omega _{z}+\frac{%
+\Gamma _{y}}{I_{y}} \\
+\dot{\omega}_{z} &=&0
+\end{eqnarray}%
+\U{6b64}\U{65b9}\U{7a0b}\U{7d44}\U{4e5f}\U{53ef}\U{5beb}\U{6210}%
+\begin{equation}
+\frac{d}{dt}\left[ 
+\begin{array}{c}
+\omega _{x} \\ 
+\omega _{y} \\ 
+\omega _{z}%
+\end{array}%
+\right] =\left[ 
+\begin{array}{ccc}
+0 & -\frac{I_{z}-I_{y}}{I_{x}} & 0 \\ 
+-\frac{I_{x}-I_{z}}{I_{y}} & 0 & 0 \\ 
+0 & 0 & 0%
+\end{array}%
+\right] \left[ 
+\begin{array}{c}
+\omega _{x} \\ 
+\omega _{y} \\ 
+\omega _{z}%
+\end{array}%
+\right] +\left[ 
+\begin{array}{c}
+\frac{\Gamma _{x}}{I_{x}} \\ 
+\frac{\Gamma _{y}}{I_{y}} \\ 
+\frac{\Gamma _{z}}{I_{z}}%
+\end{array}%
+\right]
+\end{equation}%
+\U{4ee5}\U{4e0a}\U{7684}\U{5fae}\U{5206}\U{65b9}\U{7a0b}\U{7d44}\U{53ef}%
+\U{4ee5}\U{7528}Ruge Kutta\U{6c42}\U{51fa}$\vec{\omega}(t)$\U{ff0c}\U{53e6}%
+\U{5916}\U{ff0c}\U{6b64}\U{89d2}\U{901f}\U{5ea6}\U{96d6}\U{7136}\U{662f}%
+\U{6cbf}\U{8457}body\U{8ef8}\U{7684}\U{5206}\U{91cf}\U{ff0c}\U{4f46}\U{6211}%
+\U{5011}\U{4e5f}\U{8b49}\U{660e}\U{4e86}\U{6b64}\U{89d2}\U{901f}\U{5ea6}%
+\U{5728}\U{4efb}\U{610f}\U{4e00}\U{6bb5}t\U{5230}t+dt\U{7684}\U{6642}\U{9593}%
+\U{4e2d}\U{4ee3}\U{8868}\U{4e86}body\U{5ea7}\U{6a19}\U{8ef8}\U{5728}space%
+\U{5ea7}\U{6a19}\U{4e0a}\U{7684}\U{8f49}\U{52d5}\U{ff0c}\U{63a5}\U{4e0b}%
+\U{4f86}\U{6211}\U{5011}\U{5c31}\U{8aaa}\U{660e}\U{5982}\U{4f55}\U{4ee5}%
+\U{9019}\U{500b}\U{7279}\U{6027}\U{91cd}\U{69cb}\U{51fa}\U{9640}\U{87ba}%
+\U{5728}\U{4e09}\U{7dad}\U{7a7a}\U{9593}\U{7684}\U{904b}\U{52d5}\U{3002}%
+\bigskip
+
+\begin{figure}[th]
+\caption{Boby\U{8ef8}\U{5728}\U{6bcf}\U{4e00}\U{5206}\U{6bb5}t\U{5230}t+dt%
+\U{7684}\U{8ffd}\U{8e64}\U{793a}\U{610f}\U{5716}}
+\begin{center}
+\fbox{\includegraphics{top.eps}}
+\end{center}
+\end{figure}
+
+\U{7531}\U{4e4b}\U{524d}\U{8a0e}\U{8ad6}\U{77e5}\U{9053}\U{ff0c}\U{96d6}%
+\U{7136}$\left( \vec{\omega}(t)\right) _{b}$\U{662f}\U{89d2}\U{901f}\U{5ea6}%
+\U{6cbf}\U{8457}body\U{8ef8}\U{7684}\U{5206}\U{91cf}\U{ff0c}\U{4e26}\U{4e0d}%
+\U{4ee3}\U{8868}\U{662f}body\U{5ea7}\U{6a19}\U{4e2d}\U{89c0}\U{5bdf}\U{5230}%
+\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{ff0c}\U{4f46}\U{6211}\U{5011}\U{77e5}%
+\U{9053}\U{82e5}\U{53ea}\U{8003}\U{616e}t\U{5230}t+dt\U{6642}\U{9593}\U{ff0c}%
+\U{5728}t\U{6642}\U{9593}\U{6642}s\U{8207}b\U{91cd}\U{548c}\U{ff0c}\U{5728}%
+\U{6b64}\U{689d}\U{4ef6}\U{4e0b}\U{6211}\U{5011}\U{8b49}\U{660e}\U{4e86}$%
+\left( \vec{\omega}(t)\right) _{b}$\U{5728}t\U{5230}t+dt\U{6642}\U{662f}body%
+\U{8ef8}\U{5728}space\U{5ea7}\U{6a19}\U{7684}\U{8f49}\U{52d5}\U{77e9}\U{9663}%
+\U{ff0c}\U{4e5f}\U{5c31}\U{662f}body\U{8ef8}\U{7684}\U{8f49}\U{52d5}\U{901f}%
+\U{5ea6}\U{ff0c}\U{56e0}\U{6b64}\U{53ea}\U{8981}\U{7d66}\U{5b9a}\U{521d}%
+\U{59cb}\U{689d}\U{4ef6}\U{ff0c}\U{63a5}\U{8457}\U{4e00}\U{6b65}\U{4e00}%
+\U{6b65}\U{7684}\U{7b97}\U{51fa}body\U{8ef8}\U{5728}space frame\U{4e2d}%
+\U{7684}\U{4f4d}\U{7f6e}\U{ff0c}\U{5373}\U{53ef}\U{5f97}\U{5230}\U{4e09}%
+\U{7dad}\U{9640}\U{87ba}\U{904b}\U{52d5}\U{3002}\bigskip
+
+\begin{figure}[th]
+\caption{\U{9640}\U{87ba}\U{7684}\U{521d}\U{59cb}\U{503c}\U{8a2d}\U{5b9a}}
+\begin{center}
+\fbox{\includegraphics{initialsetup.eps}}
+\end{center}
+\end{figure}
+
+\U{5047}\U{8a2d}\U{9640}\U{87ba}\U{8d77}\U{59cb}\U{4f4d}\U{7f6e}\U{5df2}%
+\U{77e5}$\left( z_{s}(t_{0})\right) $\U{ff0c}\U{6b64}\U{70ba}body\U{8ef8}z%
+\U{8ef8}\U{4e14}\U{70ba}\U{55ae}\U{4f4d}\U{5411}\U{91cf}\U{ff0c}\U{4e0b}%
+\U{6a19}s\U{4ee3}\U{8868}\U{7684}\U{662f}\U{89c0}\U{6e2c}\U{7684}frame%
+\U{3002}\U{6240}\U{4ee5}$z_{s}(t_{0})$\U{4ee3}\U{8868}\U{6642}\U{9593}%
+\U{662f}t$_{0}$\U{7684}\U{6642}\U{5019}\U{ff0c}z\U{8ef8}\U{5728}space frame%
+\U{4e2d}\U{7684}\U{4f4d}\U{7f6e}\U{5411}\U{91cf}\U{ff0c}$z_{s}(t_{0})$%
+\U{8207}$z_{s}$\U{4e0d}\U{4e00}\U{6a23}\U{ff0c}$z_{s}$\U{70ba}\U{6046}%
+\U{5b9a}\U{5ea7}\U{6a19}space frame z axis\U{ff0c}\U{898b}\U{5716}\U{ff0c}%
+\U{6211}\U{5011}\U{53ef}\U{85c9}\U{7531}\U{4e00}\U{8f49}\U{52d5}\U{77e9}%
+\U{9663}$\mathbf{\Omega (orien)}$\U{8f15}\U{6613}\U{6539}\U{8b8a}\U{9640}%
+\U{87ba}\U{7684}\U{521d}\U{59cb}\U{4f4d}\U{7f6e}$z_{s}(t_{0})=\mathbf{\Omega
+(}orien\mathbf{)}\times z_{s}$\U{ff0c}orien\U{70ba}\U{8f49}\U{52d5}\U{5411}%
+\U{91cf}\U{3002}$z_{0}(t_{1})$\U{5247}\U{4ee3}\U{8868}\U{6642}\U{9593}%
+\U{662f}t$_{1}$\U{7684}\U{6642}\U{5019}z\U{8ef8}\U{5728}t$_{0}$\U{6642}%
+\U{7684}\U{5ea7}\U{6a19}\U{8ef8}\U{89c0}\U{5bdf}\U{5230}\U{7684}\U{4f4d}%
+\U{7f6e}\U{5411}\U{91cf}\U{ff0c}\U{800c}$z_{0}(t_{0})=z_{1}(t_{1})=\left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right] $\U{90fd}\U{662f}\U{8a72}\U{6642}\U{9593}\U{4e0a}\U{7684}\U{5ea7}%
+\U{6a19}\U{8ef8}\U{4e0a}\U{7684}\U{55ae}\U{4f4d}\U{8ef8}\U{5411}\U{91cf}%
+\U{3002}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{8981}\U{5f97}\U{5230}\U{7684}%
+\U{662f}$z_{s}(t_{1\symbol{126}N})$\U{ff0c}\U{5373}z\U{8ef8}\U{6642}\U{9593}%
+\U{4e0a}\U{7684}\U{8b8a}\U{5316}\U{5728}space\U{4e2d}\U{7684}\U{5411}\U{91cf}%
+\U{503c}\U{3002}\U{5728}\U{6211}\U{5011}\U{4ee5}\U{6578}\U{503c}\U{6cd5}%
+\U{6c42}\U{5f97}$\left( \vec{\omega}(t_{i})\right) _{b}$\U{4e4b}\U{5f8c}%
+\U{ff0c}\U{63a5}\U{8457}\U{53ef}\U{4ee5}\U{7528}\U{4ee5}\U{4e0b}\U{65b9}%
+\U{6cd5}\U{4f86}\U{6c42}\U{5f97}$z_{s}(t_{i})$\U{3002}\U{9996}\U{5148}%
+\U{5148}\U{5b9a}\U{7fa9}\U{4e00}\U{4e9b}\U{7b26}\U{865f}\U{ff0c}\U{9019}%
+\U{88e1}$\overset{active}{\overbrace{\mathbf{[}t_{i},t_{i-1}\mathbf{]}}}$%
+\U{4ee3}\U{8868}t$_{i-1}$\U{6642}\U{7684}\U{5ea7}\U{6a19}\U{8ef8}\U{5230}t$%
+_{i}$\U{6642}\U{7684}\U{5ea7}\U{6a19}\U{8ef8}\U{7684}\U{8f49}\U{52d5}\U{77e9}%
+\U{9663}\U{ff0c}\U{53d6}\U{77e9}\U{9663}\U{7684}\U{4e3b}\U{52d5}\U{7279}%
+\U{6027}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}$z_{i-1}(t_{i})=\overset{active}{%
+\overbrace{\mathbf{[}t_{i},t_{i-1}\mathbf{]}}}\times z_{i-1}(t_{i-1})=%
+\overset{active}{\overbrace{\mathbf{[}t_{i},t_{i-1}\mathbf{]}}}\times \left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right] $\U{ff0c}\U{7576}\U{4e0a}\U{9762}\U{6a19}\U{793a}\U{6539}\U{6210}%
+passive\U{6642}\U{ff0c}$\overset{passive}{\overbrace{\mathbf{[}t_{i},t_{i-1}%
+\mathbf{]}}}$\U{6642}\U{53d6}\U{8f49}\U{52d5}\U{77e9}\U{9663}\U{7684}\U{88ab}%
+\U{52d5}\U{6027}\U{8cea}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{8f49}\U{5ea7}%
+\U{6a19}\U{8ef8}\U{ff0c}\U{56e0}\U{6b64}$\overset{passive}{\overbrace{%
+\mathbf{[}t_{i-1},t_{i-2}\mathbf{]}}}\times z_{i-1}(t_{i})=z_{i-2}(t_{i})$%
+\U{ff0c}\U{56e0}\U{6b64}%
+\begin{eqnarray}
+z_{s}(t_{i}) &=&\overset{passive}{\overbrace{\mathbf{[}t_{0},s\mathbf{]}}}%
+\mathbf{\times }\overset{passive}{\overbrace{\mathbf{[}t_{1},t_{0}\mathbf{]}}%
+}\cdots \\
+&&\times \overset{passive}{\overbrace{\mathbf{[}t_{i-2},t_{i-3}\mathbf{]}}}%
+\mathbf{\times }\underset{\text{t}_{i}\text{\U{6642}\U{7684}z\U{5728}t}_{i-2}%
+\text{\U{6642}\U{7684}\U{5ea7}\U{6a19}\U{7684}\U{89c0}\U{5bdf}\U{503c}}}{%
+\underbrace{\overset{passive}{\overbrace{\mathbf{[}t_{i-1},t_{i-2}\mathbf{]}}%
+}\times \underset{\text{t}_{i}\text{\U{6642}\U{7684}z\U{5728}t}_{i-1}\text{%
+\U{6642}\U{7684}\U{5ea7}\U{6a19}\U{7684}\U{89c0}\U{5bdf}\U{503c}}}{%
+\underbrace{\overset{active}{\overbrace{\mathbf{[}t_{i},t_{i-1}\mathbf{]}}}%
+\times \underset{\text{t}_{i-1}\text{\U{6642}\U{7684}z\U{5728}t}_{i-1}\text{%
+\U{6642}\U{7684}\U{5ea7}\U{6a19}\U{7684}\U{89c0}\U{5bdf}\U{503c}\U{ff0c}%
+\U{986f}\U{7136}\U{70ba}}\left[ 
+\begin{array}{ccc}
+0 & 0 & 1%
+\end{array}%
+\right] }{\underbrace{z_{i-1}(t_{i-1})}}}}}}  \label{bodytracking}
+\end{eqnarray}%
+\U{4ee5}\U{9019}\U{65b9}\U{6cd5}\U{6211}\U{5011}\U{53ef}\U{4ee5}\U{6c42}%
+\U{5f97}\U{6240}\U{6709}$z_{s}(t_{i\text{, i=1}\sim N})$\U{3002}\U{4f46}%
+\U{600e}\U{9ebc}\U{77e5}\U{9053}$\mathbf{[}t_{i},t_{i-1}\mathbf{]}$\U{7684}%
+\U{8f49}\U{52d5}\U{77e9}\U{9663}\U{ff1f}\U{9019}\U{88e1}\U{5c31}\U{662f}%
+\U{7b2c}\U{4e8c}\U{9ede}\U{500b}\U{91cd}\U{9ede}\U{ff0c}\U{6211}\U{5011}%
+\U{8fd1}\U{4f3c}t$_{i-1}$\U{5230}t$_{i}$\U{7684}\U{5ea7}\U{6a19}\U{904b}%
+\U{52d5}\U{70ba}t$_{i-1}$\U{7684}\U{5ea7}\U{6a19}\U{8ef8}\U{4ee5}$\vec{\omega%
+}(t_{i})$\U{7684}\U{901f}\U{5ea6}\U{8f49}\U{52d5}\U{4e86}dt\U{6642}\U{9593}%
+\U{ff0c}\U{56e0}\U{6b64}\U{ff0c}\U{82e5}$\mathbf{\Omega }(\vec{A})$\U{4ee3}%
+\U{8868}\U{4e00}\U{8f49}\U{52d5}\U{77e9}\U{9663}\textbf{\U{5176}\U{8f49}%
+\U{8ef8}\U{5728}}$\vec{A}$\U{65b9}\U{5411}\U{4e14}\U{8f49}\U{52d5}\U{89d2}%
+\U{91cf}\U{503c}\U{70ba}$\left\vert \vec{A}\right\vert $\textbf{\U{ff0c}%
+\U{5247}\ref{bodytracking}\U{516c}\U{5f0f}\U{53ef}\U{5beb}\U{6210}}%
+\begin{equation}
+z_{s}(t_{i})=\overset{passive}{\overbrace{\mathbf{\Omega (orien)}}}\mathbf{%
+\times }\overset{passive}{\overbrace{\mathbf{\Omega }(\vec{\omega}%
+(t_{1})\cdot dt)}}\cdots \overset{passive}{\overbrace{\mathbf{\Omega }(\vec{%
+\omega}(t_{i-2})\cdot dt)}}\mathbf{\times }\overset{passive}{\overbrace{%
+\mathbf{\Omega }(\vec{\omega}(t_{i-1})\cdot dt)}}\times \overset{active}{%
+\overbrace{\mathbf{\Omega }(\vec{\omega}(t_{i})\cdot dt)}}\times
+z_{i-1}(t_{i-1})
+\end{equation}%
+\bigskip
+
+\U{53ef}\U{4ee5}\U{770b}\U{51fa}\U{4e0a}\U{9762}\U{6240}\U{6709}passive%
+\U{7684}\U{77e9}\U{9663}\U{7684}\U{4f5c}\U{7528}\U{53ea}\U{662f}\U{518d}%
+\U{628a}\U{5750}\U{6a19}\U{8ef8}\U{5f9e}body frame\U{8f49}\U{56de}\U{5230}%
+space frame\U{3002}\U{56e0}\U{6b64}\U{82e5}i=1$\sim N$\U{6211}\U{5011}%
+\U{53ef}\U{4ee5}\U{4ee5}\U{6b64}\U{6c42}\U{5f97}$z_{s}(t_{i\text{, i=1}\sim
+N})$\U{ff0c}\U{9019}\U{6a23}\U{6211}\U{5011}\U{5c31}\U{7528}\U{4e0a}\U{4e86}%
+\U{4e4b}\U{524d}\U{6c42}\U{5f97}\U{7684}$\left( \vec{\omega}(t_{i})\right)
+_{b}$\U{3002}\U{4ee5}\U{6b64}\U{540c}\U{65b9}\U{6cd5}\U{53ef}\U{6c42}\U{5f97}%
+x\U{8207}y\U{8ef8}\U{7684}\U{904b}\U{52d5}\U{3002}\U{4ee5}\U{4e0a}\U{4ee5}$%
+\omega (t_{i})$\U{4f86}\U{8fd1}\U{4f3c}t\U{5230}t+dt\U{7684}\U{8f49}\U{52d5}%
+\U{4e8b}\U{5be6}\U{4e0a}\U{5305}\U{542b}\U{66f4}\U{6df1}\U{7684}\U{7269}%
+\U{7406}\U{542b}\U{610f}\U{ff0c}\U{6211}\U{5011}\U{662f}\U{4e0d}\U{662f}%
+\U{53ef}\U{4ee5}\U{7528}$\omega (t_{i-1})$\U{4f86}\U{505a}\U{8fd1}\U{4f3c}%
+\U{ff1f}\U{4ee5}\U{4e0b}\U{5c07}\U{4f5c}\U{89e3}\U{91cb}\U{3002}
+
+\U{7531}\U{65bc}t\U{5230}t+dt\U{6642}\U{7684}s,b\U{5ea7}\U{6a19}\U{91cd}%
+\U{5408}\U{ff0c}\U{56e0}\U{6b64}body\U{8ef8}\U{5f9e}t\U{5230}t+dt\U{7684}%
+\U{8f49}\U{52d5}\U{53ef}\U{4ee5}\U{5982}\U{4e0b}\U{8fd1}\U{4f3c}\U{ff0c}%
+\U{7531}\U{65bc}s,b\U{91cd}\U{5408}\U{ff0c}$\Omega _{b}(t)=\Omega _{s}(t)$%
+\U{ff0c}\U{6211}\U{5011}\U{5148}\U{8003}\U{616e}\U{9640}\U{87ba}\U{6cbf}%
+\U{8457}$\Omega _{b}(t)$\U{8f49}\U{4e86}$exp(\Omega _{b}(t))$\U{ff0c}\U{4f46}%
+\U{5728}t+dt\U{6642}\U{ff0c}$\Omega _{b}(t+dt)\neq \Omega _{b}(t)$\U{ff0c}%
+\U{9019}\U{4ee3}\U{8868}\U{5f9e}t\U{5230}t+dt\U{6642}\U{ff0c}\U{8f49}\U{52d5}%
+\U{5411}\U{91cf}\U{5728}body\U{5ea7}\U{6a19}\U{4e0a}\U{6709}\U{8b8a}\U{5316}%
+\U{ff0c}\U{4e5f}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{4e0d}\U{80fd}\U{5920}%
+\U{55ae}\U{53ea}\U{8003}\U{616e}\U{9640}\U{87ba}\U{8f49}\U{4e86}$\Omega
+_{b}(t)$\U{800c}\U{5df2}\U{ff0c}\U{6b64}\U{984d}\U{5916}\U{5411}\U{91cf}%
+\U{7684}\U{8b8a}\U{5316}\U{5728}t\U{6642}space\U{5ea7}\U{6a19}\U{7684}%
+\U{5411}\U{91cf}\U{8868}\U{9054}\U{5f0f}\U{70ba}$\Omega _{b}(t+dt)-\Omega
+_{b}(t)=\Omega _{b}(t)+d\Omega _{b}(dt)-\Omega _{b}(t)=d\Omega
+_{b}(dt)=d\Omega _{s}(dt)$\U{ff0c}\U{4e5f}\U{662f}\U{4e00}\U{500b}\U{8f49}%
+\U{52d5}\U{5411}\U{91cf}\U{ff0c}\U{6240}\U{4ee5}space\U{7a7a}\U{9593}\U{4e2d}%
+\U{7e3d}\U{5171}\U{7684}\U{8f49}\U{52d5}\U{53ef}\U{4ee5}\U{8003}\U{616e}%
+\U{6210}\U{5169}\U{6b65}\U{ff0c}\U{7b2c}\U{4e00}\U{6b65}\U{8f49}$\Omega
+_{s}(t)$\U{ff0c}\U{7b2c}\U{4e8c}\U{6b65}\U{8f49}$d\Omega _{s}(dt)$\U{ff0c}%
+\U{5beb}\U{6210}\U{8f49}\U{52d5}\U{77e9}\U{9663}%
+\begin{equation}
+\exp (\Omega _{b}(t))\times \exp (d\Omega _{b}(dt))=\exp (\Omega
+_{b}(t)+d\Omega _{b}(dt))=\exp (\Omega _{b}(t+dt))
+\end{equation}%
+\U{9019}\U{4ee3}\U{8868}\U{6211}\U{5011}\U{53ea}\U{8981}\U{8003}\U{616e}%
+\U{9640}\U{87ba}\U{5f9e}t\U{5230}t+dt\U{7684}\U{6642}\U{5019}\U{662f}\U{8f49}%
+\U{4e86}$\Omega _{b}(t+dt)$\U{800c}\U{4e0d}\U{53ea}\U{662f}$\Omega _{b}(t)$%
+\U{ff0c}\U{56e0}\U{6b64}\U{8003}\U{616e}$\Omega _{b}(t+dt)$\U{6211}\U{5011}%
+\U{5c31}\U{66f4}\U{6e96}\U{78ba}\U{7684}\U{8fd1}\U{4f3c}\U{4e86}\U{9019}%
+\U{500b}\U{8f49}\U{52d5}\U{ff0c}\U{4ee5}\U{4e0b}\U{7684}Python\U{7a0b}%
+\U{5f0f}\U{6a21}\U{64ec}\U{6703}\U{8b49}\U{660e}\U{ff0c}\U{8003}\U{616e}%
+\U{4e86}$\Omega _{b}(t+dt)$\U{7d66}\U{51fa}\U{7684}\U{7d50}\U{679c}\U{5e7e}%
+\U{4e4e}\U{662f}\U{5b8c}\U{7f8e}\U{7684}\U{3002}
+
+\begin{remark}
+\U{9019}\U{88e1}\U{8981}\U{6ce8}\U{610f}torque $\left( \Gamma _{s}\right) $%
+\U{96d6}\U{7136}\U{662f}\U{529b}\U{77e9}\U{5728}space\U{5ea7}\U{6a19}\U{4e0a}%
+\U{7684}\U{89c0}\U{5bdf}\U{503c}\U{ff0c}\U{4f46}\U{56e0}\U{70ba}\U{6211}%
+\U{5011}\U{63a8}\U{5c0e}eq.\ref{newton2}\U{6642}\U{662f}\U{5229}\U{7528}%
+\U{4e0a}\U{8a72}\U{65b9}\U{7a0b}\U{5728}t\U{5230}t+dt\U{6642}\U{ff0c}\U{5047}%
+\U{8a2d} s, b\U{5728} t\U{6642}\U{91cd}\U{5408}\U{ff0c}\U{9019}\U{4ee3}%
+\U{8868}\U{4e86}\U{6211}\U{5011}\U{8003}\U{616e}\U{7684}space frame\U{662f}%
+\U{5fc5}\U{9808}\U{8207}body frame\U{5728}t\U{6642}\U{91cd}\U{548c}\U{3002}%
+\U{9019}\U{4e5f}\U{4ee3}\U{8868}\U{4e86}\U{7576}\U{8003}\U{616e}\U{4e0b}%
+\U{4e00}\U{500b}$t^{\prime }$\U{5230}$t^{\prime }+dt$\U{6642}\U{5019}\U{ff0c}%
+\U{65b9}\U{7a0b}\U{8003}\U{616e}\U{7684}space frame\U{6703}\U{5fc5}\U{9808}%
+\U{662f}\U{5728}$t^{\prime }$\U{6642}\U{7684}body frame\U{ff0c}\U{4e5f}%
+\U{5c31}\U{662f}space frame\U{5fc5}\U{9808}\U{6301}\U{7e8c}\U{7684}\U{6539}%
+\U{8b8a}\U{ff0c}\U{9019}\U{4ee3}\U{8868}\U{ff0c}\U{82e5}\U{8981}\U{8003}%
+\U{616e}\U{4efb}\U{610f}t\U{5230}t+dt\U{6642}\U{523b}\U{ff0c}\U{90a3}\U{518d}%
+\U{7b97}$\vec{\omega}(t_{i+1})$\U{6642}\U{5019}torque\U{61c9}\U{8a72}\U{8981}%
+\U{7528}$\left( \Gamma \right) _{b}$\U{800c}\U{4e0d}\U{662f}\U{7528}$\left(
+\Gamma \right) _{s}$\U{ff0c}\U{56e0}\U{70ba}\U{6211}\U{5011}\U{7684}\U{5047}%
+\U{8a2d}\U{5c0e}\U{81f4}space frame\U{5fc5}\U{9808}\U{6301}\U{7e8c}\U{7684}%
+\U{6539}\U{8b8a}\U{4f86}\U{7b26}\U{5408}eq.\ref{newton2}\U{7684}\U{5047}%
+\U{8a2d}\U{3002}\U{4e0d}\U{904e}\U{4e8b}\U{5be6}\U{4e0a}\U{9019}\U{6a23}%
+\U{7684}\U{8003}\U{616e}\U{6b63}\U{662f}\U{6211}\U{5011}\U{60f3}\U{8981}%
+\U{7684}\U{7d50}\U{679c}\U{ff0c}\U{4e5f}\U{5c31}\U{662f}eq.\ref{newton2}%
+\U{5b8c}\U{5168}\U{53ef}\U{4ee5}\U{5beb}\U{6210}\U{5728}body frame\U{7684}%
+\U{5206}\U{91cf}%
+\begin{equation}
+\left( \vec{\Gamma}\right) _{b}=\left( \frac{dI\vec{\omega}}{dt}\right) _{b}+%
+\vec{\omega}\times \left( I\vec{\omega}\right) _{b}
+\end{equation}%
+\U{ff0c}\U{6b63}\U{662f}\U{9019}\U{6a23}\U{624d}\U{4f7f}\U{7684}\U{8a72}%
+\U{65b9}\U{7a0b}\U{5bb9}\U{6613}\U{6c42}\U{89e3}\U{3002}\U{53e6}\U{5916}%
+\U{6ce8}\U{610f}$\vec{L}$\U{4e26}\U{4e0d}\U{5728}body z\U{8ef8}\U{7684}%
+\U{65b9}\U{5411}\U{ff0c}\U{9019}\U{9ede}\U{53ef}\U{4ee5}\U{5f9e}\U{6700}%
+\U{5f8c}\U{7684}\U{6a21}\U{64ec}\U{52d5}\U{756b}\U{770b}\U{51fa}\U{4f86}%
+\U{3002}
+\end{remark}
+
+\begin{remark}
+\U{8981}\U{9640}\U{87ba}\U{5177}\U{6709}Precession and Nutation\U{7684}%
+\U{52d5}\U{4f5c}\U{ff0c}L/$\Delta L$\U{5fc5}\U{9808}\U{8981}\U{5927}\U{ff0c}%
+\U{5982}\U{679c}L\U{5c0f}\U{65bc}$\Delta L$\U{ff0c}\U{5247}\U{53ea}\U{6703}%
+\U{6709}\U{9640}\U{87ba}\U{8cea}\U{91cf}\U{53d7}\U{91cd}\U{529b}\U{5f71}%
+\U{97ff}\U{5f80}\U{4e0b}\U{5012}\U{4e0b}\U{7684}\U{904b}\U{52d5}(\U{4e0d}%
+\U{904e}\U{9019}\U{5c0d}\U{6aa2}\U{67e5}\U{7a0b}\U{5f0f}\U{6709}\U{6c92}%
+\U{6709}\U{932f}\U{8aa4}\U{5f88}\U{6709}\U{5e6b}\U{52a9}!)\U{ff0c}\U{7406}%
+\U{60f3}\U{4e0a}L\U{81f3}\U{5c11}\U{8981}\U{5927}\U{65bc}$\Delta L$\U{ff0c}%
+\U{6700}\U{597d}L\U{5927}\U{5927}\U{65bc}$\Delta L$\U{3002}\U{5316}\U{6210}%
+\U{6578}\U{503c}\U{4e0a}\U{7684}\U{6bd4}\U{8f03}\U{ff1a}\U{9019}\U{4ee3}%
+\U{8868}%
+\begin{equation}
+L\gg \Delta L\Rightarrow I\cdot 2\pi f\gg \vec{\Gamma}\Delta t\Rightarrow
+I\cdot 2\pi f\gg \vec{r}\times \vec{F}\cdot 1/f\Rightarrow f\gg \sqrt{\frac{%
+arm\cdot Mg\cdot \sin (\theta )}{2\pi I\cdot G}}
+\end{equation}%
+where $\theta $ is gyro's tilt angle and G is moment of inertial geometry
+factor. \U{8003}\U{616e}$\Delta t$\U{7684}\U{91cf}\U{7d1a}\U{5927}\U{7d04}%
+\U{662f}\U{9640}\U{87ba}\U{8f49}\U{5e7e}\U{5708}\U{7684}\U{6642}\U{9593}%
+(characteristic time)\U{ff0c}\U{91cf}\U{7d1a}\U{4e0a}\U{7d04}\U{662f}$\sim
+1/f$\U{ff0c}\U{82e5}\U{5047}\U{8a2d}arm\U{662f}10 cm, M = 1kg, g=10 m/s$^{2}$%
+, I = 0.5M(0.05)$^{2}$,\U{5247}f\U{6700}\U{5c11}\U{8981}10 Hertz\U{4ee5}%
+\U{4e0a}\U{3002}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{5c07}\U{4ee5}\U{9019}%
+\U{4e9b}\U{53c3}\U{6578}\U{6bd4}\U{8f03}f = 1, 10, 50 Hertz\U{6240}\U{7d66}%
+\U{51fa}\U{7684}\U{9640}\U{87ba}\U{904b}\U{52d5}\U{3002}
+\end{remark}
+
+\begin{remark}
+\U{529b}\U{77e9}\U{7d66}\U{51fa}\U{7684}\U{89d2}\U{901f}\U{5ea6}\U{662f}%
+\U{9075}\U{5b88}\U{53f3}\U{624b}\U{5b9a}\U{5247}(counterclockwise)\U{ff0c}%
+\U{6240}\U{4ee5}rotation formula\U{5fc5}\U{9808}\U{4f7f}\U{7528}\U{5176}%
+active counterclockwise sense\U{624d}\U{80fd}\U{63cf}\U{8ff0}\U{5ea7}\U{6a19}%
+\U{8f49}\U{52d5}\U{ff0c}\U{8981}\U{5c0f}\U{5fc3}\U{ff0c}\U{56e0}\U{5927}%
+\U{90e8}\U{5206}\U{66f8}\U{4e0a}(\U{5982}Goldstein)\U{7d66}\U{7684}\U{516c}%
+\U{5f0f}\U{90fd}\U{662f}active clockwise(follow\U{5de6}\U{624b}\U{5b9a}%
+\U{5247})(\U{8209}\U{4f8b}\U{5982}\U{66f8}\U{4e0a}\U{7684}Caley Klein
+parameter rotation matrix)\U{ff0c}\U{56e0}\U{6b64}\U{5dee}\U{4e00}\U{500b}%
+\U{8ca0}\U{865f}\U{3002}\bigskip
+\end{remark}
+
+\U{4ee5}\U{4e0b}\U{5c07}\U{4e0a}\U{8ff0}\U{65b9}\U{6cd5}\U{5beb}\U{6210}%
+python\U{7a0b}\U{5f0f}\U{ff0c}\U{4e26}\U{4e14}\U{756b}\U{5716}\U{6a21}%
+\U{64ec}\U{5176}xyz\U{8ef8}\U{904b}\U{52d5}\U{3002}
+
+\begin{figure}[th]
+\caption{\U{5c16}\U{9ede}\U{904b}\U{52d5}}
+\begin{center}
+\fbox{\includegraphics[scale=0.6]{figure_xy.eps}}
+\end{center}
+\end{figure}
+\bigskip 
+
+\begin{figure}[th]
+\caption{\U{6709}\U{74b0}\U{904b}\U{52d5}}
+\begin{center}
+\fbox{\includegraphics[scale=0.6]{figure_x.eps}}
+\end{center}
+\end{figure}
+
+\begin{figure}[th]
+\caption{\U{7121}\U{74b0}\U{904b}\U{52d5}}
+\begin{center}
+\fbox{\includegraphics[scale=0.6]{figure_y.eps}}
+\end{center}
+\end{figure}
+
+\begin{figure}[th]
+\caption{\U{7b49}\U{5468}\U{901f}\U{904b}\U{52d5}}
+\label{figure_uniform}
+\begin{center}
+\fbox{\includegraphics[scale=0.6]{figure_uniform.eps}}
+\end{center}
+\end{figure}
+
+\U{9640}\U{87ba}\U{7b49}\U{5468}\U{901f}\U{904b}\U{52d5}(Figure \ref%
+{figure_uniform})\U{7684}\U{521d}\U{59cb}\U{503c}\U{689d}\U{4ef6}\U{5982}%
+\U{4f55}\U{8a08}\U{7b97}\U{5462}?\U{7b49}\U{5468}\U{901f}\U{7684}\U{689d}%
+\U{4ef6}\U{5728}Goldstein\U{7b2c}\U{4e8c}\U{7248}5-77\U{5f0f}\U{7d66}\U{51fa}%
+\begin{equation}
+Mgl=\dot{\phi}\left( I_{3}\omega _{3}-I_{1}\dot{\phi}\cos \theta _{0}\right)
+\end{equation}%
+\U{ff0c}\U{4e0d}\U{904e}\U{6b64}\U{5f0f}\U{662f}\U{7531}\U{5c24}\U{62c9}%
+\U{89d2}(euler angles)\U{7d66}\U{51fa}\U{ff0c}\U{4f46}\U{6211}\U{5011}%
+\U{9700}\U{8981}\U{7684}\U{662f}anguler velocity along body\U{7684}\U{521d}%
+\U{59cb}\U{503c}\U{ff0c}\U{56e0}\U{6b64}\U{6211}\U{5011}\U{5fc5}\U{9808}%
+\U{8f49}\U{63db}\U{5c24}\U{62c9}\U{89d2}\U{5230}anguler velocity along body%
+\U{ff0c}\U{65b9}\U{6cd5}\U{5982}\U{4e0b}\U{3002}\U{4e0a}\U{5f0f}\U{4e2d}$%
+\omega _{3}$\U{5373}\U{70ba}\U{6211}\U{5011}\U{7684}$\left( \omega
+_{z}\right) _{b}$\U{ff0c}\U{9019}\U{88e1}\U{662f}20 Hz\U{ff0c}$\theta _{0}$%
+\U{5373}\U{70ba}\U{6211}\U{5011}\U{4e4b}\U{524d}\U{7684}orien\U{5411}\U{91cf}%
+\U{6240}\U{5b9a}\U{ff0c}\U{6b64}\U{6a21}\U{64ec}\U{4e2d}\U{662f}\U{53d6}45%
+\U{5ea6}\U{89d2}\U{ff0c}\U{7531}\U{4e0a}\U{5f0f}\U{53ef}\U{6c42}\U{51fa}%
+\U{5169}\U{7d44}$\dot{\phi}(t_{0})$\U{3002}\U{53e6}\U{5916}\U{5c24}\U{62c9}%
+\U{89d2}\U{8ddf}anugler velocity along body\U{7684}\U{95dc}\U{4fc2}\U{5f0f}%
+\U{5728}Goldstein 4-125\U{5f0f}\U{7d66}\U{51fa}%
+\begin{eqnarray}
+(\omega _{x})_{b} &=&\dot{\phi}\sin \theta \sin \psi +\dot{\theta}\cos \psi
+\\
+(\omega _{y})_{b} &=&\dot{\phi}\sin \theta \cos \psi -\dot{\theta}\sin \psi
+\\
+(\omega _{z})_{b} &=&\dot{\phi}\cos \theta +\dot{\psi}
+\end{eqnarray}%
+\U{77e5}\U{9053}$\dot{\phi}(t_{0})$\U{3001}$\theta _{0}$\U{3001}$(\omega
+_{z})_{b}$\U{ff0c}\U{6211}\U{5011}\U{7531}\U{7b2c}\U{4e09}\U{689d}\U{6c42}%
+\U{51fa}$\dot{\psi}(t_{0})$\U{ff0c}\U{518d}\U{628a}$\dot{\psi}(t_{0})$%
+\U{5e36}\U{5230}\U{7b2c}\U{4e00}\U{4e8c}\U{689d}\U{5f8c}\U{5c31}\U{53ef}%
+\U{5f97}\U{5230}$(\omega _{x}(t_{0}),\omega _{y}(t_{0}))_{b}$\U{ff0c}\U{9019}%
+\U{6a23}\U{6211}\U{5011}\U{5c31}\U{5f97}\U{5230}anguler velocity along body%
+\U{7684}\U{521d}\U{59cb}\U{503c}\U{3002}\U{56e0}\U{70ba}$\dot{\phi}(t_{0})$%
+\U{6709}\U{5169}\U{7d44}\U{ff0c}\U{56e0}\U{6b64}\U{89e3}\U{51fa}\U{7684}%
+\U{8cbc}\U{9ad4}\U{89d2}\U{901f}\U{5ea6}\U{4e5f}\U{6703}\U{6709}\U{5169}%
+\U{7d44}\U{ff0c}\U{5169}\U{7d44}\U{7684}\U{7269}\U{7406}\U{610f}\U{7fa9}%
+\U{5206}\U{5225}\U{5982}\U{4e0b}\U{ff0c}\U{4e00}\U{7a2e}\U{60c5}\U{6cc1}%
+\U{662f}fast top\U{ff0c}\U{9019}\U{500b}\U{72c0}\U{6cc1}\U{76f8}\U{7576}%
+\U{65bc}\U{91cd}\U{529b}\U{7684}\U{5f71}\U{97ff}\U{9060}\U{5c0f}\U{65bc}%
+\U{7e3d}\U{89d2}\U{52d5}\U{91cf}$L$\U{ff0c}\U{56e0}\U{6b64}\U{9019}\U{500b}%
+\U{7279}\U{5225}\U{7684}\U{4f8b}\U{5b50}\U{57fa}\U{672c}\U{4e0a}\U{76f8}%
+\U{7576}\U{65bc}\U{5ffd}\U{7565}\U{91cd}\U{529b}\U{ff0c}\U{800c}\U{9640}%
+\U{87ba}\U{57fa}\U{672c}\U{4e0a}\U{6703}\U{50cf}\U{4e00}\U{500b}free top%
+\U{4e00}\U{6a23}\U{9032}\U{884c}precession\U{3002}\U{53e6}\U{4e00}\U{7a2e}%
+\U{72c0}\U{6cc1}\U{662f}slow top\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{4e0a}%
+\U{9762}\U{6a21}\U{64ec}\U{7d50}\U{679c}\U{4e2d}\U{7b2c}\U{56db}\U{7a2e}%
+\U{7684}\U{72c0}\U{6cc1}\U{ff0c}\U{9019}\U{88e1}\U{63d0}\U{4f9b}\U{7684}%
+python\U{7a0b}\U{5f0f}\U{6240}\U{6709}\U{60c5}\U{6cc1}\U{90fd}\U{53ef}%
+\U{4ee5}\U{6a21}\U{64ec}\U{3002}\U{53e6}\U{5916}\U{4e00}\U{500b}\U{7279}%
+\U{6b8a}\U{7684}\U{60c5}\U{6cc1}\U{662f}\U{5728}fast top\U{7684}\U{60c5}%
+\U{5f62}\U{4e0b}\U{ff0c}\U{5982}\U{679c}\U{521d}\U{59cb}\U{503c}$\theta
+_{0}=0$\U{ff0c}\U{4e5f}\U{5c31}\U{662f}\U{9640}\U{87ba}z\U{8ef8}\U{7684}%
+\U{8d77}\U{59cb}\U{72c0}\U{614b}\U{662f}\U{5782}\U{76f4}\U{65bc}\U{6c34}%
+\U{5e73}\U{9762}\U{7684}\U{ff0c}\U{9019}\U{6a23}\U{7684}\U{8a71}\U{9640}%
+\U{87ba}\U{5e7e}\U{4e4e}\U{6703}\U{50cf}\U{975c}\U{6b62}\U{4e0d}\U{52d5}%
+\U{4e00}\U{6a23}\U{ff0c}\U{6211}\U{5011}\U{4e5f}\U{53eb}\U{9019}\U{60c5}%
+\U{6cc1}\U{505a}sleeping top\U{3002}
+
+\href{https://drive.google.com/file/d/0B96HmLH-SQVmekx0a0RoSVFzWFE/edit?usp=sharing%
+}{\underline{\color{blue}\smash{Python code can be found here.}}}
+
+\href{http://tinypic.com/r/10cw9yf/8}{\underline{\color{blue}\smash{3D
+animation.}}}
+
+This document is prepared with Scientific Workplace 5.0 and typeset with Tex
+Live 2013 (Xelatex). Date 4/2/2014
+
+\end{document}
