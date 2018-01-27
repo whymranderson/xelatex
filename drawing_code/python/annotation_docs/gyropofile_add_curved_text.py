@@ -11,9 +11,10 @@ nop = 160
 a0 = 1.0
 xx = np.linspace(2.3 ,12.5, nop)
 rotate_angle = 100
+savetextdata = 1
+savepng = 0
+
 choose = 2
-
-
 def hydrogenN3l2(x):
     if choose == 1:
         f = 1.0/81/np.sqrt(6*np.pi)/np.power(a0,1.5)*x*x/a0/a0*np.exp(-x/3/a0)   
@@ -41,7 +42,7 @@ def rotation_matrix(axis,theta):
 #fig3 = plt.figure(3)
 fig3 = plt.figure(3,figsize=(4.055118,4.055118))#,dpi=200)
 ax3 = p3.Axes3D(fig3)
-ax3.view_init(elev=5, azim=5)
+ax3.view_init(elev=5, azim=8)
 #ax3.set_axis_bgcolor('black')
 #ax3.set_color_cycle('b')
 
@@ -91,7 +92,7 @@ for i in [1,2,3]:
 
 #%% fixing the tips of the top so that they are round and smooth. Before it's sharp.
 #number of lines in latitude direction
-nol = 100
+nol = 20
 v = np.linspace(0, np.pi, nol) # theta angle from the zy plane
 
 roundnumber = 11
@@ -137,8 +138,8 @@ print np.shape(test)
 profiledata2D = profiledata3D[:,:2]
 profiledata2D_shift = test[:,:2]
 
-begin_of_text_on_path_i = 130
-text_length = 230
+begin_of_text_on_path_i = 110 # starting from the tip, move text counterclockwise, unit:datapoint nop
+text_length = 210 # unit: datapoint
 #rolled = np.roll(profiledata2D, begin_of_text_on_path_i , axis=0)
 rolled = np.roll(profiledata2D_shift, begin_of_text_on_path_i , axis=0)
 #print np.shape(profiledata2D)
@@ -160,7 +161,8 @@ profilex[maxi:2*maxi] =xx[:maxi]
 databf=zip(rolled[:text_length,0],rolled[:text_length,1])
 dataaf=np.array(databf)
 
-np.savetxt(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\data_text_files\logoprofile.txt',dataaf, fmt='%.4f', delimiter=' ', newline='\n', header='', footer='',comments='# ')
+if savetextdata == 1:
+    np.savetxt(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\data_text_files\logoprofile.txt',dataaf, fmt='%.4f', delimiter=' ', newline='\n', header='', footer='',comments='# ')
 
 #Document this part so it is easier to understand
 
@@ -192,9 +194,9 @@ ax3.plot_wireframe(gxlr, gylr,gzlr, rstride=2, cstride=2,
 #ax3.scatter(*gyrovec,s=markersizearray*0.8,color='w',alpha=1)
 #ax3.plot(*gyrovec,color='w',linewidth=2)#,s=markersizearray)
 #Z_vec_array
-ax3.plot(*linedata[0],color='red',linewidth=2)#,s=markersizearray*0.05)#, color='b')
-ax3.plot(*linedata[1],color='yellow',linewidth=2)#,s=markersizearray*0.05)#, color='b')
-ax3.plot(*linedata[2],color='magenta',linewidth=2)#,s=markersizearray*0.05)#, color='b')
+ax3.plot(*linedata[0],color='red',linewidth=1)#,s=markersizearray*0.05)#, color='b')
+ax3.plot(*linedata[1],color='yellow',linewidth=1)#,s=markersizearray*0.05)#, color='b')
+ax3.plot(*linedata[2],color='magenta',linewidth=1)#,s=markersizearray*0.05)#, color='b')
 
 
 #put xyz coord
@@ -214,7 +216,7 @@ Y = np.array(Yt)
 Z = np.array(Zt)
 
 max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() /3.7 #/3.7
-extrapadding = 0.2
+extrapadding = 0.4
 
 mid_x = (X.max()+X.min()) * 0.5 +extrapadding
 mid_y = (Y.max()+Y.min()) * 0.5 +extrapadding#+0.2
@@ -233,6 +235,7 @@ ax3.set_zlim3d(mid_z - max_range, mid_z + max_range )
 
 
 #print(fig3.get_size_inches())
-#plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\logos_creation\bg_gyro1.png',dpi=100)
+if savepng == 1:
+    plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\logos_creation\bg_gyro1.png',dpi=300)
 plt.show()
 
