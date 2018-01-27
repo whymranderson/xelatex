@@ -8,14 +8,15 @@
 %[decoration={text along path,text={Powered by MacKichan Scientific Workplace, LYX, LaTeX}}]
 %\draw [decorate] (0,0) -- (3,1) arc (0:180:1.5 and 1);
 %Enlarge bounding box to include curved text
-\draw[use as bounding box] (1mm,-60mm) rectangle (126mm,60mm);
-	
+%\draw[use as bounding box] (1mm,-60mm) rectangle (126mm,60mm);
+%\draw[use as bounding box] (-60mm,-120mm) rectangle (60mm,0mm);	
+\draw[use as bounding box] (-72.5mm,-132.5mm) rectangle (47.5mm,-12.5mm);	
 %Incerst picture
-\node[inner sep=0pt,anchor = west] (png) at (23.5mm, 0mm)
+\node[inner sep=0pt,anchor = north] (png) at (-1.57 cm, -23.5 mm)
     {\includegraphics{bg_gyro1.png}};
 
 %Text along curve operation
-\path [postaction={decoration={text along path, text={|\Huge|Powered by MacKichan Scientific Workplace, LYX and LaTeX. Established 2013.},text align=fit to path}, decorate}] plot file {../data_text_files/logoprofile.txt};
+\path [postaction={decoration={text along path, text={|\Huge|Powered by MacKichan Scientific Workplace, LYX and LaTeX.},text align=fit to path}, decorate}] plot file {../data_text_files/logoprofile.txt};
 %\path [postaction={decoration={text along path, text={|\large|Powered by MacKichan Scientific Workplace, LYX and LaTeX. Established 2013.},text align={align=left}}, decorate}] plot file {../data_text_files/logoprofile.txt};
 
 

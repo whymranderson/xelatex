@@ -123,14 +123,22 @@ profiledata3D_upperhalf = np.array(zip(xx,scaley,np.zeros(len(xx))))
 profiledata3D_lowerhalf = np.array(zip(xx[nop:0:-1],-scaley[nop:0:-1],np.zeros(len(xx))))
 profiledata3D = np.concatenate((profiledata3D_upperhalf, profiledata3D_lowerhalf), axis=0)
 #print np.shape(profiledata3D)
+
 #print profiledata3D
 test = annotate_program.offset_curve(profiledata3D,0.3)
+
+# Rotate curved text (beware the coordinate of profiledata3D is different than
+# that of gyro!! 
+for i in range(319):
+    temp = np.dot(rotation_matrix([0,0,-1],np.radians(rotate_angle)),
+                      test[i,:])
+    test[i,:] = temp
 print np.shape(test)
 profiledata2D = profiledata3D[:,:2]
 profiledata2D_shift = test[:,:2]
 
 begin_of_text_on_path_i = 130
-text_length = 300
+text_length = 230
 #rolled = np.roll(profiledata2D, begin_of_text_on_path_i , axis=0)
 rolled = np.roll(profiledata2D_shift, begin_of_text_on_path_i , axis=0)
 #print np.shape(profiledata2D)
@@ -152,7 +160,9 @@ profilex[maxi:2*maxi] =xx[:maxi]
 databf=zip(rolled[:text_length,0],rolled[:text_length,1])
 dataaf=np.array(databf)
 
-np.savetxt(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\data_text_files\logoprofile.txt',dataaf, fmt='%.4f', delimiter=' ', newline='\n', header='', footer='', comments='# ')
+np.savetxt(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\data_text_files\logoprofile.txt',dataaf, fmt='%.4f', delimiter=' ', newline='\n', header='', footer='',comments='# ')
+
+#Document this part so it is easier to understand
 
 gx = np.outer(scaley, np.sin(v))
 #print np.shape(gx), 'gx'
@@ -161,6 +171,8 @@ gy = np.outer(xx,np.ones(np.size(v)))
 gxl = gx.flatten()
 gzl = gz.flatten()
 gyl = gy.flatten()
+
+#The rotation of gyro to give it a certain angle or orientation is done here
 glrotatedvec = np.dot(rotation_matrix([-1,0,0],np.radians(rotate_angle)),
                       np.array([gxl,gyl,gzl]))
 gxlr = np.reshape(glrotatedvec[0,:],(nop,nol))
@@ -221,6 +233,6 @@ ax3.set_zlim3d(mid_z - max_range, mid_z + max_range )
 
 
 #print(fig3.get_size_inches())
-plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\logos_creation\bg_gyro1.png',dpi=100)
+#plt.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\latex\logos_creation\bg_gyro1.png',dpi=100)
 plt.show()
 
