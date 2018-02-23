@@ -4,6 +4,7 @@ _minted-rotationV14upa
 to_be_deleted
 testing_url
 test_minted
+*doctrees
 *.aux
 *.log
 *.out
@@ -11,3 +12,4 @@ test_minted
 *_uni.tex
 *_upa.tex
 *.un~
+*.pyc
