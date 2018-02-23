@@ -6,8 +6,6 @@ Created on Thu Apr 16 10:32:24 2015
 """
 
 import numpy as np
-import matplotlib as mpl
-mpl.use('pgf')
 from matplotlib import pyplot
 import mpl_toolkits.mplot3d.axes3d as p3
 #import matplotlib.axis as axis1
@@ -241,3 +239,5 @@ plot_back(ax3,circumspherex,circumspherey,circumspherez,circumsphereR)
 ########
 
 ax3.scatter(circumspherex,circumspherey,circumspherez,color='red')
+#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\pgf_related\pgf\outsphere.pgf')
+pyplot.show()

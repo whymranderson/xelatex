@@ -148,5 +148,5 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
 pyplot.show()
-pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\pgf_related\pgf\lemma4_fig4.pgf')
+#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\pgf_related\pgf\lemma4_fig4.pgf')
 

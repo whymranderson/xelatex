@@ -14,7 +14,13 @@ def offset_curve(curve, length):
     length in mm. This operation is in a 2D plane. The offset normal direction is
     right hand rule's palm direction, with four fingers point
     along the curve starting from the first point, and thumb
-    pointing perpendicular to the 2D plane, normally opposing the viewing direction.'''
+    pointing perpendicular to the 2D plane, normally opposing the viewing direction.
+     
+    .. image:: ./figures/tex_group_logo.pdf
+       :scale: 20 %
+       :align: center
+
+'''
 
     newcurve = 0*curve
     for ind,x in enumerate(curve[:,0]):

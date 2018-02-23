@@ -13,12 +13,12 @@ def list_files_menukeys(startpath):
     for root, dirs, files in os.walk(startpath):
         level = root.replace(startpath, '').count(os.sep)
         indent = '\>' * (level)
-        print('{}{}{}/{}//'.format(indent,r'\nixpath{', os.path.basename(root),'}'))
+        print('{}{}{}/{}\\\\'.format(indent,r'\nixpath{', os.path.basename(root),'}'))
         subindent = '\>' * (level + 1)
         for f in files:
-            print('{}{}{}{}//'.format(subindent,r'\nixfile{',f,'}'))
+            print('{}{}{}{}\\\\'.format(subindent,r'\nixfile{',f,'}'))
 
-listpath = r"C:\Documents and Settings\The One\My Documents\tony\Scripts\cordtrans\Demo_Examples"
+listpath = r"C:\Documents and Settings\The One\My Documents\tony\Scripts\GyroSoft Simulation\1_Demo_Examples"
 
 #list_files(listpath)
 list_files_menukeys(listpath)

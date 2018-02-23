@@ -6,8 +6,6 @@ Created on Thu Apr 16 10:32:24 2015
 """
 
 import numpy as np
-import matplotlib as mpl
-mpl.use('pgf')
 from matplotlib import pyplot
 import mpl_toolkits.mplot3d.axes3d as p3
 #import matplotlib.axis as axis1
@@ -138,6 +136,8 @@ fig3 = pyplot.figure(3,figsize=(6,6),dpi=100)
 ax3 = p3.Axes3D(fig3)
 ax3.view_init(elev=15, azim=15)
 ax3.set_color_cycle('b')
+#ax3.set_prop_cycle('color','b')
+print '123'
 ########
 
 ########
@@ -227,3 +227,6 @@ plot_back(ax3,midspherex,midspherey,midspherez,midsphereR)
 ########
 
 ax3.scatter(midspherex,midspherey,midspherez,color='red')
+#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\pgf_related\pgf\midsphere.pgf')
+pyplot.show()
+

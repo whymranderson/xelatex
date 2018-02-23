@@ -1,4 +1,4 @@
-cd 'C:\Documents and Settings\The One\My Documents\tony\Scripts\cordtrans'
+cd 'C:\Documents and Settings\The One\My Documents\tony\Scripts\GyroSoft Simulation'
 
 git branch --list
 

@@ -53,16 +53,7 @@
             	\item upcoming post目前是網路上少數可查找單一隊伍未來賽事的公開網頁，比HLTV、Liquipedia更方便。
            \end{enumerate}
             };
-\node [ wideitem=2,below = of unique_editing](chores) {%
-            \textbf{未完成細項}
-            \nodepart[text width = 16.5cm]{two}
-            \begin{enumerate}
-            	\item {{varljust:''10''}}在html中只算一個空白。網路上可加這個filter，還需查怎麼裝filter，但若裝了，server端pythonanywhere也要裝，花時間。應推薦加入新版django，一勞永逸。
-            	\item all coming matches 隊伍重複出現，divisibleby:'2'還有問題
-		\item team page轉換成LYX編輯,換banner headline?
-		\item team page有過期賽程繼續顯示問題，upcoming page有未顯示所有未來隊伍比賽問題。
-           \end{enumerate}
-            };
+
 \end{scope}
 \end{tikzpicture}
 \newpage
@@ -71,7 +62,7 @@
 \begin{tikzpicture}
 \begin{scope}[node distance=5mm and 5mm]
 
-\node [ wideitem=2,below = of chores](gitlog) {%
+	\node [ wideitem=2](gitlog) at (1,1) {%
             \textbf{last 10 git commits}
             \nodepart[text width = 16.5cm]{two}
             \footnotesize \verbatiminput{mysite.log}

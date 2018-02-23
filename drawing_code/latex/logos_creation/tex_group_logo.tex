@@ -2,8 +2,8 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.text}
 \usepackage{xeCJK} % 分開設置中英文字型
-%\setCJKmainfont{標楷體} % 設定中文字型
-
+\setCJKmainfont{細明體} % 設定中文字型
+\usepackage{color}
 
 
 \begin{document}
@@ -15,18 +15,20 @@
 %\draw[use as bounding box] (1mm,-60mm) rectangle (126mm,60mm);
 %\draw[use as bounding box] (-60mm,-120mm) rectangle (60mm,0mm);	
 %\draw[use as bounding box] (-72.5mm,-132.5mm) rectangle (47.5mm,-12.5mm);	
-\draw[use as bounding box] (-122.5mm,-137.5mm) rectangle (47.5mm,-12.5mm);		
+\draw[use as bounding box] (-122.5mm,-147.5mm) rectangle (97.5mm,-12.5mm);		
 %Incerst picture
 \node[inner sep=0pt,anchor = north] (png) at (-1.58 cm, -20.4 mm)
     {\includegraphics{bg_gyro1.png}};
 
 %Text along curve operation
-\path [postaction={decoration={text along path, text={|\Huge|Powered by MacKichan Scientific Word, LYX and LaTeX.},text align=fit to path}, decorate}] plot file {../data_text_files/logoprofile.txt};
+\path [postaction={decoration={text along path,text color = red, text={|\Huge|Powered by MacKichan Scientific Word, LYX and LaTeX.},text align=fit to path}, decorate}] plot file {../data_text_files/logoprofile.txt};
 %\path [postaction={decoration={text along path, text={|\large|Powered by MacKichan Scientific Workplace, LYX and LaTeX. Established 2013.},text align={align=left}}, decorate}] plot file {../data_text_files/logoprofile.txt};
 
-\node[inner sep=0pt,anchor = north east,scale=5] (png) at (-27.1 mm, -95.6 mm)
-    {\Huge疊格};
+\node[inner sep=0pt,anchor = mid east,scale=3.7] (left) at (-27.1 mm, -119.3 mm)
+	{{\Huge 疊格}};
 
+\node[inner sep=0pt,anchor = mid west,scale=3.7] (right) at (-7.1 mm, -119.3 mm)
+	{{\Huge 排版}};
 
 
 \end{tikzpicture}
