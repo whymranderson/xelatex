@@ -20,7 +20,7 @@
 			\item 可小修m2m section(extra field那段)
 			\item django static file那邊的說明可以再清楚一點？說明django static file的做法是，他希望你把需要伺服的圖檔放在你引用此圖的檔案(如你的html pages)的相同資料夾下，建立一個名為static的資料夾，然後圖檔放在此static資料夾之下(可以在子目錄下)。你說，那我有好多個html檔案都在不同地方，不同資料夾裡面，這些檔案都引用不同的圖檔的話，那不是有一堆static資料夾四散各地？是的，就是這樣。django在執行collectstatic指令時，就是把四散各處的static資料夾以及裡面的需要伺服的圖檔，全部copy到同一個static資料夾下，而此static資料夾會放在我們指定的被伺服的資料夾。你說，那html檔裡的圖檔連結又不是指向這個被伺服的資料夾，對，他會指向之前四散各地的static資料夾連結嘛。但django還會做一個步驟。他會把在html中遇到的圖檔連結，只要遇到有static字串包含在裡面，就會把static前面的超連結字串取代為我們設定的伺服連結。嘿，這樣就可以連到需要的圖檔囉，對吧。劃出例子？這也是為什麼在local資料夾放置圖片時，最好就做好分類(這也是docs說明中為何在連結名稱static folder中會重複分類名稱的原因)，這樣django在收集static資料夾時就也會維持同樣的分類。
 		\end{enumerate}
-            	\item 椅子削平回家教人
+
             	\item 滾筒洗衣機要清洗
             	\item 印表機level up
 		\begin{enumerate}
@@ -28,16 +28,14 @@
 			\item 圖形有白色條紋，見fidget gyro圖
 		\end{enumerate}
 		\item 有水電的地面工作區域 $\bullet\bullet\bullet\circ\circ\circ$
-		\item high definition投影
+
                 \item vr,gyro體驗館,原力推starwar?
 		\item 乾洗液(目前溫水加乾淨布擦)
-                \item 相機插電
                 \item 好筆的墨水，整理墨水post，入網站。
-		\item 空壓機排水閥修+換油
+
                 \item bank order checks
                 \item 英文整理還有訂下一個時間去查
-                \item 回spyder+manage.py as startupscript問題
-		\item 印烤箱貼紙，製作
+
 		\item 筆記本的強力夾邊設計及製作，要不會卡其他書以及書包，現在的夾子會卡到然後破壞其他書及書包。
 		\item 低收補助寫下文章
 	    \end{enumerate}
@@ -53,8 +51,7 @@
 			\item T60電池找(型號已找到，4-17-2017 note)
 			\item 液晶模組diy post未完成的另一半
 		\end{enumerate}
-            	\item load GUI demo setting 1234.
-            	\item 慢速轉10幾圈，差五度內。快速轉十圈，可差到30度。可能原因見5/10/17。run\_avg有問題？
+
             	\item swp加link要變容易。
             	\item 仿宋體試5/16/17
             	\item science fair typeset continue.
@@ -64,20 +61,10 @@
 			\item 心法：學tex人會覺得，常常會遇到連一個簡單的問題都會覺得怎麼那麼麻煩，比如說啊我今天要最快速排出一個非常簡單的文件，所以用usepackage{minimal}應該就夠了，我只需要最簡單的排版就好，結果發現一直編譯不過，卡在字形大小tiny出錯。結果居然是在minimal package裡面沒有定義tiny字形大小。心法就是，就像做硬體一樣，要做一精密精細的作品所需要的工具本來就很多很繁瑣，有時你認為簡單的東西，只要有一個小地方你沒有想到，但這小地方其實需要不少工具，那就不能怪工具不好，是你自己沒想到而已。多數人以為做東西很簡單，那是因為他們只會用幾樣很簡單的工具，就想要應付各式各樣的狀況，結果只做得出一些很爛很醜又不耐用的作品。做東西都是如此，忌氣急敗壞。心法。
 		\end{enumerate}            	
 		\item gui module sphinx doc comment補齊與整理。
-		\item db\_note整理，看如何推銷與賣(可能太難，因為不是你的領域，離你太遙遠，無認識的人)。
-		\item db模型改良，足球聯賽應用。但現在又變成大會定時間，是否可應用上大會定？
-		\item py2exe繼續否？
-		\item 滾動碰撞模型建立持續否？是。
-		\item share pstricks and tikz graphs
-		\item logo3D OpenGL engrave continue
-		\item csgo event scraping continue?
-		\item python import問題，學習os insert?
 		\item 目前matplotlib2pgf text label margin是用annotation，但text method好像有offset還是leftright margin可用？
-		\item note有不少要修改，然後要重印note $\bullet\bullet\bullet\circ\circ\circ$
-		\item gitlogs page目前還需要跑grab\_gitlogs.bat去收集並產生文字檔，是否可以自動化，一禮拜做一次？
-		\item 單軸角速度計進階版證明。8/16/17
-		\item $L,\omega,z$互相繞的想法有錯，make a demo，8/16/17
-		\item $\omega,z$ not centered around L check
+		
+
+
            \end{enumerate}
             };
 \end{scope}
@@ -149,7 +136,7 @@
 		\item share community: tikz, LYX doc
 		
 		\begin{enumerate}
-		\item 看pdf layout，收集。完成度$\bullet\bullet\circ$
+
 		\item math.lyx，pdf，加上空格框，像companion book一樣才會方便閱讀理解。$\bullet\bullet\circ$
 		\item before tex compile, hope cmd batch can close the pdf file\\
 		\href{http://www.xtremevbtalk.com/general/183310-print-close-pdf-command-line.html}{http://www.xtremevbtalk.com/general/183310-print-close-pdf-command-line.html}
@@ -157,10 +144,8 @@
 		\item annotate docs
 		
 		\begin{enumerate}
-		\item tex logo加入
 		\item alphaphi圖，或fig\_2\_af\_powered.png，加入documentation example。並且把code整理出來。
 		\item blogger的3d向量繪圖文整理，整合入documentation後，做成網頁？
-		\item tetrahedron內切外接圖形也要入documentation examples
 		\item 2017/12/4 note, circle\_arc需要加
 		
 		\begin{enumerate}
@@ -169,16 +154,20 @@
 		\end{enumerate}
 		\end{enumerate}
 		\item tetra\_premise\_1.py 要修成用toolbox
+		\item share pstricks and tikz graphs
+		\item logo3D OpenGL engrave continue
+		\item backup flashdrive
 		\end{enumerate}
         };
 
 \node [ item=2, right = of texshop.north east, anchor = north west](webshop) {%
 	\textbf{website未完成項目}
 	\nodepart[text width = 8.2cm]{two}
-		\begin{itemize}
-		\item add events, see 1/21/18$\bullet\bullet\circ\circ\circ\circ$
+		\begin{enumerate}
+		\item add events, see 1/21/18$\bullet\bullet\bullet\bullet\circ\circ$
 		
 		\begin{itemize}
+		\item 目前可列出liqui右欄文字，但還須work out a complete solution
 		\item apply etree.parse and getiterator and elt.attrib.has\_key('class')
 		in\\
 		\href{http://infohost.nmt.edu/tcc/help/pubs/pylxml/web/ElementTree-getiterator.html}{http://infohost.nmt.edu/tcc/help/pubs/pylxml/web/ElementTree-getiterator.html}\\
@@ -190,13 +179,11 @@
 		check.
 		\end{itemize}
 		\item 7/17/17前GO段入dbnote
-		\item GO流程圖只保留特色框，其他框移到這邊後刪除，建立輸入流程圖。
+		\item GO建立輸入流程圖。
 		\item 修沒出現賽程
 		\item team logic改重複輸入直到找到
-		\end{itemize}
 		
 		%\subsection{my website}
-		\begin{itemize}
 		\item dad's book upload, then add paypal, when?
 		\item try authentication ( may take some time)
 		
@@ -208,17 +195,18 @@
 		script加入。但script都在submodule中，若要一起upload則會公開，要公開否？
 		\end{itemize}
 		\end{itemize}
-		\item template folder set auto folder tracking with git 1/20/18
 		\item gyro page make into LYX file
 		\item grab\_log.sh automization
 		\item create墨水post，找，白板attempt心得
 		\item TOC移除section,subsection headings
-		\end{itemize}
-		\begin{enumerate}
             	\item {{varljust:''10''}}在html中只算一個空白。網路上可加這個filter，還需查怎麼裝filter，但若裝了，server端pythonanywhere也要裝，花時間。應推薦加入新版django，一勞永逸。
             	\item all coming matches 隊伍重複出現，divisibleby:'2'還有問題
 		\item team page轉換成LYX編輯,換banner headline?
 		\item team page有過期賽程繼續顯示問題，upcoming page有未顯示所有未來隊伍比賽問題。
+		\item db\_note整理，看如何推銷與賣(可能太難，因為不是你的領域，離你太遙遠，無認識的人)。
+		\item gitlogs page目前還需要跑grab\_gitlogs.bat去收集並產生文字檔，是否可以自動化，一禮拜做一次？
+		\item csgo event scraping continue?
+		\item db模型改良，足球聯賽應用。但現在又變成大會定時間，是否可應用上大會定？
            \end{enumerate}
 
        };
@@ -236,10 +224,7 @@
 \node [ item=2](toolshop) at (1,1) {%
 	\textbf{工具箱未完成項目}
 	\nodepart[text width = 8.2cm]{two}
-		\subsection{Editors}
-		
-		
-		\subsubsection{LYX}
+		\subsubsection*{LYX}
 		\begin{enumerate}
 		\item report community about removing anaconda run into export problem.
 		keywords: elyxer location, magick convert, command system encoding.
@@ -247,11 +232,8 @@
 		\item 9/3/17, 8/2/17(可入service page介紹), 7/13/17後
 		\item customization continue
 		\end{enumerate}
-		
-		\subsubsection{Vim}
-		
-		
-		\subsection{Python}
+
+		\subsubsection*{Python}
 		\begin{enumerate}
 		\item 2018
 		
@@ -303,6 +285,14 @@
 		\begin{enumerate}
 		\item unpack修成fix
 		\item note若要印A4(如出去印，或letter紙印完)，可能需要不少時間調整，可以怎麼準備？5/9/16		
+		\item 慢速轉10幾圈，差五度內。快速轉十圈，可差到30度。可能原因見5/10/17。run\_avg有問題？
+            	\item load GUI demo setting 1234.
+		\item py2exe繼續否？
+		\item 滾動碰撞模型建立持續否？是。
+		\item note有不少要修改，然後要重印note $\bullet\bullet\bullet\circ\circ\circ$
+		\item 單軸角速度計進階版證明。8/16/17
+		\item $L,\omega,z$互相繞的想法有錯，make a demo，8/16/17
+		\item $\omega,z$ not centered around L check
 		\end{enumerate}
 	
        };
@@ -312,6 +302,9 @@
             \begin{enumerate}
             	\item 可繼續印以及可以擦掉的printer
 		\item 調墨水，加墨水
+		\item 看pdf layout，收集。完成度$\bullet\bullet\circ$
+            	\item 椅子削平回家教人
+                \item 回spyder+manage.py as startupscript問題
             \end{enumerate}
 		
        };
@@ -350,7 +343,7 @@
 		\item T60電池找
 		\item 墨水調
 		\item 找cargo crane box
-		\item 修compressor，銘山
+		\item 修compressor，銘山，空壓機排水閥修+換油
 		\item Lathe，\protect\href{http://timeway.en.e-cantonfair.com/}{http://timeway.en.e-cantonfair.com/}
            \end{enumerate}
             };
