@@ -70,16 +70,28 @@ lineAJ, = ax2.plot(*zip(pA,pJ),linewidth = 1,color='b')
 ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*(pE + (pE-pJ)/10), s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='center')
-ax2.text(*(pF + (pF-pN)/5), s = r"$F$", fontsize=12,verticalalignment='center', horizontalalignment='left')
+ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='center')
+ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pNp, s = r"$N'$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pJ, s = r"$J$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pK, s = r"$K$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
+'''
+ax2.annotate(s = r'$x$',xy = tuple(proj3d.proj_transform(*px, M = ax2.get_proj()))[:2], fontsize = 14, bbox={'pad':8,'fill':None,'edgecolor':'None'},va='top',ha='left')
+'''
+
+
+#draw_perpendicular_sign(np.cross(pB-pQ,pE-pQ),pB-pQ,pE-pQ,pQ,ax2)
+
+
+#axis1.Axis(ax2,'r')
+#ax2.autoscale_view()
+#ax2.pbaspect= [1,1,0.5]
+#ax2.auto_scale_xyz()
 
 Xt,Yt,Zt = zip(pA,pB,pC,pD)
 X = np.array(Xt)
@@ -95,8 +107,14 @@ mid_z = (Z.max()+Z.min()) * 0.5
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
+#ax2.set_xlim3d([-3, 8])
+#ax2.set_ylim3d([-3,8])
+#ax2.set_zlim3d([-3,8])
+#ax2.set_xlim([-0.5,3.7])
+#ax2.set_ylim([-0.5,3.7])
+#ax2.set_zlim([0,6])
 
-#anotation of segment a
+
 ax2.annotate("",
             xy=tuple(proj3d.proj_transform(*pB, M = ax2.get_proj()))[:2], #xycoords='data',
             xytext=tuple(proj3d.proj_transform(*pE, M = ax2.get_proj()))[:2], #textcoords='data',
@@ -108,83 +126,11 @@ ax2.annotate("",
                             ),
             )
 
+
+
 pla = (pB+pE)/2
-ax2.annotate(s = 'a\n ',xy = tuple(proj3d.proj_transform(*pla, M = ax2.get_proj()))[:2],
-             bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='center',color="0.5")
-
-#annotation of segment b
-ax2.annotate("",
-            xy=tuple(proj3d.proj_transform(*pE, M = ax2.get_proj()))[:2], #xycoords='data',
-            xytext=tuple(proj3d.proj_transform(*pC, M = ax2.get_proj()))[:2], #textcoords='data',
-            arrowprops=dict(arrowstyle="-", #linestyle="dashed",
-                            color="0.5",
-                            patchB=None,
-                            shrinkB=0,
-                            connectionstyle="arc3,rad=0.5",
-                            ),
-            )
-
-plb = (pE+pC)/2
-ax2.annotate(s = 'b\n ',xy = tuple(proj3d.proj_transform(*plb, M = ax2.get_proj()))[:2],
-             bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='center',color="0.5")
-
-
-#annotation of segment e
-ax2.annotate("",
-            xy=tuple(proj3d.proj_transform(*pD, M = ax2.get_proj()))[:2], #xycoords='data',
-            xytext=tuple(proj3d.proj_transform(*pG, M = ax2.get_proj()))[:2], #textcoords='data',
-            arrowprops=dict(arrowstyle="-", #linestyle="dashed",
-                            color="0.5",
-                            patchB=None,
-                            shrinkB=0,
-                            connectionstyle="arc3,rad=0.3",
-                            ),
-            )
-
-ple = (pD+pG)/2
-ax2.annotate(s = ' \ne',xy = tuple(proj3d.proj_transform(*ple, M = ax2.get_proj()))[:2],
-             bbox={'pad':12,'fill':None,'edgecolor':'None'},va='top',ha='right',color="0.5")
-
-#annotation of segment f
-ax2.annotate("",
-            xy=tuple(proj3d.proj_transform(*pG, M = ax2.get_proj()))[:2], #xycoords='data',
-            xytext=tuple(proj3d.proj_transform(*pA, M = ax2.get_proj()))[:2], #textcoords='data',
-            arrowprops=dict(arrowstyle="-", #linestyle="dashed",
-                            color="0.5",
-                            patchB=None,
-                            shrinkB=0,
-                            connectionstyle="arc3,rad=0.3",
-                            ),
-            )
-
-plf = (pG+pA)/2
-ax2.annotate(s = '\n\nf   ',xy = tuple(proj3d.proj_transform(*plf, M = ax2.get_proj()))[:2],
-             bbox={'pad':12,'fill':None,'edgecolor':'None'},va='top',ha='right',color="0.5")
-
-
-def segment_length_annotate(ax,p1,p2,radius,string,ver_a,hor_a,color):
-    #annotation of segment f
-    ax.annotate("",
-            xy=tuple(proj3d.proj_transform(*p1, M = ax2.get_proj()))[:2], #xycoords='data',
-            xytext=tuple(proj3d.proj_transform(*p2, M = ax2.get_proj()))[:2], #textcoords='data',
-            arrowprops=dict(arrowstyle="-", #linestyle="dashed",
-                            color="0.5",
-                            patchB=None,
-                            shrinkB=0,
-                            connectionstyle="arc3,rad=" + str(radius),
-                            ),
-            )
-
-    plm = (p1+p2)/2
-    ax.annotate(s = string,xy = tuple(proj3d.proj_transform(*plm, M = ax2.get_proj()))[:2],
-             bbox={'pad':12,'fill':None,'edgecolor':'None'},va=ver_a,ha=hor_a,color=color)
-
-segment_length_annotate(ax2,pC,pF,0.2,'\n   c','top','left','0.5')
-segment_length_annotate(ax2,pF,pD,0.2,'\n   d','top','left','0.5')
-segment_length_annotate(ax2,pA,pH,0.3,'g  \n\n','bottom','right','0.5')
-segment_length_annotate(ax2,pH,pB,0.3,'h  \n\n','bottom','right','0.5')
-    
-
+#ax2.text(*pla, s = r"$a$", fontsize=10,verticalalignment='bottom', horizontalalignment='left')#bbox={'pad':38,'fill':None,'edgecolor':'blue'})
+ax2.annotate(s = 'a',xy = tuple(proj3d.proj_transform(*pla, M = ax2.get_proj()))[:2], bbox={'pad':12,'fill':None,'edgecolor':'None'},va='bottom',ha='left')
 
 
 ax2.set_xticks([])
@@ -201,7 +147,6 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_axis_bgcolor('b')
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
-pyplot.savefig('./pgf_files/lemma4_fig4.pgf')
 pyplot.show()
-
+#pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\pgf_related\pgf\lemma4_fig4.pgf')
 
