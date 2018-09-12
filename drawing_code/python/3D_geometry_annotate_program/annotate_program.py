@@ -124,7 +124,12 @@ def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,anypointonplane
     return projected
 
 def return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pB,pC,pD,pE):
-    """Given points ABCDE, return point F. See figure on https://en.wikipedia.org/wiki/Ceva%27s_theorem"""
+    """Given points ABCDE, return point F.
+
+    .. image:: ./figures/ceva_third_side_point.png
+       :scale: 60 %
+       :align: center
+    """
     a = np.linalg.norm(pA-pE)
     b = np.linalg.norm(pC-pE)
     c = np.linalg.norm(pC-pD)
@@ -136,11 +141,10 @@ def return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pB,pC,pD,pE):
 def return_intersection_under_Ceva_Theorem(pA,pB,pC,pD,pE):
     """Given points ABCDE, return point O. See figure below.
     
-    .. image:: ./figures/lemma4_fig4.png
+    .. image:: ./figures/ceva_intersection.png
        :scale: 60 %
        :align: center
-
-    Image By 4C - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1054185"""
+    """
     ae = np.linalg.norm(pA-pE)
     ec = np.linalg.norm(pC-pE)
     cb = np.linalg.norm(pC-pB)
@@ -148,6 +152,21 @@ def return_intersection_under_Ceva_Theorem(pA,pB,pC,pD,pE):
     do_over_oa = ec*bd/ae/cb #ae/ec * cb/bd * bo/oe = 1, 
     pO = (pA*do_over_oa /(1+do_over_oa) + pD/(1+do_over_oa ))#(pA*od + pD*oa)/(oa+od)
     return pO
+
+def return_Menelaus_third_outer_point(pA,pB,pC,pD,pE):
+    """Given points ABCDE, return point F. See figure below.
+    
+    .. image:: ./figures/menelaus_outer_point.png
+       :scale: 60 %
+       :align: center
+    """
+    ae = np.linalg.norm(pA-pE)
+    ec = np.linalg.norm(pC-pE)
+    cd = np.linalg.norm(pC-pD)
+    bd = np.linalg.norm(pB-pD)
+    bf_over_fa = ec*bd/ae/cd #ae/ec * cb/bd * bf/fa = 1, 
+    pF = pB + (pB-pA)* bf_over_fa/(1- bf_over_fa) #( -pA*bf + pB*fa)/(fa-bf)
+    return pF
 
 
 

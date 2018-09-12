@@ -1,4 +1,4 @@
-cd C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\drawing_code\python\py_annotate_code_documentation
+cd C:\Users\user\Desktop\xelatex_Transend\drawing_code\python\py_annotate_code_documentation\_build
 
 make latex
 
