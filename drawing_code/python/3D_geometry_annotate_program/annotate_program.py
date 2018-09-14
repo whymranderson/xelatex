@@ -168,7 +168,51 @@ def return_Menelaus_third_outer_point(pA,pB,pC,pD,pE):
     pF = pB + (pB-pA)* bf_over_fa/(1- bf_over_fa) #( -pA*bf + pB*fa)/(fa-bf)
     return pF
 
+def triangle_area(pA,pB,pC):
+    """Given points ABC, return area using Heron's Theorem."""
+    la = np.linalg.norm(pA-pB)
+    lb = np.linalg.norm(pB-pC)
+    lc = np.linalg.norm(pA-pC)
+    s = 0.5*(la+lb+lc)
+    area =  np.sqrt(s*(s-la)*(s-lb)*(s-lc))
+    return area
 
+
+sphere_color = 'red'#'#FFDDDD'
+sphere_alpha = 0.05
+frame_color = 'darkgray'
+frame_alpha = 0.4
+frame_width = 1
+sphere_grid = 40
+wirestride = 3
+def plot_front(axes,midspherex,midspherey,midspherez,midsphereR):
+    '''plot the lucid sphere, front part'''
+    u = np.linspace(-np.pi, 0, sphere_grid)
+    v = np.linspace(0, np.pi, sphere_grid)
+    x = midsphereR*np.outer(np.cos(u), np.sin(v))+midspherex
+    y = midsphereR*np.outer(np.sin(u), np.sin(v))+midspherey
+    z = midsphereR*np.outer(np.ones(np.size(u)), np.cos(v))+midspherez
+    axes.plot_surface(x, y, z, rstride=2, cstride=2,
+                           color=sphere_color, linewidth=0,
+                           alpha=sphere_alpha)
+    axes.plot_wireframe(x, y, z, rstride=wirestride, cstride=wirestride,
+                             color=frame_color,
+                             alpha=frame_alpha)
+
+
+def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
+    '''plot the lucid sphere, back part'''
+    u = np.linspace(0, np.pi, sphere_grid)
+    v = np.linspace(0, np.pi, sphere_grid)
+    x = midsphereR*np.outer(np.cos(u), np.sin(v))+midspherex
+    y = midsphereR*np.outer(np.sin(u), np.sin(v))+midspherey
+    z = midsphereR*np.outer(np.ones(np.size(u)), np.cos(v))++midspherez
+    axes.plot_surface(x, y, z, rstride=2, cstride=2,
+                           color=sphere_color, linewidth=0,
+                           alpha=sphere_alpha)
+    axes.plot_wireframe(x, y, z, rstride=wirestride, cstride=wirestride,
+                             color=frame_color,
+                             alpha=frame_alpha)
 
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
