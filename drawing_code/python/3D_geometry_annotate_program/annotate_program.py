@@ -214,6 +214,39 @@ def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
                              color=frame_color,
                              alpha=frame_alpha)
 
+def incircle3D(point1,point2,point3):
+    """Return the insubscribed circle's position, radius and norm vec from a triangle(p1,p2,p3)"""
+    dist12 = np.sqrt(np.sum(np.square(point1-point2)))
+    dist23 = np.sqrt(np.sum(np.square(point2-point3)))
+    dist13 = np.sqrt(np.sum(np.square(point1-point3)))
+    incenter = (dist12*point3 + dist23*point1 + dist13*point2)/(dist12+dist23+dist13)
+    inradius = 0.5*np.sqrt((dist12+dist23-dist13)*
+                            (dist12-dist23+dist13)*
+                            (-dist12+dist23+dist13)/
+                            (dist12+dist23+dist13))    
+    axisvec = np.cross(point1-point2,point1-point3)
+    normvec = axisvec/np.linalg.norm(axisvec)  
+    L_1t12 = np.sqrt(np.square(np.linalg.norm(point1-incenter)) - np.square(inradius))  
+    t12 = point1 + L_1t12 * (point2-point1) / np.linalg.norm(point2-point1)
+    L_2t23 = np.sqrt(np.square(np.linalg.norm(point2-incenter)) - np.square(inradius))  
+    t23 = point2 + L_2t23 * (point3-point2) / np.linalg.norm(point3-point2)
+    L_3t31 = np.sqrt(np.square(np.linalg.norm(point3-incenter)) - np.square(inradius))  
+    t31 = point3 + L_3t31 * (point1-point3) / np.linalg.norm(point1-point3)
+    return incenter,inradius, normvec, t12, t23, t31
+
+def circle_full(axis,start_v,radius,num_points):
+    """Return drawing data of a full circle, need a drawing here. start_v is the any vector 
+    paralel to first data point."""
+    axis = axis/np.linalg.norm(axis)
+    start_v = start_v/np.linalg.norm(start_v)
+    theta = 2*np.pi
+    theta_s = list(np.arange(0.0, theta + theta/num_points, theta/num_points))
+    circle_vecs = np.zeros([len(theta_s),3])
+    for i,thetai in enumerate(theta_s):
+        makecir = rotation_matrix(axis,thetai)
+        circle_vecs[i,:] = np.dot(makecir,start_v)
+    return circle_vecs*radius
+
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
 def orthogonal_proj(zfront, zback):

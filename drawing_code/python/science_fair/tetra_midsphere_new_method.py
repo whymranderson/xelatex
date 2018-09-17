@@ -15,6 +15,8 @@ from annotate_program import triangle_area
 from annotate_program import plot_front
 from annotate_program import plot_back
 from annotate_program import project_a_point_to_a_plane 
+from annotate_program import incircle3D 
+from annotate_program import circle_full 
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -35,10 +37,22 @@ linez.set_color('k')
 ax2.text(0,0,6, r'$z_s$', fontsize=18,verticalalignment='bottom', horizontalalignment='left')
 '''
 
-pA = np.array([0,0,0])
 pC = np.array([0,6,0])
 pB = np.array([1,3.5,7])
 pD = np.array([7,1.5,0])
+
+incenterBCD,inradiusBCD,normvecBCD, pE, pF, pN= incircle3D(pB,pC,pD)
+pAtemp = np.array([0,0,0])
+pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
+incenterABD_pB = np.square(np.linalg.norm(pB-pH)) / np.linalg.norm( pB - (pH+pN)/2 )
+incenterABD = pB + incenterABD_pB * ( (pH+pN)/2 - pB  ) /  np.linalg.norm( pB - (pH+pN)/2 )
+midGN_D = np.square(np.linalg.norm(pD-pN)) / np.linalg.norm(incenterABD-pD)
+midGN = pD + midGN_D * (incenterABD-pD)/ np.linalg.norm(incenterABD-pD)
+pG = 2 * midGN - pN
+pM = (triangle_area(pD,pB,pC)*pAtemp + triangle_area(pAtemp,pB,pD) * pC)/(triangle_area(pD,pB,pC)+triangle_area(pAtemp,pB,pD))
+
+L_HA  = np.linalg.norm(pH-incenterABD) * np.linalg.norm(pH-pG)/2 / np.linalg.norm(incenterABD-(pH+pG)/2)
+pA = pH + L_HA * (pH-pB)/np.linalg.norm(pH-pB)
 
 lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
@@ -47,12 +61,6 @@ lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
 lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
 lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 
-pE = (triangle_area(pA,pC,pD)*pB + triangle_area(pA,pB,pD) * pC)/(triangle_area(pA,pC,pD)+triangle_area(pA,pB,pD))
-pF = (triangle_area(pA,pB,pC)*pD + triangle_area(pA,pB,pD) * pC)/(triangle_area(pA,pB,pC)+triangle_area(pA,pB,pD))
-pN = (triangle_area(pA,pB,pC)*pD + triangle_area(pA,pC,pD) * pB)/(triangle_area(pA,pB,pC)+triangle_area(pA,pC,pD))
-pH = (triangle_area(pD,pB,pC)*pA + triangle_area(pA,pC,pD) * pB)/(triangle_area(pD,pB,pC)+triangle_area(pA,pC,pD))
-pG = (triangle_area(pA,pB,pC)*pD + triangle_area(pC,pB,pD) * pA)/(triangle_area(pA,pB,pC)+triangle_area(pC,pB,pD))
-pM = (triangle_area(pD,pB,pC)*pA + triangle_area(pA,pB,pD) * pC)/(triangle_area(pD,pB,pC)+triangle_area(pA,pB,pD))
 
 #lineDE, = ax2.plot(*zip(pD,pE),linewidth = 1,color='b',linestyle=':')
 #lineBF, = ax2.plot(*zip(pB,pF),linewidth = 1,color='b',linestyle=':')
@@ -85,6 +93,15 @@ plot_front(ax2,pO[0],pO[1],pO[2],radius)
 plot_back(ax2,pO[0],pO[1],pO[2],radius)
 
 lineO_BCD, = ax2.plot(*zip(pO,pO_on_BCD),linewidth = 1,color='r',linestyle=':')
+
+incircleBCD = circle_full(normvecBCD,
+                          (-incenterBCD+pB),
+                            inradiusBCD,40) + incenterBCD
+ax2.plot(*np.transpose(incircleBCD),linewidth=0.5)
+incircleABD = circle_full(np.cross(pB-pN,pB-pH)/np.linalg.norm((np.cross(pB-pN,pB-pH))),
+                          (-incenterABD+pB),
+                            np.linalg.norm(pH-incenterABD),40) + incenterABD
+ax2.plot(*np.transpose(incircleABD),linewidth=0.5)
 
 ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
