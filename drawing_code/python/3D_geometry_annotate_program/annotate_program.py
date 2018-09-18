@@ -234,6 +234,48 @@ def incircle3D(point1,point2,point3):
     t31 = point3 + L_3t31 * (point1-point3) / np.linalg.norm(point1-point3)
     return incenter,inradius, normvec, t12, t23, t31
 
+def four_points_circle(p1,p2,p3,p4):
+    """ Return center and radius of a sphere suscribing four points p1~4. """
+    x2y2z2=0
+    M = np.array([[x2y2z2,p1[0],p1[1],p1[2],1],
+                  [np.sum(np.square(p1)),p1[0],p1[1],p1[2],1],
+                  [np.sum(np.square(p2)),p2[0],p2[1],p2[2],1],
+                  [np.sum(np.square(p3)),p3[0],p3[1],p3[2],1],
+                  [np.sum(np.square(p4)),p4[0],p4[1],p4[2],1]])    
+    M11 = M[1:,1:]
+    M11d = np.linalg.det(M11)
+    M12 = np.array([
+                  [np.sum(np.square(p1)),p1[1],p1[2],1],
+                  [np.sum(np.square(p2)),p2[1],p2[2],1],
+                  [np.sum(np.square(p3)),p3[1],p3[2],1],
+                  [np.sum(np.square(p4)),p4[1],p4[2],1]]) 
+    M12d = np.linalg.det(M12)
+    x0 = 0.5*M12d/M11d
+    M13 = np.array([
+                  [np.sum(np.square(p1)),p1[0],p1[2],1],
+                  [np.sum(np.square(p2)),p2[0],p2[2],1],
+                  [np.sum(np.square(p3)),p3[0],p3[2],1],
+                  [np.sum(np.square(p4)),p4[0],p4[2],1]])    
+    M13d = np.linalg.det(M13)
+    y0 = -0.5*M13d/M11d
+
+    M14 = np.array([
+                  [np.sum(np.square(p1)),p1[0],p1[1],1],
+                  [np.sum(np.square(p2)),p2[0],p2[1],1],
+                  [np.sum(np.square(p3)),p3[0],p3[1],1],
+                  [np.sum(np.square(p4)),p4[0],p4[1],1]])    
+    M14d = np.linalg.det(M14)
+    z0 = 0.5*M14d/M11d
+    M15 = np.array([
+                  [np.sum(np.square(p1)),p1[0],p1[1],p1[2]],
+                  [np.sum(np.square(p2)),p2[0],p2[1],p2[2]],
+                  [np.sum(np.square(p3)),p3[0],p3[1],p3[2]],
+                  [np.sum(np.square(p4)),p4[0],p4[1],p4[2]]])    
+    M15d = np.linalg.det(M15)
+    R = np.sqrt(x0**2+y0**2+z0**2-M15d/M11d)
+    return x0,y0,z0,R
+
+
 def circle_full(axis,start_v,radius,num_points):
     """Return drawing data of a full circle, need a drawing here. start_v is the any vector 
     paralel to first data point."""

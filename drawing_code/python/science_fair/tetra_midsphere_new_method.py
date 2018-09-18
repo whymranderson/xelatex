@@ -16,12 +16,14 @@ from annotate_program import plot_front
 from annotate_program import plot_back
 from annotate_program import project_a_point_to_a_plane 
 from annotate_program import incircle3D 
-from annotate_program import circle_full 
+from annotate_program import circle_full
+from annotate_program import four_points_circle
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
 ax2 = p3.Axes3D(fig2)
-ax2.view_init(elev=15, azim=-20)
+#ax2.view_init(elev=10, azim=187)
+ax2.view_init(elev=20, azim=7)
 ax2.set_color_cycle('b')
 
 '''
@@ -49,10 +51,10 @@ incenterABD = pB + incenterABD_pB * ( (pH+pN)/2 - pB  ) /  np.linalg.norm( pB - 
 midGN_D = np.square(np.linalg.norm(pD-pN)) / np.linalg.norm(incenterABD-pD)
 midGN = pD + midGN_D * (incenterABD-pD)/ np.linalg.norm(incenterABD-pD)
 pG = 2 * midGN - pN
-pM = (triangle_area(pD,pB,pC)*pAtemp + triangle_area(pAtemp,pB,pD) * pC)/(triangle_area(pD,pB,pC)+triangle_area(pAtemp,pB,pD))
-
 L_HA  = np.linalg.norm(pH-incenterABD) * np.linalg.norm(pH-pG)/2 / np.linalg.norm(incenterABD-(pH+pG)/2)
 pA = pH + L_HA * (pH-pB)/np.linalg.norm(pH-pB)
+pM = return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pC,pB,pE,pH)
+
 
 lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
@@ -78,30 +80,45 @@ pL = return_intersection_under_Ceva_Theorem(pC,pA,pD,pG,pF)
 pI = return_intersection_under_Ceva_Theorem(pA,pC,pB,pE,pH)
 pO = return_intersection_under_Ceva_Theorem(pC,pA,pN,pK,pJ)
 
-lineCK, = ax2.plot(*zip(pC,pK),linewidth = 1,color='b',linestyle=':')
-lineAJ, = ax2.plot(*zip(pA,pJ),linewidth = 1,color='b',linestyle=':')
-lineBL, = ax2.plot(*zip(pB,pL),linewidth = 1,color='b',linestyle=':')
-lineDI, = ax2.plot(*zip(pD,pI),linewidth = 1,color='b',linestyle=':')
+lineCK, = ax2.plot(*zip(pC,pK),linewidth = 1,color='b')#,linestyle=':')
+lineAJ, = ax2.plot(*zip(pA,pJ),linewidth = 1,color='b')#,linestyle=':')
+lineBL, = ax2.plot(*zip(pB,pL),linewidth = 1,color='b')#,linestyle=':')
+lineDI, = ax2.plot(*zip(pD,pI),linewidth = 1,color='b')#,linestyle=':')
 
-lineMN, = ax2.plot(*zip(pM,pN),linewidth = 1,color='b')
-lineGE, = ax2.plot(*zip(pG,pE),linewidth = 1,color='b')
-lineHF, = ax2.plot(*zip(pH,pF),linewidth = 1,color='b')
+#lineMN, = ax2.plot(*zip(pM,pN),linewidth = 1,color='b')
+#lineGE, = ax2.plot(*zip(pG,pE),linewidth = 1,color='b')
+#lineHF, = ax2.plot(*zip(pH,pF),linewidth = 1,color='b')
 
-pO_on_BCD = project_a_point_to_a_plane(pO, pB-pD, pC-pD,pJ)
-radius = np.linalg.norm(pO-pO_on_BCD)
-plot_front(ax2,pO[0],pO[1],pO[2],radius)
-plot_back(ax2,pO[0],pO[1],pO[2],radius)
+#pO_on_BCD = project_a_point_to_a_plane(pO, pB-pD, pC-pD,pJ)
+#radius = np.linalg.norm(pO-pO_on_BCD)
+#lineO_BCD, = ax2.plot(*zip(pO,pO_on_BCD),linewidth = 1,color='r',linestyle=':')
 
-lineO_BCD, = ax2.plot(*zip(pO,pO_on_BCD),linewidth = 1,color='r',linestyle=':')
-
+#Plot four insuscribed circles
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
                             inradiusBCD,40) + incenterBCD
-ax2.plot(*np.transpose(incircleBCD),linewidth=0.5)
+ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 incircleABD = circle_full(np.cross(pB-pN,pB-pH)/np.linalg.norm((np.cross(pB-pN,pB-pH))),
                           (-incenterABD+pB),
                             np.linalg.norm(pH-incenterABD),40) + incenterABD
-ax2.plot(*np.transpose(incircleABD),linewidth=0.5)
+ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
+
+incenterBCA,inradiusBCA,normvecBCA, _,_,_,= incircle3D(pB,pC,pA)
+incircleBCA = circle_full(normvecBCA,
+                          (-incenterBCA+pB),
+                            inradiusBCA,40) + incenterBCA
+ax2.plot(*np.transpose(incircleBCA),linewidth=1,linestyle=':')
+incenterDCA,inradiusDCA,normvecDCA, _,_,_,= incircle3D(pD,pC,pA)
+incircleDCA = circle_full(normvecDCA,
+                          (-incenterDCA+pD),
+                            inradiusDCA,40) + incenterDCA
+ax2.plot(*np.transpose(incircleDCA),linewidth=1,linestyle=':')
+
+#Plot the midsphere
+cx,cy,cz, radius = four_points_circle(pE,pF,pN,pH)
+plot_front(ax2,cx,cy,cz,radius)
+plot_back(ax2,cx,cy,cz,radius)
+
 
 ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
@@ -122,15 +139,15 @@ ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalig
 ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
 # Add transparent faces
-vt1 = [pA,pB,pD]
-tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
-tr1.set_facecolor('r')
-ax2.add_collection3d(tr1)
-
-vt2 = [pD,pB,pC]
-tr2 = p3.art3d.Poly3DCollection([vt2],color = 'y', alpha=0.3)
-tr2.set_facecolor('y')
-ax2.add_collection3d(tr2)
+#vt1 = [pA,pB,pD]
+#tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
+#tr1.set_facecolor('r')
+#ax2.add_collection3d(tr1)
+#
+#vt2 = [pD,pB,pC]
+#tr2 = p3.art3d.Poly3DCollection([vt2],color = 'y', alpha=0.3)
+#tr2.set_facecolor('y')
+#ax2.add_collection3d(tr2)
 
 Xt,Yt,Zt = zip(pA,pB,pC,pD)
 X = np.array(Xt)
@@ -141,8 +158,8 @@ max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() 
 
 
 mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5 - 1
-mid_z = (Z.max()+Z.min()) * 0.5
+mid_y = (Y.max()+Y.min()) * 0.5
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.4
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
@@ -155,7 +172,7 @@ ax2.w_xaxis.line.set_visible(False) #turn off axis visibility
 ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
 ax2.w_zaxis.line.set_color([0,0,0,0])
 ax2.set_axis_off()  #-> this can turn off the background curtain
-#pyplot.savefig('./pgf_files/concurrency_angdiv_planes.pgf')
+#pyplot.savefig('./pgf_files/tetra_midsphere.pgf')
 
 pyplot.show()
 
