@@ -43,7 +43,7 @@ def offset_curve(curve, length):
 
 
 def draw_xyz_coordinate_unit_vectors(ax4):
-    '''Put xyz coordinate unit vectors with fancy arrows.'''
+    '''Put xyz coordinate unit vectors with fancy arrows. See figure in circle_arc.'''
     xyz_arrow_data = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
 
     x_arrow = Arrow3D([0,xyz_arrow_data[0,0]],
@@ -72,10 +72,16 @@ def draw_xyz_coordinate_unit_vectors(ax4):
     ax4.add_artist(z_arrow)
     ax4.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
-def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax):
+def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax,size):
     '''Put a perpendicular symbol to a 90 degree corner. The rot_vec
-    is a vector parralel to first_axis crosses seconde_axis. First and seconde_axis are the two sides of the perp sign. Location_point is where the sign goes. ax is the figure axes.'''
-    data = 0.25*circle_arc(rot_vec,first_axis,second_axis,2)
+    is a vector parralel to first_axis crosses seconde_axis. First and seconde_axis are the two sides of the perp sign. Location_point is where the sign goes    . ax is the figure axes. size is the length of one side of the size.
+
+    .. image:: ./figures/perp_sign.png
+       :scale: 60 %
+       :align: center
+
+    '''
+    data = size*circle_arc(rot_vec,first_axis,second_axis,2)
     data[1,:]=data[1,:]*np.sqrt(2)
     data = data+location_point
     ldata, = ax.plot(data[:,0],data[:,1],data[:,2],'k')
@@ -116,7 +122,13 @@ def circle_arc(axis,start_v,end_v,num_points):
     return circle_vecs
 
 def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,anypointonplane):
-    '''Return a point which is projected normally to the plane by another point. in_point is a point on the plane. Vec1 cross Vec2 should go toward the out_point.'''
+    '''Return a point which is projected normally to the plane by another point. in_point is a point on the plane. Vec1 cross Vec2 should go toward the out_point.
+
+    .. image:: ./figures/point_projection.png
+       :scale: 60 %
+       :align: center
+
+    '''
     plane_normal = np.cross(plane_vec1,plane_vec2)
     plane_normal = plane_normal/np.linalg.norm(plane_normal)
     projected = np.dot(-out_point+anypointonplane,-plane_normal)*(-plane_normal) + out_point#
@@ -186,7 +198,13 @@ frame_width = 1
 sphere_grid = 40
 wirestride = 3
 def plot_front(axes,midspherex,midspherey,midspherez,midsphereR):
-    '''plot the lucid sphere, front part'''
+    '''plot the lucid sphere, front part. Used together with plot_back.
+
+    .. image:: ./figures/lucid_sphere.png
+       :scale: 80 %
+       :align: center
+
+    '''
     u = np.linspace(-np.pi, 0, sphere_grid)
     v = np.linspace(0, np.pi, sphere_grid)
     x = midsphereR*np.outer(np.cos(u), np.sin(v))+midspherex
