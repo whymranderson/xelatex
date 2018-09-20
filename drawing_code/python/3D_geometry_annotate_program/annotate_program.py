@@ -141,6 +141,8 @@ def return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pB,pC,pD,pE):
     .. image:: ./figures/ceva_third_side_point.png
        :scale: 60 %
        :align: center
+
+    Also works when O is outside.
     """
     a = np.linalg.norm(pA-pE)
     b = np.linalg.norm(pC-pE)
@@ -156,6 +158,8 @@ def return_intersection_under_Ceva_Theorem(pA,pB,pC,pD,pE):
     .. image:: ./figures/ceva_intersection.png
        :scale: 60 %
        :align: center
+
+    This function also works for the following case where O is outside of triangle ABC. See fig.
     """
     ae = np.linalg.norm(pA-pE)
     ec = np.linalg.norm(pC-pE)
@@ -293,6 +297,29 @@ def four_points_circle(p1,p2,p3,p4):
     R = np.sqrt(x0**2+y0**2+z0**2-M15d/M11d)
     return x0,y0,z0,R
 
+def return_orthocenter(p1,p2,p3):
+    """Return orthocenter by first finding two points of foot of perpendicular then using Ceva Theorem."""
+    perp23 = project_a_point_to_a_plane(p1,np.cross(p3-p2,p1-p2),p3-p2,p2)
+    perp13 =project_a_point_to_a_plane(p2,np.cross(p1-p3,p2-p3),p1-p3,p3)
+    ortho = return_intersection_under_Ceva_Theorem(p1,p2,p3,perp23,perp13)
+    return ortho
+
+def return_centroid(p1,p2,p3):
+    """Return centroid by using Ceva Theorem."""
+    m23 = (p2+p3)/2
+    m13 = (p1+p3)/2
+    centroid = return_intersection_under_Ceva_Theorem(p1,p2,p3,m23,m13)
+    return centroid
+
+def return_circumcenter(p1,p2,p3):
+    """Return circumcenter using centroid and orthocenter and the Euler's line of a triangle. Another keyword: 9-point circle. Fig here."""
+    circumcenter = (3 * return_centroid(p1,p2,p3) - return_orthocenter(p1,p2,p3))/2
+    return circumcenter
+
+def return_9point_circle_center(p1,p2,p3):
+    """Return 9-points center using Euler's line."""
+    ninepcenter = ( return_orthocenter(p1,p2,p3) + return_circumcenter(p1,p2,p3) )/2
+    return ninepcenter
 
 def circle_full(axis,start_v,radius,num_points):
     """Return drawing data of a full circle, need a drawing here. start_v is the any vector 
