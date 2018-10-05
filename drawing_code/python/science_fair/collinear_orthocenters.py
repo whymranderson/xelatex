@@ -19,6 +19,7 @@ from annotate_program import incircle3D
 from annotate_program import circle_full
 from annotate_program import four_points_circle
 from annotate_program import return_orthocenter
+from annotate_program import return_9point_circle_center
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -79,25 +80,22 @@ lineDI, = ax2.plot(*zip(pD,pI),linewidth = 1,color='b')#,linestyle=':')
 #lineHF, = ax2.plot(*zip(pH,pF),linewidth = 1,color='b')
 
 #Plot four insuscribed circles
-#incircleBCD = circle_full(normvecBCD,
-#                          (-incenterBCD+pB),
-#                            inradiusBCD,40) + incenterBCD
-#ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
-#incircleABD = circle_full(np.cross(pB-pN,pB-pH)/np.linalg.norm((np.cross(pB-pN,pB-pH))),
-#                          (-incenterABD+pB),
-#                            np.linalg.norm(pH-incenterABD),40) + incenterABD
-#ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
-#
-#incenterBCA,inradiusBCA,normvecBCA, _,_,_,= incircle3D(pB,pC,pA)
-#incircleBCA = circle_full(normvecBCA,
-#                          (-incenterBCA+pB),
-#                            inradiusBCA,40) + incenterBCA
-#ax2.plot(*np.transpose(incircleBCA),linewidth=1,linestyle=':')
-#incenterDCA,inradiusDCA,normvecDCA, _,_,_,= incircle3D(pD,pC,pA)
-#incircleDCA = circle_full(normvecDCA,
-#                          (-incenterDCA+pD),
-#                            inradiusDCA,40) + incenterDCA
-#ax2.plot(*np.transpose(incircleDCA),linewidth=1,linestyle=':')
+npcenterBCD = return_9point_circle_center(pB,pC,pD)
+normvecBCD = np.cross(pC-pB,pD-pB)/np.linalg.norm(np.cross(pC-pB,pD-pB))
+npradiusBCD = np.linalg.norm(npcenterBCD-pE)
+npcircleBCD = circle_full(normvecBCD,
+                          (-npcenterBCD+pB),
+                            npradiusBCD,40) + npcenterBCD
+ax2.plot(*np.transpose(npcircleBCD),linewidth=1,linestyle=':')
+
+npcenterBAD = return_9point_circle_center(pB,pA,pD)
+normvecBAD = np.cross(pA-pB,pD-pB)/np.linalg.norm(np.cross(pA-pB,pD-pB))
+npradiusBAD = np.linalg.norm(npcenterBAD-pN)
+npcircleBAD = circle_full(normvecBAD,
+                          (-npcenterBAD+pB),
+                            npradiusBAD,40) + npcenterBAD
+ax2.plot(*np.transpose(npcircleBAD),linewidth=1,linestyle=':')
+
 
 #Plot the midsphere
 cx,cy,cz, radius = four_points_circle(pE,pF,pN,pH)
@@ -114,14 +112,16 @@ ax2.text(*(pF + (pF-pN)/10), s = r"$F$", fontsize=12,verticalalignment='center',
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*(pG+(pG-pE)/20), s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='center')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*pJ, s = r"$J$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pJ, s = r"$J_\perp$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pK, s = r"$K_\perp$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pI, s = r"$I$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pI, s = r"$I_\perp$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pL, s = r"$L$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pL, s = r"$L_\perp$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 
 ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
+ax2.set_color_cycle('r')
+ax2.scatter3D(*zip((pB+pC)/2,(pC+pD)/2,(pD+pB)/2,(pB+pA)/2,(pA+pD)/2))
 
 # Add transparent faces
 #vt1 = [pA,pB,pD]
