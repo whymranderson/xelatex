@@ -33,12 +33,14 @@ every new ->/.style={shorten >=1pt},
 graphs/every graph/.style={edges=rounded corners},
 ]
 
-\graph  { A -> B -> C -> D -> E -> D' -> C'
-	 
+\graph [grow right sep] { A -> B -> {
+	   C -> D -> E -> F ,
+	   B1 -> B2 -> B3 -> B4
+	 } 
 };
 
-\node (head) [node distance=5mm, nonterminal,above =of C'] {head};
-\draw[-{Circle[length=3pt]},blue] (head) -- (C');
+\node (head) [node distance=5mm, nonterminal,above =of F] {head};
+\draw[-{Circle[length=3pt]},blue] (head) -- (F);
 \end{tikzpicture}
 
 \end{document}

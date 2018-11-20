@@ -1,0 +1,17 @@
+\documentclass[a4paper]{article}
+\usepackage[most]{tcolorbox}
+\usepackage[inner=2in,outer=2in,top=0.5in,bottom=0.5in]{geometry}
+%\usepackage{mwe}
+ 
+\begin{document}
+\Large Git Diagram
+\noindent
+\begin{tcbraster}[raster columns=1, raster equal height=none, raster column skip=3mm, raster row skip=10mm]
+\tcbincludegraphics{"../cherrypick"}
+\tcbincludegraphics{"../rebase"}
+\tcbincludegraphics{"../revert"}
+\tcbincludegraphics{"../revert_range"}
+\tcbincludegraphics{"../starting"}
+\end{tcbraster}
+\vspace*{\fill}
+\end{document}

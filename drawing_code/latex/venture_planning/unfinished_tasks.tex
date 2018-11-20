@@ -21,16 +21,6 @@
 			\item django static file那邊的說明可以再清楚一點？說明django static file的做法是，他希望你把需要伺服的圖檔放在你引用此圖的檔案(如你的html pages)的相同資料夾下，建立一個名為static的資料夾，然後圖檔放在此static資料夾之下(可以在子目錄下)。你說，那我有好多個html檔案都在不同地方，不同資料夾裡面，這些檔案都引用不同的圖檔的話，那不是有一堆static資料夾四散各地？是的，就是這樣。django在執行collectstatic指令時，就是把四散各處的static資料夾以及裡面的需要伺服的圖檔，全部copy到同一個static資料夾下，而此static資料夾會放在我們指定的被伺服的資料夾。你說，那html檔裡的圖檔連結又不是指向這個被伺服的資料夾，對，他會指向之前四散各地的static資料夾連結嘛。但django還會做一個步驟。他會把在html中遇到的圖檔連結，只要遇到有static字串包含在裡面，就會把static前面的超連結字串取代為我們設定的伺服連結。嘿，這樣就可以連到需要的圖檔囉，對吧。劃出例子？這也是為什麼在local資料夾放置圖片時，最好就做好分類(這也是docs說明中為何在連結名稱static folder中會重複分類名稱的原因)，這樣django在收集static資料夾時就也會維持同樣的分類。
 		\end{enumerate}
 
-            	\item 滾筒洗衣機要清洗
-            	\item 印表機level up
-		\begin{enumerate}
-			\item 等十分鐘熱了再印顏色較深
-			\item 圖形有白色條紋，見fidget gyro圖
-		\end{enumerate}
-		\item 有水電的地面工作區域 $\bullet\bullet\bullet\circ\circ\circ$
-
-                \item vr,gyro體驗館,原力推starwar?
-		\item 乾洗液(目前溫水加乾淨布擦)
                 \item 好筆的墨水，整理墨水post，入網站。
 
                 \item bank order checks
@@ -46,12 +36,6 @@
             \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
 		\setcounter{enumi}{22}
-		\item T60相關
-		\begin{enumerate}
-			\item T60電池找(型號已找到，4-17-2017 note)
-			\item 液晶模組diy post未完成的另一半
-		\end{enumerate}
-
             	\item swp加link要變容易。
             	\item 仿宋體試5/16/17
             	\item science fair typeset continue.
@@ -121,11 +105,7 @@
 		\item 改只放一頁scribd包含所有作品，並以title間頁間隔
 		\end{enumerate}
 		\end{enumerate}
-		\item CV first page font blur problem
-		\item GS note TOC add and fix
 		\item xeCJK預設字型mac win linux
-		\item sandisk git xelatex backup
-		\item buy a texlive CD
 		\item xelatex資料夾獨立
 		
 		\begin{enumerate}
@@ -137,7 +117,6 @@
 		
 		\begin{enumerate}
 
-		\item math.lyx，pdf，加上空格框，像companion book一樣才會方便閱讀理解。$\bullet\bullet\circ$
 		\item before tex compile, hope cmd batch can close the pdf file\\
 		\href{http://www.xtremevbtalk.com/general/183310-print-close-pdf-command-line.html}{http://www.xtremevbtalk.com/general/183310-print-close-pdf-command-line.html}
 		\end{enumerate}
@@ -156,7 +135,6 @@
 		\item tetra\_premise\_1.py 要修成用toolbox
 		\item share pstricks and tikz graphs
 		\item logo3D OpenGL engrave continue
-		\item backup flashdrive
 		\end{enumerate}
         };
 
@@ -184,7 +162,6 @@
 		\item team logic改重複輸入直到找到
 		
 		%\subsection{my website}
-		\item dad's book upload, then add paypal, when?
 		\item try authentication ( may take some time)
 		
 		\begin{itemize}
@@ -195,16 +172,12 @@
 		script加入。但script都在submodule中，若要一起upload則會公開，要公開否？
 		\end{itemize}
 		\end{itemize}
-		\item gyro page make into LYX file
-		\item grab\_log.sh automization
 		\item create墨水post，找，白板attempt心得
 		\item TOC移除section,subsection headings
             	\item {{varljust:''10''}}在html中只算一個空白。網路上可加這個filter，還需查怎麼裝filter，但若裝了，server端pythonanywhere也要裝，花時間。應推薦加入新版django，一勞永逸。
             	\item all coming matches 隊伍重複出現，divisibleby:'2'還有問題
 		\item team page轉換成LYX編輯,換banner headline?
-		\item team page有過期賽程繼續顯示問題，upcoming page有未顯示所有未來隊伍比賽問題。
-		\item db\_note整理，看如何推銷與賣(可能太難，因為不是你的領域，離你太遙遠，無認識的人)。
-		\item gitlogs page目前還需要跑grab\_gitlogs.bat去收集並產生文字檔，是否可以自動化，一禮拜做一次？
+		\item db\_note整理
 		\item csgo event scraping continue?
 		\item db模型改良，足球聯賽應用。但現在又變成大會定時間，是否可應用上大會定？
            \end{enumerate}
@@ -322,27 +295,16 @@
 	\textbf{F\&C待完成}
             \nodepart{two}
             \begin{enumerate}
-            	\item thinkpad T60 電池找
             	\item SMEG烤箱時間溫度表製作
             	\item compressor 排水閥, still no clue, dangerous
-		\item 補褲$\bullet\bullet\bullet\circ$
-		\item 相機，手機插電
-		\item 電繡片問正興老闆
 		\item note裝訂強力邊改良
-		\item 印表機淡，修，感光鼓，電棒？
-		\item 相機接ps
 		\item 電動起子接ps
-		\item 床墊上4f, call公司
            \end{enumerate}
 	   \nodepart{three}\textbf{DIY未完成}
 	   \nodepart{four}
            \begin{enumerate}
 		\item 手寫板加一硬紙讓能翻頁寫
 		\item 單槓-角鋼?啞管?做單槓
-		\item gimbal繼續1/12/16
-		\item T60電池找
-		\item 墨水調
-		\item 找cargo crane box
 		\item 修compressor，銘山，空壓機排水閥修+換油
 		\item Lathe，\protect\href{http://timeway.en.e-cantonfair.com/}{http://timeway.en.e-cantonfair.com/}
            \end{enumerate}

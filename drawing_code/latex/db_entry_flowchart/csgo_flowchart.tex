@@ -1,0 +1,78 @@
+\documentclass[convert]{standalone}
+\usepackage{tikz} 
+\usetikzlibrary{chains,scopes}
+\begin{document}
+
+\begin{tikzpicture}[every on chain/.style=join,every join/.style=->,
+nonterminal/.style={
+	% The shape:
+	rectangle,
+	% The size:
+	minimum size=6mm,
+	% The border:
+	very thick,
+	draw=red!50!black!50, % 50% red and 50% black,
+	% and that mixed with 50% white
+	% The filling:
+	top color=white, % a shading that is white at the top...
+	bottom color=red!50!black!20, % and something else at the bottom
+	% Font
+	font=\itshape},
+terminal/.style={
+	% The shape:
+	rectangle,minimum size=6mm,rounded corners=3mm,
+	% The rest
+	very thick,draw=black!50,
+	top color=white,bottom color=black!20,
+	font=\ttfamily},
+node distance=2mm and 1cm,align=left]
+
+%Begin main chain
+{ [start chain=trunk going below]
+\node (A) [nonterminal,on chain] {collect event info\\
+			vim arrange team and time format\\
+			copy template then paste into folder of the organizer\\
+			edit according to the collected info\\
+			run script by execfile};
+\node (B) [nonterminal,on chain] {Event created in db};
+\node [terminal,on chain] {Add guests and/or schedules?};
+{ [start branch=event going right] } % just a declaration,
+\node (D) [terminal,on chain] {Match each guest's name in db};
+{ [start branch=team going below] } % we will come back later
+\node (E) [terminal,on chain] {Guests all found?};
+\node (F) [terminal,on chain] {(1)Add guests without schedules\\
+			       (2)Add guests and schedules};
+{ [start branch=guest going left] } % we will come back later
+\node (G) [nonterminal,on chain] {Associate guest and schedule to event in db.};
+\node (H) [nonterminal,on chain] {db operation complete};
+\node (I) [nonterminal,on chain] {end};
+
+% Now come the branches...
+{[continue branch=event]
+\node (1) [nonterminal,on chain] {Only event is created.\\
+				  No further action done in db.};
+\node (2) [nonterminal,on chain] {end};
+}
+{[continue branch=team]
+\node [on chain=going right] {a};
+\node [on chain] {b};
+\node [terminal,on chain] {c};
+{[start branch=abort going right]
+	\node [on chain] {abort};
+	\node [on chain] {end};
+}
+\node [on chain] {d};
+\node (e) [on chain] {new guest in db};
+}
+{[continue branch=guest]
+\node (99) [on chain=going left] {Associate guest to event.\\ No schedule};
+}
+}
+%End Chain envr
+
+\path[->] (e) edge (E);
+\draw[->]          (E) -- ++(-4cm,0)  |- node[pos=0.3] {test} (D);
+
+\end{tikzpicture}
+
+\end{document}
