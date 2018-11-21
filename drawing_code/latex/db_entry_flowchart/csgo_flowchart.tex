@@ -25,21 +25,21 @@ terminal/.style={
 	very thick,draw=black!50,
 	top color=white,bottom color=black!20,
 	font=\ttfamily},
-node distance=2mm and 1cm,align=left]
+node distance=0.5cm and 2.5cm,align=left]
 
 %Begin main chain
 { [start chain=trunk going below]
-\node (A) [nonterminal,on chain] {collect event info\\
-			vim arrange team and time format\\
+\node (A) [terminal,on chain] {collect event info\\
+			vim arrange guest(team) and schedule(matchtime) format\\
 			copy template then paste into folder of the organizer\\
 			edit according to the collected info\\
 			run script by execfile};
 \node (B) [nonterminal,on chain] {Event created in db};
-\node [terminal,on chain] {Add guests and/or schedules?};
-{ [start branch=event going right] } % just a declaration,
-\node (D) [terminal,on chain] {Match each guest's name in db};
+\node (C) [terminal,on chain] {Add guests and/or schedules?};
+{ [start branch=event going left] } % just a declaration,
+\node (D) [nonterminal,on chain] {Match each guest's name in db};
 { [start branch=team going below] } % we will come back later
-\node (E) [terminal,on chain] {Guests all found?};
+\node (E) [nonterminal,on chain] {Guests all found?};
 \node (F) [terminal,on chain] {(1)Add guests without schedules\\
 			       (2)Add guests and schedules};
 { [start branch=guest going left] } % we will come back later
@@ -51,27 +51,43 @@ node distance=2mm and 1cm,align=left]
 {[continue branch=event]
 \node (1) [nonterminal,on chain] {Only event is created.\\
 				  No further action done in db.};
-\node (2) [nonterminal,on chain] {end};
+\node (2) [nonterminal,on chain=going below] {end};
 }
 {[continue branch=team]
-\node [on chain=going right] {a};
-\node [on chain] {b};
-\node [terminal,on chain] {c};
+\node (a) [terminal,on chain=going right] {Enter correct guest name again.\\ See all names in all\_team.html};
+\node (b) [nonterminal,on chain] {Find name in db again.};
+\node (c) [terminal,on chain] {Create new guest in db?};
 {[start branch=abort going right]
-	\node [on chain] {abort};
-	\node [on chain] {end};
+	\node (ta)[nonterminal, on chain] {abort};
+	\node [nonterminal,on chain=going below] {end};
 }
-\node [on chain] {d};
-\node (e) [on chain] {new guest in db};
+\node (d) [terminal, on chain] {Enter new guest name(case sensitive)};
+\node (e) [nonterminal,on chain] {New guest created in db};
 }
 {[continue branch=guest]
-\node (99) [on chain=going left] {Associate guest to event.\\ No schedule};
+\node (99) [nonterminal,on chain=going left] {Associate guest to event.\\ No schedule};
 }
 }
 %End Chain envr
 
-\path[->] (e) edge (E);
-\draw[->]          (E) -- ++(-4cm,0)  |- node[pos=0.3] {test} (D);
+\draw[->] (e)  -- ++(-4cm,0)  |- (E);
+\draw[->] (E) -- ++(-4cm,0)  |- node[pos=0.3,auto] {next\\guest} (D);
+\draw[->] (b)  -- ++(-4cm,0.7cm)  -- (E);
+\draw[->] (99)  |- (H);
+
+\path (C) -- (1) node[pos=0.5,above] {No};
+\path (C) -- (D) node[pos=0.5,auto] {Yes};
+\path (D) -- (a) node[pos=0.5,auto] {missing};
+\path (D) -- (E) node[pos=0.5,auto] {found};
+\path (b) -- (c) node[pos=0.5,auto] {still not found};
+\path (c) -- (d) node[pos=0.5,auto] {Yes};
+\path (c) -- (ta) node[pos=0.5,auto] {No};
+\path (E) -- (F) node[pos=0.5,auto] {Yes};
+\path (F) -- (99) node[pos=0.5,auto] {(1)};
+\path (F) -- (G) node[pos=0.5,auto] {(2)};
+
+\node (r) [right = of A,nonterminal] {rectangle terminal shows status};
+\node[below = of r,terminal] {rounded terminal requires user input};
 
 \end{tikzpicture}
 
