@@ -34,7 +34,8 @@ node distance=0.5cm and 2.5cm,align=left]
 			copy template then paste into folder of the organizer\\
 			edit according to the collected info\\
 			run script by execfile};
-\node (B) [nonterminal,on chain] {Event created in db};
+\node (B) [terminal,on chain] {(yes)Create or update event info in db\\
+					(no)nothing done in db.};
 \node (C) [terminal,on chain] {Add guests and/or schedules?};
 { [start branch=event going left] } % just a declaration,
 \node (D) [nonterminal,on chain] {Match each guest's name in db};
