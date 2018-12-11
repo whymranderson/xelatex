@@ -14,55 +14,9 @@ import matplotlib.cm as mplcm
 import matplotlib.colors as colors
 #import get_tilt_angle_full_v2.rotation_matrix
 #import get_tilt_angle_full_v2.circle_arc
-
-def rotation_matrix(axis,theta):
-    axis = axis/np.sqrt(np.dot(axis,axis))
-    a = np.cos(theta/2)
-    b,c,d = axis*np.sin(theta/2)
-    return np.array([[a*a+b*b-c*c-d*d, 2*(b*c-a*d), 2*(b*d+a*c)],
-                     [2*(b*c+a*d), a*a+c*c-b*b-d*d, 2*(c*d-a*b)],
-                     [2*(b*d-a*c), 2*(c*d+a*b), a*a+d*d-b*b-c*c]])
-def circle_arc(axis,start_v,end_v,num_points):
-    axis = axis/np.linalg.norm(axis)
-    start_v = start_v/np.linalg.norm(start_v)
-    end_v = end_v/np.linalg.norm(end_v)
-    theta = np.arccos(np.dot(start_v,end_v))
-    theta_s = list(np.arange(0.0, theta + theta/num_points, theta/num_points))
-    circle_vecs = np.zeros([len(theta_s),3])
-    for i,thetai in enumerate(theta_s):
-        makecir = rotation_matrix(axis,thetai)
-        circle_vecs[i,:] = np.dot(makecir,start_v)
-    return circle_vecs
-
-#2down
-### Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
-from mpl_toolkits.mplot3d import proj3d
-def orthogonal_proj(zfront, zback):
-    a = (zfront+zback)/(zfront-zback)
-    b = -2*(zfront*zback)/(zfront-zback)
-    return np.array([[1,0,0,0],
-                        [0,1,0,0],
-                        [0,0,a,b],
-                        [0,0,0,zback]])
-#proj3d.persp_transformation = orthogonal_proj
-###
-
-### Draw fancy arrows
-
-from matplotlib.patches import FancyArrowPatch
-
-class Arrow3D(FancyArrowPatch):
-    def __init__(self, xs, ys, zs, *args, **kwargs):
-        FancyArrowPatch.__init__(self, (0,0), (0,0), *args, **kwargs)
-        self._verts3d = xs, ys, zs
-
-    def draw(self, renderer):
-        xs3d, ys3d, zs3d = self._verts3d
-        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
-        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
-        FancyArrowPatch.draw(self, renderer)
-###
-
+import sys
+sys.path.append('../3D_geometry_annotate_program')
+from annotate_program import draw_perpendicular_sign
 
 
 #### The plotting of a vector-based graphics using the above points location information.
@@ -118,11 +72,6 @@ ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='top', horizontalalignme
 ax2.text(*pF, s = r"$E'$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.scatter(*pO, marker='o',color = 'k')
 
-def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax):
-    data = 0.3*circle_arc(rot_vec,first_axis,second_axis,2)
-    data[1,:]=data[1,:]*np.sqrt(2)
-    data = data+location_point
-    ldata, = ax.plot(data[:,0],data[:,1],data[:,2],'k')
 
 draw_perpendicular_sign(np.cross(DOunit,-pO),-pE,-pD+pO,pE,ax2)
 draw_perpendicular_sign(np.cross(DOunit,-pO),pAp-pF,DOunit,pF,ax2)
@@ -167,5 +116,5 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
 #pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf related\pgf\tetra_premise_1.pgf')
-pyplot.savefig('./pgf_files/tetra_premise_1.pgf')
+#pyplot.savefig('./pgf_files/tetra_premise_1.pgf')
 pyplot.show()
