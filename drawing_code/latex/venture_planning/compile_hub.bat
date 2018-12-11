@@ -25,6 +25,6 @@ IF %id% == 1 (
 
 
 
-xelatex --shell-escape %chapname%.tex
+xelatex %chapname%.tex
 
 %chapname%.pdf

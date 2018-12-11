@@ -9,33 +9,26 @@
 
 \begin{scope}[node distance=5mm and 5mm]
 
-\node [ item=4](a) at (1,1) {%
-            \textbf{weekly routine}
+\node [ item=2](a) at (1,1) {%
+            \textbf{特色}
             \nodepart[text width = 8.2cm]{two}
-            \begin{enumerate}
-            	\item arrange for collected readings from bloggers to update essay post.
-             	\item admire, find and fix any typo or mistake.
-            	\item expand some posts, ex. the csgo post.
-            	\item look up collected volcab and write post.(四五月有不少還沒查的)
-            	\item still need to close out DIY post.
-           \end{enumerate}
-           \nodepart{three}\textbf{特色}
-	\nodepart[text width = 8.2cm]{four}
             \begin{enumerate}
             	\item 使用LYX與SW，高度自動化產生django-compatible html(省下很多細微瑣碎步驟)。
             	\item 讓SW與LYX產生的網頁能夠正確顯示。如SW export links時有點問題，要記錄下可行步驟，並嘗試自動化。
            \end{enumerate}
             };
 
-
-	\node [above right = of a, align = center, anchor = south] (title){\parbox[c][][c]{3.2cm}{\Huge website}\parbox[c][][c]{0.15\textwidth}{\includegraphics[width=0.15\textwidth]{../../figs/logo_June27_2016.png}}\parbox[c][][c]{3.6cm}{\Huge planning}};
+	\node [above right = of a, align = center, anchor = south] (title){\includegraphics[width=0.12\textwidth]{../logos_creation/ancestor_veneration}};
+	\node [right = of title,text height=1.5ex,text depth=.25ex,] {\Huge Plans};
+	\node [left = of title,text height=1.5ex,text depth=.25ex,] {\Huge Website};
+	%\parbox[c][][c]{3.2cm}{\Huge website}\parbox[c][][c]{0.15\textwidth}{\includegraphics[width=0.15\textwidth]{../../figs/logo_June27_2016.png}}\parbox[c][][c]{3.6cm}{\Huge planning}};
 
 
 \node [ item=2, below right = of title.south, anchor = north west](small) {%
-            \textbf{重點步驟}
+            \textbf{unfinished}
             \nodepart[text width = 8.2cm]{two}
             \begin{enumerate}
-            	\item no itme
+            	\item look up collected volcab and write post.(四五月有不少還沒查的)
            \end{enumerate}
             };
 
