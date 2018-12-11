@@ -73,8 +73,8 @@ ax2.text(*pF, s = r"$E'$", fontsize=12,verticalalignment='bottom', horizontalali
 ax2.scatter(*pO, marker='o',color = 'k')
 
 
-draw_perpendicular_sign(np.cross(DOunit,-pO),-pE,-pD+pO,pE,ax2)
-draw_perpendicular_sign(np.cross(DOunit,-pO),pAp-pF,DOunit,pF,ax2)
+draw_perpendicular_sign(np.cross(DOunit,-pO),-pE,-pD+pO,pE,ax2,0.3)
+draw_perpendicular_sign(np.cross(DOunit,-pO),pAp-pF,DOunit,pF,ax2,0.3)
 
 #axis1.Axis(ax2,'r')
 #ax2.autoscale_view()
@@ -86,9 +86,12 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 3.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
 
-
+# i think what u want is set all axes equal aspect,
+# then rotate to a desired view angle, then transform
+# all data to screen coordinate, then calculate xyz limits
+# and set xyz limit, and then set figure figaspect ratio??
 mid_x = (X.max()+X.min()) * 0.5
 mid_y = (Y.max()+Y.min()) * 0.5
 mid_z = (Z.max()+Z.min()) * 0.5
@@ -116,5 +119,22 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
 #pyplot.savefig(r'C:\Documents and Settings\The One\My Documents\tony\2014\xelatexfolder\pgf related\pgf\tetra_premise_1.pgf')
+def save(filepath, fig=None):
+    '''Save the current image with no whitespace
+    Example filepath: "myfig.png" or r"C:\myfig.pdf" 
+    '''
+    import matplotlib.pyplot as plt
+    if not fig:
+        fig = plt.gcf()
+
+    plt.subplots_adjust(0,0,1,1,0,0)
+    for ax in fig.axes:
+        ax.axis('off')
+        ax.margins(0,0)
+        ax.xaxis.set_major_locator(plt.NullLocator())
+        ax.yaxis.set_major_locator(plt.NullLocator())
+    fig.savefig(filepath, pad_inches = 0, bbox_inches='tight')
 #pyplot.savefig('./pgf_files/tetra_premise_1.pgf')
+#pyplot.savefig('./pgf_files/tetra_premise_1.png',bbox_inches = 'tight', pad_inches = 0)
+save('./pgf_files/tetra_premise_1.png',fig2)
 pyplot.show()
