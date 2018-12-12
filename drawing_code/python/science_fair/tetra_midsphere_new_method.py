@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+#Start from a traigle BCD, all three vertice known. Assume we are given a vector CA but we
+#don't know the position of A, but we know the direction of CA. We can construct one and only one 
+#sphere that tangents to three segments of BCD and CA then from this sphere we will find segs 
+#BA and DA that tangents the shpere and determine the position of A.
+
 import numpy as np
 #import matplotlib as mpl
 #mpl.use('pgf')

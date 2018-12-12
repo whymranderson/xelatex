@@ -86,15 +86,23 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 3.0
 
 # i think what u want is set all axes equal aspect,
 # then rotate to a desired view angle, then transform
 # all data to screen coordinate, then calculate xyz limits
 # and set xyz limit, and then set figure figaspect ratio??
+# try something like
+# x2, y2, _ = proj3d.proj_transform(x,y,z, ax.get_proj())
+# there is no way, why?
+# All start with a 3D box within the screen figure.
+# if screen figure is not real aspect, then the 3D box is skew
+# and the shink factor is not kwon along the xyz direction of the 3D box
+# so we can't adjust the xyz limit of the 3D box accordingly.
+
 mid_x = (X.max()+X.min()) * 0.5
 mid_y = (Y.max()+Y.min()) * 0.5
-mid_z = (Z.max()+Z.min()) * 0.5
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
@@ -136,5 +144,6 @@ def save(filepath, fig=None):
     fig.savefig(filepath, pad_inches = 0, bbox_inches='tight')
 #pyplot.savefig('./pgf_files/tetra_premise_1.pgf')
 #pyplot.savefig('./pgf_files/tetra_premise_1.png',bbox_inches = 'tight', pad_inches = 0)
-save('./pgf_files/tetra_premise_1.png',fig2)
+#save('./pgf_files/tetra_premise_1.png',fig2)
+fig2.subplots_adjust(top = 1, bottom = 0, right = 1.3, left = -0.3, hspace = 0, wspace = 0)
 pyplot.show()
