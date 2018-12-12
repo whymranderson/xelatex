@@ -68,7 +68,7 @@ xx = 5
 R = 5.0*np.sqrt(2)
 #orien = np.array([-np.pi/8,0,0]) # beta
 ncp = 30 # number of 'new' CP, not including origin
-onetheta = 1.0 # in degrees
+onetheta = 30.0 # in degrees
 angles = np.arange(0,360+onetheta,onetheta)                               #[0,2,...,360]
 theta = np.array(angles) * np.pi / 180                 #in radians
 C = np.zeros((ncp+1,3,3))
@@ -181,6 +181,7 @@ np.savez('alphaphidata',CP=CP,
                         onetheta=onetheta,
                         cirCP = cirCP,
                         C=C,
+                        Cprime=Cprime,
                         )
                         #temp_variable=[R*np.tan(np.radians(onetheta)),0,0],
                         #temp_variable1=[cirCP[1,:,0]   ,[0,0,0]            ],
@@ -247,7 +248,7 @@ ax.set_zbound(0,10)
 
 
 #animation
-movie = rawinput('see movie?(yes/no)')
+movie = raw_input('see movie?(yes/no)')
 if movie == 'yes':
     line_ani = animation.FuncAnimation(fig1, update_line, range(0,ncp,1), fargs=(line,cirCP,lcp,lcmcp,CP),
                               interval=10, blit=False,repeat=True)
