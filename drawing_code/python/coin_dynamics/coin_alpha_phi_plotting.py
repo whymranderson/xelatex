@@ -12,6 +12,7 @@ import mpl_toolkits.mplot3d.axes3d as p3
 import matplotlib.animation as animation
 import matplotlib.cm as mplcm
 import matplotlib.colors as colors
+from tempfile import TemporaryFile
 
 #2down
 ### Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
@@ -60,6 +61,15 @@ linez, = ax2.plot([0,0],[0,0],[0,6])
 linez.set_linewidth(1)
 linez.set_color('k')
 ax2.text(0,0,6, r'$z_s$', fontsize=18,verticalalignment='bottom', horizontalalignment='left')
+
+# load coin data
+npzfile = np.load('alphaphidata.npz')
+CP = npzfile['CP']
+CM = npzfile['CM']
+CPprime = npzfile['CPprime']
+R = npzfile['R']
+onetheta = npzfile['onetheta']
+cirCP = npzfile['cirCP']
 
 # [line_end_vec1,line_end_vec2],[same]
 lineswidth2 = np.array([[CP[0,:]        ,CM[0,:]            ],

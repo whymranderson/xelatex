@@ -173,6 +173,20 @@ for j in range(ncp):
     w[j+1,:] = topRK(w[j,:],Tau_b_j,twodt)
 #    print(w[j,:])
 
+#saving for plotting
+np.savez('alphaphidata',CP=CP,
+                        CPprime=CPprime,
+                        CM=CM,
+                        R=R,
+                        onetheta=onetheta,
+                        cirCP = cirCP,
+                        C=C,
+                        )
+                        #temp_variable=[R*np.tan(np.radians(onetheta)),0,0],
+                        #temp_variable1=[cirCP[1,:,0]   ,[0,0,0]            ],
+                        #temp_variable2=[CPprime[0,:]        ,[0,0,0]            ],
+#end of saving
+
 #1down
 fig1 = pyplot.figure(1)#,figsize=(2,2))
 #fig1 = pyplot.figure(1)
@@ -210,7 +224,7 @@ def update_line(x, line, cirCP, lcp,lcmcp, CP):
 #pyplot.gca().set_color_cycle([colormap(i) for i in np.linspace(0, 0.9, ncp)])
 #the rolling circle
 line = [ax.plot(*[cirCP[j:j+2,i,0] for i in range(3)]) for j in range(len(angles))]
-setp(line,lw=7)
+#setp(line,lw=7) # deprecated
 #line = [ax.plot(cirCP[0:2,0,0],cirCP[0:2,1,0],cirCP[0:2,2,0],color = [0,0,1])[0] for i in angles]
 #the line from CM to a point on circle
 lcp = [ax.plot([CM[0,0],CP[0,0]],[CM[0,1],CP[0,1]],[CM[0,2],CP[0,2]],'k')[0] for i in angles]
@@ -230,12 +244,17 @@ ax.set_ybound(0,20)
 ax.set_zbound(0,10)
 #print(line)
 #         ax.scatter(cirCP[1,0,1],cirCP[1,1,1],cirCP[1,2,1])]
-line_ani = animation.FuncAnimation(fig1, update_line, range(0,ncp,1), fargs=(line,cirCP,lcp,lcmcp,CP),
+
+
+#animation
+movie = rawinput('see movie?(yes/no)')
+if movie == 'yes':
+    line_ani = animation.FuncAnimation(fig1, update_line, range(0,ncp,1), fargs=(line,cirCP,lcp,lcmcp,CP),
                               interval=10, blit=False,repeat=True)
 
-#line_ani.save('3Dcoinroll.mp4',writer = 'ffmpeg',fps='24')
+    #line_ani.save('3Dcoinroll.mp4',writer = 'ffmpeg',fps='24')
 
-pyplot.show()
+    pyplot.show()
 #1up
 
 '''#draw coin roll logo
