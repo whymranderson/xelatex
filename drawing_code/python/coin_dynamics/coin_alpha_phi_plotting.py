@@ -30,21 +30,7 @@ def orthogonal_proj(zfront, zback):
 proj3d.persp_transformation = orthogonal_proj
 ###
 
-### Draw fancy arrows
 
-from matplotlib.patches import FancyArrowPatch
-
-class Arrow3D(FancyArrowPatch):
-    def __init__(self, xs, ys, zs, *args, **kwargs):
-        FancyArrowPatch.__init__(self, (0,0), (0,0), *args, **kwargs)
-        self._verts3d = xs, ys, zs
-
-    def draw(self, renderer):
-        xs3d, ys3d, zs3d = self._verts3d
-        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
-        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
-        FancyArrowPatch.draw(self, renderer)
-###
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(4*1.5, 4*1.5),dpi=100)
@@ -222,6 +208,6 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_axis_bgcolor('b')
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
-pyplot.savefig('alphaphi.png')
+#pyplot.savefig('alphaphi.png')
 pyplot.show()
 
