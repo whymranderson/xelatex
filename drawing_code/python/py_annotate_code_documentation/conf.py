@@ -132,7 +132,7 @@ latex_documents = [
     (master_doc, 'Commongeometrydrawingfunctionsin3D.tex', 'Common geometry drawing functions in 3D Documentation',
      'GS Simulation', 'manual'),
 ]
-
+latex_logo = 'alphaphi.png'
 
 # -- Options for manual page output ---------------------------------------
 

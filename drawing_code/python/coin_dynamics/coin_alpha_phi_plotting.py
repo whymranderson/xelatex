@@ -13,6 +13,9 @@ import matplotlib.animation as animation
 import matplotlib.cm as mplcm
 import matplotlib.colors as colors
 from tempfile import TemporaryFile
+import sys
+sys.path.append('../3D_geometry_annotate_program')
+from annotate_program import rotation_matrix
 
 #2down
 ### Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
@@ -44,7 +47,7 @@ class Arrow3D(FancyArrowPatch):
 ###
 
 #### The plotting of a vector-based graphics using the above points location information.
-fig2 = pyplot.figure(2,figsize=(3.5, 4),dpi=100)
+fig2 = pyplot.figure(2,figsize=(4*1.5, 4*1.5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 ax2.view_init(elev=35, azim=305)
 ax2.set_color_cycle('b')
@@ -70,6 +73,8 @@ CPprime = npzfile['CPprime']
 R = npzfile['R']
 onetheta = npzfile['onetheta']
 cirCP = npzfile['cirCP']
+C = npzfile['C']
+Cprime = npzfile['Cprime']
 
 # [line_end_vec1,line_end_vec2],[same]
 lineswidth2 = np.array([[CP[0,:]        ,CM[0,:]            ],
@@ -217,6 +222,6 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_axis_bgcolor('b')
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
+pyplot.savefig('alphaphi.png')
 pyplot.show()
-#pyplot.savefig(r'C:\Documents and Settings\user\My Documents\tony\2014\Xelatexfolder\alphaphi.pgf')
 

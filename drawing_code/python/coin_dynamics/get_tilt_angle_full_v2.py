@@ -64,7 +64,7 @@ def circle_arc(axis,start_v,end_v,num_points):
         circle_vecs[i,:] = np.dot(makecir,start_v)
     return circle_vecs
     
-xx = 5
+xx = 5 #projection of CM0 on xaxis
 R = 5.0*np.sqrt(2)
 #orien = np.array([-np.pi/8,0,0]) # beta
 ncp = 30 # number of 'new' CP, not including origin
@@ -81,7 +81,7 @@ Iz = 0.5*m*R*R + m*R*R
 
 
 # Set the orientation of z w.r.t lab_z
-leananl=np.pi/5.0
+leananl=np.pi/3.0 # this is beta
 C[0,:,:] = np.dot(rotation_matrix(np.array([1,0,0]),leananl),np.eye(3))
 Cprime = np.zeros((ncp+1,3,3))
 CM = np.zeros((ncp+1,3))                                #CM position vector array
