@@ -49,7 +49,7 @@ pB = np.array([1,3.5,7])
 pD = np.array([7,1.5,0])
 
 incenterBCD,inradiusBCD,normvecBCD, pE, pF, pN= incircle3D(pB,pC,pD)
-pAtemp = np.array([0,0,0])
+pAtemp = np.array([0,0,2])
 pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
 incenterABD_pB = np.square(np.linalg.norm(pB-pH)) / np.linalg.norm( pB - (pH+pN)/2 )
 incenterABD = pB + incenterABD_pB * ( (pH+pN)/2 - pB  ) /  np.linalg.norm( pB - (pH+pN)/2 )
