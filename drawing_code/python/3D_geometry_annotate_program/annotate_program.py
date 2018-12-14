@@ -86,11 +86,11 @@ def draw_perpendicular_sign(rot_vec,first_axis,second_axis,location_point,ax,siz
     data = data+location_point
     ldata, = ax.plot(data[:,0],data[:,1],data[:,2],'k')
 
-def rotation_matrix(axis,theta):
+def rotation_matrix(axis,theta_rad):
     '''Return the rotation_matrix that actively rotate a vector.'''
     axis = axis/np.sqrt(np.dot(axis,axis))
-    a = np.cos(theta/2)
-    b,c,d = axis*np.sin(theta/2)
+    a = np.cos(theta_rad/2)
+    b,c,d = axis*np.sin(theta_rad/2)
     return np.array([[a*a+b*b-c*c-d*d, 2*(b*c-a*d), 2*(b*d+a*c)],
                      [2*(b*c+a*d), a*a+c*c-b*b-d*d, 2*(c*d-a*b)],
                      [2*(b*d-a*c), 2*(c*d+a*b), a*a+d*d-b*b-c*c]])
@@ -361,6 +361,12 @@ def circle_full(axis,start_v,radius,num_points):
         makecir = rotation_matrix(axis,thetai)
         circle_vecs[i,:] = np.dot(makecir,start_v)
     return circle_vecs*radius
+
+def third_seg_incircled(x,y,r):
+    """Return z following the equation of Chu https://en.wikipedia.org/wiki/Incircle_and_excircles_of_a_triangle
+    Need a graph here"""
+    z = np.square(r)*(x+y)/(x*y-np.square(r))
+    return z
 
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
