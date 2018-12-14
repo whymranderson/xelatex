@@ -94,6 +94,33 @@ def rotation_matrix(axis,theta):
     return np.array([[a*a+b*b-c*c-d*d, 2*(b*c-a*d), 2*(b*d+a*c)],
                      [2*(b*c+a*d), a*a+c*c-b*b-d*d, 2*(c*d-a*b)],
                      [2*(b*d-a*c), 2*(c*d+a*b), a*a+d*d-b*b-c*c]])
+
+def rotmat_from_A_2_B(A,B):
+    '''Return the active r.h. rotation matrix constructed from rotation vector :math:`C=A\\times B`. This matrix rotates any object in the world frame using rotation vector C.'''
+    rotunit = np.cross(A, B)
+    rotunit = rotunit/np.linalg.norm(rotunit)
+    thetarot = np.arccos(np.dot(A/np.linalg.norm(A),B/np.linalg.norm(B)))
+    rotmat = CK(thetarot*rotunit)
+    return rotmat
+
+def CK(rotvec):
+    '''Cayley-Klein parameters. Important: the built rotation matrix is with its couterclockwise active sense.
+    This is basically the Rodriguez rotation formula in a matric form.
+    '''
+    amp = np.sqrt(np.dot(rotvec,rotvec))
+    if amp == 0:
+        ret = np.eye(3)
+    else:
+        axis = rotvec/amp
+        phi = amp % (2*np.pi)
+        a = np.cos(phi/2)
+        b,c,d = axis*np.sin(phi/2)
+        ret =  np.array([[a*a+b*b-c*c-d*d, 2*(b*c-a*d), 2*(b*d+a*c)],
+                     [2*(b*c+a*d), a*a+c*c-b*b-d*d, 2*(c*d-a*b)],
+                     [2*(b*d-a*c), 2*(c*d+a*b), a*a+d*d-b*b-c*c]])
+    return ret
+
+
 def circle_arc(axis,start_v,end_v,num_points):
     '''Return the data points of a circle. Axis is the center axis of the circle following right hand rules. Start_v is the vector of the starting point on the circle. End_v is the ending point on the circle. Num_points is the total number of points on the arc. More points give a smoother arc. Vectors take the form like np.array([1,0,0]).
     
@@ -237,7 +264,8 @@ def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
                              alpha=frame_alpha)
 
 def incircle3D(point1,point2,point3):
-    """Return the insubscribed circle's position, radius and norm vec from a triangle(p1,p2,p3)"""
+    """Return the insubscribed circle's position, radius and norm vec and three Ceva sidepoints 
+    p12,p23,p31 from a triangle(p1,p2,p3)"""
     dist12 = np.sqrt(np.sum(np.square(point1-point2)))
     dist23 = np.sqrt(np.sum(np.square(point2-point3)))
     dist13 = np.sqrt(np.sum(np.square(point1-point3)))
