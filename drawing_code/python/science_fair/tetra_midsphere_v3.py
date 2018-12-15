@@ -28,6 +28,7 @@ from annotate_program import rotmat_from_A_2_B
 from annotate_program import CK
 from annotate_program import circle_full
 from annotate_program import third_seg_incircled
+from annotate_program import rotation_matrix
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -55,13 +56,14 @@ pD = np.array([7,1.5,0])
 
 #step 1, determine a sphere that insuscribed BCD
 incenterBCD,inradiusBCD,normvecBCD, pE, pF, pN= incircle3D(pB,pC,pD)
-pO = incenterBCD + 1.5*inradiusBCD*normvecBCD
-sphereR = np.sqrt(np.square(1.5*inradiusBCD)+np.square(inradiusBCD))
+pO = incenterBCD + 1.2*inradiusBCD*normvecBCD
+sphereR = np.sqrt(np.square(1.2*inradiusBCD)+np.square(inradiusBCD))
 
 #step 2, establish an somewhat arbitrary second incircle, with same tangent point N
-tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
-direction = np.dot(tempM,(pN-pO))
-incenterABD = direction/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
+#tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
+tempM = rotation_matrix(pD-pN,np.radians(70))
+direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(70))
+incenterABD = pO+direction#/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
 M4pH = rotmat_from_A_2_B(pN-incenterABD,pB-incenterABD)
 pH = incenterABD + np.dot(M4pH,pB-incenterABD)/np.linalg.norm(pB-incenterABD)*np.linalg.norm(pN-incenterABD)
 M4pG = rotmat_from_A_2_B(pN-pD,incenterABD-pD)
@@ -70,6 +72,9 @@ pG = pD + np.dot(M4pG,incenterABD-pD)/np.linalg.norm(pD-incenterABD)*np.linalg.n
 x,y,r = np.linalg.norm(pB-pH),np.linalg.norm(pN-pD),np.linalg.norm(pN-incenterABD)
 z = third_seg_incircled(x,y,r)
 pA = (pH-pB)/np.linalg.norm(pH-pB)*z + pH 
+# realized AC will go through sphere. So there are restrictions here. Maybe sphereR has to be smaller than
+# both incircle radius? or the angle between two triangles has to be greater than sphereR. Or combined.
+# Should comeback and examine later
 
 #pAtemp = np.array([0,0,2])
 #pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
@@ -133,16 +138,13 @@ incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-ince
 ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
 lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
 lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
-lineGD, = ax2.plot(*zip(pG,pD),linewidth = 2,color='b')
-# realized AC will go through sphere. So there are restrictions here. Maybe sphereR has to be smaller than
-# both incircle radius? or the angle between two triangles has to be greater than sphereR. Or combined.
-# Should comeback and examine later
+lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
+ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='center')
+ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
-#ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*(pE + (pE-pJ)/10), s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='center')
-#ax2.text(*(pF + (pF-pN)/5), s = r"$F$", fontsize=12,verticalalignment='center', horizontalalignment='left')
-#ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*(pG+(pG-pE)/9), s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='center')
+
 #ax2.text(*pJ, s = r"$J$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 #ax2.text(*pK, s = r"$K$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pI, s = r"$I$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
