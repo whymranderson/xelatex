@@ -35,7 +35,7 @@ from annotate_program import draw_xyz_coordinate_unit_vectors
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=10, azim=-130)
+ax2.view_init(elev=10, azim=-125)
 ax2.set_color_cycle('b')
 
 '''
@@ -100,7 +100,7 @@ incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
 lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
 lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
-lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':')
+#lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':')
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
                             inradiusBCD,40) + incenterBCD
@@ -113,19 +113,19 @@ ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignme
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+#ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 2
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
 ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
-lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
+#lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
 lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+#ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
@@ -137,12 +137,46 @@ ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignme
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
 ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
-ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
-lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
+#ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+#lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
+#lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
-#ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
+# return all ceva points and connect their lines and plot Gergonne point
+pK = return_intersection_under_Ceva_Theorem(pA,pD,pB,pN,pH)
+pI = return_intersection_under_Ceva_Theorem(pA,pB,pC,pE,pM)
+pL = return_intersection_under_Ceva_Theorem(pA,pD,pC,pF,pM)
+pJ = return_intersection_under_Ceva_Theorem(pB,pD,pC,pF,pE)
+pGP = return_intersection_under_Ceva_Theorem(pB,pA,pF,pL,pJ)
+
+ax2.text(*pK, s = r'$K$',   fontsize=10,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pI, s = r'$I$',   fontsize=10,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pL, s = r'$L$',   fontsize=10,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pJ, s = r'$J$',   fontsize=10,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pGP, s = r'$GP$', fontsize=10,verticalalignment='top', horizontalalignment='right')
+
+ax2.scatter3D(*zip(pE,pF,pG,pH,pN,pM),c = ['blue'])
+ax2.scatter3D(*zip(pO),c = ['red'])
+ax2.scatter3D(*zip(pK,pI,pL,pJ),c = ['green'])
+ax2.scatter3D(*zip(pGP),c = ['green'],s = [18])
+
+lineAN, = ax2.plot(*zip(pA,pN),linewidth = 1,color='g')
+lineGB, = ax2.plot(*zip(pG,pB),linewidth = 1,color='g')
+lineDH, = ax2.plot(*zip(pD,pH),linewidth = 1,color='g')
+lineAE, = ax2.plot(*zip(pA,pE),linewidth = 1,color='g')
+lineMB, = ax2.plot(*zip(pM,pB),linewidth = 1,color='g')
+lineCH, = ax2.plot(*zip(pC,pH),linewidth = 1,color='g')
+lineCN, = ax2.plot(*zip(pC,pN),linewidth = 1,color='g')
+lineFB, = ax2.plot(*zip(pF,pB),linewidth = 1,color='g')
+lineDE, = ax2.plot(*zip(pD,pE),linewidth = 1,color='g')
+lineAF, = ax2.plot(*zip(pA,pF),linewidth = 1,color='g')
+lineCG, = ax2.plot(*zip(pC,pG),linewidth = 1,color='g')
+lineDM, = ax2.plot(*zip(pD,pM),linewidth = 1,color='g')
+
+lineAJ, = ax2.plot(*zip(pA,pJ),linewidth = 1,color='y')
+lineBL, = ax2.plot(*zip(pB,pL),linewidth = 1,color='y')
+lineCK, = ax2.plot(*zip(pC,pK),linewidth = 1,color='y')
+lineDI, = ax2.plot(*zip(pD,pI),linewidth = 1,color='y')
 
 # Add transparent faces
 #vt1 = [pA,pB,pD]
@@ -164,7 +198,7 @@ max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() 
 
 mid_x = (X.max()+X.min()) * 0.5
 mid_y = (Y.max()+Y.min()) * 0.5 + 0.6
-mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.8
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
