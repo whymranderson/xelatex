@@ -88,48 +88,13 @@ aa = np.linalg.norm(pE-pH)/2
 r_cirHE = bb/np.sqrt(np.square(bb/aa)-1)
 centerHE = n_cHE_pH * r_cirHE + pH 
 
-#find point G
+#find point M
 pM = return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pC,pB,pE,pH)
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
-
-#pAtemp = np.array([0,0,2])
-#pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
-#incenterABD_pB = np.square(np.linalg.norm(pB-pH)) / np.linalg.norm( pB - (pH+pN)/2 )
-#incenterABD = pB + incenterABD_pB * ( (pH+pN)/2 - pB  ) /  np.linalg.norm( pB - (pH+pN)/2 )
-#midGN_D = np.square(np.linalg.norm(pD-pN)) / np.linalg.norm(incenterABD-pD)
-#midGN = pD + midGN_D * (incenterABD-pD)/ np.linalg.norm(incenterABD-pD)
-#pG = 2 * midGN - pN
-#L_HA  = np.linalg.norm(pH-incenterABD) * np.linalg.norm(pH-pG)/2 / np.linalg.norm(incenterABD-(pH+pG)/2)
-#pA = pH + L_HA * (pH-pB)/np.linalg.norm(pH-pB)
-#pM = return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pC,pB,pE,pH)
-
 
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 #lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
-
-
-
-
-#Plot four insuscribed circles
-#incircleABD = circle_full(np.cross(pB-pN,pB-pH)/np.linalg.norm((np.cross(pB-pN,pB-pH))),
-#                          (-incenterABD+pB),
-#                            np.linalg.norm(pH-incenterABD),40) + incenterABD
-#ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
-#
-#incenterBCA,inradiusBCA,normvecBCA, _,_,_,= incircle3D(pB,pC,pA)
-#incircleBCA = circle_full(normvecBCA,
-#                          (-incenterBCA+pB),
-#                            inradiusBCA,40) + incenterBCA
-#ax2.plot(*np.transpose(incircleBCA),linewidth=1,linestyle=':')
-#incenterDCA,inradiusDCA,normvecDCA, _,_,_,= incircle3D(pD,pC,pA)
-#incircleDCA = circle_full(normvecDCA,
-#                          (-incenterDCA+pD),
-#                            inradiusDCA,40) + incenterDCA
-#ax2.plot(*np.transpose(incircleDCA),linewidth=1,linestyle=':')
-
-#Plot the midsphere
-#cx,cy,cz, radius = four_points_circle(pE,pF,pN,pH)
 
 # graph step one
 lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
@@ -143,12 +108,12 @@ ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 2
@@ -157,11 +122,10 @@ ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
 lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
 lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
-ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='center')
+ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-
 
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
@@ -169,13 +133,14 @@ ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='r')
 lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
-ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
 ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
-#ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*pL, s = r"$L$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-#ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
+lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
@@ -184,14 +149,9 @@ ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
 #tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
 #tr1.set_facecolor('r')
 #ax2.add_collection3d(tr1)
-#
-#vt2 = [pD,pB,pC]
-#tr2 = p3.art3d.Poly3DCollection([vt2],color = 'y', alpha=0.3)
-#tr2.set_facecolor('y')
-#ax2.add_collection3d(tr2)
 
 #draw coordinate
-draw_xyz_coordinate_unit_vectors(ax2)
+#draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
