@@ -62,6 +62,7 @@ sphereR = np.sqrt(np.square(1.2*inradiusBCD)+np.square(inradiusBCD))
 
 #step 2, establish an somewhat arbitrary second incircle, with same tangent point N
 #tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
+#from incenterABD find pH and pG
 tempM = rotation_matrix(pD-pN,np.radians(70))
 direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(70))
 incenterABD = pO+direction#/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
@@ -75,7 +76,16 @@ z = third_seg_incircled(x,y,r)
 pA = (pH-pB)/np.linalg.norm(pH-pB)*z + pH 
 # realized AC will go through sphere. So there are restrictions here. Maybe sphereR has to be smaller than
 # both incircle radius? or the angle between two triangles has to be greater than sphereR. Or combined.
-# Should comeback and examine later
+# Should comeback and examine later. Restiction is four triangles formed by tangent points obtuse.
+
+#from pE pH find inplane tangent circle
+M90 = rotation_matrix(np.cross(pB-pC,pB-pA),np.pi/2)
+cHE_pH = np.dot(M90,pB-pH)
+n_cHE_pH = cHE_pH/np.linalg.norm(cHE_pH)
+bb = np.linalg.norm(pB-pH)
+aa = np.linalg.norm(pE-pH)/2
+r_cirHE = bb/np.sqrt(np.square(bb/aa)-1)
+centerHE = n_cHE_pH * r_cirHE + pH 
 
 #pAtemp = np.array([0,0,2])
 #pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
@@ -131,6 +141,8 @@ ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalig
 ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
@@ -146,8 +158,10 @@ ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignme
 ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 
-#ax2.text(*pJ, s = r"$J$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-#ax2.text(*pK, s = r"$K$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+# graph step 3
+circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
+ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='r')
+lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 #ax2.text(*pI, s = r"$I$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pL, s = r"$L$", fontsize=12,verticalalignment='top', horizontalalignment='right')
