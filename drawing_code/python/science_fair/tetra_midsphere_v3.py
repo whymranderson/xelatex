@@ -35,7 +35,7 @@ from annotate_program import draw_xyz_coordinate_unit_vectors
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=20, azim=7)
+ax2.view_init(elev=10, azim=-130)
 ax2.set_color_cycle('b')
 
 '''
@@ -63,8 +63,9 @@ sphereR = np.sqrt(np.square(1.2*inradiusBCD)+np.square(inradiusBCD))
 #step 2, establish an somewhat arbitrary second incircle, with same tangent point N
 #tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
 #from incenterABD find pH and pG
-tempM = rotation_matrix(pD-pN,np.radians(70))
-direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(70))
+angle = 69
+tempM = rotation_matrix(pD-pN,np.radians(angle))
+direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(angle))
 incenterABD = pO+direction#/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
 M4pH = rotmat_from_A_2_B(pN-incenterABD,pB-incenterABD)
 pH = incenterABD + np.dot(M4pH,pB-incenterABD)/np.linalg.norm(pB-incenterABD)*np.linalg.norm(pN-incenterABD)
@@ -86,6 +87,9 @@ bb = np.linalg.norm(pB-pH)
 aa = np.linalg.norm(pE-pH)/2
 r_cirHE = bb/np.sqrt(np.square(bb/aa)-1)
 centerHE = n_cHE_pH * r_cirHE + pH 
+
+#find point G
+pM = return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pC,pB,pE,pH)
 
 #pAtemp = np.array([0,0,2])
 #pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
@@ -162,7 +166,9 @@ ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', ho
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
 ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='r')
 lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
-#ax2.text(*pI, s = r"$I$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+
+# graph step 4
+ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pL, s = r"$L$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
@@ -194,7 +200,7 @@ max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() 
 
 mid_x = (X.max()+X.min()) * 0.5
 mid_y = (Y.max()+Y.min()) * 0.5 + 0.6
-mid_z = (Z.max()+Z.min()) * 0.5 - 0.4
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
