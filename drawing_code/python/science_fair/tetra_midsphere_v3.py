@@ -28,6 +28,7 @@ from annotate_program import rotmat_from_A_2_B
 from annotate_program import CK
 from annotate_program import circle_full
 from annotate_program import third_seg_incircled
+from annotate_program import rotation_matrix
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -62,28 +63,19 @@ sphereR = np.sqrt(np.square(1.5*inradiusBCD)+np.square(inradiusBCD))
 #tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
 #direction = np.dot(tempM,(pN-pO))
 #incenterABD = direction/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
-tempM = rotation_matrix(pD-pN,np.radians(70))
-direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(70))
+alpha = 80
+tempM = rotation_matrix(pD-pN,np.radians(alpha))
+direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(alpha))
 incenterABD = pO+direction#/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
+#r_ABD = np.linalg.norm(incenterABD-pN)
 M4pH = rotmat_from_A_2_B(pN-incenterABD,pB-incenterABD)
 pH = incenterABD + np.dot(M4pH,pB-incenterABD)/np.linalg.norm(pB-incenterABD)*np.linalg.norm(pN-incenterABD)
 M4pG = rotmat_from_A_2_B(pN-pD,incenterABD-pD)
 pG = pD + np.dot(M4pG,incenterABD-pD)/np.linalg.norm(pD-incenterABD)*np.linalg.norm(pN-pD)
-##calculate third seg using x,y,z,r relation on wiki (Chu's resulte)
+###calculate third seg using x,y,z,r relation on wiki (Chu's resulte)
 x,y,r = np.linalg.norm(pB-pH),np.linalg.norm(pN-pD),np.linalg.norm(pN-incenterABD)
 z = third_seg_incircled(x,y,r)
 pA = (pH-pB)/np.linalg.norm(pH-pB)*z + pH 
-
-#pAtemp = np.array([0,0,2])
-#pH = pB + np.linalg.norm(pB-pN) * (pAtemp-pB)/np.linalg.norm(pAtemp-pB)
-#incenterABD_pB = np.square(np.linalg.norm(pB-pH)) / np.linalg.norm( pB - (pH+pN)/2 )
-#incenterABD = pB + incenterABD_pB * ( (pH+pN)/2 - pB  ) /  np.linalg.norm( pB - (pH+pN)/2 )
-#midGN_D = np.square(np.linalg.norm(pD-pN)) / np.linalg.norm(incenterABD-pD)
-#midGN = pD + midGN_D * (incenterABD-pD)/ np.linalg.norm(incenterABD-pD)
-#pG = 2 * midGN - pN
-#L_HA  = np.linalg.norm(pH-incenterABD) * np.linalg.norm(pH-pG)/2 / np.linalg.norm(incenterABD-(pH+pG)/2)
-#pA = pH + L_HA * (pH-pB)/np.linalg.norm(pH-pB)
-#pM = return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pC,pB,pE,pH)
 
 
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
@@ -135,38 +127,19 @@ ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignme
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
 ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
 lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
-lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
+lineHB, = ax2.plot(*zip(pH,pB),linewidth = 2,color='b')
 lineGD, = ax2.plot(*zip(pG,pD),linewidth = 2,color='b')
+lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
+lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
+lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 # realized AC will go through sphere. So there are restrictions here. Maybe sphereR has to be smaller than
 # both incircle radius? or the angle between two triangles has to be greater than sphereR. Or combined.
 # Should comeback and examine later
 
 #ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*(pE + (pE-pJ)/10), s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='center')
-#ax2.text(*(pF + (pF-pN)/5), s = r"$F$", fontsize=12,verticalalignment='center', horizontalalignment='left')
-#ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*(pG+(pG-pE)/9), s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='center')
-#ax2.text(*pJ, s = r"$J$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-#ax2.text(*pK, s = r"$K$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-#ax2.text(*pI, s = r"$I$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*pL, s = r"$L$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-#ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 
-#ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
-
-# Add transparent faces
-#vt1 = [pA,pB,pD]
-#tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
-#tr1.set_facecolor('r')
-#ax2.add_collection3d(tr1)
-#
-#vt2 = [pD,pB,pC]
-#tr2 = p3.art3d.Poly3DCollection([vt2],color = 'y', alpha=0.3)
-#tr2.set_facecolor('y')
-#ax2.add_collection3d(tr2)
-
-Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
+Xt,Yt,Zt = zip(pO,pB,pC,pD,pO-pN+pO,pA)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
