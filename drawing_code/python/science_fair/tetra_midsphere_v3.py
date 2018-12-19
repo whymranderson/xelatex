@@ -59,9 +59,12 @@ pO = incenterBCD + 1.5*inradiusBCD*normvecBCD
 sphereR = np.sqrt(np.square(1.5*inradiusBCD)+np.square(inradiusBCD))
 
 #step 2, establish an somewhat arbitrary second incircle, with same tangent point N
-tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
-direction = np.dot(tempM,(pN-pO))
-incenterABD = direction/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
+#tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
+#direction = np.dot(tempM,(pN-pO))
+#incenterABD = direction/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
+tempM = rotation_matrix(pD-pN,np.radians(70))
+direction = np.dot(tempM,(pN-pO))*np.cos(np.radians(70))
+incenterABD = pO+direction#/np.linalg.norm(direction)*np.linalg.norm(incenterBCD-pO)+ pO
 M4pH = rotmat_from_A_2_B(pN-incenterABD,pB-incenterABD)
 pH = incenterABD + np.dot(M4pH,pB-incenterABD)/np.linalg.norm(pB-incenterABD)*np.linalg.norm(pN-incenterABD)
 M4pG = rotmat_from_A_2_B(pN-pD,incenterABD-pD)
