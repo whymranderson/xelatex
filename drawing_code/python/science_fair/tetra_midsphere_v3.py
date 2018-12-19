@@ -56,8 +56,8 @@ pD = np.array([7,1.5,0])
 
 #step 1, determine a sphere that insuscribed BCD
 incenterBCD,inradiusBCD,normvecBCD, pE, pF, pN= incircle3D(pB,pC,pD)
-pO = incenterBCD + 1.5*inradiusBCD*normvecBCD
-sphereR = np.sqrt(np.square(1.5*inradiusBCD)+np.square(inradiusBCD))
+pO = incenterBCD + 2*inradiusBCD*normvecBCD
+sphereR = np.sqrt(np.square(2*inradiusBCD)+np.square(inradiusBCD))
 
 #step 2, establish an somewhat arbitrary second incircle, with same tangent point N
 #tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
@@ -136,10 +136,18 @@ lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 # both incircle radius? or the angle between two triangles has to be greater than sphereR. Or combined.
 # Should comeback and examine later
 
-#ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*(pE + (pE-pJ)/10), s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='center')
+ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pH, s = r'$H$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pG, s = r'$G$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 
-Xt,Yt,Zt = zip(pO,pB,pC,pD,pO-pN+pO,pA)
+ax2.scatter3D(*zip(pO,incenterABD,incenterBCD),c=['b'])
+
+# graph HNG
+lineHN, = ax2.plot(*zip(pH,pN),linewidth = 1,color='r')
+lineGN, = ax2.plot(*zip(pG,pN),linewidth = 1,color='r')
+lineHG, = ax2.plot(*zip(pH,pG),linewidth = 1,color='r')
+
+Xt,Yt,Zt = zip(pO,pB,pC,pD,pO-pN+pO)#,pA)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
