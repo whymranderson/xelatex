@@ -38,19 +38,6 @@ ax2 = p3.Axes3D(fig2)
 ax2.view_init(elev=10, azim=-130)
 ax2.set_color_cycle('b')
 
-'''
-linex, = ax2.plot([0,6],[0,0],[0,0])
-linex.set_linewidth(1)
-linex.set_color('k')
-liney, = ax2.plot([0,0],[0,6],[0,0])
-liney.set_linewidth(1)
-liney.set_color('k')
-linez, = ax2.plot([0,0],[0,0],[0,3])
-linez.set_linewidth(1)
-linez.set_color('k')
-ax2.text(0,0,6, r'$z_s$', fontsize=18,verticalalignment='bottom', horizontalalignment='left')
-'''
-
 pC = np.array([0,6,0])
 pB = np.array([1,3.5,7])
 pD = np.array([7,1.5,0])
@@ -61,7 +48,6 @@ pO = incenterBCD + 1.2*inradiusBCD*normvecBCD
 sphereR = np.sqrt(np.square(1.2*inradiusBCD)+np.square(inradiusBCD))
 
 #step 2, establish an somewhat arbitrary second incircle, with same tangent point N
-#tempM = rotmat_from_A_2_B(incenterBCD-pO,pN-pO)
 #from incenterABD find pH and pG
 angle = 69
 tempM = rotation_matrix(pD-pN,np.radians(angle))
@@ -97,9 +83,9 @@ incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 
 # graph step one
-lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
-lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
-lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
+#lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
+#lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
+#lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':')
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
@@ -107,9 +93,9 @@ incircleBCD = circle_full(normvecBCD,
 ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
-ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+#ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
@@ -120,9 +106,9 @@ ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignme
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
 ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
 lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
-lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
-lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
-ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
+#lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
+#lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
+#ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
@@ -130,25 +116,19 @@ ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', ho
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
 ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='r')
-lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
+#lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
 ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
-ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
+ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
 ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
-
-# Add transparent faces
-#vt1 = [pA,pB,pD]
-#tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
-#tr1.set_facecolor('r')
-#ax2.add_collection3d(tr1)
 
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
