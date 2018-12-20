@@ -20,6 +20,7 @@ from annotate_program import circle_full
 from annotate_program import four_points_circle
 from annotate_program import return_orthocenter
 from annotate_program import return_9point_circle_center
+from annotate_program import draw_xyz_coordinate_unit_vectors
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -134,17 +135,19 @@ ax2.scatter3D(*zip((pB+pC)/2,(pC+pD)/2,(pD+pB)/2,(pB+pA)/2,(pA+pD)/2))
 #tr2.set_facecolor('y')
 #ax2.add_collection3d(tr2)
 
+#draw_xyz_coordinate_unit_vectors(ax2)
+
 Xt,Yt,Zt = zip(pA,pB,pC,pD)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 3.9
 
 
 mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5
-mid_z = (Z.max()+Z.min()) * 0.5 - 0.4
+mid_y = (Y.max()+Y.min()) * 0.5 +0.8 # minus to move window in -y direction w/o moving object
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.8 # minus move window doward, correct
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
@@ -157,7 +160,7 @@ ax2.w_xaxis.line.set_visible(False) #turn off axis visibility
 ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
 ax2.w_zaxis.line.set_color([0,0,0,0])
 ax2.set_axis_off()  #-> this can turn off the background curtain
-pyplot.savefig('./pgf_files/collinear_orthocenters.pgf')
+#pyplot.savefig('./pgf_files/collinear_orthocenters.pgf')
 
 pyplot.show()
 
