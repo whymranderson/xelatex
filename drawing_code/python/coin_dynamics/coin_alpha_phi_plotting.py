@@ -16,6 +16,7 @@ from tempfile import TemporaryFile
 import sys
 sys.path.append('../3D_geometry_annotate_program')
 from annotate_program import rotation_matrix
+from annotate_program import Arrow3D
 
 #2down
 ### Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
@@ -35,7 +36,7 @@ proj3d.persp_transformation = orthogonal_proj
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(4*1.5, 4*1.5),dpi=100)
 ax2 = p3.Axes3D(fig2)
-ax2.view_init(elev=35, azim=305)
+ax2.view_init(elev=40, azim=300)
 ax2.set_color_cycle('b')
 
 linex, = ax2.plot([0,5],[0,0],[0,0])
@@ -64,7 +65,7 @@ Cprime = npzfile['Cprime']
 
 # [line_end_vec1,line_end_vec2],[same]
 lineswidth2 = np.array([[CP[0,:]        ,CM[0,:]            ],
-                        [CPprime[0,:]        ,CM[0,:]            ],
+                        [CPprime[0,:]   ,CM[0,:]            ],
                         [CM[0,:]        ,[R*np.tan(np.radians(onetheta)),0,0]],
                         [cirCP[1,:,0]   ,[0,0,0]            ],
                         [CPprime[0,:]        ,[0,0,0]            ],
@@ -77,7 +78,9 @@ for k in range(mm):
 
 # plot dash lines
 dashlines = np.array([[CM[0,:],[CM[0,0],CM[0,1],0]],
-                      [CPprime[0,:],[CM[0,0],CM[0,1],0]]])
+                      [CPprime[0,:],[0,CPprime[0,1],0]],
+                      [CPprime[0,:],[CPprime[0,0],0,0]]]
+                      )
 (mmd,nnd,ppd)=np.shape(dashlines)
 for kd in range(mmd):
     tempkd,=ax2.plot(*np.transpose(dashlines[kd,:,:]),linestyle='--')
