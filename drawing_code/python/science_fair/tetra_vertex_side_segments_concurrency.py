@@ -11,7 +11,7 @@ import sys
 sys.path.append('../3D_geometry_annotate_program')
 from annotate_program import return_third_point_on_a_triagle_under_Ceva_Theorem
 from annotate_program import return_intersection_under_Ceva_Theorem
-
+from annotate_program import draw_xyz_coordinate_unit_vectors
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
@@ -88,16 +88,19 @@ ax2.text(*pL, s = r"$L$", fontsize=12,verticalalignment='top', horizontalalignme
 
 ax2.scatter3D(*zip(pJ,pK,pL,pI,pO))
 
+#draw coordinate
+#draw_xyz_coordinate_unit_vectors(ax2)
+
 Xt,Yt,Zt = zip(pA,pB,pC,pD)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6 -0.5
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.6
 
 
 mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5 - 1
+mid_y = (Y.max()+Y.min()) * 0.5 - 1.4
 mid_z = (Z.max()+Z.min()) * 0.5
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
@@ -232,7 +235,7 @@ ax2.w_xaxis.line.set_visible(False) #turn off axis visibility
 ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
 ax2.w_zaxis.line.set_color([0,0,0,0])
 ax2.set_axis_off()  #-> this can turn off the background curtain
-pyplot.savefig('./pgf_files/tetra_vertex_side_segments_concurrency.pgf')
+#pyplot.savefig('./pgf_files/tetra_vertex_side_segments_concurrency.pgf')
 pyplot.show()
 
 
