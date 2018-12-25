@@ -12,14 +12,7 @@
             \textbf{未完成方向}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
-            	\item upcoming post繼續否？
-            	\begin{itemize}
-			\item 為何有點不想弄？(2017下半年流年不利，心情差無心，連GO match都不想看。)
-            		\item 能有個網頁可以follow喜歡隊伍的賽程，是還不錯，但當然不是必須的。主要是想看的時候，可以馬上有個網頁可以馬上看到想看的結果，不用在上去Liquipedia或HLTV然後要點老半天找老半天，才找的到喜歡的隊伍的賽程。Gosugamer.com現在有了。
-	            	\item 知道原因了，這個東西應該是要在源頭就處理好。也就是在steam端就應該統一管理好，也就是這樣的公布管理系統應該要讓steam來做整合。steam端建立tournament-schedule-team這樣的model後，建立一個網頁讓賽事單位在確認賽程後就直接進入網頁上去做賽事與賽程的輸入與公佈。然後提供API讓大家使用。不過也是正是因為他們沒有弄，我才會想要試試看做出一個測試網頁看看。我覺得應該不錯？或許可以推薦Steam？不過這樣代表要管理team以及tournament兩個新的系統。這會是個很大的系統。不知道steam願不願意去管理這樣大的系統，是個蠻大的投資？
-            	\end{itemize}
-            	\item GO model是否要更新成更正確的model？(如果想用上足球聯賽)。試試一點點慢來，不急，一直想若是快點完成能應用上足聯該有多好，這樣反而覺得一直沒有去弄很煩，覺得問題很大。各個擊破。另外一直想著問題大，反而遲遲不肯動手，慢慢累積。除非足聯有動作，不然不continue了。2018Jan:進一步整理後發現其實兩個models非常接近，需要做進一步的比較才會知道孰優孰劣。
-            	\item GO心得撰寫，整理加TOC。(短多)
+            	\item 3rd normalization written down, try implemanting? and how to compare?
            \end{enumerate}
             };
 
@@ -30,22 +23,23 @@
             \textbf{資料庫賽程管理特色}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
-            	\item 可選擇自動輸入或手動輸入
+            	\item 能有個網頁可以馬上看到想看的結果，不用在上去Liquipedia或HLTV然後要點老半天找老半天，才找的到喜歡的隊伍的賽程。
+            	\item 可選擇模組輸入或腳本輸入
             	\begin{enumerate}
-            		\item 手動輸入使用tts\_creation\_template.py檔。此步驟在隊伍的資料庫選擇上並沒有用上賽事單位的隊伍簡寫判斷，而是按照一排好的隊伍list，來做賽程輸入，若資料庫找不到隊伍，代表list中的隊伍名稱找不到對應的資料庫資料。這個狀況時，程式會允許使用者手動輸入正確的隊伍名稱。因此此方法適合比賽不多的賽事，不需要去跑格式判斷程式。編輯隊伍list的方法如下，從官網右鍵複製包含隊伍名稱及比賽時間的賽程表，貼上vim，用vim的快速組合鍵刪除所有不需要的東西，讓每一行剩下一個隊伍名稱，並且相連的兩個隊伍就是對戰的兩個隊伍。然後用我們note中整理的vim快速組合鍵將每個名稱加上"及",讓他變成一個python string list。編輯好後複製後就可以貼進tts\_creation\_template.py檔中。見我網站的db note page。
-            		\item 自動輸入，網頁上複製包含該網頁所有隊伍及對戰時間的表格後，貼上一py檔，去跑test parsing.py，會自動分析格式取出隊伍名稱及對戰時間的程式。這對大型賽事較方便。如ESL pro League的巡迴賽，賽事有很多很多，就不適合手動輸入。目前在test\_scraping資料夾。
+            		\item 腳本輸入使用tts\_creation\_template.py檔。此步驟在隊伍的資料庫選擇上並沒有用上賽事單位的隊伍簡寫判斷，而是按照一排好的隊伍list，來做賽程輸入，若資料庫找不到隊伍，代表list中的隊伍名稱找不到對應的資料庫資料。這個狀況時，程式會允許使用者手動輸入正確的隊伍名稱。因此此方法適合比賽不多的賽事，不需要去跑格式判斷程式。編輯隊伍list的方法如下，從官網右鍵複製包含隊伍名稱及比賽時間的賽程表，貼上vim，用vim的快速組合鍵刪除所有不需要的東西，讓每一行剩下一個隊伍名稱，並且相連的兩個隊伍就是對戰的兩個隊伍。然後用我們note中整理的vim快速組合鍵將每個名稱加上"及",讓他變成一個python string list。編輯好後複製後就可以貼進tts\_creation\_template.py檔中。見我網站的db note page。
+            		\item 模組輸入，網頁上複製包含該網頁所有隊伍及對戰時間的表格後，貼上一py檔，去跑test parsing.py，會自動分析格式取出隊伍名稱及對戰時間的程式。這對大型賽事較方便。如ESL pro League的巡迴賽，賽事有很多很多，就不適合手動輸入。目前在test\_scraping資料夾。
             	\end{enumerate}
            \end{enumerate}
             };
 
 
-\end{scope}
-\end{tikzpicture}
-
-%second page
-\begin{tikzpicture}
-\begin{scope}[node distance=5mm and 5mm]
-\node [ wideitem=2](unique_editing) at (1,1) {%
+%\end{scope}
+%\end{tikzpicture}
+%
+%%second page
+%\begin{tikzpicture}
+%\begin{scope}[node distance=5mm and 5mm]
+\node [ wideitem=2, below =of unique_db](unique_editing) {%
             \textbf{網頁編輯特色}
             \nodepart[text width = 16.5cm]{two}
             \begin{enumerate}
