@@ -1,16 +1,16 @@
 #(set-default-paper-size "a4")
 
 \paper {
-  two-sided = ##t
+  two-sided = ##f
   inner-margin = 0.5\in
   outer-margin = 0.5\in
-  binding-offset = 0.25\in
+  #binding-offset = 0.25\in
 }
 
 \header{
-  title = "Oak"
-  subtitle = "accompanyin"
-  composer = "Jay"
+  title = "Maple"
+  subtitle = "accompanyin paino"
+  composer = "Jay Chou"
   arranger = "Drillbits"
 }
 
@@ -65,8 +65,34 @@ c8 a16 c16 (c8) a16 c16 (c8) a16 c16 (c8) e8
 d1
 
 \key des \major
-aes8. des8 des aes des ees
-f8. ees8 bes (bes4.) ees8
+aes4. des8 des aes des ees
+f4. ees16 bes (bes4.) ees8
+ees8 des16 des16~ des8 c16 c16~c4. ees8
+ees8 des des ees des4 c4
+des4. aes'16 aes16~aes8 ges16 f8. ges8 
+aes4. ges16 des~ des4. ees16 f16
+ges8 f16 f ~f8 ees16 ees16~ ees4. ees16 f 
+ges8 f16 f ~f16 ees8. ees8 des16 ees16~ees des8.
+
+\repeat volta 2 {
+r8 aes des c des ees f des
+ees aes4 aes8~aes ees8 des c
+des des des c des ees f ges~
+ges f~f4. f8 f aes
+aes bes4 des, c8 c bes' |
+}
+
+\alternative {
+{bes aes aes ges16 ges16~ges16 f8. r8 ges16 aes
+aes8 ges ges f16 f16~f16 ees8. r8 ees16 f
+aes8 ges16 ges16~ges16 f8. f8 ees16 ees16~ees16 des8. |}
+{bes'8 aes aes f16 c'16~c16 d8.~des4 |}
+}
+
+r2. r8 ges,16 aes
+aes8 ges ges f16 f16~f16 ees8. r8 ees16 f
+aes8 ges16 ges16~ges16 f8. ees8 des ees8. des16	~
+des1
 }
 
 text = \lyricmode {
@@ -132,7 +158,7 @@ c d g8 c16  d g8 (g2)
 <c f> a <c f> a <c f> a c16 d e g
 <e g>8 b <e g>8 b <e a> c <e a> c
 <f, c'>4. <f c'>8 (<f c' >2)
-<c' d g>2 <b d g>8 <g' c>8 <g d>8 <g e>8
+<c' d g>2 <b d g>8 <g' c>8 <g d'>8 <g e'>8
 
 \key des \major
 <aes des>8 f <aes des>8 f <aes des>8 f <aes des>8 f
@@ -145,7 +171,21 @@ c d g8 c16  d g8 (g2)
 <ges bes> ees <ges bes> ees <aes c> ees <aes c> ees
 
 <des f> aes <des f> aes <des f> aes <des f> aes
-<ees' aes> aes, <ees aes> aes, <ees aes> aes, <a c>4 #fix
+<ees' aes> aes, <ees' aes> aes, <ees' aes> aes, <a' c> ees
+<bes' des> f <bes des> f <bes des> f <bes des> f
+
+<aes c> f <aes c> f <aes c> f <aes c> f
+<ges bes> des <ges bes> des <aes' c> ees <aes c> ees
+<f aes> c <f aes> c <f ges bes> des <f bes> des
+<ees ges> bes <ees ges> bes <ees ges> bes <ees ges> bes
+<ees aes> c <ees aes> c <ees ges aes> c <ees ges aes> c
+
+<aes' c> f <aes c> f <g bes des>16 f bes des f bes des f
+bes4 <f des' f> ees,, f4
+<bes, ges'> <bes ges'> <bes ges'> <bes ges'> 
+<des aes'> des c2
+des4 des des des 
+des1
 }
 
 lower = \relative c {
@@ -223,17 +263,15 @@ c2. a'4
 bes1
 f2.~f8  des,16 ees
 f2.~f8  ees'16 ges
-\repeat volta 2 {
 f2 bes,
 ees1
 aes,1
-}
-\alternative {
-f'2 g2
-}
-
-
-
+f'2 g2~
+g1
+ees'1
+<aes, aes'>4 aes' <aes, ges'>2
+<des, des'>8 f' aes f aes f aes f
+des,,1
 }
 
 violin = \relative c{
