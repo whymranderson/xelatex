@@ -157,6 +157,7 @@ c,4 <b g'> a r4
 <e' g b>2 <f a>8 <c d>8 g'16 a c8 
 <g, d' g c>2 <g' b>2
 
+
 c1
 b1
 a1
@@ -166,34 +167,34 @@ e2 <a c>
 <d,, d'>4.  <d d'>8~<d d'>2 
 g'2 g2
 
-c,4 e'' g, c,
-b, b'' g d8 e8
-a,1
-<g g'>2 c'8 g <e d'>4
-<c f a>4 c'8 g c4 <c, f a>4
-<e g b>2 <a, a'>
-<f d' f>4 r8 <f d' f>8 <f d' f>2 
-<g d'>4 (<g d'>8) g'8 <g, d'>4 <g d'>4
+c,1
+b
+a1
+g2. <e' d'>4
+f,1
+e2 a2
+<d, d'>4.  <d d'>8~<d d'>2 
+<g g'>4. d'8 <g, d'>2
 
-c,2 c2
-b   b
-a   a
-g   g
-f   f
-e   e
-d   d
-g   g
+c,4.~c16 c16 c4 r8 g16 a
+b4. ~b16 b   b4    gis
+a4. ~a16 e   a4.   c16 d
+e4. ~e16 b   e4.   d16 e
+f2           f4.   d16 f
+e4. ~e16 e16 a,2
+d,4. ~d16 d16 d4.  ~d16 d16
+g4. ~g16 g16 g4    g4
 
-c'2 c2
-b   b
-a   a
-g   g
-f   f
-e   e
-d   d
-f   gis4 gis
+c1
+b2           gis
+a4. ~a16 a16 a4.   c16 d
+e4. ~e16 e16 e4.   d16 e
+f4. ~f16 f16 f4.   d16 f
+e4. ~e16 e16 a,2
+d,4. ~d16 d16 d2
+g2 gis
 
-<a e'>1
+<a' e'>1
 <f c'>
 <a' e'>
 <f, c'>
@@ -201,12 +202,48 @@ f   gis4 gis
 c'1
 b1
 a1
-g2 c4 <e, d'>4
-<c f a>4 c' c <c, f a>4
-<e g b>2 <a, b'>
-<d, d'>1
-<g g'>2 <g g'>2 
+g2 g2
+f1
+e2 a2
+<d, d'>4.  <d d'>8~ <d d'>2
+<g g'>2 <g g'>2
 
+\key des \major
+des'1
+ges1
+aes1
+ees2 aes
+des1
+ges,1
+aes
+ees2 aes
+
+des,,2.~des8 aes16 bes 
+c2. a'4
+bes1
+f2.~f8  des,16 ees
+f2.~f8  ees'16 ges
+\repeat volta 2 {
+f2 bes,
+ees1
+aes,1
+}
+\alternative {
+f'2 g2
+}
+
+
+
+}
+
+violin = \relative c{
+c e'' g, c,
+b, b'' g d8 e8
+<g g'>2 c'8 g <e d'>4
+<c f a>4 c'8 g c4 <c, f a>4
+<e g b>2 <a, a'>
+<f d' f>4 r8 <f d' f>8 <f d' f>2 
+<g d'>4 (<g d'>8) g'8 <g, d'>4 <g d'>4
 }
 
 \score {
