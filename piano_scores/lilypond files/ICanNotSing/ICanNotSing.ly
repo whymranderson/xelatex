@@ -70,7 +70,20 @@ a1
 <g c e>4 <g c e>4 <g c e>4 <b d g>4
 <a c e>4 <a c e>4 <a c e>8 d <a c e>8 c
 <g b d>4 <g b d>4 <b d g>2
+<a c e>4 <a c e>4 <fis a c>4 <fis a c>4
+<g b d>8 <f, g d'>8 g'16 d' g c b2
+<g, c e>4 <g c e>4 <g c e>4 <g b d>4
+<a c e>4 <a c e>4 <a c e>4 <g b d>4
+<f a c>4 <f a c>4 <f a d>4 <f a d>4
+<g c e>4 <g c e>4 <g c e>4 <g b d>4
+<a c e>4 <a c e>4 <a c e>4 <a c e>4
+<fis a c>1
+<d f a>4 <d f a>4 <e g b>4 <e g b>4
+<f a c>4 <f a c>4 <g b d>2
 
+r2 r8 c'8 d e
+g16 f8 c8 r16 e,16 f16 g16 f8 c8 r16 e,16 f16 
+g16 f8 c8 r16 r8 d,2
 }
 
 lower = \relative c {
@@ -98,7 +111,20 @@ f4. f8 g4. g8
 c,2. b'4
 a4. a8~a2
 e4. e8~e2
+fis4. fis8 d4. d8
+g,1
 
+c'4. c8~c4 b4
+a4. a8~a4 g4
+f2 g2
+c2 c4 b4
+a4. a8~a2
+fis1
+d'8 f4~f8 e8 g4~g8
+f8 a4~a8 g2
+r1
+<f' c'>2 <f, c'>2
+<f, c'>2 g,2
 }
 
 violin = \relative c{
