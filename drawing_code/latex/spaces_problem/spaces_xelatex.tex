@@ -1,0 +1,30 @@
+% EPC flow charts
+% Author: Fabian Schuh
+\documentclass{article}
+\usepackage{xeCJK} % 分開設置中英文字型
+\setCJKmainfont{微軟正黑體} % 設定中文字型
+\usepackage{graphicx}
+%\usepackage[space=true]{grffile}
+
+\begin{document}
+1.
+%\includegraphics{./a b/fig1}
+
+2.
+\includegraphics{"./a b/fig1"}
+
+3.
+\includegraphics{"C:/a b/fig1"}
+
+4.
+\includegraphics{{C:/a b/fig1}}
+
+5,6,7.
+%\graphicspath{{./a b/}}
+\graphicspath{{"./a b/"}}
+%\graphicspath{{{./a b/}}}
+\makeatletter\typeout{\Ginput@path}\makeatother
+print here
+
+\includegraphics{fig1}
+\end{document}
