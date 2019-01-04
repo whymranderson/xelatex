@@ -3,6 +3,7 @@
 \documentclass{article}
 \usepackage{myflowchart}
 \usepackage{multicol}
+%\usepackage[space=true]{grffile}
 
 \begin{document}
 
@@ -20,7 +21,14 @@
            \end{enumerate}
             };
 
-\node [above right = of a, align = center, anchor = south] (title){\parbox[c][][c]{0.4\textwidth}{\includegraphics[width=0.4\textwidth]{../../figs/baking_logo.png}}};
+
+%\graphicspath{{"C:/Users/user/Desktop/xelatex_Transend/drawing_code/latex/ptt questions/"}}
+%\graphicspath{{"../ptt questions/"}}
+%\graphicspath{{../../../figs/}}
+%\makeatletter\typeout{\Ginput@path}\makeatother
+%\node [above right = of a, align = center, anchor = south] (title){\parbox[c][][c]{0.4\textwidth}{\includegraphics[width=0.4\textwidth]{baking_logo.png}}};
+%\node [above right = of a, align = center, anchor = south] (title){\parbox[c][][c]{0.4\textwidth}{\includegraphics[width=0.4\textwidth]{"C:/Users/user/Desktop/xelatex_Transend/figs/baking_logo"}}};
+\node [above right = of a, align = center, anchor = south] (title){\parbox[c][][c]{0.4\textwidth}{\includegraphics[width=0.4\textwidth]{C:/Users/user/Desktop/xelatex_Transend/drawing_code/latex/ptt questions/baking_logo}}};
 
 \node [ item=2, right = of a.north east, anchor = north west](small) {%
             \textbf{weekly routine}
