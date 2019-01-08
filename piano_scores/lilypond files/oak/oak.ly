@@ -86,11 +86,11 @@ aes bes4 des, c8 c bes' |
 {bes aes aes ges16 ges16~ges16 f8. r8 ges16 aes
 aes8 ges ges f16 f16~f16 ees8. r8 ees16 f
 aes8 ges16 ges16~ges16 f8. f8 ees16 ees16~ees16 des8. |}
-{bes'8 aes aes f16 c'16~c16 d8.~des4 |}
+{bes'8 aes aes f16 c'16~c16 des8.~des4 |}
 }
 
 r2. r8 ges,16 aes
-aes8 ges ges f16 f16~f16 ees8. r8 ees16 f
+aes8 ges ges f16 f16~f16~ees8. r8 ees16 f
 aes8 ges16 ges16~ges16 f8. ees8 des ees8. des16	~
 des1
 }
@@ -119,18 +119,24 @@ text = \lyricmode {
 想   喚 醒 被 遺 棄 的 愛 情   雪 花 已 鋪 滿 了 地 
 深 怕 窗 外 楓 葉 已 結 成 冰 
 
-緩 緩 飄 落 的 楓 葉 像 思 念 
+<<
+{緩 緩 飄 落 的 楓 葉 像 思 念
 我 點 燃 燭 火 溫 暖 歲 末 的 秋 天 
 極 光 掠 奪 天 邊   北 風 掠 過 想 你 的 容 顏
-我 把 愛 燒 成 了 落 葉   卻 換 不 回 熟 悉 的 那 張 臉 
+我 把 愛 燒 成 了 落 葉   卻 換 不 回 熟 悉 的 那 張 臉 }
 
-緩 緩 飄 落 的 楓 葉 像 思 念 
-<<
-\new Lyrics {
+\new Lyrics 
+\with { alignBelowContext = #"firstVerse" }
+{
 \set associatedVoice = "Voice"
+緩 緩 飄 落 的 楓 葉 像 思 念 
 為 何 挽 回 要 趕 在 冬 天 來 之 前
-愛 你 穿 越 時 間   兩 行 來 自 秋 末 的 眼 淚}
+愛 你 穿 越 時 間   兩 行 來 {
+\skip 1
+}
+}
 >>
+自 秋 末 的 眼 淚
 讓 愛 滲 透 了 地 面   我 要 的 只 是 妳 在 我 身 邊 
 }
 
@@ -322,7 +328,7 @@ b, b'' g d8 e8
 \score {
   <<
     \new Voice = "mel" { \melody}
-    \new Lyrics \lyricsto mel \text
+    \new Lyrics = "firstVerse" \lyricsto mel \text
     \new PianoStaff \with { instrumentName = #"Piano" } <<
       \new Staff = "upper" \upper
       \new Staff = "lower" \lower
