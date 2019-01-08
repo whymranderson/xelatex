@@ -54,6 +54,36 @@ r1
 r1
 r1
 
+e4 e e8 d e f
+g4 g g8 f g g
+a4 a a8 g g a
+g8 e4. e2
+e4 e e8 d e f
+g4 g g8 f g g
+a4 a a8 g a16 b8 b16~
+b2 r4 a8 b16 c16~
+c2 c8 b16 c16~c8 e8
+d8 b a g r4 e8 g16 a16~
+a4.~a16 g16 f'8 e d c
+f e d e r4 c8 b16 c16~
+c2 c8 b16 c8. e8
+d8 b a' g~ g4. e8
+e4 d c8 d4 d8~
+d2 r8 g,8 f' f
+
+f e d e4 e,8 e d'
+d c b c4 c8 d e
+g16 f8. c4 g'16 f8. c8 g8
+f' e d e4 e,8 e f'
+f e d e4 e8 e c'
+c b b a8\fermata r2
+r8 c,, d e
+g16 f8. c4 g'16 f8. c4
+f16 e8. c4 
+r4 d4 c4\fermata ~c4~
+c1
+r1
+r1
 
 }
 
@@ -126,12 +156,15 @@ g16 f8 c8 r16 r8 d,2
 <g c e>4 <g c e>4 <g c e>4 <g b d>4
 <a c e>4 <a c e>4 <gis c e>4 <gis c e>4
 <g c e>4 <g c e>4 <fis a c>2
+r2
 <f a d>8 f <a d> f <g b e> g <g b e> g 
 <f a c>8 f <f a c>8 f <g b d>2
 
-r8 c' d e g16 f8. c8 e,16 f16
-g16 f8. c8 r8 e,16 f16 g f8. c4
-r4 e,2 
+r8 c' d e 
+g16 f8. c8 e,16 f16 g16 f8. c8 e,16 f16 
+g f8. c4
+e,2~
+e1 
 
 
 }
@@ -194,6 +227,20 @@ a4. a8~a2
 <fis fis'>4.  <fis fis'>8 <d d'>4.  <d d'>8
 <g, g'>1
 
+c'8 g' c2 <b, b'>4
+<a a'>8 e' a2 <g, g'>4
+<f f'>8 c' f4 <g, g'>8 d' g4
+<c, c'>8 g' c2 <b, b'>4
+<a a'>8 e' a4 <gis, gis'>8 e' gis4
+<g, g'>8 e' g4 <fis, fis'>2~
+<fis fis'>4 r4 <d d'>2
+<e e'>2 <f f'>2
+<g g'>1
+
+<f'' c'>2
+<f, c'>2 <f, c'>2
+<c g' c>2~
+<c g' c>1
 
 }
 
