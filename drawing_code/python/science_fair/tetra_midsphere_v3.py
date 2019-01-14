@@ -144,6 +144,16 @@ lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
+#graph vertice and center connections
+lineHN, = ax2.plot(*zip(pH,pN),linewidth = 1,color='k')
+lineBIabd, = ax2.plot(*zip(pB,incenterABD),linewidth = 1,color='k')
+lineBO, = ax2.plot(*zip(pB,pO),linewidth = 1,color='k')
+lineHO, = ax2.plot(*zip(pH,pO),linewidth = 1,color='k')
+lineNO, = ax2.plot(*zip(pN,pO),linewidth = 1,color='k')
+lineNIabd, = ax2.plot(*zip(pN,incenterABD),linewidth = 1,color='k')
+lineHIabd, = ax2.plot(*zip(pH,incenterABD),linewidth = 1,color='k')
+
+
 # Add transparent faces
 #vt1 = [pA,pB,pD]
 #tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
