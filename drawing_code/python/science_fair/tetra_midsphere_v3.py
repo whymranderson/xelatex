@@ -50,13 +50,18 @@ linez.set_linewidth(1)
 linez.set_color('k')
 ax2.text(0,0,6, r'$z_s$', fontsize=18,verticalalignment='bottom', horizontalalignment='left')
 '''
-
+pA = np.array([-7,-6,-1]
 pC = np.array([0,6,0])
 pB = np.array([1,3.5,7])
 pD = np.array([7,1.5,0])
 
-#step 1, determine a sphere that insuscribed BCD
-incenterBCD,inradiusBCD,normvecBCD, pE, pF, pN= incircle3D(pB,pC,pD)
+#step 1, determine vector BO
+#first determine a segment length BN, or fix a N
+len_a = 2
+pN = pB + 2*(pD-pB)/np.linalg.norm(pD-pB)
+# this will fix E and H
+pH = pB + 2*(pA-pB)/np.linalg.norm(pA-pB)
+pE = pB + 2*(pC-pB)/np.linalg.norm(pC-pB)
 pO = incenterBCD + 1.2*inradiusBCD*normvecBCD
 sphereR = np.sqrt(np.square(1.2*inradiusBCD)+np.square(inradiusBCD))
 
@@ -75,6 +80,7 @@ pG = pD + np.dot(M4pG,incenterABD-pD)/np.linalg.norm(pD-incenterABD)*np.linalg.n
 x,y,r = np.linalg.norm(pB-pH),np.linalg.norm(pN-pD),np.linalg.norm(pN-incenterABD)
 z = third_seg_incircled(x,y,r)
 pA = (pH-pB)/np.linalg.norm(pH-pB)*z + pH 
+print pA
 # realized AC will go through sphere. So there are restrictions here. Maybe sphereR has to be smaller than
 # both incircle radius? or the angle between two triangles has to be greater than sphereR. Or combined.
 # Should comeback and examine later. Restiction is four triangles formed by tangent points obtuse.
