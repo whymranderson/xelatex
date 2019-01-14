@@ -33,7 +33,7 @@ from annotate_program import draw_xyz_coordinate_unit_vectors
 from annotate_program import draw_perpendicular_sign
 
 #### The plotting of a vector-based graphics using the above points location information.
-fig2 = pyplot.figure(2,figsize=(3, 3),dpi=100)
+fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
 ax2.view_init(elev=36, azim=66)
@@ -58,11 +58,11 @@ pD = np.array([7,1.5,0])
 
 #step 1, determine vector BO
 #first determine a segment length BN, or fix a N
-len_a = 2
-pN = pB + 2*(pD-pB)/np.linalg.norm(pD-pB)
+len_a = 3
+pN = pB + len_a*(pD-pB)/np.linalg.norm(pD-pB)
 # this will fix E and H
-pH = pB + 2*(pA-pB)/np.linalg.norm(pA-pB)
-pE = pB + 2*(pC-pB)/np.linalg.norm(pC-pB)
+pH = pB + len_a*(pA-pB)/np.linalg.norm(pA-pB)
+pE = pB + len_a*(pC-pB)/np.linalg.norm(pC-pB)
 #to find Htemp1,2, first find incenter
 midHN = (pN + pH)/2
 n_BmidHN = (midHN-pB)/np.linalg.norm(midHN-pB)
@@ -72,6 +72,10 @@ midHE = (pE + pH)/2
 n_BmidHE = (midHE-pB)/np.linalg.norm(midHE-pB)
 amp_BIabc=np.linalg.norm(pE-pB) * np.linalg.norm(pB-pE)/np.linalg.norm(midHE-pB)
 incenterABC = pB + amp_BIabc*n_BmidHE
+midNE = (pE + pN)/2
+n_BmidNE = (midNE-pB)/np.linalg.norm(midNE-pB)
+amp_BIbcd=np.linalg.norm(pE-pB) * np.linalg.norm(pB-pE)/np.linalg.norm(midHE-pB)
+incenterBCD = pB + amp_BIbcd*n_BmidNE
 # to find O, first find Htemp
 r1 = incenterABD-pH
 r1n = r1/np.linalg.norm(r1)
@@ -83,20 +87,28 @@ pHtemp2 = pH + (np.linalg.norm(r2)/cos_alpha)*r1n
 pO =return_intersection_under_Ceva_Theorem(pHtemp2,pHtemp1,pH,incenterABC,incenterABD)
 
 #graph step 1
-lineHtemp1 = ax2.plot(*zip(pH,pHtemp1),linewidth = 2,color='b')
-lineHtemp2 = ax2.plot(*zip(pH,pHtemp2),linewidth = 2,color='b')
-lineIabdHtemp1 = ax2.plot(*zip(incenterABD,pHtemp1),linewidth = 2,color='b')
-lineIabcHtemp2 = ax2.plot(*zip(incenterABC,pHtemp2),linewidth = 2,color='b')
+lineIabdO = ax2.plot(*zip(incenterABD,pO),linewidth = 2,color='b')
+lineIabcO = ax2.plot(*zip(incenterABC,pO),linewidth = 2,color='b')
+lineBC = ax2.plot(*zip(pB,pC),linewidth = 2,color='b')
+lineBA = ax2.plot(*zip(pB,pA),linewidth = 2,color='b')
+lineBD = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 
 ax2.text(*pH, s = r'$H$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pD, s = r'$D$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pHtemp1, s = r'$Htemp1$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*pHtemp2, s = r'$Htemp2$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 draw_perpendicular_sign(np.cross(r1,r2), -r2, pHtemp2-incenterABC, incenterABC, ax2, 0.2)
 draw_perpendicular_sign(np.cross(r1,r2),pHtemp1-incenterABD, -r1, incenterABD, ax2, 0.2)
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
+incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
+ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
+incircleABC = circle_full(incenterABC-pO, pH-incenterABC, np.linalg.norm(pH-incenterABC), 30) + incenterABC
+ax2.plot(*np.transpose(incircleABC),linewidth=1,linestyle=':')
+incircleBCD = circle_full(incenterBCD-pO, pN-incenterBCD, np.linalg.norm(pN-incenterBCD), 30) + incenterBCD
+ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 
 # Add transparent faces
 #vt1 = [pA,pB,pD]
@@ -108,13 +120,13 @@ draw_perpendicular_sign(np.cross(r1,r2),pHtemp1-incenterABD, -r1, incenterABD, a
 #draw_xyz_coordinate_unit_vectors(ax2)
 
 
-#Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
-Xt,Yt,Zt = zip(pH,pHtemp1,pHtemp2,pB)
+Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
+#Xt,Yt,Zt = zip(pH,pHtemp1,pHtemp2,pB)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 3.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.0
 
 
 mid_x = (X.max()+X.min()) * 0.5
