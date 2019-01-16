@@ -32,10 +32,10 @@ from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 
 #### The plotting of a vector-based graphics using the above points location information.
-fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
+fig2 = pyplot.figure(2,figsize=(6,6),dpi=100)
 ax2 = p3.Axes3D(fig2)
-#ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=10, azim=-130)
+ax2.view_init(elev=2, azim=106)
+#ax2.view_init(elev=10, azim=-130)
 ax2.set_color_cycle('b')
 
 pC = np.array([0,6,0])
@@ -107,8 +107,8 @@ ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignme
 
 # graph step 2
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
-ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
-lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
+ax2.plot(*np.transpose(incircleABD),linewidth=2,linestyle='-')
+#lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
 #lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 #ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
@@ -118,7 +118,7 @@ ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', ho
 
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
-ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='b')
+ax2.plot(*np.transpose(circleHE),linewidth=2,linestyle='-',color='b')
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
@@ -129,7 +129,7 @@ incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-ince
 #ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 #lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
-lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
+#lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
 
 # graph diabeter of two circles connecting H
@@ -139,7 +139,7 @@ lineHdiaIabd, = ax2.plot(*zip(pH,pH+2*(incenterABD-pH)),linewidth = 1,color='g')
 lineHdiaIabc, = ax2.plot(*zip(pH,pH+2*(centerHE-pH)),linewidth = 1,color='g')
 bigcHperp = circle_full(np.cross(incenterABD-pO,centerHE-pO),
                         pH-pO, np.linalg.norm(pH-pO), 40) + pO
-ax2.plot(*np.transpose(bigcHperp),linewidth=1,linestyle=':',color='g')#:')
+ax2.plot(*np.transpose(bigcHperp),linewidth=1,linestyle='-',color='g')#:')
 
 pHmid = (pH1-pO+pH2-pO)/2
 pHmid = pHmid/np.linalg.norm(pHmid)
@@ -148,12 +148,26 @@ pHmid = pO + np.linalg.norm(pH-pO)*pHmid
 ax2.text(*pH1, s = r"$H_1$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH2, s = r"$H_2$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pHmid, s = r"$H_{mid}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.scatter3D(*zip(pH,pH1,pH2,pHmid,pO,centerHE,incenterABD))
+
+lineOH, = ax2.plot(*zip(pO,pH),linewidth = 1,color='b')
+lineOH1, = ax2.plot(*zip(pO,pH1),linewidth = 1,color='b')
+lineOH2, = ax2.plot(*zip(pO,pH2),linewidth = 1,color='b')
+lineOHmid, = ax2.plot(*zip(pO,pHmid),linewidth = 1,color='b')
+
+dt_ABD = pO + np.linalg.norm(pH-pO)*(incenterABD-pO)/np.linalg.norm(incenterABD-pO)#doom top
+dt_ABC = pO + np.linalg.norm(pH-pO)*(centerHE-pO)/np.linalg.norm(centerHE-pO)#doom top
+linedtABD, = ax2.plot(*zip(pO,dt_ABD),linewidth = 1,color='b',linestyle=':')
+linedtABC, = ax2.plot(*zip(pO,dt_ABC),linewidth = 1,color='b',linestyle=':')
+
+ax2.text(*dt_ABD, s = r"$t_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*dt_ABC, s = r"$t_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+
+ax2.scatter3D(*zip(pH,pH1,pH2,pHmid,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
 
 #graph division circle
 divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
                         np.linalg.norm(pHmid-pH)/2,  40) + (pHmid+pH)/2
-ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle=':',color='k')#:')
+ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle='-',color='k')#:')
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
@@ -163,7 +177,7 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 5.0
 
 
 mid_x = (X.max()+X.min()) * 0.5
