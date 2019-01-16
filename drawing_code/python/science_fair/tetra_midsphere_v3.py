@@ -78,6 +78,9 @@ centerHE = n_cHE_pH * r_cirHE + pH
 pM = return_third_point_on_a_triagle_under_Ceva_Theorem(pA,pC,pB,pE,pH)
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 
+#find division circle
+
+
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 #lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
@@ -86,11 +89,11 @@ incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 #lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
 #lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
 #lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
-lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':')
+#lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':')
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
                             inradiusBCD,40) + incenterBCD
-ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
+#ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 #ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
@@ -99,7 +102,7 @@ plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+#ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 2
@@ -122,14 +125,32 @@ ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='b')
 ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
-ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
-ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
+#ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
+#lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
-#ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
+# graph diabeter of two circles connecting H
+pH1 = pH+2*(incenterABD-pH)
+pH2 = pH+2*(centerHE-pH)
+lineHdiaIabd, = ax2.plot(*zip(pH,pH+2*(incenterABD-pH)),linewidth = 1,color='g')
+lineHdiaIabc, = ax2.plot(*zip(pH,pH+2*(centerHE-pH)),linewidth = 1,color='g')
+bigcHperp = circle_full(np.cross(incenterABD-pO,centerHE-pO),
+                        pH-pO, np.linalg.norm(pH-pO), 40) + pO
+ax2.plot(*np.transpose(bigcHperp),linewidth=1,linestyle=':',color='g')#:')
+
+pHmid = (pH1-pO+pH2-pO)/2
+pHmid = pHmid/np.linalg.norm(pHmid)
+pHmid = pO + np.linalg.norm(pH-pO)*pHmid
+
+ax2.scatter3D(*zip(pH,pH1,pH2,pHmid))
+
+#graph division circle
+divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
+                        np.linalg.norm(pHmid-pH)/2,  40) + (pHmid+pH)/2
+ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle=':',color='k')#:')
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
@@ -139,7 +160,7 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 6.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.0
 
 
 mid_x = (X.max()+X.min()) * 0.5
