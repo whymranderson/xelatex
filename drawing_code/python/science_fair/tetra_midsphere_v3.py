@@ -31,6 +31,7 @@ from annotate_program import third_seg_incircled
 from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 from annotate_program import circle_arc
+from annotate_program import plot_body_space_cone
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6,6),dpi=100)
@@ -174,7 +175,7 @@ divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
 ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle='-',color='k')#:')
 
 #draw third cone
-angle2 = 145
+angle2 = 45
 tempM2 = rotation_matrix(pH-pO+pHmid-pO,np.radians(angle2))
 pP = pO+np.dot(tempM2,pH-pO)
 lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
@@ -183,6 +184,22 @@ arcP_tABD=sphereR*circle_arc(n_vec,pP-pO,dt_ABC-pO,20)+pO
 ax2.plot(arcP_tABD[:,0],arcP_tABD[:,1],arcP_tABD[:,2],'r',lw=2)
 
 ax2.scatter3D(*zip(pH,pH1,pH2,pHmid,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
+
+plot_body_space_cone(ax2,incenterABD-pO,pH-pO,pO)
+
+#get angle
+first_cone_angle = np.arcsin(np.linalg.norm(pH-centerHE)/sphereR)
+second_cone_angle = np.arcsin(np.linalg.norm(pH-incenterABD)/sphereR)
+print first_cone_angle*180/np.pi
+print second_cone_angle*180/np.pi
+k_len =np.linalg.norm(pP-dt_ABC)
+theta_dt1= np.arcsin(k_len/2/sphereR)
+k_len2 =np.linalg.norm(pP-dt_ABD)
+theta_dt2= np.arcsin(k_len2/2/sphereR)
+third_cone_angle1 = 2*theta_dt1 - first_cone_angle
+third_cone_angle2 = 2*theta_dt2 - second_cone_angle
+print third_cone_angle1*180/np.pi
+print third_cone_angle2*180/np.pi
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
