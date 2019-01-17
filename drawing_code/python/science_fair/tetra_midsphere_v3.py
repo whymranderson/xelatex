@@ -151,14 +151,14 @@ pBisec = (pH+pHmid)/2
 ax2.text(*pH1, s = r"$H_1$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH2, s = r"$H_2$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pHmid, s = r"$H_{mid}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pBisec, s = r"$I_{bis}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pBisec, s = r"$I_{bis}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
 lineOH, = ax2.plot(*zip(pO,pH),linewidth = 1,color='b')
 lineOH1, = ax2.plot(*zip(pO,pH1),linewidth = 1,color='b')
 lineOH2, = ax2.plot(*zip(pO,pH2),linewidth = 1,color='b')
 lineOHmid, = ax2.plot(*zip(pO,pHmid),linewidth = 1,color='b')
-lineHHmid, = ax2.plot(*zip(pH,pHmid),linewidth = 1,color='g')
-lineOBisec, = ax2.plot(*zip(pO,pBisec),linewidth = 1,color='k',ls=':')
+#lineHHmid, = ax2.plot(*zip(pH,pHmid),linewidth = 1,color='g')
+#lineOBisec, = ax2.plot(*zip(pO,pBisec),linewidth = 1,color='k',ls=':')
 
 dt_ABD = pO + np.linalg.norm(pH-pO)*(incenterABD-pO)/np.linalg.norm(incenterABD-pO)#doom top
 dt_ABC = pO + np.linalg.norm(pH-pO)*(centerHE-pO)/np.linalg.norm(centerHE-pO)#doom top
@@ -172,7 +172,7 @@ ax2.text(*dt_ABC, s = r"$t_{ABC}$", fontsize=12,verticalalignment='top', horizon
 #graph division circle
 divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
                         np.linalg.norm(pHmid-pH)/2,  40) + (pHmid+pH)/2
-ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle='-',color='k')#:')
+#ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle='-',color='k')#:')
 
 #draw third cone
 angle2 = 45
@@ -181,7 +181,7 @@ pP = pO+np.dot(tempM2,pH-pO)
 lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
 n_vec = np.cross(pP-pO,dt_ABC-pO)
 arcP_tABD=sphereR*circle_arc(n_vec,pP-pO,dt_ABC-pO,20)+pO
-ax2.plot(arcP_tABD[:,0],arcP_tABD[:,1],arcP_tABD[:,2],'r',lw=2)
+#ax2.plot(arcP_tABD[:,0],arcP_tABD[:,1],arcP_tABD[:,2],'r',lw=2)
 
 ax2.scatter3D(*zip(pH,pH1,pH2,pHmid,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
 
@@ -200,6 +200,18 @@ third_cone_angle1 = 2*theta_dt1 - first_cone_angle
 third_cone_angle2 = 2*theta_dt2 - second_cone_angle
 print third_cone_angle1*180/np.pi
 print third_cone_angle2*180/np.pi
+
+#expand first cone
+addition = 10*np.pi/180
+coneABD_big = sphereR*np.cos(addition+second_cone_angle)*(incenterABD-pO)/np.linalg.norm(incenterABD-pO)+pO
+cABD_M= rotation_matrix(np.cross(incenterABD-pO,pH-pO),addition)
+pABDbig = pO + np.dot(cABD_M,pH-pO)
+plot_body_space_cone(ax2,coneABD_big-pO,pABDbig-pO,pO)
+coneABC_big = sphereR*np.cos(addition+first_cone_angle)*(centerHE-pO)/np.linalg.norm(centerHE-pO)+pO
+cABC_M= rotation_matrix(np.cross(centerHE-pO,pH-pO),addition)
+pABCbig = pO + np.dot(cABC_M,pH-pO)
+plot_body_space_cone(ax2,coneABC_big-pO,pABCbig-pO,pO)
+
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
