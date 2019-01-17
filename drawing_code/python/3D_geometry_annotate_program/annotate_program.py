@@ -368,6 +368,34 @@ def third_seg_incircled(x,y,r):
     z = np.square(r)*(x+y)/(x*y-np.square(r))
     return z
 
+def plot_body_space_cone(ax,height_vec,side_vec,location_tip):
+    '''
+    Plot the body and space cone. A static one-time plot.
+    '''
+    # Set up the grid in polar coordinate theta, radius
+    zn = height_vec/np.linalg.norm(height_vec)
+    omegavec =side_vec
+    cone_theta = np.linspace(0,2*np.pi,90)
+    bcone_radius = np.linalg.norm(height_vec - side_vec) 
+    bcone_len = np.linalg.norm(height_vec) 
+    
+    cone_r = np.linspace(0,bcone_radius,15)
+    c1T, c1R = np.meshgrid(cone_theta, cone_r)
+    # Then calculate X, Y, and Z
+    c1X = c1R * np.cos(c1T)
+    c1Y = c1R * np.sin(c1T)
+    c1Z = np.sqrt(c1X**2 + c1Y**2)/bcone_radius*bcone_len
+    cmm,cnn = np.shape(c1Z)
+    mat_zn2omega = rotmat_from_A_2_B(np.array([0,0,1]),zn)
+    for i in range(cmm):
+        for j in range(cnn):
+            c1X[i,j],c1Y[i,j],c1Z[i,j] = np.dot(mat_zn2omega,
+            np.array([c1X[i,j],c1Y[i,j],c1Z[i,j]]))
+
+    ax.plot_surface(c1X+location_tip[0],
+                    c1Y+location_tip[1],
+                    c1Z+location_tip[2],rstride=5, cstride=5,linewidth=0,alpha=0.16,color = 'black')    
+    
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
 def orthogonal_proj(zfront, zback):
