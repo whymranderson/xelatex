@@ -98,6 +98,7 @@ ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalig
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pD, s = r'$D$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pN, s = r'$N$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 draw_perpendicular_sign(np.cross(r1,r2), -r2, pHtemp2-incenterABC, incenterABC, ax2, 0.2)
@@ -109,6 +110,11 @@ incircleABC = circle_full(incenterABC-pO, pH-incenterABC, np.linalg.norm(pH-ince
 ax2.plot(*np.transpose(incircleABC),linewidth=1,linestyle=':')
 incircleBCD = circle_full(incenterBCD-pO, pN-incenterBCD, np.linalg.norm(pN-incenterBCD), 30) + incenterBCD
 ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
+
+print np.linalg.norm(pH-incenterABD),'r1'
+print np.linalg.norm(pH-incenterABC),'r2'
+print np.linalg.norm(pN-incenterBCD),'r3'
+print np.linalg.norm(pH-pB),'a'
 
 # Add transparent faces
 #vt1 = [pA,pB,pD]
