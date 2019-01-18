@@ -90,7 +90,7 @@ lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':'
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
                             inradiusBCD,40) + incenterBCD
-ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
+ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle='-')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 #ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
@@ -104,7 +104,7 @@ ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignme
 
 # graph step 2
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
-ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
+ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle='-')
 lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
 #lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
@@ -115,7 +115,7 @@ ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', ho
 
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
-ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='b')
+ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle='-',color='b')
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
@@ -128,6 +128,15 @@ ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horiz
 lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
+lineIabcE, = ax2.plot(*zip(pE,   centerHE),linewidth = 1,color='k',linestyle=':')
+lineIabdN, = ax2.plot(*zip(pN,incenterABD),linewidth = 1,color='k',linestyle=':')
+lineIbcdN, = ax2.plot(*zip(pN,incenterBCD),linewidth = 1,color='k',linestyle=':')
+lineIabcG, = ax2.plot(*zip(pG,incenterACD),linewidth = 1,color='k',linestyle=':')
+
+ax2.text(*(pE+   centerHE)/2, s = r"$r_1$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pN+incenterABD)/2, s = r"$r_2$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pN+incenterBCD)/2, s = r"$r_3$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pG+incenterACD)/2, s = r"$r_4$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
 #draw coordinate
