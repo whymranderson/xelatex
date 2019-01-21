@@ -83,9 +83,9 @@ incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 
 # graph step one
-#lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
-#lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
-#lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
+lineCB, = ax2.plot(*zip(pC,pB),linewidth = 2,color='b')
+lineCD, = ax2.plot(*zip(pC,pD),linewidth = 2,color='b')
+lineBD, = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 lineIbcdO, = ax2.plot(*zip(pO,incenterBCD),linewidth = 1,color='b',linestyle=':')
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
@@ -93,9 +93,9 @@ incircleBCD = circle_full(normvecBCD,
 ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle='-')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
-#ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-#ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
-#ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
@@ -106,9 +106,9 @@ ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignme
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
 ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle='-')
 lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
-#lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
-#lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
-#ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
+lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
+lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
+ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
@@ -116,7 +116,7 @@ ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', ho
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
 ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle='-',color='b')
-#lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
+lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
 ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
@@ -134,9 +134,13 @@ lineIbcdN, = ax2.plot(*zip(pN,incenterBCD),linewidth = 1,color='k',linestyle=':'
 lineIabcG, = ax2.plot(*zip(pG,incenterACD),linewidth = 1,color='k',linestyle=':')
 
 ax2.text(*(pE+   centerHE)/2, s = r"$r_1$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*(pN+incenterABD)/2, s = r"$r_2$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*(pN+incenterBCD)/2, s = r"$r_3$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*(pG+incenterACD)/2, s = r"$r_4$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pN+incenterABD)/2, s = r"$r_4$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pN+incenterBCD)/2, s = r"$r_2$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pG+incenterACD)/2, s = r"$r_3$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*(pA+pG)/2, s = r"$a$", fontsize=12,verticalalignment='top', horizontalalignment='left',color='r')
+ax2.text(*(pB+pN)/2, s = r"$b$", fontsize=12,verticalalignment='bottom', horizontalalignment='left',color='r')
+ax2.text(*(pC+pE)/2, s = r"$c$", fontsize=12,verticalalignment='bottom', horizontalalignment='right',color='r')
+ax2.text(*(pD+pG)/2, s = r"$d$", fontsize=12,verticalalignment='top', horizontalalignment='left',color='r')
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
 #draw coordinate
@@ -148,7 +152,7 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 6.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.0
 
 
 mid_x = (X.max()+X.min()) * 0.5
