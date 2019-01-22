@@ -94,6 +94,8 @@ ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom',
 ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pHtemp1, s = r'$Htemp1$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pHtemp2, s = r'$Htemp2$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*(pH+incenterABC)/2, s = r'$r_1$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*(pH+incenterABD)/2, s = r'$r_4$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 draw_perpendicular_sign(np.cross(r1,r2), -r2, pHtemp2-incenterABC, incenterABC, ax2, 0.2)
 draw_perpendicular_sign(np.cross(r1,r2),pHtemp1-incenterABD, -r1, incenterABD, ax2, 0.2)
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
