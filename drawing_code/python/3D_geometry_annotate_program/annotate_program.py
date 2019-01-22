@@ -264,8 +264,9 @@ def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
                              alpha=frame_alpha)
 
 def incircle3D(point1,point2,point3):
-    """Return the insubscribed circle's position, radius and norm vec and three Ceva sidepoints 
-    p12,p23,p31 from a triangle(p1,p2,p3)"""
+    """Return the insubscribed circle's center's position, radius and norm vec and three Ceva sidepoints 
+    p12,p23,p31 from a triangle(p1,p2,p3). Need a graph here. If you only need a partial results,
+    put dummy or _ or use foo()[0,3,4]."""
     dist12 = np.sqrt(np.sum(np.square(point1-point2)))
     dist23 = np.sqrt(np.sum(np.square(point2-point3)))
     dist13 = np.sqrt(np.sum(np.square(point1-point3)))
@@ -351,7 +352,15 @@ def return_9point_circle_center(p1,p2,p3):
 
 def circle_full(axis,start_v,radius,num_points):
     """Return drawing data of a full circle, need a drawing here. start_v is the any vector 
-    paralel to first data point."""
+    paralel to first data point. The plot command is needed to make circle visible. see code.
+
+    .. code:: python
+    
+       v1 = np.array([1,0,0])
+       n_vec = np.array([0,0,1])
+       circle1 = circle_full(n_vec,v1,0.3,20)
+       circle1, = ax2.plot(circle1[:,0],circle1[:,1],circle1[:,2],'r',lw=2)
+    """
     axis = axis/np.linalg.norm(axis)
     start_v = start_v/np.linalg.norm(start_v)
     theta = 2*np.pi
