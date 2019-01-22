@@ -2,4 +2,4 @@ cd C:\Users\user\Desktop\xelatex_Transend\drawing_code\python\py_annotate_code_d
 
 make latex
 
-cmd.exe
+cmd /k
