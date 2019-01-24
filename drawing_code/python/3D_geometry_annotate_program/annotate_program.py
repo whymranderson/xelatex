@@ -211,6 +211,19 @@ def return_Menelaus_third_outer_point(pA,pB,pC,pD,pE):
     pF = pB + (pB-pA)* bf_over_fa/(1- bf_over_fa) #( -pA*bf + pB*fa)/(fa-bf)
     return pF
 
+def return_Menelaus_third_outer_point_2nd(pA,pB,pC,pD,pF):
+    """Given points ABCDF, return point E. See figure above.
+    
+    """
+    cd = np.linalg.norm(pC-pD)
+    bd = np.linalg.norm(pB-pD)
+    bf = np.linalg.norm(pB-pF)
+    fa = np.linalg.norm(pF-pA)
+    ec_over_ae = cd/bd * bf/fa #ae/ec * cb/bd * bf/fa = 1, 
+    pE = (pA*ec_over_ae + pC)/(ec_over_ae +1 )#( -pA*bf + pB*fa)/(fa-bf)
+    return pE
+
+
 def triangle_area(pA,pB,pC):
     """Given points ABC, return area using Heron's Theorem."""
     la = np.linalg.norm(pA-pB)
