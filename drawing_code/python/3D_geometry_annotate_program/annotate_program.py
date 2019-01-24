@@ -272,6 +272,13 @@ def incircle3D(point1,point2,point3):
        :scale: 60 %
        :align: center
        
+    .. code:: python
+
+       pO,r,nv,p12,p23,p31 = incircle3D(p1,p2,p3)
+       pO,r, _,p12,p23,p31 = incircle3D(p1,p2,p3)
+       pO,r, _,dummy1,dummy2,dummy3 = incircle3D(p1,p2,p3)
+       p12,p23,p31 = incircle3D(p1,p2,p3)[3,4,5]
+
        """
     dist12 = np.sqrt(np.sum(np.square(point1-point2)))
     dist23 = np.sqrt(np.sum(np.square(point2-point3)))
