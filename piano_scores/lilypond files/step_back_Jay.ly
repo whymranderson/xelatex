@@ -15,23 +15,30 @@
 }
 
 
-melody = \relative c'' {
+melody = \relative c'' {\tempo 4 = 70
   % B part
-  r1 r r r r r 
-  r4. d8 d c d e e4 g,4.
-  g8 d' c b c4 e,8 b' c4 e,8 
-  a4 g4. g8 a b
-  b c4 c8 c b c d 
-  d g,4 d'8 d c d e
-  e f,4 e'8 e d cis d
+  r1 
+  r 
+  r 
+  r 
+  r 
+  r 
+  r4. d8 d c d e16 e16~
+  e8 g,4. r8 g8 d' c16 b16~ 
+  b8 c4 ~c16 e,16 b'8 c4~c16 e,16 
+  a8. g16~g4 r8 g8 a b16 b16~
+  b8 c4 c8 c b c d16 d16~ 
+  d8 g,4 d'8 d c d e16 e16~
+  e8 f,4 e'8 e d cis d
   e4. d8 d2  
 
-  r4. d8 d c d e e4 g,4.
-  g8 d' c b c4 c8 d c d e4 
-  e2 e8 e g
-  g f4 f8 e d c d
-  f e4 e8 d e g, e'
-  d c4 c8 c b c a' 
+  r4. d8 d c d e16 e16~
+  e8 g,4. r8 g8 d' c16 b16~ 
+  b8 c4 c8 d c d e8~
+  e8 e2 e8 e g16 g16~
+  g8 f4 f8 e d cis d16 f16~
+  f8 e4 e8 d e g, e'16 d16~
+  d8 c4 c8 c b c a' 
   a4. g8 g4. g,8
 
   % C part
@@ -85,23 +92,8 @@ text = \lyricmode {
 
 upper = \relative c'' {
   \time 4/4
-  <g d'>8
-  <g d'>8
-  <g d'>8
-  <g c>8
-  <g b>8
-  <g c>8
-  <g d'>8
-  <b g'>8
-
-  <g d'>8
-  <g d'>8
-  <g d'>8
-  <g c>8
-  <d b'>8
-  <e c'>8
-  d'8
-  <c e>8
+  <g d'>8 <g d'>8 <g d'>8 <g c>8 <g b>8 <g c>16 <g d'>8 <b g'>8.
+  <g d'>8 <g d'>8 <g d'>8 <g c>8 <d b'>8 <e c'>16 d'8 <c e>8.
 
   << { \voiceOne 
   e8 e e d d d d c
@@ -110,16 +102,9 @@ upper = \relative c'' {
   a2 g }
   >> \oneVoice
 
-  <c, e>8
-  <c e>
-  <c e>
-  d
-  <d a g>4 <d b g>
-
+  <c, e>8 <c e> <c e> d <d a g>4 <d b g>
   c8 g c16 d e f d2
   c8 g c16 d e f d2
-
-%  \bar ".|:"
 
   % B part
   \repeat volta 2 {
@@ -136,10 +121,14 @@ upper = \relative c'' {
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
   <c e>8 g <c e>8 g <c e>8 g <c e>8 g
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
-  <c g'>8 a <c g'>8 a <d g>8 g, <d' g>8 g,
-  <b d> g <b d> g <c e> g c16 d e c
-  <c d f>8 a d16 e f g <f a>8 c <f d'> c
-  <c g'>4 <c g'>8 d <b g'>2
+  <<
+  { <c g'>8 a <c g'>8 a <d g>8 g, <d' g>8 g,
+  <b d> g <b d> g <c e> g c16 d e c }
+  \new Staff { <f a c>8 a c f <g, b>4 <b d g>
+  d4. d8 b c g e}
+  >>
+  <c d fis>8 a d16 e fis g <fis a>8 c <fis d'> c
+  <g' c>4 <g c>8 d' <g, b>2
 
   % C part
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
@@ -147,7 +136,7 @@ upper = \relative c'' {
   <c f>2. e16 d cis d
   <a c f>2. b16 c d g
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
-  <c e g>4 <e g>8 c <e g>8 c <b d g>4
+  <c e g>4 <e g>8 c <e g>8 c <e g>8 c 
   e8 a, c e <a e'> a <c a'> a |
   }
   
@@ -174,7 +163,7 @@ upper = \relative c'' {
   <g d'>8 <g d'> d'16 e d8 b c g' c,
   <g d'>8 <g d'> d'16 e d8 b c g' c,
   <g d'>8 <g d'> d'16 e d8 b c g' c,
-  <c f,>^"rit." g <c f,> g <d g a b d>4\arpeggio g8 f
+  <c f,>^"rit." g d'16 c b c <d, g a b d>4\arpeggio f4
   <e d c g>1\arpeggio\fermata 
 
 }
@@ -208,25 +197,24 @@ lower = \relative c {
   d,4.~ d16 d16 d4.~ d16 d16
   g2 <g g,>2
 
-  % C part
-  c,2. b4
-  a2.  g4
+  c,2 c4 b4
+  a2 a4 g4
   d4.~ d16 d16 d4. f16 fis
-  % repeat 1
   g4.~ g16 g g2 
+  c2 c4 b4
+  a2 a4 g4
+  fis2 fis2
+  d4.~ d16 d g2 
 
-  c2. b4
-  a2.  g4
-  d4.~ d16 d16 d4. f16 fis
-  % repeat 2
+  c'8 g' c4 c,4 b4 
+  a8 e' a4 a,4 g4 
+  f8 c' f4 f,4 f4 
+  g2 g4 g4
+
   g4.~ g16 g g2 
-
-  c'1 a f g
-
-  g4.~ g16 g g2 
-  c8 g' d' g, e' g, d' g,
-  a, e' b' e, c' e, b' e,
-  d, a' d a f' a, d a
+  c8 g' d' g, e' g, b,4
+  a8 e' b' e, c' e, g,4
+  d8 a' d a f' a, d a
   g d' b' d, <a' g,> d, b' d,  
 
   c,2. b4
@@ -236,8 +224,8 @@ lower = \relative c {
 
   c'8 g' c g d' g, c g
   a, e' a e b' e, a e
-  f, c' f c a' c, f c
-  g d' g d g,4 g,
+  f, c' f c a' c, fis,4
+  g4 g g g,
   c1
 
 }
@@ -252,4 +240,6 @@ lower = \relative c {
       \new Staff = "lower" \lower
     >>
   >>
+  \layout { }
+  \midi { }
 }
