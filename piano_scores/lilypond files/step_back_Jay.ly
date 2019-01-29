@@ -121,20 +121,17 @@ upper = \relative c'' {
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
   <c e>8 g <c e>8 g <c e>8 g <c e>8 g
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
-  <<
-  { <c g'>8 a <c g'>8 a <d g>8 g, <d' g>8 g,
+  << { <c g'>8 a <c g'>8 a <d g>8 g, <d' g>8 g,
   <b d> g <b d> g <c e> g c16 d e c }
   \new Staff { <f a c>8 a c f <g, b>4 <b d g>
-  d4. d8 b c g e}
-  >>
+  d4. d8 b c g e} >>
   <c d fis>8 a d16 e fis g <fis a>8 c <fis d'> c
   <g' c>4 <g c>8 d' <g, b>2
 
-  % C part
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
-  <c f>2. e16 d cis d
-  <a c f>2. b16 c d g
+  <c f>2 <cis f>4 e16 d cis d
+  <a c f>2 <a c f>4 b16 c d g
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <c e g>4 <e g>8 c <e g>8 c <e g>8 c 
   e8 a, c e <a e'> a <c a'> a |
@@ -160,9 +157,13 @@ upper = \relative c'' {
   e8 a, <a' c> e <a e'> a <c a'> a 
     
   <f c a>4 <f c a> <d b a> <d b a>
-  <g d'>8 <g d'> d'16 e d8 b c g' c,
-  <g d'>8 <g d'> d'16 e d8 b c g' c,
-  <g d'>8 <g d'> d'16 e d8 b c g' c,
+  << 
+  { <g d'>4  d'16 e d8 <g, d'>4  d'16 e d8
+    <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8
+    <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8 }
+  \new Staff \with {midiInstrument = #"acoustic guitar"} { r8 c e g b, c g' c,
+               r8 c e g b, c g' c,
+               r8 c e g b, c g' c, } >>
   <c f,>^"rit." g d'16 c b c <d, g a b d>4\arpeggio f4
   <e d c g>1\arpeggio\fermata 
 
