@@ -161,9 +161,9 @@ upper = \relative c'' {
   { <g d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8 }
-  \new Staff \with {midiInstrument = #"acoustic guitar"} { r8 c e g b, c g' c,
-               r8 c e g b, c g' c,
-               r8 c e g b, c g' c, } >>
+  \new Staff \with {midiInstrument = #"acoustic guitar"} { r8 g, g' c, b c g' c,
+		r8 g g' c, b c g' c,
+		r8 a g' c, b c g' c, } >>
   <c f,>^"rit." g d'16 c b c <d, g a b d>4\arpeggio f4
   <e d c g>1\arpeggio\fermata 
 
@@ -220,13 +220,13 @@ lower = \relative c {
 
   c,2. b4
   a2.  g4
-  d4.~ d16 d16 d4. f16 fis
-  g4.~ g16 g g2 
+  fis4.~ fis16 fis16 fis2
+  d4.~ d16 d g2 
 
-  c'8 g' c g d' g, c g
-  a, e' a e b' e, a e
-  f, c' f c a' c, fis,4
-  g4 g g g,
+  <c' e'>8 g' <c e> g <c e> g <c e> g
+  a,8 g' <c e> g <c e> g <c e> g
+  f,8  g' <c e> g <c e> g <c e> g
+  g,4 g g g,
   c1
 
 }
