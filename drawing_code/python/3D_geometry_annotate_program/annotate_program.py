@@ -368,6 +368,16 @@ def third_seg_incircled(x,y,r):
     z = np.square(r)*(x+y)/(x*y-np.square(r))
     return z
 
+def solve_tetra_insphere(r1,r2,r3,c):
+    p = [(r2**2)*c**3 + (r2**2)*(r3**2)*c + (r1**2)*(r2**2)*c - (r1**2)*(r3**2)*c,
+            -(2*(r1**2)*(r3**2)*c**2 + 2*(r1**2)*(r2**2)*(r3**2)),
+            -((r1**2)*(r3**2)*c**3 + (r1**2)*(r2**2)*(r3**2)*c),]
+#    p = [(r4**2)*(b**2)-(r2**2)*(r1**2),-(2*(r2**2)*(r1**2)*b),
+#            (r4**2)*(r1**2)*(b**2) + (r2**2)*(r4**2)*(b**2) - (r2**2)*(r1**2)*(b**2) - (r2**2)*(r4**2)*(r1**2),
+#            -2*(r2**2)*(r4**2)*(r1**2)*b]
+    return np.roots(p)
+
+
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
 def orthogonal_proj(zfront, zback):
