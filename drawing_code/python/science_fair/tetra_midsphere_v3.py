@@ -31,6 +31,7 @@ from annotate_program import third_seg_incircled
 from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 from annotate_program import draw_perpendicular_sign
+from annotate_program import solve_tetra_insphere
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
@@ -74,7 +75,7 @@ amp_BIabc=np.linalg.norm(pE-pB) * np.linalg.norm(pB-pE)/np.linalg.norm(midHE-pB)
 incenterABC = pB + amp_BIabc*n_BmidHE
 midNE = (pE + pN)/2
 n_BmidNE = (midNE-pB)/np.linalg.norm(midNE-pB)
-amp_BIbcd=np.linalg.norm(pE-pB) * np.linalg.norm(pB-pE)/np.linalg.norm(midHE-pB)
+amp_BIbcd=np.linalg.norm(pE-pB) * np.linalg.norm(pB-pE)/np.linalg.norm(midNE-pB)
 incenterBCD = pB + amp_BIbcd*n_BmidNE
 # to find O, first find Htemp
 r1 = incenterABD-pH
@@ -99,6 +100,7 @@ ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalig
 ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pD, s = r'$D$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pN, s = r'$N$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pE, s = r'$E$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 draw_perpendicular_sign(np.cross(r1,r2), -r2, pHtemp2-incenterABC, incenterABC, ax2, 0.2)
@@ -111,11 +113,28 @@ ax2.plot(*np.transpose(incircleABC),linewidth=1,linestyle=':')
 incircleBCD = circle_full(incenterBCD-pO, pN-incenterBCD, np.linalg.norm(pN-incenterBCD), 30) + incenterBCD
 ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 
-print np.linalg.norm(pH-incenterABD),'r1'
-print np.linalg.norm(pH-incenterABC),'r2'
-print np.linalg.norm(pN-incenterBCD),'r3'
-print np.linalg.norm(pH-pB),'a'
+r1 = np.linalg.norm(pH-incenterABD)
+r2 = np.linalg.norm(pH-incenterABC)
+r3 = np.linalg.norm(pN-incenterBCD)
+c = np.linalg.norm(pH-pB)
 
+a_roots = solve_tetra_insphere(r1,r3,r2,c)
+print a_roots
+a = 8.74796477
+b = (r1**2)*(a+c)/(a*c-(r1**2))
+d = (r2**2)*(a+c)/(a*c-(r2**2))
+r4 = np.sqrt(d*a*b/(d+a+b))
+
+pDD = pN + b * (pN-pB)/np.linalg.norm(pN-pB)
+pAA = pH + a * (pH-pB)/np.linalg.norm(pH-pB)
+pCC = pE + d * (pE-pB)/np.linalg.norm(pE-pB)
+lineAADD = ax2.plot(*zip(pAA,pDD),linewidth = 2,color='b')
+lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
+lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
+
+incenterACD, _, _,pF,_,_ = incircle3D(pDD,pCC,pAA) 
+incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
+ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
 # Add transparent faces
 #vt1 = [pA,pB,pD]
 #tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
