@@ -16,7 +16,6 @@
 
 
 melody = \relative c'' {\tempo 4 = 70
-  % B part
   r1 
   r 
   r 
@@ -90,25 +89,15 @@ text = \lyricmode {
 最 美 的 愛 情   回 憶 裡 待 續   
 }
 
-upper = \relative c'' {
-  \time 4/4
+upper = \relative c'' { \time 4/4
   <g d'>8 <g d'>8 <g d'>8 <g c>8 <g b>8 <g c>16 <g d'>8 <b g'>8.
   <g d'>8 <g d'>8 <g d'>8 <g c>8 <d b'>8 <e c'>16 d'8 <c e>8.
-
-  << { \voiceOne 
-  e8 e e d d d d c
-  }
-  \new Voice { \voiceTwo 
-  a2 g }
-  >> \oneVoice
-
+  << { \voiceOne e8 e e d d d d c }
+  \new Voice { \voiceTwo a2 g } >> \oneVoice 
   <c, e>8 <c e> <c e> d <d a g>4 <d b g>
   c8 g c16 d e f d2
   c8 g c16 d e f d2
-
-  % B part
-  \repeat volta 2 {
-  <c e>8 g <c e>8 g <c e>8 g <c e>8 g
+  \repeat volta 2 { <c e>8 g <c e>8 g <c e>8 g <c e>8 g
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
   <c e>8 g <c e>8 g <c e>8 g <c e>8 g
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
@@ -116,7 +105,6 @@ upper = \relative c'' {
   <b d> g <b d> g <c e> g c16 d e c
   <c d f>8 a <c d f> a <cis f> a <cis f> a
   <f a d e>4 <f a d> <f g b d>2
-
   <c' d e>8 g <c d e>8 g <c d e>8 g <c d e>8 g
   <d' g> g, <d' g> g, <d' g> g, <d' g> g,
   <c e>8 g <c e>8 g <c e>8 g <c e>8 g
@@ -127,38 +115,28 @@ upper = \relative c'' {
   d4. d8 b c g e} >>
   <c d fis>8 a d16 e fis g <fis a>8 c <fis d'> c
   <g' c>4 <g c>8 d' <g, b>2
-
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <c f>2 <cis f>4 e16 d cis d
   <a c f>2 <a c f>4 b16 c d g
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <c e g>4 <e g>8 c <e g>8 c <e g>8 c 
-  e8 a, c e <a e'> a <c a'> a |
-  }
-  
-  \alternative {
-  { <f c a>4 <f c a> <d b a> <d b a>
-    <g d'>8 <g d'> d'16 e d8 b c g' c,
-    <g d'>8 <g d'> d'16 e d8 b c g' c,
-    <g d'>8 <g d'> d'16 e d8 b c g' c,
-    <c, f> a <c f> a <b d g>2 | }
-  
+  e8 a, c e <a e'> a <c a'> a }
+  \alternative { { <f c a>4 <f c a> <d b a> <d b a>
+    << {<g d'>4 d'16 e d8 <g, d'>4 d'16 e d8 | <g, d'>4 d'16 e d8 <g, d'>4 d'16 e d8 | <g, d'>4 d'16 e d8 <g, d'>4 d'16 e d8 | c4 d16 c b c b2}
+\new Staff {r2 b8 c g' c, r2 b8 c g' c, r2 b8 c g' c, } 
+\new Staff {<c, e>8 g <c e>8 g <c e>8 g <c e>8 g | <c e>8 g <c e>8 g <c e>8 g <c e>8 g | <c e>8 g <c e>8 g <c e>8 g <c e>8 g |<c f> a <c f> a <b d g>2}>>
+     }
   { <f' c a>4 <f c a> <d b a> <d b a>8 g % octave follow previous alternative b, not repeat's a
     <g d'>8 <g d'> <g d'> c b c16 <g d'>8 g'8.
     <g, d'>8 <g d'> <g d'> c b c16 <g d'>8 g'8.
     <e a,>8 <e a,>8 <e a,>8 d cis d16 <e a,>8 f8.
-    <e g,>8 <e g,>8 <e g,>8 d cis d16 <d g,>16~ <d g,>8. g,16
-    | }
-  }
-
+    <e g,>8 <e g,>8 <e g,>8 d cis d16 <d g,>16~ <d g,>8. g,16 } }
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <c e g>4 <e g>8 c <e g>8 c <b d g>4
   e8 a, <a' c> e <a e'> a <c a'> a 
-    
   <f c a>4 <f c a> <d b a> <d b a>
-  << 
-  { <g d'>4  d'16 e d8 <g, d'>4  d'16 e d8
+  << { <g d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8 }
   \new Staff \with {midiInstrument = #"acoustic guitar"} { r8 g, g' c, b c g' c,
@@ -166,7 +144,6 @@ upper = \relative c'' {
 		r8 a g' c, b c g' c, } >>
   <c f,>^"rit." g d'16 c b c <d, g a b d>4\arpeggio f4
   <e d c g>1\arpeggio\fermata 
-
 }
 
 lower = \relative c {
