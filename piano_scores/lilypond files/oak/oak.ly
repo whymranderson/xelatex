@@ -139,16 +139,12 @@ text = \lyricmode {
 讓 愛 滲 透 了 地 面   我 要 的 只 是 妳 在 我 身 邊 
 }
 
-upper = \relative c'' {
-  \time 4/4
-\key c \major
-
+upper = \relative c'' { \time 4/4 \key c \major
 r2 c'8 e,16 b'16 ~b16 c8. 
 b8 d,16 g16 ~g4 \acciaccatura g8 a8 c,16 g'16 ~g16 f8. 
 <c f>8 g16 e'16 d,8 d16 e c8 d16 e16~ e16 c'8. 
 b8 c c b16 c16 ~c1
 r2
-
 <g c d g>4 <g c g'>4 <g c g'>4 <g c g'>4
 <g d' g> <g d' g> <g d' g> <g d' g> 
 <a c f> <a c f> <a c f> <a c f> 
@@ -157,7 +153,6 @@ r2
 <e g b> <e b'> <a c>8 e8 <a c e>4
 <a, c f>4. <a c f>8 ~<a c f>2
 <g' c d>4 <g c d>4 <g b d> r
-
 <g c d g>4 <g c g'>4 <g c g'>4 <g c g'>4
 <g d' g> <g d' g> <g d' g> <g d' g> 
 <a c f> <a c f> <a c f> <a c f> 
@@ -166,7 +161,6 @@ r2
 <e g c> <e g c> <c a' c>8 e8 <a c e>4
 <a, c f>4. <a c f>8 ~<a c f>2
 <c d g>4 <c d g>4 <b d g> <b d g>4
-
 <c e>8 g <c e>8 g <c e>8 g <c e>8 g
 <d' g> g, <d' g> g, <d' g> g, <gis' b>4
 <a c>8 e <a c>8 e <a c>8 e <a c>8 e
@@ -175,7 +169,6 @@ r2
 <g b>8 e <g b>8 e <a c>8 e <a c>8 e
 <a d>8 f <a d>8 f <a d>8 f <a d>8 f
 <g b>8 f <g b d>8 f <g b d>8 f <g b d>8 f
-
 <c e>8 g <c e>8 g <c e>8 g <c e>8 g
 <d' g> g, <d' g> g, <d' g> g, <gis' b>4
 <a c>8 e <a c>8 e <a c>8 e <a c>8 e
@@ -184,13 +177,10 @@ r2
 <e g> b <e g> b <e a> c <e a> c
 <f a> d <f a> d <f a> d <f a> d
 <g b> d <g b> d <gis b> d <gis b> d
-
-
 r16 e c' b e, c' b e, c' b e, d' c b e, c'
 e, c' b e, c' b e, c' b4 c32 b e, c b e, c b
 c''16 e c' b e, c' b e, d' c b c b g d e
 c d g8 c16  d g8 ~g2
-
 <c,,, e>8 g <c e>8 g <c e>8 g <c e>8 g
 <d' g> g, <d' g> g, <d' g> g, <d' g> g,
 <c f> a <c f> a <c f> a <c f> a 
@@ -199,9 +189,7 @@ c d g8 c16  d g8 ~g2
 <e g>8 b <e g>8 b <e a> c <e a> c
 <f, c'>4. <f c'>8 ~<f c' >2
 <c' d g>2 <b d g>8 <g' c>8 <g d'>8 <g e'>8
-
-\key des \major
-<aes des>8 f <aes des>8 f <aes des>8 f <aes des>8 f
+\key des \major <aes des>8 f <aes des>8 f <aes des>8 f <aes des>8 f
 <bes des> ges <bes des> ges <bes des> ges <bes des> ges
 <aes c> ges <aes c> ges <aes c> ges <aes c> ges
 <ges bes> ees <ges bes> ees <aes c> ees <aes c> ees
@@ -209,17 +197,14 @@ c d g8 c16  d g8 ~g2
 <bes des> ges <bes des> ges <bes des> ges <bes des> ges
 <aes c> <f ges> <aes c> ges <aes c> ges <aes c> ges
 <ges bes> ees <ges bes> ees <aes c> ees <aes c> ees
-
 <des f> aes <des f> aes <des f> aes <des f> aes
 <ees' aes> aes, <ees' aes> aes, <ees' aes> aes, <a' c> ees
 <bes' des> f <bes des> f <bes des> f <bes des> f
-
 <aes c> f <aes c> f <aes c> f <aes c> f
 <ges bes> des <ges bes> des <aes' c> ees <aes c> ees
 <f aes> c <f aes> c <f ges bes> des <f bes> des
 <ees ges> bes <ees ges> bes <ees ges> bes <ees ges> bes
 <ees aes> c <ees aes> c <ees ges aes> c <ees ges aes> c
-
 <aes' c> f <aes c> f <g bes des>16 f bes des f bes des f
 bes4 <f des' f> ees,, f4
 <bes, ges'> <bes ges'> <bes ges'> <bes ges'> 
@@ -228,16 +213,12 @@ des4 des des des
 des1
 }
 
-lower = \relative c {
-  \clef bass
-\key c \major
+lower = \relative c { \clef bass \key c \major
 r2 a8 e'8 c'4 
 e,8 g d'4 f,,8 c'8 g'4 
 c,4 <b g'> a r4
 <e' g b>2 <f a>8 <c d>8 g'16 a c8 
 <g, d' g c>2 <g' b>2
-
-
 c1
 b1
 a1
@@ -246,7 +227,6 @@ f1
 e2 <a c>
 <d,, d'>4.  <d d'>8~<d d'>2 
 g'2 g2
-
 c,1
 b
 a1
@@ -255,7 +235,6 @@ f,1
 e2 a2
 <d, d'>4.  <d d'>8~<d d'>2 
 <g g'>4. d'8 <g, d'>2
-
 c,4.~c16 c16 c4 r8 g16 a
 b4. ~b16 b   b4    gis
 a4. ~a16 e   a4.   c16 d
@@ -264,21 +243,18 @@ f2           f4.   d16 f
 e4. ~e16 e16 a,2
 d,4. ~d16 d16 d4.  ~d16 d16
 g4. ~g16 g16 g4    g4
-
 c1
-b2           gis
+b2.           gis4
 a4. ~a16 a16 a4.   c16 d
 e4. ~e16 e16 e4.   d16 e
 f4. ~f16 f16 f4.   d16 f
 e4. ~e16 e16 a,2
 d,4. ~d16 d16 d2
 g2 gis
-
 <a' e'>1
 <f c'>
 <a' e'>
 <f, c'>
-
 c'1
 b1
 a1
@@ -287,9 +263,7 @@ f1
 e2 a2
 <d, d'>4.  <d d'>8~ <d d'>2
 <g g'>2 <g g'>2
-
-\key des \major
-des'1
+\key des \major des'1
 ges1
 aes1
 ees2 aes
@@ -297,7 +271,6 @@ des1
 ges,1
 aes
 ees2 aes
-
 des,,2.~des8 aes16 bes 
 c2. a'4
 bes1
