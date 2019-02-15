@@ -15,8 +15,7 @@
 }
 
 
-melody = \relative c' {
-\key c \major
+melody = \relative c' { \key c \major
 r1
 r1
 r1
@@ -40,20 +39,18 @@ c2 c8 b16 c8. e8
 d8 b a' g~ g4. e8
 e4 d c8 d4 d8~
 d2 r8 g,8 f' f
-
 f e d e4 e,8 e d'
 d c b c4 c8 d e
-g16 f8. c4 g'16 f8. c8 g8
+g16 f8 c16~c4 g'16 f8 c16~c8 g8
 f' e d e4 e,8 e f'
 f e d e4 e8 e c'
 c b b a8\fermata r8 c,, d e
-g16 f8. c4 g'16 f8. c4
-f16 e8. c2 d4
+g16 f8 c16~c4 g'16 f8 c16~c4
+f16 e8 c16~c2 d4
 c1
 r1
 r1
 r1
-
 e4 e e8 d e f
 g4 g g8 f g g
 a4 a a8 g g a
@@ -70,16 +67,14 @@ c2 c8 b16 c8. e8
 d8 b a' g~ g4. e8
 e4 d c8 d4 d8~
 d2 r8 g,8 f' f
-
 f e d e4 e,8 e d'
 d c b c4 c8 d e
-g16 f8. c4 g'16 f8. c8 g8
+g16 f8 c16~c4 g'16 f8 c16~c8 g8
 f' e d e4 e,8 e f'
 f e d e4 e8 e c'
 c b b a8\fermata r2
-r8 c,, d e
-g16 f8. c4 g'16 f8. c4
-f16 e8. c4 
+r8 c, d e g16 f8 c16~c4 
+g'16 f8 c16~c4 f16 e8 c16~c4 
 r4 d4 c4\fermata ~c4~
 c1
 r1
