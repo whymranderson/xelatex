@@ -53,8 +53,8 @@ upper = \relative c'' { \time 4/4 \key f \major
 c8 e, f c' c d, bes' d,
 a' a, cis <e g> <e g> a, <f a> a
 << { g' g, bes d g g, b f' 
-<c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {g8 f g c f g c4 f1} >>
-<c f>8 a <c f>8 a <cis f>8 a <c e>8 a
+<c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {c'8 a b f' \ottava #1 b c f4 \ottava #2 f'1} >>
+\ottava #0 <c=' f>8 a <c f>8 a <cis f>8 a <c e>8 a
 <c f>8 a <c f>8 a <c f>8 a <c f>16 g' a8
 <d, f> b <d f> b <c f> a <c e> f
 <b, d f> g <b d f> g <b d f> g <c e> g
