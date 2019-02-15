@@ -97,6 +97,10 @@ c8 a f' a, b g g' g,
 b g d' g, c a e' a,
 c8 a f' a, c8 a f' a,
 <g c g'>8 <g c g'>8 <g c g'>8 <g c g'>8 <g b g'>2
+\clef bass \chordmode { f,4 f,4 g, g,
+e, e, a, a,
+d, d, g, g,
+c, c, c, c,} 
 }
 
 lower = \relative c { \clef bass
