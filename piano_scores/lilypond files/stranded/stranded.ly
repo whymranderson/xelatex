@@ -52,8 +52,8 @@ text = \lyricmode {
 upper = \relative c'' { \time 4/4 \key f \major 
 c8 e, f c' c d, bes' d,
 a' a, cis <e g> <e g> a, <f a> a
-g' g, bes d g g, b f'
-<c f> g bes c e2
+<< { g' g, bes d g g, b f' 
+<c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {g8 f g c f g c4 f1} >>
 <c f>8 a <c f>8 a <cis f>8 a <c e>8 a
 <c f>8 a <c f>8 a <c f>8 a <c f>16 g' a8
 <d, f> b <d f> b <c f> a <c e> f
