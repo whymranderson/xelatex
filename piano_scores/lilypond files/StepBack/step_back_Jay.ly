@@ -139,7 +139,7 @@ upper = \relative c'' { \time 4/4
   << { <g d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8 }
-  \new Staff \with {midiInstrument = #"acoustic guitar"} { r8 g, g' c, b c g' c,
+  \new Staff \with {midiInstrument = #"acoustic guitar (nylon)"} { r8 g, g' c, b c g' c,
 		r8 g g' c, b c g' c,
 		r8 a g' c, b c g' c, } >>
   <c f,>^"rit." g d'16 c b c <d, g a b d>4\arpeggio f4
