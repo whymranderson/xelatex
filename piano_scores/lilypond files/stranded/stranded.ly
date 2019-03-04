@@ -31,7 +31,37 @@ a8 a a f16 f16~f16 g16~g4 f16 e16
 d8 d d e16 d~d16 cis16~cis4~cis16 a16
 e'8 e f g16 g16~g16 f16~f8 f16 f~f e
 d8 d16 d16~d8. d16 d8 a'8 a8 g16 a16~
-a1
+a2 r8 a, c g'
+f bes, bes a16 a16~a8 g e' f
+g c, c bes16 bes16~bes8 a a16 bes c8
+c d16 f,~f8. d'16 d8 e c g 
+bes a g a~a8 a c g'
+f bes, bes a16 a~a8 g e' f
+g g g e16 g~g8 f d e
+f e16 f~f8. e16 d8 e f8 e16 f16~
+f1
+r1
+r8 a, bes a g a16 bes16~bes16 a8.
+r8 a bes a g a16 a16~a16 e8.
+f4 d' c4. f,8
+bes a bes c16 a~a8 g4.
+r8 a bes a g a16 bes16~bes16 a8.
+r8 a bes a g a16 a16~a16 c8.
+f,4 d' c8 g'16 f16~f8. g16 
+a8 a a f16 f16~f16 g16~g4 f16 e16
+d8 d d e16 d~d16 cis16~cis4~cis16 a16
+e'8 e f g16 g16~g16 f16~f8 f16 f~f e
+d8 d16 d16~d8. d16 d8 a'8 a8 g16 a16~
+a2 r8 a, c g'
+f bes, bes a16 a16~a8 g e' f
+g c, c bes16 bes16~bes8 a a16 bes c8
+c d16 f,~f8. d'16 d8 e c g 
+
+bes a g a~a8 a a b
+a g g a16 b~b8 a fis g
+a a a fis16 a~a8 g e fis
+g fis16 g~g8. fis16 e8 fis g8 fis16 g16~
+g1
 }
 
 text = \lyricmode {
