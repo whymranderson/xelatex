@@ -28,9 +28,10 @@ class TestRenderable(object):
         self.list = -1
         
         #a = CSG.cube()
-        a = CSG.sphere(slices=32,stacks=16)
+        a = CSG.sphere()#slices=32,stacks=16)
         #a = CSG.tetra()
-        b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.],slices=16)
+        b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
+        c = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.]).rotate([0,0,1],90)#,slices=16)
         for p in a.polygons:
             p.shared = [1.0, 0.0, 0.0, 1.0]
         for p in b.polygons:
@@ -42,7 +43,7 @@ class TestRenderable(object):
             if operation == 'subtract':
                 polygons = a.subtract(b).toPolygons()
             elif operation == 'union':
-                polygons = a.union(b).toPolygons()
+                polygons =a.union(b).toPolygons()
             elif operation == 'intersect':
                 polygons = a.intersect(b).toPolygons()
             else:
@@ -138,7 +139,7 @@ def display():
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option('-o', '--operation', dest='operation',
-        type='str', default='subtract')
+        type='str', default='union')
     (options, args) = parser.parse_args()
 
     renderable = TestRenderable(options.operation)
