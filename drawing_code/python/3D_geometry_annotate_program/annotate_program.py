@@ -276,6 +276,19 @@ def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
                              color=frame_color,
                              alpha=frame_alpha)
 
+def cylinder(ax2):
+    x=np.linspace(-1, 1, 100)
+    z=np.linspace(-2, 2, 100)
+    Xc, Zc=np.meshgrid(x, z)
+    Yc = np.sqrt(1-Xc**2)
+    
+    # Draw parameters
+    rstride = 20
+    cstride = 10
+    ax2.plot_surface(Xc, Yc, Zc, alpha=0.9, rstride=rstride, cstride=cstride)
+    ax2.plot_surface(Xc, -Yc, Zc, alpha=0.9, rstride=rstride, cstride=cstride)
+
+
 def incircle3D(point1,point2,point3):
     """Return the insubscribed circle's center's position pO, radius r and norm vec nv and 
     three Ceva sidepoints p12,p23,p31 from a triangle(p1,p2,p3). If you only need a partial results,
