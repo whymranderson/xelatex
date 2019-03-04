@@ -52,8 +52,8 @@ text = \lyricmode {
 upper = \relative c'' { \time 4/4 \key f \major 
 c8 e, f c' c d, bes' d,
 a' a, cis <e g> <e g> a, <f a> a
-<< { g' g, bes d g g, b f' 
-<c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {c'8 a b f' \ottava #1 b c f4 \ottava #2 f'1} >>
+<< { g' g, bes d g g, bes f' 
+<c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {c'8 a bes f' e f c'4 \ottava #1 f1} >>
 \ottava #0 <c=' f>8 a <c f>8 a <cis f>8 a <c e>8 a
 <c f>8 a <c f>8 a <c f>8 a <c f>16 g' a8
 <d, f> b <d f> b <c f> a <c e> f
@@ -65,6 +65,15 @@ a' a, cis <e g> <e g> a, <f a> a
 <g' b> d <g b> d <cis e> a <cis e> a
 <e' g> a, <e' g> a, <d f> a <d f>16 g a8
 <b, d f a>\arpeggio b <f' a> d <f b> d <f b> d
+<a' c f>4 <a c f>4 <e g c>4 <f c' f>4
+<f bes>8 d <f bes>8 f <e g c> c <e g c> c
+<c e a> a <c e a> a <c e > a <c f > a
+<d f bes> bes <d f bes> bes <d f bes> bes <e g c> g,
+<f' bes> d <f bes> d <f a> c <a' c f> f
+<bes c f> d, <bes' c f> d, <g c e> e <g c e> e
+<e a> cis <e a> cis <e g> a, <d f> a
+<f bes> d <f bes> d <f bes> c <e g c> c
+<f' a> c <f a> c <g' bes> c, <f a> c
 }
 
 lower = \relative c { \clef bass \key f \major 
