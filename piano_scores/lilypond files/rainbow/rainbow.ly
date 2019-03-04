@@ -15,7 +15,7 @@
 }
 
 
-melody = \relative c' {\tempo 4 = 70
+melody = \relative c' {\tempo 4 = 80
 r1
 r1
 r1
@@ -34,8 +34,8 @@ e e e f e d b d~
 d8 c8~c2 r8 b8
 a4 a8 a a b c d~
 d8 g,8~g4. g8 c d
-e e e d d c e d
-d2 r8 g,8 f' e 
+e4 a,8 a a e' f e~
+e d2 g,8 f' e 
 d c c c b c d e 
 g,2 r8 g c b
 a g g f e d e f
@@ -43,7 +43,15 @@ g2 r8 g fis g
 a4. a8 gis a b e,
 c'2 r8 c b c
 d4. d8 d c e f
-d1
+d2 r8 g, fis g
+e'4. e8 f e d b~
+b c2 c8 b c
+g'4. g8 f e d e
+e2~d8 g, fis g
+e'4. e8 f e d b
+c d e b' a4. e8
+g f e f e4. d8
+c1 
 }
 
 text = \lyricmode {
@@ -98,9 +106,24 @@ b g d' g, c a e' a,
 c8 a f' a, c8 a f' a,
 <g c g'>8 <g c g'>8 <g c g'>8 <g c g'>8 <g b g'>2
 \clef bass \chordmode { f,4 f,4 g, g,
-e, e, a, a,
+e,:m e,:m a,:m a,:m
 d, d, g, g,
-c, c, c, c,} 
+c, c, c,2 
+f,4 f, e, e,
+a,:m a,:m c/g c/g 
+f, f, fis,:dim fis,:dim
+g,} g8 c b2
+\clef bass \chordmode { c4 c e:m/b e:m/b
+a,:m a,:m c/g c/g
+f, f, g, g,
+c c b,2:dim6-^5
+c4 c e:m/b e:m/b 
+a,:m c/g fis,2:m }
+<a c f>4 <a c f> <g d' g> <g d' g>
+<c e g>4 c8 f e2
+e8 g, c4 f8 a, c4
+g'8 g, c4 f8 a, c4
+<c e>1\arpeggio
 }
 
 lower = \relative c { \clef bass
@@ -124,6 +147,25 @@ f2 g2
 e2 a2
 d,2 d2 
 g2 g
+f8 c'4 c8 g d'4 d8
+e, b'4 b8 a e'4 e8
+d, a'4 a8 g d'4 d8
+c, g'4 g8~g2 
+f8 c'4 c8 e, b'4 b8
+a8 e'4 e8 g, e'4 e8
+f,8 c'4 c8 fis, c'4 c8
+g8 d'~d2.
+c8 g'4 g8 b,8 g'4 g8
+a,8 e'4 e8 g,8 e'4 e8
+f,8 c'4 c8 g,8 d'4 d8
+c8 g'4 g8 g,2
+c8 g'4 g8 b,8 g'4 g8
+a,8 e'8 g,8 e'8 <fis, cis'>2 
+d8 a'4 a8 g8 d'4 d8
+c1
+c4. c8 d4. d8
+e4. e8 d4. d8
+<c g>1\arpeggio
 }
 
 
