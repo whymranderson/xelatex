@@ -30,6 +30,7 @@ from annotate_program import circle_full
 from annotate_program import third_seg_incircled
 from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
+from annotate_program import cylinder
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -177,7 +178,7 @@ lineAJ, = ax2.plot(*zip(pA,pJ),linewidth = 1,color='y')
 lineBL, = ax2.plot(*zip(pB,pL),linewidth = 1,color='y')
 lineCK, = ax2.plot(*zip(pC,pK),linewidth = 1,color='y')
 lineDI, = ax2.plot(*zip(pD,pI),linewidth = 1,color='y')
-
+cylinder(ax2)
 # Add transparent faces
 #vt1 = [pA,pB,pD]
 #tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
