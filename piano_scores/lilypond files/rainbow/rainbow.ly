@@ -52,6 +52,9 @@ e'4. e8 f e d b
 c d e b' a4. e8
 g f e f e4. d8
 c1 
+r1
+r1
+r1 \bar "|." 
 }
 
 text = \lyricmode {
@@ -105,7 +108,7 @@ c8 a f' a, b g g' g,
 b g d' g, c a e' a,
 c8 a f' a, c8 a f' a,
 <g c g'>8 <g c g'>8 <g c g'>8 <g c g'>8 <g b g'>2
-\clef bass \chordmode { f,4 f,4 g, g,
+\chordmode { f,4 f,4 g, g,
 e,:m e,:m a,:m a,:m
 d, d, g, g,
 c, c, c,2 
@@ -113,7 +116,7 @@ f,4 f, e, e,
 a,:m a,:m c/g c/g 
 f, f, fis,:dim fis,:dim
 g,} g8 c b2
-\clef bass \chordmode { c4 c e:m/b e:m/b
+\chordmode { c4 c e:m/b e:m/b
 a,:m a,:m c/g c/g
 f, f, g, g,
 c c b,2:dim6-^5
@@ -157,15 +160,15 @@ f,8 c'4 c8 fis, c'4 c8
 g8 d'~d2.
 c8 g'4 g8 b,8 g'4 g8
 a,8 e'4 e8 g,8 e'4 e8
-f,8 c'4 c8 g,8 d'4 d8
+f,8 c'4 c8 g8 d'4 d8
 c8 g'4 g8 g,2
 c8 g'4 g8 b,8 g'4 g8
 a,8 e'8 g,8 e'8 <fis, cis'>2 
 d8 a'4 a8 g8 d'4 d8
-c1
-c4. c8 d4. d8
+c8 g'~g2.
+c,4. c8 d4. d8
 e4. e8 d4. d8
-<c g>1\arpeggio
+<c g'>1\arpeggio
 }
 
 
