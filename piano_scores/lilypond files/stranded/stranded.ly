@@ -41,6 +41,10 @@ g g g e16 g~g8 f d e
 f e16 f~f8. e16 d8 e f8 e16 f16~
 f1
 r1
+r1
+r1
+r1
+r1
 r8 a, bes a g a16 bes16~bes16 a8.
 r8 a bes a g a16 a16~a16 e8.
 f4 d' c4. f,8
@@ -84,17 +88,17 @@ c8 e, f c' c d, bes' d,
 a' a, cis <e g> <e g> a, <f a> a
 << { g' g, bes d g g, bes f' 
 <c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {c'8 a bes f' e f c'4 \ottava #1 f1} >>
-\ottava #0 <c=' f>8 a <c f>8 a <cis f>8 a <c e>8 a
+\ottava #0 <c=' f>8 a <c f>8 a <cis f>8 a <cis e>8 a
 <c f>8 a <c f>8 a <c f>8 a <c f>16 g' a8
-<d, f> b <d f> b <c f> a <c e> f
-<b, d f> g <b d f> g <b d f> g <c e> g
-<c f> a <c f> a <cis f> a <c e> a
+<d, f> bes <d f> bes <c f> a <c e> f
+<bes, d f> g <bes d f> g <bes d f> g <c e> g
+<c f> a <c f> a <cis f> a <cis e> a
 <c f> a <c f> a <c f> a <c f>16 g' a8
-<d, f> b <d f> b <f' g> e f a,
-<b d f> g <b d f> g <b d f> g <b e> g
-<g' b> d <g b> d <cis e> a <cis e> a
+<d, f> bes <d f> bes <f' g> e f a,
+<bes d f> g <bes d f> g <bes d f> g <bes e> g
+<g' bes> d <g bes> d <cis e> a <cis e> a
 <e' g> a, <e' g> a, <d f> a <d f>16 g a8
-<b, d f a>\arpeggio b <f' a> d <f b> d <f b> d
+<bes, d f a>\arpeggio bes <f' a> d <f bes> d <f bes> d
 <a' c f>4 <a c f>4 <e g c>4 <f c' f>4
 <f bes>8 d <f bes>8 f <e g c> c <e g c> c
 <c e a> a <c e a> a <c e > a <c f > a
@@ -104,6 +108,11 @@ a' a, cis <e g> <e g> a, <f a> a
 <e a> cis <e a> cis <e g> a, <d f> a
 <f bes> d <f bes> d <f bes> c <e g c> c
 <f' a> c <f a> c <g' bes> c, <f a> c
+\key f \minor <aes' c>8 ees c ees <aes c> ees <g bes> c
+<g bes> ees <g bes> ees <f aes> g <e g>16 aes bes8
+<f aes>8 c <f aes>8 c <f aes>8 des f16 g aes8
+<f aes>8 ees <f aes>8 ees <bes des> ees <bes des> ees
+<des f> g, bes c e g, g' g, 
 }
 
 lower = \relative c { \clef bass \key f \major 
@@ -121,7 +130,21 @@ d,4.~d16 d16 <c c'>4 <c c'>4
 <g, g'>4.~g'16 g16 <c, c'>4 <c c'>4
 e4.~e16 e16 <a, a'>8 <a a'>4 <a a'>8
 <d d'>4.~d16 d16 <d d'>4 <c c'>4
-<b b>1
+<b b'>1
+<c' \parenthesize c'>4 <c \parenthesize c'>4 <c, \parenthesize c'>4 <a' \parenthesize a'>4
+<bes bes'>4.~bes16 bes <c c'>4 <c, c'>
+<a a'>4.~a16 a <d d'>2
+<g, g'>4~g'16 g a bes <c, c'>4 <c c'>4
+<f, f'>4.~f'16 c <f, f'>4 <c' c'>4
+<bes bes'>4.~bes16 bes <c c'>8 <c c'>4 <bes bes'>8
+<a a'>4 <cis cis'>8.  <cis cis'>16 <d d'>4.~d'16 a
+g4.~g16 g16 <c, c'>4 <c c'>4
+<f f'>4.~f'16 c <f, f'>4 <f f'>4
+\key f \minor <aes aes'>4.~aes16 aes16 <aes, aes'>4. <aes aes'>8
+<ees' ees'>4.~ees'16 ees16 <ees, ees'>4 <e e'>4
+<f f'>4.~f'16 f16 <des, des'>4 <des des'>4
+<ees ees'>4.~ees'16 bes16 <ees, ees'>8 <ees ees'>4 <ees ees'>8
+<c c'>1
 }
 
 
