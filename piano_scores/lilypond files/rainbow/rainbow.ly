@@ -110,7 +110,7 @@ c8 a f' a, c8 a f' a,
 <g c g'>8 <g c g'>8 <g c g'>8 <g c g'>8 <g b g'>2
 \chordmode { f,4 f,4 g, g,
 e,:m e,:m a,:m a,:m
-d, d, g, g,
+d,:m d,:m g, g,
 c, c, c,2 
 f,4 f, e, e,
 a,:m a,:m c/g c/g 
@@ -121,7 +121,7 @@ a,:m a,:m c/g c/g
 f, f, g, g,
 c c b,2:dim6-^5
 c4 c e:m/b e:m/b 
-a,:m c/g fis,2:m }
+a,:m c/g fis,2:dim }
 <a c f>4 <a c f> <g d' g> <g d' g>
 <c e g>4 c8 f e2
 e8 g, c4 f8 a, c4
@@ -163,7 +163,7 @@ a,8 e'4 e8 g,8 e'4 e8
 f,8 c'4 c8 g8 d'4 d8
 c8 g'4 g8 g,2
 c8 g'4 g8 b,8 g'4 g8
-a,8 e'8 g,8 e'8 <fis, cis'>2 
+a,8 e'8 g,8 e'8 fis,2 
 d8 a'4 a8 g8 d'4 d8
 c8 g'~g2.
 c,4. c8 d4. d8
