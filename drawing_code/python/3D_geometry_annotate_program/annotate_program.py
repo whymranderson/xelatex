@@ -285,17 +285,35 @@ def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
                              color=frame_color,
                              alpha=frame_alpha)
 
-def cylinder(ax2):
-    x=np.linspace(-1, 1, 100)
-    z=np.linspace(-2, 2, 100)
+def cylinder(ax2,c1,c2,radius):
+    ''' Plot from both end circle's centers c1 and c2 and radius.'''
+    length = np.linalg.norm((c2-c1))/2
+    x=np.linspace(-1*radius, 1*radius, 100)
+    z=np.linspace(-1*length, 1*length, 100)
     Xc, Zc=np.meshgrid(x, z)
-    Yc = np.sqrt(1-Xc**2)
-    
+    Yc = np.sqrt(np.square(radius) - np.square(Xc))
+    cmm,cnn = np.shape(Yc)
+    mat_zn2omega = rotmat_from_A_2_B(np.array([0,0,1]),(c2-c1)/length)
+    Xcu,Ycu,Zcu =np.zeros((100,100)),np.zeros((100,100)),np.zeros((100,100))     
+    Xcm,Ycm,Zcm =np.zeros((100,100)),np.zeros((100,100)),np.zeros((100,100))   
+    for i in range(cmm):
+        for j in range(cnn):
+            Xcu[i,j],Ycu[i,j],Zcu[i,j] = np.dot(mat_zn2omega,
+            np.array([Xc[i,j],Yc[i,j],Zc[i,j]])) 
+    for i in range(cmm):
+        for j in range(cnn):
+            Xcm[i,j],Ycm[i,j],Zcm[i,j] = np.dot(mat_zn2omega,
+            np.array([Xc[i,j],-Yc[i,j],Zc[i,j]])) 
+    # Translate
+    distance = (c2-c1)/2 + c1
     # Draw parameters
-    rstride = 20
-    cstride = 10
-    ax2.plot_surface(Xc, Yc, Zc, alpha=0.9, rstride=rstride, cstride=cstride)
-    ax2.plot_surface(Xc, -Yc, Zc, alpha=0.9, rstride=rstride, cstride=cstride)
+    rstride = 3
+    cstride = 20
+    ax2.plot_surface(Xcu+distance[0], Ycu+distance[1], Zcu+distance[2], alpha=0.3, rstride=rstride, cstride=cstride)
+    ax2.plot_surface(Xcm+distance[0], Ycm+distance[1], Zcm+distance[2], alpha=0.3, rstride=rstride, cstride=cstride)
+    #ax2.plot_surface(Xc+distance[0], Yc+distance[1], Zc+distance[2], alpha=0.9, rstride=rstride, cstride=cstride)
+    #ax2.plot_surface(Xc+distance[0], Yc+distance[1], Zc+distance[2], alpha=0.9, rstride=rstride, cstride=cstride)
+
 
 
 def incircle3D(point1,point2,point3):
