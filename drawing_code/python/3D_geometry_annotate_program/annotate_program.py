@@ -233,6 +233,15 @@ def triangle_area(pA,pB,pC):
     area =  np.sqrt(s*(s-la)*(s-lb)*(s-lc))
     return area
 
+def solve_tetra_insphere(r1,r2,r3,c):
+    p = [(r2**2)*c**3 + (r2**2)*(r3**2)*c + (r1**2)*(r2**2)*c - (r1**2)*(r3**2)*c,
+            -(2*(r1**2)*(r3**2)*c**2 + 2*(r1**2)*(r2**2)*(r3**2)),
+            -((r1**2)*(r3**2)*c**3 + (r1**2)*(r2**2)*(r3**2)*c),]
+# if c is known instead of a
+#    p = [(r4**2)*(b**2)-(r2**2)*(r1**2),-(2*(r2**2)*(r1**2)*b),
+#            (r4**2)*(r1**2)*(b**2) + (r2**2)*(r4**2)*(b**2) - (r2**2)*(r1**2)*(b**2) - (r2**2)*(r4**2)*(r1**2),
+#            -2*(r2**2)*(r4**2)*(r1**2)*b]
+    return np.roots(p)
 
 sphere_color = 'red'#'#FFDDDD'
 sphere_alpha = 0.05
