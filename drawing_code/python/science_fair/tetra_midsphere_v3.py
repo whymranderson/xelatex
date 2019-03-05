@@ -32,9 +32,10 @@ from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 from annotate_program import draw_perpendicular_sign
 from annotate_program import solve_tetra_insphere
+from annotate_program import cylinder
 
 #### The plotting of a vector-based graphics using the above points location information.
-fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
+fig2 = pyplot.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
 ax2.view_init(elev=36, azim=66)
@@ -138,6 +139,10 @@ ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
 
 plot_front(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
 plot_back(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
+cylinder(ax2,incenterABD,(incenterABD-pO)*5+incenterABD,r1)
+cylinder(ax2,incenterABC,(incenterABC-pO)*3+incenterABC,r2)
+cylinder(ax2,incenterBCD,(incenterBCD-pO)*3+incenterBCD,r3)
+cylinder(ax2,incenterACD,(incenterACD-pO)*3+incenterACD,r4)
 # Add transparent faces
 #vt1 = [pA,pB,pD]
 #tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
@@ -145,7 +150,7 @@ plot_back(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
 #ax2.add_collection3d(tr1)
 
 #draw coordinate
-#draw_xyz_coordinate_unit_vectors(ax2)
+draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
