@@ -90,15 +90,15 @@ pO =return_intersection_under_Ceva_Theorem(pHtemp2,pHtemp1,pH,incenterABC,incent
 #graph step 1
 lineIabdO = ax2.plot(*zip(incenterABD,pO),linewidth = 2,color='b')
 lineIabcO = ax2.plot(*zip(incenterABC,pO),linewidth = 2,color='b')
-lineBC = ax2.plot(*zip(pB,pC),linewidth = 2,color='b')
-lineBA = ax2.plot(*zip(pB,pA),linewidth = 2,color='b')
-lineBD = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
+#lineBC = ax2.plot(*zip(pB,pC),linewidth = 2,color='b')
+#lineBA = ax2.plot(*zip(pB,pA),linewidth = 2,color='b')
+#lineBD = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 
 ax2.text(*pH, s = r'$H$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pD, s = r'$D$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pD, s = r'$D$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pN, s = r'$N$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pE, s = r'$E$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
@@ -128,13 +128,16 @@ r4 = np.sqrt(d*a*b/(d+a+b))
 pDD = pN + b * (pN-pB)/np.linalg.norm(pN-pB)
 pAA = pH + a * (pH-pB)/np.linalg.norm(pH-pB)
 pCC = pE + d * (pE-pB)/np.linalg.norm(pE-pB)
-lineAADD = ax2.plot(*zip(pAA,pDD),linewidth = 2,color='b')
-lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
-lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
+#lineAADD = ax2.plot(*zip(pAA,pDD),linewidth = 2,color='b')
+#lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
+#lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
 
 incenterACD, _, _,pF,_,_ = incircle3D(pDD,pCC,pAA) 
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
 ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
+
+plot_front(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
+plot_back(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
 # Add transparent faces
 #vt1 = [pA,pB,pD]
 #tr1 = p3.art3d.Poly3DCollection([vt1],color = 'r', alpha=0.3)
