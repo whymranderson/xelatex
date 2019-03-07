@@ -30,7 +30,7 @@ f,4 d' c8 g'16 f16~f8. g16
 a8 a a f16 f16~f16 g16~g4 f16 e16
 d8 d d e16 d~d16 cis16~cis4~cis16 a16
 e'8 e f g16 g16~g16 f16~f8 f16 f~f e
-d8 d16 d16~d8. d16 d8 a'8 a8 g16 a16~
+d8 d16 d16~d8. d16 d8 g8 g8 f16 g16~
 a2 r8 a, c g'
 f bes, bes a16 a16~a8 g e' f
 g c, c bes16 bes16~bes8 a a16 bes c8
@@ -55,8 +55,8 @@ f,4 d' c8 g'16 f16~f8. g16
 a8 a a f16 f16~f16 g16~g4 f16 e16
 d8 d d e16 d~d16 cis16~cis4~cis16 a16
 e'8 e f g16 g16~g16 f16~f8 f16 f~f e
-d8 d16 d16~d8. d16 d8 a'8 a8 g16 a16~
-a2 r8 a, c g'
+d8 d16 d16~d8. d16 d8 g8 g8 f16 g16~
+g2 r8 a, c g'
 f bes, bes a16 a16~a8 g e' f
 g c, c bes16 bes16~bes8 a a16 bes c8
 c d16 f,~f8. d'16 d8 e c g 
@@ -80,12 +80,28 @@ text = \lyricmode {
 我 原 諒 不 了 我   就 請 妳 當 作 我 已 不 在
 我 睜 開 雙 眼   看 著 空 白   忘 記 妳 對 我 的 期 待
 讀 完 了 依 賴   我 很 快 就 離 開
+
+久 未 放 晴 的 天 空   依 舊 留 著 妳 的 笑 容
+哭 過   卻 無 法 掩 埋 歉 疚
+風 箏 在 陰 天 擱 淺   想 念 還 在 等 待 救 援
+我 拉 著 線   復 習 妳 給 的 溫 柔
+曝 曬 在 一 旁 的 寂 寞   笑 我 給 不 起 承 諾
+怎 麼 會 怎 麼 會   妳 竟 原 諒 了 我
+
+我 只 能 永 遠 讀 著 對 白   讀 著 我 給 妳 的 傷 害
+我 原 諒 不 了 我   就 請 妳 當 作 我 已 不 在
+我 睜 開 雙 眼   看 著 空 白   忘 記 妳 對 我 的 期 待
+讀 完 了 依 賴   我 很 快 就
+我 只 能 永 遠 讀 著 對 白   讀 著 我 給 妳 的 傷 害
+我 原 諒 不 了 我   就 請 妳 當 作 我 已 不 在
+我 睜 開 雙 眼   看 著 空 白   忘 記 妳 對 我 的 期 待
+讀 完 了 依 賴   我 很 快 就 離 開
 }
 
 
 upper = \relative c'' { \time 4/4 \key f \major 
 c8 e, f c' c d, bes' d,
-a' a, cis <e g> <e g> a, <f a> a
+a' a, cis <e g> <e g> a, <f' a> a,
 << { g' g, bes d g g, bes f' 
 <c f> g bes c e2 } \new Staff \with {instrumentName = #"Violin" midiInstrument = #"violin"} {c'8 a bes f' e f c'4 \ottava #1 f1} >>
 \ottava #0 <c=' f>8 a <c f>8 a <cis f>8 a <cis e>8 a
@@ -113,6 +129,26 @@ a' a, cis <e g> <e g> a, <f a> a
 <f aes>8 c <f aes>8 c <f aes>8 des f16 g aes8
 <f aes>8 ees <f aes>8 ees <bes des> ees <bes des> ees
 <des f> g, bes c e g, g' g, 
+\key f \major f'8 a, c f f g, <cis e> g
+f' a, d f f a, f'16 g a8
+a bes, d a' g e f c'
+c d, bes'16 a g f f f e f e8 g,
+<c f>8 a c f <cis f> a <cis e> a
+<c f> a <c f> a <c f> a <c f>16 g' a8
+<d, f bes> d <d f a> bes <f' g> e16 f~f c' f, c'
+<f, bes>8 d <f bes>8 d <bes d f> g <bes e> g
+<e' g b>8 b d g <cis, e a> a <cis e> a
+<e' g> a, <e' g> a, <d f> a <d f> a
+<b d f a> b <f' a> d <f b> d <f b> d
+<f a c> c <f a c> c <e g c> c <c f> a
+<d f bes> bes <d f bes> bes <e g c> c <e g c> c
+<c f a> a <c f a> a <e' g> a, <d f> a
+<d f bes> bes <d f bes> bes <bes e f> g <bes e> g
+<bes d bes'> <f f'> <bes d bes'> <f f'> <f a c>4 <f' a c>16 e f c'
+<f, c'>8 d <f c'>8 f <e g c> c <c e g c> bes'
+<e, a> cis <e a> cis <e g> a, <d f> a'
+<bes, d f> g <bes d f> g <f' a c> bes, <bes c e>4
+\key cis \major r4 <ais ais'>4 <cis cis'> <gis' gis'>
 }
 
 lower = \relative c { \clef bass \key f \major 
@@ -145,6 +181,26 @@ g4.~g16 g16 <c, c'>4 <c c'>4
 <f f'>4.~f'16 f16 <des, des'>4 <des des'>4
 <ees ees'>4.~ees'16 bes16 <ees, ees'>8 <ees ees'>4 <ees ees'>8
 <c c'>1
+\key f \major f2 <a, a'>4.~a'16 a16
+d,2 c4 c4
+bes'4.~bes16 bes16 a4 <d a' c>4
+g,8 d' bes'4 c,4. c,8
+<f f'>4.~f16 f16 <a, a'>4.~a'16 a16
+<d, d'>4.~d16 d16 <c c'>8 <c c'>4 <c c'>8
+<bes bes'>4.~bes16 bes16 <a a'>4 <d d'>4
+<g g'>8 <g g'>4 <g g'>8 <c, c'>4 <c c'>
+<e e'>4.~e16 g16 <a a'>4 <a a'>
+<d, d'>4. r16 a'16 <d, d'>4 <c c'>
+<b b'>2 <a b'>4 <c d'>4
+<c' c'>4 <f, f'> <c c'> <a' a'>
+<bes, bes'>4.~bes'16 bes16 <bes, c'>4 <bes c'>
+<a a'>4.~a'16 a16 <d, d'>4 <d d'>
+<g, g' bes>4.~bes'16 bes16 <g, c'>4 <g c'>
+<f' f'>4.~f16 f16 <f f'>4 <a f' a>
+<bes, bes'>4.~bes16 bes16 <c c'>4 <c c'>
+<a a'>4 <cis cis'>2 d'16 a d,8
+<g g'>4.~g16 g16 <c, c'>4 <c c'>4
+\key cis \major r4 <cis cis'>4 <ais' cis fis> <fis' cis'>
 }
 
 
