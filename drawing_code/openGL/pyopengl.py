@@ -29,7 +29,7 @@ class TestRenderable(object):
         self.list = -1
         
         #a = CSG.cube()
-        b = CSG.sphere(center = [0.89749545,2.05122772,3.28293912], radius=2.631727)#slices=32,stacks=16)
+        b = CSG.sphere(center = [0.89749545,2.05122772,3.28293912], radius=2.4)#slices=32,stacks=16)
         a = CSG.tetra()
         #b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
         #c = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.]).rotate([0,0,1],90)#,slices=16)
@@ -131,10 +131,11 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     
     glPushMatrix()
-    glTranslatef(0.0, 0.0, -1.0);
+    #glTranslatef(0.0, 0.0, -1.0);
+    #glRotatef(rot, 0.0, 1.0, 1.0);
     glRotatef(rot, 0.0, 1.0, 0.0);
-    glRotatef(rot, 0.0, 0.0, 1.0);
     rot += 0.1
+    #rot = 40
     
     renderable.render()
     
