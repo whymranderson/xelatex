@@ -14,7 +14,8 @@ from optparse import OptionParser
 
 light_ambient = [0.3, 0.3, 0.3, 1.0]
 light_diffuse = [0.7, 0.7, 0.7, 1.0]  # Red diffuse light
-light_position = [100.0, 100.0, 100.0, 0.0]  # Infinite light location.
+light_position = [10.0, 10.0, 10.0, 0.0]  # Infinite light location.
+light_position2 = [-10.0, 10.0, 10.0, 0.0]  # Infinite light location.
 
 rot = 0.0
 
@@ -28,7 +29,7 @@ class TestRenderable(object):
         self.list = -1
         
         #a = CSG.cube()
-        b = CSG.sphere()#slices=32,stacks=16)
+        b = CSG.sphere(center = [0.89749545,2.05122772,3.28293912], radius=2.631727)#slices=32,stacks=16)
         a = CSG.tetra()
         #b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
         #c = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.]).rotate([0,0,1],90)#,slices=16)
@@ -107,7 +108,11 @@ def init():
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse)
     glLightfv(GL_LIGHT0, GL_POSITION, light_position)
+    glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient)
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse)
+    glLightfv(GL_LIGHT1, GL_POSITION, light_position2)
     glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT1);
     glEnable(GL_LIGHTING);
 
     # Use depth buffering for hidden surface elimination.
@@ -115,9 +120,11 @@ def init():
 
     # Setup the view of the cube.
     glMatrixMode(GL_PROJECTION);
-    gluPerspective(40.0, 640./480., 1.0, 10.0);
+    gluPerspective(60.0, 640./480., 1.0, 25.0);
     glMatrixMode(GL_MODELVIEW);
-    gluLookAt(0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.)
+    gluLookAt(0.0, 0.0, 15.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.)
+    # together with Perspective, eye glaring down from +Z=15 towards origin, within a frustum depth
+    # of 15 - 1 and 15 - 25, and a vertical view opening angle of 60 degree, aspect ratio 640/480.
     
 def display():
     global rot
@@ -125,7 +132,7 @@ def display():
     
     glPushMatrix()
     glTranslatef(0.0, 0.0, -1.0);
-    glRotatef(rot, 1.0, 0.0, 0.0);
+    glRotatef(rot, 0.0, 1.0, 0.0);
     glRotatef(rot, 0.0, 0.0, 1.0);
     rot += 0.1
     
