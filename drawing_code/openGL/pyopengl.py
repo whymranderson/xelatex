@@ -28,10 +28,10 @@ class TestRenderable(object):
         self.list = -1
         
         #a = CSG.cube()
-        a = CSG.sphere()#slices=32,stacks=16)
-        #a = CSG.tetra()
-        b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
-        c = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.]).rotate([0,0,1],90)#,slices=16)
+        b = CSG.sphere()#slices=32,stacks=16)
+        a = CSG.tetra()
+        #b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
+        #c = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.]).rotate([0,0,1],90)#,slices=16)
         for p in a.polygons:
             p.shared = [1.0, 0.0, 0.0, 1.0]
         for p in b.polygons:
