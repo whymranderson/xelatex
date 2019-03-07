@@ -133,6 +133,7 @@ lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
 lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
 
 print pB,pAA,pDD,pCC
+print pO,np.linalg.norm(pO-pH)
 
 incenterACD, _, _,pF,_,_ = incircle3D(pDD,pCC,pAA) 
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
