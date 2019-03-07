@@ -119,7 +119,7 @@ r3 = np.linalg.norm(pN-incenterBCD)
 c = np.linalg.norm(pH-pB)
 
 a_roots = solve_tetra_insphere(r1,r3,r2,c)
-print a_roots
+#print a_roots
 a = 8.74796477
 b = (r1**2)*(a+c)/(a*c-(r1**2))
 d = (r2**2)*(a+c)/(a*c-(r2**2))
@@ -131,6 +131,8 @@ pCC = pE + d * (pE-pB)/np.linalg.norm(pE-pB)
 lineAADD = ax2.plot(*zip(pAA,pDD),linewidth = 2,color='b')
 lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
 lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
+
+print pB,pAA,pDD,pCC
 
 incenterACD, _, _,pF,_,_ = incircle3D(pDD,pCC,pAA) 
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
