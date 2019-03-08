@@ -36,7 +36,7 @@ from annotate_program import draw_perpendicular_sign
 fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=36, azim=66)
+ax2.view_init(elev=25, azim=68)
 ax2.set_color_cycle('b')
 
 '''
@@ -95,11 +95,22 @@ lineBD = ax2.plot(*zip(pB,pD),linewidth = 2,color='b')
 
 ax2.text(*pH, s = r'$H$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pD, s = r'$D$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pE, s = r'$E$', fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pN, s = r'$N$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*incenterBCD, s = r'$I_{bcd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.scatter(*incenterBCD)
+lineIabcH = ax2.plot(*zip(incenterABC,pH),linewidth = 1,color='r',linestyle=':')
+lineIabdH = ax2.plot(*zip(incenterABD,pH),linewidth = 1,color='r',linestyle=':')
+lineIbcdE = ax2.plot(*zip(incenterBCD,pE),linewidth = 1,color='r',linestyle=':')
+ax2.text(*((incenterABC+pH)/2), s = r'$r_1$', fontsize=10,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*((incenterABD+pH)/2), s = r'$r_4$', fontsize=10,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*((incenterBCD+pE)/2), s = r'$r_2$', fontsize=10,verticalalignment='top', horizontalalignment='left')
 draw_perpendicular_sign(np.cross(r1,r2), -r2, pHtemp2-incenterABC, incenterABC, ax2, 0.2)
 draw_perpendicular_sign(np.cross(r1,r2),pHtemp1-incenterABD, -r1, incenterABD, ax2, 0.2)
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
@@ -129,7 +140,7 @@ Z = np.array(Zt)
 max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.0
 
 
-mid_x = (X.max()+X.min()) * 0.5
+mid_x = (X.max()+X.min()) * 0.5 + 0.6
 mid_y = (Y.max()+Y.min()) * 0.5 + 0.6
 mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
