@@ -60,12 +60,22 @@ g2 r8 a, c g'
 f bes, bes a16 a16~a8 g e' f
 g c, c bes16 bes16~bes8 a a16 bes c8
 c d16 f,~f8. d'16 d8 e c g 
-
-bes a g a~a8 a a b
-a g g a16 b~b8 a fis g
-a a a fis16 a~a8 g e fis
-g fis16 g~g8. fis16 e8 fis g8 fis16 g16~
-g1
+bes a g a~a8 a c g'
+f bes, bes a16 a16~a8 g e' f
+g g g e16 g16~g8 f d e
+f e16 f16~f8 e d e f4
+\key fis \major \transpose f fis { \relative c' { r4 c'' a g
+f8 bes, bes a16 a16~a8 g8 e' f
+g c, c bes16 bes16~bes8 a8 a16 bes16 c8
+c8 d16 f,16~f8. d'16 d8 e c g
+bes a g a~a8 a c g'
+f bes, bes a16 a16~a8 g e' f
+g g g e16 g16~g8 f8 d e
+f e16 f16~f8. e16 d8 e f e16 f16~
+f1 } }
+r1
+r1
+r1 \bar "|."
 }
 
 text = \lyricmode {
@@ -148,8 +158,20 @@ c d, bes'16 a g f f f e f e8 g,
 <f, c'>8 d <f c'>8 f <e g c> c <c e g c> bes'
 <e, a> cis <e a> cis <e g> a, <d f> a'
 <bes, d f> g <bes d f> g <f' a c> bes, <bes c e>4
-\key cis \major r4 <ais ais'>4 <cis cis'> <gis' gis'>
+\key fis \major r4 <ais ais'>4 <cis cis'> <gis' gis'>
+<dis fis ais>8 b <dis fis ais>8 b <gis' cis eis> gis <gis cis eis> gis
+<gis cis> eis <gis cis> eis <gis cis> fis eis fis
+<fis b> dis <fis b> dis <fis b> dis <eis gis> cis
+<dis fis b> dis <dis fis b> cis <cis fis ais> cis <fis ais> gis
+<ais b dis fis> fis <ais b dis fis> fis <gis cis eis> cis, <gis' cis eis> gis
+<gis b d> eis <gis b d> eis <fis ais dis> fis eis fis
+<fis b> dis <fis b> dis <eis gis b> cis <cis eis gis b>4
+dis'8 fis, b dis cis fis fis4
+b,8 dis, fis b <eis, b'>4 <b gis'>4
+<ais fis'>8 cis, fis gis ais fis <dis b'> fis
+<cis fis ais>1\arpeggio
 }
+
 
 lower = \relative c { \clef bass \key f \major 
 a8 f' c'4 bes,8 f' bes4
@@ -200,10 +222,22 @@ g,8 d' bes'4 c,4. c,8
 <bes, bes'>4.~bes16 bes16 <c c'>4 <c c'>
 <a a'>4 <cis cis'>2 d'16 a d,8
 <g g'>4.~g16 g16 <c, c'>4 <c c'>4
-\key cis \major r4 <cis cis'>4 <ais' cis fis> <fis' cis'>
+\key fis \major r4 <cis cis'>4 <ais' cis fis> <fis' cis'>
+<b,, b'>4.~<b b'>16 <b b'>16 <cis cis'>4 <cis cis'>4
+<ais ais'>4.~<ais ais'>16 <ais ais'>16 <dis dis'>4 <dis dis'>
+<gis gis'>4.~<gis gis'>16 <gis gis'>16 <cis, cis'>8 <cis cis'> <cis cis'>4
+<fis fis'>4.~fis16 cis16 <fis, fis'>4 <ais ais'>
+<b b'>4.~<b b'>16 <b b'>16 <cis cis'>4 <cis, cis'>4
+<ais' ais'>4 <d d'> <dis dis'> <dis dis'>16 ais' dis,8
+<gis, gis'>4.~<gis gis'>16 <b b'>16 <cis cis'>4 <cis cis'>4
+b'8 fis' dis'4 ais,8 fis' cis'4
+gis,8 dis' gis dis'
+<cis, cis'>4 <cis, cis'>4
+<fis fis'>2. b,4
+<fis fis'>1\arpeggio
 }
 
-
+showLastLength = R1*15
 \score {
   <<
     \new Voice = "mel" { \melody}
