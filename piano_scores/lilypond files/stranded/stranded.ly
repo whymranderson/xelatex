@@ -1,10 +1,10 @@
 #(set-default-paper-size "a4")
 
 \paper {
-  two-sided = ##t
+  two-sided = ##f
   inner-margin = 0.5\in
   outer-margin = 0.5\in
-  binding-offset = 0.25\in
+  %binding-offset = 0.25\in
 }
 
 \header{
@@ -67,10 +67,10 @@ f e16 f16~f8 e d e f4
 \key fis \major \transpose f fis { \relative c' { r4 c'' a g
 f8 bes, bes a16 a16~a8 g8 e' f
 g c, c bes16 bes16~bes8 a8 a16 bes16 c8
-c8 d16 f,16~f8. d'16 d8 e c g
-bes a g a~a8 a c g'
-f bes, bes a16 a16~a8 g e' f
-g g g e16 g16~g8 f8 d e
+c8 d16 f,16~f8. d'16 d8 e c g'
+bes a g a~a8 g g a
+g f f8 g16 a16~a8 g8 e f
+g g g a16 g16~g8 f8 d e
 f e16 f16~f8. e16 d8 e f e16 f16~
 f1 } }
 r1
@@ -124,7 +124,7 @@ a' a, cis <e g> <e g> a, <f' a> a,
 <bes d f> g <bes d f> g <bes d f> g <bes e> g
 <g' bes> d <g bes> d <cis e> a <cis e> a
 <e' g> a, <e' g> a, <d f> a <d f>16 g a8
-<bes, d f a>\arpeggio bes <f' a> d <f bes> d <f bes> d
+<b, d f a>\arpeggio b <f' a> d <f bes> d <f bes> d
 <a' c f>4 <a c f>4 <e g c>4 <f c' f>4
 <f bes>8 d <f bes>8 f <e g c> c <e g c> c
 <c e a> a <c e a> a <c e > a <c f > a
@@ -237,7 +237,7 @@ gis,8 dis' gis dis'
 <fis fis'>1\arpeggio
 }
 
-showLastLength = R1*15
+%showLastLength = R1*7
 \score {
   <<
     \new Voice = "mel" { \melody}
