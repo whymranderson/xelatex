@@ -1,10 +1,10 @@
 #(set-default-paper-size "a4")
 
 \paper {
-  two-sided = ##t
+  two-sided = ##f
   inner-margin = 0.5\in
   outer-margin = 0.5\in
-  binding-offset = 0.25\in
+  %binding-offset = 0.25\in
 }
 
 \header{
