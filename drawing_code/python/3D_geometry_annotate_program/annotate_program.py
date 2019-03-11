@@ -234,6 +234,7 @@ def triangle_area(pA,pB,pC):
     return area
 
 def solve_tetra_insphere(r1,r2,r3,c):
+    '''Given the radia of three mutually tangent circles (on the outside) on a midsphere, and tetra's c length (refer to the fig in the note), return length a. Following the steps described in the note, one can get r4.'''
     p = [(r2**2)*c**3 + (r2**2)*(r3**2)*c + (r1**2)*(r2**2)*c - (r1**2)*(r3**2)*c,
             -(2*(r1**2)*(r3**2)*c**2 + 2*(r1**2)*(r2**2)*(r3**2)),
             -((r1**2)*(r3**2)*c**3 + (r1**2)*(r2**2)*(r3**2)*c),]
@@ -286,7 +287,7 @@ def plot_back(axes,midspherex,midspherey,midspherez,midsphereR):
                              alpha=frame_alpha)
 
 def cylinder(ax2,c1,c2,radius):
-    ''' Plot from both end circle's centers c1 and c2 and radius.'''
+    ''' Plot from cylinder's both end circle's centers c1 and c2 and radius.'''
     length = np.linalg.norm((c2-c1))/2
     x=np.linspace(-1*radius, 1*radius, 100)
     z=np.linspace(-1*length, 1*length, 100)
@@ -445,7 +446,7 @@ def third_seg_incircled(x,y,r):
 
 def plot_body_space_cone(ax,height_vec,side_vec,location_tip):
     '''
-    Plot the body and space cone. A static one-time plot.
+    Plot a cone with the specified parameters.
     '''
     # Set up the grid in polar coordinate theta, radius
     zn = height_vec/np.linalg.norm(height_vec)
