@@ -43,7 +43,7 @@ class TestRenderable(object):
             if operation == 'subtract':
                 polygons = a.subtract(b).toPolygons()
             elif operation == 'union':
-                polygons =a.union(b).toPolygons()
+                polygons =a.union(c).toPolygons()
             elif operation == 'intersect':
                 polygons = a.intersect(b).toPolygons()
             else:
