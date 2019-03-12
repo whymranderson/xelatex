@@ -27,7 +27,7 @@ class TestRenderable(object):
         self.vnormals = []
         self.list = -1
         
-        #a = CSG.cube()
+        c = CSG.cube()
         b = CSG.sphere()#slices=32,stacks=16)
         a = CSG.tetra()
         #b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
