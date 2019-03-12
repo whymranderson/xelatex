@@ -439,8 +439,17 @@ def circle_full(axis,start_v,radius,num_points):
     return circle_vecs*radius
 
 def third_seg_incircled(x,y,r):
-    """Return z following the equation of Chu https://en.wikipedia.org/wiki/Incircle_and_excircles_of_a_triangle
-    Need a graph here"""
+    """Return z following the relation of the xyz lengths bisect by incircle and the r radius.
+    :math:`r=\\sqrt{\\frac{xyz}{x + y + z}}`
+
+    .. image:: ./figures/third_seg_incircled.png
+       :scale: 60 %
+       :align: center
+       
+    The py script to generate this fig is the same as the script that generates the fig in the
+    incircle3D funtion, the incircle_triangle.py, but in a different git commit, tagged
+    xyzr_thir_sed.
+    """
     z = np.square(r)*(x+y)/(x*y-np.square(r))
     return z
 
