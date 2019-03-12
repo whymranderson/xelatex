@@ -49,14 +49,14 @@ liner, = ax2.plot(*zip(pO,p12),linewidth = 2,color='b')
 
 
 
-ax2.text(*pA, s = r'$p1$', fontsize=12,verticalalignment='bottom', horizontalalignment='right',linespacing=12)
-ax2.text(*pB, s = r'$p2$', fontsize=12,verticalalignment='bottom', horizontalalignment='left',linespacing=12)
-ax2.text(*pC, s = r'$p3$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*(pO+p12)/2, s = r'$r$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*p12, s = r"$p12$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*p23, s = r"$p23$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*p31, s = r"$p31$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pA, s = r'$p1$', fontsize=12,verticalalignment='bottom', horizontalalignment='right',linespacing=12)
+#ax2.text(*pB, s = r'$p2$', fontsize=12,verticalalignment='bottom', horizontalalignment='left',linespacing=12)
+#ax2.text(*pC, s = r'$p3$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+#ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*(pO+p12)/2,   s = r'$r$', fontsize=14,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*((p12+pA)/2), s = r"$x$", fontsize=14,verticalalignment='top', horizontalalignment='left')
+ax2.text(*((p23+pB)/2), s = r"$y$", fontsize=14,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*((p31+pC)/2), s = r"$z$", fontsize=14,verticalalignment='bottom', horizontalalignment='right')
 
 
 ax2.scatter3D(*zip(p12,p23,p31,pO),c = ['blue'])
