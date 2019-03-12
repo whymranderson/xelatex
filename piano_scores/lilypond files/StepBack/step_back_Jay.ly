@@ -135,7 +135,7 @@ upper = \relative c'' { \time 4/4
   <d e g>4 <d e g>8 c <d e g>8 c d16 c b c
   <c e g>4 <e g>8 c <e g>8 c <b d g>4
   e8 a, <a' c> e <a e'> a <c a'> a 
-  <<{ <f c a>4 <f c a> <d b a> <d b a> } \new Staff {<c f a>4 <f a c>} >>
+  <<{ <f c a>4 <f c a> <d b a> <d b a> } \new Staff {<c f a>4 <c f>8 <f c'>8 <a f'>2} >>
   << { <g d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8
     <g, d'>4  d'16 e d8 <g, d'>4  d'16 e d8 }
