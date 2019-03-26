@@ -28,7 +28,7 @@ class TestRenderable(object):
         self.vnormals = []
         self.list = -1
         
-        #a = CSG.cube()
+        c = CSG.cube()
         b = CSG.sphere(center = [0.89749545,2.05122772,3.28293912], radius=2.4)#slices=32,stacks=16)
         a = CSG.tetra()
         #b = CSG.cylinder(radius=0.5, start=[0., 0., 0.], end=[0., 2., 0.])#,slices=16)
@@ -44,7 +44,7 @@ class TestRenderable(object):
             if operation == 'subtract':
                 polygons = a.subtract(b).toPolygons()
             elif operation == 'union':
-                polygons =a.union(b).toPolygons()
+                polygons =b.union(c).toPolygons()
             elif operation == 'intersect':
                 polygons = a.intersect(b).toPolygons()
             else:
