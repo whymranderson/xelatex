@@ -124,7 +124,7 @@ upper = \relative c'' { \time 4/4
   e8 a, c e <a e'> a <c a'> a }
   \alternative { { <f c a>4 <f c a> <d b a> <d b a>
     << {<g d'>4 d'16 e d8 <g, d'>4 d'16 e d8 | <g, d'>4 d'16 e d8 <g, d'>4 d'16 e d8 | <g, d'>4 d'16 e d8 <g, d'>4 d'16 e d8 | c4 d16 c b c b2}
-\new Staff {r8 g g' c, b8 c g' c, | r8 g g' c, b8 c g' c, | r8 g g' c, b8 c g' c, } 
+\new Staff {r8 g g' c, b8 c g' c, | r8 g g' c, b8 c g' c, | r8 a g' c, b8 c g' c, } 
 \new Staff {<c, e>8 g <c e>8 g <c e>8 g <c e>8 g | <c e>8 g <c e>8 g <c e>8 g <c e>8 g | <c e>8 g <c e>8 g <c e>8 g <c e>8 g |<c f> a <c f> a <b d g>2}>>
      }
   { <f' c a>4 <f c a> <d b a> <d b a>8 g % octave follow previous alternative b, not repeat's a
