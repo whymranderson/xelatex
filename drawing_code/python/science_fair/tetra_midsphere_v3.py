@@ -23,6 +23,7 @@ from annotate_program import plot_back
 from annotate_program import project_a_point_to_a_plane 
 from annotate_program import incircle3D 
 from annotate_program import circle_full
+from annotate_program import circle_arc
 from annotate_program import four_points_circle
 from annotate_program import rotmat_from_A_2_B
 from annotate_program import CK
@@ -128,10 +129,45 @@ ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horiz
 lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
+pt1 = (incenterABD-pO)*sphereR
+pt2 = (centerHE-pO)*sphereR
+n_vec1 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
+arc_alpha1 = sphereR*circle_arc(n_vec1,pt1,pt2,20)+pO
+larc_alpha1, = ax2.plot(arc_alpha1[:,0],arc_alpha1[:,1],arc_alpha1[:,2],'r',lw=2,color = 'r')
+
+pt1 = (incenterABD-pO)*sphereR
+pt2 = (incenterBCD-pO)*sphereR
+n_vec2 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
+arc_alpha2 = sphereR*circle_arc(n_vec2,pt1,pt2,20)+pO
+larc_alpha2, = ax2.plot(arc_alpha2[:,0],arc_alpha2[:,1],arc_alpha2[:,2],'r',lw=2,color = 'r')
+
+pt1 = (incenterBCD-pO)*sphereR
+pt2 = (centerHE-pO)*sphereR
+n_vec3 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
+arc_alpha3 = sphereR*circle_arc(n_vec3,pt1,pt2,20)+pO
+larc_alpha3, = ax2.plot(arc_alpha3[:,0],arc_alpha3[:,1],arc_alpha3[:,2],'r',lw=2,color = 'r')
+
+pt1 = (incenterACD-pO)*sphereR
+pt2 = (centerHE-pO)*sphereR
+n_vec4 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
+arc_alpha4 = sphereR*circle_arc(n_vec4,pt1,pt2,20)+pO
+larc_alpha4, = ax2.plot(arc_alpha4[:,0],arc_alpha4[:,1],arc_alpha4[:,2],'r',lw=2,color = 'r')
+
+pt1 = (incenterACD-pO)*sphereR
+pt2 = (incenterBCD-pO)*sphereR
+n_vec5 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
+arc_alpha5 = sphereR*circle_arc(n_vec5,pt1,pt2,20)+pO
+larc_alpha5, = ax2.plot(arc_alpha5[:,0],arc_alpha5[:,1],arc_alpha5[:,2],'r',lw=2,color = 'r')
+
+pt1 = (incenterACD-pO)*sphereR
+pt2 = (incenterABD-pO)*sphereR
+n_vec6 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
+arc_alpha6 = sphereR*circle_arc(n_vec6,pt1,pt2,20)+pO
+larc_alpha6, = ax2.plot(arc_alpha6[:,0],arc_alpha6[:,1],arc_alpha6[:,2],'r',lw=2,color = 'r')
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
 #draw coordinate
-#draw_xyz_coordinate_unit_vectors(ax2)
+draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
@@ -139,7 +175,7 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 6.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 5.0
 
 
 mid_x = (X.max()+X.min()) * 0.5
