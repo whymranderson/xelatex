@@ -22,7 +22,6 @@ from annotate_program import plot_front
 from annotate_program import plot_back
 from annotate_program import project_a_point_to_a_plane 
 from annotate_program import incircle3D 
-from annotate_program import circle_full
 from annotate_program import four_points_circle
 from annotate_program import rotmat_from_A_2_B
 from annotate_program import CK
@@ -35,7 +34,7 @@ from annotate_program import circle_arc
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6,6),dpi=100)
 ax2 = p3.Axes3D(fig2)
-ax2.view_init(elev=2, azim=106)
+ax2.view_init(elev=-77, azim=-128)
 #ax2.view_init(elev=10, azim=-130)
 ax2.set_color_cycle('b')
 
@@ -95,8 +94,8 @@ incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
                             inradiusBCD,40) + incenterBCD
 #ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
-#plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
-#plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
+plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
+plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 #ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
@@ -108,7 +107,7 @@ ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignme
 
 # graph step 2
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
-ax2.plot(*np.transpose(incircleABD),linewidth=2,linestyle='-')
+ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle='-')
 #lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':')
 #lineAB, = ax2.plot(*zip(pA,pB),linewidth = 2,color='b')
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
@@ -119,7 +118,7 @@ ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', ho
 
 # graph step 3
 circleHE = circle_full(np.cross(pB-pC,pB-pA), pH-centerHE, r_cirHE, 30) + centerHE
-ax2.plot(*np.transpose(circleHE),linewidth=2,linestyle='-',color='b')
+ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle='-',color='b')
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
@@ -136,28 +135,31 @@ ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horiz
 # graph diabeter of two circles connecting H
 pH1 = pH+2*(incenterABD-pH)
 pH2 = pH+2*(centerHE-pH)
-lineHdiaIabd, = ax2.plot(*zip(pH,pH+2*(incenterABD-pH)),linewidth = 1,color='g')
-lineHdiaIabc, = ax2.plot(*zip(pH,pH+2*(centerHE-pH)),linewidth = 1,color='g')
-bigcHperp = circle_full(np.cross(incenterABD-pO,centerHE-pO),
-                        pH-pO, np.linalg.norm(pH-pO), 40) + pO
-ax2.plot(*np.transpose(bigcHperp),linewidth=1,linestyle='-',color='g')#:')
+#lineHH1, = ax2.plot(*zip(pH,pH1),linewidth = 1,color='g')
+#lineHH2, = ax2.plot(*zip(pH,pH2),linewidth = 1,color='g')
+#bigcHperp = circle_full(np.cross(incenterABD-pO,centerHE-pO),
+#                        pH-pO, np.linalg.norm(pH-pO), 40) + pO
+#ax2.plot(*np.transpose(bigcHperp),linewidth=1,linestyle='-',color='g')#:')
+arc_bigcHperp = sphereR*circle_arc(np.cross(incenterABD-pO,centerHE-pO),
+                        incenterABD-pO, centerHE-pO, 40) + pO
+ax2.plot(*np.transpose(arc_bigcHperp),linewidth=2,linestyle='-',color='g')#:')
 
 pHmid = (pH1-pO+pH2-pO)/2
 pHmid = pHmid/np.linalg.norm(pHmid)
 pHmid = pO + np.linalg.norm(pH-pO)*pHmid
 pBisec = (pH+pHmid)/2
 
-ax2.text(*pH1, s = r"$H_1$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pH2, s = r"$H_2$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pH1, s = r"$H_1$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pH2, s = r"$H_2$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pHmid, s = r"$H_{mid}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pBisec, s = r"$I_{bis}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pBisec, s = r"$I_{bis}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
 lineOH, = ax2.plot(*zip(pO,pH),linewidth = 1,color='b')
-lineOH1, = ax2.plot(*zip(pO,pH1),linewidth = 1,color='b')
-lineOH2, = ax2.plot(*zip(pO,pH2),linewidth = 1,color='b')
-lineOHmid, = ax2.plot(*zip(pO,pHmid),linewidth = 1,color='b')
-lineHHmid, = ax2.plot(*zip(pH,pHmid),linewidth = 1,color='g')
-lineOBisec, = ax2.plot(*zip(pO,pBisec),linewidth = 1,color='k',ls=':')
+#lineOH1, = ax2.plot(*zip(pO,pH1),linewidth = 1,color='b')
+#lineOH2, = ax2.plot(*zip(pO,pH2),linewidth = 1,color='b')
+#lineOHmid, = ax2.plot(*zip(pO,pHmid),linewidth = 1,color='b')
+#lineHHmid, = ax2.plot(*zip(pH,pHmid),linewidth = 1,color='g')
+#lineOBisec, = ax2.plot(*zip(pO,pBisec),linewidth = 1,color='k',ls=':')
 
 dt_ABD = pO + np.linalg.norm(pH-pO)*(incenterABD-pO)/np.linalg.norm(incenterABD-pO)#doom top
 dt_ABC = pO + np.linalg.norm(pH-pO)*(centerHE-pO)/np.linalg.norm(centerHE-pO)#doom top
@@ -167,22 +169,28 @@ linedtABC, = ax2.plot(*zip(pO,dt_ABC),linewidth = 1,color='b',linestyle=':')
 ax2.text(*dt_ABD, s = r"$t_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*dt_ABC, s = r"$t_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
-
-#graph division circle
-divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
-                        np.linalg.norm(pHmid-pH)/2,  40) + (pHmid+pH)/2
-ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle='-',color='k')#:')
-
 #draw third cone
-angle2 = 145
+angle2 = 75
 tempM2 = rotation_matrix(pH-pO+pHmid-pO,np.radians(angle2))
 pP = pO+np.dot(tempM2,pH-pO)
 lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
-n_vec = np.cross(pP-pO,dt_ABC-pO)
-arcP_tABD=sphereR*circle_arc(n_vec,pP-pO,dt_ABC-pO,20)+pO
+#draw two arc from canopy tops to ps
+n_vec = np.cross(pP-pO,dt_ABD-pO)
+arcP_tABD=sphereR*circle_arc(n_vec,pP-pO,dt_ABD-pO,20)+pO
 ax2.plot(arcP_tABD[:,0],arcP_tABD[:,1],arcP_tABD[:,2],'r',lw=2)
+n_vec_2 = np.cross(pP-pO,dt_ABC-pO)
+arcP_tABC=sphereR*circle_arc(n_vec_2,pP-pO,dt_ABC-pO,20)+pO
+ax2.plot(arcP_tABC[:,0],arcP_tABC[:,1],arcP_tABC[:,2],'r',lw=2)
 
-ax2.scatter3D(*zip(pH,pH1,pH2,pHmid,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
+#graph division circle
+#divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
+#                        np.linalg.norm(pHmid-pH)/2,  40) + (pHmid+pH)/2
+#ax2.plot(*np.transpose(divCircle),linewidth=1,linestyle='-',color='k')#:')
+#graph part of division circle
+arc_dCircle = sphereR*circle_arc(pHmid-pO+pH-pO,pH-pO,pP-pO,30) + pO
+ax2.plot(*np.transpose(arc_dCircle),linewidth=1,linestyle='-',color='k')#:')
+
+ax2.scatter3D(*zip(pH,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
