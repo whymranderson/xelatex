@@ -481,6 +481,33 @@ def plot_body_space_cone(ax,height_vec,side_vec,location_tip):
                     c1Y+location_tip[1],
                     c1Z+location_tip[2],rstride=5, cstride=5,linewidth=0,alpha=0.16,color = 'black')    
     
+def length_annotation_arc_style(ax2,p1,p2,style_str="arc3,rad=0.5",va_str,ha_str):
+    p1perp=tuple(proj3d.proj_transform(*p1, M = ax2.get_proj()))[:2], 
+    p2perp=tuple(proj3d.proj_transform(*p2, M = ax2.get_proj()))[:2], 
+    p12p = p2perp - p1perp 
+    pO = 1.0/np.sqrt(3)*0.5*np.dot(rotation_matrix(np.array([0,0,-1]),np.pi/2),np.array([p12p[0],p12p[1],0))+ (p1perp+p2perp)/2 
+    circle_arc(np.array([0,0,-1]),start_v,end_v,num_points)
+def length_annotation(ax2,p1,p2,style_str="arc3,rad=0.5",va_str,ha_str):
+    ''' Text location problem unsovled....
+    style_str = "arc3,rad=0.5"
+    usage length_annotation(ax2,p1,p2,"arc3,rad=0.5",top,right)
+    The arc will be on the left side of vector p12
+    '''
+    ax2.annotate("",
+            xy=tuple(proj3d.proj_transform(*p1, M = ax2.get_proj()))[:2], #xycoords='data',
+            xytext=tuple(proj3d.proj_transform(*p2, M = ax2.get_proj()))[:2], #textcoords='data',
+            arrowprops=dict(arrowstyle="-", #linestyle="dashed",
+                            color="0.5",
+                            patchB=None,
+                            shrinkB=0,
+                            connectionstyle=style_str,
+                            ),
+            )
+    pla = (p1+p2)/2
+    ax2.annotate(s = 'a\n ',xy = tuple(proj3d.proj_transform(*pla, M = ax2.get_proj()))[:2],
+             bbox={'pad':12,'fill':None,'edgecolor':'None'},va=va_str,ha=ha_str,color="0.5")
+
+
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
 def orthogonal_proj(zfront, zback):
