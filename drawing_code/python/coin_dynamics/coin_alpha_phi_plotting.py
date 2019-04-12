@@ -5,7 +5,7 @@ Created on Wed May 03 19:41:33 2017
 @author: The One
 """
 import numpy as np
-#import matplotlib as mpl
+import matplotlib as mpl
 #mpl.use('pgf')
 from matplotlib import pyplot
 import mpl_toolkits.mplot3d.axes3d as p3
@@ -76,6 +76,17 @@ for k in range(mm):
     tempk, = ax2.plot(*np.transpose(lineswidth2[k,:,:]))
     tempk.set_linewidth(2)
 
+# annotate length equal
+mar_a = mpl.markers.MarkerStyle(marker='_')
+mar_a._transform = mar_a.get_transform().rotate_deg(-30)
+ax2.scatter3D(*zip((CP[0,:]+CM[0,:])/2,),marker=mar_a,s=90,color='k')
+mar_b = mpl.markers.MarkerStyle(marker='_')
+mar_b._transform = mar_b.get_transform().rotate_deg(10)
+ax2.scatter3D(*zip((cirCP[1,:,0]+CM[0,:])/2,),marker=mar_b,s=90,color='k')
+mar_c = mpl.markers.MarkerStyle(marker='_')
+mar_c._transform = mar_c.get_transform().rotate_deg(30)
+ax2.scatter3D(*zip((CPprime[0,:]+CM[0,:])/2,),marker=mar_c,s=90,color='k')
+
 # plot dash lines
 dashlines = np.array([[CM[0,:],[CM[0,0],CM[0,1],0]],
                       [CPprime[0,:],[0,CPprime[0,1],0]],
@@ -91,6 +102,19 @@ line8, = ax2.plot([CPprime[0,0],CP1perpen[0]],[CPprime[0,1],CP1perpen[1]],[CPpri
 line8.set_linewidth(2)
 line9, = ax2.plot([cirCP[1,0,0],CP1perpen[0]],[cirCP[1,1,0],CP1perpen[1]],[cirCP[1,2,0],CP1perpen[2]],':')
 line9.set_linewidth(2)
+# annotation equal lengths
+mar2 = mpl.markers.MarkerStyle(marker='$||$')
+mar2._transform = mar2.get_transform().rotate_deg(-5)
+ax2.scatter3D(*zip((CPprime[0,:]+CP1perpen)/2,),marker=mar2,s=80,color='k')
+mar3 = mpl.markers.MarkerStyle(marker='$||$')
+mar3._transform = mar3.get_transform().rotate_deg(-15)
+ax2.scatter3D(*zip((cirCP[1,:,0]+CP1perpen)/2,),marker=mar3,s=80,color='k')
+ax2.scatter3D(*zip((CPprime[0,:]+2*np.array([0,0,0]))/3,),marker='$|||$',s=100,color='k')
+#ax2.scatter3D(*zip((cirCP[1,:,0]+2*np.array([0,0,0]))/3,),marker='$|||$',s=100,color='k')
+mar1 = mpl.markers.MarkerStyle(marker='$|||$')
+mar1._transform = mar1.get_transform().rotate_deg(-15)
+ax2.scatter3D(*zip((cirCP[1,:,0]+np.array([0,0,0]))/2,),marker=mar1,s=100,color='k')
+
 
 ####
 arrow1 = Arrow3D([CPprime[0,0]-C[1,0,0]*1,CPprime[0,0]+C[1,0,0]],
