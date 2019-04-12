@@ -178,9 +178,14 @@ lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
 n_vec = np.cross(pP-pO,dt_ABD-pO)
 arcP_tABD=sphereR*circle_arc(n_vec,pP-pO,dt_ABD-pO,20)+pO
 ax2.plot(arcP_tABD[:,0],arcP_tABD[:,1],arcP_tABD[:,2],'r',lw=2)
+#ax2.text(*(arcP_tABD[2,:]), s = r"$\circ$", fontsize=35,verticalalignment='center', horizontalalignment='center')
+ax2.scatter3D(*zip(arcP_tABD[2,:],),marker = 'o',s = 64,edgecolors = 'k',facecolor="None")
+ax2.scatter3D(*zip(arcP_tABD[15,:],),marker = 's',s = 64,edgecolors = 'k',facecolor="None")
 n_vec_2 = np.cross(pP-pO,dt_ABC-pO)
 arcP_tABC=sphereR*circle_arc(n_vec_2,pP-pO,dt_ABC-pO,20)+pO
 ax2.plot(arcP_tABC[:,0],arcP_tABC[:,1],arcP_tABC[:,2],'r',lw=2)
+#ax2.text(*(arcP_tABC[3,:]), s = r"$\circ$", fontsize=35,verticalalignment='center', horizontalalignment='center')
+ax2.scatter3D(*zip(arcP_tABC[2,:],),marker = 'o',s = 64,edgecolors = 'k',facecolor="None")
 
 #graph division circle
 #divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
@@ -189,6 +194,9 @@ ax2.plot(arcP_tABC[:,0],arcP_tABC[:,1],arcP_tABC[:,2],'r',lw=2)
 #graph part of division circle
 arc_dCircle = sphereR*circle_arc(pHmid-pO+pH-pO,pH-pO,pP-pO,30) + pO
 ax2.plot(*np.transpose(arc_dCircle),linewidth=1,linestyle='-',color='k')#:')
+# put a sign of equal length
+#ax2.text(*(arc_dCircle[15,:]), s = r"$=$", fontsize=16,verticalalignment='center', horizontalalignment='center')
+ax2.scatter3D(*zip(arc_dCircle[15,:],),marker = '$=$',s = 64,edgecolors = 'k',facecolor="None")
 
 ax2.scatter3D(*zip(pH,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
 #draw coordinate
