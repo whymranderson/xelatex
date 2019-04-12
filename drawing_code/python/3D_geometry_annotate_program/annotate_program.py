@@ -511,17 +511,37 @@ def plot_body_space_cone(ax,height_vec,side_vec,location_tip):
 
 def just2show_length_annotaion_usage():
     '''
-    To indicate equal lengthes by putting signs on line segments.
+    To indicate equal lengthes by putting symbols on line segments.
 
     .. code:: python
 
-    ax2.scatter3D(*zip(point1,),marker='o',s=64,edgecolors='k',facecolor="None")
-    ax2.scatter3D(*zip(point2,),marker='s',s=64,edgecolors='k',facecolor="None")
-    ax2.scatter3D(*zip(point3,),marker='$=$',s=64,edgecolors='k',facecolor="None")
+       mar_a = mpl.markers.MarkerStyle(marker='_')
+       mar_a._transform = mar_a.get_transform().rotate_deg(-30)
+       ax2.scatter3D(*zip(pointA,),marker=mar_a,s=90,color='k')
+       
+       mar2 = mpl.markers.MarkerStyle(marker='$||$')
+       mar2._transform = mar2.get_transform().rotate_deg(-5)
+       ax2.scatter3D(*zip(pointB,),marker=mar2,s=80,color='k')
+
+       mar1 = mpl.markers.MarkerStyle(marker='$|||$')
+       mar1._transform = mar1.get_transform().rotate_deg(-15)
+       ax2.scatter3D(*zip(pointC,),marker=mar1,s=100,color='k')
+
+    .. image:: ./alphaphi.png
+       :scale: 40 %
+       :align: center
+    
+    .. code:: python
+
+       ax2.scatter3D(*zip(point1,),marker='o',s=64,edgecolors='k',facecolor="None")
+       ax2.scatter3D(*zip(point2,),marker='s',s=64,edgecolors='k',facecolor="None")
+       ax2.scatter3D(*zip(point3,),marker='$=$',s=64,edgecolors='k',facecolor="None")
 
     .. image:: ./figures/spherical_triangles_patches_inspired.png
-       :scale: 70 %
+       :scale: 50 %
        :align: center
+
+
     '''
 
 
