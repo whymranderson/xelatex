@@ -368,6 +368,22 @@ def third_seg_incircled(x,y,r):
     z = np.square(r)*(x+y)/(x*y-np.square(r))
     return z
 
+def just2show_length_annotaion_usage():
+    '''
+    To indicate equal lengthes by putting signs on line segments.
+
+    .. code:: python
+
+    ax2.scatter3D(*zip(point1,),marker='o',s=64,edgecolors='k',facecolor="None")
+    ax2.scatter3D(*zip(point2,),marker='s',s=64,edgecolors='k',facecolor="None")
+    ax2.scatter3D(*zip(point3,),marker='$=$',s=64,edgecolors='k',facecolor="None")
+
+    .. image:: ./figures/spherical_triangles_patches_inspired.png
+       :scale: 70 %
+       :align: center
+    '''
+
+
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
 def orthogonal_proj(zfront, zback):
