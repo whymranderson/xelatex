@@ -168,7 +168,7 @@ larc_alpha6, = ax2.plot(arc_alpha6[:,0],arc_alpha6[:,1],arc_alpha6[:,2],'r',lw=2
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
 
 #draw coordinate
-draw_xyz_coordinate_unit_vectors(ax2)
+#draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
@@ -179,8 +179,8 @@ Z = np.array(Zt)
 max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 5.0
 
 
-mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5 + 0.6
+mid_x = (X.max()+X.min()) * 0.5 + 0.6
+mid_y = (Y.max()+Y.min()) * 0.5 + 1.2
 mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
