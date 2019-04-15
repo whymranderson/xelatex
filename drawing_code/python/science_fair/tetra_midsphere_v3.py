@@ -6,7 +6,7 @@
 #BA and DA that tangents the shpere and determine the position of A.
 
 import numpy as np
-#import matplotlib as mpl
+import matplotlib as mpl
 #mpl.use('pgf')
 from matplotlib import pyplot
 import mpl_toolkits.mplot3d.axes3d as p3
@@ -128,6 +128,7 @@ incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-ince
 #ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
 #ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+incenterABC = centerHE
 #lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 #lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
@@ -143,6 +144,8 @@ pH2 = pH+2*(centerHE-pH)
 arc_bigcHperp = sphereR*circle_arc(np.cross(incenterABD-pO,centerHE-pO),
                         incenterABD-pO, centerHE-pO, 40) + pO
 ax2.plot(*np.transpose(arc_bigcHperp),linewidth=2,linestyle='-',color='g')#:')
+ax2.text(*arc_bigcHperp[13,:], s = r"$r'_4$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*arc_bigcHperp[32,:], s = r"$r'_1$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 
 pHmid = (pH1-pO+pH2-pO)/2
 pHmid = pHmid/np.linalg.norm(pHmid)
@@ -151,7 +154,7 @@ pBisec = (pH+pHmid)/2
 
 #ax2.text(*pH1, s = r"$H_1$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pH2, s = r"$H_2$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*pHmid, s = r"$H_{mid}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pHmid, s = r"$H_{mid}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pBisec, s = r"$I_{bis}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
 lineOH, = ax2.plot(*zip(pO,pH),linewidth = 1,color='b')
@@ -174,18 +177,43 @@ angle2 = 75
 tempM2 = rotation_matrix(pH-pO+pHmid-pO,np.radians(angle2))
 pP = pO+np.dot(tempM2,pH-pO)
 lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
-#draw two arc from canopy tops to ps
+
+# calculate ceva's side points of inward(concave) spherical triangle HGM
+ang_dtABD = np.arccos(np.dot( (incenterABD-pO)/np.linalg.norm(incenterABD-pO), (pH-pO)/np.linalg.norm(pH-pO)))
 n_vec = np.cross(pP-pO,dt_ABD-pO)
-arcP_tABD=sphereR*circle_arc(n_vec,pP-pO,dt_ABD-pO,20)+pO
-ax2.plot(arcP_tABD[:,0],arcP_tABD[:,1],arcP_tABD[:,2],'r',lw=2)
+sphtri_HG = np.dot( rotation_matrix(-n_vec,ang_dtABD),dt_ABD-pO)+ pO 
+lineOHGpoint, = ax2.plot(*zip(pO,sphtri_HG),linewidth = 1,color='b')
+# DRAW arc from p to ceva side point on arc HG
+arcP_HG=sphereR*circle_arc(n_vec,pP-pO,sphtri_HG-pO,20)+pO
+ax2.plot(arcP_HG[:,0],arcP_HG[:,1],arcP_HG[:,2],'k',lw=4)
+#draw arc from canopy top ABD to HG's point
+arcHG_tABD=sphereR*circle_arc(n_vec,sphtri_HG-pO,dt_ABD-pO,20)+pO
+ax2.plot(arcHG_tABD[:,0],arcHG_tABD[:,1],arcHG_tABD[:,2],'r',lw=3)
 #ax2.text(*(arcP_tABD[2,:]), s = r"$\circ$", fontsize=35,verticalalignment='center', horizontalalignment='center')
-ax2.scatter3D(*zip(arcP_tABD[2,:],),marker = 'o',s = 64,edgecolors = 'k',facecolor="None")
-ax2.scatter3D(*zip(arcP_tABD[15,:],),marker = 's',s = 64,edgecolors = 'k',facecolor="None")
+#ax2.scatter3D(*zip(arcHG_tABD[2,:],),marker = 'o',s = 64,edgecolors = 'k',facecolor="None")
+#ax2.scatter3D(*zip(arcHG_tABD[15,:],),marker = 's',s = 64,edgecolors = 'k',facecolor="None")
+marPHG = mpl.markers.MarkerStyle(marker='$||$')
+marPHG._transform = marPHG.get_transform().rotate_deg(20)#counterclockwise
+ax2.scatter3D(*zip(arcP_HG[10,:],),marker=marPHG,s=100,color='k')
+# for HM
+ang_dtABC = np.arccos(np.dot( (incenterABC-pO)/np.linalg.norm(incenterABC-pO), (pH-pO)/np.linalg.norm(pH-pO)))
 n_vec_2 = np.cross(pP-pO,dt_ABC-pO)
-arcP_tABC=sphereR*circle_arc(n_vec_2,pP-pO,dt_ABC-pO,20)+pO
+sphtri_HM = np.dot( rotation_matrix(-n_vec_2,ang_dtABC),dt_ABC-pO)+ pO 
+lineOHMpoint, = ax2.plot(*zip(pO,sphtri_HM),linewidth = 1,color='b')
+# draw arc from canopy to HM's point
+arcP_tABC=sphereR*circle_arc(n_vec_2,sphtri_HM-pO,dt_ABC-pO,20)+pO
 ax2.plot(arcP_tABC[:,0],arcP_tABC[:,1],arcP_tABC[:,2],'r',lw=2)
+arcP_HM=sphereR*circle_arc(n_vec_2,pP-pO,sphtri_HM-pO,20)+pO
+ax2.plot(arcP_HM[:,0],arcP_HM[:,1],arcP_HM[:,2],'k',lw=4)
+marPHM = mpl.markers.MarkerStyle(marker='$||$')
+marPHM._transform = marPHM.get_transform().rotate_deg(-30)#counterclockwise
+ax2.scatter3D(*zip(arcP_HM[10,:],),marker=marPHM,s=100,color='k')
 #ax2.text(*(arcP_tABC[3,:]), s = r"$\circ$", fontsize=35,verticalalignment='center', horizontalalignment='center')
-ax2.scatter3D(*zip(arcP_tABC[2,:],),marker = 'o',s = 64,edgecolors = 'k',facecolor="None")
+#ax2.scatter3D(*zip(arcP_tABC[2,:],),marker = 'o',s = 64,edgecolors = 'k',facecolor="None")
+
+
+
+
 
 #graph division circle
 #divCircle = circle_full(pHmid-pO+pH-pO,pHmid-pH,
@@ -196,11 +224,11 @@ arc_dCircle = sphereR*circle_arc(pHmid-pO+pH-pO,pH-pO,pP-pO,30) + pO
 ax2.plot(*np.transpose(arc_dCircle),linewidth=1,linestyle='-',color='k')#:')
 # put a sign of equal length
 #ax2.text(*(arc_dCircle[15,:]), s = r"$=$", fontsize=16,verticalalignment='center', horizontalalignment='center')
-ax2.scatter3D(*zip(arc_dCircle[15,:],),marker = '$=$',s = 64,edgecolors = 'k',facecolor="None")
+#ax2.scatter3D(*zip(arc_dCircle[15,:],),marker = '$=$',s = 64,edgecolors = 'k',facecolor="None")
 
-ax2.scatter3D(*zip(pH,pO,centerHE,incenterABD,dt_ABD,dt_ABC,))
+ax2.scatter3D(*zip(pH,pO,centerHE,incenterABD,dt_ABD,dt_ABC,sphtri_HG))
 #draw coordinate
-#draw_xyz_coordinate_unit_vectors(ax2)
+draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
@@ -211,8 +239,8 @@ Z = np.array(Zt)
 max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 5.0
 
 
-mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5 + 0.6
+mid_x = (X.max()+X.min()) * 0.5 + 0.6
+mid_y = (Y.max()+Y.min()) * 0.5 + 1.2
 mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
