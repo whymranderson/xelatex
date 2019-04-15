@@ -516,11 +516,11 @@ def just2show_length_annotaion_usage():
     .. code:: python
 
        mar_a = mpl.markers.MarkerStyle(marker='_')
-       mar_a._transform = mar_a.get_transform().rotate_deg(-30)
+       mar_a._transform = mar_a.get_transform().rotate_deg(-30) # Rotate counterclockwise
        ax2.scatter3D(*zip(pointA,),marker=mar_a,s=90,color='k')
        
        mar2 = mpl.markers.MarkerStyle(marker='$||$')
-       mar2._transform = mar2.get_transform().rotate_deg(-5)
+       mar2._transform = mar2.get_transform().rotate_deg(-5) # Rotate ccw
        ax2.scatter3D(*zip(pointB,),marker=mar2,s=80,color='k')
 
        mar1 = mpl.markers.MarkerStyle(marker='$|||$')
