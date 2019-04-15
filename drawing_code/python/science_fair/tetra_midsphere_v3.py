@@ -35,8 +35,9 @@ from annotate_program import draw_xyz_coordinate_unit_vectors
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
 ax2 = p3.Axes3D(fig2)
+ax2.view_init(elev=-77, azim=-128)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=10, azim=-130)
+#ax2.view_init(elev=10, azim=-130)
 ax2.set_color_cycle('b')
 
 pC = np.array([0,6,0])
@@ -123,8 +124,8 @@ ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='b')
 ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
-ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
-ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
+#ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
