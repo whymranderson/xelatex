@@ -147,7 +147,7 @@ n_vec3 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha3 = sphereR*circle_arc(n_vec3,pt1,pt2,20)+pO
 #larc_alpha3, = ax2.plot(arc_alpha3[:,0],arc_alpha3[:,1],arc_alpha3[:,2],'r',lw=2,color = 'r')
 
-pt1 = (incenterACD-pO)*sphereR
+pt1 = (incenterBCD-pO)*sphereR
 pt2 = (centerHE-pO)*sphereR
 n_vec4 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha4 = sphereR*circle_arc(n_vec4,pt1,pt2,20)+pO
@@ -159,7 +159,7 @@ n_vec5 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha5 = sphereR*circle_arc(n_vec5,pt1,pt2,20)+pO
 #larc_alpha5, = ax2.plot(arc_alpha5[:,0],arc_alpha5[:,1],arc_alpha5[:,2],'r',lw=2,color = 'r')
 
-pt1 = (incenterACD-pO)*sphereR
+pt1 = (incenterBCD-pO)*sphereR
 pt2 = (incenterABD-pO)*sphereR
 n_vec6 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha6 = sphereR*circle_arc(n_vec6,pt1,pt2,20)+pO
