@@ -113,7 +113,7 @@ ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle='-')
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 #ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-#ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 3
@@ -122,7 +122,7 @@ ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle='-',color='b')
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
-#ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
 #ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
@@ -177,6 +177,7 @@ angle2 = 75
 tempM2 = rotation_matrix(pH-pO+pHmid-pO,np.radians(angle2))
 pP = pO+np.dot(tempM2,pH-pO)
 lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
+ax2.text(*pP, s = r"$P$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
 # calculate ceva's side points of inward(concave) spherical triangle HGM
 ang_dtABD = np.arccos(np.dot( (incenterABD-pO)/np.linalg.norm(incenterABD-pO), (pH-pO)/np.linalg.norm(pH-pO)))
@@ -228,7 +229,7 @@ ax2.plot(*np.transpose(arc_dCircle),linewidth=1,linestyle='-',color='k')#:')
 
 ax2.scatter3D(*zip(pH,pO,centerHE,incenterABD,dt_ABD,dt_ABC,sphtri_HG))
 #draw coordinate
-draw_xyz_coordinate_unit_vectors(ax2)
+#draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
