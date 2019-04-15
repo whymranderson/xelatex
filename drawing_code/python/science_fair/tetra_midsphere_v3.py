@@ -93,7 +93,7 @@ incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleBCD = circle_full(normvecBCD,
                           (-incenterBCD+pB),
                             inradiusBCD,40) + incenterBCD
-#ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
+ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle='-')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 #ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
@@ -102,7 +102,7 @@ plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 #ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-#ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 2
@@ -173,7 +173,7 @@ ax2.text(*dt_ABD, s = r"$t_{ABD}$", fontsize=12,verticalalignment='top', horizon
 ax2.text(*dt_ABC, s = r"$t_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
 #draw third cone
-angle2 = 75
+angle2 = 60
 tempM2 = rotation_matrix(pH-pO+pHmid-pO,np.radians(angle2))
 pP = pO+np.dot(tempM2,pH-pO)
 lineOP, = ax2.plot(*zip(pO,pP),linewidth = 1,color='k')
