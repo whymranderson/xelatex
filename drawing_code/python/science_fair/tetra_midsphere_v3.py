@@ -35,7 +35,8 @@ from annotate_program import draw_xyz_coordinate_unit_vectors
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=10, azim=-130)
+#ax2.view_init(elev=10, azim=-130)
+ax2.view_init(elev=-8, azim=-124)
 ax2.set_color_cycle('b')
 
 '''
@@ -187,7 +188,7 @@ ax2.plot(*np.transpose(incircleACDp),linewidth=1,linestyle=':')
 ax2.text(*incenterACDp, s = r"$I'_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pAp3, s = r"$A'_3$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
-ax2.scatter3D()
+ax2.scatter3D(*zip(incenterABDp,incenterABCp,incenterACDp,incenterBCD))
 
 # Add transparent faces
 #vt1 = [pA,pB,pD]
