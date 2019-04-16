@@ -100,7 +100,7 @@ plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
 #ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
@@ -112,7 +112,7 @@ lineIabdO, = ax2.plot(*zip(pO,incenterABD),linewidth = 1,color='b',linestyle=':'
 #lineAD, = ax2.plot(*zip(pA,pD),linewidth = 2,color='b')
 #ax2.text(*pA, s = r'$A$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pH, s = r"$H$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+#ax2.text(*pG, s = r"$G$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*incenterABD, s = r"$I_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 3
@@ -121,7 +121,7 @@ ax2.plot(*np.transpose(circleHE),linewidth=1,linestyle=':',color='b')
 #lineAC, = ax2.plot(*zip(pA,pC),linewidth = 2,color='b')
 
 # graph step 4
-ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+#ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
 #ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
@@ -130,8 +130,12 @@ ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horiz
 lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
 
-pt1 = (incenterABD-pO)*sphereR
-pt2 = (centerHE-pO)*sphereR
+pt1 = (incenterABD-pO)
+pt2 = (centerHE-pO)
+dtABD = pt1/np.linalg.norm(pt1)*sphereR+pO
+ax2.text(*dtABD, s = r"$t_{ABD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+dtABC = pt2/np.linalg.norm(pt2)*sphereR+pO
+ax2.text(*dtABC, s = r"$t_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 n_vec1 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha1 = sphereR*circle_arc(n_vec1,pt1,pt2,20)+pO
 larc_alpha1, = ax2.plot(arc_alpha1[:,0],arc_alpha1[:,1],arc_alpha1[:,2],'r',lw=2,color = 'r')
@@ -148,8 +152,10 @@ n_vec3 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha3 = sphereR*circle_arc(n_vec3,pt1,pt2,20)+pO
 #larc_alpha3, = ax2.plot(arc_alpha3[:,0],arc_alpha3[:,1],arc_alpha3[:,2],'r',lw=2,color = 'r')
 
-pt1 = (incenterBCD-pO)*sphereR
-pt2 = (centerHE-pO)*sphereR
+pt1 = (incenterBCD-pO)
+pt2 = (centerHE-pO)
+dtBCD = pt1/np.linalg.norm(pt1)*sphereR+pO
+ax2.text(*dtBCD, s = r"$t_{BCD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 n_vec4 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha4 = sphereR*circle_arc(n_vec4,pt1,pt2,20)+pO
 larc_alpha4, = ax2.plot(arc_alpha4[:,0],arc_alpha4[:,1],arc_alpha4[:,2],'r',lw=2,color = 'r')
@@ -160,12 +166,12 @@ n_vec5 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha5 = sphereR*circle_arc(n_vec5,pt1,pt2,20)+pO
 #larc_alpha5, = ax2.plot(arc_alpha5[:,0],arc_alpha5[:,1],arc_alpha5[:,2],'r',lw=2,color = 'r')
 
-pt1 = (incenterBCD-pO)*sphereR
-pt2 = (incenterABD-pO)*sphereR
+pt1 = (incenterBCD-pO)
+pt2 = (incenterABD-pO)
 n_vec6 = np.cross(pt1/np.linalg.norm(pt1),pt2/np.linalg.norm(pt2))
 arc_alpha6 = sphereR*circle_arc(n_vec6,pt1,pt2,20)+pO
 larc_alpha6, = ax2.plot(arc_alpha6[:,0],arc_alpha6[:,1],arc_alpha6[:,2],'r',lw=2,color = 'r')
-#ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
+ax2.scatter3D(*zip(dtABD,pN,pE,pH,dtABC,dtBCD))
 
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
