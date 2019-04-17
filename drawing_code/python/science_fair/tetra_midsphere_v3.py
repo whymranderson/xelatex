@@ -116,7 +116,7 @@ ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignme
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
-ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*incircleBCD[26,:], s = r"$I_{BCD}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 #ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
 # graph step 2
@@ -161,32 +161,112 @@ angle1= np.arccos(np.dot((incenterABD-pO)/np.linalg.norm(incenterABD-pO),(incent
 pAp1 = pD + np.dot(rotation_matrix(pB-pD,angle1),pA-pD)
 lineAp1B, = ax2.plot(*zip(pAp1,pB),linewidth = 2,color='b')
 lineAp1D, = ax2.plot(*zip(pAp1,pD),linewidth = 2,color='b')
-incenterABDp,inradiusABDp,normvecABDp, _, _, _= incircle3D(pB,pD,pAp1)
-incircleABDp = circle_full(incenterBCD-pO, pN-incenterABDp, inradiusABDp, 60) + incenterABDp
+incenterABDp,inradiusABDp,normvecABDp, _, pDAp1, pBAp1= incircle3D(pB,pD,pAp1)
+incircleABDp = circle_full(incenterBCD-pO, pN-incenterABDp, inradiusABDp, 40) + incenterABDp
 ax2.plot(*np.transpose(incircleABDp),linewidth=1,linestyle=':')
-ax2.text(*incenterABDp, s = r"$I'_{ABD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*incircleABDp[20,:], s = r"$I'_{ABD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pAp1, s = r"$A'_1$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+
 
 incenterABC=centerHE
 angle2= np.arccos(np.dot((incenterABC-pO)/np.linalg.norm(incenterABC-pO),(incenterBCD-pO)/np.linalg.norm(incenterBCD-pO)))
 pAp2 = pC + np.dot(rotation_matrix(pB-pC,-angle2),pA-pC)
 lineAp2B, = ax2.plot(*zip(pAp2,pB),linewidth = 2,color='b')
 lineAp2C, = ax2.plot(*zip(pAp2,pC),linewidth = 2,color='b')
-incenterABCp,inradiusABCp,normvecABCp, _, _, _= incircle3D(pB,pC,pAp2)
-incircleABCp = circle_full(incenterBCD-pO, pE-incenterABCp, inradiusABCp, 60) + incenterABCp
+incenterABCp,inradiusABCp,normvecABCp, _, pCAp2, pBAp2= incircle3D(pB,pC,pAp2)
+incircleABCp = circle_full(incenterBCD-pO, pE-incenterABCp, inradiusABCp, 40) + incenterABCp
 ax2.plot(*np.transpose(incircleABCp),linewidth=1,linestyle=':')
-ax2.text(*incenterABCp, s = r"$I'_{ABC}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+ax2.text(*incircleABCp[20,:], s = r"$I'_{ABC}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pAp2, s = r"$A'_2$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 
 angle3= np.arccos(np.dot((incenterACD-pO)/np.linalg.norm(incenterACD-pO),(incenterBCD-pO)/np.linalg.norm(incenterBCD-pO)))
 pAp3 = pC + np.dot(rotation_matrix(pD-pC,angle3),pA-pC)
 lineAp3B, = ax2.plot(*zip(pAp3,pD),linewidth = 2,color='b')
 lineAp3C, = ax2.plot(*zip(pAp3,pC),linewidth = 2,color='b')
-incenterACDp,inradiusACDp,normvecACDp, _, _, _= incircle3D(pC,pD,pAp3)
-incircleACDp = circle_full(incenterBCD-pO, pE-incenterACDp, inradiusACDp, 60) + incenterACDp
+incenterACDp,inradiusACDp,normvecACDp, _, pDAp3, pCAp3= incircle3D(pC,pD,pAp3)
+incircleACDp = circle_full(incenterBCD-pO, pE-incenterACDp, inradiusACDp, 40) + incenterACDp
 ax2.plot(*np.transpose(incircleACDp),linewidth=1,linestyle=':')
-ax2.text(*incenterACDp, s = r"$I'_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*incircleACDp[22,:], s = r"$I'_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*pAp3, s = r"$A'_3$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+
+# Denote angles, lengths
+ABD_rings = [
+        [pBAp1,pAp1],
+        [pAp1,pDAp1],
+        [pDAp1,pD],
+        [pD,pN],
+        [pN,pB],
+        [pB,pBAp1]]
+marker_ring1 = [r'$\alpha_4$',r'$\alpha_4$',r'$\beta_4$',r'$\beta_4$',
+                r'$\gamma_4$',r'$\gamma_4$',]
+marker_text1 = [r'$a$',r'$a$',r'$d$',r'$d$',
+                r'$b$',r'$b$',]
+for ind,vecs in enumerate(ABD_rings):
+    dav1 = (vecs[0] - incenterABDp)/np.linalg.norm(vecs[0] - incenterABDp)
+    dav2 = (vecs[1] - incenterABDp)/np.linalg.norm(vecs[1] - incenterABDp)
+    divec = 1.5*(dav1+dav2)/2 + incenterABDp
+    ax2.scatter3D(*zip(divec,),marker=marker_ring1[ind],s=100,color='k')
+    ax2.plot(*zip(vecs[0],incenterABDp),linewidth = 1,color='b')
+    midloc = (vecs[0]+vecs[1])/2 
+    ax2.scatter3D(*zip(midloc,),marker=marker_text1[ind],s=100,color='r')
+
+BCD_rings = [
+        [pE,pB],
+        [pB,pN],
+        [pN,pD],
+        [pD,pF],
+        [pF,pC],
+        [pC,pE],
+        ]
+marker_ring2 = [r'$\alpha_2$',r'$\alpha_2$',r'$\beta_2$',r'$\beta_2$',
+                r'$\gamma_2$',r'$\gamma_2$',]
+for ind,vecs in enumerate(BCD_rings):
+    dav1 = (vecs[0] - incenterBCD )/np.linalg.norm(vecs[0] - incenterBCD )
+    dav2 = (vecs[1] - incenterBCD )/np.linalg.norm(vecs[1] - incenterBCD )
+    divec = 1.2*(dav1+dav2)/2 + incenterBCD 
+    ax2.scatter3D(*zip(divec,),marker=marker_ring2[ind],s=100,color='k')
+    ax2.plot(*zip(vecs[0],incenterBCD ),linewidth = 1,color='b')
+
+ABC_rings = [
+        [pBAp2,pB],
+        [pB,pE],
+        [pE,pC],
+        [pC,pCAp2],
+        [pCAp2,pAp2],
+        [pAp2,pBAp2],
+        ]
+marker_ring3 = [r'$\alpha_1$',r'$\alpha_1$',r'$\beta_1$',r'$\beta_1$',
+                r'$\gamma_1$',r'$\gamma_1$',]
+marker_text3 = [r'$b$',r'$b$',r'$c$',r'$c$',
+                r'$a$',r'$a$',]
+for ind,vecs in enumerate(ABC_rings):
+    dav1 = (vecs[0] - incenterABCp)/np.linalg.norm(vecs[0] - incenterABCp)
+    dav2 = (vecs[1] - incenterABCp)/np.linalg.norm(vecs[1] - incenterABCp)
+    divec = 1.3*(dav1+dav2)/2 + incenterABCp
+    ax2.scatter3D(*zip(divec,),marker=marker_ring3[ind],s=100,color='k')
+    ax2.plot(*zip(vecs[0],incenterABCp),linewidth = 1,color='b')
+    midloc = (vecs[0]+vecs[1])/2 
+    ax2.scatter3D(*zip(midloc,),marker=marker_text3[ind],s=100,color='r')
+
+ACD_rings = [
+        [pF,pD],
+        [pD,pDAp3],
+        [pDAp3,pAp3],
+        [pAp3,pCAp3],
+        [pCAp3,pC],
+        [pC,pF]]
+marker_ring4 = [r'$\alpha_3$',r'$\alpha_3$',r'$\beta_3$',r'$\beta_3$',
+                r'$\gamma_3$',r'$\gamma_3$',]
+marker_text4 = [r'$d$',r'$d$',r'$a$',r'$a$',
+                r'$c$',r'$c$',]
+for ind,vecs in enumerate(ACD_rings):
+    dav1 = (vecs[0] - incenterACDp)/np.linalg.norm(vecs[0] - incenterACDp)
+    dav2 = (vecs[1] - incenterACDp)/np.linalg.norm(vecs[1] - incenterACDp)
+    divec = 1.3*(dav1+dav2)/2 + incenterACDp
+    ax2.scatter3D(*zip(divec,),marker=marker_ring4[ind],s=100,color='k')
+    ax2.plot(*zip(vecs[0],incenterACDp),linewidth = 1,color='b')
+    midloc = (vecs[0]+vecs[1])/2 
+    ax2.scatter3D(*zip(midloc,),marker=marker_text4[ind],s=100,color='r')
 
 ax2.scatter3D(*zip(incenterABDp,incenterABCp,incenterACDp,incenterBCD))
 
