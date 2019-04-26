@@ -30,6 +30,7 @@ from annotate_program import circle_full
 from annotate_program import third_seg_incircled
 from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
+from annotate_program import solve_four_circles_on_sphere
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
@@ -123,7 +124,7 @@ ax2.text(*pM, s = r"$M$", fontsize=12,verticalalignment='top', horizontalalignme
 incenterACD,inradiusACD,normvecACD, pp, ppp, pppp= incircle3D(pA,pC,pD)
 incircleACD = circle_full(incenterACD-pO, pF-incenterACD, np.linalg.norm(pF-incenterACD), 30) + incenterACD
 ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle='-')#:')
-ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*incenterACD, s = r"$I_{ACD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*centerHE, s = r"$I_{ABC}$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 lineIacdO, = ax2.plot(*zip(pO,incenterACD),linewidth = 1,color='b',linestyle=':')
 lineIabcO, = ax2.plot(*zip(pO,centerHE),linewidth = 1,color='b',linestyle=':')
@@ -142,6 +143,30 @@ ax2.text(*(pB+pN)/2, s = r"$b$", fontsize=12,verticalalignment='bottom', horizon
 ax2.text(*(pC+pE)/2, s = r"$c$", fontsize=12,verticalalignment='bottom', horizontalalignment='right',color='r')
 ax2.text(*(pD+pG)/2, s = r"$d$", fontsize=12,verticalalignment='top', horizontalalignment='left',color='r')
 #ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
+
+# solve two roots
+r3 = inradiusACD
+r4 = np.linalg.norm(pN-incenterABD)
+r2 = inradiusBCD
+r1 = np.linalg.norm(pH-centerHE)
+c = np.linalg.norm(pA-pG)
+two_a, two_b, two_d, two_r2= solve_four_circles_on_sphere(r1, r3, r4, c)
+
+pC2nd = pM - two_b[1]*(pA-pM)/np.linalg.norm(pA-pM)
+pB2nd = pH - two_a[1]*(pA-pH)/np.linalg.norm(pA-pH)
+pD2nd = pG - two_d[1]*(pA-pG)/np.linalg.norm(pA-pG)
+
+lineCB2nd, = ax2.plot(*zip(pC2nd,pB2nd),linewidth = 2,color='r')#,linestyle=':')
+lineDB2nd, = ax2.plot(*zip(pD2nd,pB2nd),linewidth = 2,color='r')#,linestyle=':')
+lineCD2nd, = ax2.plot(*zip(pC2nd,pD2nd),linewidth = 2,color='r')#,linestyle=':')
+incenter2ndr2,inradius2ndr2,normvec2ndr2, pCD2ndmid, _, _= incircle3D(pC2nd,pD2nd,pB2nd)
+incircle2ndr2 = circle_full(normvec2ndr2,
+                          (-incenter2ndr2+pB2nd),
+                            inradius2ndr2,40) + incenter2ndr2
+ax2.plot(*np.transpose(incircle2ndr2),linewidth=1.5,linestyle=':',color='r')
+line2ndr2, = ax2.plot(*zip(incenter2ndr2, pCD2ndmid),linewidth = 1,color='r',linestyle=':')
+ax2.text(*(incenter2ndr2+ pCD2ndmid)/2, s = r"$r^*_2$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+ax2.text(*incenter2ndr2, s = r"$I_{2nd}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
