@@ -7,6 +7,7 @@ Created on Mon May 08 13:19:33 2017
 import numpy as np
 from mpl_toolkits.mplot3d import proj3d
 
+#useless line to test git checkout --patch mode
 
 def offset_curve(curve, length):
     '''Translate the position of all points on a 3D curve
