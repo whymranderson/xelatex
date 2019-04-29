@@ -233,7 +233,7 @@ def triangle_area(pA,pB,pC):
     area =  np.sqrt(s*(s-la)*(s-lb)*(s-lc))
     return area
 
-def solve_tetra_insphere(r1,r2,r3,c):
+def solve_four_circles_on_sphere(r1,r2,r3,c):
     '''Given the radia of three mutually tangent circles (on the outside) on a midsphere, and tetra's c length (refer to the fig in the note), return length a. Following the steps described in the note, one can get r4.'''
     p = [(r2**2)*c**3 + (r2**2)*(r3**2)*c + (r1**2)*(r2**2)*c - (r1**2)*(r3**2)*c,
             -(2*(r1**2)*(r3**2)*c**2 + 2*(r1**2)*(r2**2)*(r3**2)),
@@ -242,7 +242,13 @@ def solve_tetra_insphere(r1,r2,r3,c):
 #    p = [(r4**2)*(b**2)-(r2**2)*(r1**2),-(2*(r2**2)*(r1**2)*b),
 #            (r4**2)*(r1**2)*(b**2) + (r2**2)*(r4**2)*(b**2) - (r2**2)*(r1**2)*(b**2) - (r2**2)*(r4**2)*(r1**2),
 #            -2*(r2**2)*(r4**2)*(r1**2)*b]
-    return np.roots(p)
+    two_a = np.roots(p)
+    two_b = (r1**2)*(two_a+c)/(two_a*c - (r1**2))
+    two_d = (r3**2)*(two_a+c)/(two_a*c - (r3**2))
+    r4 = np.sqrt((two_a*two_b*two_d)/(two_a+two_b+two_d))
+    return two_a,two_b,two_d,r4
+
+
 
 sphere_color = 'red'#'#FFDDDD'
 sphere_alpha = 0.05
