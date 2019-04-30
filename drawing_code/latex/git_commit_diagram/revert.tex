@@ -33,11 +33,11 @@ every new ->/.style={shorten >=1pt},
 graphs/every graph/.style={edges=rounded corners},
 ]
 
-\graph  { A -> B -> C -> D -> E -> E' -> D'
+\graph [grow right sep] { A -> B -> C -> D -> E -> Erev/"E'=D" -> Drev/"D'=C"
 };
 
-\node (head) [node distance=5mm, nonterminal,above =of D'] {head};
-\draw[-{Circle[length=3pt]},blue] (head) -- (D');
+\node (head) [node distance=5mm, nonterminal,above =of Drev] {head};
+\draw[-{Circle[length=3pt]},blue] (head) -- (Drev);
 \end{tikzpicture}
 
 \end{document}
