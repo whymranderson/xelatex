@@ -86,7 +86,7 @@
 \begin_body
 
 \begin_layout Title
-An indepth review of the direction of friction in rolling motion (no slippage)
+Study revision of the direction of friction in rolling motion (no slippage)
 \end_layout
 
 \begin_layout Abstract
@@ -95,6 +95,13 @@ The direction of friction force is easily mistaken when considering a rolling
  This is important and is ensential to solving the dynamics of rolling motions.
  (Rolling means there is no slippage) A few easily-mistaken cases are reviewed
  here, and excercising problems are provided.
+ This topic is commonly seen in university and grad school entry exam or
+ qualification.
+\end_layout
+
+\begin_layout Standard
+New examples (ensuring rolling on slipery surface and which way will a yoyo
+ go on the ground) added.
 \end_layout
 
 \begin_layout Section
@@ -645,9 +652,44 @@ Also in the first case, let's say if
 
 \end_layout
 
+\begin_layout Paragraph
+Which way will the yoyo go?
+\end_layout
+
 \begin_layout Standard
-A yoyo.
- 
+If we have a yoyo on the ground, and we pull on the string that's wrapped
+ around (counter-clockwise) the inner thud of the yoyo, emerging from the
+ bottom side, like the graph shown below, which way will the yoyo go?
+\end_layout
+
+\begin_layout Standard
+This is counter intuitive at first sight.
+ Because if the yoyo goes to the right, it should roll clockwise about its
+ CM.
+ But the torque about CM is counter-clockwise, which means rotation about
+ CM is c.c.
+ But rolling to right can't be c.c.
+ Or the yoyo should go left? But there is no external force pointing to
+ the left side.
+ What's going on?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{gather*}
+\left\{ \begin{split} & F_{p}+F_{fr}=ma\\
+ & \left(F_{p}\cdot r+F_{fr}\cdot R\right)=I\alpha=I\frac{a}{R}
+\end{split}
+\right.
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Is it possible to horizontally retracting a yoyo on the ground?
 \end_layout
 
 \begin_layout Standard
