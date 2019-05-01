@@ -4,27 +4,11 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass article
+\textclass scrartcl
 \begin_preamble
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
 \usepackage{pgf}
 \usepackage{multicol}
-
-
-%TCIDATA{OutputFilter=LATEX.DLL}
-%TCIDATA{Version=5.00.0.2606}
-%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
-%TCIDATA{BibliographyScheme=Manual}
-%TCIDATA{Created=Wednesday, April 06, 2016 11:13:15}
-%TCIDATA{LastRevised=Monday, June 20, 2016 11:47:14}
-%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
-%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
-%TCIDATA{CSTFile=40 LaTeX article.cst}
-
-\newtheorem{theorem}{Theorem}\newtheorem{acknowledgement}[theorem]{Acknowledgement}\newtheorem{algorithm}[theorem]{Algorithm}\newtheorem{axiom}[theorem]{Axiom}\newtheorem{case}[theorem]{Case}\newtheorem{claim}[theorem]{Claim}\newtheorem{conclusion}[theorem]{Conclusion}\newtheorem{condition}[theorem]{Condition}\newtheorem{conjecture}[theorem]{Conjecture}\newtheorem{corollary}[theorem]{Corollary}\newtheorem{criterion}[theorem]{Criterion}\newtheorem{definition}[theorem]{Definition}\newtheorem{example}[theorem]{Example}\newtheorem{exercise}[theorem]{Exercise}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{notation}[theorem]{Notation}\newtheorem{problem}[theorem]{Problem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{remark}[theorem]{Remark}\newtheorem{solution}[theorem]{Solution}\newtheorem{summary}[theorem]{Summary}\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-\input{../../tcilatex}
 \setlength{\columnseprule}{1pt}
 \end_preamble
 \use_default_options false
@@ -79,6 +63,8 @@
 \shortcut idx
 \color #008000
 \end_index
+\topmargin 2.5cm
+\bottommargin 2.5cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -112,56 +98,18 @@ The direction of friction force is easily mistaken when considering a rolling
 \end_layout
 
 \begin_layout Section
-Determination of Direction
+determination of direction of friction acting on the rolling object
+\end_layout
+
+\begin_layout Paragraph
+Rolling down hill
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{case}
-\end_layout
-
-\end_inset
-
- Round object freely rolls down the hill
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-The only force that makes the object rotate is friction so friction has
+Round object freely rolls down the hill.
+ The only force that makes the object rotate is friction so friction has
  to go up the hill.
  This friction force is exerted on the wheel by the slope.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/whatever.pgf"
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{case}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -171,31 +119,20 @@ end{case}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{case}
+\begin_layout Paragraph
+Pushing away uphill
 \end_layout
 
-\end_inset
-
- Object is forced to roll up the hill initially but external force is removed
+\begin_layout Standard
+Object is forced to roll up the hill initially but external force is removed
  once the object is going upward.
  We are considering the later part of the motion when the external force
  is removed, so only gravitation is in place.
  The wheel is still rolling up the hill.
-\begin_inset Newline newline
-\end_inset
+ 
+\end_layout
 
-
-\begin_inset Newline newline
-\end_inset
-
+\begin_layout Standard
 The rotation of the object slows down as it climbs up the hill.
  Friction is the only force that produces a torque to slow down the rotation.
  So it needs to go against the rotating direction.
@@ -203,21 +140,15 @@ The rotation of the object slows down as it climbs up the hill.
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction2.pgf"
-
-\end_inset
-
- 
+\align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-end{case}
+input{../../python/friction_material/friction2.pgf}
 \end_layout
 
 \end_inset
@@ -233,37 +164,31 @@ end{case}
 \end_layout
 
 \begin_layout Standard
+External force 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ passing through CM point
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{case}
+input{../../python/friction_material/case3a.pgf}
 \end_layout
 
 \end_inset
 
- External force 
-\begin_inset Formula $F_{p}$
-\end_inset
 
- passing through CM point
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case3a.pgf"
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
+\begin_layout Standard
 Friction is still the only force that produces an angular acceleration,
  so friction should have the same direction as angular acceleration.
  If the object is moving to the right and rotating faster, friction acting
@@ -271,13 +196,19 @@ Friction is still the only force that produces an angular acceleration,
  If the object is moving to the left and rotation slow down because of the
  external force slowing it down, the friction force goes towards the left,
  to produce a torque and a angular acceleration to slow down the rotation.
-\begin_inset Newline newline
-\end_inset
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
 
 
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case3b.pgf"
+\backslash
+input{../../python/friction_material/case3b.pgf}
+\end_layout
 
 \end_inset
 
@@ -293,19 +224,6 @@ F_{fr}\cdot R=I\alpha=I\frac{a}{R}
 \end_inset
 
 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{case}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -316,33 +234,27 @@ end{case}
 \end_layout
 
 \begin_layout Standard
+An external torque (not force) acting around the axial, like on car tire.
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{case}
+input{../../python/friction_material/case4a.pgf}
 \end_layout
 
 \end_inset
 
- An external torque (not force) acting around the axial, like on car tire.
-\begin_inset Newline newline
-\end_inset
 
+\end_layout
 
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case4a.pgf"
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
+\begin_layout Standard
 In this case, the rule of friction is not to cause rotation; the rotation
  about the center is done by the external torque.
  From 2nd law, in order to have no slipping, a translational force is needed
@@ -370,20 +282,29 @@ F_{fr}=ma\\
 \end_inset
 
 
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case4b.pgf"
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/case4b.pgf}
+\end_layout
 
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 There is an interesting conclusion we can draw from the result of our calculatio
 n.
- In a real car race, the beginning part or the start off part of the race
- is very important.
+ In a real car race, the start of the race is very important.
  A car driver want to accelerate as fast as they can, but at the same time
  not to cause the tire to slip and loose grip.
  How to control the acceleration throttle and peddle is a hard problem.
@@ -425,20 +346,6 @@ nal to the torque
  be some delay before your rear tire get maximal down force and maximal
  grip.
  And drivers need to take this delay into account.
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{case}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -449,39 +356,21 @@ end{case}
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{case}
-\end_layout
-
-\end_inset
-
- External forces not passing through CM pivot.
- (so there are both external force and torque.) 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{case}
-\end_layout
-
-\end_inset
-
-
+External forces not passing through CM pivot.
+ (so there are both external force and torque.)
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case5a.pgf"
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/case5a.pgf}
+\end_layout
 
 \end_inset
 
@@ -496,40 +385,6 @@ filename "../../../../Scripts/cordtrans/cases_fig_only/case5a.pgf"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%TCIMACRO{
-\backslash
-TeXButton{2columns}{
-\backslash
-begin{multicols}{2}}}%
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%BeginExpansion
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \begin_inset ERT
 status collapsed
 
@@ -565,17 +420,6 @@ status collapsed
 \end_inset
 
 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%EndExpansion
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -583,9 +427,15 @@ Let assume friction acting on the wheel goes right, then
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case5c.pgf"
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/case5c.pgf}
+\end_layout
 
 \end_inset
 
@@ -632,9 +482,15 @@ If frction acting on the wheel goes to the left,
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/case5b.pgf"
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/case5b.pgf}
+\end_layout
 
 \end_inset
 
@@ -686,54 +542,9 @@ status collapsed
 
 \begin_layout Plain Layout
 
-%TCIMACRO{
-\backslash
-TeXButton{end2columns}{
-\backslash
-end{multicols}}}%
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%BeginExpansion
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
 
 \backslash
 end{multicols}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%EndExpansion
 \end_layout
 
 \end_inset
@@ -834,6 +645,18 @@ Also in the first case, let's say if
 
 \end_layout
 
+\begin_layout Standard
+A yoyo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Study Cases
 \end_layout
@@ -844,19 +667,7 @@ Determine the direction of friction force acting on the roller.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{problem}
-\end_layout
-
-\end_inset
-
- An applied force 
+An applied force 
 \begin_inset Formula $F_{p}$
 \end_inset
 
@@ -870,15 +681,18 @@ begin{problem}
 \end_inset
 
 , so the roller is accelerating up the hill.
- 
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-end{problem}
+input{../../python/friction_material/friction_study1a.pgf}
 \end_layout
 
 \end_inset
@@ -887,19 +701,16 @@ end{problem}
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study1a.pgf"
+\align center
+\begin_inset ERT
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+input{../../python/friction_material/friction_study1b.pgf}
 \end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study1b.pgf"
 
 \end_inset
 
@@ -914,19 +725,7 @@ filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study1b.pgf"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{problem}
-\end_layout
-
-\end_inset
-
- An applied force 
+An applied force 
 \begin_inset Formula $F_{p}$
 \end_inset
 
@@ -942,15 +741,18 @@ begin{problem}
 .
  The roller is on its way to the highest point it can reach, and it is already
  slowing down.
- 
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-end{problem}
+input{../../python/friction_material/friction_study2a.pgf}
 \end_layout
 
 \end_inset
@@ -959,19 +761,16 @@ end{problem}
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study2a.pgf"
+\align center
+\begin_inset ERT
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+input{../../python/friction_material/friction_study2b.pgf}
 \end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study2b.pgf"
 
 \end_inset
 
@@ -986,45 +785,26 @@ filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study2b.pgf"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{problem}
-\end_layout
-
-\end_inset
-
- An applied force 
+An applied force 
 \begin_inset Formula $F_{p}$
 \end_inset
 
  passing through the top edge of the roller, up the hill.
  The roller is accelerating up the hill.
  Determine the direction of friction acting on the roller.
- 
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-end{problem}
+input{../../python/friction_material/friction_study3a.pgf}
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study3a.pgf"
 
 \end_inset
 
@@ -1044,9 +824,16 @@ Friction can go up or down the hill, depending on the condition.
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study3b.pgf"
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_study3b.pgf}
+\end_layout
 
 \end_inset
 
