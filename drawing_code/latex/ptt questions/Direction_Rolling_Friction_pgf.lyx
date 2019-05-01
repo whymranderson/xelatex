@@ -1,0 +1,1057 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{multicol}
+
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, April 06, 2016 11:13:15}
+%TCIDATA{LastRevised=Monday, June 20, 2016 11:47:14}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}\newtheorem{acknowledgement}[theorem]{Acknowledgement}\newtheorem{algorithm}[theorem]{Algorithm}\newtheorem{axiom}[theorem]{Axiom}\newtheorem{case}[theorem]{Case}\newtheorem{claim}[theorem]{Claim}\newtheorem{conclusion}[theorem]{Conclusion}\newtheorem{condition}[theorem]{Condition}\newtheorem{conjecture}[theorem]{Conjecture}\newtheorem{corollary}[theorem]{Corollary}\newtheorem{criterion}[theorem]{Criterion}\newtheorem{definition}[theorem]{Definition}\newtheorem{example}[theorem]{Example}\newtheorem{exercise}[theorem]{Exercise}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{notation}[theorem]{Notation}\newtheorem{problem}[theorem]{Problem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{remark}[theorem]{Remark}\newtheorem{solution}[theorem]{Solution}\newtheorem{summary}[theorem]{Summary}\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{../../tcilatex}
+\setlength{\columnseprule}{1pt}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+An indepth review of the direction of friction in rolling motion (no slippage)
+\end_layout
+
+\begin_layout Abstract
+The direction of friction force is easily mistaken when considering a rolling
+ motion.
+ This is important and is ensential to solving the dynamics of rolling motions.
+ (Rolling means there is no slippage) A few easily-mistaken cases are reviewed
+ here, and excercising problems are provided.
+\end_layout
+
+\begin_layout Section
+Determination of Direction
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{case}
+\end_layout
+
+\end_inset
+
+ Round object freely rolls down the hill
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The only force that makes the object rotate is friction so friction has
+ to go up the hill.
+ This friction force is exerted on the wheel by the slope.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/whatever.pgf"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{case}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{case}
+\end_layout
+
+\end_inset
+
+ Object is forced to roll up the hill initially but external force is removed
+ once the object is going upward.
+ We are considering the later part of the motion when the external force
+ is removed, so only gravitation is in place.
+ The wheel is still rolling up the hill.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The rotation of the object slows down as it climbs up the hill.
+ Friction is the only force that produces a torque to slow down the rotation.
+ So it needs to go against the rotating direction.
+ So the friction force acting on the wheel is up the hill.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction2.pgf"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{case}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{case}
+\end_layout
+
+\end_inset
+
+ External force 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ passing through CM point
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case3a.pgf"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Friction is still the only force that produces an angular acceleration,
+ so friction should have the same direction as angular acceleration.
+ If the object is moving to the right and rotating faster, friction acting
+ on the object goes towards left.
+ If the object is moving to the left and rotation slow down because of the
+ external force slowing it down, the friction force goes towards the left,
+ to produce a torque and a angular acceleration to slow down the rotation.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case3b.pgf"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{c}
+F_{p}-F_{fr}=ma\\
+F_{fr}\cdot R=I\alpha=I\frac{a}{R}
+\end{array}\right.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{case}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{case}
+\end_layout
+
+\end_inset
+
+ An external torque (not force) acting around the axial, like on car tire.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case4a.pgf"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+In this case, the rule of friction is not to cause rotation; the rotation
+ about the center is done by the external torque.
+ From 2nd law, in order to have no slipping, a translational force is needed
+ to accelerate the CM of the object to move.
+ Otherwise the object will slip.
+ Friction in this case acts as this 
+\emph on
+force
+\emph default
+, to give the CM of the object an acceleration to the right.
+ One can judge from the relative movement between the object and the ground
+ too.
+ Friction prevents the object from skidding at the contact.
+ So friction acting on the object goes to the right, while the mutual friction
+ force acting on the ground goes to the left.
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \left\{ \begin{array}{c}
+F_{fr}=ma\\
+\tau-F_{fr}\cdot R=I\alpha=I\frac{a}{R}
+\end{array}\right.\\
+ & \Rightarrow & a=\frac{\tau}{mR+\frac{I}{R}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case4b.pgf"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+There is an interesting conclusion we can draw from the result of our calculatio
+n.
+ In a real car race, the beginning part or the start off part of the race
+ is very important.
+ A car driver want to accelerate as fast as they can, but at the same time
+ not to cause the tire to slip and loose grip.
+ How to control the acceleration throttle and peddle is a hard problem.
+ Well not so hard if you have studied this example.
+ From the last equation we arrived, we know the acceleration of the tire
+ 
+\begin_inset Formula $a$
+\end_inset
+
+, which is essentially the same as the car's acceleration, is directly proportio
+nal to the torque 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+ So before you may think you want to start with a smooth peddle control
+ and put a little bit of throttle in the beginning so as not to loose grip.
+ Wrong.
+ Once you give the tire a torque 
+\begin_inset Formula $\tau$
+\end_inset
+
+, you acceleration 
+\begin_inset Formula $a$
+\end_inset
+
+ will be proportional to 
+\begin_inset Formula $\tau$
+\end_inset
+
+, what you want is the highest throttle right at the beginning! Of course
+ not so high as to loose grip.
+ So next time in a formula race, when the red light off and green light
+ lid, put down the highest throttle that will not cause slip immediately.
+ Give it a try.
+ Easier to say than done! Ideally this is what you want to do.
+ In reality, when you start off, the weight will tranfer from the front
+ tires to the rear tires (because of the accleralation!), so there will
+ be some delay before your rear tire get maximal down force and maximal
+ grip.
+ And drivers need to take this delay into account.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{case}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{case}
+\end_layout
+
+\end_inset
+
+ External forces not passing through CM pivot.
+ (so there are both external force and torque.) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{case}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case5a.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%TCIMACRO{
+\backslash
+TeXButton{2columns}{
+\backslash
+begin{multicols}{2}}}%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%BeginExpansion
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%EndExpansion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let assume friction acting on the wheel goes right, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case5c.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+from 2nd law
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \left\{ \begin{array}{c}
+F_{p}+F_{fr}=ma\\
+\left(F_{p}-F_{fr}\right)R=I\alpha=I\frac{a}{R}
+\end{array}\right.\\
+ & \Rightarrow & F_{fr}=\frac{1}{2}\left(m-\frac{I}{R^{2}}\right)a
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So if 
+\begin_inset Formula $mR^{2}>I$
+\end_inset
+
+, then 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+ goes to the right!
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If frction acting on the wheel goes to the left,
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/case5b.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \left\{ \begin{array}{c}
+F_{p}-F_{fr}=ma\\
+\left(F_{p}+F_{fr}\right)R=I\alpha=I\frac{a}{R}
+\end{array}\right.\\
+ & \Rightarrow & F_{fr}=\frac{1}{2}\left(\frac{I}{R^{2}}-m\right)a
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So if 
+\begin_inset Formula $mR^{2}<I$
+\end_inset
+
+, then 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+ goes to the left.
+ But are there any objects that have 
+\begin_inset Formula $mR^{2}<I$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%TCIMACRO{
+\backslash
+TeXButton{end2columns}{
+\backslash
+end{multicols}}}%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%BeginExpansion
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%EndExpansion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case the direction of friction depends on the condition 
+\begin_inset Formula $mR^{2}>I$
+\end_inset
+
+ or 
+\begin_inset Formula $mR^{2}<I$
+\end_inset
+
+.
+ But in reality there is no object that can have 
+\begin_inset Formula $mR^{2}<I$
+\end_inset
+
+.
+ So the second case is not physically meaningful.
+ So we are left with the case of right-going friction.
+ Friction always goes towards right.
+ The only case the second senario will happen is when 
+\begin_inset Formula $mR^{2}=I$
+\end_inset
+
+, then friction force is zero.
+ This is an interesting case worth meantioning.
+ It means if we have a hoop object (all mass on the rim), then we don't
+ need any frictional surface to cause the hoop to roll, if the force is
+ applied on top of the hoop.
+ This means we don't need to worry that the hoop will slip, even in the
+ case when we can only provide low frictional coefficient surface (like
+ on an ice surface).
+ As long as your hand excert the force on top of the hoop, it will roll
+ without slipping, even on ice.
+ 
+\end_layout
+
+\begin_layout Standard
+We can also recgonize in the first senario if 
+\begin_inset Formula $mR^{2}<I$
+\end_inset
+
+ then 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+ is negative, so the friction should be opposite to the positive direction
+ we assume (to the right).
+ This way we can save the time of working on the 2nd case.
+\end_layout
+
+\begin_layout Standard
+Also in the first case, let's say if 
+\begin_inset Formula $a$
+\end_inset
+
+ is fixed, then the smaller the 
+\begin_inset Formula $I$
+\end_inset
+
+, the bigger the 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+, and the smaller the 
+\begin_inset Formula $F_{p}=\frac{1}{2}ma+\frac{I}{2R^{2}}a$
+\end_inset
+
+.
+ In other words, the smaller the inertia is, the lessor force we need to
+ apply, which means its easier for us to make it roll.
+ And vice versa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Study Cases
+\end_layout
+
+\begin_layout Standard
+Determine the direction of friction force acting on the roller.
+ (Assume rolling without slipping.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problem}
+\end_layout
+
+\end_inset
+
+ An applied force 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ passing through CM acts on the roller.
+ The magnitude of 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ is larger than 
+\begin_inset Formula $mg\sin\theta$
+\end_inset
+
+, so the roller is accelerating up the hill.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study1a.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study1b.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problem}
+\end_layout
+
+\end_inset
+
+ An applied force 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ passing through CM acts on the roller.
+ The magnitude of 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ is smaller than 
+\begin_inset Formula $mg\sin\theta$
+\end_inset
+
+.
+ The roller is on its way to the highest point it can reach, and it is already
+ slowing down.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study2a.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study2b.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problem}
+\end_layout
+
+\end_inset
+
+ An applied force 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ passing through the top edge of the roller, up the hill.
+ The roller is accelerating up the hill.
+ Determine the direction of friction acting on the roller.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study3a.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Friction can go up or down the hill, depending on the condition.
+ Similar to case 5.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../../../../Scripts/cordtrans/cases_fig_only/friction_study3b.pgf"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
