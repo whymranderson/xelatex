@@ -86,14 +86,16 @@
 \begin_body
 
 \begin_layout Title
-Interesting study revision for the direction of friction in rolling motion
- (no slippage)
+Interesting and easily mistaken problems on direction of friction in rolling
+ motion (no slippage)
 \end_layout
 
 \begin_layout Abstract
-The direction of friction force is easily mistaken when considering a rolling
- motion.
- This is important and is ensential to solving the dynamics of rolling motions.
+The direction of friction force is easily mistaken in some interesting rolling
+ motions.
+ Surprisely these cases are more commonly encountered in our life than we
+ expect.
+ This direction is ensential to solving the dynamics of rolling motions.
  (Rolling means there is no slippage) A few easily-mistaken cases are reviewed
  here, and excercising problems are provided.
  This topic is commonly seen in university and grad school entry exam or
@@ -103,6 +105,13 @@ The direction of friction force is easily mistaken when considering a rolling
 \begin_layout Standard
 New examples (ensuring rolling on slipery surface and which way will a yoyo
  go on the ground) added.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -118,15 +127,81 @@ The rule of thumb is to separate the rotation motion about CM and translational
  multiple) and use elimination method to find the real answer.
 \end_layout
 
+\begin_layout Standard
+Another important skill is to correctly write down the positive and negative
+ signs of the variables when writing down the 2nd laws.
+ You will see it's importance in the examples (especially the yoyo one),
+ where things get intriguing and parculiar.
+ And several layers of elimination have to be made in some cases.
+ You have to know to correctly setup the positive coordinate and arrive
+ from vector equation to variable equation (where only magnitude is concerned),
+ both for linear and angular 2nd laws, and the linkage between them.
+\end_layout
+
 \begin_layout Paragraph
-Rolling down hill
+Rolling downhill
 \end_layout
 
 \begin_layout Standard
 Round object freely rolls down the hill.
- The only force that makes the object rotate is friction so friction has
- to go up the hill.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/case1a.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The only force that makes the object rotate counter-clockwise is friction
+ so friction has to go up the hill.
  This friction force is exerted on the wheel by the slope.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/case1b.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -137,7 +212,7 @@ Round object freely rolls down the hill.
 \end_layout
 
 \begin_layout Paragraph
-Pushing away uphill
+Kicked away uphill
 \end_layout
 
 \begin_layout Standard
@@ -277,6 +352,10 @@ F_{fr}\cdot R=I\alpha=I\frac{a}{R}
 
 \end_layout
 
+\begin_layout Paragraph
+Car tire
+\end_layout
+
 \begin_layout Standard
 An external torque (not force) acting around the axial, like on car tire.
 \end_layout
@@ -314,14 +393,18 @@ force
  Friction prevents the object from skidding at the contact.
  So friction acting on the object goes to the right, while the mutual friction
  force acting on the ground goes to the left.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
- &  & \left\{ \begin{array}{c}
-F_{fr}=ma\\
-\tau-F_{fr}\cdot R=I\alpha=I\frac{a}{R}
-\end{array}\right.\\
- & \Rightarrow & a=\frac{\tau}{mR+\frac{I}{R}}
-\end{eqnarray*}
+\begin{gather*}
+\begin{split} & \left\{ \begin{split}F_{fr} & =ma\\
+\tau-F_{fr}R & =I\alpha=I\frac{a}{R}
+\end{split}
+\right.\\
+ & \Rightarrow a=\frac{\tau}{mR+\frac{I}{R}}
+\end{split}
+\end{gather*}
 
 \end_inset
 
@@ -397,6 +480,10 @@ nal to the torque
 \end_inset
 
 
+\end_layout
+
+\begin_layout Paragraph
+Rolling with hands on top
 \end_layout
 
 \begin_layout Standard
@@ -488,14 +575,18 @@ input{../../python/friction_material/case5c.pgf}
 
 \begin_layout Standard
 from 2nd law
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
- &  & \left\{ \begin{array}{c}
-F_{p}+F_{fr}=ma\\
-\left(F_{p}-F_{fr}\right)R=I\alpha=I\frac{a}{R}
-\end{array}\right.\\
- & \Rightarrow & F_{fr}=\frac{1}{2}\left(m-\frac{I}{R^{2}}\right)a
-\end{eqnarray*}
+\begin{gather*}
+\begin{aligned} & \left\{ \begin{split}F_{p}+F_{fr} & =ma\\
+\left(F_{p}-F_{fr}\right)R & =I\alpha=I\frac{a}{R}
+\end{split}
+\right.\\
+ & \Rightarrow F_{fr}=\frac{1}{2}\left(m-\frac{I}{R^{2}}\right)a
+\end{aligned}
+\end{gather*}
 
 \end_inset
 
@@ -543,13 +634,14 @@ input{../../python/friction_material/case5b.pgf}
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
- &  & \left\{ \begin{array}{c}
-F_{p}-F_{fr}=ma\\
-\left(F_{p}+F_{fr}\right)R=I\alpha=I\frac{a}{R}
-\end{array}\right.\\
- & \Rightarrow & F_{fr}=\frac{1}{2}\left(\frac{I}{R^{2}}-m\right)a
-\end{eqnarray*}
+\begin{gather*}
+\begin{aligned} & \left\{ \begin{split}F_{p}-F_{fr} & =ma\\
+\left(F_{p}+F_{fr}\right)R & =I\alpha=I\frac{a}{R}
+\end{split}
+\right.\\
+ & \Rightarrow F_{fr}=\frac{1}{2}\left(\frac{I}{R^{2}}-m\right)a
+\end{aligned}
+\end{gather*}
 
 \end_inset
 
@@ -729,16 +821,21 @@ input{../../python/friction_material/friction_yoyo_a.pgf}
 This is counter intuitive at first sight.
  Because if the yoyo goes to the right, it should roll clockwise about its
  CM.
- But the torque about CM is counter-clockwise, which means rotation about
- CM is c.c.
+ But the torque from 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ about CM is counter-clockwise, which means rotation about CM is c.c.
  But rolling to right can't be c.c.
+ It seems the yoyo will slip.
  Or the yoyo should go left? But there is no external force pointing to
  the left side.
- What's going on?
+ What's going on? 
 \end_layout
 
 \begin_layout Standard
-First we assume the yoyo will accelerate towards left, 
+We can use elimination method to solve this problem.
+ First we assume the yoyo will accelerate towards left, 
 \end_layout
 
 \begin_layout Standard
@@ -968,22 +1065,13 @@ So this is the only plausible way the reality can happen.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{gather*}
-\left\{ \begin{split} & F_{p}-F_{fr}=ma\\
+\begin{aligned} & \left\{ \begin{split} & F_{p}-F_{fr}=ma\\
  & \left(F_{p}\cdot r-F_{fr}\cdot R\right)=I\alpha=I\frac{a}{R}
 \end{split}
-\right.
+\right.\\
+ & \Rightarrow F_{fr}=a\left[\frac{m+\frac{I}{Rr}}{\frac{R}{r}-1}\right]
+\end{aligned}
 \end{gather*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\Rightarrow F_{fr}=a\left[\frac{m+\frac{I}{Rr}}{\frac{R}{r}-1}\right]
-\]
 
 \end_inset
 
