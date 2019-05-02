@@ -86,7 +86,8 @@
 \begin_body
 
 \begin_layout Title
-Study revision of the direction of friction in rolling motion (no slippage)
+Interesting study revision for the direction of friction in rolling motion
+ (no slippage)
 \end_layout
 
 \begin_layout Abstract
@@ -106,6 +107,15 @@ New examples (ensuring rolling on slipery surface and which way will a yoyo
 
 \begin_layout Section
 determination of direction of friction acting on the rolling object
+\end_layout
+
+\begin_layout Standard
+The rule of thumb is to separate the rotation motion about CM and translational
+ motion, and check for consistency.
+ But there are always exceptions.
+ For more advanced (usually the interesting ones are more advanced) cases
+ not only do we need that, but also we need to make assumptions (can be
+ multiple) and use elimination method to find the real answer.
 \end_layout
 
 \begin_layout Paragraph
@@ -148,6 +158,10 @@ The rotation of the object slows down as it climbs up the hill.
 
 \begin_layout Standard
 \align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
 status open
 
@@ -156,6 +170,11 @@ status open
 
 \backslash
 input{../../python/friction_material/friction2.pgf}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -180,6 +199,10 @@ External force
 
 \begin_layout Standard
 \align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
 status open
 
@@ -188,6 +211,11 @@ status open
 
 \backslash
 input{../../python/friction_material/case3a.pgf}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -207,6 +235,10 @@ Friction is still the only force that produces an angular acceleration,
 
 \begin_layout Standard
 \align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
 status open
 
@@ -215,6 +247,11 @@ status open
 
 \backslash
 input{../../python/friction_material/case3b.pgf}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -663,6 +700,32 @@ If we have a yoyo on the ground, and we pull on the string that's wrapped
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_a.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 This is counter intuitive at first sight.
  Because if the yoyo goes to the right, it should roll clockwise about its
  CM.
@@ -675,10 +738,238 @@ This is counter intuitive at first sight.
 \end_layout
 
 \begin_layout Standard
+First we assume the yoyo will accelerate towards left, 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_b.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assume positive coordinate goes to the left, we can write down
+\begin_inset Formula 
+\[
+F_{fr}-F_{p}=ma
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(If you assume positive coordinate goes to the right, from vector force
+ diagram this will give you 
+\begin_inset Formula $-F_{fr}+F_{p}=m\left(-a\right),$
+\end_inset
+
+which is the same as the above.)
+\end_layout
+
+\begin_layout Standard
+This means 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+ must be larger than 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+.
+ This is important because we will use it immediately.
+\end_layout
+
+\begin_layout Standard
+Now lets look at the rotational motion.
+ Because 
+\begin_inset Formula $F_{fr}>F_{p}$
+\end_inset
+
+, we bound to have 
+\begin_inset Formula $F_{fr}\times R>F_{p}\times r$
+\end_inset
+
+, so that
+\begin_inset Formula 
+\[
+F_{fr}R-F_{p}r=I\alpha>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This means the angular acceleration will have the same direction as the
+ torque 
+\begin_inset Formula $F_{fr}R$
+\end_inset
+
+, that means clockwise rotation about CM.
+ However from the diagram for the yoyo to roll to the left, it needs counter-clo
+ckwise rotation.
+ So this is not going to happen.
+ Contradiction means our first assumption is not correct.
+\end_layout
+
+\begin_layout Standard
+So the yoyo has to accelerate towards right.
+ But we still aren't sure where the friction goes.
+ So we need to make more assumptions and check consistency.
+\end_layout
+
+\begin_layout Standard
+Let's say the friction goes to the right,
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_c.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But in this case both forces create a torque that gives counter-clockwise
+ rotation about CM, which will contradict the clockwise right-going rolling
+ motion.
+ So this is still not correct.
+\end_layout
+
+\begin_layout Standard
+So the friction has to go towards the left.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_d.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So this is the only plausible way the reality can happen.
+ Now we can setup the 2nd laws.
+ Assume positive coordinate goes right.
+ Because the roller goes to the right, 
+\begin_inset Formula $F_{p}-F_{fr}=ma>0$
+\end_inset
+
+.
+ 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ is greater than 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+.
+ Although 
+\begin_inset Formula $F_{p}>F_{fr}$
+\end_inset
+
+, we can't be sure that 
+\begin_inset Formula $F_{p}r>F_{fr}R$
+\end_inset
+
+.
+ So more assumptions and checkings are needed.
+ If 
+\begin_inset Formula $F_{p}r>F_{fr}R$
+\end_inset
+
+, then 
+\begin_inset Formula $F_{p}r-F_{fr}R>0=I\alpha$
+\end_inset
+
+ will give a counter-clockwise rotation.
+ This will contradict the right rolling motion with clockwise rotation.
+ So the roller will slip if 
+\begin_inset Formula $F_{p}r>F_{fr}R$
+\end_inset
+
+.
+ So we are left with a quite stringent condition, that is 
+\begin_inset Formula $F_{p}r<F_{fr}R$
+\end_inset
+
+ while 
+\begin_inset Formula $F_{p}>F_{fr}$
+\end_inset
+
+.
+ This is the only way the yoyo can successfully roll to the right without
+ any slipage.
+ Our 2nd laws are,
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{gather*}
-\left\{ \begin{split} & F_{p}+F_{fr}=ma\\
- & \left(F_{p}\cdot r+F_{fr}\cdot R\right)=I\alpha=I\frac{a}{R}
+\left\{ \begin{split} & F_{p}-F_{fr}=ma\\
+ & \left(F_{p}\cdot r-F_{fr}\cdot R\right)=I\alpha=I\frac{a}{R}
 \end{split}
 \right.
 \end{gather*}
@@ -689,7 +980,82 @@ This is counter intuitive at first sight.
 \end_layout
 
 \begin_layout Standard
-Is it possible to horizontally retracting a yoyo on the ground?
+\begin_inset Formula 
+\[
+\Rightarrow F_{fr}=a\left[\frac{m+\frac{I}{Rr}}{\frac{R}{r}-1}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $I=\frac{1}{2}mR^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $r=\frac{R}{2}$
+\end_inset
+
+, then 
+\begin_inset Formula $F_{fr}=ma\left(\frac{1+\frac{1}{2}\frac{R^{2}}{Rr}}{\frac{R}{r}-1}\right)=2ma$
+\end_inset
+
+, 
+\begin_inset Formula $F_{p}=ma+F_{fr}=3ma$
+\end_inset
+
+, this means when comparing with the previous case of 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ passing through the center of mass where the solution is 
+\begin_inset Formula $F_{p}=\frac{3}{2}ma$
+\end_inset
+
+, we now need even larger external force to move the yoyo to the right.
+\end_layout
+
+\begin_layout Standard
+The stringent condition is not to be worried.
+ If we can solve these equations successfully, the requirement of 
+\begin_inset Formula $F_{p}r<F_{fr}R$
+\end_inset
+
+ while 
+\begin_inset Formula $F_{p}>F_{fr}$
+\end_inset
+
+ will be automatically satisfied.
+ It is interesting to note that when 
+\begin_inset Formula $r$
+\end_inset
+
+ gets bigger, the relative magnitude of 
+\begin_inset Formula $F_{fr}$
+\end_inset
+
+ of the solution when compared to 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+ will gets bigger too, to satisfy the condition.
+ It means more of you external force will be given to fight the friction,
+ so it will be harder (more force needed) to pull to yoyo.
+ In reality, you will feel strange why is it so hard to pull this yoyo towards
+ you.
+ Just ask a yoyo player! Because a huge amount of force is needed, compared
+ to its mass times acceleration.
+ It is like the thing(yoyo) weight several time than it appeared to be (eg
+ the 3ma right above).
+\end_layout
+
+\begin_layout Standard
+In summary, yoyo will always go to the right.
+ So it is possible to horizontally retracting a yoyo on the ground.
+ The force needed will surprise you.
 \end_layout
 
 \begin_layout Standard
