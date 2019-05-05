@@ -136,6 +136,7 @@ ax2.set_axis_off()  #-> this can turn off the background curtain
 #ax2.set_axis_bgcolor('b')
 #ax2.set_position() #set the bbox of the whole axes
 #ax2.set_zbound()
-pyplot.savefig('./pgf_files/collinear_ceva_points.pgf')
+#pyplot.savefig('./pgf_files/collinear_ceva_points.pgf')
+pyplot.savefig('./midsphere_wrong/collinear_ceva_points.png')
 pyplot.show()
 

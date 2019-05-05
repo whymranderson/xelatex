@@ -189,7 +189,7 @@ ax2.annotate(s = ' \ne',xy = tuple(proj3d.proj_transform(*ple, M = ax2.get_proj(
              bbox={'pad':12,'fill':None,'edgecolor':'None'},va='top',ha='right',color="0.5")
 
 #annotation of segment f
-ax2.annotate("",
+annotest = ax2.annotate("",
             xy=tuple(proj3d.proj_transform(*pG, M = ax2.get_proj()))[:2], #xycoords='data',
             xytext=tuple(proj3d.proj_transform(*pA, M = ax2.get_proj()))[:2], #textcoords='data',
             arrowprops=dict(arrowstyle="-", #linestyle="dashed",
@@ -199,11 +199,11 @@ ax2.annotate("",
                             connectionstyle="arc3,rad=0.3",
                             ),
             )
+print annotest
 
 plf = (pG+pA)/2
 ax2.annotate(s = '\n\nf   ',xy = tuple(proj3d.proj_transform(*plf, M = ax2.get_proj()))[:2],
              bbox={'pad':12,'fill':None,'edgecolor':'None'},va='top',ha='right',color="0.5")
-
 
 def segment_length_annotate(ax,p1,p2,radius,string,ver_a,hor_a,color):
     #annotation of segment f
