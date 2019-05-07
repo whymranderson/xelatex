@@ -212,6 +212,7 @@ ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
 ax2.w_zaxis.line.set_color([0,0,0,0])
 ax2.set_axis_off()  #-> this can turn off the background curtain
 #pyplot.savefig('./pgf_files/tetra_midsphere.pgf')
+pyplot.savefig('./midsphere_wrong/tetra_midsphere_Gergonne.png')
 
 pyplot.show()
 
