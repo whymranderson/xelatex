@@ -1,0 +1,23 @@
+%\documentclass[a4paper]{article}
+\documentclass[convert]{standalone}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+%\usepackage[inner=2in,outer=2in,top=0.5in,bottom=0.5in]{geometry}
+%\usepackage{mwe}
+ 
+\begin{document}
+%\begin{tcbraster}[raster columns=2, raster equal height=none, raster column skip=3mm, raster row skip=10mm]
+	\begin{tcboxedraster}[raster columns=2, raster equal height=none, raster column skip=3mm, raster row skip=3mm]{}
+%\begin{tcolorbox}\input{../pgf_files/collinear_ceva_points_many.pgf}\end{tcolorbox}
+\tcbincludegraphics{../midsphere_wrong/collinear_ceva_points}
+\tcbincludegraphics{../midsphere_wrong/collinear_ceva_points_many.png}
+\tcbincludegraphics{../midsphere_wrong/concurrency_angdiv_planes}
+\tcbincludegraphics{../midsphere_wrong/tetra_midsphere_Gergonne}
+\tcbincludegraphics{../midsphere_wrong/4_tangential_circles_on_sphere}
+\tcbincludegraphics{../midsphere_wrong/fourwayjoint}
+\tcbincludegraphics{../midsphere_wrong/planarized}
+\tcbincludegraphics{../midsphere_wrong/spherical_triangles_filled}
+%\end{tcbraster}
+\end{tcboxedraster}
+\vspace*{\fill}
+\end{document}

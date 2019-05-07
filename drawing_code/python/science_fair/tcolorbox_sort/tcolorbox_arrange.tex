@@ -1,0 +1,18 @@
+%\documentclass[a4paper]{article}
+\documentclass[]{standalone}
+\usepackage[most]{tcolorbox}
+%\usepackage[inner=2in,outer=2in,top=0.5in,bottom=0.5in]{geometry}
+%\usepackage{mwe}
+ 
+\begin{document}
+%\begin{tcbraster}[raster columns=2, raster equal height=none, raster column skip=3mm, raster row skip=10mm]
+	\begin{tcboxedraster}[raster columns=2, raster equal height=none, raster column skip=3mm, raster row skip=3mm]{}
+\tcbincludegraphics{../midsphere_wrong/4_tangential_circles_on_sphere}
+\tcbincludegraphics{../midsphere_wrong/fourwayjoint}
+\tcbincludegraphics{../midsphere_wrong/fourwayValve}
+%\tcbincludegraphics{"../revert_range"}
+%\tcbincludegraphics{"../starting"}
+%\end{tcbraster}
+\end{tcboxedraster}
+\vspace*{\fill}
+\end{document}
