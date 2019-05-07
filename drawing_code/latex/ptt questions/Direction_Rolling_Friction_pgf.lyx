@@ -138,27 +138,28 @@ New examples (ensuring rolling on slipery surface and which way will a yoyo
 \end_layout
 
 \begin_layout Section
-determination of direction of friction acting on the rolling object
+Determination of direction of friction acting on the rolling object
 \end_layout
 
 \begin_layout Standard
 The rule of thumb is to separate the rotation motion about CM and translational
- motion, and check for consistency.
+ motion and check for consistency.
  But there are always exceptions.
  For more advanced (usually the interesting ones are more advanced) cases
  not only do we need that, but also we need to make assumptions (can be
- multiple) and use elimination method to find the real answer.
+ multiple) and use elimination methods to find the real answer.
 \end_layout
 
 \begin_layout Standard
-Another important skill is to correctly write down the positive and negative
+Another vital skill is to correctly write down the positive and negative
  signs of the variables when writing down the 2nd laws.
- You will see it's importance in the examples (especially the yoyo one),
- where things get intriguing and parculiar.
+ You will see it's importance in the examples (especially the yoyo one where
+ things get intriguing and peculiar).
  And several layers of elimination have to be made in some cases.
- You have to know to correctly setup the positive coordinate and arrive
- from vector equation to variable equation (where only magnitude is concerned),
- both for linear and angular 2nd laws, and the linkage between them.
+ You have to know to correctly set up the positive coordinate and arrive
+ from vector equation to variable equation (where only the magnitude is
+ concerned), both for linear and angular 2nd laws, and the linkage between
+ them.
 \end_layout
 
 \begin_layout Paragraph
@@ -451,12 +452,34 @@ input{../../python/friction_material/case4b.pgf}
 
 \end_layout
 
+\begin_layout Paragraph
+Application
+\end_layout
+
 \begin_layout Standard
-There is an interesting conclusion we can draw from the result of our calculatio
-n.
- In a real car race, the start of the race is very important.
- A car driver want to accelerate as fast as they can, but at the same time
- not to cause the tire to slip and loose grip.
+Together with the previous example, we now arrive at an exciting and somewhat
+ surprising (to some outsiders maybe) conclusion.
+ In a front-wheel-drive car (that's almost all cars), the front tires are
+ the drive tires, meaning they are the tires that are exerted on by engine's
+ torque.
+ According to the example we just showed, these tires experience forward
+ friction.
+ The rear tires, however, are pulled forward by a force at the CM (the axile).
+ They don't have the torque from the engine.
+ So according to the previous example, these tires will experience backward
+ friction.
+ So the friction forces on the front and rear tires are opposite.
+ At first sight, it may seem reasonable to say all four tires share the
+ same direction of friction.
+ But that's not correct.
+\end_layout
+
+\begin_layout Standard
+There is another interesting conclusion we can draw from the result of our
+ calculation.
+ In a car race, the start of the race is significant.
+ A car driver wants to accelerate as fast as they can, but at the same time
+ not to cause the tire to slip and lose grip.
  How to control the acceleration throttle and peddle is a hard problem.
  Well not so hard if you have studied this example.
  From the last equation we arrived, we know the acceleration of the tire
@@ -471,7 +494,7 @@ nal to the torque
 
 .
  So before you may think you want to start with a smooth peddle control
- and put a little bit of throttle in the beginning so as not to loose grip.
+ and put a little bit of throttle in the beginning so as not to lose grip.
  Wrong.
  Once you give the tire a torque 
 \begin_inset Formula $\tau$
@@ -485,17 +508,20 @@ nal to the torque
 \begin_inset Formula $\tau$
 \end_inset
 
-, what you want is the highest throttle right at the beginning! Of course
- not so high as to loose grip.
+, what you want is the highest throttle right at the beginning (of course
+ not so high that you will lose grip).
+ It's hard.
  So next time in a formula race, when the red light off and green light
  lid, put down the highest throttle that will not cause slip immediately.
  Give it a try.
- Easier to say than done! Ideally this is what you want to do.
- In reality, when you start off, the weight will tranfer from the front
- tires to the rear tires (because of the accleralation!), so there will
- be some delay before your rear tire get maximal down force and maximal
- grip.
+ Easier to say than done! Ideally, this is what you want to do.
+ In reality, when you start, the weight will transfer from the front tires
+ to the rear tires (because of the acceleration!), so there will be some
+ delay before your rear tire get maximal downforce and maximal grip.
+ And this is why you want to smoothen your throttle input.
  And drivers need to take this delay into account.
+ But if your mechanics made your car real rigid, then this delay will be
+ very short.
 \end_layout
 
 \begin_layout Standard
