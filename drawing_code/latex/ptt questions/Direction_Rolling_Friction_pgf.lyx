@@ -12,6 +12,9 @@
 \setlength{\columnseprule}{1pt}
 \end_preamble
 \use_default_options false
+\begin_modules
+tcolorbox
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package none
@@ -90,19 +93,39 @@ Easily mistaken problems on direction of friction in rolling motion (no
  slippage)
 \end_layout
 
+\begin_layout Publishers
+\begin_inset Flex Color Box
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/user/Desktop/xelatex_Transend/drawing_code/python/friction_material/tcolorbox_sort/tcolorbox_gallery.png
+	lyxscale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Abstract
-The direction of friction force is easily mistaken in some interesting rolling
- motions.
- Surprisely these cases are more commonly encountered in our life than we
- expect.
- This direction is ensential to solving the dynamics of rolling motions.
+The direction of friction forces is easily mistaken in some interesting
+ rolling motions.
+ Surprisingly these cases are more commonly encountered in our life than
+ we expect.
+ This direction is essential to solving the dynamics of rolling motions.
  (Rolling means there is no slippage) A few easily-mistaken cases are reviewed
- here, and excercising problems are provided.
+ here, and exercising problems are provided.
  This topic is commonly seen in university and grad school entry exam or
  qualification.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Address
 New examples (ensuring rolling on slipery surface and which way will a yoyo
  go on the ground) added.
 \end_layout
