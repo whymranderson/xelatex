@@ -34,10 +34,11 @@ from annotate_program import draw_perpendicular_sign
 from annotate_program import solve_tetra_insphere
 
 #### The plotting of a vector-based graphics using the above points location information.
-fig2 = pyplot.figure(2,figsize=(4, 4),dpi=100)
+fig2 = pyplot.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(azim=36,elev=69)
+#ax2.view_init(azim=82,elev=67)
+ax2.view_init(azim=23,elev=-18)#very_long_tetra_inscribed_possible_3.png
 ax2.set_color_cycle('b')
 
 '''
@@ -147,7 +148,7 @@ ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
 #ax2.add_collection3d(tr1)
 
 #draw coordinate
-draw_xyz_coordinate_unit_vectors(ax2)
+#draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
@@ -156,10 +157,10 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.0
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 4.5
 
 
-mid_x = (X.max()+X.min()) * 0.5
+mid_x = (X.max()+X.min()) * 0.5 - 2
 mid_y = (Y.max()+Y.min()) * 0.5 + 0.6
 mid_z = (Z.max()+Z.min()) * 0.5 - 0.6
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
