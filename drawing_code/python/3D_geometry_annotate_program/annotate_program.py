@@ -445,6 +445,11 @@ def circle_full(axis,start_v,radius,num_points):
         circle_vecs[i,:] = np.dot(makecir,start_v)
     return circle_vecs*radius
 
+
+def showing_usage_of_dot_datapoints():
+    ''' ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF)) what about color?'''
+    
+
 def third_seg_incircled(x,y,r):
     """Return z following the relation of the xyz lengths bisect by incircle and the r radius.
     :math:`r=\\sqrt{\\frac{xyz}{x + y + z}}`
