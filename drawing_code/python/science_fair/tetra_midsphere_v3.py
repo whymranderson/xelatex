@@ -156,9 +156,9 @@ pC2nd = pM - two_b[1]*(pA-pM)/np.linalg.norm(pA-pM)
 pB2nd = pH - two_a[1]*(pA-pH)/np.linalg.norm(pA-pH)
 pD2nd = pG - two_d[1]*(pA-pG)/np.linalg.norm(pA-pG)
 
-lineCB2nd, = ax2.plot(*zip(pC2nd,pB2nd),linewidth = 2,color='r')#,linestyle=':')
-lineDB2nd, = ax2.plot(*zip(pD2nd,pB2nd),linewidth = 2,color='r')#,linestyle=':')
-lineCD2nd, = ax2.plot(*zip(pC2nd,pD2nd),linewidth = 2,color='r')#,linestyle=':')
+#lineCB2nd, = ax2.plot(*zip(pC2nd,pB2nd),linewidth = 2,color='r')#,linestyle=':')
+#lineDB2nd, = ax2.plot(*zip(pD2nd,pB2nd),linewidth = 2,color='r')#,linestyle=':')
+#lineCD2nd, = ax2.plot(*zip(pC2nd,pD2nd),linewidth = 2,color='r')#,linestyle=':')
 incenter2ndr2,inradius2ndr2,normvec2ndr2, pCD2ndmid, _, _= incircle3D(pC2nd,pD2nd,pB2nd)
 incircle2ndr2 = circle_full(normvec2ndr2,
                           (-incenter2ndr2+pB2nd),
