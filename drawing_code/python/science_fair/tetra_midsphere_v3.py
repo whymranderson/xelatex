@@ -99,7 +99,7 @@ ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignme
 ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
 ax2.text(*pE, s = r"$E$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='top', horizontalalignment='right')
+ax2.text(*pF, s = r"$F$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 ax2.text(*incenterBCD, s = r"$I_{BCD}$", fontsize=12,verticalalignment='bottom', horizontalalignment='left')
 ax2.text(*pO, s = r"$O$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 
