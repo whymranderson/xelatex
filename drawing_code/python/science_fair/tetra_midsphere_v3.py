@@ -6,7 +6,7 @@
 #BA and DA that tangents the shpere and determine the position of A.
 
 import numpy as np
-#import matplotlib as mpl
+import matplotlib as mpl
 #mpl.use('pgf')
 from matplotlib import pyplot
 import mpl_toolkits.mplot3d.axes3d as p3
@@ -22,7 +22,7 @@ from annotate_program import plot_front
 from annotate_program import plot_back
 from annotate_program import project_a_point_to_a_plane 
 from annotate_program import incircle3D 
-from annotate_program import circle_full
+from annotate_program import circle_arc
 from annotate_program import four_points_circle
 from annotate_program import rotmat_from_A_2_B
 from annotate_program import CK
@@ -164,9 +164,45 @@ incircle2ndr2 = circle_full(normvec2ndr2,
                           (-incenter2ndr2+pB2nd),
                             inradius2ndr2,40) + incenter2ndr2
 ax2.plot(*np.transpose(incircle2ndr2),linewidth=1.5,linestyle=':',color='r')
-line2ndr2, = ax2.plot(*zip(incenter2ndr2, pCD2ndmid),linewidth = 1,color='r',linestyle=':')
-ax2.text(*(incenter2ndr2+ pCD2ndmid)/2, s = r"$r^*_2$", fontsize=12,verticalalignment='top', horizontalalignment='left')
-ax2.text(*incenter2ndr2, s = r"$I_{2nd}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+dt_2nd = pO +(incenter2ndr2-pO)/np.linalg.norm(incenter2ndr2-pO)*sphereR
+#line2ndr2, = ax2.plot(*zip(incenter2ndr2, pCD2ndmid),linewidth = 1,color='r',linestyle=':')
+#ax2.text(*(incenter2ndr2+ pCD2ndmid)/2, s = r"$r^*_2$", fontsize=12,verticalalignment='top', horizontalalignment='left')
+#ax2.text(*incenter2ndr2, s = r"$I_{2nd}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*dt_2nd, s = r"$t_{2nd}$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+
+
+# P related
+linePA, = ax2.plot(*zip(pO,pA),linewidth = 1,color='k')
+pP = pO + (pA-pO)/np.linalg.norm(pA-pO)*sphereR
+ax2.text(*pP, s = r"$P$", fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+
+p_arc1 = pA-pO
+p_arc2 = pH-pO
+n_vec_OHA = np.cross(p_arc1/np.linalg.norm(p_arc1),p_arc2/np.linalg.norm(p_arc2))
+arc_PH = sphereR*circle_arc(n_vec_OHA,p_arc1,p_arc2,20) + pO
+larc_PH, = ax2.plot(arc_PH[:,0],arc_PH[:,1],arc_PH[:,2],'r',lw=2)
+p_arc1 = pA-pO
+p_arc2 = pG-pO
+n_vec_OGA = np.cross(p_arc1/np.linalg.norm(p_arc1),p_arc2/np.linalg.norm(p_arc2))
+arc_PG = sphereR*circle_arc(n_vec_OGA,p_arc1,p_arc2,20) + pO
+larc_PG, = ax2.plot(arc_PG[:,0],arc_PG[:,1],arc_PG[:,2],'r',lw=2)
+p_arc1 = pM-pO
+p_arc2 = pA-pO
+n_vec_OMA = np.cross(p_arc1/np.linalg.norm(p_arc1),p_arc2/np.linalg.norm(p_arc2))
+arc_PM = sphereR*circle_arc(n_vec_OMA,p_arc1,p_arc2,20) + pO
+larc_PM, = ax2.plot(arc_PM[:,0],arc_PM[:,1],arc_PM[:,2],'r',lw=2)
+mar1 = mpl.markers.MarkerStyle(marker='$||$')
+mar1._transform = mar1.get_transform().rotate_deg(90)
+ax2.scatter3D(*zip(arc_PH[8,:],),marker=mar1,s=100,color='k')
+mar2 = mpl.markers.MarkerStyle(marker='$||$')
+mar2._transform = mar2.get_transform().rotate_deg(-15)
+ax2.scatter3D(*zip(arc_PG[8,:],),marker=mar2,s=100,color='k')
+mar3 = mpl.markers.MarkerStyle(marker='$||$')
+mar3._transform = mar3.get_transform().rotate_deg(15)
+ax2.scatter3D(*zip(arc_PM[13,:],),marker=mar3,s=100,color='k')
+
+ax2.scatter3D(*zip(pP,dt_2nd))
+
 
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
