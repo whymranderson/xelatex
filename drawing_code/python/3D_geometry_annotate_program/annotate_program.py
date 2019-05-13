@@ -550,11 +550,6 @@ def just2show_length_annotaion_usage():
 
     '''
 
-def return_vertex_under_ceva(A,B,D,E,O):
-    ''' return vertex point C under ceva's condition.'''
-    const_k = np.linalg.norm(B-D)/np.linalg.norm(C-B)*np.linalg.norm(A-O)/np.linalg.norm(D-O)
-    C = E*(1/const_k + 1)- A*1/const_k
-    return C
 
 #%% Turn off the perspective/orthogonal viewing effect (it works but has some side problems)
 #from mpl_toolkits.mplot3d import proj3d
