@@ -32,6 +32,7 @@ from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 from annotate_program import draw_perpendicular_sign
 from annotate_program import solve_tetra_insphere
+from annotate_program import return_vertex_under_ceva
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(5, 5),dpi=100)
@@ -90,7 +91,8 @@ r2n = r2/np.linalg.norm(r2)
 cos_alpha = np.dot(r1n,r2n)
 pHtemp1 = pH + (np.linalg.norm(r1)/cos_alpha)*r2n
 pHtemp2 = pH + (np.linalg.norm(r2)/cos_alpha)*r1n
-pO =return_intersection_under_Ceva_Theorem(pHtemp2,pHtemp1,pH,incenterABC,incenterABD)
+#pO =return_intersection_under_Ceva_Theorem(pHtemp2,pHtemp1,pH,incenterABC,incenterABD)
+pO = return_vertex_under_ceva(pHtemp2,pHtemp1,incenterABD,incenterABC,pH)
 
 plot_front(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
 plot_back(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
