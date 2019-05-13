@@ -38,7 +38,7 @@ from annotate_program import return_vertex_under_ceva
 fig2 = pyplot.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(azim=-67,elev=3)
+ax2.view_init(azim=-62,elev=7)
 #ax2.view_init(azim=23,elev=-18)#very_long_tetra_inscribed_possible_3.png
 ax2.set_color_cycle('b')
 
@@ -57,7 +57,7 @@ ax2.text(0,0,6, r'$z_s$', fontsize=18,verticalalignment='bottom', horizontalalig
 pA = np.array([2,0,0])
 pC = np.array([-1,-1.732,0])
 pD = np.array([-1,1.732,0])
-pB = np.array([0,0,1]) 
+pB = np.array([0,0,0.8]) 
 
 #lineBA = ax2.plot(*zip(pB,pA),linewidth = 2,color='b')
 #lineBC = ax2.plot(*zip(pB,pC),linewidth = 2,color='b')
@@ -130,7 +130,7 @@ c = np.linalg.norm(pH-pB)
 
 a_roots, _, _,_ =  solve_four_circles_on_sphere(r1,r3,r2,c)
 print a_roots
-a = 3.4367153
+a = 4.10454608
 b = (r1**2)*(a+c)/(a*c-(r1**2))
 d = (r2**2)*(a+c)/(a*c-(r2**2))
 r4 = np.sqrt(d*a*b/(d+a+b))
@@ -167,7 +167,7 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 1.6
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 1.3
 
 
 mid_x = (X.max()+X.min()) * 0.5 - 0.25
