@@ -31,14 +31,14 @@ from annotate_program import third_seg_incircled
 from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 from annotate_program import draw_perpendicular_sign
-from annotate_program import solve_tetra_insphere
+from annotate_program import solve_four_circles_on_sphere
 from annotate_program import return_vertex_under_ceva
 
 #### The plotting of a vector-based graphics using the above points location information.
 fig2 = pyplot.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 #ax2.view_init(elev=10, azim=187)
-#ax2.view_init(azim=82,elev=67)
+ax2.view_init(azim=-67,elev=3)
 #ax2.view_init(azim=23,elev=-18)#very_long_tetra_inscribed_possible_3.png
 ax2.set_color_cycle('b')
 
@@ -91,8 +91,11 @@ r2n = r2/np.linalg.norm(r2)
 cos_alpha = np.dot(r1n,r2n)
 pHtemp1 = pH + (np.linalg.norm(r1)/cos_alpha)*r2n
 pHtemp2 = pH + (np.linalg.norm(r2)/cos_alpha)*r1n
+# if IabdHIabc>90 degree, can't use the following, have to use similar triangle to find O
+# if < 90, fine
 #pO =return_intersection_under_Ceva_Theorem(pHtemp2,pHtemp1,pH,incenterABC,incenterABD)
-pO = return_vertex_under_ceva(pHtemp2,pHtemp1,incenterABD,incenterABC,pH)
+ampOH1 = np.linalg.norm(incenterABC-pHtemp1)*np.linalg.norm(pH-pHtemp1)/np.linalg.norm(incenterABD-pHtemp1)
+pO = pHtemp1 + (incenterABD-pHtemp1)/np.linalg.norm(incenterABD-pHtemp1)*ampOH1
 
 plot_front(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
 plot_back(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
@@ -101,16 +104,18 @@ plot_back(ax2,pO[0],pO[1],pO[2],np.linalg.norm(pO-pH))
 #lineIabdO = ax2.plot(*zip(incenterABD,pO),linewidth = 2,color='b')
 #lineIabcO = ax2.plot(*zip(incenterABC,pO),linewidth = 2,color='b')
 
-ax2.text(*pH, s = r'$H$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pH, s = r'$H$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pO, s = r'$O$', fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pN, s = r'$N$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*pE, s = r'$E$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
-ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
-ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pN, s = r'$N$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*pE, s = r'$E$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+#ax2.text(*incenterABC, s = r'$I_{abc}$', fontsize=12,verticalalignment='bottom', horizontalalignment='left')
+#ax2.text(*incenterABD, s = r'$I_{abd}$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #draw_perpendicular_sign(np.cross(r1,r2), -r2, pHtemp2-incenterABC, incenterABC, ax2, 0.2)
 #draw_perpendicular_sign(np.cross(r1,r2),pHtemp1-incenterABD, -r1, incenterABD, ax2, 0.2)
-#ax2.scatter3D(*zip(pJ,pK,pL,pI,pO,pM,pN,pH,pG,pE,pF))
+
+ax2.scatter3D(*zip(pO))
+
 incircleABD = circle_full(incenterABD-pO, pN-incenterABD, np.linalg.norm(pN-incenterABD), 30) + incenterABD
 ax2.plot(*np.transpose(incircleABD),linewidth=1,linestyle=':')
 incircleABC = circle_full(incenterABC-pO, pH-incenterABC, np.linalg.norm(pH-incenterABC), 30) + incenterABC
@@ -123,9 +128,9 @@ r2 = np.linalg.norm(pH-incenterABC)
 r3 = np.linalg.norm(pN-incenterBCD)
 c = np.linalg.norm(pH-pB)
 
-a_roots = solve_tetra_insphere(r1,r3,r2,c)
+a_roots, _, _,_ =  solve_four_circles_on_sphere(r1,r3,r2,c)
 print a_roots
-a = 5.15
+a = 3.4367153
 b = (r1**2)*(a+c)/(a*c-(r1**2))
 d = (r2**2)*(a+c)/(a*c-(r2**2))
 r4 = np.sqrt(d*a*b/(d+a+b))
@@ -133,9 +138,9 @@ r4 = np.sqrt(d*a*b/(d+a+b))
 pDD = pN + b * (pN-pB)/np.linalg.norm(pN-pB)
 pAA = pH + a * (pH-pB)/np.linalg.norm(pH-pB)
 pCC = pE + d * (pE-pB)/np.linalg.norm(pE-pB)
-#lineAADD = ax2.plot(*zip(pAA,pDD),linewidth = 2,color='b')
-#lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
-#lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
+lineAADD = ax2.plot(*zip(pAA,pDD),linewidth = 2,color='b')
+lineAACC = ax2.plot(*zip(pAA,pCC),linewidth = 2,color='b')
+lineDDCC = ax2.plot(*zip(pDD,pCC),linewidth = 2,color='b')
 lineBCC = ax2.plot(*zip(pB,pCC),linewidth = 2,color='b')
 lineBAA = ax2.plot(*zip(pB,pAA),linewidth = 2,color='b')
 lineBDD = ax2.plot(*zip(pB,pDD),linewidth = 2,color='b')
@@ -153,7 +158,7 @@ ax2.plot(*np.transpose(incircleACD),linewidth=1,linestyle=':')
 #ax2.add_collection3d(tr1)
 
 #draw coordinate
-draw_xyz_coordinate_unit_vectors(ax2)
+#draw_xyz_coordinate_unit_vectors(ax2)
 
 
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
@@ -162,12 +167,12 @@ X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 1.6
 
 
-mid_x = (X.max()+X.min()) * 0.5 
+mid_x = (X.max()+X.min()) * 0.5 - 0.25
 mid_y = (Y.max()+Y.min()) * 0.5 
-mid_z = (Z.max()+Z.min()) * 0.5 
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.5
 ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
 ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
 ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
