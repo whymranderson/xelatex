@@ -172,10 +172,6 @@ Round object freely rolls down the hill.
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -191,20 +187,11 @@ input{../../python/friction_material/case1a.pgf}
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 The only force that makes the object rotate counter-clockwise is friction
  so friction has to go up the hill.
  This friction force is exerted on the wheel by the slope.
 \end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Preview
 
 \begin_layout Standard
 \align center
@@ -216,11 +203,6 @@ status open
 
 \backslash
 input{../../python/friction_material/case1b.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -257,10 +239,6 @@ The rotation of the object slows down as it climbs up the hill.
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -269,11 +247,6 @@ status open
 
 \backslash
 input{../../python/friction_material/friction2.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -298,10 +271,6 @@ External force
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -310,11 +279,6 @@ status open
 
 \backslash
 input{../../python/friction_material/case3a.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -334,10 +298,6 @@ Friction is still the only force that produces an angular acceleration,
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -346,11 +306,6 @@ status open
 
 \backslash
 input{../../python/friction_material/case3b.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -841,14 +796,34 @@ Which way will the yoyo go?
 \end_layout
 
 \begin_layout Standard
-If we have a yoyo on the ground, and we pull on the string that's wrapped
- around (counter-clockwise) the inner thud of the yoyo, emerging from the
- bottom side, like the graph shown below, which way will the yoyo go?
+If we have a yoyo on the ground, and we pull upward on the string wrapped
+ around the inner thud of the yoyo, it is apparent that the yoyo unrolls
+ itself, and it rolls away from the place you pull them.
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_up.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we have a yoyo on the ground, and we pull horizontally on the string
+ that's wrapped counter-clockwise around the inner thud of the yoyo, emerging
+ from the bottom side, like the graph shown below, which way will the yoyo
+ go?
+\end_layout
 
 \begin_layout Standard
 \align center
@@ -860,11 +835,6 @@ status open
 
 \backslash
 input{../../python/friction_material/friction_yoyo_a.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -895,10 +865,6 @@ We can use elimination method to solve this problem.
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -907,11 +873,6 @@ status open
 
 \backslash
 input{../../python/friction_material/friction_yoyo_b.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -999,10 +960,6 @@ Let's say the friction goes to the right,
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -1011,11 +968,6 @@ status open
 
 \backslash
 input{../../python/friction_material/friction_yoyo_c.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1036,10 +988,6 @@ So the friction has to go towards the left.
 
 \begin_layout Standard
 \align center
-\begin_inset Preview
-
-\begin_layout Standard
-\align center
 \begin_inset ERT
 status open
 
@@ -1048,11 +996,6 @@ status open
 
 \backslash
 input{../../python/friction_material/friction_yoyo_d.pgf}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1199,6 +1142,177 @@ The stringent condition is not to be worried.
 In summary, yoyo will always go to the right.
  So it is possible to horizontally retracting a yoyo on the ground.
  The force needed will surprise you.
+\end_layout
+
+\begin_layout Standard
+Now let's go bunker.
+ What if the setup is pretty much the same as the last question, but we
+ change the angle of the string from horizontal to a slant angle that is
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+ degree from the vertical? This is a case between the first and the second
+ problem setups.
+ The two problems have opposite outcomes.
+ What will happen inbetween?
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_slant.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First we setup our graph and force diagram.
+ Let's assume the yoyo go towards left.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_slant_left.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will use the same logic to check consistency, and this time we will simply
+ right the the formula.
+ It should be clear by looking at the equations.
+ We futher check wether friction goes left or right.
+\end_layout
+
+\begin_layout Enumerate
+first case, if friction goes left
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+F_{fr}-F_{p}\cos\theta & =ma>0\\
+F_{p}r-F_{fr}R & =I\frac{a}{R}>0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for both equations to be greater than zero, 
+\begin_inset Formula $r-R\cos\theta>0$
+\end_inset
+
+.
+ So if this condition holds, friction goes left.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+second case, if friction goes right.
+ This will not be possible because there is no net force going to the left.
+\end_layout
+
+\begin_layout Standard
+Similarly, assume if yoyo goes right,
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../../python/friction_material/friction_yoyo_slant_right.pgf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+in the case of a left friction,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+F_{p}\cos\theta-F_{fr} & =ma>0\\
+F_{fr}R-F_{p}r & =I\frac{a}{R}>0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so in this case it requires 
+\begin_inset Formula $r-R\cos\theta<0$
+\end_inset
+
+ for a left friction.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+in the case of a right friction.
+ This is not possible becuase there is no c.w.
+ torque.
+\end_layout
+
+\begin_layout Standard
+So the conclusion is firction always goes left!!! But if 
+\begin_inset Formula $r-R\cos\theta>0$
+\end_inset
+
+, the yoyo itself goes left.
+ If 
+\begin_inset Formula $r-R\cos\theta<0$
+\end_inset
+
+, the yoyo goes right!
+\end_layout
+
+\begin_layout Standard
+So you can do some magic trick now by varying the angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Standard
+Differential gearing will not move? Require friction? Not directly related
+ to our yoyo problem, but it's still surprising.
 \end_layout
 
 \begin_layout Minisec
