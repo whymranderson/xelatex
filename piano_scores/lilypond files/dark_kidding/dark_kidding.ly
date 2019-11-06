@@ -42,7 +42,7 @@ gis,8. fis'16~ fis4~fis8 dis eis fis
 fis4. eis8 eis2
 cis8. gis'16~gis4~gis8 eis fis gis
 gis4. fis8 fis4. eis8
-eis4 dis gis4. eis16 eis~
+eis4 dis fis4. eis16 eis~
 eis16~dis~dis4.~dis16~eis4..
 eis,8. eis'16~eis4~eis8 cisis dis eis
 eis4. dis8 fis2
@@ -62,12 +62,12 @@ r1
 r1
 f4 f8. f,16 f8 f' ees d
 c4 c8 bes c bes c d
-ees4 ees8. g,16 g8 ees' d c16 bes~
-bes16 g'8 f16 d16 c bes d8 c16 a f~f d'8 ees16
+ees4 ees8. g,16 g8 ees' d c16~bes~
+bes16 g'8 f16 d16~c~bes d8 c16~a~f~f d'8 ees16
 g16~f16~d~c~d~ees~g~f~f4. bes,8
 c4 c8 bes c bes c d
-f16~ees~c~bes~c~d~f~ees~ ees4. f16 f16~
-f8 f16 f~f bes8 c16~c16 d4..
+f16~ees~c~bes~c~d f~ees~ ees4. f16 f16~
+f8 f16 f~f bes8 c16~c16~d4..
 \key cis \major eis,,8. eis'16~eis4~eis8 cisis dis eis
 eis4. dis8 fis2
 gis,8. fis'16~ fis4~fis8 dis eis fis
@@ -75,7 +75,7 @@ fis4. eis8 eis2
 cis8. gis'16~gis4~gis8 eis fis gis
 gis4. ais8 fis4. eis8
 eis4 dis fis4. eis16 eis16~ 
-\grace {eis8} dis4..~cis16~eis4~ais4
+\grace {eis8~} dis4..~cis16~eis4~ais4
 eis,8. eis'16~eis4~eis8 cisis dis eis
 eis4. dis8 fis2
 gis,8. fis'16~ fis4~fis8 ais8. gis8 fis16
@@ -83,7 +83,7 @@ fis4.. eis16 eis8~dis16~cis~ais~gis~dis'~cis
 cis8.  cis'16~cis4~cis8 ais bis cis
 bis4.  cis16 bis~bis8~ais16~gis16~gis8 eis8
 eis8. dis16~dis8 ais8 fis'8. eis16~eis8 dis8
-cis2~ cis16 eis16~dis~gis,~dis'~cis8~ais16
+cis2~ cis16~eis16~dis~gis,~dis'~cis8~ais16
 cis8. gis'16~gis4~gis8 eis8 fis8 gis8
 cis,4. dis16 eis16~eis4~eis16 gis,16 cis dis
 eis4. dis16 eis fis8. eis8. dis8\fermata
@@ -92,12 +92,47 @@ cis \bar "|."
 }
  
 text = \lyricmode {
-難 過 是 因 為 悶 了 很 久
-是 因 為 想 了 太 多 
-是 心 理 起 了 作 用
-你 說 是 哭 笑 常 陪 著 你
-在 一 起 有 點 勉 強
+難 過   是 因 為 悶 了 很 久
+是 因 為 想 了 太 多   是 心 理 起 了 作 用
+你 說   苦 笑 常 常 陪 著 你
+在 一 起 有 點 勉 強   該 不 該 現 在 休 了 我
 
+不 想 太 多
+我 想 一 定 是 我 聽 錯 弄 錯 搞 錯
+拜 託   我 想 是 你 的 腦 袋 有 問 題
+隨 便 說 說
+其 實 我 早 己 經 猜 透 看 透 不 想 多 說
+只 是 我 怕 眼 淚 撐 不 住
+
+不 懂   你 的 黑 色 幽 默
+想 通   卻 又 再 考 倒 我
+說 散   你 想 很 久 了 吧
+我 不 想 拆 穿 你
+
+當 作   是 你 開 的 玩 笑
+想 通   卻 又 再 考 倒 我
+說 散   你 想 很 久 了 吧
+敗 給 你 的 黑 色 幽 默
+
+太 多
+我 想 一 定 是 我 聽 錯 弄 錯 搞 錯
+拜 託   我 想 是 你 的 腦 袋 有 問 題
+隨 便 說
+己 經 猜 透 看 透 不 想 多 說
+怕 眼 淚 撐 不 住
+
+不 懂   你 的 黑 色 幽 默
+想 通   卻 又 再 考 倒 我
+說 散   你 想 很 久 了 吧
+我 不 想 拆 穿 你
+
+當 作   是 你 開 的 玩 笑
+想 通   卻 又 再 考 倒 我
+說 散   你 想 很 久 了 吧
+敗 給 你 的 黑 色 幽 默
+
+說 散   你 想 很 久 了 吧
+我 的 認 真 敗 給 黑 色 幽 默
 }
 
 upper = \relative c { \time 4/4 \key bes \major
@@ -125,7 +160,7 @@ upper = \relative c { \time 4/4 \key bes \major
 <fis bis>4 <fis cis'> <fis ais dis> <fis ais cis eis>8 fis8
 <fis ais cis>4 <fis cis'> <gis bis dis gis>4 <gis bis dis gis>4
 <gis cis fis>4 <gis cis fis>4 <gis cis eis>4 <gis bis dis>4
-<eis gis cisis>4 <eis gis cisis>4 <eis gis cisis>4 <eis gis cisis>16 gis eis8
+<eis gis cis>4 <eis gis cis>4 <eis gis cis>4 <eis gis cis>16 gis eis8
 <ais cis gis'>4 <ais cis gis'>4 <ais cis fis>4 <ais cis fis>16 eis'16 dis8
 <fis, b cis fis>4 <fis b cis fis>4 <fis b cis fis>4 <fis b cis fis>16 cis' b fis
 <gis cis dis gis>4 <gis cis dis gis>4 <eis ais bis eis>4 <eis ais dis>4
@@ -172,7 +207,7 @@ bes d ees bes g' bes, ees bes
 <gis cis dis gis>4\arpeggio <gis cis fis> <gis cis eis> dis'16 cis gis8
 <gis cis dis gis>4\arpeggio <gis cis fis> <gis cis eis>8.\arpeggio gis16 dis' cis gis8
 <fis ais cis>4 <fis ais cis> <fis ais cis fis>2\arpeggio\fermata
-<gisis cis gisis'>4 <fisis b fisis'> <e gisis bis e> <e gis b e>
+<gisis cis gis'>4 <fisis b fis'> <e gisis bis e> <e gis b e>
 <gis cis eis gis>1\arpeggio
 }
 
@@ -253,7 +288,7 @@ eis,2 ais4 ais
 cis'8 gis' dis' eis fisis2
 }
 
-showLastLength = R1*35
+%showLastLength = R1*35
 
 \score {
   <<
