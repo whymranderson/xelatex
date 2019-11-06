@@ -1,0 +1,14 @@
+%\documentclass[a4paper]{article}
+\documentclass[convert]{standalone}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+%\usepackage[inner=2in,outer=2in,top=0.5in,bottom=0.5in]{geometry}
+%\usepackage{mwe}
+ 
+\begin{document}
+\begin{tcboxedraster}[raster columns=1, raster equal height=none, raster column skip=3mm, raster row skip=3mm]{}
+\tcbincludegraphics{"./dark_kidding/arrange into poster/tcbincludepdf_darkjoker"}
+\tcbincludegraphics{"./excuse/arrange into poster/tcbincludepdf_excuse"}
+\end{tcboxedraster}
+
+\end{document}
