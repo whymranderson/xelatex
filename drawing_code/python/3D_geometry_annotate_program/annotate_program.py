@@ -2,7 +2,22 @@
 """
 Created on Mon May 08 13:19:33 2017
 
+The initial figure creation commands and fig saving commands are:
+
+from matplotlib import pyplot as plt
+    
+fig3 = plt.figure(3,figsize=(4, 4),dpi=100)
+ax = plt.gca()
+
+line1, = plt.plot([0,1],[0,0],'b')
+
+plt.axis('equal')
+plt.axis('off')
+#fig3.savefig('case1b.pgf')#, facecolor=fig.get_facecolor(), edgecolor='none')
+plt.show()
+
 3D vector drawing functions for basic elements in geometry.
+
 """
 import numpy as np
 from mpl_toolkits.mplot3d import proj3d
