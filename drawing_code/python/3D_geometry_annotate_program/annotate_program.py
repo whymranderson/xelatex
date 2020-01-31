@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon May 08 13:19:33 2017
+3D vector drawing functions for basic elements in geometry. Created on Mon May 08 13:19:33 2017
+
+To import this module:
+import sys 
+sys.path.append('../3D_geometry_annotate_program')
+from annotate_program import return_third_point_on_a_triagle_under_Ceva_Theorem
 
 The initial figure creation commands and fig saving commands are:
-
 from matplotlib import pyplot as plt
-    
 fig3 = plt.figure(3,figsize=(4, 4),dpi=100)
 ax = plt.gca()
-
 line1, = plt.plot([0,1],[0,0],'b')
-
 plt.axis('equal')
 plt.axis('off')
 #fig3.savefig('case1b.pgf')#, facecolor=fig.get_facecolor(), edgecolor='none')
 plt.show()
-
-3D vector drawing functions for basic elements in geometry.
 
 """
 import numpy as np
