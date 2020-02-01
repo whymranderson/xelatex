@@ -1,4 +1,6 @@
-cd C:\Users\user\Desktop\xelatex_Transend\drawing_code\python\py_annotate_code_documentation\_build\latex
+rem cd C:\Users\user\Desktop\xelatex_Transend\drawing_code\python\py_annotate_code_documentation\_build\latex
+
+cd C:\Users\Public\Documents\xelatex_Transend\drawing_code\python\py_annotate_code_documentation\_build\latex
 
 python remove_tikz_envr.py
 
