@@ -7,7 +7,7 @@ import sys
 sys.path.append('../3D_geometry_annotate_program')
 from annotate_program import return_third_point_on_a_triagle_under_Ceva_Theorem
 
-The initial figure creation commands and fig saving commands are:
+The initial 2D figure creation commands and fig saving commands are:
 from matplotlib import pyplot as plt
 fig3 = plt.figure(3,figsize=(4, 4),dpi=100)
 ax = plt.gca()
@@ -16,6 +16,39 @@ plt.axis('equal')
 plt.axis('off')
 #fig3.savefig('case1b.pgf')#, facecolor=fig.get_facecolor(), edgecolor='none')
 plt.show()
+
+For 3D figure creation setup:
+fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
+ax2 = p3.Axes3D(fig2)
+#ax2.view_init(elev=10, azim=187)
+ax2.view_init(elev=20, azim=7)
+ax2.set_color_cycle('b')
+Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
+X = np.array(Xt)
+Y = np.array(Yt)
+Z = np.array(Zt)
+
+max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
+
+
+mid_x = (X.max()+X.min()) * 0.5
+mid_y = (Y.max()+Y.min()) * 0.5
+mid_z = (Z.max()+Z.min()) * 0.5 - 0.4
+ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
+ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
+ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
+
+
+ax2.set_xticks([])
+ax2.set_yticks([])
+ax2.set_zticks([])
+ax2.w_xaxis.line.set_visible(False) #turn off axis visibility
+ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
+ax2.w_zaxis.line.set_color([0,0,0,0])
+ax2.set_axis_off()  #-> this can turn off the background curtain
+#pyplot.savefig('./pgf_files/tetra_midsphere.pgf')
+
+pyplot.show()
 
 """
 import numpy as np
