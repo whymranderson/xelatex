@@ -1,13 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-3D vector drawing functions for basic elements in geometry. Created on Mon May 08 13:19:33 2017
+3D vector drawing functions for basic elements in geometry. Began on Mon May 08 13:19:33 2017
+
+To compile and generate this PDF file (mostly for myself):
+sphinx build - > tex -> tikz fix -> pdfcompile -> pdf 
+(magic here is sphinx will pull the doc string from the py module.)
+You need to install:
+pip install sphinx
+pip install sphinxcontrib-tikz
+run mysphinxbuild.bat
+this will generate tex file.
+Remove tikz envr and compile the tex file with pdflatex
+rm_tikz_and_pdfcompile.bat (right now there is a lot of .sty missing. but can be skipped by entering)
 
 To import this module:
+----------------------
 import sys 
 sys.path.append('../3D_geometry_annotate_program')
 from annotate_program import return_third_point_on_a_triagle_under_Ceva_Theorem
 
 The initial 2D figure creation commands and fig saving commands are:
+--------------------------------------------------------------------
 from matplotlib import pyplot as plt
 fig3 = plt.figure(3,figsize=(4, 4),dpi=100)
 ax = plt.gca()
@@ -18,18 +31,27 @@ plt.axis('off')
 plt.show()
 
 For 3D figure creation setup:
+-----------------------------
+from annotate_program import draw_xyz_coordinate_unit_vectors
+
 fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
 ax2 = p3.Axes3D(fig2)
+## When putting the camera at the azim, camera body turn w.r.t space_z.
+## When putting the camera at the elev, camera body turn w.r.t (camera x space_z).
+## The default angle is not at a trivial angle. Default is at elev=30, azim=-60. See default_mplot3D_viewing_and_azimuthal_and_elevation.py for practicing camera setup. Important. 
 #ax2.view_init(elev=10, azim=187)
-ax2.view_init(elev=20, azim=7)
 ax2.set_color_cycle('b')
+pO = np.array([0,0,0])
+pA = np.array([2,0,0])
+pB = np.array([0,2,0])
+pC = np.array([0,0,2])
+#draw_xyz_coordinate_unit_vectors(ax2)
 Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
 X = np.array(Xt)
 Y = np.array(Yt)
 Z = np.array(Zt)
 
 max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
-
 
 mid_x = (X.max()+X.min()) * 0.5
 mid_y = (Y.max()+Y.min()) * 0.5
