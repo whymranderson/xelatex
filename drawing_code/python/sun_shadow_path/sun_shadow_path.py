@@ -24,8 +24,8 @@ class Arrow3D(FancyArrowPatch):
 
 
 omega_CM = 2*np.pi/365/24/60/60
-omega_fast = 2*np.pi/24/60/60
-longitude = 22.98333/np.pi
+omega_fast = 2*(np.pi+np.pi/365)/24/60/60
+longitude = 22.98333/180*np.pi
 latitude = 120.183333
 sun_distance= 1.4773e11
 earth_radius=6.37e6
@@ -97,17 +97,21 @@ for z in range(10):
 for q in range(10):
     print pen_shadow_vecs[q]
 
-fig2 = plt.figure(2,figsize=(6, 6),dpi=100)
+fig2 = plt.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
-#ax2.view_init(elev=10, azim=187)
-#ax2.view_init(elev=20, azim=7)
+ax2.view_init(elev=180, azim=-90)
+#ax2.view_init(elev=0, azim=-0)
+#ax2.view_init(elev=90, azim=-90)
+#ax2.view_init(elev=0, azim=-90)
 ax2.set_color_cycle('b')
 
 
 ## Plot tainan local axes at a certain datetime
-
-dt = 0.1
-sun_vec = np.dot(CK(omega_CM*dt*np.array([0,0,1])),np.array([1,0,0]))
+import datetime
+MonDayMinSec = datetime.datetime(2020,3,12,12,1)
+dt = (MonDayMinSec - datetime.datetime(2020,1,1,0,0)).total_seconds()
+print '*****',30*24*60*60 +1 # small one sec to avoid matrix zero
+sun_vec = np.dot(CK(omega_CM*dt*np.array([0,1,0])),np.array([1,0,0]))
 plot_earth_center= sun_distance*sun_vec
 plot_front(ax2,plot_earth_center[0],plot_earth_center[1],plot_earth_center[2],earth_radius)
 plot_back(ax2, plot_earth_center[0],plot_earth_center[1],plot_earth_center[2],earth_radius)
@@ -138,6 +142,16 @@ earth_z_arrow = Arrow3D([taiwan_position[0],taiwan_position[0]+6e6*taiwan_curren
 ax2.add_artist(earth_z_arrow)
 #ax2.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
+earth_ax_arrow = Arrow3D([plot_earth_center[0],plot_earth_center[0]+8e6*earth_ax[0]],
+                         [plot_earth_center[1],plot_earth_center[1]+8e6*earth_ax[1]],
+                         [plot_earth_center[2],plot_earth_center[2]+8e6*earth_ax[2]], 
+                    mutation_scale=8,
+                  #lw=4,
+                  arrowstyle="-|>", color="k")
+ax2.add_artist(earth_ax_arrow)
+#ax2.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
+
+print sun_vec
 sun_vec_overhead = Arrow3D([taiwan_position[0]+6e6*taiwan_current_z[0],taiwan_position[0]+6e6*taiwan_current_z[0] +9e6*sun_vec[0]],
                            [taiwan_position[1]+6e6*taiwan_current_z[1],taiwan_position[1]+6e6*taiwan_current_z[1] +9e6*sun_vec[1]],
                            [taiwan_position[2]+6e6*taiwan_current_z[2],taiwan_position[2]+6e6*taiwan_current_z[2] +9e6*sun_vec[2]], 
