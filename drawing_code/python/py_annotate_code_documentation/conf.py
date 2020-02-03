@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Common geometry drawing functions in 3D'
-copyright = '2017, GS Simulation'
-author = 'GS Simulation'
+copyright = 'Compile and import command on the 1st page.'
+author = 'Compile and import command on the 1st page.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -129,8 +129,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Commongeometrydrawingfunctionsin3D.tex', 'Common geometry drawing functions in 3D Documentation',
-     'GS Simulation', 'manual'),
+    (master_doc, 'Commongeometrydrawingfunctionsin3D.tex', '3D Graphing and Annotation Package Documentation',
+     'Compile and import command on the 1st page.', 'manual'),
 ]
 latex_logo = 'alphaphi.png'
 
