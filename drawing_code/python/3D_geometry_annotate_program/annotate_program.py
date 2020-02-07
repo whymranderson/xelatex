@@ -2,75 +2,91 @@
 """
 3D vector drawing functions for basic elements in geometry. Began on Mon May 08 13:19:33 2017
 
-To compile and generate this PDF file (mostly for myself):
-sphinx build - > tex -> tikz fix -> pdfcompile -> pdf 
-(magic here is sphinx will pull the doc string from the py module.)
-You need to install:
-pip install sphinx
-pip install sphinxcontrib-tikz
-run mysphinxbuild.bat
-this will generate tex file.
-Remove tikz envr and compile the tex file with pdflatex
-rm_tikz_and_pdfcompile.bat (right now there is a lot of .sty missing. but can be skipped by entering)
+For those who need to compile and generate the pdf file from this package, (developers and comtributors), the
+flow of compilation to generate the pdf file::
+
+  sphinx build - > tex -> tikz fix -> pdfcompile -> pdf 
+
+(magic here is sphinx will pull the doc string from the python module.)
+You need to install::
+
+  pip install sphinx
+  pip install sphinxcontrib-tikz
+
+To compile and generate this PDF file::
+
+  run mysphinxbuild.bat
+
+This will generate tex file. Then fix tikz envr and compile the tex file with pdflatex to get pdf::
+
+  rm_tikz_and_pdfcompile.bat 
+  
+(right now there is a lot of .sty missing. but can be skipped by entering)
 
 To import this module:
 ----------------------
-import sys 
-sys.path.append('../3D_geometry_annotate_program')
-from annotate_program import return_third_point_on_a_triagle_under_Ceva_Theorem
+
+.. code:: python
+
+  import sys 
+  sys.path.append('../3D_geometry_annotate_program')
+  from annotate_program import return_third_point_on_a_triagle_under_Ceva_Theorem
 
 The initial 2D figure creation commands and fig saving commands are:
 --------------------------------------------------------------------
-from matplotlib import pyplot as plt
-fig3 = plt.figure(3,figsize=(4, 4),dpi=100)
-ax = plt.gca()
-line1, = plt.plot([0,1],[0,0],'b')
-plt.axis('equal')
-plt.axis('off')
-#fig3.savefig('case1b.pgf')#, facecolor=fig.get_facecolor(), edgecolor='none')
-plt.show()
 
-For 3D figure creation setup:
------------------------------
-from annotate_program import draw_xyz_coordinate_unit_vectors
+.. code:: python
 
-fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
-ax2 = p3.Axes3D(fig2)
-## When putting the camera at the azim, camera body turn w.r.t space_z.
-## When putting the camera at the elev, camera body turn w.r.t (camera x space_z).
-## The default angle is not at a trivial angle. Default is at elev=30, azim=-60. See default_mplot3D_viewing_and_azimuthal_and_elevation.py for practicing camera setup. Important. 
-#ax2.view_init(elev=10, azim=187)
-ax2.set_color_cycle('b')
-pO = np.array([0,0,0])
-pA = np.array([2,0,0])
-pB = np.array([0,2,0])
-pC = np.array([0,0,2])
-#draw_xyz_coordinate_unit_vectors(ax2)
-Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
-X = np.array(Xt)
-Y = np.array(Yt)
-Z = np.array(Zt)
+  from matplotlib import pyplot as plt
+  fig3 = plt.figure(3,figsize=(4, 4),dpi=100)
+  ax = plt.gca()
+  line1, = plt.plot([0,1],[0,0],'b')
+  plt.axis('equal')
+  plt.axis('off')
+  #fig3.savefig('case1b.pgf')#, facecolor=fig.get_facecolor(), edgecolor='none')
+  plt.show()
 
-max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
+For initial 3D figure creation setup:
+-------------------------------------
 
-mid_x = (X.max()+X.min()) * 0.5
-mid_y = (Y.max()+Y.min()) * 0.5
-mid_z = (Z.max()+Z.min()) * 0.5 - 0.4
-ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
-ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
-ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
+.. code:: python
 
+  from annotate_program import draw_xyz_coordinate_unit_vectors
+  fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
+  ax2 = p3.Axes3D(fig2)
+  ## When putting the camera at the azim, camera body turn w.r.t space_z.
+  ## When putting the camera at the elev, camera body turn w.r.t (camera x space_z).
+  ## The default angle is not at a trivial angle. Default is at elev=30, azim=-60. See default_mplot3D_viewing_and_azimuthal_and_elevation.py for practicing camera setup. Important. 
+  #ax2.view_init(elev=10, azim=187)
+  ax2.set_color_cycle('b')
+  pO = np.array([0,0,0])
+  pA = np.array([2,0,0])
+  pB = np.array([0,2,0])
+  pC = np.array([0,0,2])
+  #draw_xyz_coordinate_unit_vectors(ax2)
+  Xt,Yt,Zt = zip(pO,pA,pB,pC,pD)
+  X = np.array(Xt)
+  Y = np.array(Yt)
+  Z = np.array(Zt)
+  max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max() / 2.6
+  mid_x = (X.max()+X.min()) * 0.5
+  mid_y = (Y.max()+Y.min()) * 0.5
+  mid_z = (Z.max()+Z.min()) * 0.5 - 0.4
+  ax2.set_xlim3d(mid_x - max_range, mid_x + max_range)
+  ax2.set_ylim3d(mid_y - max_range, mid_y + max_range)
+  ax2.set_zlim3d(mid_z - max_range, mid_z + max_range)
+  ax2.set_xticks([])
+  ax2.set_yticks([])
+  ax2.set_zticks([])
+  ax2.w_xaxis.line.set_visible(False) #turn off axis visibility
+  ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
+  ax2.w_zaxis.line.set_color([0,0,0,0])
+  ax2.set_axis_off()  #-> this can turn off the background curtain
+  #pyplot.savefig('./pgf_files/tetra_midsphere.pgf')
+  pyplot.show()
 
-ax2.set_xticks([])
-ax2.set_yticks([])
-ax2.set_zticks([])
-ax2.w_xaxis.line.set_visible(False) #turn off axis visibility
-ax2.w_yaxis.line.set_color([0,0,0,0]) # change the color of axis
-ax2.w_zaxis.line.set_color([0,0,0,0])
-ax2.set_axis_off()  #-> this can turn off the background curtain
-#pyplot.savefig('./pgf_files/tetra_midsphere.pgf')
-
-pyplot.show()
+All Functions
+-------------
 
 """
 import numpy as np
@@ -111,9 +127,9 @@ def offset_curve(curve, length):
         
 
 
-def draw_xyz_coordinate_unit_vectors(ax4):
+def draw_xyz_coordinate_unit_vectors(ax4,axis_length = 1):
     '''Put xyz coordinate unit vectors with fancy arrows. See figure in circle_arc.'''
-    xyz_arrow_data = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
+    xyz_arrow_data = np.array([[axis_length,0,0],[0,axis_length,0],[0,0,axis_length]])
 
     x_arrow = Arrow3D([0,xyz_arrow_data[0,0]],
                        [0,0],
@@ -225,6 +241,7 @@ def project_a_point_to_a_plane(out_point, plane_vec1, plane_vec2,anypointonplane
        :align: center
 
     '''
+    print 'in project func vec1 X vec2 should point toward outpoint.'
     plane_normal = np.cross(plane_vec1,plane_vec2)
     plane_normal = plane_normal/np.linalg.norm(plane_normal)
     projected = np.dot(-out_point+anypointonplane,-plane_normal)*(-plane_normal) + out_point#
@@ -650,5 +667,38 @@ class Arrow3D(FancyArrowPatch):
         xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
         self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
         FancyArrowPatch.draw(self, renderer)
+
+
+class a_test_fig_plotting_class:
+
+    def draw_xyz_coordinate_unit_vectors(ax4):
+        '''Put xyz coordinate unit vectors with fancy arrows. See figure in circle_arc.'''
+        xyz_arrow_data = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
+    
+        x_arrow = Arrow3D([0,xyz_arrow_data[0,0]],
+                           [0,0],
+                           [0,0], 
+                            mutation_scale=8,
+                          #lw=4,
+                          arrowstyle="-|>", color="b")
+        ax4.add_artist(x_arrow)
+        ax4.text(*xyz_arrow_data[0,:],s="x",fontsize=12)
+    
+        y_arrow = Arrow3D([0,0],
+                           [0,xyz_arrow_data[1,1]],
+                           [0,0], 
+                            mutation_scale=8,
+                          #lw=4,
+                          arrowstyle="-|>", color="b")
+        ax4.add_artist(y_arrow)
+        ax4.text(*xyz_arrow_data[1,:],s="y",fontsize=12)
+        z_arrow = Arrow3D([0,0],
+                           [0,0],
+                           [0,xyz_arrow_data[2,2]], 
+                            mutation_scale=8,
+                          #lw=4,
+                          arrowstyle="-|>", color="b")
+        ax4.add_artist(z_arrow)
+        ax4.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
 
