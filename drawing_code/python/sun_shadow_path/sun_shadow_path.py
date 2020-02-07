@@ -31,21 +31,23 @@ sun_distance= 1.4773e11
 earth_radius=6.37e6
 current_time = 12*60*60 +1*60
 date = 21*24*60*60+current_time
-Jan_15_8to5 = 14*24*60*60 + np.array([8,9,10,11,12,13,14,15,16,17])*60*60
+hour8to5 = np.array([8,9,10,11,12,13,14,15,16,17])
+Jan_15_8to5 = 14*24*60*60 + hour8to5*60*60
 earth_ax =np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0])) 
+taiwan_x = np.array([0,0,-1])
+taiwan_y = np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0]))
+taiwan_z = np.dot(CK(longitude*np.array([0,0,1])),np.array([1,0,0]))
 
 def shadow_position(timeinsec):
 
-    sun_vec = np.dot(CK(omega_CM*timeinsec*np.array([0,0,1])),np.array([1,0,0]))
+    sun_vec = np.dot(CK(omega_CM*timeinsec*np.array([0,1,0])),np.array([1,0,0]))
     #print np.linalg.norm(sun_vec)
-    angle = np.arccos(np.dot(sun_vec,np.array([1,0,0])))
     taiwan = np.dot(CK(longitude*np.array([0,0,1])),np.array([1,0,0]))
     #print np.linalg.norm(taiwan)
-    earth_ax =np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0])) 
     taiwan_current_vec = np.dot(CK((omega_fast*timeinsec)*earth_ax),taiwan)
-    print np.linalg.norm(taiwan_current_vec)
+    #print np.linalg.norm(taiwan_current_vec)
     theory_angle = np.degrees(np.arccos(np.dot(sun_vec,taiwan_current_vec)))
-    print 180-theory_angle
+    #print 180-theory_angle
     #exp = np.degrees(np.arctan(19/14.4))
     #print exp
     return theory_angle
@@ -53,39 +55,50 @@ def shadow_position(timeinsec):
 
 Jan_15_angs_degree = []
 Jan_15_angs = []
-for x in Jan_15_8to5:
-    x_ang = shadow_position(x)
+pen_length = 0.15
+print "Elevation of the Sun"
+print "hour    Angles              shadow length"
+print "----    ----------------    -------------"
+for x in hour8to5:
+    sec8to5 = 14*24*60*60 + x*60*60
+    x_ang = shadow_position(sec8to5)
     Jan_15_angs_degree.append(180 - x_ang) 
     Jan_15_angs.append((180 - x_ang)*np.pi/180) 
+    
+    print '%-8s %-20.8s %.8s' % (x, 90 -(180 - x_ang), pen_length*np.tan(Jan_15_angs[-1]))
+print "----    ----------------    -------------"
 
-print Jan_15_angs_degree
-pen_length = 0.15
-print pen_length*np.tan(Jan_15_angs)
+
 
 def sun_projection(timeinsec):
     # coordinate setup need a figure, sun at (0,0,0), x-axis at new year eve!, y is along big rotation
-    taiwan_x = np.array([0,0,-1])
-    taiwan_y = np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0]))
-    taiwan_z = np.dot(CK(longitude*np.array([0,0,1])),np.array([1,0,0]))
-
     taiwan_current_x = np.dot(CK((omega_fast*timeinsec)*earth_ax),taiwan_x)
     taiwan_current_y = np.dot(CK((omega_fast*timeinsec)*earth_ax),taiwan_y)
     taiwan_current_z = np.dot(CK((omega_fast*timeinsec)*earth_ax),taiwan_z)
-    sun_vec = np.dot(CK(omega_CM*timeinsec*np.array([0,0,1])),np.array([1,0,0]))
+    sun_vec = np.dot(CK(omega_CM*timeinsec*np.array([0,1,0])),np.array([1,0,0]))
     taiwan_position = sun_distance*sun_vec + earth_radius*taiwan_current_z
-    print np.linalg.norm(taiwan_current_y)
+    z_shadow_vec = 1/np.dot(taiwan_current_z,sun_vec/np.linalg.norm(sun_vec))*sun_vec/np.linalg.norm(sun_vec)
+    #print np.linalg.norm(taiwan_current_y)
     sun_proj = project_a_point_to_a_plane(np.array([0,0,0]),
                                           taiwan_current_x,
                                           taiwan_current_y,
                                           taiwan_position)
-    print sun_proj
+    #print sun_proj
     return np.dot(sun_proj/np.linalg.norm(sun_proj),taiwan_current_y)
 
+print '///////////////'
+print "Azimuthal from south"
+print "hour    Azim from south    shadow length"
+print "----    ----------------    -------------"
 Jan_15_shadows_cos = []
-for y in Jan_15_8to5:
-    Jan_15_shadows_cos.append(sun_projection(y))
+for y in hour8to5:
+    sec8to5 = 14*24*60*60 + y*60*60
+    angle_from_south = np.degrees(np.arccos(sun_projection(sec8to5)))
+    Jan_15_shadows_cos.append(angle_from_south )
+    print '%-8s %-20.8s %.8s' % (y, angle_from_south, '**')
+print "----    ----------------    -------------"
 
-print Jan_15_shadows_cos
+#print Jan_15_shadows_cos
 #def shadow_angle(timeinsec):
     
 pen_shadow_vecs =[]
@@ -108,7 +121,7 @@ ax2.set_color_cycle('b')
 
 ## Plot tainan local axes at a certain datetime
 import datetime
-MonDayMinSec = datetime.datetime(2020,3,12,12,1)
+MonDayMinSec = datetime.datetime(2020,3,12,9,1)
 dt = (MonDayMinSec - datetime.datetime(2020,1,1,0,0)).total_seconds()
 print '*****',30*24*60*60 +1 # small one sec to avoid matrix zero
 sun_vec = np.dot(CK(omega_CM*dt*np.array([0,1,0])),np.array([1,0,0]))
@@ -117,9 +130,7 @@ plot_front(ax2,plot_earth_center[0],plot_earth_center[1],plot_earth_center[2],ea
 plot_back(ax2, plot_earth_center[0],plot_earth_center[1],plot_earth_center[2],earth_radius)
 #draw_xyz_coordinate_unit_vectors(ax2)
 
-taiwan_x = np.array([0,0,-1])
-taiwan_y = np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0]))
-taiwan_z = np.dot(CK(longitude*np.array([0,0,1])),np.array([1,0,0]))
+
 taiwan_current_x = np.dot(CK((omega_fast*dt)*earth_ax),taiwan_x)
 taiwan_current_y = np.dot(CK((omega_fast*dt)*earth_ax),taiwan_y)
 taiwan_current_z = np.dot(CK((omega_fast*dt)*earth_ax),taiwan_z)
@@ -151,17 +162,28 @@ earth_ax_arrow = Arrow3D([plot_earth_center[0],plot_earth_center[0]+8e6*earth_ax
 ax2.add_artist(earth_ax_arrow)
 #ax2.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
-print sun_vec
-sun_vec_overhead = Arrow3D([taiwan_position[0]+6e6*taiwan_current_z[0],taiwan_position[0]+6e6*taiwan_current_z[0] +9e6*sun_vec[0]],
-                           [taiwan_position[1]+6e6*taiwan_current_z[1],taiwan_position[1]+6e6*taiwan_current_z[1] +9e6*sun_vec[1]],
-                           [taiwan_position[2]+6e6*taiwan_current_z[2],taiwan_position[2]+6e6*taiwan_current_z[2] +9e6*sun_vec[2]], 
+
+
+sun2ground_vec= -1/np.dot(taiwan_current_z,sun_vec)*sun_vec
+sun2ground_vec_arrow = Arrow3D([taiwan_position[0]+6e6*taiwan_current_z[0],taiwan_position[0]+6e6*taiwan_current_z[0] +6e6*sun2ground_vec[0]],
+                               [taiwan_position[1]+6e6*taiwan_current_z[1],taiwan_position[1]+6e6*taiwan_current_z[1] +6e6*sun2ground_vec[1]],
+                               [taiwan_position[2]+6e6*taiwan_current_z[2],taiwan_position[2]+6e6*taiwan_current_z[2] +6e6*sun2ground_vec[2]], 
                     mutation_scale=8,
                   #lw=4,
                   arrowstyle="-|>", color="r")
-ax2.add_artist(sun_vec_overhead)
+ax2.add_artist(sun2ground_vec_arrow)
 #ax2.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
+ground_vec = taiwan_current_z + sun2ground_vec
 
+ground_vec_arrow = Arrow3D([taiwan_position[0],taiwan_position[0] +6e6*ground_vec[0]],
+                           [taiwan_position[1],taiwan_position[1] +6e6*ground_vec[1]],
+                           [taiwan_position[2],taiwan_position[2] +6e6*ground_vec[2]], 
+                    mutation_scale=8,
+                  #lw=4,
+                  arrowstyle="-|>", color="k")
+ax2.add_artist(ground_vec_arrow)
+#ax2.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
 Xt,Yt,Zt = zip(plot_earth_center+2*earth_radius*np.array([1,0,0]),
                plot_earth_center+2*earth_radius*np.array([0,1,0]),
