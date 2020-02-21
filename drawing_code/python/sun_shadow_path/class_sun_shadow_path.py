@@ -136,9 +136,9 @@ print esr2
 
 fig2 = plt.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
-#ax2.view_init(elev=180, azim=-90)
+ax2.view_init(elev=180, azim=-90)
 #ax2.view_init(elev=0, azim=-0)
-ax2.view_init(elev=120, azim=-90)
+#ax2.view_init(elev=120, azim=-90)
 #ax2.view_init(elev=0, azim=-90)
 ax2.set_color_cycle('b')
 
