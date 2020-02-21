@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\begin{document}
+
+\begin{tikzpicture}
+\draw (0,-1) -- (22 in,-1);
+
+\foreach \x/\xtext in { 0  /1600, 
+			1in/1636, 
+			2in/1672, 
+			3in/1708}
+	\draw[ultra thick] (\x , -1cm-3pt) -- (\x, -1cm + 3pt) node[anchor=south] {$\xtext$};
+
+\node at (0,1cm) [rectangle,draw] {The history of the son of dragon};
+
+\end{tikzpicture}
+
+\end{document}
