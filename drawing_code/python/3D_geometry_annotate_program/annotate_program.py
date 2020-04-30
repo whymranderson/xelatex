@@ -57,6 +57,8 @@ For initial 3D figure creation setup:
   ## When putting the camera at the azim, camera body turn w.r.t space_z.
   ## When putting the camera at the elev, camera body turn w.r.t (camera x space_z).
   ## The default angle is not at a trivial angle. Default is at elev=30, azim=-60. See default_mplot3D_viewing_and_azimuthal_and_elevation.py for practicing camera setup. Important. 
+  ## azim zero and elev zero is along x, looking toward origin, upward going along z.
+  ## azim positive is right hand rule along positive z.
   #ax2.view_init(elev=10, azim=187)
   ax2.set_color_cycle('b')
   pO = np.array([0,0,0])
