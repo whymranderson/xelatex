@@ -27,9 +27,9 @@ cis'8 cis16 cis~cis8 cis8 cis8 d16 cis~cis8 b8
 b cis16 cis~cis8 cis8 cis8 d16 cis~cis8 b8
 a4.~a16 fis16 cis'8 cis cis fis,~
 fis a8~a2 b8 cis
-d16 cis d cis d8 cis16 d~d8 cis16 d~d8 cis16 d
+d16 cis d cis d8 cis16 d~d16 cis16 d8~d8 cis16 d
 e4 cis8 d16 cis~cis2 
-d16 cis d cis d8 cis16 d~d8 cis16 d~d8 d8
+d16 cis d cis d8 cis16 d~d16 cis16 d8~d8 d8
 a'4 f e d
 cis16 d e4 cis16 d e4 cis8 e
 fis4. gis8 e16~d~cis4.
@@ -91,11 +91,11 @@ cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
-<b, d fis>1
-<cis e gis>
-<d fis a>
-<d f a>
-<a cis e>
+<b, d fis>4 <b d fis>4 <b d fis>4 <b d fis>
+<cis e gis>4 <cis e gis>4 <cis e gis>4 <cis e gis>
+<d fis a>4 <d fis a>4 <d fis a>4 <d fis a>
+<d f a>4 <d f a>4 <d f a>4 <d f a>4 
+<a cis e>4 <a cis e>4 <a cis e>4 <a cis e>4 
 \chordmode { cis1:dim
 fis,1
 b,:m
