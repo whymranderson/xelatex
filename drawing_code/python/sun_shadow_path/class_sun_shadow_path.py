@@ -40,14 +40,14 @@ class earth_sun_relation:
     earth_ax =np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0])) 
     taiwan_x = np.array([0,0,-1])
     taiwan_y = np.dot(CK(longitude*np.array([0,0,1])),np.array([0,1,0]))
-    taiwan_z = np.dot(CK(longitude*np.array([0,0,1])),np.array([1,0,0]))
+    taiwan_z = np.dot(CK(longitude*np.array([0,0,-1])),np.array([-1,0,0]))
 
     def __init__(self, datepara=datetime.datetime(2020,3,12,9,1)):
         self.datepara = datepara 
-        self.dt = ( self.datepara - datetime.datetime(2020,1,1,0,0)).total_seconds()
+        self.dt = ( self.datepara - datetime.datetime(2020,1,1,0,1)).total_seconds()
 
     def get_current_relation(self):
-        self.sun_vec = np.dot(CK(self.omega_CM*self.dt*np.array([0,1,0])),np.array([1,0,0]))
+        self.sun_vec = np.dot(CK(self.omega_CM*self.dt*np.array([0,1,0])),np.array([-1,0,0]))
         self.taiwan_current_x = np.dot(CK((self.omega_fast*self.dt)*self.earth_ax),self.taiwan_x)
         self.taiwan_current_y = np.dot(CK((self.omega_fast*self.dt)*self.earth_ax),self.taiwan_y)
         self.taiwan_current_z = np.dot(CK((self.omega_fast*self.dt)*self.earth_ax),self.taiwan_z)
@@ -120,15 +120,18 @@ class earth_sun_relation:
         #ax2.text(*xyz_arrow_data[2,:],s="z",fontsize=12)
 
 
-date1 = datetime.datetime(2020,1,13,11,00)
-date2 = datetime.datetime(2020,9,16,11,00)
-date3 = datetime.datetime(2020,4,16,11,00)
+date1 = datetime.datetime(2020,1,1,00,02)
+date2 = datetime.datetime(2020,4,1,12,01)
+date3 = datetime.datetime(2020,7,1,12,01)
+date4 = datetime.datetime(2020,10,1,12,01)
 esr1 = earth_sun_relation(date1)
 esr1.get_current_relation()
 esr2 = earth_sun_relation(date2)
 esr2.get_current_relation()
 esr3 = earth_sun_relation(date3)
 esr3.get_current_relation()
+esr4 = earth_sun_relation(date4)
+esr4.get_current_relation()
 
 print esr1
 print esr2
@@ -137,6 +140,7 @@ print esr2
 fig2 = plt.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 ax2.view_init(elev=180, azim=-90)
+#ax2.view_init(elev=90, azim=-90)
 #ax2.view_init(elev=0, azim=-0)
 #ax2.view_init(elev=120, azim=-90)
 #ax2.view_init(elev=0, azim=-90)
@@ -145,6 +149,7 @@ ax2.set_color_cycle('b')
 esr1.plotting(ax2)
 esr2.plotting(ax2)
 esr3.plotting(ax2)
+esr4.plotting(ax2)
 draw_xyz_coordinate_unit_vectors(ax2,8e6)
 
 Xt,Yt,Zt = zip(+5*esr1.earth_radius*np.array([1,0,0]),
