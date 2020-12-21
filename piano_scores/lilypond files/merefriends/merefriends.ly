@@ -96,13 +96,13 @@ cis8 e fis4 cis8 e fis4
 <d fis a>4 <d fis a>4 <d fis a>4 <d fis a>
 <d f a>4 <d f a>4 <d f a>4 <d f a>4 
 <a cis e>4 <a cis e>4 <a cis e>4 <a cis e>4 
-\chordmode { cis1:dim
-fis,1
-b,:m
-d:m
-a,
-b,:m/fis
-e }
+<cis e gis>4 <cis e gis>4 <cis e gis>4 <cis e gis>4 %\chordmode { c1
+<bes cis e>4 <bes cis e>4 <bes cis e>4 <bes cis e>4 %fis4 fis4 fis4 fis4
+<b d fis>4 <b d fis>4 <b d fis>4 <b d fis>4 %b,1:m
+<d fis a>4 <d fis a>4 <d fis a>4 <d fis a>4 %d:m
+<a cis e>4 <a cis e>4 <fis a cis>4 <fis a cis>4 %a,
+<fis b d>4 <fis b d>4 <fis b d>4 <fis b d>4 %b,:m/fis
+<b e gis>4 <b e gis>4 <b e gis>4 <b e gis>4 %e }
 cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
