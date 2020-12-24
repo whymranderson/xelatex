@@ -111,19 +111,19 @@ cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
 cis8 e fis4 cis8 e fis4
-\chordmode {a,1
-cis1:dim
-fis,1
-b,:m
-d:m
-a,
-b,:m/fis
-e } 
+<a cis e>4 <a cis e>4 <a cis e>4 <a cis e>4 
+<cis e gis>4 <cis e gis>4 <cis e gis>4 <cis e gis>4 %\chordmode { c1
+<bes cis e>4 <bes cis e>4 <bes cis e>4 <bes cis e>4 %fis4 fis4 fis4 fis4
+<b d fis>4 <b d fis>4 <b d fis>4 <b d fis>4 %b,1:m
+<d fis a>4 <d fis a>4 <d fis a>4 <d fis a>4 %d:m
+<a cis e>4 <a cis e>4 <fis a cis>4 <fis a cis>4 %a,
+<fis b d>4 <fis b d>4 <fis b d>4 <fis b d>4 %b,:m/fis
+<b e gis>4 <b e gis>4 <b e gis>4 <b e gis>4 %e }
 
 << { \voiceOne 
 cis'4. b16 a b2
-a4. g16 fis g2
-fis2 g
+a4. gis16 fis gis2
+fis2 gis
 a1
 }
 \new Voice { \voiceTwo 
@@ -176,9 +176,9 @@ d d~d d d d~d d
 a a a e fis fis~fis fis
 b b~b b~b b fis b 
 e4 b e,2
-cis'2 b
-a gis
-fis gis
+a2 e
+fis cis
+d e
 a1
 }
 violin = \relative c{
