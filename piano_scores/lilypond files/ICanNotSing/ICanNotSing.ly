@@ -185,9 +185,9 @@ r2
 <f a d>8 f <a d> f <g b e> g <g b e> g 
 <f a c>8 f <f a c>8 f <g b d>2
 
-r8 c' d e 
-g16 f8. c8 e,16 f16 g16 f8. c8 e,16 f16 
-g f8. c4
+r8 c'8 d e
+g16 f8 c8 r16 e,16 f16 g16 f8 c8 r16 e,16 f16 
+g16 f8 c8 r16 r8
 e,2~
 e1 
 
