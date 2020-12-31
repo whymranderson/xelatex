@@ -140,9 +140,9 @@ upper = \relative c' {
 <e a c>4 <e a c>4 <e a c>4 <e g b>4 
 <c e g>4 <c e g>4 <c fis a>4 <c fis a>4
 <e g b>4 <e g b>4 <d fis a>4 <e gis b>4
-<e a c>  <e g b>  <g, d' g>  <g d' fis>
+<e a c>  <e g b>  <a, d g>  <a d fis>
 <b d g> <b d g> <b d g> <b d g>
-<e g c> <e g c> <d fis d'>2
+<e g c>4 <e g c>8 <d fis d'>8~<d fis d'>2
 <g b d>4 <g b d>4 <a b dis>4 <a b dis>4
 <g b e>4 <g b e>4 <b d fis>4 <b d fis>4
 <g c e>4 <g c e>4 <fis b d>4 <fis b d>4
@@ -221,7 +221,7 @@ a2 <d, d'>4 <dis dis'>
 e'2 ees2
 d2 des2
 a1
-g'2 g2
+d2 d2
 g2 fis2
 e2 d2
 c2 b2
