@@ -32,7 +32,7 @@ e4 cis8 d16 cis~cis2
 d16 cis d cis d8 cis16 d~d16 cis16 d8~d8 d8
 a'4 f e d
 cis16 d e4 cis16 d e4 cis8 e
-fis4. gis8 e16~d~cis4.
+\acciaccatura e8 fis4. gis8 e16~d~cis4.
 r4 e8 cis g'8. fis8. cis8 e4. fis8 d4. a8
 e' d4 a8 e' d4 d8 
 d cis cis e d4 cis8. cis16

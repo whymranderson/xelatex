@@ -153,15 +153,15 @@ r2
 <e g b> <e b'> <a c>8 e8 <a c e>4
 <a, c f>4. <a c f>8 ~<a c f>2
 <g' c d>4 <g c d>4 <g b d> r
-<g c d g>4 <g c g'>4 <g c g'>4 <g c g'>4
+<< { <g c d g>4 <g c g'>4 <g c g'>4 <g c g'>4 } \new Staff { r8 c e c g16 a16 b8~b4 }>>
 <g d' g> <g d' g> <g d' g> <g d' g> 
 <a c f> <a c f> <a c f> <a c f> 
 <g c f> <g c f> <g c e> <g c> 
 <f c'> <f c'> <f a c> <f a c> 
-<e g c> <e g c> <c a' c>8 e8 <a c e>4
-<a, c f>4. <a c f>8 ~<a c f>2
-<c d g>4 <c d g>4 <b d g> <b d g>4
-<c e>8 g <c e>8 g <c e>8 g <c e>8 g
+<< { <e g c> <e g c> <c a' c>8 e8 <a c e>4 } \new Staff { r2 c8 b8 e4} >>
+<a,, c f>4. <a c f>8 ~<a c f>2
+<< { <c d g>4 <c d g>4 <b d g> <b d g>4 } \new Staff { e8 f e' f b,8 c16 d16~d8 e8 } >>
+<c, e>8 g <c e>8 g <c e>8 g <c e>8 g
 <d' g> g, <d' g> g, <d' g> g, <gis' b>4
 <a c>8 e <a c>8 e <a c>8 e <a c>8 e
 <g b>8 e <g b>8 e <g b>8 e <g b>8 e 
