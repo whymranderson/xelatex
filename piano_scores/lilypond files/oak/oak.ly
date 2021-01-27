@@ -206,7 +206,7 @@ c d g8 c16  d g8 ~g2
 <ees ges> bes <ees ges> bes <ees ges> bes <ees ges> bes
 <ees aes> c <ees aes> c <ees ges aes> c <ees ges aes> c
 <aes' c> f <aes c> f <g bes des>16 f bes des f bes des f
-bes4 <f des' f> ees,, f4
+bes16 <f des'>16 r8 r4 ees,, f4
 <bes, ges'> <bes ges'> <bes ges'> <bes ges'> 
 <des aes'> des c2
 des4 des des des 
