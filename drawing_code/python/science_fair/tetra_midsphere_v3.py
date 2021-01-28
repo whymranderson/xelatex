@@ -173,6 +173,11 @@ arc_alpha6 = sphereR*circle_arc(n_vec6,pt1,pt2,20)+pO
 larc_alpha6, = ax2.plot(arc_alpha6[:,0],arc_alpha6[:,1],arc_alpha6[:,2],'r',lw=2,color = 'r')
 ax2.scatter3D(*zip(dtABD,pN,pE,pH,dtABC,dtBCD))
 
+r1 = inradiusACD
+r2 = inradiusBCD
+r4 = inradiusABD
+arc_tABD_tABC_unitsphere = np.arcsin(r1/sphereR) + np.arcsin(r4/sphereR)
+
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
