@@ -33,7 +33,7 @@ from annotate_program import rotation_matrix
 from annotate_program import draw_xyz_coordinate_unit_vectors
 
 #### The plotting of a vector-based graphics using the above points location information.
-fig2 = pyplot.figure(2,figsize=(6, 6),dpi=100)
+fig2 = pyplot.figure(2,figsize=(5, 5),dpi=100)
 ax2 = p3.Axes3D(fig2)
 ax2.view_init(elev=-77, azim=-128)
 #ax2.view_init(elev=10, azim=187)
@@ -95,7 +95,7 @@ incircleBCD = circle_full(normvecBCD,
 ax2.plot(*np.transpose(incircleBCD),linewidth=1,linestyle=':')
 plot_front(ax2,pO[0],pO[1],pO[2],sphereR)
 plot_back(ax2,pO[0],pO[1],pO[2],sphereR)
-#ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
+ax2.text(*pB, s = r'$B$', fontsize=12,verticalalignment='bottom', horizontalalignment='right')
 #ax2.text(*pC, s = r'$C$', fontsize=12,verticalalignment='top', horizontalalignment='right')
 #ax2.text(*pD, s = r"$D$", fontsize=12,verticalalignment='top', horizontalalignment='left')
 ax2.text(*pN, s = r"$N$", fontsize=12,verticalalignment='top', horizontalalignment='right')
@@ -173,11 +173,31 @@ arc_alpha6 = sphereR*circle_arc(n_vec6,pt1,pt2,20)+pO
 larc_alpha6, = ax2.plot(arc_alpha6[:,0],arc_alpha6[:,1],arc_alpha6[:,2],'r',lw=2,color = 'r')
 ax2.scatter3D(*zip(dtABD,pN,pE,pH,dtABC,dtBCD))
 
-r1 = inradiusACD
-r2 = inradiusBCD
-r4 = inradiusABD
-arc_tABD_tABC_unitsphere = np.arcsin(r1/sphereR) + np.arcsin(r4/sphereR)
+# new method to find b using spherical triangle's law of cosine
 
+incenterABC,inradiusABC,normvecABC, pH, pE, pM= incircle3D(pA,pB,pC)
+
+r1 = inradiusABC
+r2 = inradiusBCD
+r4 = np.linalg.norm(pN-incenterABD)
+arc_tABD_tABC_unitsphere = np.arcsin(r1/sphereR) + np.arcsin(r4/sphereR)
+arc_tBCD_tABC_unitsphere = np.arcsin(r1/sphereR) + np.arcsin(r2/sphereR)
+arc_tBCD_tABD_unitsphere = np.arcsin(r2/sphereR) + np.arcsin(r4/sphereR)
+
+cos_tABD = (np.cos(arc_tBCD_tABC_unitsphere)-np.cos(arc_tABD_tABC_unitsphere)*np.cos(arc_tBCD_tABD_unitsphere))/np.sin(arc_tABD_tABC_unitsphere)/np.sin(arc_tBCD_tABD_unitsphere)
+
+Ang_tABD = np.arccos(cos_tABD)
+
+b = r4*np.tan(Ang_tABD/2)
+
+print b
+print np.linalg.norm(pH-pB)
+
+lineBH, = ax2.plot(*zip(pB,pH),linewidth = 2,color='b')
+lineBN, = ax2.plot(*zip(pB,pN),linewidth = 2,color='b')
+
+lineHIABD, = ax2.plot(*zip(pH,incenterABD),linewidth = 1,color='r',linestyle=':')
+lineNIABD, = ax2.plot(*zip(pN,incenterABD),linewidth = 1,color='r',linestyle=':')
 #draw coordinate
 #draw_xyz_coordinate_unit_vectors(ax2)
 
